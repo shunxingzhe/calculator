@@ -1,0 +1,6 @@
+19:02:59:252 flash check start 70000
+19:02:59:398 flash check ok
+19:03:11:635 flash check start 70000
+19:03:11:781 flash check ok
+19:03:18:605 flash check start 70000
+19:03:18:750 flash check ok

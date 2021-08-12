@@ -1,0 +1,24 @@
+	uint8_t	mode;
+	uint8_t	adv_acc_code[4];
+	uint8_t	adv_type;
+	uint8_t	adv_ch;
+	uint8_t    policy;
+	uint8_t     adv_pitv; // 30.5us ~ 85583us in 335.5us units
+	uint16_t	adv_itv;  // 30.5us ~ 94939790us in 579.5us units
+	//uint16_t	scan_window; 
+	uint16_t	adv_to_th; //0x0001 and 0x3FFF in seconds
+	uint16_t	adv_to;
+	uint8_t	adv_dir_to_th; //Number of direct advertisement (each lasting 1.28seconds)
+	uint8_t	adv_dir_to;
+	uint8_t	scansz;
+	uint8_t	scanbuf[31];
+	uint8_t	advsz;
+	uint8_t	advbuf[31];
+
+	uint8_t	scan_type;
+	uint16_t	scan_interval;
+	uint16_t	scan_window;
+	
+	uint8_t 	scan_coex_en;
+
+  uint8_t 	adv_coex_en;	

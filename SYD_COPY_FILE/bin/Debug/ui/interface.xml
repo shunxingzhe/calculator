@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Interface>
+  <PictureBox name="3.bmp">
+    <filename>F:\SYD8801\tool\calculator\SYD_Calculator_release\ui\3.bmp</filename>
+    <point x="0" y="208" />
+  </PictureBox>
+</Interface>

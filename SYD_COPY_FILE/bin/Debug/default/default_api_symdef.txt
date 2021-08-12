@@ -1,0 +1,126 @@
+如果数据处理方式选择为"刷新地址",在源文件输入框中填入最新API文件(txt个数),比如:E:\SYD8802\SYD8812Git\rom\Objects\rom_api_symdef.txt
+如果数据处理方式选择为"从代码中更新接口",在源目录输入框中填入包含所有源码的总路径,比如:Path_source:E:\SYD8802\SYD8812Git\rom
+
+因为本工具做不到完全的智能化,所以这里要给软件输入默认的函数返回类型,以精确锁定函数名称!如果默认类型不够或许有其他自定义的类型,请参考下面的格式在下面的"funtion_return_type_start"到"funtion_return_type_end"之间追加自定义的类型(请在本软件目录下的"default\default_api_symdef.txt"文件中添加,目前本软件识别的返回类型如下:
+--funtion_return_type_start__
+void
+void*
+__ASM void
+__BLEIRQ void
+uint8_t
+uint16_t
+uint32_t
+uint8_t*
+uint16_t*
+uint32_t*
+int32_t
+int16_t
+int8_t
+int
+static int
+bool
+struct ble_em_acl_buf_elt*
+struct attm_svc *
+struct ble_em_llcp_buf_elt*
+struct co_list_hdr *
+struct gap_bdaddr*
+ke_task_id_t
+struct gap_sec_key*
+struct gapm_actv_tag *
+bd_addr_t*
+public_key_t*
+struct gapm_le_psm_info*
+const struct hci_cmd_desc_tag*
+const struct hci_evt_desc_tag*
+ke_msg_id_t
+ke_state_t
+struct l2cc_lecb_info*
+llc_procedure_t *
+struct lld_ch_assess_data*
+rwip_time_t
+const struct rwip_eif_api*
+const struct le_features*
+struct le_chnl_map*
+struct sch_plan_elt_tag *
+/*__INLINE__*/ int
+--funtion_return_type_end__
+
+宏函数在C文档中是搜索不到他的定义的,必须要转换才行,比如如下:
+KE_MSG_HANDLER_NO_STATIC(lld_adv_end_ind, struct lld_adv_end_ind)
+#define KE_MSG_HANDLER_NO_STATIC(msg_name, param_struct)   int msg_name##_handler(ke_msg_id_t const msgid,     \
+                                                                                param_struct const *param,  \
+                                                                                ke_task_id_t const dest_id, \
+                                                                                ke_task_id_t const src_id)
+请参考下面的格式在下面的"funtion_define_type_start"到"funtion_define_type_end"之间追加自定义的类型(请在本软件目录下的"default\default_api_symdef.txt"文件中添加,目前本软件识别的类型如下:
+--funtion_define_type_start__
+KE_MSG_HANDLER_NO_STATIC(
+_handler
+int msg_name##_handler(ke_msg_id_t const msgid,param_struct const *param,ke_task_id_t const dest_id,ke_task_id_t const src_id)
+--funtion_define_type_end__
+
+和funtion_return_type的定义一样,变量的类型也不能够确认,请参考下面的格式在下面的"variable_type_start"到"variable_type_end"之间追加自定义的类型(请在本软件目录下的"default\default_api_symdef.txt"文件中添加,目前本软件识别的变量类型如下:
+--variable_type_start__
+uint8_t
+uint16_t
+uint32_t
+uint8_t*
+uint16_t*
+uint32_t*
+int32_t
+int16_t
+int8_t
+int
+bool
+const struct hci_cmd_desc_tab_ref
+const struct hci_evt_desc_tag
+const struct hci_evt_desc_tag
+const struct hci_cmd_desc_tag
+const unsigned char
+const uint16_t
+const struct bd_addr
+const uint8_t
+const uint32_t
+const u_int8
+const u_int16
+const u_int32
+const bigHex256
+const veryBigHex256
+const  ECC_Jacobian_Point256
+const struct rwip_prio
+const struct rwip_eif_api
+ke_state_t
+struct access_addr_gen
+struct sch_slice_params_tag
+struct ecc_env_tag
+UART_CTRL_TYPE *
+CACHE_CTRL_TYPE *
+RFSPI_CTRL_TYPE *
+OTP_CTRL_TYPE *
+PW_CTRL_TYPE *
+struct ahi_env_tag
+struct gapc_env_tag*
+struct gapm_env_tag
+struct gattc_env_tag*
+struct gattm_env_tag
+struct l2cc_env_tag *
+struct l2cm_env_tag
+struct llc_env_tag*
+struct lld_env_tag
+static struct lld_sync_env_tag*
+struct llm_env_tag
+struct hci_env_tag
+struct aes_func_env
+struct ke_env_tag
+struct rwip_rf_api
+struct rwip_param_api
+struct rwip_env_tag
+FLASH_DRIVER_TYPE
+struct boot_startup_ctrl
+const struct ke_task_desc
+const gapc_sig_pdu_handler_t
+const smpc_construct_pdu_t
+const smpc_recv_pdu_t
+const struct att_pdu_handler
+const struct att_pdu_handler
+const l2cc_sig_pdu_handler_t
+--variable_type_end__

@@ -1,0 +1,690 @@
+---- prf_env Matches (699 in 135 files) ----
+anpc_init in anpc.c (ip\ble\profiles\anp\anpc\src) :     anpc_env->prf_env.app_task = app_task
+anpc_init in anpc.c (ip\ble\profiles\anp\anpc\src) :     anpc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+anpc_enable_rsp_send in anpc.c (ip\ble\profiles\anp\anpc\src) :             prf_dst_task_get(&(anpc_env->prf_env), conidx),
+anpc_enable_rsp_send in anpc.c (ip\ble\profiles\anp\anpc\src) :             prf_src_task_get(&(anpc_env->prf_env), conidx),
+anpc_enable_rsp_send in anpc.c (ip\ble\profiles\anp\anpc\src) :         prf_register_atthdl2gatt(&(anpc_env->prf_env), conidx, &(anpc_env->env[conidx]->ans.svc));
+anpc_enable_rsp_send in anpc.c (ip\ble\profiles\anp\anpc\src) :         ke_state_set(prf_src_task_get(&(anpc_env->prf_env), conidx), ANPC_IDLE);
+anpc_write_alert_ntf_ctnl_pt in anpc.c (ip\ble\profiles\anp\anpc\src) :     prf_gatt_write(&(idx_env->prf_env), conidx,
+anpc_send_cmp_evt in anpc.c (ip\ble\profiles\anp\anpc\src) :     if (ke_state_get(prf_src_task_get(&(anpc_env->prf_env), conidx)) == ANPC_BUSY)
+anpc_send_cmp_evt in anpc.c (ip\ble\profiles\anp\anpc\src) :         ke_state_set(prf_src_task_get(&anpc_env->prf_env, conidx), ANPC_IDLE);
+anpc_send_cmp_evt in anpc.c (ip\ble\profiles\anp\anpc\src) :             prf_dst_task_get(&(anpc_env->prf_env), conidx),
+anpc_send_cmp_evt in anpc.c (ip\ble\profiles\anp\anpc\src) :             prf_src_task_get(&(anpc_env->prf_env), conidx),
+anpc_env_tag in anpc.h (ip\ble\profiles\anp\anpc\src) :     prf_env_t prf_env;
+anpc_enable_req_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :             prf_disc_svc_send(&(anpc_env->prf_env), conidx, ATT_SVC_ALERT_NTF);
+anpc_read_cmd_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :                 prf_read_char_send(&(anpc_env->prf_env), conidx,
+anpc_write_cmd_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :                     prf_gatt_write(&(anpc_env->prf_env), conidx, handle,
+gattc_cmp_evt_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :                                 prf_read_char_send(&(anpc_env->prf_env), conidx,
+gattc_read_ind_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :                 prf_dst_task_get(&(anpc_env->prf_env), conidx),
+gattc_event_ind_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :                         prf_dst_task_get(&anpc_env->prf_env, conidx),
+gattc_event_ind_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :                         prf_src_task_get(&anpc_env->prf_env, conidx),
+gattc_event_ind_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :                         prf_dst_task_get(&anpc_env->prf_env, conidx),
+gattc_event_ind_handler in anpc_task.c (ip\ble\profiles\anp\anpc\src) :                         prf_src_task_get(&anpc_env->prf_env, conidx),
+anps_init in anps.c (ip\ble\profiles\anp\anps\src) :         anps_env->prf_env.app_task    = app_task
+anps_init in anps.c (ip\ble\profiles\anp\anps\src) :         anps_env->prf_env.prf_task    = env->task | PERM(PRF_MI, ENABLE);
+anps_send_ntf_status_update_ind in anps.c (ip\ble\profiles\anp\anps\src) :             prf_dst_task_get(&idx_env->prf_env, conidx),
+anps_send_ntf_status_update_ind in anps.c (ip\ble\profiles\anp\anps\src) :             prf_src_task_get(&idx_env->prf_env, conidx),
+anps_send_ntf_immediate_req_ind in anps.c (ip\ble\profiles\anp\anps\src) :             prf_dst_task_get(&idx_env->prf_env, conidx),
+anps_send_ntf_immediate_req_ind in anps.c (ip\ble\profiles\anp\anps\src) :             prf_src_task_get(&idx_env->prf_env, conidx),
+anps_env_tag in anps.h (ip\ble\profiles\anp\anps\src) :     prf_env_t prf_env;
+gattc_cmp_evt_handler in anps_task.c (ip\ble\profiles\anp\anps\src) :         anps_send_cmp_evt(prf_src_task_get(&anps_env->prf_env, conidx),
+gattc_cmp_evt_handler in anps_task.c (ip\ble\profiles\anp\anps\src) :                 prf_dst_task_get(&anps_env->prf_env, conidx),
+basc_init in basc.c (ip\ble\profiles\bas\basc\src) :     basc_env->prf_env.app_task = app_task
+basc_init in basc.c (ip\ble\profiles\bas\basc\src) :     basc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+basc_enable_rsp_send in basc.c (ip\ble\profiles\bas\basc\src) :                                                 prf_dst_task_get(&(basc_env->prf_env) ,conidx),
+basc_enable_rsp_send in basc.c (ip\ble\profiles\bas\basc\src) :                                                 prf_src_task_get(&(basc_env->prf_env) ,conidx),
+basc_enable_rsp_send in basc.c (ip\ble\profiles\bas\basc\src) :             prf_register_atthdl2gatt(&(basc_env->prf_env), conidx, &basc_env->env[conidx]->bas[svc_inst].svc);
+basc_env_tag in basc.h (ip\ble\profiles\bas\basc\src) :     prf_env_t prf_env;
+basc_enable_req_handler in basc_task.c (ip\ble\profiles\bas\basc\src) :             prf_disc_svc_send(&(basc_env->prf_env), conidx, ATT_SVC_BATTERY_SERVICE);
+basc_read_info_req_handler in basc_task.c (ip\ble\profiles\bas\basc\src) :                 prf_read_char_send(&(basc_env->prf_env), conidx,
+basc_batt_level_ntf_cfg_req_handler in basc_task.c (ip\ble\profiles\bas\basc\src) :                 prf_gatt_write_ntf_ind(&basc_env->prf_env, conidx, handle, param->ntf_cfg);
+gattc_cmp_evt_handler in basc_task.c (ip\ble\profiles\bas\basc\src) :                         prf_dst_task_get(&(basc_env->prf_env), conidx), dest_id, basc_read_info_rsp);
+gattc_cmp_evt_handler in basc_task.c (ip\ble\profiles\bas\basc\src) :                         prf_dst_task_get(&(basc_env->prf_env), conidx), dest_id, basc_batt_level_ntf_cfg_rsp);
+gattc_read_ind_handler in basc_task.c (ip\ble\profiles\bas\basc\src) :                 prf_dst_task_get(&(basc_env->prf_env),conidx), dest_id, basc_read_info_rsp);
+gattc_event_ind_handler in basc_task.c (ip\ble\profiles\bas\basc\src) :                         prf_dst_task_get(&(basc_env->prf_env), conidx), dest_id,
+bass_init in bass.c (ip\ble\profiles\bas\bass\src) :         bass_env->prf_env.app_task = app_task
+bass_init in bass.c (ip\ble\profiles\bas\bass\src) :         bass_env->prf_env.prf_task = env->task | PERM(PRF_MI, DISABLE);
+bass_notify_batt_lvl in bass.c (ip\ble\profiles\bas\bass\src) :             KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(&(bass_env->prf_env),0),
+bass_exe_operation in bass.c (ip\ble\profiles\bas\bass\src) :         ke_state_set(prf_src_task_get(&(bass_env->prf_env), 0), BASS_IDLE);
+bass_env_tag in bass.h (ip\ble\profiles\bas\bass\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in bass_task.c (ip\ble\profiles\bas\bass\src) :                     prf_dst_task_get(&(bass_env->prf_env), conidx), dest_id,
+bcsc_init in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :     bcsc_env->prf_env.app_task = app_task
+bcsc_init in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :     bcsc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+bcsc_enable_rsp_send in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :             prf_dst_task_get(&(bcsc_env->prf_env), conidx),
+bcsc_enable_rsp_send in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :             prf_src_task_get(&(bcsc_env->prf_env), conidx),
+bcsc_enable_rsp_send in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :         prf_register_atthdl2gatt(&(bcsc_env->prf_env), conidx, &(bcsc_env->env[conidx]->bcs.svc));
+bcsc_enable_rsp_send in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :         ke_state_set(prf_src_task_get(&(bcsc_env->prf_env), conidx), BCSC_BUSY);
+bcsc_enable_rsp_send in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :         ke_state_set(prf_src_task_get(&(bcsc_env->prf_env), conidx), BCSC_FREE);
+bcsc_send_cmp_evt in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :     if (ke_state_get(prf_src_task_get(&(bcsc_env->prf_env), conidx)) == BCSC_BUSY)
+bcsc_send_cmp_evt in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :         ke_state_set(prf_src_task_get(&(bcsc_env->prf_env), conidx), BCSC_IDLE);
+bcsc_send_cmp_evt in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :                                              prf_dst_task_get(&(bcsc_env->prf_env), conidx),
+bcsc_send_cmp_evt in bcsc.c (ip\ble\profiles\bcs\bcsc\src) :                                              prf_src_task_get(&(bcsc_env->prf_env), conidx),
+bcsc_env_tag in bcsc.h (ip\ble\profiles\bcs\bcsc\src) :     prf_env_t prf_env;
+bcsc_enable_req_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                 prf_disc_svc_send(&(bcsc_env->prf_env), conidx, ATT_SVC_BODY_COMPOSITION);
+bcsc_enable_req_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                             prf_src_task_get(&(bcsc_env->prf_env), conidx),
+bcsc_rd_feature_req_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                 prf_read_char_send(&(bcsc_env->prf_env), conidx, svc->shdl, svc->ehdl, search_hdl);
+bcsc_rd_feature_req_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                                     prf_dst_task_get(&(bcsc_env->prf_env), conidx),
+bcsc_rd_meas_ccc_req_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                 prf_read_char_send(&(bcsc_env->prf_env), conidx, svc->shdl, svc->ehdl, search_hdl);
+bcsc_rd_meas_ccc_req_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                                     prf_dst_task_get(&(bcsc_env->prf_env), conidx),
+bcsc_wr_meas_ccc_cmd_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                 prf_gatt_write_ntf_ind(&(bcsc_env->prf_env), conidx, handle, param->ccc);
+gattc_cmp_evt_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                     prf_src_task_get(&(bcsc_env->prf_env), conidx),
+gattc_cmp_evt_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                                                             prf_dst_task_get(&(bcsc_env->prf_env), conidx),
+gattc_cmp_evt_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                                                             prf_dst_task_get(&(bcsc_env->prf_env), conidx),
+gattc_read_ind_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                                                 prf_dst_task_get(&(bcsc_env->prf_env), conidx),
+gattc_read_ind_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                                                 prf_dst_task_get(&(bcsc_env->prf_env), conidx),
+gattc_event_ind_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                                 prf_dst_task_get(&bcsc_env->prf_env, conidx),
+gattc_event_ind_handler in bcsc_task.c (ip\ble\profiles\bcs\bcsc\src) :                                 prf_src_task_get(&bcsc_env->prf_env, conidx),
+bcss_init in bcss.c (ip\ble\profiles\bcs\bcss\src) :         bcss_env->prf_env.app_task    = app_task
+bcss_init in bcss.c (ip\ble\profiles\bcs\bcss\src) :         bcss_env->prf_env.prf_task    = env->task
+bcss_send_cmp_evt in bcss.c (ip\ble\profiles\bcs\bcss\src) :                                              prf_dst_task_get(&(bcss_env->prf_env), conidx),
+bcss_send_cmp_evt in bcss.c (ip\ble\profiles\bcs\bcss\src) :                                              prf_src_task_get(&(bcss_env->prf_env), conidx),
+bcss_env_tag in bcss.h (ip\ble\profiles\bcs\bcss\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in bcss_task.c (ip\ble\profiles\bcs\bcss\src) :                         prf_dst_task_get(&bcss_env->prf_env, conidx),
+gattc_write_req_ind_handler in bcss_task.c (ip\ble\profiles\bcs\bcss\src) :                         prf_src_task_get(&bcss_env->prf_env, conidx),
+blpc_init in blpc.c (ip\ble\profiles\blp\blpc\src) :     blpc_env->prf_env.app_task = app_task
+blpc_init in blpc.c (ip\ble\profiles\blp\blpc\src) :     blpc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+blpc_enable_rsp_send in blpc.c (ip\ble\profiles\blp\blpc\src) :             prf_dst_task_get(&(blpc_env->prf_env), conidx),
+blpc_enable_rsp_send in blpc.c (ip\ble\profiles\blp\blpc\src) :             prf_src_task_get(&(blpc_env->prf_env), conidx),
+blpc_enable_rsp_send in blpc.c (ip\ble\profiles\blp\blpc\src) :         prf_register_atthdl2gatt(&(blpc_env->prf_env), conidx, &(blpc_env->env[conidx]->bps.svc));
+blpc_enable_rsp_send in blpc.c (ip\ble\profiles\blp\blpc\src) :         ke_state_set(prf_src_task_get(&(blpc_env->prf_env), conidx), BLPC_IDLE);
+blpc_env_tag in blpc.h (ip\ble\profiles\blp\blpc\src) :     prf_env_t prf_env;
+blpc_enable_req_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :             prf_disc_svc_send(&(blpc_env->prf_env), conidx, ATT_SVC_BLOOD_PRESSURE);
+gattc_cmp_evt_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :                             prf_dst_task_get(&(blpc_env->prf_env), conidx),
+gattc_cmp_evt_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :                             prf_src_task_get(&(blpc_env->prf_env), conidx),
+gattc_cmp_evt_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :             ke_state_set(prf_src_task_get(&blpc_env->prf_env, conidx), BLPC_IDLE);
+blpc_rd_char_req_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :                     &(blpc_env->prf_env), conidx,
+gattc_read_ind_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :     prf_client_att_info_rsp(&blpc_env->prf_env, conidx, BLPC_RD_CHAR_RSP,
+blpc_cfg_indntf_req_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :             prf_gatt_write_ntf_ind(&blpc_env->prf_env, conidx, cfg_hdl, param->cfg_val);
+gattc_event_ind_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :                             prf_dst_task_get(&(blpc_env->prf_env), conidx),
+gattc_event_ind_handler in blpc_task.c (ip\ble\profiles\blp\blpc\src) :                             prf_src_task_get(&(blpc_env->prf_env), conidx),
+blps_init in blps.c (ip\ble\profiles\blp\blps\src) :         blps_env->prf_env.app_task    = app_task
+blps_init in blps.c (ip\ble\profiles\blp\blps\src) :         blps_env->prf_env.prf_task    = env->task | PERM(PRF_MI, DISABLE);
+blps_meas_send_rsp_send in blps.c (ip\ble\profiles\blp\blps\src) :             prf_dst_task_get(&blps_env->prf_env, conidx),
+blps_meas_send_rsp_send in blps.c (ip\ble\profiles\blp\blps\src) :             prf_src_task_get(&blps_env->prf_env, conidx),
+blps_env_tag in blps.h (ip\ble\profiles\blp\blps\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in blps_task.c (ip\ble\profiles\blp\blps\src) :                 prf_dst_task_get(&blps_env->prf_env, conidx),
+gattc_write_req_ind_handler in blps_task.c (ip\ble\profiles\blp\blps\src) :                 prf_src_task_get(&blps_env->prf_env, conidx),
+cppc_init in cppc.c (ip\ble\profiles\cpp\cppc\src) :     cppc_env->prf_env.app_task = app_task
+cppc_init in cppc.c (ip\ble\profiles\cpp\cppc\src) :     cppc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+cppc_cleanup in cppc.c (ip\ble\profiles\cpp\cppc\src) :         ke_timer_clear(CPPC_TIMEOUT_TIMER_IND, prf_src_task_get(&cppc_env->prf_env, conidx));
+cppc_enable_rsp_send in cppc.c (ip\ble\profiles\cpp\cppc\src) :             prf_dst_task_get(&(cppc_env->prf_env), conidx),
+cppc_enable_rsp_send in cppc.c (ip\ble\profiles\cpp\cppc\src) :             prf_src_task_get(&(cppc_env->prf_env), conidx),
+cppc_enable_rsp_send in cppc.c (ip\ble\profiles\cpp\cppc\src) :         prf_register_atthdl2gatt(&(cppc_env->prf_env), conidx, &(cppc_env->env[conidx]->cps.svc));
+cppc_enable_rsp_send in cppc.c (ip\ble\profiles\cpp\cppc\src) :         ke_state_set(prf_src_task_get(&(cppc_env->prf_env), conidx), CPPC_IDLE);
+cppc_send_cmp_evt in cppc.c (ip\ble\profiles\cpp\cppc\src) :     if (ke_state_get(prf_src_task_get(&(cppc_env->prf_env), conidx)) == CPPC_BUSY)
+cppc_send_cmp_evt in cppc.c (ip\ble\profiles\cpp\cppc\src) :         ke_state_set(prf_src_task_get(&cppc_env->prf_env, conidx), CPPC_IDLE);
+cppc_send_cmp_evt in cppc.c (ip\ble\profiles\cpp\cppc\src) :                                              prf_dst_task_get(&(cppc_env->prf_env), conidx),
+cppc_send_cmp_evt in cppc.c (ip\ble\profiles\cpp\cppc\src) :                                              prf_src_task_get(&(cppc_env->prf_env), conidx),
+cppc_unpack_meas_ind in cppc.c (ip\ble\profiles\cpp\cppc\src) :             prf_dst_task_get(&(cppc_env->prf_env), conidx),
+cppc_unpack_meas_ind in cppc.c (ip\ble\profiles\cpp\cppc\src) :             prf_src_task_get(&(cppc_env->prf_env), conidx),
+cppc_unpack_vector_ind in cppc.c (ip\ble\profiles\cpp\cppc\src) :             prf_dst_task_get(&cppc_env->prf_env, conidx),
+cppc_unpack_vector_ind in cppc.c (ip\ble\profiles\cpp\cppc\src) :             prf_src_task_get(&cppc_env->prf_env, conidx),
+cppc_unpack_ctln_pt_ind in cppc.c (ip\ble\profiles\cpp\cppc\src) :             prf_dst_task_get(&cppc_env->prf_env, conidx),
+cppc_unpack_ctln_pt_ind in cppc.c (ip\ble\profiles\cpp\cppc\src) :             prf_src_task_get(&cppc_env->prf_env, conidx),
+cppc_env_tag in cppc.h (ip\ble\profiles\cpp\cppc\src) :     prf_env_t prf_env;
+cppc_enable_req_handler in cppc_task.c (ip\ble\profiles\cpp\cppc\src) :             prf_disc_svc_send(&(cppc_env->prf_env), conidx, ATT_SVC_CYCLING_POWER);
+cppc_read_req_handler in cppc_task.c (ip\ble\profiles\cpp\cppc\src) :                 prf_read_char_send( &(cppc_env->prf_env), conidx,
+cppc_cfg_ntfind_cmd_handler in cppc_task.c (ip\ble\profiles\cpp\cppc\src) :             prf_gatt_write_ntf_ind(&cppc_env->prf_env, conidx, handle, param->ntfind_cfg);
+cppc_ctnl_pt_cfg_req_handler in cppc_task.c (ip\ble\profiles\cpp\cppc\src) :                     prf_gatt_write(&(cppc_env->prf_env), conidx, cppc_env->env[conidx]->cps.chars[CPP_CPS_CTNL_PT_CHAR].val_hdl,
+gattc_read_ind_handler in cppc_task.c (ip\ble\profiles\cpp\cppc\src) :                 prf_dst_task_get(&(cppc_env->prf_env), conidx),
+cpps_init in cpps.c (ip\ble\profiles\cpp\cpps\src) :         cpps_env->prf_env.app_task    = app_task
+cpps_init in cpps.c (ip\ble\profiles\cpp\cpps\src) :         cpps_env->prf_env.prf_task    = env->task | PERM(PRF_MI, DISABLE);
+cpps_split_meas_ntf in cpps.c (ip\ble\profiles\cpp\cpps\src) :             KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(&cpps_env->prf_env, conidx),
+cpps_update_characteristic_config in cpps.c (ip\ble\profiles\cpp\cpps\src) :                                                              prf_dst_task_get(&cpps_env->prf_env, conidx), prf_src_task_get(&cpps_env->prf_env, conidx),
+cpps_update_characteristic_config in cpps.c (ip\ble\profiles\cpp\cpps\src) :                                                              prf_dst_task_get(&cpps_env->prf_env, conidx), prf_src_task_get(&cpps_env->prf_env, conidx),
+cpps_send_rsp_ind in cpps.c (ip\ble\profiles\cpp\cpps\src) :             prf_src_task_get(&cpps_env->prf_env, conidx),
+cpps_unpack_ctnl_point_ind in cpps.c (ip\ble\profiles\cpp\cpps\src) :             prf_dst_task_get(&cpps_env->prf_env, conidx), prf_src_task_get(&cpps_env->prf_env, conidx), cpps_ctnl_pt_req_ind);
+cpps_unpack_ctnl_point_ind in cpps.c (ip\ble\profiles\cpp\cpps\src) :         ke_state_set(prf_src_task_get(&cpps_env->prf_env, conidx), CPPS_BUSY);
+cpps_exe_operation in cpps.c (ip\ble\profiles\cpp\cpps\src) :                             KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(&(cpps_env->prf_env),conidx),
+cpps_exe_operation in cpps.c (ip\ble\profiles\cpp\cpps\src) :                             KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(&(cpps_env->prf_env),conidx),
+cpps_exe_operation in cpps.c (ip\ble\profiles\cpp\cpps\src) :         ke_state_set(prf_src_task_get(&(cpps_env->prf_env), 0), CPPS_IDLE);
+cpps_env_tag in cpps.h (ip\ble\profiles\cpp\cpps\src) :     prf_env_t prf_env;
+cpps_ctnl_pt_cfm_handler in cpps_task.c (ip\ble\profiles\cpp\cpps\src) :                     prf_src_task_get(&cpps_env->prf_env, param->conidx),
+cpps_ctnl_pt_cfm_handler in cpps_task.c (ip\ble\profiles\cpp\cpps\src) :                     prf_dst_task_get(&cpps_env->prf_env, param->conidx),
+gattc_cmp_evt_handler in cpps_task.c (ip\ble\profiles\cpp\cpps\src) :                         prf_src_task_get(&cpps_env->prf_env, conidx),
+gattc_cmp_evt_handler in cpps_task.c (ip\ble\profiles\cpp\cpps\src) :                         prf_dst_task_get(&cpps_env->prf_env, conidx),
+cscpc_init in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :     cscpc_env->prf_env.app_task = app_task
+cscpc_init in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :     cscpc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+cscpc_cleanup in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :         ke_timer_clear(CSCPC_TIMEOUT_TIMER_IND, prf_src_task_get(&cscpc_env->prf_env, conidx));
+cscpc_enable_rsp_send in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :             prf_dst_task_get(&(cscpc_env->prf_env), conidx),
+cscpc_enable_rsp_send in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :             prf_src_task_get(&(cscpc_env->prf_env), conidx),
+cscpc_enable_rsp_send in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :         prf_register_atthdl2gatt(&(cscpc_env->prf_env), conidx, &(cscpc_env->env[conidx]->cscs.svc));
+cscpc_enable_rsp_send in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :         ke_state_set(prf_src_task_get(&(cscpc_env->prf_env), conidx), CSCPC_IDLE);
+cscpc_send_cmp_evt in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :     if (ke_state_get(prf_src_task_get(&(cscpc_env->prf_env), conidx)) == CSCPC_BUSY)
+cscpc_send_cmp_evt in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :         ke_state_set(prf_src_task_get(&(cscpc_env->prf_env), conidx), CSCPC_IDLE);
+cscpc_send_cmp_evt in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :                                              prf_dst_task_get(&(cscpc_env->prf_env), conidx),
+cscpc_send_cmp_evt in cscpc.c (ip\ble\profiles\cscp\cscpc\src) :                                              prf_src_task_get(&(cscpc_env->prf_env), conidx),
+cscpc_env_tag in cscpc.h (ip\ble\profiles\cscp\cscpc\src) :     prf_env_t prf_env;
+cscpc_enable_req_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :             prf_disc_svc_send(&(cscpc_env->prf_env), conidx, ATT_SVC_CYCLING_SPEED_CADENCE);
+cscpc_read_cmd_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :                 prf_read_char_send(&(cscpc_env->prf_env), conidx,
+cscpc_cfg_ntfind_cmd_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :             prf_gatt_write_ntf_ind(&cscpc_env->prf_env, conidx, handle, param->ntfind_cfg);
+cscpc_ctnl_pt_cfg_req_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :                     prf_gatt_write(&(cscpc_env->prf_env), conidx, cscpc_env->env[conidx]->cscs.chars[CSCP_CSCS_SC_CTNL_PT_CHAR].val_hdl,
+gattc_read_ind_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :                 prf_dst_task_get(&(cscpc_env->prf_env), conidx),
+gattc_event_ind_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :                                                            prf_dst_task_get(&(cscpc_env->prf_env), conidx),
+gattc_event_ind_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :                                                            prf_src_task_get(&(cscpc_env->prf_env), conidx),
+gattc_event_ind_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :                                                                    prf_dst_task_get(&(cscpc_env->prf_env), conidx),
+gattc_event_ind_handler in cscpc_task.c (ip\ble\profiles\cscp\cscpc\src) :                                                                    prf_src_task_get(&(cscpc_env->prf_env), conidx),
+cscps_init in cscps.c (ip\ble\profiles\cscp\cscps\src) :         cscps_env->prf_env.app_task    = app_task
+cscps_init in cscps.c (ip\ble\profiles\cscp\cscps\src) :         cscps_env->prf_env.prf_task    = env->task | PERM(PRF_MI, DISABLE);
+cscps_exe_operation in cscps.c (ip\ble\profiles\cscp\cscps\src) :                     prf_src_task_get(&(cscps_env->prf_env), 0),
+cscps_exe_operation in cscps.c (ip\ble\profiles\cscp\cscps\src) :                 prf_dst_task_get(&(cscps_env->prf_env), 0),
+cscps_exe_operation in cscps.c (ip\ble\profiles\cscp\cscps\src) :                 prf_src_task_get(&(cscps_env->prf_env), 0),
+cscps_exe_operation in cscps.c (ip\ble\profiles\cscp\cscps\src) :         ke_state_set(prf_src_task_get(&(cscps_env->prf_env), 0), CSCPS_IDLE);
+cscps_send_rsp_ind in cscps.c (ip\ble\profiles\cscp\cscps\src) :             prf_src_task_get(&cscps_env->prf_env, conidx),
+cscps_env_tag in cscps.h (ip\ble\profiles\cscp\cscps\src) :     prf_env_t prf_env;
+cscps_sc_ctnl_pt_cfm_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                     prf_src_task_get(&cscps_env->prf_env, conidx),
+cscps_sc_ctnl_pt_cfm_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                     prf_dst_task_get(&cscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                         prf_dst_task_get(&cscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                         prf_src_task_get(&cscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                                 prf_dst_task_get(&cscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                                 prf_src_task_get(&cscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                                 prf_dst_task_get(&cscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                                 prf_src_task_get(&cscps_env->prf_env, conidx),
+gattc_cmp_evt_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                             prf_src_task_get(&cscps_env->prf_env, conidx),
+gattc_cmp_evt_handler in cscps_task.c (ip\ble\profiles\cscp\cscps\src) :                             prf_dst_task_get(&cscps_env->prf_env, conidx),
+disc_init in disc.c (ip\ble\profiles\dis\disc\src) :     disc_env->prf_env.app_task = app_task
+disc_init in disc.c (ip\ble\profiles\dis\disc\src) :     disc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+disc_enable_rsp_send in disc.c (ip\ble\profiles\dis\disc\src) :                                                 prf_dst_task_get(&(disc_env->prf_env), conidx),
+disc_enable_rsp_send in disc.c (ip\ble\profiles\dis\disc\src) :                                                 prf_src_task_get(&(disc_env->prf_env), conidx),
+disc_enable_rsp_send in disc.c (ip\ble\profiles\dis\disc\src) :         ke_state_set(prf_src_task_get(&(disc_env->prf_env), conidx), DISC_IDLE);
+disc_env_tag in disc.h (ip\ble\profiles\dis\disc\src) :     prf_env_t prf_env;
+disc_enable_req_handler in disc_task.c (ip\ble\profiles\dis\disc\src) :             prf_disc_svc_send(&(disc_env->prf_env), conidx, ATT_SVC_DEVICE_INFO);
+gattc_cmp_evt_handler in disc_task.c (ip\ble\profiles\dis\disc\src) :             prf_client_att_info_rsp(&(disc_env->prf_env), conidx, DISC_RD_CHAR_RSP,
+disc_rd_char_req_handler in disc_task.c (ip\ble\profiles\dis\disc\src) :             prf_read_char_send(&(disc_env->prf_env), conidx, disc_env->env[conidx]->dis.svc.shdl,
+disc_rd_char_req_handler in disc_task.c (ip\ble\profiles\dis\disc\src) :         prf_client_att_info_rsp(&(disc_env->prf_env), conidx, DISC_RD_CHAR_RSP,
+gattc_read_ind_handler in disc_task.c (ip\ble\profiles\dis\disc\src) :         prf_client_att_info_rsp(&(disc_env->prf_env), KE_IDX_GET(dest_id), DISC_RD_CHAR_RSP,
+diss_init in diss.c (ip\ble\profiles\dis\diss\src) :         diss_env->prf_env.app_task = app_task
+diss_init in diss.c (ip\ble\profiles\dis\diss\src) :         diss_env->prf_env.prf_task = env->task | PERM(PRF_MI, DISABLE);
+diss_env_tag in diss.h (ip\ble\profiles\dis\diss\src) :     prf_env_t prf_env;
+gattc_read_req_ind_handler in diss_task.c (ip\ble\profiles\dis\diss\src) :                         prf_dst_task_get(&(diss_env->prf_env), KE_IDX_GET(src_id)),
+findl_init in findl.c (ip\ble\profiles\find\findl\src) :     findl_env->prf_env.app_task = app_task
+findl_init in findl.c (ip\ble\profiles\find\findl\src) :     findl_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+findl_enable_rsp_send in findl.c (ip\ble\profiles\find\findl\src) :                                                 prf_dst_task_get(&(findl_env->prf_env), conidx),
+findl_enable_rsp_send in findl.c (ip\ble\profiles\find\findl\src) :                                                 prf_src_task_get(&(findl_env->prf_env), conidx),
+findl_enable_rsp_send in findl.c (ip\ble\profiles\find\findl\src) :         ke_state_set(prf_src_task_get(&(findl_env->prf_env), conidx), FINDL_IDLE);
+findl_env_tag in findl.h (ip\ble\profiles\find\findl\src) :     prf_env_t prf_env;
+findl_enable_req_handler in findl_task.c (ip\ble\profiles\find\findl\src) :             prf_disc_svc_send(&(findl_env->prf_env), conidx, ATT_SVC_IMMEDIATE_ALERT);
+findl_set_alert_req_handler in findl_task.c (ip\ble\profiles\find\findl\src) :                 prf_gatt_write(&findl_env->prf_env, conidx,
+findt_init in findt.c (ip\ble\profiles\find\findt\src) :         findt_env->prf_env.app_task = app_task
+findt_init in findt.c (ip\ble\profiles\find\findt\src) :         findt_env->prf_env.prf_task = env->task | PERM(PRF_MI, DISABLE);
+findt_env_tag in findt.h (ip\ble\profiles\find\findt\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in findt_task.c (ip\ble\profiles\find\findt\src) :                 prf_dst_task_get(&(findt_env->prf_env), conidx),
+glpc_init in glpc.c (ip\ble\profiles\glp\glpc\src) :     glpc_env->prf_env.app_task = app_task
+glpc_init in glpc.c (ip\ble\profiles\glp\glpc\src) :     glpc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+glpc_enable_rsp_send in glpc.c (ip\ble\profiles\glp\glpc\src) :                                                 prf_dst_task_get(&(glpc_env->prf_env), conidx),
+glpc_enable_rsp_send in glpc.c (ip\ble\profiles\glp\glpc\src) :                                                 prf_src_task_get(&(glpc_env->prf_env), conidx),
+glpc_enable_rsp_send in glpc.c (ip\ble\profiles\glp\glpc\src) :         prf_register_atthdl2gatt(&(glpc_env->prf_env), conidx, &(glpc_env->env[conidx]->gls.svc));
+glpc_enable_rsp_send in glpc.c (ip\ble\profiles\glp\glpc\src) :         ke_state_set(prf_src_task_get(&(glpc_env->prf_env), conidx), GLPC_IDLE);
+glpc_env_tag in glpc.h (ip\ble\profiles\glp\glpc\src) :     prf_env_t prf_env;
+glpc_enable_req_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :             prf_disc_svc_send(&(glpc_env->prf_env), conidx, ATT_SVC_GLUCOSE);
+gattc_cmp_evt_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                                 prf_dst_task_get(&(glpc_env->prf_env), conidx), dest_id,
+gattc_cmp_evt_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                             prf_gatt_write_ntf_ind(&(glpc_env->prf_env), conidx,
+gattc_cmp_evt_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                             prf_gatt_write_ntf_ind(&(glpc_env->prf_env), conidx,
+gattc_cmp_evt_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                                 prf_dst_task_get(&(glpc_env->prf_env), conidx), dest_id,
+gattc_cmp_evt_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                             prf_dst_task_get(&(glpc_env->prf_env), conidx), dest_id,
+glpc_read_features_req_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                 prf_read_char_send(&(glpc_env->prf_env), conidx, glpc_env->env[conidx]->gls.svc.shdl,
+gattc_read_ind_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                                                            prf_dst_task_get(&(glpc_env->prf_env), conidx), dest_id,
+glpc_register_req_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :             prf_gatt_write_ntf_ind(&(glpc_env->prf_env), conidx,
+glpc_racp_req_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                 prf_gatt_write(&(glpc_env->prf_env), conidx,
+gattc_event_ind_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                             prf_dst_task_get(&(glpc_env->prf_env), conidx), dest_id,
+gattc_event_ind_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                             prf_dst_task_get(&(glpc_env->prf_env), conidx), dest_id,
+gattc_event_ind_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                             prf_dst_task_get(&(glpc_env->prf_env), conidx), dest_id,
+glpc_racp_req_timeout_handler in glpc_task.c (ip\ble\profiles\glp\glpc\src) :                 prf_dst_task_get(&(glpc_env->prf_env), conidx), dest_id, glpc_racp_rsp);
+glps_init in glps.c (ip\ble\profiles\glp\glps\src) :         glps_env->prf_env.app_task    = app_task
+glps_init in glps.c (ip\ble\profiles\glp\glps\src) :         glps_env->prf_env.prf_task    = env->task | PERM(PRF_MI, ENABLE);
+glps_env_tag in glps.h (ip\ble\profiles\glp\glps\api) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in glps_task.c (ip\ble\profiles\glp\glps\src) :                         prf_dst_task_get(&(glps_env->prf_env), conidx), dest_id, glps_cfg_indntf_ind);
+gattc_write_req_ind_handler in glps_task.c (ip\ble\profiles\glp\glps\src) :                             prf_dst_task_get(&(glps_env->prf_env), conidx), dest_id, glps_racp_req_rcv_ind);
+gattc_write_req_ind_handler in glps_task.c (ip\ble\profiles\glp\glps\src) :                                         prf_dst_task_get(&(glps_env->prf_env), conidx), dest_id,
+gattc_cmp_evt_handler in glps_task.c (ip\ble\profiles\glp\glps\src) :                     struct glps_cmp_evt * cmp_evt = KE_MSG_ALLOC(GLPS_CMP_EVT, prf_dst_task_get(&(glps_env->prf_env), conidx),
+gattc_cmp_evt_handler in glps_task.c (ip\ble\profiles\glp\glps\src) :                     struct glps_cmp_evt * cmp_evt = KE_MSG_ALLOC(GLPS_CMP_EVT, prf_dst_task_get(&(glps_env->prf_env), conidx),
+hogpbh_init in hogpbh.c (ip\ble\profiles\hogp\hogpbh\src) :     hogpbh_env->prf_env.app_task = app_task
+hogpbh_init in hogpbh.c (ip\ble\profiles\hogp\hogpbh\src) :     hogpbh_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+hogpbh_enable_rsp_send in hogpbh.c (ip\ble\profiles\hogp\hogpbh\src) :                                                 prf_dst_task_get(&(hogpbh_env->prf_env) ,conidx),
+hogpbh_enable_rsp_send in hogpbh.c (ip\ble\profiles\hogp\hogpbh\src) :                                                 prf_src_task_get(&(hogpbh_env->prf_env) ,conidx),
+hogpbh_enable_rsp_send in hogpbh.c (ip\ble\profiles\hogp\hogpbh\src) :             prf_register_atthdl2gatt(&(hogpbh_env->prf_env), conidx, &hogpbh_env->env[conidx]->hids[svc_inst].svc);
+hogpbh_env_tag in hogpbh.h (ip\ble\profiles\hogp\hogpbh\src) :     prf_env_t prf_env;
+hogpbh_enable_req_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :             prf_disc_svc_send(&(hogpbh_env->prf_env), conidx, ATT_SVC_HID);
+hogpbh_read_info_req_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                 prf_read_char_send(&(hogpbh_env->prf_env), conidx,
+hogpbh_write_req_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                     prf_gatt_write(&hogpbh_env->prf_env, conidx, handle, (uint8_t*)&param->data.proto_mode, 1, GATTC_WRITE_NO_RESPONSE);
+hogpbh_write_req_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                     prf_gatt_write(&hogpbh_env->prf_env, conidx, handle, (uint8_t*)param->data.report.value, param->data.report.length, GATTC_WRITE);
+hogpbh_write_req_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                     prf_gatt_write(&hogpbh_env->prf_env, conidx, handle, (uint8_t*)param->data.report.value, param->data.report.length, param->wr_cmd ? GATTC_WRITE_NO_RESPONSE : GATTC_WRITE);
+hogpbh_write_req_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                     prf_gatt_write(&hogpbh_env->prf_env, conidx, handle, (uint8_t*)param->data.report.value, param->data.report.length, GATTC_WRITE);
+hogpbh_write_req_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                     prf_gatt_write_ntf_ind(&hogpbh_env->prf_env, conidx, handle, param->data.ntf_cfg);
+hogpbh_write_req_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                     prf_gatt_write_ntf_ind(&hogpbh_env->prf_env, conidx, handle, param->data.ntf_cfg);
+gattc_cmp_evt_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                         prf_dst_task_get(&(hogpbh_env->prf_env), conidx), dest_id, hogpbh_read_info_rsp);
+gattc_cmp_evt_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                         prf_dst_task_get(&(hogpbh_env->prf_env), conidx), dest_id, hogpbh_write_rsp);
+gattc_read_ind_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                 prf_dst_task_get(&(hogpbh_env->prf_env),conidx), dest_id, hogpbh_read_info_rsp, param->length);
+gattc_event_ind_handler in hogpbh_task.c (ip\ble\profiles\hogp\hogpbh\src) :                     prf_dst_task_get(&(hogpbh_env->prf_env), conidx), dest_id,
+hogpd_init in hogpd.c (ip\ble\profiles\hogp\hogpd\src) :         hogpd_env->prf_env.app_task = app_task
+hogpd_init in hogpd.c (ip\ble\profiles\hogp\hogpd\src) :         hogpd_env->prf_env.prf_task = env->task | PERM(PRF_MI, DISABLE);
+hogpd_ntf_send in hogpd.c (ip\ble\profiles\hogp\hogpd\src) :                 KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(&(hogpd_env->prf_env), conidx),
+hogpd_ntf_cfg_ind_send in hogpd.c (ip\ble\profiles\hogp\hogpd\src) :                                                     prf_dst_task_get(&(hogpd_env->prf_env), conidx),
+hogpd_ntf_cfg_ind_send in hogpd.c (ip\ble\profiles\hogp\hogpd\src) :                                                     prf_src_task_get(&(hogpd_env->prf_env), conidx),
+hogpd_env_tag in hogpd.h (ip\ble\profiles\hogp\hogpd\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in hogpd_task.c (ip\ble\profiles\hogp\hogpd\src) :                                                                 prf_dst_task_get(&(hogpd_env->prf_env), conidx), dest_id,
+gattc_write_req_ind_handler in hogpd_task.c (ip\ble\profiles\hogp\hogpd\src) :                                                                 prf_dst_task_get(&(hogpd_env->prf_env), conidx), dest_id,
+gattc_write_req_ind_handler in hogpd_task.c (ip\ble\profiles\hogp\hogpd\src) :                             prf_dst_task_get(&(hogpd_env->prf_env), conidx), dest_id,
+gattc_read_req_ind_handler in hogpd_task.c (ip\ble\profiles\hogp\hogpd\src) :                     prf_dst_task_get(&(hogpd_env->prf_env), conidx), dest_id,
+gattc_cmp_evt_handler in hogpd_task.c (ip\ble\profiles\hogp\hogpd\src) :                                                          prf_dst_task_get(&(hogpd_env->prf_env), conidx),
+hogprh_init in hogprh.c (ip\ble\profiles\hogp\hogprh\src) :     hogprh_env->prf_env.app_task = app_task
+hogprh_init in hogprh.c (ip\ble\profiles\hogp\hogprh\src) :     hogprh_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+hogprh_enable_rsp_send in hogprh.c (ip\ble\profiles\hogp\hogprh\src) :                                                 prf_dst_task_get(&(hogprh_env->prf_env) ,conidx),
+hogprh_enable_rsp_send in hogprh.c (ip\ble\profiles\hogp\hogprh\src) :                                                 prf_src_task_get(&(hogprh_env->prf_env) ,conidx),
+hogprh_enable_rsp_send in hogprh.c (ip\ble\profiles\hogp\hogprh\src) :             prf_register_atthdl2gatt(&(hogprh_env->prf_env), conidx, &hogprh_env->env[conidx]->hids[svc_inst].svc);
+hogprh_env_tag in hogprh.h (ip\ble\profiles\hogp\hogprh\src) :     prf_env_t prf_env;
+hogprh_enable_req_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :             prf_disc_svc_send(&(hogprh_env->prf_env), conidx, ATT_SVC_HID);
+hogprh_read_info_req_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                 prf_read_char_send(&(hogprh_env->prf_env), conidx,
+hogprh_write_req_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                     prf_gatt_write(&hogprh_env->prf_env, conidx, handle, (uint8_t*)&param->data.proto_mode, 1, GATTC_WRITE_NO_RESPONSE);
+hogprh_write_req_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                     prf_gatt_write(&hogprh_env->prf_env, conidx, handle, (uint8_t*)&param->data.hid_ctnl_pt, 1, GATTC_WRITE_NO_RESPONSE);
+hogprh_write_req_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                     prf_gatt_write(&hogprh_env->prf_env, conidx, handle, (uint8_t*)param->data.report.value ,
+hogprh_write_req_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                     prf_gatt_write_ntf_ind(&hogprh_env->prf_env, conidx, handle, param->data.report_cfg);
+gattc_cmp_evt_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                             prf_dst_task_get(&(hogprh_env->prf_env), conidx), dest_id, hogprh_read_info_rsp);
+gattc_cmp_evt_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                         prf_dst_task_get(&(hogprh_env->prf_env), conidx), dest_id, hogprh_write_rsp);
+gattc_read_ind_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                     prf_dst_task_get(&(hogprh_env->prf_env), conidx), dest_id,
+gattc_read_ind_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                 prf_dst_task_get(&(hogprh_env->prf_env),conidx), dest_id, hogprh_read_info_rsp, param->length);
+gattc_event_ind_handler in hogprh_task.c (ip\ble\profiles\hogp\hogprh\src) :                                 prf_dst_task_get(&(hogprh_env->prf_env), conidx), dest_id,
+hrpc_init in hrpc.c (ip\ble\profiles\hrp\hrpc\src) :     hrpc_env->prf_env.app_task = app_task
+hrpc_init in hrpc.c (ip\ble\profiles\hrp\hrpc\src) :     hrpc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+hrpc_enable_rsp_send in hrpc.c (ip\ble\profiles\hrp\hrpc\src) :             prf_dst_task_get(&(hrpc_env->prf_env), conidx),
+hrpc_enable_rsp_send in hrpc.c (ip\ble\profiles\hrp\hrpc\src) :             prf_src_task_get(&(hrpc_env->prf_env), conidx),
+hrpc_enable_rsp_send in hrpc.c (ip\ble\profiles\hrp\hrpc\src) :         prf_register_atthdl2gatt(&hrpc_env->prf_env, conidx, &hrpc_env->env[conidx]->hrs.svc);
+hrpc_enable_rsp_send in hrpc.c (ip\ble\profiles\hrp\hrpc\src) :         ke_state_set(prf_src_task_get(&(hrpc_env->prf_env), conidx), HRPC_IDLE);
+hrpc_env_tag in hrpc.h (ip\ble\profiles\hrp\hrpc\src) :     prf_env_t prf_env;
+hrpc_enable_req_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :             prf_disc_svc_send(&(hrpc_env->prf_env), conidx,  ATT_SVC_HEART_RATE);
+gattc_cmp_evt_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :                             prf_dst_task_get(&(hrpc_env->prf_env), conidx), dest_id,
+gattc_cmp_evt_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :             ke_state_set(prf_src_task_get(&hrpc_env->prf_env, conidx), HRPC_IDLE);
+hrpc_rd_char_req_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :                 prf_read_char_send(&(hrpc_env->prf_env), conidx,
+hrpc_rd_char_req_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :         prf_client_att_info_rsp(&hrpc_env->prf_env, conidx, HRPC_RD_CHAR_RSP,
+gattc_read_ind_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :     prf_client_att_info_rsp(&hrpc_env->prf_env, conidx, HRPC_RD_CHAR_RSP,
+hrpc_cfg_indntf_req_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :                     prf_gatt_write_ntf_ind(&hrpc_env->prf_env, conidx, cfg_hdl, param->cfg_val);
+hrpc_wr_cntl_point_req_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :                     prf_gatt_write(&hrpc_env->prf_env, conidx, hrpc_env->env[conidx]->hrs.chars[HRPC_CHAR_HR_CNTL_POINT].val_hdl,
+gattc_event_ind_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :                     prf_dst_task_get(&(hrpc_env->prf_env), conidx),
+gattc_event_ind_handler in hrpc_task.c (ip\ble\profiles\hrp\hrpc\src) :                     prf_src_task_get(&(hrpc_env->prf_env), conidx),
+hrps_init in hrps.c (ip\ble\profiles\hrp\hrps\src) :         hrps_env->prf_env.app_task    = app_task
+hrps_init in hrps.c (ip\ble\profiles\hrp\hrps\src) :         hrps_env->prf_env.prf_task    = env->task | PERM(PRF_MI, DISABLE);
+hrps_meas_send_rsp_send in hrps.c (ip\ble\profiles\hrp\hrps\src) :             prf_dst_task_get(&hrps_env->prf_env, 0),
+hrps_meas_send_rsp_send in hrps.c (ip\ble\profiles\hrp\hrps\src) :             prf_src_task_get(&hrps_env->prf_env, 0),
+hrps_exe_operation in hrps.c (ip\ble\profiles\hrp\hrps\src) :                     prf_src_task_get(&(hrps_env->prf_env), 0),
+hrps_exe_operation in hrps.c (ip\ble\profiles\hrp\hrps\src) :         ke_state_set(prf_src_task_get(&(hrps_env->prf_env), 0), HRPS_IDLE);
+hrps_env_tag in hrps.h (ip\ble\profiles\hrp\hrps\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in hrps_task.c (ip\ble\profiles\hrp\hrps\src) :                         prf_dst_task_get(&hrps_env->prf_env, conidx),
+gattc_write_req_ind_handler in hrps_task.c (ip\ble\profiles\hrp\hrps\src) :                         prf_src_task_get(&hrps_env->prf_env, conidx),
+gattc_write_req_ind_handler in hrps_task.c (ip\ble\profiles\hrp\hrps\src) :                             prf_dst_task_get(&hrps_env->prf_env, conidx),
+gattc_write_req_ind_handler in hrps_task.c (ip\ble\profiles\hrp\hrps\src) :                             prf_src_task_get(&hrps_env->prf_env, conidx),
+htpc_init in htpc.c (ip\ble\profiles\htp\htpc\src) :     htpc_env->prf_env.app_task = app_task
+htpc_init in htpc.c (ip\ble\profiles\htp\htpc\src) :     htpc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+htpc_unpack_temp in htpc.c (ip\ble\profiles\htp\htpc\src) :                                                  prf_dst_task_get(&htpc_env->prf_env, conidx),
+htpc_unpack_temp in htpc.c (ip\ble\profiles\htp\htpc\src) :                                                  prf_src_task_get(&htpc_env->prf_env, conidx),
+htpc_enable_rsp_send in htpc.c (ip\ble\profiles\htp\htpc\src) :                                                 prf_dst_task_get(&(htpc_env->prf_env), conidx),
+htpc_enable_rsp_send in htpc.c (ip\ble\profiles\htp\htpc\src) :                                                 prf_src_task_get(&(htpc_env->prf_env), conidx),
+htpc_enable_rsp_send in htpc.c (ip\ble\profiles\htp\htpc\src) :         ke_state_set(prf_src_task_get(&(htpc_env->prf_env), conidx), HTPC_IDLE);
+htpc_enable_rsp_send in htpc.c (ip\ble\profiles\htp\htpc\src) :         prf_register_atthdl2gatt(&(htpc_env->prf_env), conidx, &htpc_env->env[conidx]->hts.svc );
+htpc_env_tag in htpc.h (ip\ble\profiles\htp\htpc\src) :     prf_env_t prf_env;
+htpc_enable_req_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :             prf_disc_svc_send(&(htpc_env->prf_env), conidx, ATT_SVC_HEALTH_THERMOM);
+htpc_wr_meas_intv_req_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :                 prf_gatt_write(&(htpc_env->prf_env), conidx, val_hdl,
+htpc_health_temp_ntf_cfg_req_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :         prf_gatt_write_ntf_ind(&htpc_env->prf_env, conidx, cfg_hdl, param->cfg_val);
+htpc_rd_char_req_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :             prf_read_char_send(&(htpc_env->prf_env), conidx, htpc_env->env[conidx]->hts.svc.shdl,
+htpc_rd_char_req_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :         prf_client_att_info_rsp(&(htpc_env->prf_env), conidx, HTPC_RD_CHAR_RSP,
+gattc_read_ind_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :     prf_client_att_info_rsp(&(htpc_env->prf_env), conidx, HTPC_RD_CHAR_RSP, GAP_ERR_NO_ERROR, param);
+gattc_cmp_evt_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :                         prf_dst_task_get(&(htpc_env->prf_env), conidx), dest_id, htpc_health_temp_ntf_cfg_rsp);
+gattc_cmp_evt_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :                     prf_client_att_info_rsp(&(htpc_env->prf_env), conidx, HTPC_RD_CHAR_RSP, param->status, NULL);
+gattc_cmp_evt_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :                         prf_dst_task_get(&(htpc_env->prf_env), conidx), dest_id, htpc_wr_meas_intv_rsp);
+gattc_event_ind_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :                                             prf_dst_task_get(&htpc_env->prf_env, conidx),
+gattc_event_ind_handler in htpc_task.c (ip\ble\profiles\htp\htpc\src) :                                             prf_src_task_get(&htpc_env->prf_env, conidx),
+htpt_init in htpt.c (ip\ble\profiles\htp\htpt\src) :         htpt_env->prf_env.app_task = app_task
+htpt_init in htpt.c (ip\ble\profiles\htp\htpt\src) :         htpt_env->prf_env.prf_task = env->task | PERM(PRF_MI, DISABLE);
+htpt_exe_operation in htpt.c (ip\ble\profiles\htp\htpt\src) :                     KE_BUILD_ID(TASK_GATTC , htpt_env->operation->cursor), prf_src_task_get(&htpt_env->prf_env, 0),
+htpt_exe_operation in htpt.c (ip\ble\profiles\htp\htpt\src) :         if(htpt_env->operation->dest_id != prf_src_task_get(&htpt_env->prf_env, 0))
+htpt_exe_operation in htpt.c (ip\ble\profiles\htp\htpt\src) :                                  htpt_env->operation->dest_id, prf_src_task_get(&htpt_env->prf_env, 0),
+htpt_exe_operation in htpt.c (ip\ble\profiles\htp\htpt\src) :         ke_state_set(prf_src_task_get(&(htpt_env->prf_env), 0), HTPT_IDLE);
+htpt_update_ntf_ind_cfg in htpt.c (ip\ble\profiles\htp\htpt\src) :                 prf_dst_task_get(&htpt_env->prf_env, conidx), prf_src_task_get(&htpt_env->prf_env, conidx),
+htpt_env_tag in htpt.h (ip\ble\profiles\htp\htpt\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in htpt_task.c (ip\ble\profiles\htp\htpt\src) :                                 prf_dst_task_get(&htpt_env->prf_env, conidx), dest_id, htpt_meas_intv_chg_req_ind);
+lanc_init in lanc.c (ip\ble\profiles\lan\lanc\src) :     lanc_env->prf_env.app_task = app_task
+lanc_init in lanc.c (ip\ble\profiles\lan\lanc\src) :     lanc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+lanc_cleanup in lanc.c (ip\ble\profiles\lan\lanc\src) :         ke_timer_clear(LANC_TIMEOUT_TIMER_IND, prf_src_task_get(&lanc_env->prf_env, conidx));
+lanc_enable_rsp_send in lanc.c (ip\ble\profiles\lan\lanc\src) :             prf_dst_task_get(&(lanc_env->prf_env), conidx),
+lanc_enable_rsp_send in lanc.c (ip\ble\profiles\lan\lanc\src) :             prf_src_task_get(&(lanc_env->prf_env), conidx),
+lanc_enable_rsp_send in lanc.c (ip\ble\profiles\lan\lanc\src) :         prf_register_atthdl2gatt(&(lanc_env->prf_env), conidx, &(lanc_env->env[conidx]->lans.svc));
+lanc_enable_rsp_send in lanc.c (ip\ble\profiles\lan\lanc\src) :         ke_state_set(prf_src_task_get(&(lanc_env->prf_env), conidx), LANC_IDLE);
+lanc_send_cmp_evt in lanc.c (ip\ble\profiles\lan\lanc\src) :     if (ke_state_get(prf_src_task_get(&(lanc_env->prf_env), conidx)) == LANC_BUSY)
+lanc_send_cmp_evt in lanc.c (ip\ble\profiles\lan\lanc\src) :         ke_state_set(prf_src_task_get(&(lanc_env->prf_env), conidx), LANC_IDLE);
+lanc_send_cmp_evt in lanc.c (ip\ble\profiles\lan\lanc\src) :                                              prf_dst_task_get(&(lanc_env->prf_env), conidx),
+lanc_send_cmp_evt in lanc.c (ip\ble\profiles\lan\lanc\src) :                                              prf_src_task_get(&(lanc_env->prf_env), conidx),
+lanc_unpack_loc_speed_ind in lanc.c (ip\ble\profiles\lan\lanc\src) :                                                 prf_dst_task_get(&(lanc_env->prf_env), conidx),
+lanc_unpack_loc_speed_ind in lanc.c (ip\ble\profiles\lan\lanc\src) :                                                 prf_src_task_get(&(lanc_env->prf_env), conidx),
+lanc_unpack_navigation_ind in lanc.c (ip\ble\profiles\lan\lanc\src) :             prf_dst_task_get(&(lanc_env->prf_env), conidx),
+lanc_unpack_navigation_ind in lanc.c (ip\ble\profiles\lan\lanc\src) :             prf_src_task_get(&(lanc_env->prf_env), conidx),
+lanc_env_tag in lanc.h (ip\ble\profiles\lan\lanc\src) :     prf_env_t prf_env;
+lanc_enable_req_handler in lanc_task.c (ip\ble\profiles\lan\lanc\src) :             prf_disc_svc_send(&(lanc_env->prf_env), conidx, ATT_SVC_LOCATION_AND_NAVIGATION);
+lanc_read_cmd_handler in lanc_task.c (ip\ble\profiles\lan\lanc\src) :                 prf_read_char_send(&(lanc_env->prf_env), conidx,
+lanc_cfg_ntfind_cmd_handler in lanc_task.c (ip\ble\profiles\lan\lanc\src) :             prf_gatt_write_ntf_ind(&lanc_env->prf_env, conidx, handle, param->ntfind_cfg);
+lanc_ln_ctnl_pt_cfg_req_handler in lanc_task.c (ip\ble\profiles\lan\lanc\src) :                     prf_gatt_write(&(lanc_env->prf_env), conidx, lanc_env->env[conidx]->lans.chars[LANP_LANS_LN_CTNL_PT_CHAR].val_hdl,
+gattc_read_ind_handler in lanc_task.c (ip\ble\profiles\lan\lanc\src) :                 prf_dst_task_get(&(lanc_env->prf_env), conidx),
+gattc_event_ind_handler in lanc_task.c (ip\ble\profiles\lan\lanc\src) :                         lanc_unpack_ln_ctln_pt_ind(param, prf_src_task_get(&(lanc_env->prf_env), conidx), prf_dst_task_get(&(lanc_env->prf_env), conidx));
+lans_init in lans.c (ip\ble\profiles\lan\lans\src) :         lans_env->prf_env.app_task    = app_task
+lans_init in lans.c (ip\ble\profiles\lan\lans\src) :         lans_env->prf_env.prf_task    = env->task | PERM(PRF_MI, DISABLE);
+lans_split_loc_speed_ntf in lans.c (ip\ble\profiles\lan\lans\src) :             KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(&(lans_env->prf_env), conidx),
+lans_update_characteristic_config in lans.c (ip\ble\profiles\lan\lans\src) :                                                          prf_dst_task_get(&(lans_env->prf_env), conidx), prf_src_task_get(&(lans_env->prf_env), conidx),
+lans_unpack_ln_ctnl_point_ind in lans.c (ip\ble\profiles\lan\lans\src) :                                                             prf_dst_task_get(&(lans_env->prf_env), conidx), prf_src_task_get(&(lans_env->prf_env), conidx),
+lans_unpack_ln_ctnl_point_ind in lans.c (ip\ble\profiles\lan\lans\src) :         ke_state_set(prf_src_task_get(&(lans_env->prf_env), conidx), LANS_BUSY);
+lans_exe_operation in lans.c (ip\ble\profiles\lan\lans\src) :                             KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(&(lans_env->prf_env),conidx),
+lans_exe_operation in lans.c (ip\ble\profiles\lan\lans\src) :                             KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(&(lans_env->prf_env),conidx),
+lans_exe_operation in lans.c (ip\ble\profiles\lan\lans\src) :         ke_state_set(prf_src_task_get(&(lans_env->prf_env), 0), LANS_IDLE);
+lans_send_rsp_ind in lans.c (ip\ble\profiles\lan\lans\src) :             prf_src_task_get(&lans_env->prf_env, conidx),
+lans_env_tag in lans.h (ip\ble\profiles\lan\lans\src) :     prf_env_t prf_env;
+lans_ln_ctnl_pt_cfm_handler in lans_task.c (ip\ble\profiles\lan\lans\src) :                     prf_src_task_get(&lans_env->prf_env, param->conidx),
+lans_ln_ctnl_pt_cfm_handler in lans_task.c (ip\ble\profiles\lan\lans\src) :                     prf_dst_task_get(&lans_env->prf_env, param->conidx),
+gattc_cmp_evt_handler in lans_task.c (ip\ble\profiles\lan\lans\src) :                     lans_send_cmp_evt(conidx, prf_src_task_get(&(lans_env->prf_env), conidx), prf_dst_task_get(&(lans_env->prf_env), conidx),
+m_al_activity_cmd_exec in m_al_activity.c (ip\ble\mesh\m_al) :         uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_adv_continue in m_al_adv.c (ip\ble\mesh\m_al) :     uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_con_disconnect in m_al_con.c (ip\ble\mesh\m_al) :     uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_con_adv_start_cont in m_al_con.c (ip\ble\mesh\m_al) :     uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_handle_rx_pkt in m_al_con.c (ip\ble\mesh\m_al) :     uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_con_pdu_send_cont in m_al_con.c (ip\ble\mesh\m_al) :         uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_con_start in m_al_con.c (ip\ble\mesh\m_al) :             uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_con_stop in m_al_con.c (ip\ble\mesh\m_al) :     uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_con_cleanup in m_al_con.c (ip\ble\mesh\m_al) :         uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+_m_al_env_t in m_al_int.h (ip\ble\mesh\m_al) :     prf_env_t            prf_env;
+m_al_scan_start_continue in m_al_scan.c (ip\ble\mesh\m_al) :     uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_scan_stop_continue in m_al_scan.c (ip\ble\mesh\m_al) :     uint16_t mesh_task = p_m_al_env->prf_env.prf_task;
+m_al_sec_aes_req in m_al_sec.c (ip\ble\mesh\m_al) :                                                           TASK_GAPM, p_m_al_env->prf_env.prf_task,
+m_al_sec_pub_key_read in m_al_sec.c (ip\ble\mesh\m_al) :                                                                 TASK_GAPM, p_m_al_env->prf_env.prf_task,
+m_al_sec_ecdh_secret in m_al_sec.c (ip\ble\mesh\m_al) :                                                               TASK_GAPM, p_m_al_env->prf_env.prf_task,
+m_al_init in m_al_task.c (ip\ble\mesh\m_al) :         p_al_env->prf_env.app_task = app_task
+m_al_init in m_al_task.c (ip\ble\mesh\m_al) :         p_al_env->prf_env.prf_task = env->task | PERM(PRF_MI, DISABLE);
+ke_msg_default_handler in m_al_task.c (ip\ble\mesh\m_al) :             ke_msg_forward(p_param, p_m_al_env->prf_env.app_task, src_id);
+m_al_local_id_get in m_al_task.c (ip\ble\mesh\m_al) :     return (prf_src_task_get(&(mal_env->prf_env), 0));
+m_al_timer_set in m_al_timer.c (ip\ble\mesh\m_al) :     ke_timer_set(MESH_TIMER_IND, p_m_al_env->prf_env.prf_task,
+m_al_timer_clear in m_al_timer.c (ip\ble\mesh\m_al) :     ke_timer_clear(MESH_TIMER_IND, p_m_al_env->prf_env.prf_task);
+paspc_init in paspc.c (ip\ble\profiles\pasp\paspc\src) :     paspc_env->prf_env.app_task = app_task
+paspc_init in paspc.c (ip\ble\profiles\pasp\paspc\src) :     paspc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+paspc_enable_rsp_send in paspc.c (ip\ble\profiles\pasp\paspc\src) :             prf_dst_task_get(&(paspc_env->prf_env), conidx),
+paspc_enable_rsp_send in paspc.c (ip\ble\profiles\pasp\paspc\src) :             prf_src_task_get(&(paspc_env->prf_env), conidx),
+paspc_enable_rsp_send in paspc.c (ip\ble\profiles\pasp\paspc\src) :         prf_register_atthdl2gatt(&(paspc_env->prf_env), conidx, &(paspc_env->env[conidx]->pass.svc));
+paspc_enable_rsp_send in paspc.c (ip\ble\profiles\pasp\paspc\src) :         ke_state_set(prf_src_task_get(&(paspc_env->prf_env), conidx), PASPC_IDLE);
+paspc_send_cmp_evt in paspc.c (ip\ble\profiles\pasp\paspc\src) :     if (ke_state_get(prf_src_task_get(&(paspc_env->prf_env), conidx)) == PASPC_BUSY)
+paspc_send_cmp_evt in paspc.c (ip\ble\profiles\pasp\paspc\src) :         ke_state_set(prf_src_task_get(&paspc_env->prf_env, conidx), PASPC_IDLE);
+paspc_send_cmp_evt in paspc.c (ip\ble\profiles\pasp\paspc\src) :             prf_dst_task_get(&(paspc_env->prf_env), conidx),
+paspc_send_cmp_evt in paspc.c (ip\ble\profiles\pasp\paspc\src) :             prf_src_task_get(&(paspc_env->prf_env), conidx),
+paspc_env_tag in paspc.h (ip\ble\profiles\pasp\paspc\src) :     prf_env_t prf_env;
+paspc_enable_req_handler in paspc_task.c (ip\ble\profiles\pasp\paspc\src) :             prf_disc_svc_send(&(paspc_env->prf_env), conidx, ATT_SVC_PHONE_ALERT_STATUS);
+paspc_enable_req_handler in paspc_task.c (ip\ble\profiles\pasp\paspc\src) :             prf_read_char_send(&(paspc_env->prf_env),
+paspc_read_cmd_handler in paspc_task.c (ip\ble\profiles\pasp\paspc\src) :                         prf_read_char_send(&(paspc_idx_env->prf_env), conidx,
+paspc_write_cmd_handler in paspc_task.c (ip\ble\profiles\pasp\paspc\src) :                     prf_gatt_write(&(paspc_idx_env->prf_env), conidx, handle, (uint8_t *)&param->value, length, wr_type);
+gattc_read_ind_handler in paspc_task.c (ip\ble\profiles\pasp\paspc\src) :                 prf_dst_task_get(&(paspc_env->prf_env), conidx),
+gattc_event_ind_handler in paspc_task.c (ip\ble\profiles\pasp\paspc\src) :                 prf_dst_task_get(&paspc_env->prf_env, conidx),
+gattc_event_ind_handler in paspc_task.c (ip\ble\profiles\pasp\paspc\src) :                 prf_src_task_get(&paspc_env->prf_env, conidx),
+pasps_init in pasps.c (ip\ble\profiles\pasp\pasps\src) :         pasps_env->prf_env.app_task    = app_task
+pasps_init in pasps.c (ip\ble\profiles\pasp\pasps\src) :         pasps_env->prf_env.prf_task    = env->task | PERM(PRF_MI, ENABLE);
+pasps_env_tag in pasps.h (ip\ble\profiles\pasp\pasps\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in pasps_task.c (ip\ble\profiles\pasp\pasps\src) :                         prf_dst_task_get(&pasps_env->prf_env, conidx),
+gattc_write_req_ind_handler in pasps_task.c (ip\ble\profiles\pasp\pasps\src) :                         prf_src_task_get(&pasps_env->prf_env, conidx),
+gattc_write_req_ind_handler in pasps_task.c (ip\ble\profiles\pasp\pasps\src) :                         prf_dst_task_get(&pasps_env->prf_env, conidx),
+gattc_write_req_ind_handler in pasps_task.c (ip\ble\profiles\pasp\pasps\src) :                         prf_src_task_get(&pasps_env->prf_env, conidx),
+gattc_cmp_evt_handler in pasps_task.c (ip\ble\profiles\pasp\pasps\src) :         pasps_send_cmp_evt(prf_src_task_get(&pasps_env->prf_env, conidx),
+gattc_cmp_evt_handler in pasps_task.c (ip\ble\profiles\pasp\pasps\src) :                 prf_dst_task_get(&pasps_env->prf_env, conidx),
+prf.c (ip\ble\hl\src\prf) line 272 : struct prf_env_tag prf_env;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].env  = NULL;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].task = TASK_GAPC + i +1;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].id   = TASK_ID_INVALID;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].desc.msg_handler_tab = NULL;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].desc.state           = NULL;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].desc.idx_max         = 0;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].desc.msg_cnt         = 0;
+prf_init in prf.c (ip\ble\hl\src\prf) :             ke_task_create(prf_env.prf[i].task, &(prf_env.prf[i].desc));
+prf_init in prf.c (ip\ble\hl\src\prf) :             const struct prf_task_cbs * cbs = prf_itf_get(prf_env.prf[i].id);
+prf_init in prf.c (ip\ble\hl\src\prf) :                 cbs->destroy(&(prf_env.prf[i]));
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].id   = TASK_ID_INVALID;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].desc.msg_handler_tab = NULL;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].desc.state           = NULL;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].desc.idx_max         = 0;
+prf_init in prf.c (ip\ble\hl\src\prf) :             prf_env.prf[i].desc.msg_cnt         = 0;
+prf_init in prf.c (ip\ble\hl\src\prf) :             ke_task_msg_flush(KE_TYPE_GET(prf_env.prf[i].task));
+prf_add_profile in prf.c (ip\ble\hl\src\prf) :             if(prf_env.prf[i].id == params->prf_task_id)
+prf_add_profile in prf.c (ip\ble\hl\src\prf) :             if(prf_env.prf[i].id == TASK_ID_INVALID)
+prf_add_profile in prf.c (ip\ble\hl\src\prf) :                 status = cbs->init(&(prf_env.prf[i]), &(params->start_hdl), params->app_task, params->sec_lvl, params->param);
+prf_add_profile in prf.c (ip\ble\hl\src\prf) :                     prf_env.prf[i].id = params->prf_task_id;
+prf_add_profile in prf.c (ip\ble\hl\src\prf) :                     *prf_task = prf_env.prf[i].task;
+prf_create in prf.c (ip\ble\hl\src\prf) :         const struct prf_task_cbs * cbs = prf_itf_get(prf_env.prf[i].id);
+prf_create in prf.c (ip\ble\hl\src\prf) :             cbs->create(&(prf_env.prf[i]), conidx);
+prf_cleanup in prf.c (ip\ble\hl\src\prf) :         const struct prf_task_cbs * cbs = prf_itf_get(prf_env.prf[i].id);
+prf_cleanup in prf.c (ip\ble\hl\src\prf) :             cbs->cleanup(&(prf_env.prf[i]), conidx, reason);
+prf_env_get in prf.c (ip\ble\hl\src\prf) :         if(prf_env.prf[i].id == prf_id)
+prf_env_get in prf.c (ip\ble\hl\src\prf) :             env = prf_env.prf[i].env;
+prf_get_id_from_task in prf.c (ip\ble\hl\src\prf) :         if(prf_env.prf[i].task == task)
+prf_get_id_from_task in prf.c (ip\ble\hl\src\prf) :             id = prf_env.prf[i].id;
+prf_get_task_from_id in prf.c (ip\ble\hl\src\prf) :         if(prf_env.prf[i].id == id)
+prf_get_task_from_id in prf.c (ip\ble\hl\src\prf) :             task = prf_env.prf[i].task;
+prf.h (ip\ble\hl\inc) line 84 : typedef struct prf_env
+prf.h (ip\ble\hl\inc) line 192 : extern struct prf_env_tag prf_env;
+prf_utils.c (ip\ble\hl\src\prf) line 80 : void prf_read_char_send(prf_env_t *prf_env, uint8_t conidx,
+prf_read_char_send in prf_utils.c (ip\ble\hl\src\prf) :             prf_src_task_get(prf_env, conidx), gattc_read_cmd);
+prf_utils.c (ip\ble\hl\src\prf) line 96 : void prf_register_atthdl2gatt(prf_env_t *prf_env, uint8_t conidx, struct prf_svc *svc)
+prf_register_atthdl2gatt in prf_utils.c (ip\ble\hl\src\prf) :                 KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(prf_env, conidx),
+prf_utils.c (ip\ble\hl\src\prf) line 113 : void prf_unregister_atthdl2gatt(prf_env_t *prf_env, uint8_t conidx, struct prf_svc *svc)
+prf_unregister_atthdl2gatt in prf_utils.c (ip\ble\hl\src\prf) :                 KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(prf_env, conidx),
+prf_utils.c (ip\ble\hl\src\prf) line 131 : void prf_disc_svc_send(prf_env_t *prf_env, uint8_t conidx, uint16_t uuid)
+prf_disc_svc_send in prf_utils.c (ip\ble\hl\src\prf) :             KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(prf_env, conidx),
+prf_utils.c (ip\ble\hl\src\prf) line 157 : void prf_gatt_write(prf_env_t *prf_env, uint8_t conidx,
+prf_gatt_write in prf_utils.c (ip\ble\hl\src\prf) :                 KE_BUILD_ID(TASK_GATTC, conidx), prf_src_task_get(prf_env, conidx),
+prf_utils.c (ip\ble\hl\src\prf) line 186 : void prf_gatt_write_ntf_ind(prf_env_t *prf_env, uint8_t conidx, uint16_t handle, uint16_t ntf_ind_cfg)
+prf_gatt_write_ntf_ind in prf_utils.c (ip\ble\hl\src\prf) :     prf_gatt_write(prf_env, conidx, handle, value, 2, GATTC_WRITE);
+prf_utils.c (ip\ble\hl\src\prf) line 338 : void prf_client_att_info_rsp(prf_env_t *prf_env, uint8_t conidx, uint16_t msg_id,
+prf_client_att_info_rsp in prf_utils.c (ip\ble\hl\src\prf) :             prf_dst_task_get(prf_env, conidx), prf_src_task_get(prf_env, conidx),
+prf_utils.h (ip\ble\hl\inc) line 100 :  * @param[in] prf_env Pointer to profile information
+prf_utils.h (ip\ble\hl\inc) line 111 : void prf_read_char_send(prf_env_t *prf_env, uint8_t conidx,
+prf_utils.h (ip\ble\hl\inc) line 119 :  * @param[in] prf_env Pointer to profile information
+prf_utils.h (ip\ble\hl\inc) line 127 : void prf_register_atthdl2gatt(prf_env_t *prf_env, uint8_t conidx, struct prf_svc *svc);
+prf_utils.h (ip\ble\hl\inc) line 133 :  * @param[in] prf_env Pointer to profile information
+prf_utils.h (ip\ble\hl\inc) line 141 : void prf_unregister_atthdl2gatt(prf_env_t *prf_env, uint8_t conidx, struct prf_svc *svc);
+prf_utils.h (ip\ble\hl\inc) line 149 :  * @param[in] prf_env Pointer to profile information
+prf_utils.h (ip\ble\hl\inc) line 155 : void prf_disc_svc_send(prf_env_t *prf_env,uint8_t conidx,  uint16_t uuid);
+prf_utils.h (ip\ble\hl\inc) line 164 :  * @param[in] prf_env Pointer to profile information
+prf_utils.h (ip\ble\hl\inc) line 171 : void prf_gatt_write(prf_env_t *prf_env, uint8_t conidx,
+prf_utils.h (ip\ble\hl\inc) line 180 :  * @param[in] prf_env Pointer to profile information
+prf_utils.h (ip\ble\hl\inc) line 188 : void prf_gatt_write_ntf_ind(prf_env_t *prf_env, uint8_t conidx, uint16_t handle,
+prf_utils.h (ip\ble\hl\inc) line 257 :  * @param[in] prf_env       Pointer to the profile environment variable
+prf_utils.h (ip\ble\hl\inc) line 264 : void prf_client_att_info_rsp(prf_env_t *prf_env, uint8_t conidx, uint16_t msg_id,
+proxm_init in proxm.c (ip\ble\profiles\prox\proxm\src) :     proxm_env->prf_env.app_task = app_task
+proxm_init in proxm.c (ip\ble\profiles\prox\proxm\src) :     proxm_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+proxm_enable_rsp_send in proxm.c (ip\ble\profiles\prox\proxm\src) :                                                 prf_dst_task_get(&(proxm_env->prf_env), conidx),
+proxm_enable_rsp_send in proxm.c (ip\ble\profiles\prox\proxm\src) :                                                 prf_src_task_get(&(proxm_env->prf_env), conidx),
+proxm_enable_rsp_send in proxm.c (ip\ble\profiles\prox\proxm\src) :         ke_state_set(prf_src_task_get(&(proxm_env->prf_env), conidx), PROXM_IDLE);
+proxm_env_tag in proxm.h (ip\ble\profiles\prox\proxm\src) :     prf_env_t prf_env;
+proxm_enable_req_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :             prf_disc_svc_send(&(proxm_env->prf_env), conidx, ATT_SVC_LINK_LOSS);
+proxm_rd_req_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :                 prf_read_char_send(&(proxm_env->prf_env), conidx,
+proxm_wr_alert_lvl_req_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :                     prf_gatt_write(&(proxm_env->prf_env), conidx, val_hdl, (uint8_t *)&param->lvl,
+gattc_cmp_evt_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :                 prf_disc_svc_send(&(proxm_env->prf_env), conidx, current_att_svc);
+gattc_cmp_evt_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :                         prf_dst_task_get(&(proxm_env->prf_env), conidx),
+gattc_cmp_evt_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :                         prf_src_task_get(&(proxm_env->prf_env), conidx),
+gattc_cmp_evt_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :                             prf_dst_task_get(&(proxm_env->prf_env), conidx),
+gattc_cmp_evt_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :                             prf_src_task_get(&(proxm_env->prf_env), conidx),
+gattc_read_ind_handler in proxm_task.c (ip\ble\profiles\prox\proxm\src) :                                                    prf_dst_task_get(&(proxm_env->prf_env), conidx),
+proxr_init in proxr.c (ip\ble\profiles\prox\proxr\src) :                proxr_env->prf_env.app_task  = app_task
+proxr_init in proxr.c (ip\ble\profiles\prox\proxr\src) :                proxr_env->prf_env.prf_task  = env->task | PERM(PRF_MI, DISABLE);
+proxr_cleanup in proxr.c (ip\ble\profiles\prox\proxr\src) :                     prf_dst_task_get(&(proxr_env->prf_env), conidx),
+proxr_cleanup in proxr.c (ip\ble\profiles\prox\proxr\src) :                     prf_src_task_get(&(proxr_env->prf_env), conidx), proxr_alert_ind);
+proxr_env_tag in proxr.h (ip\ble\profiles\prox\proxr\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in proxr_task.c (ip\ble\profiles\prox\proxr\src) :                         prf_dst_task_get(&(proxr_env->prf_env), conidx),
+rscpc_init in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :     rscpc_env->prf_env.app_task = app_task
+rscpc_init in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :     rscpc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+rscpc_cleanup in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :         ke_timer_clear(RSCPC_TIMEOUT_TIMER_IND, prf_src_task_get(&rscpc_env->prf_env, conidx));
+rscpc_enable_rsp_send in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :             prf_dst_task_get(&(rscpc_env->prf_env), conidx),
+rscpc_enable_rsp_send in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :             prf_src_task_get(&(rscpc_env->prf_env), conidx),
+rscpc_enable_rsp_send in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :         prf_register_atthdl2gatt(&(rscpc_env->prf_env), conidx, &(rscpc_env->env[conidx]->rscs.svc));
+rscpc_enable_rsp_send in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :         ke_state_set(prf_src_task_get(&(rscpc_env->prf_env), conidx), RSCPC_IDLE);
+rscpc_send_cmp_evt in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :     if (ke_state_get(prf_src_task_get(&(rscpc_env->prf_env), conidx)) == RSCPC_BUSY)
+rscpc_send_cmp_evt in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :         ke_state_set(prf_src_task_get(&(rscpc_env->prf_env), conidx), RSCPC_IDLE);
+rscpc_send_cmp_evt in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :             prf_dst_task_get(&(rscpc_env->prf_env), conidx),
+rscpc_send_cmp_evt in rscpc.c (ip\ble\profiles\rscp\rscpc\src) :             prf_src_task_get(&(rscpc_env->prf_env), conidx),
+rscpc_env_tag in rscpc.h (ip\ble\profiles\rscp\rscpc\src) :     prf_env_t prf_env;
+rscpc_enable_req_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :             prf_disc_svc_send(&(rscpc_env->prf_env), conidx, ATT_SVC_RUNNING_SPEED_CADENCE);
+rscpc_read_cmd_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :                 prf_read_char_send(&(rscpc_env->prf_env), conidx,
+rscpc_cfg_ntfind_cmd_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :             prf_gatt_write_ntf_ind(&rscpc_env->prf_env, conidx, handle, param->ntfind_cfg);
+rscpc_ctnl_pt_cfg_req_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :                     prf_gatt_write(&(rscpc_env->prf_env), conidx, rscpc_env->env[conidx]->rscs.chars[RSCP_RSCS_SC_CTNL_PT_CHAR].val_hdl,
+gattc_read_ind_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :                 prf_dst_task_get(&(rscpc_env->prf_env), conidx),
+gattc_event_ind_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :                         prf_dst_task_get(&(rscpc_env->prf_env), conidx),
+gattc_event_ind_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :                         prf_src_task_get(&(rscpc_env->prf_env), conidx),
+gattc_event_ind_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :                                 prf_dst_task_get(&(rscpc_env->prf_env), conidx),
+gattc_event_ind_handler in rscpc_task.c (ip\ble\profiles\rscp\rscpc\src) :                                 prf_src_task_get(&(rscpc_env->prf_env), conidx),
+rscps_init in rscps.c (ip\ble\profiles\rscp\rscps\src) :         rscps_env->prf_env.app_task    = app_task
+rscps_init in rscps.c (ip\ble\profiles\rscp\rscps\src) :         rscps_env->prf_env.prf_task    = env->task | PERM(PRF_MI, DISABLE);
+rscps_exe_operation in rscps.c (ip\ble\profiles\rscp\rscps\src) :                     prf_src_task_get(&(rscps_env->prf_env), 0),
+rscps_exe_operation in rscps.c (ip\ble\profiles\rscp\rscps\src) :                 prf_dst_task_get(&(rscps_env->prf_env), 0),
+rscps_exe_operation in rscps.c (ip\ble\profiles\rscp\rscps\src) :                 prf_src_task_get(&(rscps_env->prf_env), 0),
+rscps_exe_operation in rscps.c (ip\ble\profiles\rscp\rscps\src) :         ke_state_set(prf_src_task_get(&(rscps_env->prf_env), 0), RSCPS_IDLE);
+rscps_send_rsp_ind in rscps.c (ip\ble\profiles\rscp\rscps\src) :             prf_src_task_get(&rscps_env->prf_env, conidx),
+rscps_env_tag in rscps.h (ip\ble\profiles\rscp\rscps\src) :     prf_env_t prf_env;
+rscps_sc_ctnl_pt_cfm_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                     prf_src_task_get(&rscps_env->prf_env, conidx),
+rscps_sc_ctnl_pt_cfm_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                     prf_dst_task_get(&rscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                         prf_dst_task_get(&rscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                         prf_src_task_get(&rscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                                 prf_dst_task_get(&rscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                                 prf_src_task_get(&rscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                                 prf_dst_task_get(&rscps_env->prf_env, conidx),
+gattc_write_req_ind_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                                 prf_src_task_get(&rscps_env->prf_env, conidx),
+gattc_cmp_evt_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                         prf_src_task_get(&rscps_env->prf_env, conidx),
+gattc_cmp_evt_handler in rscps_task.c (ip\ble\profiles\rscp\rscps\src) :                         prf_dst_task_get(&rscps_env->prf_env, conidx),
+scppc_init in scppc.c (ip\ble\profiles\scpp\scppc\src) :     scppc_env->prf_env.app_task = app_task
+scppc_init in scppc.c (ip\ble\profiles\scpp\scppc\src) :     scppc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+scppc_enable_rsp_send in scppc.c (ip\ble\profiles\scpp\scppc\src) :                                                  prf_dst_task_get(&(scppc_env->prf_env) ,conidx),
+scppc_enable_rsp_send in scppc.c (ip\ble\profiles\scpp\scppc\src) :                                                  prf_src_task_get(&(scppc_env->prf_env) ,conidx),
+scppc_enable_rsp_send in scppc.c (ip\ble\profiles\scpp\scppc\src) :             prf_register_atthdl2gatt(&(scppc_env->prf_env), conidx, &scppc_env->env[conidx]->scps.svc);
+scppc_env_tag in scppc.h (ip\ble\profiles\scpp\scppc\src) :     prf_env_t prf_env;
+scppc_enable_req_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :             prf_disc_svc_send(&(scppc_env->prf_env), conidx, ATT_SVC_SCAN_PARAMETERS);
+scppc_scan_intv_wd_wr_req_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :                 prf_gatt_write(&scppc_env->prf_env, conidx, handle, data, 2*sizeof(uint16_t), GATTC_WRITE_NO_RESPONSE);
+scppc_scan_refresh_ntf_cfg_rd_req_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :                 prf_read_char_send(&(scppc_env->prf_env), conidx,
+scppc_scan_refresh_ntf_cfg_req_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :                 prf_gatt_write_ntf_ind(&scppc_env->prf_env, conidx, handle, param->ntf_cfg);
+gattc_cmp_evt_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :                         prf_dst_task_get(&(scppc_env->prf_env), conidx), dest_id, scppc_scan_refresh_ntf_cfg_rd_rsp);
+gattc_cmp_evt_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :                         prf_dst_task_get(&(scppc_env->prf_env), conidx), dest_id, scppc_scan_refresh_ntf_cfg_rsp);
+gattc_cmp_evt_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :                         prf_dst_task_get(&(scppc_env->prf_env), conidx), dest_id, scppc_scan_intv_wd_wr_rsp);
+gattc_read_ind_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :                 prf_dst_task_get(&(scppc_env->prf_env), conidx), dest_id, scppc_scan_refresh_ntf_cfg_rd_rsp);
+gattc_event_ind_handler in scppc_task.c (ip\ble\profiles\scpp\scppc\src) :         ke_msg_send_basic(SCPPC_SCAN_REFRESH_IND, prf_dst_task_get(&(scppc_env->prf_env), KE_IDX_GET(src_id)), dest_id);
+scpps_init in scpps.c (ip\ble\profiles\scpp\scpps\src) :         scpps_env->prf_env.app_task = app_task
+scpps_init in scpps.c (ip\ble\profiles\scpp\scpps\src) :         scpps_env->prf_env.prf_task = env->task | PERM(PRF_MI, DISABLE);
+scpps_scan_refresh_rsp_send in scpps.c (ip\ble\profiles\scpp\scpps\src) :                                                             prf_dst_task_get(&(scpps_env->prf_env), conidx),
+scpps_scan_refresh_rsp_send in scpps.c (ip\ble\profiles\scpp\scpps\src) :                                                             prf_src_task_get(&(scpps_env->prf_env), conidx),
+scpps_env_tag in scpps.h (ip\ble\profiles\scpp\scpps\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in scpps_task.c (ip\ble\profiles\scpp\scpps\src) :                                                                prf_dst_task_get(&(scpps_env->prf_env), conidx),
+gattc_write_req_ind_handler in scpps_task.c (ip\ble\profiles\scpp\scpps\src) :                                                                         prf_dst_task_get(&(scpps_env->prf_env), conidx),
+tipc_init in tipc.c (ip\ble\profiles\tip\tipc\src) :     tipc_env->prf_env.app_task = app_task
+tipc_init in tipc.c (ip\ble\profiles\tip\tipc\src) :     tipc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+tipc_enable_rsp_send in tipc.c (ip\ble\profiles\tip\tipc\src) :             prf_dst_task_get(&(tipc_env->prf_env), conidx),
+tipc_enable_rsp_send in tipc.c (ip\ble\profiles\tip\tipc\src) :             prf_src_task_get(&(tipc_env->prf_env), conidx),
+tipc_enable_rsp_send in tipc.c (ip\ble\profiles\tip\tipc\src) :         prf_register_atthdl2gatt(&tipc_env->prf_env, conidx, &tipc_env->env[conidx]->cts.svc);
+tipc_enable_rsp_send in tipc.c (ip\ble\profiles\tip\tipc\src) :         ke_state_set(prf_src_task_get(&tipc_env->prf_env, conidx), TIPC_IDLE);
+tipc_env_tag in tipc.h (ip\ble\profiles\tip\tipc\src) :     prf_env_t prf_env;
+tipc_enable_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :             prf_disc_svc_send(&(tipc_env->prf_env), conidx, ATT_SVC_CURRENT_TIME);
+tipc_rd_char_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :             prf_read_char_send(&(tipc_env->prf_env), conidx, svc->shdl, svc->ehdl, search_hdl);
+tipc_rd_char_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                 prf_dst_task_get(&(tipc_env->prf_env), conidx),
+tipc_rd_char_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                 prf_src_task_get(&(tipc_env->prf_env), conidx),
+tipc_ct_ntf_cfg_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                 prf_gatt_write_ntf_ind(&tipc_env->prf_env, conidx, cfg_hdl, param->cfg_val);
+tipc_ct_ntf_cfg_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                 prf_dst_task_get(&(tipc_env->prf_env), conidx),
+tipc_ct_ntf_cfg_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                 prf_src_task_get(&(tipc_env->prf_env), conidx),
+tipc_wr_time_upd_ctnl_pt_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                 prf_gatt_write(&tipc_env->prf_env, conidx,
+tipc_wr_time_upd_ctnl_pt_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                 prf_dst_task_get(&(tipc_env->prf_env), conidx),
+tipc_wr_time_upd_ctnl_pt_req_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                 prf_src_task_get(&(tipc_env->prf_env), conidx),
+gattc_cmp_evt_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                     prf_disc_svc_send(&(tipc_env->prf_env), conidx, tipc_env->env[conidx]->last_svc_req);
+gattc_cmp_evt_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                         prf_dst_task_get(&(tipc_env->prf_env), conidx),
+gattc_cmp_evt_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                         prf_src_task_get(&(tipc_env->prf_env), conidx),
+gattc_cmp_evt_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                         prf_dst_task_get(&(tipc_env->prf_env), conidx),
+gattc_cmp_evt_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                         prf_src_task_get(&(tipc_env->prf_env), conidx),
+gattc_cmp_evt_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                             prf_dst_task_get(&(tipc_env->prf_env), conidx),
+gattc_cmp_evt_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                             prf_src_task_get(&(tipc_env->prf_env), conidx),
+gattc_read_ind_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :             prf_dst_task_get(&(tipc_env->prf_env), conidx),
+gattc_event_ind_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                     prf_dst_task_get(&(tipc_env->prf_env), conidx),
+gattc_event_ind_handler in tipc_task.c (ip\ble\profiles\tip\tipc\src) :                     prf_src_task_get(&(tipc_env->prf_env), conidx),
+tips_init in tips.c (ip\ble\profiles\tip\tips\src) :         tips_env->prf_env.app_task    = app_task
+tips_init in tips.c (ip\ble\profiles\tip\tips\src) :         tips_env->prf_env.prf_task    = env->task | PERM(PRF_MI, ENABLE);
+tips_env_tag in tips.h (ip\ble\profiles\tip\tips\src) :     prf_env_t prf_env;
+tips_upd_curr_time_req_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                 prf_dst_task_get(&(tips_env->prf_env), conidx),
+tips_upd_curr_time_req_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                 prf_src_task_get(&(tips_env->prf_env), conidx),
+gattc_read_req_ind_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                     prf_dst_task_get(&(tips_env->prf_env), conidx),
+gattc_read_req_ind_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                     prf_src_task_get(&(tips_env->prf_env), conidx),
+gattc_cmp_evt_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                     prf_dst_task_get(&(tips_env->prf_env), conidx),
+gattc_cmp_evt_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                     prf_src_task_get(&(tips_env->prf_env), conidx),
+gattc_write_req_ind_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                     prf_dst_task_get(&tips_env->prf_env, conidx),
+gattc_write_req_ind_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                     prf_src_task_get(&tips_env->prf_env, conidx),
+gattc_write_req_ind_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                     prf_dst_task_get(&tips_env->prf_env, conidx),
+gattc_write_req_ind_handler in tips_task.c (ip\ble\profiles\tip\tips\src) :                     prf_src_task_get(&tips_env->prf_env, conidx),
+udsc_init in udsc.c (ip\ble\profiles\uds\udsc\src) :     udsc_env->prf_env.app_task = app_task
+udsc_init in udsc.c (ip\ble\profiles\uds\udsc\src) :     udsc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+udsc_cleanup in udsc.c (ip\ble\profiles\uds\udsc\src) :         //prf_unregister_atthdl2gatt(&(udsc_env->prf_env), conidx, &(udsc_env->env[conidx]->es.svc));
+udsc_enable_rsp_send in udsc.c (ip\ble\profiles\uds\udsc\src) :             prf_dst_task_get(&(udsc_env->prf_env), conidx),
+udsc_enable_rsp_send in udsc.c (ip\ble\profiles\uds\udsc\src) :             prf_src_task_get(&(udsc_env->prf_env), conidx),
+udsc_enable_rsp_send in udsc.c (ip\ble\profiles\uds\udsc\src) :         prf_register_atthdl2gatt(&(udsc_env->prf_env), conidx, &(udsc_env->env[conidx]->uds.svc));
+udsc_enable_rsp_send in udsc.c (ip\ble\profiles\uds\udsc\src) :         ke_state_set(prf_src_task_get(&(udsc_env->prf_env), conidx), UDSC_BUSY);
+udsc_enable_rsp_send in udsc.c (ip\ble\profiles\uds\udsc\src) :         ke_state_set(prf_src_task_get(&(udsc_env->prf_env), conidx), UDSC_FREE);
+udsc_send_cmp_evt in udsc.c (ip\ble\profiles\uds\udsc\src) :     if (ke_state_get(prf_src_task_get(&(udsc_env->prf_env), conidx)) == UDSC_BUSY)
+udsc_send_cmp_evt in udsc.c (ip\ble\profiles\uds\udsc\src) :         ke_state_set(prf_src_task_get(&(udsc_env->prf_env), conidx), UDSC_IDLE);
+udsc_send_cmp_evt in udsc.c (ip\ble\profiles\uds\udsc\src) :                                              prf_dst_task_get(&(udsc_env->prf_env), conidx),
+udsc_send_cmp_evt in udsc.c (ip\ble\profiles\uds\udsc\src) :                                              prf_src_task_get(&(udsc_env->prf_env), conidx),
+udsc_env_tag in udsc.h (ip\ble\profiles\uds\udsc\src) :     prf_env_t prf_env;
+udsc_enable_req_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :             prf_disc_svc_send(&(udsc_env->prf_env), conidx, ATT_SVC_USER_DATA);
+udsc_rd_char_req_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                 prf_read_char_send(&(udsc_env->prf_env), conidx, svc->shdl, svc->ehdl, search_hdl);
+udsc_rd_char_req_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                     prf_dst_task_get(&(udsc_env->prf_env), conidx),
+udsc_rd_char_ccc_req_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                 prf_read_char_send(&(udsc_env->prf_env), conidx, svc->shdl, svc->ehdl, search_hdl);
+udsc_rd_char_ccc_req_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                     prf_dst_task_get(&(udsc_env->prf_env), conidx),
+udsc_wr_char_ccc_cmd_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                 prf_gatt_write_ntf_ind(&(udsc_env->prf_env), conidx, handle, param->ccc);
+udsc_wr_char_utf8_cmd_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                 prf_gatt_write(&(udsc_env->prf_env), conidx, handle, data_ptr, length, GATTC_WRITE);
+udsc_wr_char_cmd_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                 prf_gatt_write(&(udsc_env->prf_env), conidx, handle, data_ptr, length, GATTC_WRITE);
+udsc_wr_user_ctrl_pt_cmd_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                 prf_gatt_write(&(udsc_env->prf_env), conidx, handle, data_ptr, length, GATTC_WRITE);
+gattc_cmp_evt_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                             prf_dst_task_get(&(udsc_env->prf_env), conidx),
+gattc_cmp_evt_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                             prf_dst_task_get(&(udsc_env->prf_env), conidx),
+gattc_read_ind_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                     prf_dst_task_get(&(udsc_env->prf_env), conidx),
+gattc_read_ind_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                     prf_dst_task_get(&(udsc_env->prf_env), conidx),
+gattc_read_ind_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                 prf_dst_task_get(&(udsc_env->prf_env), conidx),
+gattc_event_ind_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                prf_dst_task_get(&udsc_env->prf_env, conidx),
+gattc_event_ind_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                prf_src_task_get(&udsc_env->prf_env, conidx),
+gattc_event_ind_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                prf_dst_task_get(&udsc_env->prf_env, conidx),
+gattc_event_ind_handler in udsc_task.c (ip\ble\profiles\uds\udsc\src) :                                                prf_src_task_get(&udsc_env->prf_env, conidx),
+udss_init in udss.c (ip\ble\profiles\uds\udss\src) :         udss_env->prf_env.app_task    = app_task
+udss_init in udss.c (ip\ble\profiles\uds\udss\src) :         udss_env->prf_env.prf_task    = env->task | PERM(PRF_MI, ENABLE);
+udss_env_tag in udss.h (ip\ble\profiles\uds\udss\src) :     prf_env_t prf_env;
+gattc_read_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                             prf_dst_task_get(&(udss_env->prf_env), conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                             prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                             prf_src_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                                     prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                                     prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                                     prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                                     prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                                     prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                                     prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                                     prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_write_req_ind_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                                     prf_dst_task_get(&udss_env->prf_env, conidx),
+gattc_cmp_evt_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                         prf_dst_task_get(&(udss_env->prf_env), conidx),
+gattc_cmp_evt_handler in udss_task.c (ip\ble\profiles\uds\udss\src) :                         prf_dst_task_get(&(udss_env->prf_env), conidx),
+wscc_init in wscc.c (ip\ble\profiles\wscp\wscc\src) :     wscc_env->prf_env.app_task = app_task
+wscc_init in wscc.c (ip\ble\profiles\wscp\wscc\src) :     wscc_env->prf_env.prf_task = env->task | PERM(PRF_MI, ENABLE);
+wscc_cleanup in wscc.c (ip\ble\profiles\wscp\wscc\src) :         //prf_unregister_atthdl2gatt(&(wscc_env->prf_env), conidx, &(wscc_env->env[conidx]->es.svc));
+wscc_enable_rsp_send in wscc.c (ip\ble\profiles\wscp\wscc\src) :             prf_dst_task_get(&(wscc_env->prf_env), conidx),
+wscc_enable_rsp_send in wscc.c (ip\ble\profiles\wscp\wscc\src) :             prf_src_task_get(&(wscc_env->prf_env), conidx),
+wscc_enable_rsp_send in wscc.c (ip\ble\profiles\wscp\wscc\src) :         prf_register_atthdl2gatt(&(wscc_env->prf_env), conidx, &(wscc_env->env[conidx]->wss.svc));
+wscc_enable_rsp_send in wscc.c (ip\ble\profiles\wscp\wscc\src) :         ke_state_set(prf_src_task_get(&(wscc_env->prf_env), conidx), WSCC_BUSY);
+wscc_enable_rsp_send in wscc.c (ip\ble\profiles\wscp\wscc\src) :         ke_state_set(prf_src_task_get(&(wscc_env->prf_env), conidx), WSCC_FREE);
+wscc_send_cmp_evt in wscc.c (ip\ble\profiles\wscp\wscc\src) :     if (ke_state_get(prf_src_task_get(&(wscc_env->prf_env), conidx)) == WSCC_BUSY)
+wscc_send_cmp_evt in wscc.c (ip\ble\profiles\wscp\wscc\src) :         ke_state_set(prf_src_task_get(&(wscc_env->prf_env), conidx), WSCC_IDLE);
+wscc_send_cmp_evt in wscc.c (ip\ble\profiles\wscp\wscc\src) :                                              prf_dst_task_get(&(wscc_env->prf_env), conidx),
+wscc_send_cmp_evt in wscc.c (ip\ble\profiles\wscp\wscc\src) :                                              prf_src_task_get(&(wscc_env->prf_env), conidx),
+wscc_env_tag in wscc.h (ip\ble\profiles\wscp\wscc\src) :     prf_env_t prf_env;
+wscc_enable_req_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :             prf_disc_svc_send(&(wscc_env->prf_env), conidx, ATT_SVC_WEIGHT_SCALE);
+wscc_rd_feature_req_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                 prf_read_char_send(&(wscc_env->prf_env), conidx, svc->shdl, svc->ehdl, search_hdl);
+wscc_rd_feature_req_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                                     prf_dst_task_get(&(wscc_env->prf_env), conidx),
+wscc_rd_meas_ccc_req_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                 prf_read_char_send(&(wscc_env->prf_env), conidx, svc->shdl, svc->ehdl, search_hdl);
+wscc_rd_meas_ccc_req_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                                     prf_dst_task_get(&(wscc_env->prf_env), conidx),
+wscc_wr_meas_ccc_cmd_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                 prf_gatt_write_ntf_ind(&(wscc_env->prf_env), conidx, handle, param->ccc);
+gattc_cmp_evt_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                                                             prf_dst_task_get(&(wscc_env->prf_env), conidx),
+gattc_cmp_evt_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                                                             prf_dst_task_get(&(wscc_env->prf_env), conidx),
+gattc_read_ind_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                                                 prf_dst_task_get(&(wscc_env->prf_env), conidx),
+gattc_read_ind_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                                                 prf_dst_task_get(&(wscc_env->prf_env), conidx),
+gattc_event_ind_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                                                prf_dst_task_get(&wscc_env->prf_env, conidx),
+gattc_event_ind_handler in wscc_task.c (ip\ble\profiles\wscp\wscc\src) :                                                prf_src_task_get(&wscc_env->prf_env, conidx),
+wscs_init in wscs.c (ip\ble\profiles\wscp\wscs\src) :         wscs_env->prf_env.app_task    = app_task
+wscs_init in wscs.c (ip\ble\profiles\wscp\wscs\src) :         wscs_env->prf_env.prf_task    = env->task
+wscs_send_cmp_evt in wscs.c (ip\ble\profiles\wscp\wscs\src) :                                              prf_dst_task_get(&(wscs_env->prf_env), conidx),
+wscs_send_cmp_evt in wscs.c (ip\ble\profiles\wscp\wscs\src) :                                              prf_src_task_get(&(wscs_env->prf_env), conidx),
+wscs_env_tag in wscs.h (ip\ble\profiles\wscp\wscs\src) :     prf_env_t prf_env;
+gattc_write_req_ind_handler in wscs_task.c (ip\ble\profiles\wscp\wscs\src) :                         prf_dst_task_get(&wscs_env->prf_env, conidx),
+gattc_write_req_ind_handler in wscs_task.c (ip\ble\profiles\wscp\wscs\src) :                         prf_src_task_get(&wscs_env->prf_env, conidx),
