@@ -1378,6 +1378,10 @@ namespace SYD_COPY_FILE
                 e.Handled = true;
             }
         }
+        private void Batch_difference_out_text(string str)
+        {
+            textBox11.AppendText(textBox88.Text+str + textBox89.Text + "\r\n");
+        }
         private void button22_Click(object sender, EventArgs e)
         {
             try
@@ -1399,9 +1403,9 @@ namespace SYD_COPY_FILE
                 UInt32 result = base_data;
                 textBox11.Text = "";
                 if (checkBox1.Checked)
-                    textBox11.AppendText("0x" + result.ToString("X") + "\r\n");
+                    Batch_difference_out_text("0x" + result.ToString("X"));
                 else
-                    textBox11.AppendText(result.ToString() + "\r\n");
+                    Batch_difference_out_text(result.ToString());
                 
                 for (UInt32 i = 1; i < num; i++)
                 {
@@ -1414,10 +1418,10 @@ namespace SYD_COPY_FILE
                         result = base_data + difference * i;
                     }
                     if (checkBox1.Checked)
-                        textBox11.AppendText("0x"+result.ToString("X") + "\r\n");
+                        Batch_difference_out_text("0x" + result.ToString("X"));
                     else
-                        textBox11.AppendText(result.ToString() + "\r\n");
-                 }
+                        Batch_difference_out_text(result.ToString());
+                }
             }
             catch
             {

@@ -346,6 +346,9 @@
             this.label61 = new System.Windows.Forms.Label();
             this.textBox63 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox89 = new System.Windows.Forms.TextBox();
+            this.textBox88 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button20 = new System.Windows.Forms.Button();
@@ -355,17 +358,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label66 = new System.Windows.Forms.Label();
             this.textBox65 = new System.Windows.Forms.TextBox();
+            this.textBox62 = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
             this.textBox64 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label65 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.button22 = new System.Windows.Forms.Button();
             this.label64 = new System.Windows.Forms.Label();
-            this.textBox62 = new System.Windows.Forms.TextBox();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.textBox43 = new System.Windows.Forms.TextBox();
             this.textBox44 = new System.Windows.Forms.TextBox();
@@ -607,7 +610,6 @@
             this.groupBox14.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -3823,7 +3825,7 @@
             this.groupBox20.Controls.Add(this.label113);
             this.groupBox20.Location = new System.Drawing.Point(0, 469);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(446, 44);
+            this.groupBox20.Size = new System.Drawing.Size(411, 44);
             this.groupBox20.TabIndex = 41;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "Ppm";
@@ -3831,9 +3833,9 @@
             // textBox79
             // 
             this.textBox79.AllowDrop = true;
-            this.textBox79.Location = new System.Drawing.Point(255, 13);
+            this.textBox79.Location = new System.Drawing.Point(235, 13);
             this.textBox79.Name = "textBox79";
-            this.textBox79.Size = new System.Drawing.Size(66, 21);
+            this.textBox79.Size = new System.Drawing.Size(54, 21);
             this.textBox79.TabIndex = 10;
             this.textBox79.Text = "2402000";
             // 
@@ -3859,7 +3861,7 @@
             // label112
             // 
             this.label112.AutoSize = true;
-            this.label112.Location = new System.Drawing.Point(212, 17);
+            this.label112.Location = new System.Drawing.Point(192, 17);
             this.label112.Name = "label112";
             this.label112.Size = new System.Drawing.Size(47, 12);
             this.label112.TabIndex = 42;
@@ -3870,13 +3872,13 @@
             this.textBox75.AllowDrop = true;
             this.textBox75.Location = new System.Drawing.Point(165, 13);
             this.textBox75.Name = "textBox75";
-            this.textBox75.Size = new System.Drawing.Size(45, 21);
+            this.textBox75.Size = new System.Drawing.Size(27, 21);
             this.textBox75.TabIndex = 2;
             this.textBox75.Text = "24";
             // 
             // button39
             // 
-            this.button39.Location = new System.Drawing.Point(324, 12);
+            this.button39.Location = new System.Drawing.Point(290, 12);
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(53, 22);
             this.button39.TabIndex = 0;
@@ -3887,7 +3889,7 @@
             // textBox76
             // 
             this.textBox76.AllowDrop = true;
-            this.textBox76.Location = new System.Drawing.Point(378, 13);
+            this.textBox76.Location = new System.Drawing.Point(344, 13);
             this.textBox76.Name = "textBox76";
             this.textBox76.Size = new System.Drawing.Size(64, 21);
             this.textBox76.TabIndex = 9;
@@ -3917,7 +3919,7 @@
             this.groupBox16.Controls.Add(this.button34);
             this.groupBox16.Location = new System.Drawing.Point(0, 395);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(449, 73);
+            this.groupBox16.Size = new System.Drawing.Size(411, 73);
             this.groupBox16.TabIndex = 40;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Piecewise function";
@@ -3929,7 +3931,7 @@
             "计算一次方程：k = (y1 - y0) / (x1 - x0);",
             "计算等比值：y1 = (x1 * y0) / x0;",
             "计算占比：y1 =x0/ (x0 + y0)*x1 ;"});
-            this.comboBox5.Location = new System.Drawing.Point(241, 21);
+            this.comboBox5.Location = new System.Drawing.Point(235, 21);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(121, 20);
             this.comboBox5.TabIndex = 44;
@@ -3948,9 +3950,9 @@
             // textBox_input_Y1
             // 
             this.textBox_input_Y1.AllowDrop = true;
-            this.textBox_input_Y1.Location = new System.Drawing.Point(169, 47);
+            this.textBox_input_Y1.Location = new System.Drawing.Point(167, 47);
             this.textBox_input_Y1.Name = "textBox_input_Y1";
-            this.textBox_input_Y1.Size = new System.Drawing.Size(68, 21);
+            this.textBox_input_Y1.Size = new System.Drawing.Size(67, 21);
             this.textBox_input_Y1.TabIndex = 32;
             this.textBox_input_Y1.Text = "2.082";
             this.textBox_input_Y1.Leave += new System.EventHandler(this.textBoxTrim_Leave);
@@ -3986,15 +3988,15 @@
             // textBox_output_formula
             // 
             this.textBox_output_formula.AllowDrop = true;
-            this.textBox_output_formula.Location = new System.Drawing.Point(241, 47);
+            this.textBox_output_formula.Location = new System.Drawing.Point(235, 47);
             this.textBox_output_formula.Name = "textBox_output_formula";
-            this.textBox_output_formula.Size = new System.Drawing.Size(205, 21);
+            this.textBox_output_formula.Size = new System.Drawing.Size(174, 21);
             this.textBox_output_formula.TabIndex = 26;
             // 
             // textBox_input_X1
             // 
             this.textBox_input_X1.AllowDrop = true;
-            this.textBox_input_X1.Location = new System.Drawing.Point(169, 20);
+            this.textBox_input_X1.Location = new System.Drawing.Point(166, 20);
             this.textBox_input_X1.Name = "textBox_input_X1";
             this.textBox_input_X1.Size = new System.Drawing.Size(68, 21);
             this.textBox_input_X1.TabIndex = 25;
@@ -4031,7 +4033,7 @@
             // 
             // button34
             // 
-            this.button34.Location = new System.Drawing.Point(370, 18);
+            this.button34.Location = new System.Drawing.Point(356, 20);
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(53, 22);
             this.button34.TabIndex = 0;
@@ -4091,6 +4093,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.textBox89);
+            this.groupBox4.Controls.Add(this.textBox88);
+            this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.button31);
             this.groupBox4.Controls.Add(this.checkBox1);
             this.groupBox4.Controls.Add(this.button20);
@@ -4100,17 +4105,44 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.panel13);
-            this.groupBox4.Controls.Add(this.panel16);
-            this.groupBox4.Location = new System.Drawing.Point(452, 176);
+            this.groupBox4.Controls.Add(this.label71);
+            this.groupBox4.Controls.Add(this.label78);
+            this.groupBox4.Location = new System.Drawing.Point(414, 176);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(300, 372);
+            this.groupBox4.Size = new System.Drawing.Size(338, 372);
             this.groupBox4.TabIndex = 32;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "批量差值";
             // 
+            // textBox89
+            // 
+            this.textBox89.AllowDrop = true;
+            this.textBox89.Location = new System.Drawing.Point(168, 240);
+            this.textBox89.Name = "textBox89";
+            this.textBox89.Size = new System.Drawing.Size(62, 21);
+            this.textBox89.TabIndex = 44;
+            // 
+            // textBox88
+            // 
+            this.textBox88.AllowDrop = true;
+            this.textBox88.Location = new System.Drawing.Point(168, 217);
+            this.textBox88.Name = "textBox88";
+            this.textBox88.Size = new System.Drawing.Size(62, 21);
+            this.textBox88.TabIndex = 42;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(117, 54);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(61, 22);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "计算差值";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button31
             // 
-            this.button31.Location = new System.Drawing.Point(124, 32);
+            this.button31.Location = new System.Drawing.Point(117, 32);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(61, 22);
             this.button31.TabIndex = 35;
@@ -4122,7 +4154,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.checkBox1.Location = new System.Drawing.Point(119, 311);
+            this.checkBox1.Location = new System.Drawing.Point(118, 201);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(42, 16);
             this.checkBox1.TabIndex = 41;
@@ -4141,9 +4173,10 @@
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(124, 55);
+            this.button23.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button23.Location = new System.Drawing.Point(181, 32);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(61, 22);
+            this.button23.Size = new System.Drawing.Size(50, 22);
             this.button23.TabIndex = 31;
             this.button23.Text = "清空";
             this.button23.UseVisualStyleBackColor = true;
@@ -4152,7 +4185,7 @@
             // textBox11
             // 
             this.textBox11.AllowDrop = true;
-            this.textBox11.Location = new System.Drawing.Point(193, 32);
+            this.textBox11.Location = new System.Drawing.Point(231, 32);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(104, 334);
@@ -4182,7 +4215,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(226, 17);
+            this.label3.Location = new System.Drawing.Point(264, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 28;
@@ -4191,51 +4224,60 @@
             // panel13
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.label66);
             this.panel13.Controls.Add(this.textBox65);
+            this.panel13.Controls.Add(this.textBox62);
+            this.panel13.Controls.Add(this.label66);
             this.panel13.Controls.Add(this.textBox64);
             this.panel13.Controls.Add(this.button4);
             this.panel13.Controls.Add(this.label65);
             this.panel13.Controls.Add(this.label63);
             this.panel13.Controls.Add(this.button22);
             this.panel13.Controls.Add(this.label64);
-            this.panel13.Controls.Add(this.textBox62);
-            this.panel13.Location = new System.Drawing.Point(118, 112);
+            this.panel13.Location = new System.Drawing.Point(118, 77);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(73, 194);
+            this.panel13.Size = new System.Drawing.Size(111, 121);
             this.panel13.TabIndex = 39;
+            // 
+            // textBox65
+            // 
+            this.textBox65.AllowDrop = true;
+            this.textBox65.Location = new System.Drawing.Point(62, 96);
+            this.textBox65.Name = "textBox65";
+            this.textBox65.Size = new System.Drawing.Size(45, 21);
+            this.textBox65.TabIndex = 39;
+            this.textBox65.Text = "20";
+            // 
+            // textBox62
+            // 
+            this.textBox62.AllowDrop = true;
+            this.textBox62.Location = new System.Drawing.Point(62, 42);
+            this.textBox62.Name = "textBox62";
+            this.textBox62.Size = new System.Drawing.Size(45, 21);
+            this.textBox62.TabIndex = 35;
+            this.textBox62.Text = "4";
             // 
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(3, 125);
+            this.label66.Location = new System.Drawing.Point(0, 101);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(65, 12);
             this.label66.TabIndex = 40;
             this.label66.Text = "数量(dec):";
             // 
-            // textBox65
-            // 
-            this.textBox65.AllowDrop = true;
-            this.textBox65.Location = new System.Drawing.Point(5, 144);
-            this.textBox65.Name = "textBox65";
-            this.textBox65.Size = new System.Drawing.Size(61, 21);
-            this.textBox65.TabIndex = 39;
-            this.textBox65.Text = "20";
-            // 
             // textBox64
             // 
             this.textBox64.AllowDrop = true;
-            this.textBox64.Location = new System.Drawing.Point(5, 102);
+            this.textBox64.Location = new System.Drawing.Point(62, 69);
             this.textBox64.Name = "textBox64";
-            this.textBox64.Size = new System.Drawing.Size(61, 21);
+            this.textBox64.Size = new System.Drawing.Size(45, 21);
             this.textBox64.TabIndex = 37;
             this.textBox64.Text = "0x1000";
             // 
             // button4
             // 
             this.button4.Image = global::SYD_COPY_FILE.Properties.Resources.dowm;
-            this.button4.Location = new System.Drawing.Point(33, 2);
+            this.button4.Location = new System.Drawing.Point(28, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(35, 39);
             this.button4.TabIndex = 31;
@@ -4245,7 +4287,7 @@
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(3, 83);
+            this.label65.Location = new System.Drawing.Point(0, 72);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(65, 12);
             this.label65.TabIndex = 38;
@@ -4262,9 +4304,10 @@
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(5, 168);
+            this.button22.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button22.Location = new System.Drawing.Point(63, 0);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(61, 22);
+            this.button22.Size = new System.Drawing.Size(44, 41);
             this.button22.TabIndex = 35;
             this.button22.Text = "生成数组";
             this.button22.UseVisualStyleBackColor = true;
@@ -4273,39 +4316,29 @@
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(3, 41);
+            this.label64.Location = new System.Drawing.Point(-1, 45);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(65, 12);
             this.label64.TabIndex = 36;
             this.label64.Text = "差值(dec):";
             // 
-            // textBox62
+            // label71
             // 
-            this.textBox62.AllowDrop = true;
-            this.textBox62.Location = new System.Drawing.Point(5, 60);
-            this.textBox62.Name = "textBox62";
-            this.textBox62.Size = new System.Drawing.Size(61, 21);
-            this.textBox62.TabIndex = 35;
-            this.textBox62.Text = "4";
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(115, 220);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(59, 12);
+            this.label71.TabIndex = 43;
+            this.label71.Text = "输出前缀:";
             // 
-            // panel16
+            // label78
             // 
-            this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel16.Controls.Add(this.button3);
-            this.panel16.Location = new System.Drawing.Point(119, 78);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(71, 28);
-            this.panel16.TabIndex = 40;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(61, 22);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "计算差值";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(115, 243);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(59, 12);
+            this.label78.TabIndex = 45;
+            this.label78.Text = "输出尾缀:";
             // 
             // groupBox7
             // 
@@ -4329,7 +4362,7 @@
             this.groupBox7.Controls.Add(this.button15);
             this.groupBox7.Location = new System.Drawing.Point(0, 285);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(449, 108);
+            this.groupBox7.Size = new System.Drawing.Size(411, 108);
             this.groupBox7.TabIndex = 24;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "SYDTEK_RTC_Counter Difference(0x23120D08)";
@@ -4339,7 +4372,7 @@
             this.textBox43.AllowDrop = true;
             this.textBox43.Location = new System.Drawing.Point(340, 77);
             this.textBox43.Name = "textBox43";
-            this.textBox43.Size = new System.Drawing.Size(100, 21);
+            this.textBox43.Size = new System.Drawing.Size(69, 21);
             this.textBox43.TabIndex = 39;
             // 
             // textBox44
@@ -4347,7 +4380,7 @@
             this.textBox44.AllowDrop = true;
             this.textBox44.Location = new System.Drawing.Point(340, 46);
             this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(100, 21);
+            this.textBox44.Size = new System.Drawing.Size(69, 21);
             this.textBox44.TabIndex = 33;
             // 
             // textBox45
@@ -4449,7 +4482,7 @@
             this.textBox49.AllowDrop = true;
             this.textBox49.Location = new System.Drawing.Point(340, 19);
             this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(100, 21);
+            this.textBox49.Size = new System.Drawing.Size(69, 21);
             this.textBox49.TabIndex = 26;
             // 
             // textBox50
@@ -4736,7 +4769,7 @@
             this.groupBox5.Controls.Add(this.button10);
             this.groupBox5.Location = new System.Drawing.Point(3, 176);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(446, 108);
+            this.groupBox5.Size = new System.Drawing.Size(408, 108);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "timestamp Difference(0x23120D08)";
@@ -4746,7 +4779,7 @@
             this.textBox40.AllowDrop = true;
             this.textBox40.Location = new System.Drawing.Point(338, 76);
             this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(100, 21);
+            this.textBox40.Size = new System.Drawing.Size(68, 21);
             this.textBox40.TabIndex = 39;
             // 
             // textBox31
@@ -4754,7 +4787,7 @@
             this.textBox31.AllowDrop = true;
             this.textBox31.Location = new System.Drawing.Point(338, 45);
             this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(100, 21);
+            this.textBox31.Size = new System.Drawing.Size(68, 21);
             this.textBox31.TabIndex = 33;
             // 
             // textBox41
@@ -4858,7 +4891,7 @@
             this.textBox35.AllowDrop = true;
             this.textBox35.Location = new System.Drawing.Point(338, 18);
             this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(100, 21);
+            this.textBox35.Size = new System.Drawing.Size(68, 21);
             this.textBox35.TabIndex = 26;
             // 
             // textBox36
@@ -6535,7 +6568,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.4.7";
+            this.Text = "SYD_Calculator V1.4.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -6600,7 +6633,6 @@
             this.groupBox4.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.panel16.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -6845,7 +6877,6 @@
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.TextBox textBox62;
-        private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox textBox43;
@@ -7170,6 +7201,10 @@
         private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Button button_Batch_convert_format_Click;
         private System.Windows.Forms.TextBox richTextBox_out;
+        private System.Windows.Forms.TextBox textBox89;
+        private System.Windows.Forms.TextBox textBox88;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label label78;
     }
 }
 
