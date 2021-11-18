@@ -1839,7 +1839,7 @@
             "Git helper/RGB palette 24BIT TO 565",
             "Novel Filtering/Font txt to bin(之前合并字库的功能)",
             "DSView analysis",
-            "Chinese to utf8",
+            "Chinese to utf8/ASCII",
             "Keil memery analysis",
             "Data filled complement zero",
             "Multibyte  reversal",
@@ -6568,7 +6568,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.4.8";
+            this.Text = "SYD_Calculator V1.4.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

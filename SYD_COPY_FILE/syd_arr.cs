@@ -863,13 +863,36 @@ namespace SYD_COPY_FILE
            for (i = 0; i < lstArray.Count; i++)
            {
                buffer_utf8 = Encoding.UTF8.GetBytes(lstArray[i]);
-               str = "uint8_t buf[]={" + "0x" + buffer_utf8.Length.ToString("X02") + ",";
-               for (j = 0; j <buffer_utf8.Length; j++)
-               {
-                   str =str+ "0x" + buffer_utf8[j].ToString("X") + ",";
-               }
-               lstArray[i] = str + "};" + "//" + lstArray[i];
-           }
+
+                if ((comboBox_datatype.SelectedIndex == 0) || (comboBox_datatype.SelectedIndex == 1))
+                {
+                    if (comboBox_datatype.SelectedIndex == 0)
+                        str = "uint8_t buf[]={" + "0x" + buffer_utf8.Length.ToString("X02") + ",";
+                    else if (comboBox_datatype.SelectedIndex == 1)
+                        str = "uint8_t buf[]={";
+                    for (j = 0; j < buffer_utf8.Length; j++)
+                    {
+                        str = str + "0x" + buffer_utf8[j].ToString("X") + ",";
+                    }
+                    lstArray[i] = str + "};" + "//" + lstArray[i];
+                }
+                else if (comboBox_datatype.SelectedIndex == 2)
+                {
+                    for (j = 0; j < buffer_utf8.Length; j++)
+                    {
+                        str = str + buffer_utf8[j].ToString("X") + " ";
+                    }
+                    lstArray[i] = str;
+                }
+                else if (comboBox_datatype.SelectedIndex == 3)
+                {
+                    for (j = 0; j < buffer_utf8.Length; j++)
+                    {
+                        str = str + buffer_utf8[j].ToString("X");
+                    }
+                    lstArray[i] = str;
+                }
+            }
 
            richTextBox_out.Text = "";
 
@@ -2536,6 +2559,17 @@ namespace SYD_COPY_FILE
             else if (comboBox_mode.SelectedIndex == 3)
             {
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dsview_analysis.txt", Encoding.Default);
+            }
+            else if (comboBox_mode.SelectedIndex == 4)
+            {
+                textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_text_to_utf8_ASCII.txt", Encoding.Default);
+
+                this.comboBox_datatype.Items.Clear();
+                this.comboBox_datatype.Items.Add("数据为数组格式，第一个字节为数组长度");
+                this.comboBox_datatype.Items.Add("数据为数组格式，不带数组长度");
+                this.comboBox_datatype.Items.Add("数据为带空格的数据");
+                this.comboBox_datatype.Items.Add("数据为不带空格的数据");
+                this.label_data_type.Text = "输出格式选择：";
             }
             else if (comboBox_mode.SelectedIndex == 7)
             {
