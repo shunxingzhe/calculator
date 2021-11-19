@@ -1745,28 +1745,55 @@ namespace SYD_COPY_FILE
             UInt32 len = Convert.ToUInt32(textBox_filesize.Text);
             StringBuilder str = new StringBuilder();
             Byte data = 0xff;
-            for (i = 0; i < len; i++)
+            if((comboBox_datatype.SelectedIndex == 3) || (comboBox_datatype.SelectedIndex == 4))
             {
-                if (comboBox_datatype.SelectedIndex == 2)
+                string str_input = textInput.Text.Trim();
+                if (comboBox_datatype.SelectedIndex == 4)
                 {
-                    if (i == 0)
-                        data = Convert.ToByte(textBox_key.Text,16);
-                    m = data;
+                    data = Convert.ToByte(str_input.Substring(0,2), 10);
+                    str.Append("0x" + data.ToString("X2") + ",");
+                    str_input=str_input.Remove(0,2);
                 }
-                str.Append("0x"+m.ToString("X2")+",");
-                m++;
-                if ((i+1) % 16 == 0) str.Append("\r\n");
-                if (comboBox_datatype.SelectedIndex == 0)
+                byte[] array = System.Text.Encoding.ASCII.GetBytes(str_input);
+                for (i = 0; i < len-1; i++)
                 {
-                    if (m > 255) m = 0;
-                }
-                else if (comboBox_datatype.SelectedIndex == 1)
-                {
-                    if (m > 255)
+                    if (i < array.Length)
                     {
-                        m = j;
-                        j++;
-                        if (j > 0xfe) j = 0;
+                        str.Append("0x" + array[i].ToString("X2") + ",");
+                    }
+                    else
+                    {
+                        data = Convert.ToByte(textBox_key.Text, 16);
+                        str.Append("0x" + data.ToString("X2") + ",");
+                    }
+                    if (((i+2) % 16 == 0) && (i!=0)) str.Append("\r\n");
+                }
+            }
+            else
+            {
+                for (i = 0; i < len; i++)
+                {
+                    if (comboBox_datatype.SelectedIndex == 2)
+                    {
+                        if (i == 0)
+                            data = Convert.ToByte(textBox_key.Text, 16);
+                        m = data;
+                    }
+                    str.Append("0x" + m.ToString("X2") + ",");
+                    m++;
+                    if ((i + 1) % 16 == 0) str.Append("\r\n");
+                    if (comboBox_datatype.SelectedIndex == 0)
+                    {
+                        if (m > 255) m = 0;
+                    }
+                    else if (comboBox_datatype.SelectedIndex == 1)
+                    {
+                        if (m > 255)
+                        {
+                            m = j;
+                            j++;
+                            if (j > 0xfe) j = 0;
+                        }
                     }
                 }
             }
@@ -2382,22 +2409,26 @@ namespace SYD_COPY_FILE
 
         private void button_replace_Click(object sender, EventArgs e)
         {
-            int length1 = richTextBox_out.Text.Length;
-            int length2 = textInput.Text.Length;
-            if (length1 > 0)
-            {
-                FileStream fs = new FileStream(".\\richTextBox_out.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                StreamWriter sw = new StreamWriter(fs);
-                sw.Write(richTextBox_out.Text);//写你的字符串。
-                sw.Close();
-            }
-            if (length2 > 0)
-                File.WriteAllText("textInput.txt", textInput.Text);
+            //int length1 = richTextBox_out.Text.Length;
+            //int length2 = textInput.Text.Length;
+            //if (length1 > 0)
+            //{
+            //    FileStream fs = new FileStream(".\\richTextBox_out.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            //    StreamWriter sw = new StreamWriter(fs);
+            //    sw.Write(richTextBox_out.Text);//写你的字符串。
+            //    sw.Close();
+            //    fs.Close();
+            //}
+            //if (length2 > 0)
+            //    File.WriteAllText("textInput.txt", textInput.Text);
 
-            if (length2 > 0)
-                richTextBox_out.Text =  System.IO.File.ReadAllText("textInput.txt", Encoding.Default);
-            if (length1 > 0)
-                textInput.Text = System.IO.File.ReadAllText("richTextBox_out.txt", Encoding.Default);
+            //if (length2 > 0)
+            //    richTextBox_out.Text = System.IO.File.ReadAllText("textInput.txt", Encoding.Default);
+            //if (length1 > 0)
+            //    textInput.Text = System.IO.File.ReadAllText("richTextBox_out.txt", Encoding.Default);
+            string str = textInput.Text;
+            textInput.Text = richTextBox_out.Text;
+            richTextBox_out.Text = str;
         }
 
         private void button_reintput_Click(object sender, EventArgs e)
@@ -2670,12 +2701,15 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == 18)
             {
-                textInput.Text = "";
+                textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Get_ARR.txt", Encoding.Default);
 
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("数据在00-FF自增");
                 this.comboBox_datatype.Items.Add("数据在00-FF;01-FF;....FE-FF;00-FF自增");
                 this.comboBox_datatype.Items.Add("数据全是关键字定义的值");
+                this.comboBox_datatype.Items.Add("数据由输入框转为ASCII码然后填充关键字定义的值");
+                this.comboBox_datatype.Items.Add("在上面基础上输入框前面两个数据为十进制数");
+
                 textBox_key.Text = "0xFF";
             }
             else if (comboBox_mode.SelectedIndex == 19)
