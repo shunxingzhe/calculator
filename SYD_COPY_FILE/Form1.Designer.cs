@@ -167,7 +167,7 @@
             this.label81 = new System.Windows.Forms.Label();
             this.label_outfilename = new System.Windows.Forms.Label();
             this.source_file_button = new System.Windows.Forms.Button();
-            this.label83 = new System.Windows.Forms.Label();
+            this.label_outfile = new System.Windows.Forms.Label();
             this.source_file_textBox = new System.Windows.Forms.TextBox();
             this.LED_Display = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
@@ -510,13 +510,13 @@
             this.label127 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.source_copyfile_suffix_textBox_rename = new System.Windows.Forms.ComboBox();
             this.comboBox_timetype_rename = new System.Windows.Forms.ComboBox();
             this.label99 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label79 = new System.Windows.Forms.Label();
             this.source_copyfile_prefix_textBox_rename = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
-            this.source_copyfile_suffix_textBox_rename = new System.Windows.Forms.TextBox();
             this.source_copyfile_textBox_rename = new System.Windows.Forms.TextBox();
             this.destination_file_textBox_rename = new System.Windows.Forms.TextBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
@@ -1855,7 +1855,7 @@
             "Source Insight Search Results Analysis",
             "Get ARR",
             "Get api symdef",
-            "Find File",
+            "Find/handle File",
             "TEXT handle and analysis",
             "找到最新的文件并打开"});
             this.comboBox_mode.Location = new System.Drawing.Point(33, 94);
@@ -1980,7 +1980,7 @@
             this.groupBox21.Controls.Add(this.label81);
             this.groupBox21.Controls.Add(this.label_outfilename);
             this.groupBox21.Controls.Add(this.source_file_button);
-            this.groupBox21.Controls.Add(this.label83);
+            this.groupBox21.Controls.Add(this.label_outfile);
             this.groupBox21.Controls.Add(this.source_file_textBox);
             this.groupBox21.Location = new System.Drawing.Point(-4, 3);
             this.groupBox21.Name = "groupBox21";
@@ -2115,14 +2115,14 @@
             this.source_file_button.UseVisualStyleBackColor = true;
             this.source_file_button.Click += new System.EventHandler(this.source_file_button_Click);
             // 
-            // label83
+            // label_outfile
             // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(7, 44);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(83, 12);
-            this.label83.TabIndex = 8;
-            this.label83.Text = "输出文件名称:";
+            this.label_outfile.AutoSize = true;
+            this.label_outfile.Location = new System.Drawing.Point(7, 44);
+            this.label_outfile.Name = "label_outfile";
+            this.label_outfile.Size = new System.Drawing.Size(83, 12);
+            this.label_outfile.TabIndex = 8;
+            this.label_outfile.Text = "输出文件名称:";
             // 
             // source_file_textBox
             // 
@@ -5822,13 +5822,13 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.source_copyfile_suffix_textBox_rename);
             this.tabPage7.Controls.Add(this.comboBox_timetype_rename);
             this.tabPage7.Controls.Add(this.label99);
             this.tabPage7.Controls.Add(this.comboBox7);
             this.tabPage7.Controls.Add(this.label79);
             this.tabPage7.Controls.Add(this.source_copyfile_prefix_textBox_rename);
             this.tabPage7.Controls.Add(this.textBox12);
-            this.tabPage7.Controls.Add(this.source_copyfile_suffix_textBox_rename);
             this.tabPage7.Controls.Add(this.source_copyfile_textBox_rename);
             this.tabPage7.Controls.Add(this.destination_file_textBox_rename);
             this.tabPage7.Controls.Add(this.checkBox6);
@@ -5846,6 +5846,20 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Rename";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // source_copyfile_suffix_textBox_rename
+            // 
+            this.source_copyfile_suffix_textBox_rename.FormattingEnabled = true;
+            this.source_copyfile_suffix_textBox_rename.Items.AddRange(new object[] {
+            "_Integration ",
+            "_changan_L31_V110_",
+            "_CP_L32_V118_",
+            "_letu_L32_V109_",
+            "_wuling_L33_V124_"});
+            this.source_copyfile_suffix_textBox_rename.Location = new System.Drawing.Point(348, 24);
+            this.source_copyfile_suffix_textBox_rename.Name = "source_copyfile_suffix_textBox_rename";
+            this.source_copyfile_suffix_textBox_rename.Size = new System.Drawing.Size(190, 20);
+            this.source_copyfile_suffix_textBox_rename.TabIndex = 63;
             // 
             // comboBox_timetype_rename
             // 
@@ -5909,15 +5923,6 @@
             this.textBox12.Size = new System.Drawing.Size(465, 57);
             this.textBox12.TabIndex = 49;
             this.textBox12.Text = "修改说明";
-            // 
-            // source_copyfile_suffix_textBox_rename
-            // 
-            this.source_copyfile_suffix_textBox_rename.AllowDrop = true;
-            this.source_copyfile_suffix_textBox_rename.Font = new System.Drawing.Font("宋体", 8F);
-            this.source_copyfile_suffix_textBox_rename.Location = new System.Drawing.Point(348, 24);
-            this.source_copyfile_suffix_textBox_rename.Name = "source_copyfile_suffix_textBox_rename";
-            this.source_copyfile_suffix_textBox_rename.Size = new System.Drawing.Size(190, 20);
-            this.source_copyfile_suffix_textBox_rename.TabIndex = 39;
             // 
             // source_copyfile_textBox_rename
             // 
@@ -6568,7 +6573,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.5.0";
+            this.Text = "SYD_Calculator V1.5.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -6750,7 +6755,7 @@
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label_outfilename;
         private System.Windows.Forms.Button source_file_button;
-        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Label label_outfile;
         private System.Windows.Forms.TextBox source_file_textBox;
         private System.Windows.Forms.TabPage LED_Display;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -7017,7 +7022,6 @@
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TextBox source_copyfile_prefix_textBox_rename;
         private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox source_copyfile_suffix_textBox_rename;
         private System.Windows.Forms.TextBox source_copyfile_textBox_rename;
         private System.Windows.Forms.TextBox destination_file_textBox_rename;
         private System.Windows.Forms.CheckBox checkBox6;
@@ -7205,6 +7209,7 @@
         private System.Windows.Forms.TextBox textBox88;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.ComboBox source_copyfile_suffix_textBox_rename;
     }
 }
 

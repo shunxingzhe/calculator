@@ -134,10 +134,18 @@ namespace SYD_COPY_FILE
         {
             if ((comboBox_mode.SelectedIndex == 20) || (comboBox_mode.SelectedIndex == 21))
             {
-                FolderBrowserDialog path = new FolderBrowserDialog();
+                //FolderBrowserDialog path = new FolderBrowserDialog();
 
-                if (path.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    source_file_textBox.Text = path.SelectedPath;
+                //if (path.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                //    source_file_textBox.Text = path.SelectedPath;
+                //else
+                //    return;
+                MyFolderBrowserDialog folderBrowserDialog1 = new MyFolderBrowserDialog();
+                if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
+                {
+                    source_file_textBox.Text = folderBrowserDialog1.DirectoryPath;
+                    label_outfilename.Text = source_file_textBox.Text + "_ok\\";
+                }
                 else
                     return;
             }
@@ -2119,27 +2127,51 @@ namespace SYD_COPY_FILE
         private void find_file()
         {
             int i = 0;
-            char unit = textBox_key.Text[textBox_key.Text.Length-1];
-            uint size = 0;
-            if (unit == 'M')
+            if (comboBox_datatype.SelectedIndex == 0)
             {
-                size = Convert.ToUInt32(textBox_key.Text.Substring(0, textBox_key.Text.Length - 1));
-                size = size * 1024 * 1000;
+                char unit = textBox_key.Text[textBox_key.Text.Length - 1];
+                uint size = 0;
+                if (unit == 'M')
+                {
+                    size = Convert.ToUInt32(textBox_key.Text.Substring(0, textBox_key.Text.Length - 1));
+                    size = size * 1024 * 1000;
+                }
+                else if (unit == 'K')
+                {
+                    size = Convert.ToUInt32(textBox_key.Text.Substring(0, textBox_key.Text.Length - 1));
+                    size = size * 1024;
+                }
+                else
+                {
+                    size = Convert.ToUInt32(textBox_key.Text);  //当做没有单位处理 默认byte
+                }
+                List<string> file = fine_filename(source_file_textBox.Text, size);
+                richTextBox_out.Text = "";
+                for (i = 0; i < file.Count; i++)
+                {
+                    richTextBox_out.AppendText(file[i] + "\r\n");
+                }
             }
-            else if (unit == 'K')
+            else if (comboBox_datatype.SelectedIndex == 1)
             {
-                size = Convert.ToUInt32(textBox_key.Text.Substring(0, textBox_key.Text.Length - 1));
-                size = size * 1024;
-            }
-            else
-            {
-                size = Convert.ToUInt32(textBox_key.Text);  //当做没有单位处理 默认byte
-            }
-            List<string> file=fine_filename(source_file_textBox.Text, size);
-            richTextBox_out.Text = "";
-            for (i = 0; i < file.Count; i++)
-            {
-                richTextBox_out.AppendText(file[i] + "\r\n");
+                string str = "", str_dir= source_file_textBox.Text,out_dir= label_outfilename.Text;
+                List<string> bmpfile = fine_filename(str_dir, this.textBox_key.Text);
+                str_dir = Directory.GetParent(source_file_textBox.Text).ToString();
+                if (Directory.Exists(out_dir))
+                {//do nothing
+                }
+                else
+                {
+                    Directory.CreateDirectory(out_dir);
+                }
+                richTextBox_out.Text = "";
+                for (i = 0; i < bmpfile.Count; i++)
+                {
+                    str = bmpfile[i];
+                    str =str.Replace(str_dir ,"").Replace("\\", "");
+                    File.Copy(bmpfile[i], out_dir + str, true);
+                    richTextBox_out.AppendText(str + "\r\n");
+                }
             }
         }
         private void statr_Process(string exe, string strInput)
@@ -2528,6 +2560,7 @@ namespace SYD_COPY_FILE
             this.label_datasize.Text = "提取数组大小:";
             this.label_key_word.Text = "关键字";
             this.source_file_button.Text = "选择文件";
+            this.label_outfile.Text = "输出文件名称:";
             if (comboBox_indicate_text.Count > 0)
             {
                 comboBox_indicate.Items.Clear();
@@ -2734,9 +2767,11 @@ namespace SYD_COPY_FILE
             {
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("找出大于等于临界值的文件");
+                this.comboBox_datatype.Items.Add("按照目录加文件名拷贝到输出目录");
                 this.label_data_type.Text = "  要做的工作：";
                 this.label_key_word.Text = "临界值";
                 this.source_file_button.Text = "选择目录";
+                this.label_outfile.Text = "输出目录名称:";
                 this.textBox_key.Text = "50M";
             }
             else if (comboBox_mode.SelectedIndex == 21)
@@ -2808,6 +2843,19 @@ namespace SYD_COPY_FILE
                     textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Rtc_Deviation_studio.txt", Encoding.Default);
                 }
                 
+            }
+            else if (comboBox_mode.SelectedIndex == 20)
+            {
+                if (comboBox_datatype.SelectedIndex == 1)
+                {
+                    this.label_key_word.Text = "扩展名";
+                    this.textBox_key.Text = ".bmp";
+                }
+                else
+                {
+                    this.label_key_word.Text = "临界值";
+                    this.textBox_key.Text = "50M";
+                }
             }
             else
             {

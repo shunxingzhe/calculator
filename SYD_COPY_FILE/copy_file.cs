@@ -121,6 +121,8 @@ namespace SYD_COPY_FILE
             }
 
             this.Text = name;
+
+            this.source_copyfile_suffix_textBox_rename.Items.Insert(0, source_copyfile_suffix_textBox_rename.Text);
         }
 
         private void update_state_explain(string pathcopy)

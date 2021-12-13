@@ -547,9 +547,15 @@ namespace SYD_COPY_FILE
         {
             if(picture_DragDrop_enable==false)
             {
-                FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-                if (folderDlg.ShowDialog() == DialogResult.OK)
-                    textBoxSaveDir.Text = folderDlg.SelectedPath;
+                //FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+                //if (folderDlg.ShowDialog() == DialogResult.OK)
+                //    textBoxSaveDir.Text = folderDlg.SelectedPath;
+
+                MyFolderBrowserDialog folderDlg = new MyFolderBrowserDialog();
+                if (folderDlg.ShowDialog(this) == DialogResult.OK)
+                {
+                    textBoxSaveDir.Text = folderDlg.DirectoryPath;
+                }
             }
             else
             {
