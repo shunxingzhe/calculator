@@ -22,7 +22,6 @@ namespace SYD_COPY_FILE
 
         private static UInt32 UTF8_CODE_BASS= 0X4E00;
         private static UInt32 UTF8_CODE_END= 0X9FA5;
-        private static UInt32 UTF8_MASK_ADDR= 0X0000;      //4E00-9FA5  0X9FA5-0X4E00=0X51A5=20901  20901*2=41802  41802/1024=40.822265625 
        
         private static UInt32 UTF8_SYMBLE1_BASS= 0X2010;
         private static UInt32 UTF8_SYMBLE1_END= 0X201F;

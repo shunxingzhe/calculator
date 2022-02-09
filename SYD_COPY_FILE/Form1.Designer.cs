@@ -138,7 +138,6 @@
             this.label75 = new System.Windows.Forms.Label();
             this.buttonSelSaveDir = new System.Windows.Forms.Button();
             this.textBoxSaveDir = new System.Windows.Forms.TextBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox17 = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button_replace = new System.Windows.Forms.Button();
@@ -516,10 +515,8 @@
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label79 = new System.Windows.Forms.Label();
             this.source_copyfile_prefix_textBox_rename = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.source_copyfile_textBox_rename = new System.Windows.Forms.TextBox();
             this.destination_file_textBox_rename = new System.Windows.Forms.TextBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.button_copy_sourcefile4 = new System.Windows.Forms.Button();
             this.destination_file_button_generate_rename = new System.Windows.Forms.Button();
             this.label80 = new System.Windows.Forms.Label();
@@ -549,7 +546,6 @@
             this.button_copy_destinationfileend_sync = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.destination_file_textBox_two_sync_checkBox = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.button_copy_sourcefile_all_sync = new System.Windows.Forms.Button();
             this.button_copy_destinationfile_sync = new System.Windows.Forms.Button();
             this.button_copy_sourcefile_sync = new System.Windows.Forms.Button();
@@ -560,7 +556,6 @@
             this.destination_file_textBox = new System.Windows.Forms.TextBox();
             this.destination_file_textBox_two = new System.Windows.Forms.TextBox();
             this.button25 = new System.Windows.Forms.Button();
-            this.pictureBox_interface = new System.Windows.Forms.PictureBox();
             this.checkBox_synccopy = new System.Windows.Forms.CheckBox();
             this.label_copy_time = new System.Windows.Forms.Label();
             this.pictureBox_lock = new System.Windows.Forms.PictureBox();
@@ -573,7 +568,6 @@
             this.destination_file_button_copy_sourcefile = new System.Windows.Forms.Button();
             this.button_copy_destinationfileend = new System.Windows.Forms.Button();
             this.destination_file_textBox_two_checkBox = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.TabCrontrol = new System.Windows.Forms.TabControl();
             this.contextMenuStripSplit.SuspendLayout();
             this.tabPage11.SuspendLayout();
@@ -619,7 +613,6 @@
             this.tabPage7.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_interface)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lock)).BeginInit();
             this.TabCrontrol.SuspendLayout();
             this.SuspendLayout();
@@ -811,7 +804,6 @@
             this.tabPage10.Controls.Add(this.label75);
             this.tabPage10.Controls.Add(this.buttonSelSaveDir);
             this.tabPage10.Controls.Add(this.textBoxSaveDir);
-            this.tabPage10.Controls.Add(this.checkBox16);
             this.tabPage10.Controls.Add(this.checkBox17);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
@@ -834,7 +826,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(715, 57);
+            this.checkBox2.Location = new System.Drawing.Point(703, 57);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(48, 16);
             this.checkBox2.TabIndex = 47;
@@ -940,7 +932,7 @@
             // 
             // textBox71
             // 
-            this.textBox71.Location = new System.Drawing.Point(483, 51);
+            this.textBox71.Location = new System.Drawing.Point(468, 51);
             this.textBox71.Name = "textBox71";
             this.textBox71.Size = new System.Drawing.Size(25, 21);
             this.textBox71.TabIndex = 52;
@@ -1054,7 +1046,7 @@
             // 
             // textBox77
             // 
-            this.textBox77.Location = new System.Drawing.Point(597, 51);
+            this.textBox77.Location = new System.Drawing.Point(582, 51);
             this.textBox77.Name = "textBox77";
             this.textBox77.Size = new System.Drawing.Size(25, 21);
             this.textBox77.TabIndex = 58;
@@ -1063,7 +1055,7 @@
             // label118
             // 
             this.label118.AutoSize = true;
-            this.label118.Location = new System.Drawing.Point(584, 55);
+            this.label118.Location = new System.Drawing.Point(569, 55);
             this.label118.Name = "label118";
             this.label118.Size = new System.Drawing.Size(17, 12);
             this.label118.TabIndex = 57;
@@ -1071,7 +1063,7 @@
             // 
             // textBox82
             // 
-            this.textBox82.Location = new System.Drawing.Point(559, 51);
+            this.textBox82.Location = new System.Drawing.Point(544, 51);
             this.textBox82.Name = "textBox82";
             this.textBox82.Size = new System.Drawing.Size(25, 21);
             this.textBox82.TabIndex = 56;
@@ -1080,7 +1072,7 @@
             // label119
             // 
             this.label119.AutoSize = true;
-            this.label119.Location = new System.Drawing.Point(546, 55);
+            this.label119.Location = new System.Drawing.Point(531, 55);
             this.label119.Name = "label119";
             this.label119.Size = new System.Drawing.Size(17, 12);
             this.label119.TabIndex = 55;
@@ -1088,7 +1080,7 @@
             // 
             // textBox73
             // 
-            this.textBox73.Location = new System.Drawing.Point(521, 51);
+            this.textBox73.Location = new System.Drawing.Point(506, 51);
             this.textBox73.Name = "textBox73";
             this.textBox73.Size = new System.Drawing.Size(25, 21);
             this.textBox73.TabIndex = 54;
@@ -1097,7 +1089,7 @@
             // label117
             // 
             this.label117.AutoSize = true;
-            this.label117.Location = new System.Drawing.Point(507, 55);
+            this.label117.Location = new System.Drawing.Point(492, 55);
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(17, 12);
             this.label117.TabIndex = 53;
@@ -1106,7 +1098,7 @@
             // label116
             // 
             this.label116.AutoSize = true;
-            this.label116.Location = new System.Drawing.Point(469, 55);
+            this.label116.Location = new System.Drawing.Point(454, 55);
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(17, 12);
             this.label116.TabIndex = 51;
@@ -1473,15 +1465,10 @@
             // 
             // button_Pickthecolor
             // 
-            this.button_Pickthecolor.Font = new System.Drawing.Font("宋体", 7F);
-            this.button_Pickthecolor.Location = new System.Drawing.Point(46, 111);
-            this.button_Pickthecolor.Margin = new System.Windows.Forms.Padding(0);
+            this.button_Pickthecolor.Location = new System.Drawing.Point(0, 0);
             this.button_Pickthecolor.Name = "button_Pickthecolor";
-            this.button_Pickthecolor.Size = new System.Drawing.Size(34, 28);
-            this.button_Pickthecolor.TabIndex = 55;
-            this.button_Pickthecolor.Text = "点取颜色";
-            this.button_Pickthecolor.UseVisualStyleBackColor = true;
-            this.button_Pickthecolor.Click += new System.EventHandler(this.button_Pickthecolor_Click);
+            this.button_Pickthecolor.Size = new System.Drawing.Size(75, 23);
+            this.button_Pickthecolor.TabIndex = 69;
             // 
             // textBoxSplitRGB565
             // 
@@ -1749,7 +1736,6 @@
             // 
             // textBoxSaveDir
             // 
-            this.textBoxSaveDir.AllowDrop = true;
             this.textBoxSaveDir.Location = new System.Drawing.Point(109, 28);
             this.textBoxSaveDir.Name = "textBoxSaveDir";
             this.textBoxSaveDir.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1758,17 +1744,6 @@
             this.textBoxSaveDir.Text = "C:\\Users\\HP\\Desktop";
             this.textBoxSaveDir.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBoxSaveDir.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
-            // 
-            // checkBox16
-            // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(625, 58);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(96, 16);
-            this.checkBox16.TabIndex = 73;
-            this.checkBox16.Text = "使能拖动输入";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            this.checkBox16.Click += new System.EventHandler(this.checkBox16_Click);
             // 
             // checkBox17
             // 
@@ -5828,10 +5803,8 @@
             this.tabPage7.Controls.Add(this.comboBox7);
             this.tabPage7.Controls.Add(this.label79);
             this.tabPage7.Controls.Add(this.source_copyfile_prefix_textBox_rename);
-            this.tabPage7.Controls.Add(this.textBox12);
             this.tabPage7.Controls.Add(this.source_copyfile_textBox_rename);
             this.tabPage7.Controls.Add(this.destination_file_textBox_rename);
-            this.tabPage7.Controls.Add(this.checkBox6);
             this.tabPage7.Controls.Add(this.button_copy_sourcefile4);
             this.tabPage7.Controls.Add(this.destination_file_button_generate_rename);
             this.tabPage7.Controls.Add(this.label80);
@@ -5913,17 +5886,6 @@
             this.source_copyfile_prefix_textBox_rename.Size = new System.Drawing.Size(190, 20);
             this.source_copyfile_prefix_textBox_rename.TabIndex = 37;
             // 
-            // textBox12
-            // 
-            this.textBox12.AllowDrop = true;
-            this.textBox12.Location = new System.Drawing.Point(4, 110);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox12.Size = new System.Drawing.Size(465, 57);
-            this.textBox12.TabIndex = 49;
-            this.textBox12.Text = "修改说明";
-            // 
             // source_copyfile_textBox_rename
             // 
             this.source_copyfile_textBox_rename.AllowDrop = true;
@@ -5943,16 +5905,6 @@
             this.destination_file_textBox_rename.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.destination_file_textBox_rename.Size = new System.Drawing.Size(454, 21);
             this.destination_file_textBox_rename.TabIndex = 36;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(475, 109);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(108, 16);
-            this.checkBox6.TabIndex = 50;
-            this.checkBox6.Text = "生成时使用说明";
-            this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // button_copy_sourcefile4
             // 
@@ -6055,7 +6007,6 @@
             this.tabPage6.Controls.Add(this.button_copy_destinationfileend_sync);
             this.tabPage6.Controls.Add(this.label5);
             this.tabPage6.Controls.Add(this.destination_file_textBox_two_sync_checkBox);
-            this.tabPage6.Controls.Add(this.checkBox8);
             this.tabPage6.Controls.Add(this.button_copy_sourcefile_all_sync);
             this.tabPage6.Controls.Add(this.button_copy_destinationfile_sync);
             this.tabPage6.Controls.Add(this.button_copy_sourcefile_sync);
@@ -6273,16 +6224,6 @@
             this.destination_file_textBox_two_sync_checkBox.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.destination_file_textBox_two_sync_checkBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(286, 129);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(108, 16);
-            this.checkBox8.TabIndex = 51;
-            this.checkBox8.Text = "生成时使用说明";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
             // button_copy_sourcefile_all_sync
             // 
             this.button_copy_sourcefile_all_sync.Image = global::SYD_COPY_FILE.Properties.Resources.arrows45X200;
@@ -6329,7 +6270,6 @@
             this.tabPage5.Controls.Add(this.destination_file_textBox);
             this.tabPage5.Controls.Add(this.destination_file_textBox_two);
             this.tabPage5.Controls.Add(this.button25);
-            this.tabPage5.Controls.Add(this.pictureBox_interface);
             this.tabPage5.Controls.Add(this.checkBox_synccopy);
             this.tabPage5.Controls.Add(this.label_copy_time);
             this.tabPage5.Controls.Add(this.pictureBox_lock);
@@ -6342,7 +6282,6 @@
             this.tabPage5.Controls.Add(this.destination_file_button_copy_sourcefile);
             this.tabPage5.Controls.Add(this.button_copy_destinationfileend);
             this.tabPage5.Controls.Add(this.destination_file_textBox_two_checkBox);
-            this.tabPage5.Controls.Add(this.checkBox9);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(756, 552);
@@ -6403,16 +6342,6 @@
             this.button25.Text = "Clear";
             this.button25.UseVisualStyleBackColor = true;
             this.button25.Click += new System.EventHandler(this.clear_copyfile_button_Click);
-            // 
-            // pictureBox_interface
-            // 
-            this.pictureBox_interface.Image = global::SYD_COPY_FILE.Properties.Resources.min;
-            this.pictureBox_interface.Location = new System.Drawing.Point(35, 34);
-            this.pictureBox_interface.Name = "pictureBox_interface";
-            this.pictureBox_interface.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox_interface.TabIndex = 38;
-            this.pictureBox_interface.TabStop = false;
-            this.pictureBox_interface.Click += new System.EventHandler(this.pictureBoxinterface_Click);
             // 
             // checkBox_synccopy
             // 
@@ -6535,16 +6464,6 @@
             this.destination_file_textBox_two_checkBox.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.destination_file_textBox_two_checkBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(318, 129);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(108, 16);
-            this.checkBox9.TabIndex = 52;
-            this.checkBox9.Text = "生成时使用说明";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
             // TabCrontrol
             // 
             this.TabCrontrol.Controls.Add(this.tabPage5);
@@ -6573,7 +6492,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.5.1";
+            this.Text = "SYD_Calculator V1.5.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -6656,7 +6575,6 @@
             this.tabPage6.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_interface)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lock)).EndInit();
             this.TabCrontrol.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -7021,10 +6939,8 @@
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TextBox source_copyfile_prefix_textBox_rename;
-        private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox source_copyfile_textBox_rename;
         private System.Windows.Forms.TextBox destination_file_textBox_rename;
-        private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox_systemtime_rename;
         private System.Windows.Forms.ComboBox comboBox_timetype_rename;
         private System.Windows.Forms.Button button_copy_sourcefile4;
@@ -7054,14 +6970,12 @@
         private System.Windows.Forms.Button button_copy_destinationfile_sync;
         private System.Windows.Forms.Button button_copy_sourcefile_sync;
         private System.Windows.Forms.CheckBox destination_file_textBox_two_sync_checkBox;
-        private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TextBox textBox_copy_destinationfileend;
         private System.Windows.Forms.TextBox source_copyfile_textBox;
         private System.Windows.Forms.TextBox destination_file_textBox;
         private System.Windows.Forms.TextBox destination_file_textBox_two;
         private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.PictureBox pictureBox_interface;
         private System.Windows.Forms.CheckBox checkBox_synccopy;
         private System.Windows.Forms.Label label_copy_time;
         private System.Windows.Forms.PictureBox pictureBox_lock;
@@ -7074,7 +6988,6 @@
         private System.Windows.Forms.Button destination_file_button_copy_sourcefile;
         private System.Windows.Forms.Button button_copy_destinationfileend;
         private System.Windows.Forms.CheckBox destination_file_textBox_two_checkBox;
-        private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.TabControl TabCrontrol;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button35;
@@ -7180,7 +7093,6 @@
         private System.Windows.Forms.CheckBox checkBox12;
         private System.Windows.Forms.CheckBox checkBox14;
         private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox16;
         private System.Windows.Forms.Button button44;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Label label124;

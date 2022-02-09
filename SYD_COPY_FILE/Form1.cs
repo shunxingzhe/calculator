@@ -67,13 +67,6 @@ namespace SYD_COPY_FILE
 
             pictureBoxinterface_Click(null,null);
 
-//#if _SYDTEK_INTERNAL_
-//            this.Text = "SYD_Calculator_INTERNAL " + Settings1.Default.Setting_VERSION;
-//#else
-//            tabPage11.Parent = null;
-//            this.Text="SYD_Calculator_release "+Settings1.Default.Setting_VERSION;
-//#endif
-
             AdjustComboBoxDropDownListWidth(comboBox5);
         }
 
@@ -774,14 +767,12 @@ namespace SYD_COPY_FILE
             if (min == true)
             {
                 pictureBox_interface_ismin = false;
-                pictureBox_interface.Image = Properties.Resources.max;
                 this.Width = 612;
                 this.Height = 232;
             }
             else
             {
                 pictureBox_interface_ismin = true;
-                pictureBox_interface.Image = Properties.Resources.min;
                 this.Width = 782;
                 this.Height = 620;
             }
@@ -1477,7 +1468,6 @@ namespace SYD_COPY_FILE
             Settings1.Default.Setting_source_copyfile_suffix_textBox_rename = source_copyfile_suffix_textBox_rename.Text;
             Settings1.Default.Setting_checkBox10 = checkBox10.Checked;
             Settings1.Default.Setting_checkBox_systemtime_rename = checkBox_systemtime_rename.Checked;
-            Settings1.Default.Setting_checkBox6 = checkBox6.Checked;
             Settings1.Default.rename_mode_sel=comboBox7.SelectedIndex;
             Settings1.Default.Setting_checkBox_delete_srcfile=checkBox_delete_srcfile.Checked;
             Settings1.Default.Setting_textBoxSaveDir=textBoxSaveDir.Text;
@@ -1511,14 +1501,7 @@ namespace SYD_COPY_FILE
                 if (m.WParam.ToInt32() == SC_MAXIMIZE)   //拦截窗体最大化按钮
                 {
                     //log.Info("点击最大化按钮！");
-                    //pictureBoxinterface_Click(null, null);
                     SC_MAX = true;
-                    //BackgroundWorker work = new BackgroundWorker();
-
-                    //work.DoWork += new DoWorkEventHandler(pictureBoxinterface_Click);
-                    ////work.RunWorkerCompleted += new RunWorkerCompletedEventHandler(SettingTrimWrite_Completed);
-
-                    //work.RunWorkerAsync();
                 }
                 if (m.WParam.ToInt32() == SC_CLOSE)       //拦截窗体关闭按钮
                 {
@@ -1652,6 +1635,11 @@ namespace SYD_COPY_FILE
                 data[i] = reverseBits(data[i]);
             }
             textBox_whitening_out.Text = "0x" + byteToHexStr(data);
+        }
+
+        private void checkBox16_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

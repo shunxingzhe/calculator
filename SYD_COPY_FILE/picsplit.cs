@@ -23,13 +23,11 @@ namespace SYD_COPY_FILE
         SpliteRectGroup _splitRectGroup = new SpliteRectGroup();
 
         bool _Hiddenborder = true;
-        bool _Pickthecolor = true;
         UInt32 Origin_x = 0,Origin_y = 0;
         int widthNew = 0;
         int heightNew = 0;
         string File_Filter = "xls files (*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp|All files (*.*)|*.*";
         byte ui_align_select = 0;
-        bool picture_DragDrop_enable = false;
         public enum UI_ALIGN_SELECT_TYPE
         {
             ALIGN_CENTER = 0,
@@ -524,52 +522,12 @@ namespace SYD_COPY_FILE
             {
             }
         }
-        private void buttonOpendir_Doing(string FileName)
-        {
-            string width , height;
-            string name = Path.GetExtension(FileName);
-            if (File_Filter.Contains(name.ToLower()) == false)
-            {
-                MessageBox.Show("File type not suppert!");
-                return;
-            }
-            textBoxSaveDir.Text = FileName;
-            using (FileStream fs = new FileStream(FileName, FileMode.Open, FileAccess.Read))
-            {
-                System.Drawing.Image image = System.Drawing.Image.FromStream(fs);
-                width = image.Width.ToString();
-                height = image.Height.ToString();
-                textBox54.Text = width;
-                textBox69.Text = height;
-            }
-        }
         private void buttonSelSaveDir_Click(object sender, EventArgs e)
         {
-            if(picture_DragDrop_enable==false)
+            MyFolderBrowserDialog folderDlg = new MyFolderBrowserDialog();
+            if (folderDlg.ShowDialog(this) == DialogResult.OK)
             {
-                //FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-                //if (folderDlg.ShowDialog() == DialogResult.OK)
-                //    textBoxSaveDir.Text = folderDlg.SelectedPath;
-
-                MyFolderBrowserDialog folderDlg = new MyFolderBrowserDialog();
-                if (folderDlg.ShowDialog(this) == DialogResult.OK)
-                {
-                    textBoxSaveDir.Text = folderDlg.DirectoryPath;
-                }
-            }
-            else
-            {
-                OpenFileDialog fileDialog1 = new OpenFileDialog();
-                fileDialog1.Filter = File_Filter;
-                fileDialog1.FilterIndex = 1;
-                fileDialog1.RestoreDirectory = true;
-                if (fileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    buttonOpendir_Doing(fileDialog1.FileName);
-                }
-                else
-                {
-                }
+                textBoxSaveDir.Text = folderDlg.DirectoryPath;
             }
         }
         private void pictureBoxSrc_Click(object sender, EventArgs e)
@@ -591,11 +549,6 @@ namespace SYD_COPY_FILE
             }
             buttonZoomOut_Click(null, null);
             buttonZoomIn_Click(null, null);
-        }
-
-        private void button_Pickthecolor_Click(object sender, EventArgs e)
-        {
-            _Pickthecolor = true;
         }
         private void toolStripMenuItemSetOrigine_Click(object sender, EventArgs e)
         {
@@ -876,19 +829,6 @@ namespace SYD_COPY_FILE
             ui_align_select = (Byte)UI_ALIGN_SELECT_TYPE.ALIGN_RIGHT_BOTTOM; //左对齐
             pictureBox1.Image = Properties.Resources.Align_right_bottom;
             ui_align_click(sender);
-        }
-        private void checkBox16_Click(object sender, EventArgs e)
-        {
-            if (checkBox16.Checked == true)
-            {
-                picture_DragDrop_enable = true;
-                buttonSelSaveDir.Text = "打开/拖动图片";
-            }
-            else
-            {
-                picture_DragDrop_enable = false;
-                buttonSelSaveDir.Text = "选择路径";
-            }
         }
         private void splitContainerMain_Panel2_DragDrop(object sender, DragEventArgs e)
         {

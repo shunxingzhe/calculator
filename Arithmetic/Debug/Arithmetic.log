@@ -1,4 +1,8 @@
-﻿  Arithmetic.vcxproj -> F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.dll
+﻿  stdafx.cpp
+  Arithmetic.cpp
+  dllmain.cpp
+    正在创建库 F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.lib 和对象 F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.exp
+  Arithmetic.vcxproj -> F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.dll
   已复制         1 个文件。
   已复制         1 个文件。
   已复制         1 个文件。

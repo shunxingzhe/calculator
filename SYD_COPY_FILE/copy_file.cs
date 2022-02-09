@@ -50,7 +50,6 @@ namespace SYD_COPY_FILE
                 source_copyfile_suffix_textBox_rename.Text = Settings1.Default.Setting_source_copyfile_suffix_textBox_rename.Trim(); 
             checkBox10.Checked = Settings1.Default.Setting_checkBox10;
             checkBox_systemtime_rename.Checked = Settings1.Default.Setting_checkBox_systemtime_rename;
-            checkBox6.Checked = Settings1.Default.Setting_checkBox6;
             checkBox_delete_srcfile.Checked = Settings1.Default.Setting_checkBox_delete_srcfile;
             
             comboBox_Common_path.SelectedIndex = 0;
@@ -124,19 +123,6 @@ namespace SYD_COPY_FILE
 
             this.source_copyfile_suffix_textBox_rename.Items.Insert(0, source_copyfile_suffix_textBox_rename.Text);
         }
-
-        private void update_state_explain(string pathcopy)
-        {
-
-            string path = System.IO.Path.GetDirectoryName(pathcopy) + "\\" + System.IO.Path.GetFileNameWithoutExtension(pathcopy);
-            path = path + "_explain.txt";
-            FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            StreamWriter sw = new StreamWriter(fs);
-            //fs.SetLength(0);//首先把文件清空了。
-            sw.Write(textBox12.Text);//写你的字符串。
-            sw.Close();
-        }
-
         private void source_copyfile_button_Click(object sender, EventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -209,13 +195,6 @@ namespace SYD_COPY_FILE
                     else if (sender == textBoxSrcPic)
                     {
                         buttonOpenPic_Doing(fi.FullName);
-                    }
-                    else if (sender == textBoxSaveDir)
-                    {
-                        if(picture_DragDrop_enable==true)
-                        {
-                            buttonOpendir_Doing(fi.FullName);
-                        }
                     }
                     else
                         textbox.Text = fi.FullName; 
@@ -321,10 +300,6 @@ namespace SYD_COPY_FILE
                 //    MessageBox.Show("destination file1 inexistence");
 
                 update_state(name,destination_file_textBox.Text);
-                if (checkBox9.Checked == true)
-                {
-                    update_state_explain(@destination_file_textBox.Text);
-                }
             }
             else 
                MessageBox.Show("source file inexistence");
@@ -587,10 +562,6 @@ namespace SYD_COPY_FILE
                 }
 
                 update_state(name, destination_file_textBox_sync.Text);
-                if (checkBox8.Checked == true)
-                {
-                    update_state_explain(destination_file_textBox_sync.Text);
-                }
             }
             else
                 MessageBox.Show("source file inexistence");
@@ -705,10 +676,6 @@ namespace SYD_COPY_FILE
                             File.Copy(@source_copyfile_textBox_sync.Text + "\\bin\\Debug\\SYDTEK_Studio.exe", @destination_file_textBox_two_sync.Text, true);
                             File.Copy(@source_copyfile_textBox_sync.Text + "\\bin\\Factory\\SYDTEK_Studio.exe", @textBox_copy_destinationfileend_sync.Text, true);
                             File.Copy(@source_copyfile_textBox_sync.Text + "\\bin\\Release\\SYDTEK_Studio.exe", @destination_file_textBox_sync.Text, true);
-                            if (checkBox8.Checked == true)
-                            {
-                                update_state_explain(destination_file_textBox_sync.Text);
-                            }
                             update_state(name, destination_file_textBox_sync.Text);
                         }
                         else
@@ -830,10 +797,6 @@ namespace SYD_COPY_FILE
 
                     cope_to_Clipboard(destFileName);
 
-                    if (checkBox6.Checked == true)
-                    {
-                        update_state_explain(destFileName);
-                    }
                     if (checkBox10.Checked == true)
                     {
                         source_copyfile_textBox_sync.Text = source_copyfile_textBox_rename.Text;
