@@ -38,7 +38,18 @@
             this.toolStripMenuItemSetOrigine = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemClearOrigin = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.checkBox_backgrounddisplay = new System.Windows.Forms.CheckBox();
+            this.label_ui_pich = new System.Windows.Forms.Label();
+            this.label136 = new System.Windows.Forms.Label();
+            this.label_ui_picw = new System.Windows.Forms.Label();
+            this.label139 = new System.Windows.Forms.Label();
+            this.label_ui_picy = new System.Windows.Forms.Label();
+            this.label134 = new System.Windows.Forms.Label();
+            this.label_ui_picx = new System.Windows.Forms.Label();
+            this.label137 = new System.Windows.Forms.Label();
+            this.label_ui_topy = new System.Windows.Forms.Label();
+            this.label133 = new System.Windows.Forms.Label();
+            this.label_ui_topx = new System.Windows.Forms.Label();
+            this.label135 = new System.Windows.Forms.Label();
             this.button32 = new System.Windows.Forms.Button();
             this.button_save_interface = new System.Windows.Forms.Button();
             this.button_picture_background = new System.Windows.Forms.Button();
@@ -46,6 +57,7 @@
             this.textBox_picture_path = new System.Windows.Forms.TextBox();
             this.button_openpicture = new System.Windows.Forms.Button();
             this.panel_pictureplatfrom = new System.Windows.Forms.Panel();
+            this.checkBox_backgrounddisplay = new System.Windows.Forms.CheckBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.button_Batch_convert_format_Click = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -569,6 +581,9 @@
             this.button_copy_destinationfileend = new System.Windows.Forms.Button();
             this.destination_file_textBox_two_checkBox = new System.Windows.Forms.CheckBox();
             this.TabCrontrol = new System.Windows.Forms.TabControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripSplit.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
@@ -615,6 +630,7 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lock)).BeginInit();
             this.TabCrontrol.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -667,7 +683,18 @@
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.checkBox_backgrounddisplay);
+            this.tabPage11.Controls.Add(this.label_ui_pich);
+            this.tabPage11.Controls.Add(this.label136);
+            this.tabPage11.Controls.Add(this.label_ui_picw);
+            this.tabPage11.Controls.Add(this.label139);
+            this.tabPage11.Controls.Add(this.label_ui_picy);
+            this.tabPage11.Controls.Add(this.label134);
+            this.tabPage11.Controls.Add(this.label_ui_picx);
+            this.tabPage11.Controls.Add(this.label137);
+            this.tabPage11.Controls.Add(this.label_ui_topy);
+            this.tabPage11.Controls.Add(this.label133);
+            this.tabPage11.Controls.Add(this.label_ui_topx);
+            this.tabPage11.Controls.Add(this.label135);
             this.tabPage11.Controls.Add(this.button32);
             this.tabPage11.Controls.Add(this.button_save_interface);
             this.tabPage11.Controls.Add(this.button_picture_background);
@@ -675,6 +702,7 @@
             this.tabPage11.Controls.Add(this.textBox_picture_path);
             this.tabPage11.Controls.Add(this.button_openpicture);
             this.tabPage11.Controls.Add(this.panel_pictureplatfrom);
+            this.tabPage11.Controls.Add(this.checkBox_backgrounddisplay);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Size = new System.Drawing.Size(756, 552);
@@ -682,22 +710,119 @@
             this.tabPage11.Text = "UI";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // checkBox_backgrounddisplay
+            // label_ui_pich
             // 
-            this.checkBox_backgrounddisplay.AutoSize = true;
-            this.checkBox_backgrounddisplay.Location = new System.Drawing.Point(344, 36);
-            this.checkBox_backgrounddisplay.Name = "checkBox_backgrounddisplay";
-            this.checkBox_backgrounddisplay.Size = new System.Drawing.Size(96, 16);
-            this.checkBox_backgrounddisplay.TabIndex = 48;
-            this.checkBox_backgrounddisplay.Text = "隐藏背景界面";
-            this.checkBox_backgrounddisplay.UseVisualStyleBackColor = true;
-            this.checkBox_backgrounddisplay.CheckedChanged += new System.EventHandler(this.ccheckBox_backgrounddisplay_CheckedChanged);
+            this.label_ui_pich.AutoSize = true;
+            this.label_ui_pich.Location = new System.Drawing.Point(259, 412);
+            this.label_ui_pich.Name = "label_ui_pich";
+            this.label_ui_pich.Size = new System.Drawing.Size(23, 12);
+            this.label_ui_pich.TabIndex = 60;
+            this.label_ui_pich.Text = "600";
+            // 
+            // label136
+            // 
+            this.label136.AutoSize = true;
+            this.label136.Location = new System.Drawing.Point(239, 412);
+            this.label136.Name = "label136";
+            this.label136.Size = new System.Drawing.Size(23, 12);
+            this.label136.TabIndex = 59;
+            this.label136.Text = "高:";
+            // 
+            // label_ui_picw
+            // 
+            this.label_ui_picw.AutoSize = true;
+            this.label_ui_picw.Location = new System.Drawing.Point(211, 412);
+            this.label_ui_picw.Name = "label_ui_picw";
+            this.label_ui_picw.Size = new System.Drawing.Size(23, 12);
+            this.label_ui_picw.TabIndex = 58;
+            this.label_ui_picw.Text = "600";
+            // 
+            // label139
+            // 
+            this.label139.AutoSize = true;
+            this.label139.Location = new System.Drawing.Point(136, 412);
+            this.label139.Name = "label139";
+            this.label139.Size = new System.Drawing.Size(77, 12);
+            this.label139.TabIndex = 57;
+            this.label139.Text = "图片信息 宽:";
+            // 
+            // label_ui_picy
+            // 
+            this.label_ui_picy.AutoSize = true;
+            this.label_ui_picy.Location = new System.Drawing.Point(270, 428);
+            this.label_ui_picy.Name = "label_ui_picy";
+            this.label_ui_picy.Size = new System.Drawing.Size(23, 12);
+            this.label_ui_picy.TabIndex = 56;
+            this.label_ui_picy.Text = "600";
+            // 
+            // label134
+            // 
+            this.label134.AutoSize = true;
+            this.label134.Location = new System.Drawing.Point(256, 428);
+            this.label134.Name = "label134";
+            this.label134.Size = new System.Drawing.Size(17, 12);
+            this.label134.TabIndex = 55;
+            this.label134.Text = "Y:";
+            // 
+            // label_ui_picx
+            // 
+            this.label_ui_picx.AutoSize = true;
+            this.label_ui_picx.Location = new System.Drawing.Point(228, 428);
+            this.label_ui_picx.Name = "label_ui_picx";
+            this.label_ui_picx.Size = new System.Drawing.Size(23, 12);
+            this.label_ui_picx.TabIndex = 54;
+            this.label_ui_picx.Text = "600";
+            // 
+            // label137
+            // 
+            this.label137.AutoSize = true;
+            this.label137.Location = new System.Drawing.Point(136, 428);
+            this.label137.Name = "label137";
+            this.label137.Size = new System.Drawing.Size(95, 12);
+            this.label137.TabIndex = 53;
+            this.label137.Text = "图片起始位置 X:";
+            // 
+            // label_ui_topy
+            // 
+            this.label_ui_topy.AutoSize = true;
+            this.label_ui_topy.Location = new System.Drawing.Point(270, 444);
+            this.label_ui_topy.Name = "label_ui_topy";
+            this.label_ui_topy.Size = new System.Drawing.Size(23, 12);
+            this.label_ui_topy.TabIndex = 52;
+            this.label_ui_topy.Text = "600";
+            // 
+            // label133
+            // 
+            this.label133.AutoSize = true;
+            this.label133.Location = new System.Drawing.Point(256, 444);
+            this.label133.Name = "label133";
+            this.label133.Size = new System.Drawing.Size(17, 12);
+            this.label133.TabIndex = 51;
+            this.label133.Text = "Y:";
+            // 
+            // label_ui_topx
+            // 
+            this.label_ui_topx.AutoSize = true;
+            this.label_ui_topx.Location = new System.Drawing.Point(228, 444);
+            this.label_ui_topx.Name = "label_ui_topx";
+            this.label_ui_topx.Size = new System.Drawing.Size(23, 12);
+            this.label_ui_topx.TabIndex = 50;
+            this.label_ui_topx.Text = "600";
+            // 
+            // label135
+            // 
+            this.label135.AutoSize = true;
+            this.label135.Location = new System.Drawing.Point(136, 444);
+            this.label135.Name = "label135";
+            this.label135.Size = new System.Drawing.Size(95, 12);
+            this.label135.TabIndex = 49;
+            this.label135.Text = "当前鼠标位置 X:";
             // 
             // button32
             // 
-            this.button32.Location = new System.Drawing.Point(246, 90);
+            this.button32.Location = new System.Drawing.Point(230, 28);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(75, 23);
+            this.button32.Size = new System.Drawing.Size(65, 23);
             this.button32.TabIndex = 10;
             this.button32.Text = "导入界面";
             this.button32.UseVisualStyleBackColor = true;
@@ -705,9 +830,9 @@
             // 
             // button_save_interface
             // 
-            this.button_save_interface.Location = new System.Drawing.Point(246, 61);
+            this.button_save_interface.Location = new System.Drawing.Point(163, 28);
             this.button_save_interface.Name = "button_save_interface";
-            this.button_save_interface.Size = new System.Drawing.Size(75, 23);
+            this.button_save_interface.Size = new System.Drawing.Size(65, 23);
             this.button_save_interface.TabIndex = 9;
             this.button_save_interface.Text = "导出界面";
             this.button_save_interface.UseVisualStyleBackColor = true;
@@ -716,9 +841,9 @@
             // 
             // button_picture_background
             // 
-            this.button_picture_background.Location = new System.Drawing.Point(246, 32);
+            this.button_picture_background.Location = new System.Drawing.Point(75, 28);
             this.button_picture_background.Name = "button_picture_background";
-            this.button_picture_background.Size = new System.Drawing.Size(92, 23);
+            this.button_picture_background.Size = new System.Drawing.Size(86, 23);
             this.button_picture_background.TabIndex = 8;
             this.button_picture_background.Text = "选择背景图片";
             this.button_picture_background.UseVisualStyleBackColor = true;
@@ -726,23 +851,23 @@
             // 
             // richtextBox_picture_result
             // 
-            this.richtextBox_picture_result.Location = new System.Drawing.Point(2, 250);
+            this.richtextBox_picture_result.Location = new System.Drawing.Point(-2, 459);
             this.richtextBox_picture_result.Name = "richtextBox_picture_result";
-            this.richtextBox_picture_result.Size = new System.Drawing.Size(755, 297);
+            this.richtextBox_picture_result.Size = new System.Drawing.Size(755, 90);
             this.richtextBox_picture_result.TabIndex = 7;
             this.richtextBox_picture_result.Text = "";
             // 
             // textBox_picture_path
             // 
             this.textBox_picture_path.AllowDrop = true;
-            this.textBox_picture_path.Location = new System.Drawing.Point(322, 5);
+            this.textBox_picture_path.Location = new System.Drawing.Point(75, 4);
             this.textBox_picture_path.Name = "textBox_picture_path";
-            this.textBox_picture_path.Size = new System.Drawing.Size(434, 21);
+            this.textBox_picture_path.Size = new System.Drawing.Size(220, 21);
             this.textBox_picture_path.TabIndex = 6;
             // 
             // button_openpicture
             // 
-            this.button_openpicture.Location = new System.Drawing.Point(246, 3);
+            this.button_openpicture.Location = new System.Drawing.Point(-2, 3);
             this.button_openpicture.Name = "button_openpicture";
             this.button_openpicture.Size = new System.Drawing.Size(75, 23);
             this.button_openpicture.TabIndex = 5;
@@ -754,12 +879,24 @@
             // 
             this.panel_pictureplatfrom.AllowDrop = true;
             this.panel_pictureplatfrom.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel_pictureplatfrom.Location = new System.Drawing.Point(3, 4);
+            this.panel_pictureplatfrom.Location = new System.Drawing.Point(300, 3);
             this.panel_pictureplatfrom.Name = "panel_pictureplatfrom";
-            this.panel_pictureplatfrom.Size = new System.Drawing.Size(240, 240);
+            this.panel_pictureplatfrom.Size = new System.Drawing.Size(454, 454);
             this.panel_pictureplatfrom.TabIndex = 4;
             this.panel_pictureplatfrom.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel_pictureplatfrom_DragDrop);
             this.panel_pictureplatfrom.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel_pictureplatfrom_DragEnter);
+            this.panel_pictureplatfrom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_pictureplatfrom_top_MouseMove);
+            // 
+            // checkBox_backgrounddisplay
+            // 
+            this.checkBox_backgrounddisplay.AutoSize = true;
+            this.checkBox_backgrounddisplay.Location = new System.Drawing.Point(6, 33);
+            this.checkBox_backgrounddisplay.Name = "checkBox_backgrounddisplay";
+            this.checkBox_backgrounddisplay.Size = new System.Drawing.Size(72, 16);
+            this.checkBox_backgrounddisplay.TabIndex = 48;
+            this.checkBox_backgrounddisplay.Text = "隐藏背景";
+            this.checkBox_backgrounddisplay.UseVisualStyleBackColor = true;
+            this.checkBox_backgrounddisplay.CheckedChanged += new System.EventHandler(this.ccheckBox_backgrounddisplay_CheckedChanged);
             // 
             // tabPage10
             // 
@@ -6483,6 +6620,28 @@
             this.TabCrontrol.TabIndex = 24;
             this.TabCrontrol.SelectedIndexChanged += new System.EventHandler(this.TabCrontrol_SelectedIndexChanged);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.contextMenuStrip1.Name = "contextMenuStripSplit";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem1.Text = "删除";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem2.Text = "设置坐标";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6492,7 +6651,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.5.2";
+            this.Text = "SYD_Calculator V1.5.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -6577,6 +6736,7 @@
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lock)).EndInit();
             this.TabCrontrol.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -7122,6 +7282,21 @@
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.ComboBox source_copyfile_suffix_textBox_rename;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.Label label_ui_topy;
+        private System.Windows.Forms.Label label133;
+        private System.Windows.Forms.Label label_ui_topx;
+        private System.Windows.Forms.Label label135;
+        private System.Windows.Forms.Label label_ui_picy;
+        private System.Windows.Forms.Label label134;
+        private System.Windows.Forms.Label label_ui_picx;
+        private System.Windows.Forms.Label label137;
+        private System.Windows.Forms.Label label_ui_pich;
+        private System.Windows.Forms.Label label136;
+        private System.Windows.Forms.Label label_ui_picw;
+        private System.Windows.Forms.Label label139;
     }
 }
 

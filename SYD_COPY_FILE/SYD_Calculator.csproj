@@ -95,6 +95,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInputDialog.Designer.cs">
+      <DependentUpon>FrmInputDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="PicManage.cs" />
     <Compile Include="picsplit.cs">
       <SubType>Form</SubType>
@@ -115,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInputDialog.resx">
+      <DependentUpon>FrmInputDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

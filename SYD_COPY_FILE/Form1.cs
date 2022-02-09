@@ -1636,10 +1636,5 @@ namespace SYD_COPY_FILE
             }
             textBox_whitening_out.Text = "0x" + byteToHexStr(data);
         }
-
-        private void checkBox16_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

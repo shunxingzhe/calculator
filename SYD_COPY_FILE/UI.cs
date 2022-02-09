@@ -13,10 +13,16 @@ namespace SYD_COPY_FILE
 {
     public partial class Form1
     {
+        #region define 
+
+        private static int UI_SCREEN_WIDTH = 454;//屏幕宽度
+        private static int UI_SCREEN_HIGHT = 454;//屏幕高度
+
+        #endregion
         bool while_ture = true;
         List<int[]> clear_marray = new List<int[]>();
-        int x_clear_star = 240;
-        int y_clear_star = 240;
+        int x_clear_star = UI_SCREEN_WIDTH;
+        int y_clear_star = UI_SCREEN_HIGHT;
         int x_clear_stop = -1;
         int y_clear_stop = -1;
         int x_clear_stop_2 = -1;
@@ -39,9 +45,19 @@ namespace SYD_COPY_FILE
         {
             myBmp = new Bitmap(filename);
             myBmp = img_alpha(myBmp, 128);
+            if (myBmp == null)
+            {
+                MessageBox.Show("读取失败");
+                return;
+            }
+            if ((myBmp.Width > UI_SCREEN_WIDTH) || (myBmp.Height > UI_SCREEN_HIGHT))
+            {
+                MessageBox.Show("图片太大");
+                return;
+            }
+            if ((myBmp.Width+ x)>= UI_SCREEN_WIDTH) x = UI_SCREEN_WIDTH - myBmp.Width;
+            if ((myBmp.Height + y) >= UI_SCREEN_HIGHT) y = UI_SCREEN_WIDTH - myBmp.Height;
             pictureBox_temp = new SYDPictureBox();
-
-            //pictureBox_temp.BackColor = System.Drawing.Color.White;
             pictureBox_temp.BackColor = Color.Transparent;
 
             if (list_pictureBox.Count<SYDPictureBox>() != 0)
@@ -56,12 +72,12 @@ namespace SYD_COPY_FILE
             pictureBox_temp.Size = new System.Drawing.Size(67, 34);
             pictureBox_temp.TabIndex = 0;
             pictureBox_temp.TabStop = false;
-            //this.pictureBox_temp.Click += new System.EventHandler(this.pictureBox_temp_Click);
             pictureBox_temp.MouseDown += new System.Windows.Forms.MouseEventHandler(pictureBox_temp_MouseDown);
             pictureBox_temp.MouseMove += new System.Windows.Forms.MouseEventHandler(pictureBox_temp_MouseMove);
             pictureBox_temp.MouseUp += new System.Windows.Forms.MouseEventHandler(pictureBox_temp_MouseUp);
             pictureBox_temp.MouseWheel += new System.Windows.Forms.MouseEventHandler(pictureBox_temp_MouseWheel);
             pictureBox_temp.KeyDown += new System.Windows.Forms.KeyEventHandler(pictureBox_temp_KeyDown);
+            pictureBox_temp.ContextMenuStrip = contextMenuStrip1;
             ((System.ComponentModel.ISupportInitialize)(pictureBox_temp)).EndInit();
             this.panel_pictureplatfrom.Controls.Clear();
             list_pictureBox.Add(pictureBox_temp);
@@ -71,11 +87,6 @@ namespace SYD_COPY_FILE
             }
             pictureBox_temp.Focus();
             text_out(pictureBox_temp);
-            if (myBmp == null)
-            {
-                MessageBox.Show("读取失败");
-                return;
-            } 
             textBox_picture_path.Text = filename;
             pictureBox_temp.Image = myBmp;
             //pictureBox_temp.SizeMode = PictureBoxSizeMode.Zoom; //设置SYDPictureBox为缩放模式
@@ -156,12 +167,14 @@ namespace SYD_COPY_FILE
                 mouseDownPoint.Y = Cursor.Position.Y;
                 isMove = true;
                 senderLabel.Focus();
+                label_ui_picx.Text = senderLabel.Location.X.ToString();
+                label_ui_picy.Text = senderLabel.Location.Y.ToString();
+                label_ui_picw.Text = senderLabel.Width.ToString();
+                label_ui_pich.Text = senderLabel.Height.ToString();
             }
             if (e.Button == MouseButtons.Right)//右键点击
             {
-                this.panel_pictureplatfrom.Controls.Remove(senderLabel);
-                list_pictureBox.Remove(senderLabel);
-                dictionary_string.Remove(senderLabel.Name);
+
             }
         }
         //鼠标松开功能
@@ -197,9 +210,9 @@ namespace SYD_COPY_FILE
                 while (while_ture)
                 {
                     while_ture = false;
-                    x_clear_stop_2 = 239;
+                    x_clear_stop_2 = UI_SCREEN_WIDTH-1;
                     x_clear_star_2 = 0;
-                    for (int i = 0; i < 240; i++) 
+                    for (int i = 0; i < UI_SCREEN_HIGHT; i++) 
                     {
                         for (int j = x_clear_star_2; j < x_clear_stop_2 + 1; j++) 
                         {
@@ -249,21 +262,11 @@ namespace SYD_COPY_FILE
                                         y_clear_stop = i;
                                     }
                                 }
-                                //if ((j == x_clear_stop) && (i == 239))
-                                //{
-                                //    clear_marray.Add(new int[] { x_clear_star, y_clear_star, x_clear_stop + 1, y_clear_stop + 1 });
-                                //    x_clear_star = 240;
-                                //    y_clear_star = 240;
-                                //    x_clear_stop = -1;
-                                //    y_clear_stop = -1;
-                                //    i = 0; j = 0;
-                                //}
-
                             }
                             else
                             {
                                 if (x_clear_stop != -1) x_clear_stop_2 = x_clear_stop;
-                                if ((x_clear_star < 240) && (y_clear_star < 240)) 
+                                if ((x_clear_star < UI_SCREEN_WIDTH) && (y_clear_star < UI_SCREEN_WIDTH)) 
                                 {
 
                                     if (j < x_clear_stop)
@@ -273,12 +276,12 @@ namespace SYD_COPY_FILE
                                             y_clear_stop--;
                                         }
                                         clear_marray.Add(new int[] { x_clear_star, y_clear_star, x_clear_stop + 1, y_clear_stop + 1 });
-                                        x_clear_star = 240;
-                                        y_clear_star = 240;
+                                        x_clear_star = UI_SCREEN_WIDTH;
+                                        y_clear_star = UI_SCREEN_HIGHT;
                                         x_clear_stop = -1;
                                         y_clear_stop = -1;
                                         x_clear_star_2 = 0;
-                                        x_clear_stop_2 = 239;
+                                        x_clear_stop_2 = UI_SCREEN_WIDTH-1;
                                         i = 0; j = 0;
                                     }
                                     else 
@@ -287,20 +290,20 @@ namespace SYD_COPY_FILE
                                     }
                                 }
                             }
-                            if ((x_clear_star < 240) && (y_clear_star < 240))
+                            if ((x_clear_star < UI_SCREEN_WIDTH) && (y_clear_star < UI_SCREEN_HIGHT))
                             {
-                                if ((i == 239) && (j == x_clear_stop_2))
+                                if ((i == (UI_SCREEN_WIDTH - 1)) && (j == x_clear_stop_2))
                                 {
                                     clear_marray.Add(new int[] { x_clear_star, y_clear_star, x_clear_stop + 1, y_clear_stop + 1 });
-                                    x_clear_star = 240;
-                                    y_clear_star = 240;
+                                    x_clear_star = UI_SCREEN_WIDTH;
+                                    y_clear_star = UI_SCREEN_HIGHT;
                                     x_clear_stop = -1;
                                     y_clear_stop = -1;
-                                    //if (j == 239)
+                                    //if (j == (UI_SCREEN_WIDTH - 1))
                                     {
                                         i = 0; j = 0;
                                         x_clear_star_2 = 0;
-                                        x_clear_stop_2 = 239;
+                                        x_clear_stop_2 = (UI_SCREEN_WIDTH - 1);
                                     }
                                 }
                             }
@@ -311,13 +314,7 @@ namespace SYD_COPY_FILE
                 {
 
                     stext = "oled_clear(" + list[0] + "," + list[1] + "," + list[2] + "," + list[3] + "," + "Color_Black)" + ";\n";
-                    //dictionary_string.Add(SYDPictureBox.Name, stext);
                     richtextBox_picture_result.Text += stext;
-
-                    //if (SYDPictureBox.Equals(senderLabel))
-                    //{
-                    //    lastLen = richtextBox_picture_result.Text.Length - lastIndex;
-                    //}
                 }
                 richtextBox_picture_result.Select(lastIndex, lastLen);
                 richtextBox_picture_result.SelectionColor = Color.Red;
@@ -393,40 +390,6 @@ namespace SYD_COPY_FILE
             VY = (int)((double)y * (oh - senderLabel.Height) / oh);
             senderLabel.Location = new Point(senderLabel.Location.X + VX, senderLabel.Location.Y + VY);
         }
-        private void panel_pictureplatfrom_MouseDown(object sender, MouseEventArgs e)
-        {
-            SYDPictureBox senderLabel = (SYDPictureBox)sender;//根据sender引用控件。
-            if (e.Button == MouseButtons.Left)
-            {
-                mouseDownPoint.X = Cursor.Position.X;
-                mouseDownPoint.Y = Cursor.Position.Y;
-                isMove = true;
-            }
-        }
-        private void panel_pictureplatfrom_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isMove = false;
-            }
-        }
-        private void panel_pictureplatfrom_MouseMove(object sender, MouseEventArgs e)
-        {
-            SYDPictureBox senderLabel = (SYDPictureBox)sender;//根据sender引用控件。
-            panel_pictureplatfrom.Focus();
-            if (isMove)
-            {
-                int x, y;
-                int moveX, moveY;
-                moveX = Cursor.Position.X - mouseDownPoint.X;
-                moveY = Cursor.Position.Y - mouseDownPoint.Y;
-                x = senderLabel.Location.X + moveX;
-                y = senderLabel.Location.Y + moveY;
-                senderLabel.Location = new Point(x, y);
-                mouseDownPoint.X = Cursor.Position.X;
-                mouseDownPoint.Y = Cursor.Position.Y;
-            }
-        }
         private void pictureBox_temp_KeyDown(object sender, KeyEventArgs e)
         {
             SYDPictureBox senderLabel = (SYDPictureBox)sender;//根据sender引用控件。
@@ -443,7 +406,7 @@ namespace SYD_COPY_FILE
 
             if (e.KeyCode == Keys.Down)
             {
-                if (senderLabel.Location.Y < 240 - senderLabel.Height)
+                if (senderLabel.Location.Y < UI_SCREEN_HIGHT - senderLabel.Height)
                     senderLabel.Location = new Point(senderLabel.Location.X, senderLabel.Location.Y + offect);
             }
             if (e.KeyCode == Keys.Left)
@@ -453,7 +416,7 @@ namespace SYD_COPY_FILE
             }
             if (e.KeyCode == Keys.Right)
             {
-                if (senderLabel.Location.X < 240 - senderLabel.Width)
+                if (senderLabel.Location.X < UI_SCREEN_WIDTH - senderLabel.Width)
                     senderLabel.Location = new Point(senderLabel.Location.X + offect, senderLabel.Location.Y);
             }
             if (e.KeyCode == Keys.Up)
@@ -625,10 +588,72 @@ namespace SYD_COPY_FILE
                 }
             }
         }
+        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            SYDPictureBox senderLabel = (SYDPictureBox)(contextMenuStrip1.SourceControl);//根据sender引用控件。
+            for (int i = 0; i < contextMenuStrip1.Items.Count; i++)
+            {
+                if (contextMenuStrip1.Items[i].Selected)
+                {
+                    if (contextMenuStrip1.Items[i].Text.Trim() == "设置坐标")
+                    {
+                        string strx = string.Empty, stry = string.Empty;
+                        if (InputDialog.Show(senderLabel.Location.X.ToString(), senderLabel.Location.Y.ToString(), out strx, out stry) == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                        if ((strx.Length == 0) || (stry.Length == 0))
+                        {
+                            MessageBox.Show("错误：输入为空");
+                            return;
+                        }
+                        int x = Convert.ToInt32(strx, 10);
+                        int y = Convert.ToInt32(stry, 10);
+                        if((y < 0) || (x<0) || ((x + senderLabel.Width) > UI_SCREEN_WIDTH) || ((y + senderLabel.Height) > UI_SCREEN_HIGHT))
+                        {
+                            MessageBox.Show("错误：x或y错误");
+                            return;
+                        }
+                        label_ui_picx.Text = strx;
+                        label_ui_picy.Text = stry;
+                        
+                        senderLabel.Location = new Point(x, y);
+                    }
+                    else if (contextMenuStrip1.Items[i].Text.Trim() == "删除")
+                    {
+                        this.panel_pictureplatfrom.Controls.Remove(senderLabel);
+                        list_pictureBox.Remove(senderLabel);
+                        dictionary_string.Remove(senderLabel.Name);
+                    }
+                }
+            }
+        }
+        private void panel_pictureplatfrom_top_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point point = panel_pictureplatfrom.PointToClient(Control.MousePosition);
+            label_ui_topx.Text = point.X.ToString();
+            label_ui_topy.Text = point.Y.ToString();
+        }
     }
 
     class SYDPictureBox : PictureBox
     {
         public string filename;
+    }
+    public static class InputDialog
+    {
+        public static DialogResult Show(string x, string y, out string strText, out string strText1)
+        {
+            string strTemp = string.Empty, strTemp1 = string.Empty;
+
+            FrmInputDialog inputDialog = new FrmInputDialog(x,y);
+            inputDialog.TextHandler = (str, str1) => { strTemp = str; strTemp1 = str1; };
+
+            DialogResult result = inputDialog.ShowDialog();
+            strText = strTemp;
+            strText1 = strTemp1;
+
+            return result;
+        }
     }
 }
