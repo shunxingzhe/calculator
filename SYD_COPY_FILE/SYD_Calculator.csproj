@@ -50,7 +50,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo_48X48.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -135,7 +136,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Align_left.jpg" />
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
@@ -150,32 +150,33 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="right.jpg" />
     <None Include="Settings1.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
-    <None Include="up.jpg" />
-    <None Include="dowm.jpg" />
-    <None Include="arrows1.jpg" />
-    <None Include="arrows2.jpg" />
-    <None Include="arrows3.jpg" />
-    <None Include="arrows4.jpg" />
-    <None Include="arrows45X200.jpg" />
-    <None Include="left.jpg" />
-    <Content Include="Align_bottom.jpg" />
-    <Content Include="Align_center.jpg" />
-    <None Include="Align_left_bottom.jpg" />
-    <None Include="Align_left_top.jpg" />
-    <Content Include="Align_right.jpg" />
-    <None Include="Align_right_bottom.jpg" />
-    <None Include="Align_right_top.jpg" />
-    <Content Include="Align_top.jpg" />
-    <Content Include="logo_48X48.ico" />
-    <None Include="unlock.png" />
-    <None Include="lock.png" />
-    <None Include="arrows45X50.jpg" />
-    <None Include="arrows.jpg" />
+    <Content Include="image\Align_bottom.jpg" />
+    <Content Include="image\Align_center.jpg" />
+    <Content Include="image\Align_left.jpg" />
+    <Content Include="image\Align_left_bottom.jpg" />
+    <Content Include="image\Align_left_top.jpg" />
+    <Content Include="image\Align_right.jpg" />
+    <Content Include="image\Align_right_bottom.jpg" />
+    <Content Include="image\Align_right_top.jpg" />
+    <Content Include="image\Align_top.jpg" />
+    <Content Include="image\arrows.jpg" />
+    <Content Include="image\arrows1.jpg" />
+    <Content Include="image\arrows2.jpg" />
+    <Content Include="image\arrows3.jpg" />
+    <Content Include="image\arrows4.jpg" />
+    <Content Include="image\arrows45X200.jpg" />
+    <Content Include="image\arrows45X50.jpg" />
+    <Content Include="image\arrows_orginal.jpg" />
+    <Content Include="image\dowm.jpg" />
+    <Content Include="image\left.jpg" />
+    <Content Include="image\lock.png" />
+    <Content Include="image\right.jpg" />
+    <Content Include="image\unlock.png" />
+    <Content Include="image\up.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

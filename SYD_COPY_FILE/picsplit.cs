@@ -325,7 +325,6 @@ namespace SYD_COPY_FILE
 
             //水平或垂直分割 
             SpliteMoveIndex index = _splitRectGroup.PointHit(e.X, e.Y, _splitRectGroup._defaultHitSpace);
-            label_dir.Text = index.direct.ToString();
             label_Index.Text = index.rectIndex.ToString();
             label_Line.Text = index.lineIndex.ToString();
             label_xsite.Text = index.mouseX.ToString();

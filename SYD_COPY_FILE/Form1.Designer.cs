@@ -125,8 +125,6 @@
             this.label102 = new System.Windows.Forms.Label();
             this.label_Index = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
-            this.label_dir = new System.Windows.Forms.Label();
-            this.label97 = new System.Windows.Forms.Label();
             this.label_ysite = new System.Windows.Forms.Label();
             this.label98 = new System.Windows.Forms.Label();
             this.label_xsite = new System.Windows.Forms.Label();
@@ -909,7 +907,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(703, 57);
+            this.checkBox2.Location = new System.Drawing.Point(638, 57);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(48, 16);
             this.checkBox2.TabIndex = 47;
@@ -1181,11 +1179,11 @@
             // label116
             // 
             this.label116.AutoSize = true;
-            this.label116.Location = new System.Drawing.Point(454, 55);
+            this.label116.Location = new System.Drawing.Point(405, 55);
             this.label116.Name = "label116";
-            this.label116.Size = new System.Drawing.Size(17, 12);
+            this.label116.Size = new System.Drawing.Size(65, 12);
             this.label116.TabIndex = 51;
-            this.label116.Text = "X0";
+            this.label116.Text = "图片位置X0";
             // 
             // label115
             // 
@@ -1217,11 +1215,11 @@
             this.splitContainerMain.Panel1.AllowDrop = true;
             this.splitContainerMain.Panel1.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainerMain.Panel1.Controls.Add(this.label74);
+            this.splitContainerMain.Panel1.Controls.Add(this.pictureBox18);
             this.splitContainerMain.Panel1.Controls.Add(this.groupBox25);
             this.splitContainerMain.Panel1.Controls.Add(this.label124);
             this.splitContainerMain.Panel1.Controls.Add(this.label125);
             this.splitContainerMain.Panel1.Controls.Add(this.label126);
-            this.splitContainerMain.Panel1.Controls.Add(this.pictureBox18);
             this.splitContainerMain.Panel1.Controls.Add(this.groupBox12);
             this.splitContainerMain.Panel1.Controls.Add(this.label111);
             this.splitContainerMain.Panel1.Controls.Add(this.label_11ysite);
@@ -1240,8 +1238,6 @@
             this.splitContainerMain.Panel1.Controls.Add(this.label102);
             this.splitContainerMain.Panel1.Controls.Add(this.label_Index);
             this.splitContainerMain.Panel1.Controls.Add(this.label100);
-            this.splitContainerMain.Panel1.Controls.Add(this.label_dir);
-            this.splitContainerMain.Panel1.Controls.Add(this.label97);
             this.splitContainerMain.Panel1.Controls.Add(this.label_ysite);
             this.splitContainerMain.Panel1.Controls.Add(this.label98);
             this.splitContainerMain.Panel1.Controls.Add(this.label_xsite);
@@ -1268,7 +1264,7 @@
             // 
             this.label74.AutoSize = true;
             this.label74.Font = new System.Drawing.Font("宋体", 7F);
-            this.label74.Location = new System.Drawing.Point(60, 458);
+            this.label74.Location = new System.Drawing.Point(62, 15);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(20, 10);
             this.label74.TabIndex = 68;
@@ -1335,7 +1331,7 @@
             // 
             this.label124.AutoSize = true;
             this.label124.Font = new System.Drawing.Font("宋体", 7F);
-            this.label124.Location = new System.Drawing.Point(49, 458);
+            this.label124.Location = new System.Drawing.Point(51, 15);
             this.label124.Name = "label124";
             this.label124.Size = new System.Drawing.Size(15, 10);
             this.label124.TabIndex = 67;
@@ -1345,7 +1341,7 @@
             // 
             this.label125.AutoSize = true;
             this.label125.Font = new System.Drawing.Font("宋体", 7F);
-            this.label125.Location = new System.Drawing.Point(30, 458);
+            this.label125.Location = new System.Drawing.Point(32, 15);
             this.label125.Name = "label125";
             this.label125.Size = new System.Drawing.Size(20, 10);
             this.label125.TabIndex = 66;
@@ -1355,17 +1351,17 @@
             // 
             this.label126.AutoSize = true;
             this.label126.Font = new System.Drawing.Font("宋体", 7F);
-            this.label126.Location = new System.Drawing.Point(-1, 458);
+            this.label126.Location = new System.Drawing.Point(1, 15);
             this.label126.Name = "label126";
             this.label126.Size = new System.Drawing.Size(35, 10);
             this.label126.TabIndex = 65;
-            this.label126.Text = "Ori W:";
+            this.label126.Text = "Pic W:";
             // 
             // pictureBox18
             // 
             this.pictureBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox18.Image = global::SYD_COPY_FILE.Properties.Resources.unlock;
-            this.pictureBox18.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox18.Location = new System.Drawing.Point(5, 431);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(29, 35);
             this.pictureBox18.TabIndex = 64;
@@ -1602,7 +1598,7 @@
             // 
             this.label_Line.AutoSize = true;
             this.label_Line.Font = new System.Drawing.Font("宋体", 7F);
-            this.label_Line.Location = new System.Drawing.Point(26, 445);
+            this.label_Line.Location = new System.Drawing.Point(28, 2);
             this.label_Line.Name = "label_Line";
             this.label_Line.Size = new System.Drawing.Size(15, 10);
             this.label_Line.TabIndex = 23;
@@ -1612,7 +1608,7 @@
             // 
             this.label102.AutoSize = true;
             this.label102.Font = new System.Drawing.Font("宋体", 7F);
-            this.label102.Location = new System.Drawing.Point(-1, 445);
+            this.label102.Location = new System.Drawing.Point(1, 2);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(30, 10);
             this.label102.TabIndex = 22;
@@ -1622,7 +1618,7 @@
             // 
             this.label_Index.AutoSize = true;
             this.label_Index.Font = new System.Drawing.Font("宋体", 7F);
-            this.label_Index.Location = new System.Drawing.Point(27, 434);
+            this.label_Index.Location = new System.Drawing.Point(63, 2);
             this.label_Index.Name = "label_Index";
             this.label_Index.Size = new System.Drawing.Size(20, 10);
             this.label_Index.TabIndex = 21;
@@ -1632,31 +1628,11 @@
             // 
             this.label100.AutoSize = true;
             this.label100.Font = new System.Drawing.Font("宋体", 7F);
-            this.label100.Location = new System.Drawing.Point(-3, 434);
+            this.label100.Location = new System.Drawing.Point(44, 2);
             this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(35, 10);
+            this.label100.Size = new System.Drawing.Size(25, 10);
             this.label100.TabIndex = 20;
-            this.label100.Text = "Index:";
-            // 
-            // label_dir
-            // 
-            this.label_dir.AutoSize = true;
-            this.label_dir.Font = new System.Drawing.Font("宋体", 7F);
-            this.label_dir.Location = new System.Drawing.Point(59, 445);
-            this.label_dir.Name = "label_dir";
-            this.label_dir.Size = new System.Drawing.Size(20, 10);
-            this.label_dir.TabIndex = 19;
-            this.label_dir.Text = "600";
-            // 
-            // label97
-            // 
-            this.label97.AutoSize = true;
-            this.label97.Font = new System.Drawing.Font("宋体", 7F);
-            this.label97.Location = new System.Drawing.Point(38, 445);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(25, 10);
-            this.label97.TabIndex = 18;
-            this.label97.Text = "dir:";
+            this.label100.Text = "Idx:";
             // 
             // label_ysite
             // 
@@ -6568,7 +6544,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.5.4";
+            this.Text = "SYD_Calculator V1.5.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -6699,8 +6675,6 @@
         private System.Windows.Forms.Label label102;
         private System.Windows.Forms.Label label_Index;
         private System.Windows.Forms.Label label100;
-        private System.Windows.Forms.Label label_dir;
-        private System.Windows.Forms.Label label97;
         private System.Windows.Forms.Label label_ysite;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label_xsite;
