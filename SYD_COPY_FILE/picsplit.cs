@@ -23,7 +23,6 @@ namespace SYD_COPY_FILE
         SpliteRectGroup _splitRectGroup = new SpliteRectGroup();
 
         bool _Hiddenborder = true;
-        UInt32 Origin_x = 0,Origin_y = 0;
         int widthNew = 0;
         int heightNew = 0;
         string File_Filter = "xls files (*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp|All files (*.*)|*.*";
@@ -139,7 +138,6 @@ namespace SYD_COPY_FILE
         }
         private void buttonSplite_firstpicture_Click(object sender, EventArgs e)
         {
-            //
             DateTime t1 = DateTime.Now;
             if (checkBox17.Checked)
             {
@@ -333,8 +331,8 @@ namespace SYD_COPY_FILE
             label_xsite.Text = index.mouseX.ToString();
             label_ysite.Text = index.mouseY.ToString();
             double rate=_zoomRate.GetRate();
-            label_11xsite.Text = ((int)(index.mouseX / rate-Origin_x)).ToString();
-            label_11ysite.Text = ((int)(index.mouseY / rate - Origin_x)).ToString();
+            label_11xsite.Text = ((int)(index.mouseX / rate)).ToString();
+            label_11ysite.Text = ((int)(index.mouseY / rate)).ToString();
 
             if (_pictureBoxSrcMouseDown)
             {
@@ -369,20 +367,6 @@ namespace SYD_COPY_FILE
         }
 
         bool _pictureBoxSrcMouseDown = false;
-        SpliteMoveIndex _lastDeleteIndex = null;
-        Point _lastRightButton = new Point(0, 0);
-
-        private void ToolStripMenuItemDeleteLine_Click(object sender, EventArgs e)
-        {
-            _splitRectGroup.DeleteHorSplite(_lastDeleteIndex);
-            pictureBoxSrc.Invalidate();
-        }
-
-        private void ToolStripMenuItemAddHor_Click(object sender, EventArgs e)
-        {
-            _splitRectGroup.AddHorLine(_lastRightButton.X, _lastRightButton.Y);
-            pictureBoxSrc.Invalidate();
-        }
 
         private void pictureBoxSrc_MouseDown(object sender, MouseEventArgs e)
         {
@@ -401,53 +385,14 @@ namespace SYD_COPY_FILE
                 cal_rgb_subtract(textBoxSplitR, textBoxSplitG, textBoxSplitB, textBoxSplitRGB565);
             }
         }
-
-        string _strRectNotUsed = "不参与切割";
-        string _strRectUsed = "参与切割";
         private void pictureBoxSrc_MouseUp(object sender, MouseEventArgs e)
         {
             _pictureBoxSrcMouseDown = false;
 
             if (e.Button == MouseButtons.Right)
             {
-                _lastDeleteIndex = _splitRectGroup.PointHit(e.X, e.Y, _splitRectGroup._defaultHitSpace);
-                if (_lastDeleteIndex.IsHorIn())
-                {
-                    contextMenuStripSplit.Show(pictureBoxSrc.PointToScreen(new Point(e.X, e.Y)));
-                    contextMenuStripSplit.Items[0].Enabled = true;
-                    contextMenuStripSplit.Items[1].Enabled = false;
-                    contextMenuStripSplit.Items[2].Enabled = false;
-                }
-                else if (_splitRectGroup.PointInRect(e.X, e.Y))
-                {
-                    contextMenuStripSplit.Items[2].Enabled = true;
-                    _lastRightButton = new Point(e.X, e.Y);
-                    contextMenuStripSplit.Show(pictureBoxSrc.PointToScreen(new Point(e.X, e.Y)));
-                    contextMenuStripSplit.Items[0].Enabled = false;
-                    contextMenuStripSplit.Items[1].Enabled = true;
-                    //此块区域是否不要
-                    bool notUsed = _splitRectGroup.IsNotUsed(e.X, e.Y);
-                    if (notUsed)
-                        contextMenuStripSplit.Items[2].Text = _strRectUsed;
-                    else
-                        contextMenuStripSplit.Items[2].Text = _strRectNotUsed;
-                }
             }
         }
-
-        private void ToolStripMenuItemSplitOption_Click(object sender, EventArgs e)
-        {
-            if(contextMenuStripSplit.Items[2].Text == _strRectUsed)
-            {
-                _splitRectGroup.AddRectUsed(_lastRightButton.X, _lastRightButton.Y);
-            }
-            else
-            {
-                _splitRectGroup.DelRectUsed(_lastRightButton.X, _lastRightButton.Y);
-            }
-            pictureBoxSrc.Invalidate();
-        }
-
         private void pictureBoxSrc_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -530,11 +475,6 @@ namespace SYD_COPY_FILE
                 textBoxSaveDir.Text = folderDlg.DirectoryPath;
             }
         }
-        private void pictureBoxSrc_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button_Hiddenborder_Click(object sender, EventArgs e)
         {
             if (_Hiddenborder == true)
@@ -549,34 +489,6 @@ namespace SYD_COPY_FILE
             }
             buttonZoomOut_Click(null, null);
             buttonZoomIn_Click(null, null);
-        }
-        private void toolStripMenuItemSetOrigine_Click(object sender, EventArgs e)
-        {
-            Origin_x = Convert.ToUInt32(label_11xsite.Text);
-            Origin_y = Convert.ToUInt32(label_11ysite.Text);
-            textBoxOrigin.Text = label_11xsite.Text + ":" + label_11ysite.Text;
-        }
-        private void ToolStripMenuItemClearOrigin_Click(object sender, EventArgs e)
-        {
-            Origin_x = 0;
-            Origin_y = 0;
-            textBoxOrigin.Text = "0:0";
-        }
-        private void textBoxOrigin_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (textBoxOrigin.Text.Contains(":"))
-                {
-                    string[] sArray = textBoxOrigin.Text.Split(':');
-                    Origin_x = Convert.ToUInt32(sArray[0]);
-                    Origin_y = Convert.ToUInt32(sArray[1]);
-                }
-                else
-                {
-                    MessageBox.Show("input data error");
-                }
-            }
         }
         private void ui_xy_cal()
         {

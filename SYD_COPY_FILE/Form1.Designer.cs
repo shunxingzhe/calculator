@@ -31,12 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStripSplit = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ToolStripMenuItemDeleteLine = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAddHor = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemSplitOption = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemSetOrigine = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemClearOrigin = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.label_ui_pich = new System.Windows.Forms.Label();
             this.label136 = new System.Windows.Forms.Label();
@@ -114,14 +108,11 @@
             this.textBoxSplitHeight = new System.Windows.Forms.TextBox();
             this.label94 = new System.Windows.Forms.Label();
             this.checkBoxSplitWidth = new System.Windows.Forms.CheckBox();
-            this.textBoxOrigin = new System.Windows.Forms.TextBox();
             this.label111 = new System.Windows.Forms.Label();
             this.label_11ysite = new System.Windows.Forms.Label();
             this.label108 = new System.Windows.Forms.Label();
             this.label_11xsite = new System.Windows.Forms.Label();
             this.label110 = new System.Windows.Forms.Label();
-            this.label103 = new System.Windows.Forms.Label();
-            this.button_Pickthecolor = new System.Windows.Forms.Button();
             this.textBoxSplitRGB565 = new System.Windows.Forms.TextBox();
             this.button_Hiddenborder = new System.Windows.Forms.Button();
             this.textBoxSplitB = new System.Windows.Forms.TextBox();
@@ -584,7 +575,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStripSplit.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -636,50 +626,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // contextMenuStripSplit
-            // 
-            this.contextMenuStripSplit.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStripSplit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemDeleteLine,
-            this.ToolStripMenuItemAddHor,
-            this.ToolStripMenuItemSplitOption,
-            this.toolStripMenuItemSetOrigine,
-            this.ToolStripMenuItemClearOrigin});
-            this.contextMenuStripSplit.Name = "contextMenuStripSplit";
-            this.contextMenuStripSplit.Size = new System.Drawing.Size(161, 114);
-            // 
-            // ToolStripMenuItemDeleteLine
-            // 
-            this.ToolStripMenuItemDeleteLine.Name = "ToolStripMenuItemDeleteLine";
-            this.ToolStripMenuItemDeleteLine.Size = new System.Drawing.Size(160, 22);
-            this.ToolStripMenuItemDeleteLine.Text = "删除此水平线";
-            // 
-            // ToolStripMenuItemAddHor
-            // 
-            this.ToolStripMenuItemAddHor.Name = "ToolStripMenuItemAddHor";
-            this.ToolStripMenuItemAddHor.Size = new System.Drawing.Size(160, 22);
-            this.ToolStripMenuItemAddHor.Text = "增加水平线";
-            // 
-            // ToolStripMenuItemSplitOption
-            // 
-            this.ToolStripMenuItemSplitOption.Name = "ToolStripMenuItemSplitOption";
-            this.ToolStripMenuItemSplitOption.Size = new System.Drawing.Size(160, 22);
-            this.ToolStripMenuItemSplitOption.Text = "不参与切割";
-            // 
-            // toolStripMenuItemSetOrigine
-            // 
-            this.toolStripMenuItemSetOrigine.Name = "toolStripMenuItemSetOrigine";
-            this.toolStripMenuItemSetOrigine.Size = new System.Drawing.Size(160, 22);
-            this.toolStripMenuItemSetOrigine.Text = "设置为坐标原点";
-            this.toolStripMenuItemSetOrigine.Click += new System.EventHandler(this.toolStripMenuItemSetOrigine_Click);
-            // 
-            // ToolStripMenuItemClearOrigin
-            // 
-            this.ToolStripMenuItemClearOrigin.Name = "ToolStripMenuItemClearOrigin";
-            this.ToolStripMenuItemClearOrigin.Size = new System.Drawing.Size(160, 22);
-            this.ToolStripMenuItemClearOrigin.Text = "清除坐标点";
-            this.ToolStripMenuItemClearOrigin.Click += new System.EventHandler(this.ToolStripMenuItemClearOrigin_Click);
             // 
             // tabPage11
             // 
@@ -1277,14 +1223,11 @@
             this.splitContainerMain.Panel1.Controls.Add(this.label126);
             this.splitContainerMain.Panel1.Controls.Add(this.pictureBox18);
             this.splitContainerMain.Panel1.Controls.Add(this.groupBox12);
-            this.splitContainerMain.Panel1.Controls.Add(this.textBoxOrigin);
             this.splitContainerMain.Panel1.Controls.Add(this.label111);
             this.splitContainerMain.Panel1.Controls.Add(this.label_11ysite);
             this.splitContainerMain.Panel1.Controls.Add(this.label108);
             this.splitContainerMain.Panel1.Controls.Add(this.label_11xsite);
             this.splitContainerMain.Panel1.Controls.Add(this.label110);
-            this.splitContainerMain.Panel1.Controls.Add(this.label103);
-            this.splitContainerMain.Panel1.Controls.Add(this.button_Pickthecolor);
             this.splitContainerMain.Panel1.Controls.Add(this.textBoxSplitRGB565);
             this.splitContainerMain.Panel1.Controls.Add(this.button_Hiddenborder);
             this.splitContainerMain.Panel1.Controls.Add(this.textBoxSplitB);
@@ -1537,15 +1480,6 @@
             this.checkBoxSplitWidth.UseVisualStyleBackColor = true;
             this.checkBoxSplitWidth.Click += new System.EventHandler(this.checkBoxSplitWidth_Click);
             // 
-            // textBoxOrigin
-            // 
-            this.textBoxOrigin.Location = new System.Drawing.Point(34, 15);
-            this.textBoxOrigin.Name = "textBoxOrigin";
-            this.textBoxOrigin.Size = new System.Drawing.Size(43, 21);
-            this.textBoxOrigin.TabIndex = 63;
-            this.textBoxOrigin.Text = "0:0";
-            this.textBoxOrigin.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrigin_KeyUp);
-            // 
             // label111
             // 
             this.label111.AutoSize = true;
@@ -1590,22 +1524,6 @@
             this.label110.Size = new System.Drawing.Size(17, 12);
             this.label110.TabIndex = 58;
             this.label110.Text = "X:";
-            // 
-            // label103
-            // 
-            this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(34, 3);
-            this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(47, 12);
-            this.label103.TabIndex = 56;
-            this.label103.Text = "Origine";
-            // 
-            // button_Pickthecolor
-            // 
-            this.button_Pickthecolor.Location = new System.Drawing.Point(0, 0);
-            this.button_Pickthecolor.Name = "button_Pickthecolor";
-            this.button_Pickthecolor.Size = new System.Drawing.Size(75, 23);
-            this.button_Pickthecolor.TabIndex = 69;
             // 
             // textBoxSplitRGB565
             // 
@@ -1815,7 +1733,6 @@
             this.pictureBoxSrc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxSrc.TabIndex = 0;
             this.pictureBoxSrc.TabStop = false;
-            this.pictureBoxSrc.Click += new System.EventHandler(this.pictureBoxSrc_Click);
             this.pictureBoxSrc.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxSrc_Paint);
             this.pictureBoxSrc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSrc_MouseDown);
             this.pictureBoxSrc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSrc_MouseMove);
@@ -6651,11 +6568,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.5.3";
+            this.Text = "SYD_Calculator V1.5.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.contextMenuStripSplit.ResumeLayout(false);
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.tabPage10.ResumeLayout(false);
@@ -6744,12 +6660,6 @@
         #endregion
 
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripSplit;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDeleteLine;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddHor;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSplitOption;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetOrigine;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemClearOrigin;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.CheckBox checkBox_backgrounddisplay;
         private System.Windows.Forms.Button button32;
@@ -6772,14 +6682,11 @@
         private System.Windows.Forms.TextBox textBoxSplitHeight;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.CheckBox checkBoxSplitWidth;
-        private System.Windows.Forms.TextBox textBoxOrigin;
         private System.Windows.Forms.Label label111;
         private System.Windows.Forms.Label label_11ysite;
         private System.Windows.Forms.Label label108;
         private System.Windows.Forms.Label label_11xsite;
         private System.Windows.Forms.Label label110;
-        private System.Windows.Forms.Label label103;
-        private System.Windows.Forms.Button button_Pickthecolor;
         private System.Windows.Forms.TextBox textBoxSplitRGB565;
         private System.Windows.Forms.Button button_Hiddenborder;
         private System.Windows.Forms.TextBox textBoxSplitB;
