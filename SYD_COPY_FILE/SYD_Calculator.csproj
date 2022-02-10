@@ -151,8 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="right.jpg" />
-    <None Include="max.png" />
-    <None Include="min.jpg" />
     <None Include="Settings1.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
