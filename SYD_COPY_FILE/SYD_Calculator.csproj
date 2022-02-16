@@ -50,8 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>logo_48X48.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -150,6 +149,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logo_48X48.ico" />
     <None Include="Settings1.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
@@ -173,9 +173,7 @@
     <Content Include="image\arrows_orginal.jpg" />
     <Content Include="image\dowm.jpg" />
     <Content Include="image\left.jpg" />
-    <Content Include="image\lock.png" />
     <Content Include="image\right.jpg" />
-    <Content Include="image\unlock.png" />
     <Content Include="image\up.jpg" />
   </ItemGroup>
   <ItemGroup>
