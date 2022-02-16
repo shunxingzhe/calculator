@@ -88,7 +88,6 @@
             this.label109 = new System.Windows.Forms.Label();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.label74 = new System.Windows.Forms.Label();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.textBox_Bulk_zoom_w = new System.Windows.Forms.TextBox();
             this.button_Bulk_zoom = new System.Windows.Forms.Button();
@@ -558,7 +557,6 @@
             this.button25 = new System.Windows.Forms.Button();
             this.checkBox_synccopy = new System.Windows.Forms.CheckBox();
             this.label_copy_time = new System.Windows.Forms.Label();
-            this.pictureBox_lock = new System.Windows.Forms.PictureBox();
             this.label_nowtime = new System.Windows.Forms.Label();
             this.source_copyfile_button = new System.Windows.Forms.Button();
             this.destination_file_button = new System.Windows.Forms.Button();
@@ -572,6 +570,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -579,7 +580,6 @@
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.groupBox25.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).BeginInit();
@@ -615,9 +615,9 @@
             this.tabPage7.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lock)).BeginInit();
             this.TabCrontrol.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -1214,7 +1214,6 @@
             this.splitContainerMain.Panel1.AllowDrop = true;
             this.splitContainerMain.Panel1.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainerMain.Panel1.Controls.Add(this.label74);
-            this.splitContainerMain.Panel1.Controls.Add(this.pictureBox18);
             this.splitContainerMain.Panel1.Controls.Add(this.groupBox25);
             this.splitContainerMain.Panel1.Controls.Add(this.label124);
             this.splitContainerMain.Panel1.Controls.Add(this.label125);
@@ -1268,17 +1267,6 @@
             this.label74.Size = new System.Drawing.Size(20, 10);
             this.label74.TabIndex = 68;
             this.label74.Text = "600";
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox18.Image = global::SYD_COPY_FILE.Properties.Resources.unlock;
-            this.pictureBox18.Location = new System.Drawing.Point(5, 431);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(29, 35);
-            this.pictureBox18.TabIndex = 64;
-            this.pictureBox18.TabStop = false;
-            this.pictureBox18.Click += new System.EventHandler(this.lock_button_Click);
             // 
             // groupBox25
             // 
@@ -6289,7 +6277,6 @@
             this.tabPage5.Controls.Add(this.button25);
             this.tabPage5.Controls.Add(this.checkBox_synccopy);
             this.tabPage5.Controls.Add(this.label_copy_time);
-            this.tabPage5.Controls.Add(this.pictureBox_lock);
             this.tabPage5.Controls.Add(this.label_nowtime);
             this.tabPage5.Controls.Add(this.source_copyfile_button);
             this.tabPage5.Controls.Add(this.destination_file_button);
@@ -6380,16 +6367,6 @@
             this.label_copy_time.Size = new System.Drawing.Size(309, 15);
             this.label_copy_time.TabIndex = 37;
             this.label_copy_time.Text = "label91";
-            // 
-            // pictureBox_lock
-            // 
-            this.pictureBox_lock.Image = global::SYD_COPY_FILE.Properties.Resources.unlock;
-            this.pictureBox_lock.Location = new System.Drawing.Point(4, 34);
-            this.pictureBox_lock.Name = "pictureBox_lock";
-            this.pictureBox_lock.Size = new System.Drawing.Size(29, 35);
-            this.pictureBox_lock.TabIndex = 29;
-            this.pictureBox_lock.TabStop = false;
-            this.pictureBox_lock.Click += new System.EventHandler(this.lock_button_Click);
             // 
             // label_nowtime
             // 
@@ -6522,11 +6499,35 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
             this.toolStripMenuItem2.Text = "设置坐标";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 577);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(767, 22);
+            this.statusStrip1.TabIndex = 25;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(131, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(110, 17);
+            this.toolStripStatusLabel2.Text = "快捷键 锁定:Ctrl+L";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 578);
+            this.ClientSize = new System.Drawing.Size(767, 599);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.TabCrontrol);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -6546,7 +6547,6 @@
             this.splitContainerMain.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.groupBox25.ResumeLayout(false);
             this.groupBox25.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -6613,10 +6613,12 @@
             this.tabPage6.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_lock)).EndInit();
             this.TabCrontrol.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -6634,7 +6636,6 @@
         private System.Windows.Forms.Panel panel_pictureplatfrom;
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.SplitContainer splitContainerMain;
-        private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Label label91;
@@ -7005,7 +7006,6 @@
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.CheckBox checkBox_synccopy;
         private System.Windows.Forms.Label label_copy_time;
-        private System.Windows.Forms.PictureBox pictureBox_lock;
         private System.Windows.Forms.Label label_nowtime;
         private System.Windows.Forms.Button source_copyfile_button;
         private System.Windows.Forms.Button destination_file_button;
@@ -7164,6 +7164,9 @@
         private System.Windows.Forms.Label label136;
         private System.Windows.Forms.Label label_ui_picw;
         private System.Windows.Forms.Label label139;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 

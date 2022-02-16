@@ -55,6 +55,8 @@ namespace SYD_COPY_FILE
             comboBox_Common_path.SelectedIndex = 0;
 
             comboBox7.SelectedIndex = Settings1.Default.rename_mode_sel;
+
+            update_StripStatusLabel();
         }
         private void update_state(string name, string Clipboard_name)
         {
@@ -698,6 +700,10 @@ namespace SYD_COPY_FILE
                     copy_sync(sender, e);
             }
         }
+        private void update_StripStatusLabel()
+        {
+            this.toolStripStatusLabel1.Text = "当前系统时间：" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.label_nowtime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -706,13 +712,8 @@ namespace SYD_COPY_FILE
                 SC_MAX = false;
                 pictureBoxinterface_Click(null, null);
             }
+            update_StripStatusLabel();
         }
-
-        //private void source_copyfile_textBox_TextChanged(object sender, EventArgs e)
-        //{
-        //    this.Text = Path.GetFileName(source_copyfile_textBox.Text); ;
-        //}
-
         private void source_copyfile_button_rename_Click(object sender, EventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();

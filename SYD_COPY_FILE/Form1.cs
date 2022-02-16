@@ -752,14 +752,10 @@ namespace SYD_COPY_FILE
             if (this.TopMost == true)
             {
                 this.TopMost = false;
-                pictureBox_lock.Image = Properties.Resources.unlock;
-                pictureBox18.Image = Properties.Resources.unlock;
             }
             else
             {
                 this.TopMost = true;
-                pictureBox_lock.Image = Properties.Resources._lock;
-                pictureBox18.Image = Properties.Resources._lock;
             }
         }
         private void pictureBoxinterface_Doing(bool min)
@@ -768,13 +764,13 @@ namespace SYD_COPY_FILE
             {
                 pictureBox_interface_ismin = false;
                 this.Width = 612;
-                this.Height = 232;
+                this.Height = 232+22;
             }
             else
             {
                 pictureBox_interface_ismin = true;
                 this.Width = 782;
-                this.Height = 620;
+                this.Height = 620 + 22;
             }
         }
 
