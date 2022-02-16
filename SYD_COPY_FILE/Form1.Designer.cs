@@ -88,6 +88,7 @@
             this.label109 = new System.Windows.Forms.Label();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.label74 = new System.Windows.Forms.Label();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.textBox_Bulk_zoom_w = new System.Windows.Forms.TextBox();
             this.button_Bulk_zoom = new System.Windows.Forms.Button();
@@ -97,7 +98,6 @@
             this.label124 = new System.Windows.Forms.Label();
             this.label125 = new System.Windows.Forms.Label();
             this.label126 = new System.Windows.Forms.Label();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.buttonReset = new System.Windows.Forms.Button();
             this.label91 = new System.Windows.Forms.Label();
@@ -145,7 +145,6 @@
             this.comboBox_indicate = new System.Windows.Forms.ComboBox();
             this.comboBox_mode = new System.Windows.Forms.ComboBox();
             this.label_indicator = new System.Windows.Forms.Label();
-            this.button30 = new System.Windows.Forms.Button();
             this.label84 = new System.Windows.Forms.Label();
             this.button_clear = new System.Windows.Forms.Button();
             this.draw = new System.Windows.Forms.Button();
@@ -580,8 +579,8 @@
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            this.groupBox25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            this.groupBox25.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -1270,6 +1269,17 @@
             this.label74.TabIndex = 68;
             this.label74.Text = "600";
             // 
+            // pictureBox18
+            // 
+            this.pictureBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox18.Image = global::SYD_COPY_FILE.Properties.Resources.unlock;
+            this.pictureBox18.Location = new System.Drawing.Point(5, 431);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(29, 35);
+            this.pictureBox18.TabIndex = 64;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.Click += new System.EventHandler(this.lock_button_Click);
+            // 
             // groupBox25
             // 
             this.groupBox25.Controls.Add(this.textBox_Bulk_zoom_w);
@@ -1356,17 +1366,6 @@
             this.label126.Size = new System.Drawing.Size(35, 10);
             this.label126.TabIndex = 65;
             this.label126.Text = "Pic W:";
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox18.Image = global::SYD_COPY_FILE.Properties.Resources.unlock;
-            this.pictureBox18.Location = new System.Drawing.Point(5, 431);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(29, 35);
-            this.pictureBox18.TabIndex = 64;
-            this.pictureBox18.TabStop = false;
-            this.pictureBox18.Click += new System.EventHandler(this.lock_button_Click);
             // 
             // groupBox12
             // 
@@ -1791,7 +1790,6 @@
             this.tabPage4.Controls.Add(this.comboBox_indicate);
             this.tabPage4.Controls.Add(this.comboBox_mode);
             this.tabPage4.Controls.Add(this.label_indicator);
-            this.tabPage4.Controls.Add(this.button30);
             this.tabPage4.Controls.Add(this.label84);
             this.tabPage4.Controls.Add(this.button_clear);
             this.tabPage4.Controls.Add(this.draw);
@@ -1878,17 +1876,6 @@
             this.label_indicator.TabIndex = 34;
             this.label_indicator.Text = "指示符:";
             // 
-            // button30
-            // 
-            this.button30.Location = new System.Drawing.Point(240, 93);
-            this.button30.Margin = new System.Windows.Forms.Padding(2);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(61, 22);
-            this.button30.TabIndex = 32;
-            this.button30.Text = "重载数据";
-            this.button30.UseVisualStyleBackColor = true;
-            this.button30.Click += new System.EventHandler(this.button_reintput_Click);
-            // 
             // label84
             // 
             this.label84.AutoSize = true;
@@ -1913,10 +1900,10 @@
             // 
             this.draw.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
             this.draw.ForeColor = System.Drawing.Color.Red;
-            this.draw.Location = new System.Drawing.Point(301, 90);
+            this.draw.Location = new System.Drawing.Point(244, 89);
             this.draw.Margin = new System.Windows.Forms.Padding(2);
             this.draw.Name = "draw";
-            this.draw.Size = new System.Drawing.Size(64, 40);
+            this.draw.Size = new System.Drawing.Size(121, 30);
             this.draw.TabIndex = 26;
             this.draw.Text = "提取";
             this.draw.UseVisualStyleBackColor = true;
@@ -6559,9 +6546,9 @@
             this.splitContainerMain.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.groupBox25.ResumeLayout(false);
             this.groupBox25.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).EndInit();
@@ -6693,7 +6680,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label_indicator;
         private System.Windows.Forms.ComboBox comboBox_indicate;
-        private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Label label84;
         private System.Windows.Forms.ComboBox comboBox_mode;
         private System.Windows.Forms.Button button_clear;

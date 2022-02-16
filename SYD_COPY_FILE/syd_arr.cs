@@ -200,6 +200,12 @@ namespace SYD_COPY_FILE
         }
         private void reopen_source_file_button_Click(object sender, EventArgs e)
         {
+            DialogResult dr = MessageBox.Show("点击确认按钮后将重新更新输入数据,\r\n当前界面下的输入框数据将会被丢失,\r\n请谨慎选择!", "是否重载数据?", MessageBoxButtons.OKCancel);
+
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
             string filepath = source_file_textBox.Text;//等到的完整的文件名
             if (System.IO.File.Exists(filepath) == false)  //如果存在返回值为true，如果不存在这个文件，则返回值为false
             {
@@ -2461,18 +2467,6 @@ namespace SYD_COPY_FILE
             textInput.Text = richTextBox_out.Text;
             richTextBox_out.Text = str;
         }
-
-        private void button_reintput_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("点击确认按钮后将重新更新输入数据,\r\n当前界面下的输入框数据将会被丢失,\r\n请谨慎选择!", "是否重载数据?", MessageBoxButtons.OKCancel);
-
-            if  (dr == DialogResult.Cancel)
-            {
-                return;
-            }
-            reintput_file(source_file_textBox.Text);
-        }
-
         private void reintput_file(string FileName)
         {
             FileInfo fi = new FileInfo(FileName);
