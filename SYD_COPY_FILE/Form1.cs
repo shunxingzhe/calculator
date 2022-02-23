@@ -56,6 +56,7 @@ namespace SYD_COPY_FILE
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
             comboBox5.SelectedIndex = 0;
+            timestamp_Difference_select.SelectedIndex = 0;
 
             data_direction = false;
             copy_file_init();
@@ -436,34 +437,23 @@ namespace SYD_COPY_FILE
             result = (float)num - ((float)num1 -8)*8;
             textBox24.Text = result.ToString();
         }
-
-        private string cal_Calendar_time_difference_subtract(string a, string b, int c, TextBox testbox_display, TextBox testbox_display_timestamp)
+        enum timestamp_accuracy_type
         {
-            Int32 hour = 0, minute = 0, second = 0, millisecond = 0, hour1 = 0, minute1 = 0, second1 = 0, millisecond1 = 0,day=0;
-            UInt32 timestamp = 0, timestamp1 = 0;
+            accuracy_3,//三位精度
+            accuracy_6,
+        }
+        //timestamp要显示的时间戳，单位：ms 一般是差值
+        private string cal_Calendar_time_difference_subtract_output(UInt64 timestamp, timestamp_accuracy_type accuracy,TextBox testbox_display, TextBox testbox_display_timestamp)
+        {
+            Int32 day = 0, millisecond, second, minute, hour, microsecond=0;
             string result = "";
-            if ((a.Length == 0) | (b.Length == 0))
+            if(accuracy==timestamp_accuracy_type.accuracy_6)
             {
-                MessageBox.Show("input error");
-                return null;
+                microsecond = (Int32)(timestamp % 1000);
+                timestamp = timestamp / 1000;
             }
-            hour = Convert.ToInt32(a.Substring(0, 2), 10);
-            minute = Convert.ToInt32(a.Substring(3, 2), 10);
-            second = Convert.ToInt32(a.Substring(6, 2), 10);
-            millisecond = Convert.ToInt32(a.Substring(9, 3), 10);
-            timestamp = ((UInt32)hour * 3600 + (UInt32)minute * 60 + (UInt32)second) * 1000 + (UInt32)millisecond;
 
-            timestamp = (UInt32)c * 86400000 + timestamp;
-
-            hour1 = Convert.ToInt32(b.Substring(0, 2), 10);
-            minute1 = Convert.ToInt32(b.Substring(3, 2), 10);
-            second1 = Convert.ToInt32(b.Substring(6, 2), 10);
-            millisecond1 = Convert.ToInt32(b.Substring(9, 3), 10);
-
-            timestamp1 = ((UInt32)hour1 * 3600 + (UInt32)minute1 * 60 + (UInt32)second1) * 1000 + (UInt32)millisecond1;
-
-            timestamp = timestamp - timestamp1;
-            timestamp1 = timestamp/1000;
+            UInt64 timestamp1 = timestamp / 1000;
 
             millisecond = (Int32)(timestamp % 1000);
             timestamp = timestamp / 1000;
@@ -475,11 +465,16 @@ namespace SYD_COPY_FILE
             timestamp = timestamp / 24;
             day = (Int32)(timestamp % 31);
 
-            if (day ==0)
+            if (day == 0)
                 result = hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2") + ":" + millisecond.ToString("D3");
             else
                 result = day.ToString("D2") + " " + hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2") + ":" + millisecond.ToString("D3");
-            
+
+            if (accuracy == timestamp_accuracy_type.accuracy_6)
+            {
+                result+= microsecond.ToString("D3");
+            }
+
             if (testbox_display != null)
                 testbox_display.Text = result;
 
@@ -488,12 +483,38 @@ namespace SYD_COPY_FILE
 
             return result;
         }
+        private string cal_Calendar_time_difference_subtract(string a, string b, int c, TextBox testbox_display, TextBox testbox_display_timestamp)
+        {
+            Int32 hour = 0, minute = 0, second = 0, millisecond = 0, hour1 = 0, minute1 = 0, second1 = 0, millisecond1 = 0;
+            UInt64 timestamp = 0, timestamp1 = 0;
+            if ((a.Length == 0) | (b.Length == 0))
+            {
+                MessageBox.Show("input error");
+                return null;
+            }
+            hour = Convert.ToInt32(a.Substring(0, 2), 10);
+            minute = Convert.ToInt32(a.Substring(3, 2), 10);
+            second = Convert.ToInt32(a.Substring(6, 2), 10);
+            millisecond = Convert.ToInt32(a.Substring(9, 3), 10);
+            timestamp = ((UInt64)hour * 3600 + (UInt64)minute * 60 + (UInt64)second) * 1000 + (UInt64)millisecond;
+
+            timestamp = (UInt32)c * 86400000 + timestamp;
+
+            hour1 = Convert.ToInt32(b.Substring(0, 2), 10);
+            minute1 = Convert.ToInt32(b.Substring(3, 2), 10);
+            second1 = Convert.ToInt32(b.Substring(6, 2), 10);
+            millisecond1 = Convert.ToInt32(b.Substring(9, 3), 10);
+
+            timestamp1 = ((UInt32)hour1 * 3600 + (UInt32)minute1 * 60 + (UInt32)second1) * 1000 + (UInt32)millisecond1;
+
+            timestamp = timestamp - timestamp1;
+            return cal_Calendar_time_difference_subtract_output( timestamp, timestamp_accuracy_type.accuracy_3, testbox_display, testbox_display_timestamp);
+        }
 
         private string cal_Calendar_time_differenceble_subtract(string a, string b, TextBox testbox_display, TextBox testbox_display_timestamp)
         {
             Int32 hour = 0, minute = 0, second = 0, millisecond = 0, microsecond = 0, hour1 = 0, minute1 = 0, second1 = 0, millisecond1 = 0 ,microsecond1 = 0;
             UInt64 timestamp = 0, timestamp1 = 0;
-            string result = "";
             
             if ((a.Length == 0) | (b.Length == 0))
             {
@@ -525,26 +546,16 @@ namespace SYD_COPY_FILE
             timestamp1 = ((UInt64)hour1 * 3600 + (UInt64)minute1 * 60 + (UInt64)second1) * 1000 * 1000 + (UInt64)millisecond1 * 1000 + (UInt64)microsecond1;
 
             timestamp = timestamp - timestamp1;
-            timestamp1 = timestamp / 1000;
 
-            microsecond = (Int32)(timestamp % 1000);
-            timestamp = timestamp / 1000;
-            millisecond = (Int32)(timestamp % 1000);
-            timestamp = timestamp / 1000;
-            second = (Int32)(timestamp % 60);
-            timestamp = timestamp / 60;
-            minute = (Int32)(timestamp % 60);
-            timestamp = timestamp / 60;
-            hour = (Int32)(timestamp % 24);
+            return cal_Calendar_time_difference_subtract_output(timestamp, timestamp_accuracy_type.accuracy_6, testbox_display, testbox_display_timestamp);
+        }
+        private string cal_Calendar_day_differenceble_subtract(string a, string b, TextBox testbox_display, TextBox testbox_display_timestamp)
+        {
+            DateTime Now_Time = DateTime.ParseExact(a, "yyyyMMdd HHmmss", new CultureInfo("fr-FR"));
+            DateTime Before_Time = DateTime.ParseExact(b, "yyyyMMdd HHmmss", new CultureInfo("fr-FR"));
+            TimeSpan ts = Now_Time.Subtract(Before_Time);
 
-            result = hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2") + ":" + millisecond.ToString("D3") + microsecond.ToString("D3");
-            if (testbox_display!=null)
-             testbox_display.Text = result;
-
-            if (testbox_display_timestamp != null)
-                testbox_display_timestamp.Text = "0x" + timestamp1.ToString("x");
-
-            return result;
+            return cal_Calendar_time_difference_subtract_output((UInt64)(ts.TotalMilliseconds), timestamp_accuracy_type.accuracy_3, testbox_display, testbox_display_timestamp);
         }
 
         private string cal_Calendar_ble_time_sum(string a, string b, TextBox testbox_display, TextBox testbox_display_timestamp)
@@ -633,33 +644,7 @@ namespace SYD_COPY_FILE
             result = speed.ToString("N") + "KByte/s";
             testbox_display.Text = result;
         }
-        private void cal_timestamp_difference_subtract(string a, string b,TextBox testbox_display)
-        {
-            Int32 hour = 0, minute = 0, second = 0;
-            UInt32 timestamp = 0, timestamp1 = 0;
-            string result = "";
-            if ((a.Length == 0) | (b.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-            timestamp = Convert.ToUInt32(a.Substring(2, 8), 16);
-
-            timestamp1 = Convert.ToUInt32(b.Substring(2, 8), 16);
-
-            timestamp = timestamp - timestamp1;
-
-            second = (Int32)(timestamp % 60);
-            timestamp = timestamp / 60;
-            minute = (Int32)(timestamp % 60);
-            timestamp = timestamp / 60;
-            hour = (Int32)(timestamp % 24);
-
-            result = hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2");
-            testbox_display.Text = result;
-        }
-
-        private void cal_rtccounter_difference_subtract(string a, string b, TextBox testbox_display)
+        private void cal_timestamp_difference_subtract(string a, string b, timestamp_accuracy_type accuracy, TextBox testbox_display)
         {
             Int32 hour = 0, minute = 0, second = 0,millisecond = 0;
             UInt32 timestamp = 0, timestamp1 = 0;
@@ -674,12 +659,11 @@ namespace SYD_COPY_FILE
             timestamp1 = Convert.ToUInt32(b.Substring(2, 8), 16);
 
             timestamp = timestamp - timestamp1;
-            timestamp1 = timestamp;
-
-
-            timestamp1 = (UInt32)(timestamp1 / 32.768);
-            millisecond = (Int32)(timestamp % 1000);
-            timestamp = timestamp / 1000;
+            if(accuracy== timestamp_accuracy_type.accuracy_6)
+            {
+                millisecond = (Int32)(timestamp % 1000);
+                timestamp = timestamp / 1000;
+            }
 
             second = (Int32)(timestamp % 60);
             timestamp = timestamp / 60;
@@ -687,7 +671,11 @@ namespace SYD_COPY_FILE
             timestamp = timestamp / 60;
             hour = (Int32)(timestamp % 24);
 
-            result = hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2") + ":" + millisecond.ToString("D3");
+            result = hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2") ;
+            if (accuracy == timestamp_accuracy_type.accuracy_6)
+            {
+                result += ":" + millisecond.ToString("D3");
+            }
             testbox_display.Text = result;
         }
 
@@ -856,126 +844,98 @@ namespace SYD_COPY_FILE
             cal_time_difference_subtract(textBox19.Text, textBox20.Text);
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Calendar_Time_Difference_Cal_Click(object sender, EventArgs e)
         {
             Int32 date = 0;
-            if ((textBox21.Text.Length == 0) || (textBox22.Text.Length == 0))
+            TextBox Now_Time_textBox = textBox21;
+            TextBox Before_Time_textBox = textBox22;
+            TextBox Day_textBox = textBox25;
+            TextBox Output_time_textBox = textBox23;
+            TextBox Output_hexsecond_textBox = textBox56;
+            if ((Button)(sender) == Calendar_Time_Difference_Cal)
+            { 
+                
+            }
+            else if ((Button)(sender) == Calendar_Time_Difference_Cal1)
+            {
+                Now_Time_textBox = textBox29;
+                Before_Time_textBox = textBox28;
+                Day_textBox = textBox26;
+                Output_time_textBox = textBox27;
+                Output_hexsecond_textBox = textBox57;
+            }
+            else if ((Button)(sender) == Calendar_Time_Difference_Cal2)
+            {
+                Now_Time_textBox = textBox39;
+                Before_Time_textBox = textBox38;
+                Day_textBox = textBox30;
+                Output_time_textBox = textBox34;
+                Output_hexsecond_textBox = textBox60;
+            }
+
+            if ((Now_Time_textBox.Text.Length == 0) || (Before_Time_textBox.Text.Length == 0))
             {
                 MessageBox.Show("input error");
                 return;
             }
 
-            textBox21.Text=textBox21.Text.Trim();
-            textBox22.Text = textBox22.Text.Trim();
-
-            if (textBox25.Text.Length != 0)
+            if (Day_textBox.Text.Length != 0)
             {
-                date=Convert.ToInt32(textBox25.Text, 10);
+                date = Convert.ToInt32(Day_textBox.Text, 10);
             }
 
-            if (textBox21.Text.Length > 13)
+            if (Now_Time_textBox.Text.Length > 13)
             {
-                cal_Calendar_time_differenceble_subtract(textBox21.Text, textBox22.Text, textBox23, textBox56);
+                if(Now_Time_textBox.Text.Contains(":") ==true)
+                    cal_Calendar_time_differenceble_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, Output_time_textBox, Output_hexsecond_textBox);//22:52:27.252726
+                else
+                    cal_Calendar_day_differenceble_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, Output_time_textBox, Output_hexsecond_textBox);//20220223 124748
             }
             else
             {
-                cal_Calendar_time_difference_subtract(textBox21.Text, textBox22.Text, date, textBox23, textBox56);
+                cal_Calendar_time_difference_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, date, Output_time_textBox, Output_hexsecond_textBox);//18:05:59:505
             }
         }
-
-        private void button8_Click(object sender, EventArgs e)
+        private void timestamp_Difference_cal_Click(object sender, EventArgs e)
         {
-            Int32 date = 0;
-            if ((textBox29.Text.Length == 0) || (textBox28.Text.Length == 0))
+            timestamp_accuracy_type accuracy;
+            if (timestamp_Difference_select.SelectedIndex == 0)
             {
-                MessageBox.Show("input error");
-                return;
-            }
-
-            textBox29.Text = textBox29.Text.Trim();
-            textBox28.Text = textBox28.Text.Trim();
-
-            if (textBox26.Text.Length != 0)
-            {
-                date = Convert.ToInt32(textBox26.Text, 10);
-            }
-
-            if (textBox29.Text.Length > 13)
-            {
-                cal_Calendar_time_differenceble_subtract(textBox29.Text, textBox28.Text, textBox27, textBox57);
+                accuracy = timestamp_accuracy_type.accuracy_3;
             }
             else
             {
-                cal_Calendar_time_difference_subtract(textBox29.Text, textBox28.Text, date, textBox27, textBox57);
+                accuracy = timestamp_accuracy_type.accuracy_6;
             }
-        }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            if ((textBox36.Text.Length == 0) || (textBox37.Text.Length == 0))
+            TextBox Now_timestamp_textBox = textBox37;
+            TextBox Before_timestamp_textBox = textBox36;
+            TextBox Output_timestamp_textBox = textBox35;
+
+            if ((Button)(sender) == timestamp_Difference_cal)
+            {
+
+            }
+            else if ((Button)(sender) == timestamp_Difference_cal1)
+            {
+                Now_timestamp_textBox = textBox33;
+                Before_timestamp_textBox = textBox32;
+                Output_timestamp_textBox = textBox31;
+            }
+            else if ((Button)(sender) == timestamp_Difference_cal2)
+            {
+                Now_timestamp_textBox = textBox42;
+                Before_timestamp_textBox = textBox41;
+                Output_timestamp_textBox = textBox40;
+            }
+
+            if ((Now_timestamp_textBox.Text.Length == 0) || (Before_timestamp_textBox.Text.Length == 0))
             {
                 MessageBox.Show("input error");
                 return;
             }
 
-            cal_timestamp_difference_subtract(textBox37.Text, textBox36.Text, textBox35);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            if ((textBox33.Text.Length == 0) || (textBox32.Text.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-
-            cal_timestamp_difference_subtract(textBox33.Text, textBox32.Text, textBox31);
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            Int32 date = 0;
-            if ((textBox39.Text.Length == 0) || (textBox38.Text.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-
-            if (textBox30.Text.Length != 0)
-            {
-                date = Convert.ToInt32(textBox30.Text, 10);
-            }
-
-            if (textBox39.Text.Length > 13)
-            {
-                cal_Calendar_time_differenceble_subtract(textBox39.Text, textBox38.Text, textBox34, textBox60);
-            }
-            else
-            {
-                cal_Calendar_time_difference_subtract(textBox39.Text, textBox38.Text, date, textBox34, textBox60);
-            }
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            if ((textBox42.Text.Length == 0) || (textBox41.Text.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-
-            cal_timestamp_difference_subtract(textBox42.Text, textBox41.Text, textBox40);
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            if ((textBox51.Text.Length == 0) || (textBox50.Text.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-
-            cal_rtccounter_difference_subtract(textBox51.Text, textBox50.Text, textBox49);
+            cal_timestamp_difference_subtract(Now_timestamp_textBox.Text, Before_timestamp_textBox.Text, accuracy, Output_timestamp_textBox);
         }
 
         private void bitmask_checkbox_Click(object sender, EventArgs e)
@@ -1532,15 +1492,15 @@ namespace SYD_COPY_FILE
             }
             
         }
-        private void comboBox5_DropDownClosed(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button29_Click(object sender, EventArgs e)
         {
-            textBox_input_X1.Text = textBox_input_X0.Text;
-            textBox_input_Y1.Text = textBox_input_Y0.Text;
+            string x0 = textBox_input_X0.Text;
+            string x1 = textBox_input_X1.Text;
+            textBox_input_X1.Text = textBox_input_Y1.Text;
+            textBox_input_X0.Text = textBox_input_Y0.Text;
+
+            textBox_input_Y1.Text= x1;
+            textBox_input_Y0.Text= x0;
         }
 
         private void textBoxTrim_Leave(object sender, EventArgs e)

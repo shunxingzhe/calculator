@@ -149,6 +149,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="image\exchange.png" />
     <Content Include="logo_48X48.ico" />
     <None Include="Settings1.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
