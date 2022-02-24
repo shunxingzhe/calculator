@@ -55,7 +55,6 @@ namespace SYD_COPY_FILE
             comboBox3.SelectedIndex = 2;
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
-            comboBox5.SelectedIndex = 0;
             timestamp_Difference_select.SelectedIndex = 0;
 
             data_direction = false;
@@ -1467,7 +1466,27 @@ namespace SYD_COPY_FILE
 
              base.WndProc(ref m);
         }
-
+        private void turn_text_color(object sender)//翻转字体颜色，让使用者更容易知道该值改变了
+        {
+            if (sender is TextBox)
+            {
+                if (((TextBox)sender).ForeColor == Color.Red)
+                {
+                    ((TextBox)sender).ForeColor = Color.Blue;
+                }
+                else
+                {
+                    ((TextBox)sender).ForeColor = Color.Red;
+                }    
+            }
+        }
+        private void recover_text_color(object sender)//恢复字体颜色，说明本操作不会修改该值
+        {
+            if (sender is TextBox)
+            {
+                ((TextBox)sender).ForeColor = Color.Black;
+            }
+        }
         private void button34_Click(object sender, EventArgs e)
         {
             double x0, y0, x1, y1,k;
@@ -1479,18 +1498,32 @@ namespace SYD_COPY_FILE
                 y1 = Convert.ToDouble(textBox_input_Y1.Text);
                 k = (y1 - y0) / (x1 - x0);
                 textBox_output_formula.Text = "y=(" + y1.ToString() + ")+(" + k.ToString("f3") + ")*x -(" + (k * x1).ToString("f3") + ");";
+                turn_text_color(textBox_output_formula);
+                recover_text_color(textBox_input_Y1);
             }
             else if (comboBox5.SelectedIndex == 1)
             {
                 y1 = (x1 * y0) / x0;
                 textBox_input_Y1.Text = y1.ToString("f3");
+                turn_text_color(textBox_input_Y1);
+                recover_text_color(textBox_output_formula);
             }
-            else if (comboBox5.SelectedIndex == 2)
-            {
-                y1 = x0 / (x0 + y0) * x1;
-                textBox_input_Y1.Text = y1.ToString("f3");
-            }
-            
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            double x0, y0, x1, y1;
+            x0 = Convert.ToDouble(textBox_input_X0.Text);
+            y0 = Convert.ToDouble(textBox_input_Y0.Text);
+            x1 = Convert.ToDouble(textBox_input_X1.Text);
+            y1 = Convert.ToDouble(textBox_input_Y1.Text);
+            x0 = 1 / x0;
+            y0 = 1 / y0;
+            x1 = 1 / x1;
+            y1 = 1 / y1;
+            textBox_input_X0.Text = x0.ToString("f3");
+            textBox_input_X1.Text = x1.ToString("f3");
+            textBox_input_Y0.Text = y0.ToString("f3");
+            textBox_input_Y1.Text = y1.ToString("f3");
         }
         private void button29_Click(object sender, EventArgs e)
         {

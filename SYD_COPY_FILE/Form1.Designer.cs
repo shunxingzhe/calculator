@@ -326,6 +326,7 @@
             this.textBox76 = new System.Windows.Forms.TextBox();
             this.label113 = new System.Windows.Forms.Label();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.button29 = new System.Windows.Forms.Button();
             this.textBox_input_Y1 = new System.Windows.Forms.TextBox();
@@ -3866,6 +3867,7 @@
             // 
             // groupBox16
             // 
+            this.groupBox16.Controls.Add(this.button7);
             this.groupBox16.Controls.Add(this.comboBox5);
             this.groupBox16.Controls.Add(this.button29);
             this.groupBox16.Controls.Add(this.textBox_input_Y1);
@@ -3885,22 +3887,31 @@
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Piecewise function";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(344, 47);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(61, 22);
+            this.button7.TabIndex = 42;
+            this.button7.Text = "输入倒数";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // comboBox5
             // 
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
-            "计算一次方程：k = (y1 - y0) / (x1 - x0);",
-            "计算等比值：y1 = (x1 * y0) / x0;",
-            "计算占比：y1 =x0/ (x0 + y0)*x1 ;"});
-            this.comboBox5.Location = new System.Drawing.Point(235, 21);
+            "计算一次方程：k = (y1 - y0) / (x1 - x0); y=kx;",
+            "计算等比值：y1 = (x1 * y0) / x0;"});
+            this.comboBox5.Location = new System.Drawing.Point(204, 21);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 20);
+            this.comboBox5.Size = new System.Drawing.Size(150, 20);
             this.comboBox5.TabIndex = 44;
             // 
             // button29
             // 
             this.button29.Image = global::SYD_COPY_FILE.Properties.Resources.exchange;
-            this.button29.Location = new System.Drawing.Point(128, 32);
+            this.button29.Location = new System.Drawing.Point(121, 32);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(19, 22);
             this.button29.TabIndex = 33;
@@ -3910,9 +3921,9 @@
             // textBox_input_Y1
             // 
             this.textBox_input_Y1.AllowDrop = true;
-            this.textBox_input_Y1.Location = new System.Drawing.Point(167, 47);
+            this.textBox_input_Y1.Location = new System.Drawing.Point(141, 47);
             this.textBox_input_Y1.Name = "textBox_input_Y1";
-            this.textBox_input_Y1.Size = new System.Drawing.Size(67, 21);
+            this.textBox_input_Y1.Size = new System.Drawing.Size(60, 21);
             this.textBox_input_Y1.TabIndex = 32;
             this.textBox_input_Y1.Text = "2.082";
             this.textBox_input_Y1.Leave += new System.EventHandler(this.textBoxTrim_Leave);
@@ -3922,7 +3933,7 @@
             this.textBox_input_Y0.AllowDrop = true;
             this.textBox_input_Y0.Location = new System.Drawing.Point(61, 45);
             this.textBox_input_Y0.Name = "textBox_input_Y0";
-            this.textBox_input_Y0.Size = new System.Drawing.Size(64, 21);
+            this.textBox_input_Y0.Size = new System.Drawing.Size(60, 21);
             this.textBox_input_Y0.TabIndex = 30;
             this.textBox_input_Y0.Text = "1.832";
             this.textBox_input_Y0.Leave += new System.EventHandler(this.textBoxTrim_Leave);
@@ -3939,7 +3950,7 @@
             // label105
             // 
             this.label105.AutoSize = true;
-            this.label105.Location = new System.Drawing.Point(146, 50);
+            this.label105.Location = new System.Drawing.Point(123, 53);
             this.label105.Name = "label105";
             this.label105.Size = new System.Drawing.Size(23, 12);
             this.label105.TabIndex = 29;
@@ -3948,17 +3959,17 @@
             // textBox_output_formula
             // 
             this.textBox_output_formula.AllowDrop = true;
-            this.textBox_output_formula.Location = new System.Drawing.Point(235, 47);
+            this.textBox_output_formula.Location = new System.Drawing.Point(204, 47);
             this.textBox_output_formula.Name = "textBox_output_formula";
-            this.textBox_output_formula.Size = new System.Drawing.Size(174, 21);
+            this.textBox_output_formula.Size = new System.Drawing.Size(139, 21);
             this.textBox_output_formula.TabIndex = 26;
             // 
             // textBox_input_X1
             // 
             this.textBox_input_X1.AllowDrop = true;
-            this.textBox_input_X1.Location = new System.Drawing.Point(166, 20);
+            this.textBox_input_X1.Location = new System.Drawing.Point(141, 20);
             this.textBox_input_X1.Name = "textBox_input_X1";
-            this.textBox_input_X1.Size = new System.Drawing.Size(68, 21);
+            this.textBox_input_X1.Size = new System.Drawing.Size(60, 21);
             this.textBox_input_X1.TabIndex = 25;
             this.textBox_input_X1.Text = "10";
             this.textBox_input_X1.Leave += new System.EventHandler(this.textBoxTrim_Leave);
@@ -3968,7 +3979,7 @@
             this.textBox_input_X0.AllowDrop = true;
             this.textBox_input_X0.Location = new System.Drawing.Point(61, 18);
             this.textBox_input_X0.Name = "textBox_input_X0";
-            this.textBox_input_X0.Size = new System.Drawing.Size(64, 21);
+            this.textBox_input_X0.Size = new System.Drawing.Size(60, 21);
             this.textBox_input_X0.TabIndex = 23;
             this.textBox_input_X0.Text = "15";
             this.textBox_input_X0.Leave += new System.EventHandler(this.textBoxTrim_Leave);
@@ -3985,7 +3996,7 @@
             // label107
             // 
             this.label107.AutoSize = true;
-            this.label107.Location = new System.Drawing.Point(146, 23);
+            this.label107.Location = new System.Drawing.Point(122, 20);
             this.label107.Name = "label107";
             this.label107.Size = new System.Drawing.Size(23, 12);
             this.label107.TabIndex = 22;
@@ -6341,7 +6352,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.5.7";
+            this.Text = "SYD_Calculator V1.5.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -6957,6 +6968,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ComboBox timestamp_Difference_select;
         private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Button button7;
     }
 }
 
