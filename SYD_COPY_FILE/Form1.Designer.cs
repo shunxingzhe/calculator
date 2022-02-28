@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.Generate_datafile_button = new System.Windows.Forms.Button();
             this.label_ui_pich = new System.Windows.Forms.Label();
             this.label136 = new System.Windows.Forms.Label();
             this.label_ui_picw = new System.Windows.Forms.Label();
@@ -609,6 +610,7 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.Generate_datafile_button);
             this.tabPage11.Controls.Add(this.label_ui_pich);
             this.tabPage11.Controls.Add(this.label136);
             this.tabPage11.Controls.Add(this.label_ui_picw);
@@ -635,6 +637,16 @@
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "UI";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // Generate_datafile_button
+            // 
+            this.Generate_datafile_button.Location = new System.Drawing.Point(200, 53);
+            this.Generate_datafile_button.Name = "Generate_datafile_button";
+            this.Generate_datafile_button.Size = new System.Drawing.Size(94, 23);
+            this.Generate_datafile_button.TabIndex = 61;
+            this.Generate_datafile_button.Text = "生成数据文件";
+            this.Generate_datafile_button.UseVisualStyleBackColor = true;
+            this.Generate_datafile_button.Click += new System.EventHandler(this.Generate_datafile_button_Click);
             // 
             // label_ui_pich
             // 
@@ -6352,7 +6364,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.5.8";
+            this.Text = "SYD_Calculator V1.5.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -6969,6 +6981,7 @@
         private System.Windows.Forms.ComboBox timestamp_Difference_select;
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button Generate_datafile_button;
     }
 }
 

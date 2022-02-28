@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Xml;
+using System.IO;
+
 namespace SYD_COPY_FILE
 {
     public partial class Form1
@@ -633,6 +635,126 @@ namespace SYD_COPY_FILE
             Point point = panel_pictureplatfrom.PointToClient(Control.MousePosition);
             label_ui_topx.Text = point.X.ToString();
             label_ui_topy.Text = point.Y.ToString();
+        }
+        private void Generate_datafile_button_Click(object sender, EventArgs e)
+        {
+            UInt32 j=0;
+            int i = 0;
+            UInt32 srcfilesize = 0;
+            List<UInt32> picture_addr = new List<UInt32>();
+            List<UInt16> picture_w = new List<UInt16>(), picture_h = new List<UInt16>(), picture_x = new List<UInt16>(), picture_y = new List<UInt16>();
+            string path="";
+            byte[] text;
+            byte[] bin=new byte[64000000];
+            byte[] buff = new byte[50*12+8];
+            if (filename_background != null)
+            {
+                path = filename_background;
+                path = path.Replace(".bmp", string.Empty).Replace(".BMP", string.Empty);
+                path = path + ".dta";
+                if (File.Exists(path))
+                {
+                    text = System.IO.File.ReadAllBytes(path);
+                    picture_w.Add((UInt16)(((UInt16)text[5] << 8) | (UInt16)text[4]));
+                    picture_h.Add((UInt16)(((UInt16)text[7] << 8) | (UInt16)text[6]));
+                    picture_x.Add(0);
+                    picture_y.Add(0);
+                    picture_addr.Add(srcfilesize);
+                    srcfilesize += (UInt32)text.Length - 16;
+                    for (i = 0; i < (text.Length - 16) / 2; i++)
+                    {
+                        bin[j++] = text[16 + i * 2 + 1];
+                        bin[j++] = text[16 + i * 2];
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("错误：背景图片目录下没有同名的dta数据文件 " + path);
+                    return;
+                }
+            }
+            foreach (SYDPictureBox SYDPictureBox in list_pictureBox)
+            {
+                path = SYDPictureBox.filename;
+                path = path.Replace(".bmp", string.Empty).Replace(".BMP", string.Empty);
+                path = path + ".dta";
+                if (File.Exists(path))
+                {
+                    text = System.IO.File.ReadAllBytes(path);
+                    picture_w.Add((UInt16)(((UInt16)text[5] << 8) | (UInt16)text[4]));
+                    picture_h.Add((UInt16)(((UInt16)text[7] << 8) | (UInt16)text[6]));
+                    picture_x.Add((UInt16)SYDPictureBox.Location.X);
+                    picture_y.Add((UInt16)SYDPictureBox.Location.Y);
+                    picture_addr.Add(srcfilesize);
+                    srcfilesize += (UInt32)text.Length - 16;
+                    for (i = 0; i < ((UInt32)text.Length - 16) / 2; i++)
+                    {
+                        bin[j++] = text[16 + i * 2 + 1];
+                        bin[j++] = text[16 + i * 2];
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("错误：目录下没有同名的dta数据文件 " + path);
+                    return;
+                }
+            }
+
+            buff[0] = 0xa5;//uint32_t reset_state;//0xa5a5a5a5 本结构体数据有效
+            buff[1] = 0xa5;
+            buff[2] = 0xa5;
+            buff[3] = 0xa5;
+            buff[4] = (byte)picture_w.Count;//uint8_t enum;//元素个数 一般指本界面有多少张图片组成
+            if (filename_background != null)
+                buff[5] = 0;//uint8_t explain;//特殊说明 00：无特殊说明 BIT0:本界面无背景图片
+            else
+                buff[5] = 0X01;
+            UInt16 offset = (UInt16)(picture_w.Count * 12 + 8);//也代表了有效数据的起始位置
+            buff[6] = (byte)offset;//uint16_t offset;//图片数据的整体偏移
+            buff[7] = (byte)(offset >> 8);
+            for (i = 0; i < picture_w.Count; i++)
+            {
+                buff[8+i*12]= (Byte)(picture_addr[i] & 0x000000FF);//uint32_t addr;//在数据区的起始位置
+                buff[8 + i * 12+1] = (Byte)((picture_addr[i] >> 8) & 0x000000FF);
+                buff[8 + i * 12 + 2] = (Byte)((picture_addr[i] >> 16) & 0x000000FF);
+                buff[8 + i * 12 + 3] = (Byte)((picture_addr[i] >> 24) & 0x000000FF);
+
+                buff[8 + i * 12 + 4] = (Byte)(picture_x[i] & 0x000000FF);//uint16_t x;//图片的X起点
+                buff[8 + i * 12 + 5] = (Byte)((picture_x[i] >> 8) & 0x000000FF);
+
+                buff[8 + i * 12 + 6] = (Byte)(picture_y[i] & 0x000000FF);//uint16_t y;//图片的Y起点
+                buff[8 + i * 12 + 7] = (Byte)((picture_y[i] >> 8) & 0x000000FF);
+
+                buff[8 + i * 12 + 8] = (Byte)(picture_w[i] & 0x000000FF);//uint16_t w;//图片的宽度
+                buff[8 + i * 12 + 9] = (Byte)((picture_w[i] >> 8) & 0x000000FF);
+
+                buff[8 + i * 12 + 10] = (Byte)(picture_h[i] & 0x000000FF);//uint16_t h;//图片高度
+                buff[8 + i * 12 + 11] = (Byte)((picture_h[i] >> 8) & 0x000000FF);
+            }
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+
+            dlg.FileName = "interface_info_file";
+
+            dlg.DefaultExt = ".bin";
+
+            dlg.Filter = "bin file (.bin)|*.bin";
+
+            if (dlg.ShowDialog() == false)
+                return;
+
+            FileStream fs;
+            BinaryWriter bw;
+
+            if (System.IO.File.Exists(dlg.FileName))
+            {
+                System.IO.File.Delete(dlg.FileName);
+            }
+            fs = new FileStream(dlg.FileName, FileMode.CreateNew);
+            bw = new BinaryWriter(fs);
+            bw.Write(buff, 0, offset);
+            bw.Write(bin, 0, (int)srcfilesize);
+            bw.Close();
+            fs.Close();
         }
     }
 
