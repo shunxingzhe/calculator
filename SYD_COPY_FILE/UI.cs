@@ -20,8 +20,16 @@ namespace SYD_COPY_FILE
         private static int UI_SCREEN_WIDTH = 454;//屏幕宽度
         private static int UI_SCREEN_HIGHT = 454;//屏幕高度
 
-        #endregion
-        bool while_ture = true;
+        public enum OPEN_PICTURE_ALIGN  //贴边打开图片时的方式
+        {
+            NON,//正常打开图片，非贴边打开
+            RIGHT,//贴右边打开图片
+            LEFT,
+            UP,
+            DOWN
+        };
+    #endregion
+    bool while_ture = true;
         List<int[]> clear_marray = new List<int[]>();
         int x_clear_star = UI_SCREEN_WIDTH;
         int y_clear_star = UI_SCREEN_HIGHT;
@@ -42,9 +50,25 @@ namespace SYD_COPY_FILE
         {
             filename_background = null;
         }
-
-        private void picture_addto_platfrom(string filename, int x, int y)
+        private bool picture_valid(string filename)
         {
+            if(list_pictureBox.Count>0)
+            {
+                foreach (SYDPictureBox SYDPictureBox in list_pictureBox)
+                {
+                    if (SYDPictureBox.filename == filename) return false;
+                }
+            }
+            return true;
+        }
+        //align 参数代表是否需要贴边打开，不需要的话传入OPEN_PICTURE_ALIGN.NON
+        private void picture_addto_platfrom(string filename, int x, int y, OPEN_PICTURE_ALIGN align, SYDPictureBox picture)
+        {
+            if(picture_valid(filename)==false)
+            {
+                MessageBox.Show("不能够重复打开相同图片");
+                return;
+            }
             myBmp = new Bitmap(filename);
             myBmp = img_alpha(myBmp, 128);
             if (myBmp == null)
@@ -56,6 +80,33 @@ namespace SYD_COPY_FILE
             {
                 MessageBox.Show("图片太大");
                 return;
+            }
+            if (OPEN_PICTURE_ALIGN.NON != align)//有对齐
+            {
+                switch (align)
+                {
+                    case OPEN_PICTURE_ALIGN.RIGHT:
+                        x = picture.Location.X + picture.Width;
+                        y = picture.Location.Y;
+                        break;
+                    case OPEN_PICTURE_ALIGN.LEFT:
+                        x = picture.Location.X - myBmp.Width;
+                        y = picture.Location.Y;
+                        break;
+                    case OPEN_PICTURE_ALIGN.UP:
+                        x = picture.Location.X;
+                        y = picture.Location.Y- myBmp.Height;
+                        break;
+                    case OPEN_PICTURE_ALIGN.DOWN:
+                        x = picture.Location.X;
+                        y = picture.Location.Y + picture.Height;
+                        break;
+                }
+                if ((x < 0) || (y < 0))
+                {
+                    MessageBox.Show("贴边模式剩余空间不足以放下该图片");
+                    return;
+                }
             }
             if ((myBmp.Width+ x)>= UI_SCREEN_WIDTH) x = UI_SCREEN_WIDTH - myBmp.Width;
             if ((myBmp.Height + y) >= UI_SCREEN_HIGHT) y = UI_SCREEN_WIDTH - myBmp.Height;
@@ -109,8 +160,7 @@ namespace SYD_COPY_FILE
                 }
             return bmp;
         }
-        //图片上传
-        private void button_openpicture_Click(object sender, EventArgs e)
+        private void openpicture_do(OPEN_PICTURE_ALIGN align, SYDPictureBox picture)
         {
             string filename = "";
             OpenFileDialog dlg = new OpenFileDialog();
@@ -118,20 +168,18 @@ namespace SYD_COPY_FILE
             dlg.FilterIndex = 8;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
-                    filename = dlg.FileName;
-                }
-                catch
-                {
- 
-                }
+                filename = dlg.FileName;
             }
             if (filename == "")
             {
                 return;
             }
-            picture_addto_platfrom(filename,20,20);
+            picture_addto_platfrom(filename, 20, 20, align, picture);
+        }
+        //图片上传
+        private void button_openpicture_Click(object sender, EventArgs e)
+        {
+            openpicture_do(OPEN_PICTURE_ALIGN.NON,null);
         }
         private void panel_pictureplatfrom_DragDrop(object sender, DragEventArgs e)
         {
@@ -146,7 +194,7 @@ namespace SYD_COPY_FILE
                 {
                    // Point point = panel_pictureplatfrom.Location;
                     Point mousePos = panel_pictureplatfrom.PointToClient(MousePosition);
-                    picture_addto_platfrom(fi.FullName, mousePos.X,  mousePos.Y);
+                    picture_addto_platfrom(fi.FullName, mousePos.X,  mousePos.Y,OPEN_PICTURE_ALIGN.NON, null);
                 }
             }
         }
@@ -567,7 +615,7 @@ namespace SYD_COPY_FILE
                     XmlElement point = (XmlElement)xnl0.Item(1);
                     int x = Convert.ToInt32(point.GetAttribute("x"), 10);
                     int y = Convert.ToInt32(point.GetAttribute("y"), 10);
-                    picture_addto_platfrom(filename, x, y);
+                    picture_addto_platfrom(filename, x, y, OPEN_PICTURE_ALIGN.NON, null);
                 }
                 else if (xe.Name == "background")
                 {
@@ -627,6 +675,54 @@ namespace SYD_COPY_FILE
                         list_pictureBox.Remove(senderLabel);
                         dictionary_string.Remove(senderLabel.Name);
                     }
+                    else if (contextMenuStrip1.Items[i].Text.Trim() == "贴边缘载入图片")
+                    {
+
+                    }
+                }
+            }
+        }
+        private void open_picture_DoWork(OPEN_PICTURE_ALIGN align, SYDPictureBox senderLabel)
+        {
+            this.Invoke(new EventHandler(delegate
+            {
+                openpicture_do(align, senderLabel);
+
+            }));
+        }
+        private void toolStripMenuItem3_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            SYDPictureBox senderLabel = (SYDPictureBox)(contextMenuStrip1.SourceControl);//根据sender引用控件。
+            for (int i = 0; i < toolStripMenuItem3.DropDownItems.Count; i++)
+            {
+                if (toolStripMenuItem3.DropDownItems[i].Selected)
+                {
+                    OPEN_PICTURE_ALIGN align= OPEN_PICTURE_ALIGN.NON;
+                    if (toolStripMenuItem3.DropDownItems[i].Text.Trim() == "贴右边")
+                    {
+                        align = OPEN_PICTURE_ALIGN.RIGHT;
+                    }
+                    else if (contextMenuStrip1.Items[i].Text.Trim() == "贴左边")
+                    {
+                        align = OPEN_PICTURE_ALIGN.LEFT;
+                    }
+                    else if (contextMenuStrip1.Items[i].Text.Trim() == "贴上边")
+                    {
+                        align = OPEN_PICTURE_ALIGN.UP;
+                    }
+                    else if (contextMenuStrip1.Items[i].Text.Trim() == "贴下边")
+                    {
+                        align = OPEN_PICTURE_ALIGN.DOWN;
+                    }
+                    BackgroundWorker work = new BackgroundWorker();
+
+                    work.DoWork += (o, ea) =>
+                    {
+                        open_picture_DoWork(align, senderLabel); // 可以使用泛型
+                    };
+
+                    work.RunWorkerAsync();
+                    
                 }
             }
         }
