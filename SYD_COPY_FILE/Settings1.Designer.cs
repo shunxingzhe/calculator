@@ -12,7 +12,7 @@ namespace SYD_COPY_FILE {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings1 : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings1 defaultInstance = ((Settings1)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings1())));
@@ -380,6 +380,138 @@ namespace SYD_COPY_FILE {
             }
             set {
                 this["Setting_textBoxSaveDir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line1 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line1"]));
+            }
+            set {
+                this["suffix_textBox_rename_line1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line2 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line2"]));
+            }
+            set {
+                this["suffix_textBox_rename_line2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line3 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line3"]));
+            }
+            set {
+                this["suffix_textBox_rename_line3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line4 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line4"]));
+            }
+            set {
+                this["suffix_textBox_rename_line4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line5 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line5"]));
+            }
+            set {
+                this["suffix_textBox_rename_line5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line6 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line6"]));
+            }
+            set {
+                this["suffix_textBox_rename_line6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line7 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line7"]));
+            }
+            set {
+                this["suffix_textBox_rename_line7"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line8 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line8"]));
+            }
+            set {
+                this["suffix_textBox_rename_line8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line9 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line9"]));
+            }
+            set {
+                this["suffix_textBox_rename_line9"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string suffix_textBox_rename_line10 {
+            get {
+                return ((string)(this["suffix_textBox_rename_line10"]));
+            }
+            set {
+                this["suffix_textBox_rename_line10"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string 设置 {
+            get {
+                return ((string)(this["设置"]));
+            }
+            set {
+                this["设置"] = value;
             }
         }
     }

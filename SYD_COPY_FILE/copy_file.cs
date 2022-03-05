@@ -13,12 +13,16 @@ namespace SYD_COPY_FILE
 {
     public partial class Form1
     {
-        public void copy_file_init()
+        public static object[] suffix_textBox_rename_static = new object[] {
+        "_Integration ",
+        "_changan_L31_V110_",
+        "_CP_L32_V118_",
+        "_letu_L32_V109_",
+        "_wuling_L33_V124_"};
+    public void copy_file_init()
         {
             this.label_copy_time.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             this.label_copy_time_sync.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            this.label_nowtime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            this.label_nowtime.ForeColor = Color.Blue;
             this.timer1.Interval = 1000;
             this.timer1.Start();
 
@@ -51,7 +55,19 @@ namespace SYD_COPY_FILE
             checkBox10.Checked = Settings1.Default.Setting_checkBox10;
             checkBox_systemtime_rename.Checked = Settings1.Default.Setting_checkBox_systemtime_rename;
             checkBox_delete_srcfile.Checked = Settings1.Default.Setting_checkBox_delete_srcfile;
-            
+
+            if (Settings1.Default.suffix_textBox_rename_line1 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line1);
+            if (Settings1.Default.suffix_textBox_rename_line2 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line2);
+            if (Settings1.Default.suffix_textBox_rename_line3 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line3);
+            if (Settings1.Default.suffix_textBox_rename_line4 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line4);
+            if (Settings1.Default.suffix_textBox_rename_line5 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line5);
+            if (Settings1.Default.suffix_textBox_rename_line6 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line6);
+            if (Settings1.Default.suffix_textBox_rename_line7 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line7);
+            if (Settings1.Default.suffix_textBox_rename_line8 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line8);
+            if (Settings1.Default.suffix_textBox_rename_line9 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line9);
+            if (Settings1.Default.suffix_textBox_rename_line10 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line10);
+            this.source_copyfile_suffix_textBox_rename.Items.AddRange(suffix_textBox_rename_static);
+
             comboBox_Common_path.SelectedIndex = 0;
 
             comboBox7.SelectedIndex = Settings1.Default.rename_mode_sel;
@@ -123,6 +139,10 @@ namespace SYD_COPY_FILE
 
             this.Text = name;
 
+            for (int i = 0; i < this.source_copyfile_suffix_textBox_rename.Items.Count; i++)
+            {
+                if (source_copyfile_suffix_textBox_rename.Text == this.source_copyfile_suffix_textBox_rename.Items[i].ToString()) return;
+            }
             this.source_copyfile_suffix_textBox_rename.Items.Insert(0, source_copyfile_suffix_textBox_rename.Text);
         }
         private void source_copyfile_button_Click(object sender, EventArgs e)
@@ -706,7 +726,6 @@ namespace SYD_COPY_FILE
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.label_nowtime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             if (SC_MAX == true)
             {
                 SC_MAX = false;

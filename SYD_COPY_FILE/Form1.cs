@@ -1426,6 +1426,45 @@ namespace SYD_COPY_FILE
             Settings1.Default.rename_mode_sel=comboBox7.SelectedIndex;
             Settings1.Default.Setting_checkBox_delete_srcfile=checkBox_delete_srcfile.Checked;
             Settings1.Default.Setting_textBoxSaveDir=textBoxSaveDir.Text;
+
+            int count = this.source_copyfile_suffix_textBox_rename.Items.Count-suffix_textBox_rename_static.Length;
+            if (count > 10) count = 10;
+            for (int i=0;i< count;i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        Settings1.Default.suffix_textBox_rename_line1 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 1:
+                        Settings1.Default.suffix_textBox_rename_line2 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 2:
+                        Settings1.Default.suffix_textBox_rename_line3 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 3:
+                        Settings1.Default.suffix_textBox_rename_line4 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 4:
+                        Settings1.Default.suffix_textBox_rename_line5 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 5:
+                        Settings1.Default.suffix_textBox_rename_line6 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 6:
+                        Settings1.Default.suffix_textBox_rename_line7 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 7:
+                        Settings1.Default.suffix_textBox_rename_line8 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 8:
+                        Settings1.Default.suffix_textBox_rename_line9 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 9:
+                        Settings1.Default.suffix_textBox_rename_line10 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                }
+            }
             Settings1.Default.Save();
         }
 

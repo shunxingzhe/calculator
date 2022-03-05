@@ -542,7 +542,6 @@
             this.button25 = new System.Windows.Forms.Button();
             this.checkBox_synccopy = new System.Windows.Forms.CheckBox();
             this.label_copy_time = new System.Windows.Forms.Label();
-            this.label_nowtime = new System.Windows.Forms.Label();
             this.source_copyfile_button = new System.Windows.Forms.Button();
             this.destination_file_button = new System.Windows.Forms.Button();
             this.button_copy_sourcefile_all = new System.Windows.Forms.Button();
@@ -5665,12 +5664,6 @@
             // source_copyfile_suffix_textBox_rename
             // 
             this.source_copyfile_suffix_textBox_rename.FormattingEnabled = true;
-            this.source_copyfile_suffix_textBox_rename.Items.AddRange(new object[] {
-            "_Integration ",
-            "_changan_L31_V110_",
-            "_CP_L32_V118_",
-            "_letu_L32_V109_",
-            "_wuling_L33_V124_"});
             this.source_copyfile_suffix_textBox_rename.Location = new System.Drawing.Point(348, 24);
             this.source_copyfile_suffix_textBox_rename.Name = "source_copyfile_suffix_textBox_rename";
             this.source_copyfile_suffix_textBox_rename.Size = new System.Drawing.Size(190, 20);
@@ -6114,7 +6107,6 @@
             this.tabPage5.Controls.Add(this.button25);
             this.tabPage5.Controls.Add(this.checkBox_synccopy);
             this.tabPage5.Controls.Add(this.label_copy_time);
-            this.tabPage5.Controls.Add(this.label_nowtime);
             this.tabPage5.Controls.Add(this.source_copyfile_button);
             this.tabPage5.Controls.Add(this.destination_file_button);
             this.tabPage5.Controls.Add(this.button_copy_sourcefile_all);
@@ -6204,15 +6196,6 @@
             this.label_copy_time.Size = new System.Drawing.Size(309, 15);
             this.label_copy_time.TabIndex = 37;
             this.label_copy_time.Text = "label91";
-            // 
-            // label_nowtime
-            // 
-            this.label_nowtime.Font = new System.Drawing.Font("宋体", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_nowtime.Location = new System.Drawing.Point(71, 32);
-            this.label_nowtime.Name = "label_nowtime";
-            this.label_nowtime.Size = new System.Drawing.Size(358, 35);
-            this.label_nowtime.TabIndex = 35;
-            this.label_nowtime.Text = "label_nowtime";
             // 
             // source_copyfile_button
             // 
@@ -6406,7 +6389,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.6.0";
+            this.Text = "SYD_Calculator V1.6.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -6859,7 +6842,6 @@
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.CheckBox checkBox_synccopy;
         private System.Windows.Forms.Label label_copy_time;
-        private System.Windows.Forms.Label label_nowtime;
         private System.Windows.Forms.Button source_copyfile_button;
         private System.Windows.Forms.Button destination_file_button;
         private System.Windows.Forms.Button button_copy_sourcefile_all;
