@@ -42,7 +42,7 @@ namespace SYD_COPY_FILE
         Point mouseDownPoint = new Point(); //记录拖拽过程鼠标位置
         bool isMove = false;  //判断鼠标在SYDPictureBox上移动时，是否处于拖拽过程(鼠标左键是否按下)
         string filename_background = null;
-
+        string[] filenames_old = new string[10];
         public void ui_init()
         {
             filename_background = null;
@@ -488,15 +488,15 @@ namespace SYD_COPY_FILE
                     {
                         align = OPEN_PICTURE_ALIGN.RIGHT;
                     }
-                    else if (contextMenuStrip1.Items[i].Text.Trim() == "贴左边")
+                    else if (toolStripMenuItem3.DropDownItems[i].Text.Trim() == "贴左边")
                     {
                         align = OPEN_PICTURE_ALIGN.LEFT;
                     }
-                    else if (contextMenuStrip1.Items[i].Text.Trim() == "贴上边")
+                    else if (toolStripMenuItem3.DropDownItems[i].Text.Trim() == "贴上边")
                     {
                         align = OPEN_PICTURE_ALIGN.UP;
                     }
-                    else if (contextMenuStrip1.Items[i].Text.Trim() == "贴下边")
+                    else if (toolStripMenuItem3.DropDownItems[i].Text.Trim() == "贴下边")
                     {
                         align = OPEN_PICTURE_ALIGN.DOWN;
                     }
@@ -509,6 +509,124 @@ namespace SYD_COPY_FILE
 
                     work.RunWorkerAsync();
                     
+                }
+            }
+        }
+        //返回成功要符合如下条件
+        //1.有且仅有唯一一组从0到9的数据
+        //2.传入图片必须为数字图片(文件名最后一位范围是0-9)
+        private bool picture_num_define_isvalid(string filename)
+        {
+            int i = 0,j=0;
+            if (filenames_old[0]!=null)//之前有存过
+            {
+                for (i = 0; i < filenames_old.Length; i++)
+                { 
+                    if(filenames_old[i]== filename) return true;
+                }
+            }
+            char[] num = new char[10];
+            string filename_withoutext= Path.GetFileNameWithoutExtension(filename);
+            if ((filename_withoutext[filename_withoutext.Length - 1] < '0') || (filename_withoutext[filename_withoutext.Length - 1] > '9'))//最后一位是数字
+            {
+                return false;
+            }
+            string dir = Path.GetDirectoryName(filename);
+            string ext = Path.GetExtension(filename);
+            string[] filenames = Directory.GetFiles(dir, "*" + ext, SearchOption.TopDirectoryOnly);//获取目录文件名称集合
+            if (filenames.Length < 10)
+            {
+                return false;
+            }
+            else 
+            {
+                for (i = 0; i < filenames.Length; i++)
+                {
+                    filename_withoutext = Path.GetFileNameWithoutExtension(filenames[i]);
+                    if ((filename_withoutext[filename_withoutext.Length - 1] >= '0') && (filename_withoutext[filename_withoutext.Length - 1] <= '9'))//最后一位是数字
+                    {
+                        if (j >= 10) return false;
+                        num[j] = (char)(filename_withoutext[filename_withoutext.Length - 1]- '0');
+                        filenames_old[j] = filenames[i];
+                        j++;
+                    }
+                }
+                if (j != 10) return false;
+                j = 0;
+                for (i = 0; i < num.Length; i++)
+                {
+                    j = j + num[i];
+                }
+                if (j == 45)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private void picture_define_do(object sender,int select_index, SYDPictureBox picture)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            if (item==toolStripMenuItem9)
+            {
+                if (picture_num_define_isvalid(picture.filename))
+                {
+                    MessageBox.Show("定义为步数有效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("定义为步数无效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+            }
+            else if (item == toolStripMenuItem25)
+            {
+                MessageBox.Show("定义为卡路里 " + item.DropDownItems[select_index].Text.Trim());
+            }
+            else if (item == toolStripMenuItem26)
+            {
+                MessageBox.Show("定义为距离 " + item.DropDownItems[select_index].Text.Trim());
+            }
+            else if (item == toolStripMenuItem24)
+            {
+                MessageBox.Show("定义为心率 " + item.DropDownItems[select_index].Text.Trim());
+            }
+            else if (item == toolStripMenuItem27)
+            {
+                MessageBox.Show("定义为血氧 " + item.DropDownItems[select_index].Text.Trim());
+            }
+            else if (item == toolStripMenuItem28)
+            {
+                MessageBox.Show("定义为血压 " + item.DropDownItems[select_index].Text.Trim());
+            }
+            else if (item == toolStripMenuItem29)
+            {
+                MessageBox.Show("定义为电量 " + item.DropDownItems[select_index].Text.Trim());
+            }
+        }
+        private void picture_define_DoWork(object sender,int select_index, SYDPictureBox senderLabel)
+        {
+            this.Invoke(new EventHandler(delegate
+            {
+                picture_define_do(sender,select_index, senderLabel);
+            }));
+        }
+        private void toolStripMenuItem_PictureDefine_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            SYDPictureBox senderLabel = (SYDPictureBox)(contextMenuStrip1.SourceControl);//根据sender引用控件。
+            for (int i = 0; i < item.DropDownItems.Count; i++)
+            {
+                if (item.DropDownItems[i].Selected)
+                {
+                    BackgroundWorker work = new BackgroundWorker();
+
+                    work.DoWork += (o, ea) =>
+                    {
+                        picture_define_DoWork(sender,i, senderLabel); // 可以使用泛型
+                    };
+
+                    work.RunWorkerAsync();
+                    break;
                 }
             }
         }

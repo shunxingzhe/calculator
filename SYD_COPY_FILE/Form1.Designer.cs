@@ -559,6 +559,112 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Step_Num13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem25 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Kcal_Num13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem26 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Distance_Num13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem24 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Heart_Num13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem27 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Oxygen_Num13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem28 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_BLOOD_Num13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem29 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Battary_Num13 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -6303,21 +6409,22 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem8});
             this.contextMenuStrip1.Name = "contextMenuStripSplit";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
             this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "删除";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "设置坐标";
             // 
             // toolStripMenuItem3
@@ -6328,33 +6435,789 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem3.Text = "贴边缘载入图片";
             this.toolStripMenuItem3.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem3_DropDownItemClicked);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem4.Text = "贴右边";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem5.Text = "贴左边";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem6.Text = "贴上边";
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem7.Text = "贴下边";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem25,
+            this.toolStripMenuItem26,
+            this.toolStripMenuItem24,
+            this.toolStripMenuItem27,
+            this.toolStripMenuItem28,
+            this.toolStripMenuItem29});
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem8.Text = "图片定义";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Step_Num0,
+            this.toolStripMenuItem_Step_Num1,
+            this.toolStripMenuItem_Step_Num2,
+            this.toolStripMenuItem_Step_Num3,
+            this.toolStripMenuItem_Step_Num4,
+            this.toolStripMenuItem_Step_Num5,
+            this.toolStripMenuItem_Step_Num6,
+            this.toolStripMenuItem_Step_Num7,
+            this.toolStripMenuItem_Step_Num8,
+            this.toolStripMenuItem_Step_Num9,
+            this.toolStripMenuItem_Step_Num10,
+            this.toolStripMenuItem_Step_Num11,
+            this.toolStripMenuItem_Step_Num12,
+            this.toolStripMenuItem_Step_Num13});
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem9.Text = "定义为步数";
+            this.toolStripMenuItem9.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
+            // 
+            // toolStripMenuItem_Step_Num0
+            // 
+            this.toolStripMenuItem_Step_Num0.Name = "toolStripMenuItem_Step_Num0";
+            this.toolStripMenuItem_Step_Num0.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num0.Text = "X1000000";
+            // 
+            // toolStripMenuItem_Step_Num1
+            // 
+            this.toolStripMenuItem_Step_Num1.Name = "toolStripMenuItem_Step_Num1";
+            this.toolStripMenuItem_Step_Num1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num1.Text = "X100000";
+            // 
+            // toolStripMenuItem_Step_Num2
+            // 
+            this.toolStripMenuItem_Step_Num2.Name = "toolStripMenuItem_Step_Num2";
+            this.toolStripMenuItem_Step_Num2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num2.Text = "X10000";
+            // 
+            // toolStripMenuItem_Step_Num3
+            // 
+            this.toolStripMenuItem_Step_Num3.Name = "toolStripMenuItem_Step_Num3";
+            this.toolStripMenuItem_Step_Num3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num3.Text = "X1000";
+            // 
+            // toolStripMenuItem_Step_Num4
+            // 
+            this.toolStripMenuItem_Step_Num4.Name = "toolStripMenuItem_Step_Num4";
+            this.toolStripMenuItem_Step_Num4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num4.Text = "X100";
+            // 
+            // toolStripMenuItem_Step_Num5
+            // 
+            this.toolStripMenuItem_Step_Num5.Name = "toolStripMenuItem_Step_Num5";
+            this.toolStripMenuItem_Step_Num5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num5.Text = "X10";
+            // 
+            // toolStripMenuItem_Step_Num6
+            // 
+            this.toolStripMenuItem_Step_Num6.Name = "toolStripMenuItem_Step_Num6";
+            this.toolStripMenuItem_Step_Num6.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num6.Text = "X1";
+            // 
+            // toolStripMenuItem_Step_Num7
+            // 
+            this.toolStripMenuItem_Step_Num7.Name = "toolStripMenuItem_Step_Num7";
+            this.toolStripMenuItem_Step_Num7.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num7.Text = "X0.1";
+            // 
+            // toolStripMenuItem_Step_Num8
+            // 
+            this.toolStripMenuItem_Step_Num8.Name = "toolStripMenuItem_Step_Num8";
+            this.toolStripMenuItem_Step_Num8.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num8.Text = "X0.01";
+            // 
+            // toolStripMenuItem_Step_Num9
+            // 
+            this.toolStripMenuItem_Step_Num9.Name = "toolStripMenuItem_Step_Num9";
+            this.toolStripMenuItem_Step_Num9.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num9.Text = "X0.001";
+            // 
+            // toolStripMenuItem_Step_Num10
+            // 
+            this.toolStripMenuItem_Step_Num10.Name = "toolStripMenuItem_Step_Num10";
+            this.toolStripMenuItem_Step_Num10.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num10.Text = "X0.0001";
+            // 
+            // toolStripMenuItem_Step_Num11
+            // 
+            this.toolStripMenuItem_Step_Num11.Name = "toolStripMenuItem_Step_Num11";
+            this.toolStripMenuItem_Step_Num11.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num11.Text = "X0.00001";
+            // 
+            // toolStripMenuItem_Step_Num12
+            // 
+            this.toolStripMenuItem_Step_Num12.Name = "toolStripMenuItem_Step_Num12";
+            this.toolStripMenuItem_Step_Num12.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num12.Text = "X0.000001";
+            // 
+            // toolStripMenuItem_Step_Num13
+            // 
+            this.toolStripMenuItem_Step_Num13.Name = "toolStripMenuItem_Step_Num13";
+            this.toolStripMenuItem_Step_Num13.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_Step_Num13.Text = "X0.0000001";
+            // 
+            // toolStripMenuItem25
+            // 
+            this.toolStripMenuItem25.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Kcal_Num0,
+            this.toolStripMenuItem_Kcal_Num1,
+            this.toolStripMenuItem_Kcal_Num2,
+            this.toolStripMenuItem_Kcal_Num3,
+            this.toolStripMenuItem_Kcal_Num4,
+            this.toolStripMenuItem_Kcal_Num5,
+            this.toolStripMenuItem_Kcal_Num6,
+            this.toolStripMenuItem_Kcal_Num7,
+            this.toolStripMenuItem_Kcal_Num8,
+            this.toolStripMenuItem_Kcal_Num9,
+            this.toolStripMenuItem_Kcal_Num10,
+            this.toolStripMenuItem_Kcal_Num11,
+            this.toolStripMenuItem_Kcal_Num12,
+            this.toolStripMenuItem_Kcal_Num13});
+            this.toolStripMenuItem25.Name = "toolStripMenuItem25";
+            this.toolStripMenuItem25.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem25.Text = "定义为卡路里";
+            this.toolStripMenuItem25.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
+            // 
+            // toolStripMenuItem_Kcal_Num0
+            // 
+            this.toolStripMenuItem_Kcal_Num0.Name = "toolStripMenuItem_Kcal_Num0";
+            this.toolStripMenuItem_Kcal_Num0.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num0.Text = "X1000000";
+            // 
+            // toolStripMenuItem_Kcal_Num1
+            // 
+            this.toolStripMenuItem_Kcal_Num1.Name = "toolStripMenuItem_Kcal_Num1";
+            this.toolStripMenuItem_Kcal_Num1.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num1.Text = "X100000";
+            // 
+            // toolStripMenuItem_Kcal_Num2
+            // 
+            this.toolStripMenuItem_Kcal_Num2.Name = "toolStripMenuItem_Kcal_Num2";
+            this.toolStripMenuItem_Kcal_Num2.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num2.Text = "X10000";
+            // 
+            // toolStripMenuItem_Kcal_Num3
+            // 
+            this.toolStripMenuItem_Kcal_Num3.Name = "toolStripMenuItem_Kcal_Num3";
+            this.toolStripMenuItem_Kcal_Num3.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num3.Text = "X1000";
+            // 
+            // toolStripMenuItem_Kcal_Num4
+            // 
+            this.toolStripMenuItem_Kcal_Num4.Name = "toolStripMenuItem_Kcal_Num4";
+            this.toolStripMenuItem_Kcal_Num4.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num4.Text = "X100";
+            // 
+            // toolStripMenuItem_Kcal_Num5
+            // 
+            this.toolStripMenuItem_Kcal_Num5.Name = "toolStripMenuItem_Kcal_Num5";
+            this.toolStripMenuItem_Kcal_Num5.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num5.Text = "X10";
+            // 
+            // toolStripMenuItem_Kcal_Num6
+            // 
+            this.toolStripMenuItem_Kcal_Num6.Name = "toolStripMenuItem_Kcal_Num6";
+            this.toolStripMenuItem_Kcal_Num6.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num6.Text = "X1";
+            // 
+            // toolStripMenuItem_Kcal_Num7
+            // 
+            this.toolStripMenuItem_Kcal_Num7.Name = "toolStripMenuItem_Kcal_Num7";
+            this.toolStripMenuItem_Kcal_Num7.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num7.Text = "X0.1";
+            // 
+            // toolStripMenuItem_Kcal_Num8
+            // 
+            this.toolStripMenuItem_Kcal_Num8.Name = "toolStripMenuItem_Kcal_Num8";
+            this.toolStripMenuItem_Kcal_Num8.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num8.Text = "X0.01";
+            // 
+            // toolStripMenuItem_Kcal_Num9
+            // 
+            this.toolStripMenuItem_Kcal_Num9.Name = "toolStripMenuItem_Kcal_Num9";
+            this.toolStripMenuItem_Kcal_Num9.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num9.Text = "X0.001";
+            // 
+            // toolStripMenuItem_Kcal_Num10
+            // 
+            this.toolStripMenuItem_Kcal_Num10.Name = "toolStripMenuItem_Kcal_Num10";
+            this.toolStripMenuItem_Kcal_Num10.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num10.Text = "X0.0001";
+            // 
+            // toolStripMenuItem_Kcal_Num11
+            // 
+            this.toolStripMenuItem_Kcal_Num11.Name = "toolStripMenuItem_Kcal_Num11";
+            this.toolStripMenuItem_Kcal_Num11.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num11.Text = "X0.00001";
+            // 
+            // toolStripMenuItem_Kcal_Num12
+            // 
+            this.toolStripMenuItem_Kcal_Num12.Name = "toolStripMenuItem_Kcal_Num12";
+            this.toolStripMenuItem_Kcal_Num12.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num12.Text = "X0.000001";
+            // 
+            // toolStripMenuItem_Kcal_Num13
+            // 
+            this.toolStripMenuItem_Kcal_Num13.Name = "toolStripMenuItem_Kcal_Num13";
+            this.toolStripMenuItem_Kcal_Num13.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Kcal_Num13.Text = "X0.0000001";
+            // 
+            // toolStripMenuItem26
+            // 
+            this.toolStripMenuItem26.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Distance_Num0,
+            this.toolStripMenuItem_Distance_Num1,
+            this.toolStripMenuItem_Distance_Num2,
+            this.toolStripMenuItem_Distance_Num3,
+            this.toolStripMenuItem_Distance_Num4,
+            this.toolStripMenuItem_Distance_Num5,
+            this.toolStripMenuItem_Distance_Num6,
+            this.toolStripMenuItem_Distance_Num7,
+            this.toolStripMenuItem_Distance_Num8,
+            this.toolStripMenuItem_Distance_Num9,
+            this.toolStripMenuItem_Distance_Num10,
+            this.toolStripMenuItem_Distance_Num11,
+            this.toolStripMenuItem_Distance_Num12,
+            this.toolStripMenuItem_Distance_Num13});
+            this.toolStripMenuItem26.Name = "toolStripMenuItem26";
+            this.toolStripMenuItem26.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem26.Text = "定义为距离";
+            this.toolStripMenuItem26.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
+            // 
+            // toolStripMenuItem_Distance_Num0
+            // 
+            this.toolStripMenuItem_Distance_Num0.Name = "toolStripMenuItem_Distance_Num0";
+            this.toolStripMenuItem_Distance_Num0.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num0.Text = "X1000000";
+            // 
+            // toolStripMenuItem_Distance_Num1
+            // 
+            this.toolStripMenuItem_Distance_Num1.Name = "toolStripMenuItem_Distance_Num1";
+            this.toolStripMenuItem_Distance_Num1.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num1.Text = "X100000";
+            // 
+            // toolStripMenuItem_Distance_Num2
+            // 
+            this.toolStripMenuItem_Distance_Num2.Name = "toolStripMenuItem_Distance_Num2";
+            this.toolStripMenuItem_Distance_Num2.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num2.Text = "X10000";
+            // 
+            // toolStripMenuItem_Distance_Num3
+            // 
+            this.toolStripMenuItem_Distance_Num3.Name = "toolStripMenuItem_Distance_Num3";
+            this.toolStripMenuItem_Distance_Num3.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num3.Text = "X1000";
+            // 
+            // toolStripMenuItem_Distance_Num4
+            // 
+            this.toolStripMenuItem_Distance_Num4.Name = "toolStripMenuItem_Distance_Num4";
+            this.toolStripMenuItem_Distance_Num4.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num4.Text = "X100";
+            // 
+            // toolStripMenuItem_Distance_Num5
+            // 
+            this.toolStripMenuItem_Distance_Num5.Name = "toolStripMenuItem_Distance_Num5";
+            this.toolStripMenuItem_Distance_Num5.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num5.Text = "X10";
+            // 
+            // toolStripMenuItem_Distance_Num6
+            // 
+            this.toolStripMenuItem_Distance_Num6.Name = "toolStripMenuItem_Distance_Num6";
+            this.toolStripMenuItem_Distance_Num6.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num6.Text = "X1";
+            // 
+            // toolStripMenuItem_Distance_Num7
+            // 
+            this.toolStripMenuItem_Distance_Num7.Name = "toolStripMenuItem_Distance_Num7";
+            this.toolStripMenuItem_Distance_Num7.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num7.Text = "X0.1";
+            // 
+            // toolStripMenuItem_Distance_Num8
+            // 
+            this.toolStripMenuItem_Distance_Num8.Name = "toolStripMenuItem_Distance_Num8";
+            this.toolStripMenuItem_Distance_Num8.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num8.Text = "X0.01";
+            // 
+            // toolStripMenuItem_Distance_Num9
+            // 
+            this.toolStripMenuItem_Distance_Num9.Name = "toolStripMenuItem_Distance_Num9";
+            this.toolStripMenuItem_Distance_Num9.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num9.Text = "X0.001";
+            // 
+            // toolStripMenuItem_Distance_Num10
+            // 
+            this.toolStripMenuItem_Distance_Num10.Name = "toolStripMenuItem_Distance_Num10";
+            this.toolStripMenuItem_Distance_Num10.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num10.Text = "X0.0001";
+            // 
+            // toolStripMenuItem_Distance_Num11
+            // 
+            this.toolStripMenuItem_Distance_Num11.Name = "toolStripMenuItem_Distance_Num11";
+            this.toolStripMenuItem_Distance_Num11.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num11.Text = "X0.00001";
+            // 
+            // toolStripMenuItem_Distance_Num12
+            // 
+            this.toolStripMenuItem_Distance_Num12.Name = "toolStripMenuItem_Distance_Num12";
+            this.toolStripMenuItem_Distance_Num12.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num12.Text = "X0.000001";
+            // 
+            // toolStripMenuItem_Distance_Num13
+            // 
+            this.toolStripMenuItem_Distance_Num13.Name = "toolStripMenuItem_Distance_Num13";
+            this.toolStripMenuItem_Distance_Num13.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Distance_Num13.Text = "X0.0000001";
+            // 
+            // toolStripMenuItem24
+            // 
+            this.toolStripMenuItem24.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Heart_Num0,
+            this.toolStripMenuItem_Heart_Num1,
+            this.toolStripMenuItem_Heart_Num2,
+            this.toolStripMenuItem_Heart_Num3,
+            this.toolStripMenuItem_Heart_Num4,
+            this.toolStripMenuItem_Heart_Num5,
+            this.toolStripMenuItem_Heart_Num6,
+            this.toolStripMenuItem_Heart_Num7,
+            this.toolStripMenuItem_Heart_Num8,
+            this.toolStripMenuItem_Heart_Num9,
+            this.toolStripMenuItem_Heart_Num10,
+            this.toolStripMenuItem_Heart_Num11,
+            this.toolStripMenuItem_Heart_Num12,
+            this.toolStripMenuItem_Heart_Num13});
+            this.toolStripMenuItem24.Name = "toolStripMenuItem24";
+            this.toolStripMenuItem24.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem24.Text = "定义为心率";
+            this.toolStripMenuItem24.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
+            // 
+            // toolStripMenuItem_Heart_Num0
+            // 
+            this.toolStripMenuItem_Heart_Num0.Name = "toolStripMenuItem_Heart_Num0";
+            this.toolStripMenuItem_Heart_Num0.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num0.Text = "X1000000";
+            // 
+            // toolStripMenuItem_Heart_Num1
+            // 
+            this.toolStripMenuItem_Heart_Num1.Name = "toolStripMenuItem_Heart_Num1";
+            this.toolStripMenuItem_Heart_Num1.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num1.Text = "X100000";
+            // 
+            // toolStripMenuItem_Heart_Num2
+            // 
+            this.toolStripMenuItem_Heart_Num2.Name = "toolStripMenuItem_Heart_Num2";
+            this.toolStripMenuItem_Heart_Num2.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num2.Text = "X10000";
+            // 
+            // toolStripMenuItem_Heart_Num3
+            // 
+            this.toolStripMenuItem_Heart_Num3.Name = "toolStripMenuItem_Heart_Num3";
+            this.toolStripMenuItem_Heart_Num3.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num3.Text = "X1000";
+            // 
+            // toolStripMenuItem_Heart_Num4
+            // 
+            this.toolStripMenuItem_Heart_Num4.Name = "toolStripMenuItem_Heart_Num4";
+            this.toolStripMenuItem_Heart_Num4.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num4.Text = "X100";
+            // 
+            // toolStripMenuItem_Heart_Num5
+            // 
+            this.toolStripMenuItem_Heart_Num5.Name = "toolStripMenuItem_Heart_Num5";
+            this.toolStripMenuItem_Heart_Num5.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num5.Text = "X10";
+            // 
+            // toolStripMenuItem_Heart_Num6
+            // 
+            this.toolStripMenuItem_Heart_Num6.Name = "toolStripMenuItem_Heart_Num6";
+            this.toolStripMenuItem_Heart_Num6.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num6.Text = "X1";
+            // 
+            // toolStripMenuItem_Heart_Num7
+            // 
+            this.toolStripMenuItem_Heart_Num7.Name = "toolStripMenuItem_Heart_Num7";
+            this.toolStripMenuItem_Heart_Num7.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num7.Text = "X0.1";
+            // 
+            // toolStripMenuItem_Heart_Num8
+            // 
+            this.toolStripMenuItem_Heart_Num8.Name = "toolStripMenuItem_Heart_Num8";
+            this.toolStripMenuItem_Heart_Num8.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num8.Text = "X0.01";
+            // 
+            // toolStripMenuItem_Heart_Num9
+            // 
+            this.toolStripMenuItem_Heart_Num9.Name = "toolStripMenuItem_Heart_Num9";
+            this.toolStripMenuItem_Heart_Num9.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num9.Text = "X0.001";
+            // 
+            // toolStripMenuItem_Heart_Num10
+            // 
+            this.toolStripMenuItem_Heart_Num10.Name = "toolStripMenuItem_Heart_Num10";
+            this.toolStripMenuItem_Heart_Num10.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num10.Text = "X0.0001";
+            // 
+            // toolStripMenuItem_Heart_Num11
+            // 
+            this.toolStripMenuItem_Heart_Num11.Name = "toolStripMenuItem_Heart_Num11";
+            this.toolStripMenuItem_Heart_Num11.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num11.Text = "X0.00001";
+            // 
+            // toolStripMenuItem_Heart_Num12
+            // 
+            this.toolStripMenuItem_Heart_Num12.Name = "toolStripMenuItem_Heart_Num12";
+            this.toolStripMenuItem_Heart_Num12.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num12.Text = "X0.000001";
+            // 
+            // toolStripMenuItem_Heart_Num13
+            // 
+            this.toolStripMenuItem_Heart_Num13.Name = "toolStripMenuItem_Heart_Num13";
+            this.toolStripMenuItem_Heart_Num13.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Heart_Num13.Text = "X0.0000001";
+            // 
+            // toolStripMenuItem27
+            // 
+            this.toolStripMenuItem27.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Oxygen_Num0,
+            this.toolStripMenuItem_Oxygen_Num1,
+            this.toolStripMenuItem_Oxygen_Num2,
+            this.toolStripMenuItem_Oxygen_Num3,
+            this.toolStripMenuItem_Oxygen_Num4,
+            this.toolStripMenuItem_Oxygen_Num5,
+            this.toolStripMenuItem_Oxygen_Num6,
+            this.toolStripMenuItem_Oxygen_Num7,
+            this.toolStripMenuItem_Oxygen_Num8,
+            this.toolStripMenuItem_Oxygen_Num9,
+            this.toolStripMenuItem_Oxygen_Num10,
+            this.toolStripMenuItem_Oxygen_Num11,
+            this.toolStripMenuItem_Oxygen_Num12,
+            this.toolStripMenuItem_Oxygen_Num13});
+            this.toolStripMenuItem27.Name = "toolStripMenuItem27";
+            this.toolStripMenuItem27.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem27.Text = "定义为血氧";
+            this.toolStripMenuItem27.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
+            // 
+            // toolStripMenuItem_Oxygen_Num0
+            // 
+            this.toolStripMenuItem_Oxygen_Num0.Name = "toolStripMenuItem_Oxygen_Num0";
+            this.toolStripMenuItem_Oxygen_Num0.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num0.Text = "X1000000";
+            // 
+            // toolStripMenuItem_Oxygen_Num1
+            // 
+            this.toolStripMenuItem_Oxygen_Num1.Name = "toolStripMenuItem_Oxygen_Num1";
+            this.toolStripMenuItem_Oxygen_Num1.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num1.Text = "X100000";
+            // 
+            // toolStripMenuItem_Oxygen_Num2
+            // 
+            this.toolStripMenuItem_Oxygen_Num2.Name = "toolStripMenuItem_Oxygen_Num2";
+            this.toolStripMenuItem_Oxygen_Num2.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num2.Text = "X10000";
+            // 
+            // toolStripMenuItem_Oxygen_Num3
+            // 
+            this.toolStripMenuItem_Oxygen_Num3.Name = "toolStripMenuItem_Oxygen_Num3";
+            this.toolStripMenuItem_Oxygen_Num3.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num3.Text = "X1000";
+            // 
+            // toolStripMenuItem_Oxygen_Num4
+            // 
+            this.toolStripMenuItem_Oxygen_Num4.Name = "toolStripMenuItem_Oxygen_Num4";
+            this.toolStripMenuItem_Oxygen_Num4.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num4.Text = "X100";
+            // 
+            // toolStripMenuItem_Oxygen_Num5
+            // 
+            this.toolStripMenuItem_Oxygen_Num5.Name = "toolStripMenuItem_Oxygen_Num5";
+            this.toolStripMenuItem_Oxygen_Num5.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num5.Text = "X10";
+            // 
+            // toolStripMenuItem_Oxygen_Num6
+            // 
+            this.toolStripMenuItem_Oxygen_Num6.Name = "toolStripMenuItem_Oxygen_Num6";
+            this.toolStripMenuItem_Oxygen_Num6.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num6.Text = "X1";
+            // 
+            // toolStripMenuItem_Oxygen_Num7
+            // 
+            this.toolStripMenuItem_Oxygen_Num7.Name = "toolStripMenuItem_Oxygen_Num7";
+            this.toolStripMenuItem_Oxygen_Num7.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num7.Text = "X0.1";
+            // 
+            // toolStripMenuItem_Oxygen_Num8
+            // 
+            this.toolStripMenuItem_Oxygen_Num8.Name = "toolStripMenuItem_Oxygen_Num8";
+            this.toolStripMenuItem_Oxygen_Num8.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num8.Text = "X0.01";
+            // 
+            // toolStripMenuItem_Oxygen_Num9
+            // 
+            this.toolStripMenuItem_Oxygen_Num9.Name = "toolStripMenuItem_Oxygen_Num9";
+            this.toolStripMenuItem_Oxygen_Num9.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num9.Text = "X0.001";
+            // 
+            // toolStripMenuItem_Oxygen_Num10
+            // 
+            this.toolStripMenuItem_Oxygen_Num10.Name = "toolStripMenuItem_Oxygen_Num10";
+            this.toolStripMenuItem_Oxygen_Num10.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num10.Text = "X0.0001";
+            // 
+            // toolStripMenuItem_Oxygen_Num11
+            // 
+            this.toolStripMenuItem_Oxygen_Num11.Name = "toolStripMenuItem_Oxygen_Num11";
+            this.toolStripMenuItem_Oxygen_Num11.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num11.Text = "X0.00001";
+            // 
+            // toolStripMenuItem_Oxygen_Num12
+            // 
+            this.toolStripMenuItem_Oxygen_Num12.Name = "toolStripMenuItem_Oxygen_Num12";
+            this.toolStripMenuItem_Oxygen_Num12.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num12.Text = "X0.000001";
+            // 
+            // toolStripMenuItem_Oxygen_Num13
+            // 
+            this.toolStripMenuItem_Oxygen_Num13.Name = "toolStripMenuItem_Oxygen_Num13";
+            this.toolStripMenuItem_Oxygen_Num13.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Oxygen_Num13.Text = "X0.0000001";
+            // 
+            // toolStripMenuItem28
+            // 
+            this.toolStripMenuItem28.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_BLOOD_Num0,
+            this.toolStripMenuItem_BLOOD_Num1,
+            this.toolStripMenuItem_BLOOD_Num2,
+            this.toolStripMenuItem_BLOOD_Num3,
+            this.toolStripMenuItem_BLOOD_Num4,
+            this.toolStripMenuItem_BLOOD_Num5,
+            this.toolStripMenuItem_BLOOD_Num6,
+            this.toolStripMenuItem_BLOOD_Num7,
+            this.toolStripMenuItem_BLOOD_Num8,
+            this.toolStripMenuItem_BLOOD_Num9,
+            this.toolStripMenuItem_BLOOD_Num10,
+            this.toolStripMenuItem_BLOOD_Num11,
+            this.toolStripMenuItem_BLOOD_Num12,
+            this.toolStripMenuItem_BLOOD_Num13});
+            this.toolStripMenuItem28.Name = "toolStripMenuItem28";
+            this.toolStripMenuItem28.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem28.Text = "定义为血压";
+            this.toolStripMenuItem28.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
+            // 
+            // toolStripMenuItem_BLOOD_Num0
+            // 
+            this.toolStripMenuItem_BLOOD_Num0.Name = "toolStripMenuItem_BLOOD_Num0";
+            this.toolStripMenuItem_BLOOD_Num0.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num0.Text = "X1000000";
+            // 
+            // toolStripMenuItem_BLOOD_Num1
+            // 
+            this.toolStripMenuItem_BLOOD_Num1.Name = "toolStripMenuItem_BLOOD_Num1";
+            this.toolStripMenuItem_BLOOD_Num1.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num1.Text = "X100000";
+            // 
+            // toolStripMenuItem_BLOOD_Num2
+            // 
+            this.toolStripMenuItem_BLOOD_Num2.Name = "toolStripMenuItem_BLOOD_Num2";
+            this.toolStripMenuItem_BLOOD_Num2.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num2.Text = "X10000";
+            // 
+            // toolStripMenuItem_BLOOD_Num3
+            // 
+            this.toolStripMenuItem_BLOOD_Num3.Name = "toolStripMenuItem_BLOOD_Num3";
+            this.toolStripMenuItem_BLOOD_Num3.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num3.Text = "X1000";
+            // 
+            // toolStripMenuItem_BLOOD_Num4
+            // 
+            this.toolStripMenuItem_BLOOD_Num4.Name = "toolStripMenuItem_BLOOD_Num4";
+            this.toolStripMenuItem_BLOOD_Num4.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num4.Text = "X100";
+            // 
+            // toolStripMenuItem_BLOOD_Num5
+            // 
+            this.toolStripMenuItem_BLOOD_Num5.Name = "toolStripMenuItem_BLOOD_Num5";
+            this.toolStripMenuItem_BLOOD_Num5.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num5.Text = "X10";
+            // 
+            // toolStripMenuItem_BLOOD_Num6
+            // 
+            this.toolStripMenuItem_BLOOD_Num6.Name = "toolStripMenuItem_BLOOD_Num6";
+            this.toolStripMenuItem_BLOOD_Num6.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num6.Text = "X1";
+            // 
+            // toolStripMenuItem_BLOOD_Num7
+            // 
+            this.toolStripMenuItem_BLOOD_Num7.Name = "toolStripMenuItem_BLOOD_Num7";
+            this.toolStripMenuItem_BLOOD_Num7.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num7.Text = "X0.1";
+            // 
+            // toolStripMenuItem_BLOOD_Num8
+            // 
+            this.toolStripMenuItem_BLOOD_Num8.Name = "toolStripMenuItem_BLOOD_Num8";
+            this.toolStripMenuItem_BLOOD_Num8.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num8.Text = "X0.01";
+            // 
+            // toolStripMenuItem_BLOOD_Num9
+            // 
+            this.toolStripMenuItem_BLOOD_Num9.Name = "toolStripMenuItem_BLOOD_Num9";
+            this.toolStripMenuItem_BLOOD_Num9.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num9.Text = "X0.001";
+            // 
+            // toolStripMenuItem_BLOOD_Num10
+            // 
+            this.toolStripMenuItem_BLOOD_Num10.Name = "toolStripMenuItem_BLOOD_Num10";
+            this.toolStripMenuItem_BLOOD_Num10.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num10.Text = "X0.0001";
+            // 
+            // toolStripMenuItem_BLOOD_Num11
+            // 
+            this.toolStripMenuItem_BLOOD_Num11.Name = "toolStripMenuItem_BLOOD_Num11";
+            this.toolStripMenuItem_BLOOD_Num11.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num11.Text = "X0.00001";
+            // 
+            // toolStripMenuItem_BLOOD_Num12
+            // 
+            this.toolStripMenuItem_BLOOD_Num12.Name = "toolStripMenuItem_BLOOD_Num12";
+            this.toolStripMenuItem_BLOOD_Num12.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num12.Text = "X0.000001";
+            // 
+            // toolStripMenuItem_BLOOD_Num13
+            // 
+            this.toolStripMenuItem_BLOOD_Num13.Name = "toolStripMenuItem_BLOOD_Num13";
+            this.toolStripMenuItem_BLOOD_Num13.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_BLOOD_Num13.Text = "X0.0000001";
+            // 
+            // toolStripMenuItem29
+            // 
+            this.toolStripMenuItem29.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Battary_Num0,
+            this.toolStripMenuItem_Battary_Num1,
+            this.toolStripMenuItem_Battary_Num2,
+            this.toolStripMenuItem_Battary_Num3,
+            this.toolStripMenuItem_Battary_Num4,
+            this.toolStripMenuItem_Battary_Num5,
+            this.toolStripMenuItem_Battary_Num6,
+            this.toolStripMenuItem_Battary_Num7,
+            this.toolStripMenuItem_Battary_Num8,
+            this.toolStripMenuItem_Battary_Num9,
+            this.toolStripMenuItem_Battary_Num10,
+            this.toolStripMenuItem_Battary_Num11,
+            this.toolStripMenuItem_Battary_Num12,
+            this.toolStripMenuItem_Battary_Num13});
+            this.toolStripMenuItem29.Name = "toolStripMenuItem29";
+            this.toolStripMenuItem29.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem29.Text = "定义为电量";
+            this.toolStripMenuItem29.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
+            // 
+            // toolStripMenuItem_Battary_Num0
+            // 
+            this.toolStripMenuItem_Battary_Num0.Name = "toolStripMenuItem_Battary_Num0";
+            this.toolStripMenuItem_Battary_Num0.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num0.Text = "X1000000";
+            // 
+            // toolStripMenuItem_Battary_Num1
+            // 
+            this.toolStripMenuItem_Battary_Num1.Name = "toolStripMenuItem_Battary_Num1";
+            this.toolStripMenuItem_Battary_Num1.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num1.Text = "X100000";
+            // 
+            // toolStripMenuItem_Battary_Num2
+            // 
+            this.toolStripMenuItem_Battary_Num2.Name = "toolStripMenuItem_Battary_Num2";
+            this.toolStripMenuItem_Battary_Num2.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num2.Text = "X10000";
+            // 
+            // toolStripMenuItem_Battary_Num3
+            // 
+            this.toolStripMenuItem_Battary_Num3.Name = "toolStripMenuItem_Battary_Num3";
+            this.toolStripMenuItem_Battary_Num3.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num3.Text = "X1000";
+            // 
+            // toolStripMenuItem_Battary_Num4
+            // 
+            this.toolStripMenuItem_Battary_Num4.Name = "toolStripMenuItem_Battary_Num4";
+            this.toolStripMenuItem_Battary_Num4.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num4.Text = "X100";
+            // 
+            // toolStripMenuItem_Battary_Num5
+            // 
+            this.toolStripMenuItem_Battary_Num5.Name = "toolStripMenuItem_Battary_Num5";
+            this.toolStripMenuItem_Battary_Num5.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num5.Text = "X10";
+            // 
+            // toolStripMenuItem_Battary_Num6
+            // 
+            this.toolStripMenuItem_Battary_Num6.Name = "toolStripMenuItem_Battary_Num6";
+            this.toolStripMenuItem_Battary_Num6.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num6.Text = "X1";
+            // 
+            // toolStripMenuItem_Battary_Num7
+            // 
+            this.toolStripMenuItem_Battary_Num7.Name = "toolStripMenuItem_Battary_Num7";
+            this.toolStripMenuItem_Battary_Num7.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num7.Text = "X0.1";
+            // 
+            // toolStripMenuItem_Battary_Num8
+            // 
+            this.toolStripMenuItem_Battary_Num8.Name = "toolStripMenuItem_Battary_Num8";
+            this.toolStripMenuItem_Battary_Num8.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num8.Text = "X0.01";
+            // 
+            // toolStripMenuItem_Battary_Num9
+            // 
+            this.toolStripMenuItem_Battary_Num9.Name = "toolStripMenuItem_Battary_Num9";
+            this.toolStripMenuItem_Battary_Num9.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num9.Text = "X0.001";
+            // 
+            // toolStripMenuItem_Battary_Num10
+            // 
+            this.toolStripMenuItem_Battary_Num10.Name = "toolStripMenuItem_Battary_Num10";
+            this.toolStripMenuItem_Battary_Num10.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num10.Text = "X0.0001";
+            // 
+            // toolStripMenuItem_Battary_Num11
+            // 
+            this.toolStripMenuItem_Battary_Num11.Name = "toolStripMenuItem_Battary_Num11";
+            this.toolStripMenuItem_Battary_Num11.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num11.Text = "X0.00001";
+            // 
+            // toolStripMenuItem_Battary_Num12
+            // 
+            this.toolStripMenuItem_Battary_Num12.Name = "toolStripMenuItem_Battary_Num12";
+            this.toolStripMenuItem_Battary_Num12.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num12.Text = "X0.000001";
+            // 
+            // toolStripMenuItem_Battary_Num13
+            // 
+            this.toolStripMenuItem_Battary_Num13.Name = "toolStripMenuItem_Battary_Num13";
+            this.toolStripMenuItem_Battary_Num13.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem_Battary_Num13.Text = "X0.0000001";
             // 
             // statusStrip1
             // 
@@ -7011,6 +7874,112 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem24;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem25;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem26;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem27;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem28;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem29;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num0;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Step_Num13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num0;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Heart_Num13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num0;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Kcal_Num13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num0;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Distance_Num13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num0;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Oxygen_Num13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num0;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Battary_Num13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num0;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num13;
     }
 }
 
