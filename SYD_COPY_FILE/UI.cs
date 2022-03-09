@@ -515,28 +515,28 @@ namespace SYD_COPY_FILE
         //返回成功要符合如下条件
         //1.有且仅有唯一一组从0到9的数据
         //2.传入图片必须为数字图片(文件名最后一位范围是0-9)
-        private bool picture_num_define_isvalid(string filename)
+        private string picture_num_define_isvalid(string filename)
         {
             int i = 0,j=0;
             if (filenames_old[0]!=null)//之前有存过
             {
                 for (i = 0; i < filenames_old.Length; i++)
                 { 
-                    if(filenames_old[i]== filename) return true;
+                    if(filenames_old[i]== filename) return null;
                 }
             }
             char[] num = new char[10];
             string filename_withoutext= Path.GetFileNameWithoutExtension(filename);
             if ((filename_withoutext[filename_withoutext.Length - 1] < '0') || (filename_withoutext[filename_withoutext.Length - 1] > '9'))//最后一位是数字
             {
-                return false;
+                return "传入文件无效,不是数字图片(最后一位必须为数字)";
             }
             string dir = Path.GetDirectoryName(filename);
             string ext = Path.GetExtension(filename);
             string[] filenames = Directory.GetFiles(dir, "*" + ext, SearchOption.TopDirectoryOnly);//获取目录文件名称集合
             if (filenames.Length < 10)
             {
-                return false;
+                return "该图片目录下图片文件目录下小于10";
             }
             else 
             {
@@ -545,13 +545,13 @@ namespace SYD_COPY_FILE
                     filename_withoutext = Path.GetFileNameWithoutExtension(filenames[i]);
                     if ((filename_withoutext[filename_withoutext.Length - 1] >= '0') && (filename_withoutext[filename_withoutext.Length - 1] <= '9'))//最后一位是数字
                     {
-                        if (j >= 10) return false;
+                        if (j >= 10) return "该图片目录下有过多的数字图片文件,要求有且仅有唯一一组从0到9的数据";
                         num[j] = (char)(filename_withoutext[filename_withoutext.Length - 1]- '0');
                         filenames_old[j] = filenames[i];
                         j++;
                     }
                 }
-                if (j != 10) return false;
+                if (j != 10) return "该图片目录下的数字图片文件不足10个";
                 j = 0;
                 for (i = 0; i < num.Length; i++)
                 {
@@ -559,48 +559,98 @@ namespace SYD_COPY_FILE
                 }
                 if (j == 45)
                 {
-                    return true;
+                    return null;
                 }
             }
-            return false;
+            return "未知错误";
         }
         private void picture_define_do(object sender,int select_index, SYDPictureBox picture)
         {
+            string ret = null;
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
             if (item==toolStripMenuItem9)
             {
-                if (picture_num_define_isvalid(picture.filename))
+                ret = picture_num_define_isvalid(picture.filename);
+                if (ret == null)//图片判断成功
                 {
                     MessageBox.Show("定义为步数有效 " + item.DropDownItems[select_index].Text.Trim());
                 }
                 else
                 {
-                    MessageBox.Show("定义为步数无效 " + item.DropDownItems[select_index].Text.Trim());
+                    MessageBox.Show("定义为步数无效 " + item.DropDownItems[select_index].Text.Trim()+"\r\nError:"+ ret);
                 }
             }
             else if (item == toolStripMenuItem25)
             {
-                MessageBox.Show("定义为卡路里 " + item.DropDownItems[select_index].Text.Trim());
+                ret = picture_num_define_isvalid(picture.filename);
+                if (ret == null)//图片判断成功
+                {
+                    MessageBox.Show("定义为卡路里有效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("定义为卡路里无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
+                }
             }
             else if (item == toolStripMenuItem26)
             {
-                MessageBox.Show("定义为距离 " + item.DropDownItems[select_index].Text.Trim());
+                ret = picture_num_define_isvalid(picture.filename);
+                if (ret == null)//图片判断成功
+                {
+                    MessageBox.Show("定义为距离有效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("定义为距离无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
+                }
             }
             else if (item == toolStripMenuItem24)
             {
-                MessageBox.Show("定义为心率 " + item.DropDownItems[select_index].Text.Trim());
+                ret = picture_num_define_isvalid(picture.filename);
+                if (ret == null)//图片判断成功
+                {
+                    MessageBox.Show("定义为心率有效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("定义为心率无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
+                }
             }
             else if (item == toolStripMenuItem27)
             {
-                MessageBox.Show("定义为血氧 " + item.DropDownItems[select_index].Text.Trim());
+                ret = picture_num_define_isvalid(picture.filename);
+                if (ret == null)//图片判断成功
+                {
+                    MessageBox.Show("定义为血氧有效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("定义为血氧无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
+                }
             }
             else if (item == toolStripMenuItem28)
             {
-                MessageBox.Show("定义为血压 " + item.DropDownItems[select_index].Text.Trim());
+                ret = picture_num_define_isvalid(picture.filename);
+                if (ret == null)//图片判断成功
+                {
+                    MessageBox.Show("定义为血压有效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("定义为血压无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
+                }
             }
             else if (item == toolStripMenuItem29)
             {
-                MessageBox.Show("定义为电量 " + item.DropDownItems[select_index].Text.Trim());
+                ret = picture_num_define_isvalid(picture.filename);
+                if (ret == null)//图片判断成功
+                {
+                    MessageBox.Show("定义为电量有效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("定义为电量无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
+                }
             }
         }
         private void picture_define_DoWork(object sender,int select_index, SYDPictureBox senderLabel)
