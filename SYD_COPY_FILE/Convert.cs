@@ -27,7 +27,7 @@ using System.Text.RegularExpressions;
 
 namespace SYD_COPY_FILE
 {
-    public partial class MainWindow
+    public partial class Form1
     {
         public string byteToHexStr(byte[] bytes)
         {
@@ -78,7 +78,13 @@ namespace SYD_COPY_FILE
             }
             return result;
         }
-
+        //588416352  "X8"    588416352-->0x23128560
+        private string StringToHexString(string s, string f)
+        {
+            UInt64 data = Convert.ToUInt64(s);
+            return "0x"+data.ToString(f);
+        }
+        //0B 0A 09 08
         public string HexStringToString(string hs, Encoding encode)
         {
             //以%分割字符串，并去掉空字符
@@ -91,6 +97,13 @@ namespace SYD_COPY_FILE
             }
             //按照指定编码将字节数组变为字符串
             return encode.GetString(b);
+        }
+        ////0x23128560-->588416352
+        private string HexStringToString(string hs)
+        {
+            hs= hs.Replace("0X", "").Replace("0x", "");
+            UInt64 data = Convert.ToUInt64(hs, 16);
+            return data.ToString();
         }
 
         public static string byteToHexText(byte[] bytes)

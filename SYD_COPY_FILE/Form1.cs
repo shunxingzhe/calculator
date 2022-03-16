@@ -45,6 +45,8 @@ namespace SYD_COPY_FILE
         private static extern Byte reverseBits(Byte chan);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "crc32_fun", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 crc32_fun(byte[] buf, UInt32 size);
+
+        timestamp_accuracy_type accuracy = timestamp_accuracy_type.accuracy_3;
         #endregion
 
         public Form1()
@@ -440,6 +442,9 @@ namespace SYD_COPY_FILE
         {
             accuracy_3,//三位精度
             accuracy_6,
+            Display_DATA,//显示年月日
+            CONVERT_UTC8,//转换为北京时间
+            CONVERT_UTC,//转换为UTC时间
         }
         //timestamp要显示的时间戳，单位：ms 一般是差值
         private string cal_Calendar_time_difference_subtract_output(UInt64 timestamp, timestamp_accuracy_type accuracy,TextBox testbox_display, TextBox testbox_display_timestamp)
@@ -645,7 +650,7 @@ namespace SYD_COPY_FILE
         }
         private void cal_timestamp_difference_subtract(string a, string b, timestamp_accuracy_type accuracy, TextBox testbox_display)
         {
-            Int32 hour = 0, minute = 0, second = 0,millisecond = 0;
+            Int32 hour = 0, minute = 0, second = 0,millisecond = 0,day=0,mouth=0,year=0;
             UInt32 timestamp = 0, timestamp1 = 0;
             string result = "";
             if ((a.Length == 0) | (b.Length == 0))
@@ -653,28 +658,57 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("input error");
                 return;
             }
-            timestamp = Convert.ToUInt32(a.Substring(2, 8), 16);
-
-            timestamp1 = Convert.ToUInt32(b.Substring(2, 8), 16);
-
-            timestamp = timestamp - timestamp1;
-            if(accuracy== timestamp_accuracy_type.accuracy_6)
+            if (timestamp_Difference_hex.Checked == false)//十进制
+                timestamp = Convert.ToUInt32(a);
+            else 
+                timestamp = Convert.ToUInt32(a.Substring(2, 8), 16);
+            if ((accuracy == timestamp_accuracy_type.CONVERT_UTC8) || (accuracy == timestamp_accuracy_type.CONVERT_UTC))
             {
-                millisecond = (Int32)(timestamp % 1000);
-                timestamp = timestamp / 1000;
+                System.DateTime startTime;
+                if (accuracy == timestamp_accuracy_type.CONVERT_UTC8)
+                    startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));//当地时区
+                else
+                    startTime = TimeZone.CurrentTimeZone.ToUniversalTime(new System.DateTime(1970, 1, 1));//UTC时区
+
+                DateTime time = startTime.AddSeconds(timestamp);
+                result=time.ToString("yyyy-MM-dd HHmmss");
+            }
+            else
+            {
+                if (timestamp_Difference_hex.Checked == false)//十进制
+                    timestamp1 = Convert.ToUInt32(b);
+                else
+                    timestamp1 = Convert.ToUInt32(b.Substring(2, 8), 16);
+                timestamp = timestamp - timestamp1;
+
+                if (accuracy == timestamp_accuracy_type.accuracy_6)
+                {
+                    millisecond = (Int32)(timestamp % 1000);
+                    timestamp = timestamp / 1000;
+                }
+
+                second = (Int32)(timestamp % 60);
+                timestamp = timestamp / 60;
+                minute = (Int32)(timestamp % 60);
+                timestamp = timestamp / 60;
+                hour = (Int32)(timestamp % 24);
+                if (accuracy == timestamp_accuracy_type.Display_DATA)
+                {
+                    timestamp = timestamp / 24;
+                    day = (Int32)(timestamp % 30);
+                    timestamp = timestamp / 30;
+                    mouth = (Int32)(timestamp % 12);
+                    year = (Int32)(timestamp / 12);
+                    result = year.ToString("D4") + "-" + mouth.ToString("D2") + "-" + day.ToString("D2") + " ";
+                }
+
+                result += hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2");
+                if (accuracy == timestamp_accuracy_type.accuracy_6)
+                {
+                    result += ":" + millisecond.ToString("D3");
+                }
             }
 
-            second = (Int32)(timestamp % 60);
-            timestamp = timestamp / 60;
-            minute = (Int32)(timestamp % 60);
-            timestamp = timestamp / 60;
-            hour = (Int32)(timestamp % 24);
-
-            result = hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2") ;
-            if (accuracy == timestamp_accuracy_type.accuracy_6)
-            {
-                result += ":" + millisecond.ToString("D3");
-            }
             testbox_display.Text = result;
         }
 
@@ -897,16 +931,6 @@ namespace SYD_COPY_FILE
         }
         private void timestamp_Difference_cal_Click(object sender, EventArgs e)
         {
-            timestamp_accuracy_type accuracy;
-            if (timestamp_Difference_select.SelectedIndex == 0)
-            {
-                accuracy = timestamp_accuracy_type.accuracy_3;
-            }
-            else
-            {
-                accuracy = timestamp_accuracy_type.accuracy_6;
-            }
-
             TextBox Now_timestamp_textBox = textBox37;
             TextBox Before_timestamp_textBox = textBox36;
             TextBox Output_timestamp_textBox = textBox35;
@@ -1663,6 +1687,74 @@ namespace SYD_COPY_FILE
                 data[i] = reverseBits(data[i]);
             }
             textBox_whitening_out.Text = "0x" + byteToHexStr(data);
+        }
+        public void textBox_HexStringToString(TextBox textBox)
+        {
+            textBox.Text = HexStringToString(textBox.Text);
+        }
+        public void textBox_StringToHexString(TextBox textBox)
+        {
+            textBox.Text = StringToHexString(textBox.Text, "X8");
+        }
+        private void timestamp_Difference_hex_CheckedChanged(object sender, EventArgs e)
+        {
+            if (timestamp_Difference_hex.Checked == false)
+            {
+                textBox_HexStringToString(textBox37);
+                textBox_HexStringToString(textBox36);
+                textBox_HexStringToString(textBox33);
+                textBox_HexStringToString(textBox32);
+                textBox_HexStringToString(textBox42);
+                textBox_HexStringToString(textBox41);
+            }
+            else
+            {
+                textBox_StringToHexString(textBox37);
+                textBox_StringToHexString(textBox36);
+                textBox_StringToHexString(textBox33);
+                textBox_StringToHexString(textBox32);
+                textBox_StringToHexString(textBox42);
+                textBox_StringToHexString(textBox41);
+            }
+        }
+
+        private void timestamp_Difference_select_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool display_befor = true;
+            if (timestamp_Difference_select.SelectedIndex == 0)
+            {
+                accuracy = timestamp_accuracy_type.accuracy_3;
+            }
+            else if (timestamp_Difference_select.SelectedIndex == 1)
+            {
+                accuracy = timestamp_accuracy_type.accuracy_6;
+            }
+            else if (timestamp_Difference_select.SelectedIndex == 2)
+            {
+                accuracy = timestamp_accuracy_type.Display_DATA;
+            }
+            else if (timestamp_Difference_select.SelectedIndex == 3)
+            {
+                accuracy = timestamp_accuracy_type.CONVERT_UTC8;
+                display_befor = false;
+            }
+            else if (timestamp_Difference_select.SelectedIndex == 4)
+            {
+                accuracy = timestamp_accuracy_type.CONVERT_UTC;
+                display_befor = false;
+            }
+            if (display_befor)
+            {
+                textBox36.Enabled = true;
+                textBox32.Enabled = true;
+                textBox41.Enabled = true;
+            }
+            else
+            {
+                textBox36.Enabled = false;
+                textBox32.Enabled = false;
+                textBox41.Enabled = false;
+            }
         }
     }
 }

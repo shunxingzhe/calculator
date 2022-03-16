@@ -72,31 +72,6 @@ namespace SYD_COPY_FILE
             comboBox_datatype.SelectedIndex=Settings1.Default.arr_data_type;
             comboBox_fonttype.SelectedIndex = Settings1.Default.arr_font_type;
         }
-
-        public static string byteToHexStr(byte[] bytes)
-        {
-            string returnStr = "";
-            if (bytes != null)
-            {
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    returnStr += bytes[i].ToString("X2");
-                }
-            }
-            return returnStr;
-        }
-
-        public byte[] strToToHexByte(string hexString)
-        {
-            hexString = hexString.Replace(" ", "");
-            if ((hexString.Length % 2) != 0)
-                hexString += " ";
-            byte[] returnBytes = new byte[hexString.Length / 2];
-            for (int i = 0; i < returnBytes.Length; i++)
-                returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
-            return returnBytes;
-        }
-
         public byte[] strToToDecByte(string DecString)
         {
             DecString = DecString.Replace(" ", "");

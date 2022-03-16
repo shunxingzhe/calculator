@@ -389,6 +389,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.timestamp_Difference_hex = new System.Windows.Forms.CheckBox();
             this.timestamp_Difference_select = new System.Windows.Forms.ComboBox();
             this.label83 = new System.Windows.Forms.Label();
             this.textBox40 = new System.Windows.Forms.TextBox();
@@ -4649,6 +4650,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.timestamp_Difference_hex);
             this.groupBox5.Controls.Add(this.timestamp_Difference_select);
             this.groupBox5.Controls.Add(this.label83);
             this.groupBox5.Controls.Add(this.textBox40);
@@ -4674,18 +4676,35 @@
             this.groupBox5.Size = new System.Drawing.Size(408, 119);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "timestamp Difference(0x23120D08)";
+            this.groupBox5.Text = "Timestamp Difference(0x23120D08)";
+            // 
+            // timestamp_Difference_hex
+            // 
+            this.timestamp_Difference_hex.AutoSize = true;
+            this.timestamp_Difference_hex.Checked = true;
+            this.timestamp_Difference_hex.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.timestamp_Difference_hex.Location = new System.Drawing.Point(361, 15);
+            this.timestamp_Difference_hex.Name = "timestamp_Difference_hex";
+            this.timestamp_Difference_hex.Size = new System.Drawing.Size(42, 16);
+            this.timestamp_Difference_hex.TabIndex = 69;
+            this.timestamp_Difference_hex.Text = "HEX";
+            this.timestamp_Difference_hex.UseVisualStyleBackColor = true;
+            this.timestamp_Difference_hex.CheckedChanged += new System.EventHandler(this.timestamp_Difference_hex_CheckedChanged);
             // 
             // timestamp_Difference_select
             // 
             this.timestamp_Difference_select.FormattingEnabled = true;
             this.timestamp_Difference_select.Items.AddRange(new object[] {
             "单位：S",
-            "单位：MS 也是SYDTEK_RTC_Counter"});
+            "单位：MS 也是SYDTEK_RTC_Counter",
+            "单位：S 显示年月日(一个月为30天)",
+            "时间戳转化为北京时间(+8时区)",
+            "时间戳转化为UTC时间"});
             this.timestamp_Difference_select.Location = new System.Drawing.Point(37, 12);
             this.timestamp_Difference_select.Name = "timestamp_Difference_select";
-            this.timestamp_Difference_select.Size = new System.Drawing.Size(206, 20);
+            this.timestamp_Difference_select.Size = new System.Drawing.Size(318, 20);
             this.timestamp_Difference_select.TabIndex = 40;
+            this.timestamp_Difference_select.SelectedIndexChanged += new System.EventHandler(this.timestamp_Difference_select_SelectedIndexChanged);
             // 
             // label83
             // 
@@ -4699,33 +4718,33 @@
             // textBox40
             // 
             this.textBox40.AllowDrop = true;
-            this.textBox40.Location = new System.Drawing.Point(324, 92);
+            this.textBox40.Location = new System.Drawing.Point(273, 92);
             this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(81, 21);
+            this.textBox40.Size = new System.Drawing.Size(132, 21);
             this.textBox40.TabIndex = 39;
             // 
             // textBox31
             // 
             this.textBox31.AllowDrop = true;
-            this.textBox31.Location = new System.Drawing.Point(324, 61);
+            this.textBox31.Location = new System.Drawing.Point(273, 61);
             this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(81, 21);
+            this.textBox31.Size = new System.Drawing.Size(132, 21);
             this.textBox31.TabIndex = 33;
             // 
             // textBox41
             // 
             this.textBox41.AllowDrop = true;
-            this.textBox41.Location = new System.Drawing.Point(201, 92);
+            this.textBox41.Location = new System.Drawing.Point(160, 92);
             this.textBox41.Name = "textBox41";
             this.textBox41.Size = new System.Drawing.Size(68, 21);
             this.textBox41.TabIndex = 38;
-            this.textBox41.Text = "0x23120D08";
+            this.textBox41.Text = "0x00000000";
             this.textBox41.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // textBox32
             // 
             this.textBox32.AllowDrop = true;
-            this.textBox32.Location = new System.Drawing.Point(201, 63);
+            this.textBox32.Location = new System.Drawing.Point(160, 63);
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new System.Drawing.Size(68, 21);
             this.textBox32.TabIndex = 32;
@@ -4735,17 +4754,17 @@
             // textBox42
             // 
             this.textBox42.AllowDrop = true;
-            this.textBox42.Location = new System.Drawing.Point(61, 92);
+            this.textBox42.Location = new System.Drawing.Point(40, 92);
             this.textBox42.Name = "textBox42";
             this.textBox42.Size = new System.Drawing.Size(66, 21);
             this.textBox42.TabIndex = 36;
-            this.textBox42.Text = "0x23128560";
+            this.textBox42.Text = "0x62318F60";
             this.textBox42.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // textBox33
             // 
             this.textBox33.AllowDrop = true;
-            this.textBox33.Location = new System.Drawing.Point(61, 63);
+            this.textBox33.Location = new System.Drawing.Point(40, 63);
             this.textBox33.Name = "textBox33";
             this.textBox33.Size = new System.Drawing.Size(66, 21);
             this.textBox33.TabIndex = 30;
@@ -4757,33 +4776,33 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(4, 95);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(59, 12);
+            this.label27.Size = new System.Drawing.Size(41, 12);
             this.label27.TabIndex = 37;
-            this.label27.Text = "Now Time:";
+            this.label27.Text = "Now_T:";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(126, 97);
+            this.label28.Location = new System.Drawing.Point(105, 97);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(77, 12);
+            this.label28.Size = new System.Drawing.Size(59, 12);
             this.label28.TabIndex = 35;
-            this.label28.Text = "Before Time:";
+            this.label28.Text = "Before_T:";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(4, 64);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 12);
+            this.label21.Size = new System.Drawing.Size(41, 12);
             this.label21.TabIndex = 31;
-            this.label21.Text = "Now Time:";
+            this.label21.Text = "Now_T:";
             // 
             // timestamp_Difference_cal2
             // 
-            this.timestamp_Difference_cal2.Location = new System.Drawing.Point(269, 92);
+            this.timestamp_Difference_cal2.Location = new System.Drawing.Point(230, 92);
             this.timestamp_Difference_cal2.Name = "timestamp_Difference_cal2";
-            this.timestamp_Difference_cal2.Size = new System.Drawing.Size(53, 22);
+            this.timestamp_Difference_cal2.Size = new System.Drawing.Size(42, 22);
             this.timestamp_Difference_cal2.TabIndex = 34;
             this.timestamp_Difference_cal2.Text = "cal";
             this.timestamp_Difference_cal2.UseVisualStyleBackColor = true;
@@ -4792,17 +4811,17 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(126, 66);
+            this.label22.Location = new System.Drawing.Point(105, 66);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(77, 12);
+            this.label22.Size = new System.Drawing.Size(59, 12);
             this.label22.TabIndex = 29;
-            this.label22.Text = "Before Time:";
+            this.label22.Text = "Before_T:";
             // 
             // timestamp_Difference_cal1
             // 
-            this.timestamp_Difference_cal1.Location = new System.Drawing.Point(269, 61);
+            this.timestamp_Difference_cal1.Location = new System.Drawing.Point(230, 61);
             this.timestamp_Difference_cal1.Name = "timestamp_Difference_cal1";
-            this.timestamp_Difference_cal1.Size = new System.Drawing.Size(53, 22);
+            this.timestamp_Difference_cal1.Size = new System.Drawing.Size(42, 22);
             this.timestamp_Difference_cal1.TabIndex = 28;
             this.timestamp_Difference_cal1.Text = "cal";
             this.timestamp_Difference_cal1.UseVisualStyleBackColor = true;
@@ -4811,15 +4830,15 @@
             // textBox35
             // 
             this.textBox35.AllowDrop = true;
-            this.textBox35.Location = new System.Drawing.Point(324, 34);
+            this.textBox35.Location = new System.Drawing.Point(273, 34);
             this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(81, 21);
+            this.textBox35.Size = new System.Drawing.Size(132, 21);
             this.textBox35.TabIndex = 26;
             // 
             // textBox36
             // 
             this.textBox36.AllowDrop = true;
-            this.textBox36.Location = new System.Drawing.Point(201, 34);
+            this.textBox36.Location = new System.Drawing.Point(160, 34);
             this.textBox36.Name = "textBox36";
             this.textBox36.Size = new System.Drawing.Size(68, 21);
             this.textBox36.TabIndex = 25;
@@ -4829,7 +4848,7 @@
             // textBox37
             // 
             this.textBox37.AllowDrop = true;
-            this.textBox37.Location = new System.Drawing.Point(61, 34);
+            this.textBox37.Location = new System.Drawing.Point(40, 34);
             this.textBox37.Name = "textBox37";
             this.textBox37.Size = new System.Drawing.Size(66, 21);
             this.textBox37.TabIndex = 23;
@@ -4841,24 +4860,24 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(4, 37);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(59, 12);
+            this.label24.Size = new System.Drawing.Size(41, 12);
             this.label24.TabIndex = 24;
-            this.label24.Text = "Now Time:";
+            this.label24.Text = "Now_T:";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(126, 39);
+            this.label25.Location = new System.Drawing.Point(105, 39);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(77, 12);
+            this.label25.Size = new System.Drawing.Size(59, 12);
             this.label25.TabIndex = 22;
-            this.label25.Text = "Before Time:";
+            this.label25.Text = "Before_T:";
             // 
             // timestamp_Difference_cal
             // 
-            this.timestamp_Difference_cal.Location = new System.Drawing.Point(269, 34);
+            this.timestamp_Difference_cal.Location = new System.Drawing.Point(230, 34);
             this.timestamp_Difference_cal.Name = "timestamp_Difference_cal";
-            this.timestamp_Difference_cal.Size = new System.Drawing.Size(53, 22);
+            this.timestamp_Difference_cal.Size = new System.Drawing.Size(42, 22);
             this.timestamp_Difference_cal.TabIndex = 0;
             this.timestamp_Difference_cal.Text = "cal";
             this.timestamp_Difference_cal.UseVisualStyleBackColor = true;
@@ -7252,7 +7271,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.6.2";
+            this.Text = "SYD_Calculator V1.6.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -7980,6 +7999,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num11;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num12;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num13;
+        private System.Windows.Forms.CheckBox timestamp_Difference_hex;
     }
 }
 
