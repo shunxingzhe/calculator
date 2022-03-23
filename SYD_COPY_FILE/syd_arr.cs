@@ -81,6 +81,17 @@ namespace SYD_COPY_FILE
 
     public void syd_arr_init()
         {
+            if (Settings1.Default.comboBox_indicate_line1 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line1);
+            if (Settings1.Default.comboBox_indicate_line2 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line2);
+            if (Settings1.Default.comboBox_indicate_line3 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line3);
+            if (Settings1.Default.comboBox_indicate_line4 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line4);
+            if (Settings1.Default.comboBox_indicate_line5 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line5);
+            if (Settings1.Default.comboBox_indicate_line6 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line6);
+            if (Settings1.Default.comboBox_indicate_line7 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line7);
+            if (Settings1.Default.comboBox_indicate_line8 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line8);
+            if (Settings1.Default.comboBox_indicate_line9 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line9);
+            if (Settings1.Default.comboBox_indicate_line10 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line10);
+
             string path = System.AppDomain.CurrentDomain.BaseDirectory + "syd_arr_ok.txt";
             label_outfilename.Text = path;
             if(Settings1.Default.arr_fun_sel< comboBox_mode.Items.Count)comboBox_mode.SelectedIndex = Settings1.Default.arr_fun_sel;
@@ -2437,6 +2448,11 @@ namespace SYD_COPY_FILE
             {
                 text_handle();
             }
+            for (int i = 0; i < this.comboBox_indicate.Items.Count; i++)
+            {
+                if (comboBox_indicate.Text == this.comboBox_indicate.Items[i].ToString()) return;
+            }
+            this.comboBox_indicate.Items.Insert(0, comboBox_indicate.Text);
         }
 
         private void button_clear_Click(object sender, EventArgs e)
@@ -2580,7 +2596,8 @@ namespace SYD_COPY_FILE
             this.comboBox_fonttype.SelectedItem = 0;
             this.comboBox_fonttype.SelectedIndex = 0;
             this.comboBox_indicate.SelectedItem = 0;
-            this.comboBox_indicate.SelectedIndex = 0;
+            if(this.comboBox_indicate.Items.Count>0)
+                this.comboBox_indicate.SelectedIndex = 0;
         }
         private void comboBox_mode_DropDownClosed(object sender, EventArgs e)
         {

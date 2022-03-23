@@ -1489,6 +1489,45 @@ namespace SYD_COPY_FILE
                         break;
                 }
             }
+
+            count = this.comboBox_indicate.Items.Count;
+            if (count > 10) count = 10;
+            for (int i = 0; i < count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        Settings1.Default.comboBox_indicate_line1 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 1:
+                        Settings1.Default.comboBox_indicate_line2 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 2:
+                        Settings1.Default.comboBox_indicate_line3 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 3:
+                        Settings1.Default.comboBox_indicate_line4 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 4:
+                        Settings1.Default.comboBox_indicate_line5 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 5:
+                        Settings1.Default.comboBox_indicate_line6 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 6:
+                        Settings1.Default.comboBox_indicate_line7 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 7:
+                        Settings1.Default.comboBox_indicate_line8 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 8:
+                        Settings1.Default.comboBox_indicate_line9 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 9:
+                        Settings1.Default.comboBox_indicate_line10 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                }
+            }
             Settings1.Default.Save();
         }
 

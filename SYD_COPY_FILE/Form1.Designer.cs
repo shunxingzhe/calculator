@@ -1910,18 +1910,6 @@
             // comboBox_indicate
             // 
             this.comboBox_indicate.FormattingEnabled = true;
-            this.comboBox_indicate.Items.AddRange(new object[] {
-            "BIN to ARR",
-            "RGB palette 24BIT TO 565",
-            "Font txt to bin",
-            "jlink txt to array",
-            "Chinese to utf8",
-            "Keil memery analysis",
-            "Data filled complement zero",
-            "Multibyte  reversal",
-            "Text to bin",
-            "Fine max not use index",
-            "extract rank data"});
             this.comboBox_indicate.Location = new System.Drawing.Point(509, 94);
             this.comboBox_indicate.Name = "comboBox_indicate";
             this.comboBox_indicate.Size = new System.Drawing.Size(245, 20);
@@ -1955,7 +1943,7 @@
             "TEXT handle and analysis"});
             this.comboBox_mode.Location = new System.Drawing.Point(33, 94);
             this.comboBox_mode.Name = "comboBox_mode";
-            this.comboBox_mode.Size = new System.Drawing.Size(206, 20);
+            this.comboBox_mode.Size = new System.Drawing.Size(240, 20);
             this.comboBox_mode.TabIndex = 28;
             this.comboBox_mode.DropDownClosed += new System.EventHandler(this.comboBox_mode_DropDownClosed);
             // 
@@ -1992,10 +1980,10 @@
             // 
             this.draw.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
             this.draw.ForeColor = System.Drawing.Color.Red;
-            this.draw.Location = new System.Drawing.Point(244, 89);
+            this.draw.Location = new System.Drawing.Point(275, 89);
             this.draw.Margin = new System.Windows.Forms.Padding(2);
             this.draw.Name = "draw";
-            this.draw.Size = new System.Drawing.Size(121, 30);
+            this.draw.Size = new System.Drawing.Size(90, 30);
             this.draw.TabIndex = 26;
             this.draw.Text = "提取";
             this.draw.UseVisualStyleBackColor = true;
@@ -7269,7 +7257,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.6.4";
+            this.Text = "SYD_Calculator V1.6.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

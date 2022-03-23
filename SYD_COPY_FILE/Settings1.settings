@@ -122,7 +122,34 @@
     <Setting Name="suffix_textBox_rename_line10" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="设置" Type="System.String" Scope="User">
+    <Setting Name="comboBox_indicate_line1" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line3" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line4" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line5" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line6" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line7" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line8" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line9" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="comboBox_indicate_line10" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
