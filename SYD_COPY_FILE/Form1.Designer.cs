@@ -1933,28 +1933,26 @@
             this.comboBox_mode.FormattingEnabled = true;
             this.comboBox_mode.Items.AddRange(new object[] {
             "BIN to ARR",
-            "Git helper/RGB palette 24BIT TO 565",
-            "Novel Filtering/Font txt to bin(之前合并字库的功能)",
-            "DSView analysis",
+            "Git helper/RGB调色板",
+            "QQ空间图片查重/生成字库Font txt to bin",
+            "DSView analysis逻辑分析仪数据分析",
             "Chinese to utf8/ASCII",
-            "Keil memery analysis",
-            "Data filled complement zero",
-            "Multibyte  reversal",
+            "Keil读回的内存分析",
+            "数据前置补零",
+            "多数据翻转",
             "Text/ARR to bin",
-            "Fine max not use index",
-            "extract rank data",
-            "C struct element size",
-            "Cmd XOR",
-            "Rtc_Deviation",
+            "找到目前可以用的最小关键词指定的元组序号",
+            "提取指定列数据",
+            "C语言结构体计算偏移",
+            "XOR运算",
+            "Rtc批量时间差计算",
             "Bytes to utf8(ASCII)/C#数组处理/Jlink数组处理",
-            "Keil Undefined symbol extract",
-            "Get Row",
-            "Source Insight Search Results Analysis",
-            "Get ARR",
+            "根据要求提取行",
+            "Source Insight搜索栏文件解析",
+            "生成特定数组",
             "Get api symdef",
             "Find/handle File",
-            "TEXT handle and analysis",
-            "找到最新的文件并打开"});
+            "TEXT handle and analysis"});
             this.comboBox_mode.Location = new System.Drawing.Point(33, 94);
             this.comboBox_mode.Name = "comboBox_mode";
             this.comboBox_mode.Size = new System.Drawing.Size(206, 20);
@@ -7271,7 +7269,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.6.3";
+            this.Text = "SYD_Calculator V1.6.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

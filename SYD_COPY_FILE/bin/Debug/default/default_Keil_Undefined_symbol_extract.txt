@@ -1,7 +1,0 @@
-.\Output\youyou.axf: Error: L6218E: Undefined symbol data_handler_init (referred from main.o).
-.\Output\youyou.axf: Error: L6218E: Undefined symbol m_ble_wechat (referred from main.o).
-.\Output\youyou.axf: Error: L6218E: Undefined symbol m_mpbledemo2_handler (referred from main.o).
-.\Output\youyou.axf: Error: L6218E: Undefined symbol mpbledemo2Sta (referred from main.o).
-.\Output\youyou.axf: Error: L6218E: Undefined symbol mpbledemo2_on_disconnect (referred from main.o).
-.\Output\youyou.axf: Error: L6218E: Undefined symbol on_write (referred from main.o).
-.\Output\youyou.axf: Error: L6218E: Undefined symbol register_all_products (referred from main.o).
