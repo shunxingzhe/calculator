@@ -67,7 +67,7 @@ namespace SYD_COPY_FILE
 
             pictureBox_interface_ismin = Settings1.Default.pictureBox_interface_ismin;
 
-            pictureBoxinterface_Click(null,null);
+            pictureBoxinterface_Click(null, null);
 
             AdjustComboBoxDropDownListWidth(comboBox5);
         }
@@ -295,9 +295,9 @@ namespace SYD_COPY_FILE
             {
                 multiplier = "1";
             }
-            else 
+            else
             {
-                multiplier=multiplier.Replace(" ", "");
+                multiplier = multiplier.Replace(" ", "");
             }
             num = Convert.ToSingle(a);
             num1 = Convert.ToSingle(b);
@@ -338,7 +338,7 @@ namespace SYD_COPY_FILE
         private void cal_overtrun_subtract(string a)
         {
             string str = "", str1 = "";
-            if ((a.Length % 2)==1)
+            if ((a.Length % 2) == 1)
             {
                 str = "0" + a;
             }
@@ -348,7 +348,7 @@ namespace SYD_COPY_FILE
             }
             for (int i = 0; i < str.Length / 2; i++)
             {
-                str1 = str1+str.Substring(str.Length - (i+1) * 2, 2);
+                str1 = str1 + str.Substring(str.Length - (i + 1) * 2, 2);
             }
             textBox61.Text = str1;
         }
@@ -356,8 +356,9 @@ namespace SYD_COPY_FILE
         private void cal_32768_hex_subtract(string a, string b, string multiplier)
         {
             Int32 num = 0, num1 = 0;
-            float result = 0,temp=0;
-            if ((a.Length == 0) | (b.Length == 0)) {
+            float result = 0, temp = 0;
+            if ((a.Length == 0) | (b.Length == 0))
+            {
                 MessageBox.Show("input error");
                 return;
             }
@@ -388,7 +389,7 @@ namespace SYD_COPY_FILE
             }
             result = (float)CalcStr(multiplier);
             switch (comboBox4.SelectedIndex)
-            { 
+            {
                 case 0:
                     result = temp + result;
                     break;
@@ -435,7 +436,7 @@ namespace SYD_COPY_FILE
             }
             num = Convert.ToInt32(a, 10);
             num1 = Convert.ToInt32(b, 10);
-            result = (float)num - ((float)num1 -8)*8;
+            result = (float)num - ((float)num1 - 8) * 8;
             textBox24.Text = result.ToString();
         }
         enum timestamp_accuracy_type
@@ -447,11 +448,11 @@ namespace SYD_COPY_FILE
             CONVERT_UTC,//转换为UTC时间
         }
         //timestamp要显示的时间戳，单位：ms 一般是差值
-        private string cal_Calendar_time_difference_subtract_output(UInt64 timestamp, timestamp_accuracy_type accuracy,TextBox testbox_display, TextBox testbox_display_timestamp)
+        private string cal_Calendar_time_difference_subtract_output(UInt64 timestamp, timestamp_accuracy_type accuracy, TextBox testbox_display, TextBox testbox_display_timestamp)
         {
-            Int32 day = 0, millisecond, second, minute, hour, microsecond=0;
+            Int32 day = 0, millisecond, second, minute, hour, microsecond = 0;
             string result = "";
-            if(accuracy==timestamp_accuracy_type.accuracy_6)
+            if (accuracy == timestamp_accuracy_type.accuracy_6)
             {
                 microsecond = (Int32)(timestamp % 1000);
                 timestamp = timestamp / 1000;
@@ -476,7 +477,7 @@ namespace SYD_COPY_FILE
 
             if (accuracy == timestamp_accuracy_type.accuracy_6)
             {
-                result+= microsecond.ToString("D3");
+                result += microsecond.ToString("D3");
             }
 
             if (testbox_display != null)
@@ -512,14 +513,14 @@ namespace SYD_COPY_FILE
             timestamp1 = ((UInt32)hour1 * 3600 + (UInt32)minute1 * 60 + (UInt32)second1) * 1000 + (UInt32)millisecond1;
 
             timestamp = timestamp - timestamp1;
-            return cal_Calendar_time_difference_subtract_output( timestamp, timestamp_accuracy_type.accuracy_3, testbox_display, testbox_display_timestamp);
+            return cal_Calendar_time_difference_subtract_output(timestamp, timestamp_accuracy_type.accuracy_3, testbox_display, testbox_display_timestamp);
         }
 
         private string cal_Calendar_time_differenceble_subtract(string a, string b, TextBox testbox_display, TextBox testbox_display_timestamp)
         {
-            Int32 hour = 0, minute = 0, second = 0, millisecond = 0, microsecond = 0, hour1 = 0, minute1 = 0, second1 = 0, millisecond1 = 0 ,microsecond1 = 0;
+            Int32 hour = 0, minute = 0, second = 0, millisecond = 0, microsecond = 0, hour1 = 0, minute1 = 0, second1 = 0, millisecond1 = 0, microsecond1 = 0;
             UInt64 timestamp = 0, timestamp1 = 0;
-            
+
             if ((a.Length == 0) | (b.Length == 0))
             {
                 MessageBox.Show("input error");
@@ -540,7 +541,7 @@ namespace SYD_COPY_FILE
             second = Convert.ToInt32(a.Substring(6, 2), 10);
             millisecond = Convert.ToInt32(a.Substring(9, 3), 10);
             microsecond = Convert.ToInt32(a.Substring(12, 3), 10);
-            timestamp = ((UInt64)hour * 3600  + (UInt64)minute * 60  + (UInt64)second) * 1000 * 1000 + (UInt64)millisecond * 1000 + (UInt64)microsecond;
+            timestamp = ((UInt64)hour * 3600 + (UInt64)minute * 60 + (UInt64)second) * 1000 * 1000 + (UInt64)millisecond * 1000 + (UInt64)microsecond;
 
             hour1 = Convert.ToInt32(b.Substring(0, 2), 10);
             minute1 = Convert.ToInt32(b.Substring(3, 2), 10);
@@ -642,7 +643,7 @@ namespace SYD_COPY_FILE
             timestamp1 = ((UInt64)hour1 * 3600 + (UInt64)minute1 * 60 + (UInt64)second1) * 1000 * 1000 + (UInt64)millisecond1 * 1000 + (UInt64)microsecond1;
 
             speed = (double)timestamp1 / 1000000;
-            speed = (double)packet*20 / speed;
+            speed = (double)packet * 20 / speed;
             speed = speed / 1000;
 
             result = speed.ToString("N") + "KByte/s";
@@ -650,7 +651,7 @@ namespace SYD_COPY_FILE
         }
         private void cal_timestamp_difference_subtract(string a, string b, timestamp_accuracy_type accuracy, TextBox testbox_display)
         {
-            Int32 hour = 0, minute = 0, second = 0,millisecond = 0,day=0,mouth=0,year=0;
+            Int32 hour = 0, minute = 0, second = 0, millisecond = 0, day = 0, mouth = 0, year = 0;
             UInt32 timestamp = 0, timestamp1 = 0;
             string result = "";
             if ((a.Length == 0) | (b.Length == 0))
@@ -660,7 +661,7 @@ namespace SYD_COPY_FILE
             }
             if (timestamp_Difference_hex.Checked == false)//十进制
                 timestamp = Convert.ToUInt32(a);
-            else 
+            else
                 timestamp = Convert.ToUInt32(a.Substring(2, 8), 16);
             if ((accuracy == timestamp_accuracy_type.CONVERT_UTC8) || (accuracy == timestamp_accuracy_type.CONVERT_UTC))
             {
@@ -671,7 +672,7 @@ namespace SYD_COPY_FILE
                     startTime = TimeZone.CurrentTimeZone.ToUniversalTime(new System.DateTime(1970, 1, 1));//UTC时区
 
                 DateTime time = startTime.AddSeconds(timestamp);
-                result=time.ToString("yyyy-MM-dd HHmmss");
+                result = time.ToString("yyyy-MM-dd HHmmss");
             }
             else
             {
@@ -712,7 +713,7 @@ namespace SYD_COPY_FILE
             testbox_display.Text = result;
         }
 
-        private void cal_rgb_subtract(int input,TextBox output)
+        private void cal_rgb_subtract(int input, TextBox output)
         {
             Byte a, b, c;
             a = (Byte)(input >> 19);
@@ -727,8 +728,8 @@ namespace SYD_COPY_FILE
             int x = 0, y = 0;
             x = offect.out_w - offect.x * offect.num;
             y = offect.out_h - offect.y;
-            offect.in_w = x/2;
-            offect.in_h = y/2;
+            offect.in_w = x / 2;
+            offect.in_h = y / 2;
             if (x % 2 == 1)
             {
                 offect.in_R_w = x / 2 + 1;
@@ -785,7 +786,7 @@ namespace SYD_COPY_FILE
             {
                 pictureBox_interface_ismin = false;
                 this.Width = 612;
-                this.Height = 232+22;
+                this.Height = 232 + 22;
             }
             else
             {
@@ -864,7 +865,7 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("input error");
                 return;
             }
-            cal_latency_hex_subtract(textBox18.Text, textBox17.Text,textBox13.Text, textBox15.Text, textBox16.Text);
+            cal_latency_hex_subtract(textBox18.Text, textBox17.Text, textBox13.Text, textBox15.Text, textBox16.Text);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -886,8 +887,8 @@ namespace SYD_COPY_FILE
             TextBox Output_time_textBox = textBox23;
             TextBox Output_hexsecond_textBox = textBox56;
             if ((Button)(sender) == Calendar_Time_Difference_Cal)
-            { 
-                
+            {
+
             }
             else if ((Button)(sender) == Calendar_Time_Difference_Cal1)
             {
@@ -919,7 +920,7 @@ namespace SYD_COPY_FILE
 
             if (Now_Time_textBox.Text.Length > 13)
             {
-                if(Now_Time_textBox.Text.Contains(":") ==true)
+                if (Now_Time_textBox.Text.Contains(":") == true)
                     cal_Calendar_time_differenceble_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, Output_time_textBox, Output_hexsecond_textBox);//22:52:27.252726
                 else
                     cal_Calendar_day_differenceble_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, Output_time_textBox, Output_hexsecond_textBox);//20220223 124748
@@ -1155,18 +1156,18 @@ namespace SYD_COPY_FILE
 
         private void BIT_MARK_CheckStateChanged(object sender, EventArgs e)
         {
-            bitmask_checkbox_Click(sender,e);
+            bitmask_checkbox_Click(sender, e);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string[] arr = new string[textBox10.Lines.Length];
-            string result="";
-            for (int i = 0; i < textBox10.Lines.Length; i++)
+            string[] arr = new string[textBox_difference_input.Lines.Length];
+            string result = "";
+            for (int i = 0; i < textBox_difference_input.Lines.Length; i++)
             {
-                arr[i] = textBox10.Lines[i];
+                arr[i] = textBox_difference_input.Lines[i];
             }
-            textBox11.AppendText("\r\n");
+            textBox_difference_output.AppendText("\r\n");
             if (checkBox1.Checked == false)
             {
                 for (int i = 1; i < arr.Length; i++)
@@ -1180,7 +1181,7 @@ namespace SYD_COPY_FILE
                         result = (Num1 - Num).ToString();
                     else
                         result = (Num - Num1).ToString();
-                    textBox11.AppendText(result + "\r\n");
+                    textBox_difference_output.AppendText(result + "\r\n");
                 }
             }
             else
@@ -1191,12 +1192,12 @@ namespace SYD_COPY_FILE
                         continue;
                     UInt32 Num = 0, Num1 = 0;
                     Num = Convert.ToUInt32(arr[i - 1], 16);
-                    Num1 = Convert.ToUInt32(arr[i], 16);;
+                    Num1 = Convert.ToUInt32(arr[i], 16); ;
                     if (Num1 > Num)
                         result = (Num1 - Num).ToString("X");
                     else
                         result = (Num - Num1).ToString("X");
-                    textBox11.AppendText("0x"+result + "\r\n");
+                    textBox_difference_output.AppendText("0x" + result + "\r\n");
                 }
             }
         }
@@ -1204,7 +1205,7 @@ namespace SYD_COPY_FILE
         private void button20_Click(object sender, EventArgs e)
         {
             int i = 0;
-            string orgTxt1 = textBox10.Text.Trim();
+            string orgTxt1 = textBox_difference_input.Text.Trim();
 
             orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "");
 
@@ -1212,12 +1213,12 @@ namespace SYD_COPY_FILE
 
             if (lstArray.Count <= 1) return;
 
-            textBox11.Text = "\r\n";
+            textBox_difference_output.Text = "\r\n";
 
             for (i = 1; i < lstArray.Count; i++)
             {
                 if (lstArray[i].Length != 0)
-                 textBox11.AppendText(cal_Calendar_time_difference_subtract(lstArray[i], lstArray[i - 1], 0,null, null) + "\r\n");
+                    textBox_difference_output.AppendText(cal_Calendar_time_difference_subtract(lstArray[i], lstArray[i - 1], 0, null, null) + "\r\n");
             }
         }
 
@@ -1225,7 +1226,7 @@ namespace SYD_COPY_FILE
         {
             int i = 0;
             UInt32 Num = 0;
-            string orgTxt1 = textBox10.Text.Trim();
+            string orgTxt1 = textBox_difference_input.Text.Trim();
 
             orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "");
 
@@ -1249,13 +1250,13 @@ namespace SYD_COPY_FILE
             }
             if (checkBox1.Checked == false)
             {
-                textBox11.Text = Num.ToString();
+                textBox_difference_output.Text = Num.ToString();
             }
             else
             {
-                textBox11.Text = Num.ToString("X");
+                textBox_difference_output.Text = Num.ToString("X");
             }
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -1289,7 +1290,7 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("input error");
                 return;
             }
-           
+
         }
 
         private void cal_rgb_subtract(TextBox R, TextBox G, TextBox B, TextBox output)
@@ -1350,7 +1351,7 @@ namespace SYD_COPY_FILE
         }
         private void Batch_difference_out_text(string str)
         {
-            textBox11.AppendText(textBox88.Text+str + textBox89.Text + "\r\n");
+            textBox_difference_output.AppendText(textBox88.Text + str + textBox89.Text + "\r\n");
         }
         private void button22_Click(object sender, EventArgs e)
         {
@@ -1358,10 +1359,10 @@ namespace SYD_COPY_FILE
             {
                 UInt32 base_data = 0;
                 if (checkBox1.Checked)
-                    base_data = Convert.ToUInt32(textBox10.Text, 16);
+                    base_data = Convert.ToUInt32(textBox_difference_input.Text, 16);
                 else
-                    base_data = Convert.ToUInt32(textBox10.Text, 10);
-                
+                    base_data = Convert.ToUInt32(textBox_difference_input.Text, 10);
+
                 UInt32 num = Convert.ToUInt32(textBox65.Text, 10);
                 UInt32 difference = 0;
                 if (textBox62.Text.Length != 0)
@@ -1371,12 +1372,12 @@ namespace SYD_COPY_FILE
                     difference = Convert.ToUInt32(textBox64.Text, 16);
                 }
                 UInt32 result = base_data;
-                textBox11.Text = "";
+                textBox_difference_output.Text = "";
                 if (checkBox1.Checked)
                     Batch_difference_out_text("0x" + result.ToString("X"));
                 else
                     Batch_difference_out_text(result.ToString());
-                
+
                 for (UInt32 i = 1; i < num; i++)
                 {
                     if (data_direction == false)
@@ -1402,8 +1403,8 @@ namespace SYD_COPY_FILE
 
         private void button23_Click(object sender, EventArgs e)
         {
-            textBox11.Text = "";
-            textBox10.Text = "";
+            textBox_difference_output.Text = "";
+            textBox_difference_input.Text = "";
         }
 
         private void button28_Click(object sender, EventArgs e)
@@ -1435,7 +1436,7 @@ namespace SYD_COPY_FILE
             Settings1.Default.textBox_copy_destinationfileend_sync = textBox_copy_destinationfileend_sync.Text;
             Settings1.Default.textBox_key = textBox_key.Text;
 
-            Settings1.Default.pictureBox_interface_ismin=!pictureBox_interface_ismin;
+            Settings1.Default.pictureBox_interface_ismin = !pictureBox_interface_ismin;
 
             Settings1.Default.Setting_textBox_section1 = textBox_section1.Text;
             Settings1.Default.Setting_textBox_section2 = textBox_section2.Text;
@@ -1447,13 +1448,13 @@ namespace SYD_COPY_FILE
             Settings1.Default.Setting_source_copyfile_suffix_textBox_rename = source_copyfile_suffix_textBox_rename.Text;
             Settings1.Default.Setting_checkBox10 = checkBox10.Checked;
             Settings1.Default.Setting_checkBox_systemtime_rename = checkBox_systemtime_rename.Checked;
-            Settings1.Default.rename_mode_sel=comboBox7.SelectedIndex;
-            Settings1.Default.Setting_checkBox_delete_srcfile=checkBox_delete_srcfile.Checked;
-            Settings1.Default.Setting_textBoxSaveDir=textBoxSaveDir.Text;
+            Settings1.Default.rename_mode_sel = comboBox7.SelectedIndex;
+            Settings1.Default.Setting_checkBox_delete_srcfile = checkBox_delete_srcfile.Checked;
+            Settings1.Default.Setting_textBoxSaveDir = textBoxSaveDir.Text;
 
-            int count = this.source_copyfile_suffix_textBox_rename.Items.Count-suffix_textBox_rename_static.Length;
+            int count = this.source_copyfile_suffix_textBox_rename.Items.Count - suffix_textBox_rename_static.Length;
             if (count > 10) count = 10;
-            for (int i=0;i< count;i++)
+            for (int i = 0; i < count; i++)
             {
                 switch (i)
                 {
@@ -1566,7 +1567,7 @@ namespace SYD_COPY_FILE
                 }
             }
 
-             base.WndProc(ref m);
+            base.WndProc(ref m);
         }
         private void turn_text_color(object sender)//翻转字体颜色，让使用者更容易知道该值改变了
         {
@@ -1579,7 +1580,7 @@ namespace SYD_COPY_FILE
                 else
                 {
                     ((TextBox)sender).ForeColor = Color.Red;
-                }    
+                }
             }
         }
         private void recover_text_color(object sender)//恢复字体颜色，说明本操作不会修改该值
@@ -1591,7 +1592,7 @@ namespace SYD_COPY_FILE
         }
         private void button34_Click(object sender, EventArgs e)
         {
-            double x0, y0, x1, y1,k;
+            double x0, y0, x1, y1, k;
             x0 = Convert.ToDouble(textBox_input_X0.Text);
             y0 = Convert.ToDouble(textBox_input_Y0.Text);
             x1 = Convert.ToDouble(textBox_input_X1.Text);
@@ -1634,8 +1635,8 @@ namespace SYD_COPY_FILE
             textBox_input_X1.Text = textBox_input_Y1.Text;
             textBox_input_X0.Text = textBox_input_Y0.Text;
 
-            textBox_input_Y1.Text= x1;
-            textBox_input_Y0.Text= x0;
+            textBox_input_Y1.Text = x1;
+            textBox_input_Y0.Text = x0;
         }
 
         private void textBoxTrim_Leave(object sender, EventArgs e)
@@ -1647,7 +1648,7 @@ namespace SYD_COPY_FILE
         {
             if (e.KeyCode == Keys.L && e.Control)
             {
-                lock_button_Click(null,null);
+                lock_button_Click(null, null);
             }
         }
 
@@ -1677,15 +1678,15 @@ namespace SYD_COPY_FILE
             x0 = Convert.ToUInt32(textBox87.Text);
             y0 = Convert.ToUInt32(textBox79.Text);
             if (x0 > y0) x0 = x0 - y0;
-            else x0 = y0-x0;
-            
+            else x0 = y0 - x0;
+
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            uint init = Convert.ToUInt32(textBox_init.Text,16);
-            byte []data = strToToHexByte(textBox_CRCInput.Text.Replace("0x","").Replace("0X", ""));
-            uint crc= ll_crc24_generate(init,data, (int)(data.Length));
+            uint init = Convert.ToUInt32(textBox_init.Text, 16);
+            byte[] data = strToToHexByte(textBox_CRCInput.Text.Replace("0x", "").Replace("0X", ""));
+            uint crc = ll_crc24_generate(init, data, (int)(data.Length));
             textBox_Reault.Text = crc.ToString("x8");
         }
 
@@ -1693,7 +1694,7 @@ namespace SYD_COPY_FILE
         {
             Byte channel = Convert.ToByte(textBox_channel.Text);
             byte[] data = strToToHexByte(textBox_whitening.Text.Replace("0x", "").Replace("0X", ""));
-            if(checkBox_ReverseBit_input.Checked==true)
+            if (checkBox_ReverseBit_input.Checked == true)
             {
                 for (uint i = 0; i < data.Length; i++)
                 {
@@ -1701,13 +1702,13 @@ namespace SYD_COPY_FILE
                 }
             }
             Byte ignore = Convert.ToByte(textBox_Ignore_fb.Text);
-            if ((ignore< data.Length) && (ignore!=0))
+            if ((ignore < data.Length) && (ignore != 0))
             {
-                bleWhiten(channel, data, ignore, (byte)(data.Length- ignore));
+                bleWhiten(channel, data, ignore, (byte)(data.Length - ignore));
             }
             else
             {
-                bleWhiten(channel, data, 0,(byte)(data.Length));
+                bleWhiten(channel, data, 0, (byte)(data.Length));
             }
             if (checkBox_ReverseBit_output.Checked == true)
             {
@@ -1716,7 +1717,7 @@ namespace SYD_COPY_FILE
                     data[i] = reverseBits(data[i]);
                 }
             }
-            textBox_whitening_out.Text = "0x"+byteToHexStr(data);
+            textBox_whitening_out.Text = "0x" + byteToHexStr(data);
         }
         private void button42_Click(object sender, EventArgs e)
         {
@@ -1794,6 +1795,79 @@ namespace SYD_COPY_FILE
                 textBox32.Enabled = false;
                 textBox41.Enabled = false;
             }
+        }
+
+        private void button_difference_input_output_Click(object sender, EventArgs e)
+        {
+            string orgTxt1 = textBox_difference_input.Text.Trim();
+            string outTxt1 = textBox_difference_output.Text.Trim();
+            orgTxt1 = orgTxt1.Replace("0X", "").Replace("0x", "").Replace(",", " ").Replace("\r\n", " ").Replace("\n", " ");
+            outTxt1 = outTxt1.Replace("0X", "").Replace("0x", "").Replace(",", " ").Replace("\r\n", " ").Replace("\n", " ");
+            byte[] input = strToToHexByte(orgTxt1);
+            byte[] output = strToToHexByte(outTxt1);
+            if (input.Length != output.Length)
+            {
+                MessageBox.Show("输入输出数据数目不一样!");
+                return;
+            }
+            List<byte> listmax = new List<byte>();
+            List<int> listmaxcnt = new List<int>();
+            int i = 0,j=0,max=0,min=0,z=0;
+            for (i = 0; i < input.Length; i++)
+            {
+                int abs=Math.Abs(input[i]- output[i]);
+                for (j = 0; j < listmax.Count; j++)
+                {
+                    if (listmax[j] == abs)
+                    {
+                        listmaxcnt[j]++;
+                        break;
+                    }
+                }
+                if (j >= listmax.Count)
+                {
+                    listmax.Add((byte)abs);
+                    listmaxcnt.Add(1);
+                }
+                if (max < abs) max = abs;
+                if (min > abs) min = abs;
+            }
+            textBox_max_difference.Text = max.ToString();
+            textBox_min_difference.Text = min.ToString();
+            string str = "数据总数:" + input.Length.ToString() + " 最大差值:" + max.ToString() + " 最小差值:" + min.ToString()+"\r\n";
+            str += "原始排序" + "\r\n";
+            for (j = 0; j < listmax.Count; j++)
+            {
+                str+="差值:"+ listmax[j].ToString() + " 数量:" + listmaxcnt[j].ToString() + "\r\n";
+            }
+            byte k = 0;
+            for (i = 0; i < listmax.Count; i++)
+            {
+                for (j = i + 1; j < listmax.Count; j++)
+                {
+                    if (listmax[i] < listmax[j])
+                    {
+                        k = listmax[i];
+                        listmax[i] = listmax[j];
+                        listmax[j] = k;
+
+
+                        z = listmaxcnt[i];
+                        listmaxcnt[i] = listmaxcnt[j];
+                        listmaxcnt[j] = z;
+                    }
+                }
+            }
+            str += "从大小排序" + "\r\n";
+            for (j = 0; j < listmax.Count; j++)
+            {
+                str += "差值:" + listmax[j].ToString() + " 数量:" + listmaxcnt[j].ToString() + "\r\n";
+            }
+            FileStream fs = new FileStream(".\\difference.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.Write(str);
+            sw.Close();
+            fs.Close();
         }
     }
 }

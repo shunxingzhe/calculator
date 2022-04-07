@@ -346,6 +346,12 @@
             this.label61 = new System.Windows.Forms.Label();
             this.textBox63 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox_min_difference = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox_max_difference = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.button_difference_input_output = new System.Windows.Forms.Button();
             this.textBox89 = new System.Windows.Forms.TextBox();
             this.textBox88 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -353,8 +359,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button20 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox_difference_output = new System.Windows.Forms.TextBox();
+            this.textBox_difference_input = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -701,6 +707,7 @@
             this.groupBox16.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel13.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -1931,7 +1938,7 @@
             "Text/ARR to bin",
             "找到目前可以用的最小关键词指定的元组序号",
             "提取指定列数据",
-            "C语言结构体计算偏移",
+            "C语言结构体计算偏移/从C文件提炼数组声明",
             "XOR运算",
             "Rtc批量时间差计算",
             "Bytes to utf8(ASCII)/C#数组处理/Jlink数组处理",
@@ -4173,6 +4180,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.panel1);
             this.groupBox4.Controls.Add(this.textBox89);
             this.groupBox4.Controls.Add(this.textBox88);
             this.groupBox4.Controls.Add(this.button3);
@@ -4180,8 +4188,8 @@
             this.groupBox4.Controls.Add(this.checkBox1);
             this.groupBox4.Controls.Add(this.button20);
             this.groupBox4.Controls.Add(this.button23);
-            this.groupBox4.Controls.Add(this.textBox11);
-            this.groupBox4.Controls.Add(this.textBox10);
+            this.groupBox4.Controls.Add(this.textBox_difference_output);
+            this.groupBox4.Controls.Add(this.textBox_difference_input);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.panel13);
@@ -4194,10 +4202,70 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "批量差值";
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textBox_min_difference);
+            this.panel1.Controls.Add(this.label30);
+            this.panel1.Controls.Add(this.textBox_max_difference);
+            this.panel1.Controls.Add(this.label29);
+            this.panel1.Controls.Add(this.button_difference_input_output);
+            this.panel1.Location = new System.Drawing.Point(118, 245);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(111, 121);
+            this.panel1.TabIndex = 46;
+            // 
+            // textBox_min_difference
+            // 
+            this.textBox_min_difference.AllowDrop = true;
+            this.textBox_min_difference.Location = new System.Drawing.Point(53, 65);
+            this.textBox_min_difference.Name = "textBox_min_difference";
+            this.textBox_min_difference.Size = new System.Drawing.Size(55, 21);
+            this.textBox_min_difference.TabIndex = 43;
+            this.textBox_min_difference.Text = "20";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(1, 70);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(53, 12);
+            this.label30.TabIndex = 44;
+            this.label30.Text = "第小差值";
+            // 
+            // textBox_max_difference
+            // 
+            this.textBox_max_difference.AllowDrop = true;
+            this.textBox_max_difference.Font = new System.Drawing.Font("宋体", 9F);
+            this.textBox_max_difference.Location = new System.Drawing.Point(53, 43);
+            this.textBox_max_difference.Name = "textBox_max_difference";
+            this.textBox_max_difference.Size = new System.Drawing.Size(55, 21);
+            this.textBox_max_difference.TabIndex = 41;
+            this.textBox_max_difference.Text = "20";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(0, 47);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(53, 12);
+            this.label29.TabIndex = 42;
+            this.label29.Text = "最大差值";
+            // 
+            // button_difference_input_output
+            // 
+            this.button_difference_input_output.Location = new System.Drawing.Point(2, 1);
+            this.button_difference_input_output.Name = "button_difference_input_output";
+            this.button_difference_input_output.Size = new System.Drawing.Size(104, 40);
+            this.button_difference_input_output.TabIndex = 36;
+            this.button_difference_input_output.Text = "计算输入和输出差值";
+            this.button_difference_input_output.UseVisualStyleBackColor = true;
+            this.button_difference_input_output.Click += new System.EventHandler(this.button_difference_input_output_Click);
+            // 
             // textBox89
             // 
             this.textBox89.AllowDrop = true;
-            this.textBox89.Location = new System.Drawing.Point(168, 240);
+            this.textBox89.Location = new System.Drawing.Point(168, 219);
             this.textBox89.Name = "textBox89";
             this.textBox89.Size = new System.Drawing.Size(62, 21);
             this.textBox89.TabIndex = 44;
@@ -4205,16 +4273,16 @@
             // textBox88
             // 
             this.textBox88.AllowDrop = true;
-            this.textBox88.Location = new System.Drawing.Point(168, 217);
+            this.textBox88.Location = new System.Drawing.Point(168, 196);
             this.textBox88.Name = "textBox88";
             this.textBox88.Size = new System.Drawing.Size(62, 21);
             this.textBox88.TabIndex = 42;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(117, 54);
+            this.button3.Location = new System.Drawing.Point(164, 32);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(61, 22);
+            this.button3.Size = new System.Drawing.Size(66, 22);
             this.button3.TabIndex = 30;
             this.button3.Text = "计算差值";
             this.button3.UseVisualStyleBackColor = true;
@@ -4224,7 +4292,7 @@
             // 
             this.button31.Location = new System.Drawing.Point(117, 32);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(61, 22);
+            this.button31.Size = new System.Drawing.Size(45, 22);
             this.button31.TabIndex = 35;
             this.button31.Text = "求和";
             this.button31.UseVisualStyleBackColor = true;
@@ -4234,7 +4302,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.checkBox1.Location = new System.Drawing.Point(118, 201);
+            this.checkBox1.Location = new System.Drawing.Point(118, 180);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(42, 16);
             this.checkBox1.TabIndex = 41;
@@ -4254,7 +4322,7 @@
             // button23
             // 
             this.button23.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button23.Location = new System.Drawing.Point(181, 32);
+            this.button23.Location = new System.Drawing.Point(202, 9);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(50, 22);
             this.button23.TabIndex = 31;
@@ -4262,26 +4330,26 @@
             this.button23.UseVisualStyleBackColor = true;
             this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
-            // textBox11
+            // textBox_difference_output
             // 
-            this.textBox11.AllowDrop = true;
-            this.textBox11.Location = new System.Drawing.Point(231, 32);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(104, 334);
-            this.textBox11.TabIndex = 26;
-            this.textBox11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.textBox_difference_output.AllowDrop = true;
+            this.textBox_difference_output.Location = new System.Drawing.Point(231, 32);
+            this.textBox_difference_output.Multiline = true;
+            this.textBox_difference_output.Name = "textBox_difference_output";
+            this.textBox_difference_output.Size = new System.Drawing.Size(104, 334);
+            this.textBox_difference_output.TabIndex = 26;
+            this.textBox_difference_output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
-            // textBox10
+            // textBox_difference_input
             // 
-            this.textBox10.AllowDrop = true;
-            this.textBox10.Location = new System.Drawing.Point(3, 32);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(113, 334);
-            this.textBox10.TabIndex = 25;
-            this.textBox10.Text = "3.133\r\n2.618\r\n2.401\r\n1.801\r\n1.574\r\n1.008\r\n0.395\r\n0.046\r\n0.000";
-            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.textBox_difference_input.AllowDrop = true;
+            this.textBox_difference_input.Location = new System.Drawing.Point(3, 32);
+            this.textBox_difference_input.Multiline = true;
+            this.textBox_difference_input.Name = "textBox_difference_input";
+            this.textBox_difference_input.Size = new System.Drawing.Size(113, 334);
+            this.textBox_difference_input.TabIndex = 25;
+            this.textBox_difference_input.Text = "3.133\r\n2.618\r\n2.401\r\n1.801\r\n1.574\r\n1.008\r\n0.395\r\n0.046\r\n0.000";
+            this.textBox_difference_input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label2
             // 
@@ -4313,7 +4381,7 @@
             this.panel13.Controls.Add(this.label63);
             this.panel13.Controls.Add(this.button22);
             this.panel13.Controls.Add(this.label64);
-            this.panel13.Location = new System.Drawing.Point(118, 77);
+            this.panel13.Location = new System.Drawing.Point(118, 56);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(111, 121);
             this.panel13.TabIndex = 39;
@@ -4405,7 +4473,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(115, 220);
+            this.label71.Location = new System.Drawing.Point(115, 199);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(59, 12);
             this.label71.TabIndex = 43;
@@ -4414,7 +4482,7 @@
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(115, 243);
+            this.label78.Location = new System.Drawing.Point(115, 222);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(59, 12);
             this.label78.TabIndex = 45;
@@ -7257,7 +7325,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.6.5";
+            this.Text = "SYD_Calculator V1.6.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -7318,6 +7386,8 @@
             this.groupBox14.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -7537,8 +7607,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox_difference_output;
+        private System.Windows.Forms.TextBox textBox_difference_input;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel13;
@@ -7986,6 +8056,12 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num12;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num13;
         private System.Windows.Forms.CheckBox timestamp_Difference_hex;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox_min_difference;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox textBox_max_difference;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button button_difference_input_output;
     }
 }
 

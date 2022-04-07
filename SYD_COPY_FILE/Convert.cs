@@ -122,6 +122,55 @@ namespace SYD_COPY_FILE
             }
             return returnStr;
         }
+
+        public static UInt32 getUInt32FromString(string str,int index)
+        {
+            string str1 = str.Substring(index + 6, 2) + str.Substring(index + 4, 2) + str.Substring(index + 2, 2) + str.Substring(index, 2);
+            return  Convert.ToUInt32(str1, 16);
+        }
+        public static UInt16 getUInt16FromString(string str, int index)
+        {
+            string str1 =  str.Substring(index + 2, 2) + str.Substring(index, 2);
+            return Convert.ToUInt16(str1, 16);
+        }
+        public static string getStringFromUInt32(UInt32 data)
+        {
+            return ((Byte)data & 0xff).ToString("X2") + ((Byte)(data >> 8) & 0xff).ToString("X2") + ((Byte)(data >> 16) & 0xff).ToString("X2") + ((Byte)(data >> 24) & 0xff).ToString("X2"); 
+        }
+        public static string getStringFromUInt16(UInt16 data)
+        {
+            return ((Byte)data & 0xff).ToString("X2") + ((Byte)(data >> 8) & 0xff).ToString("X2") ;
+        }
+
+
+        //开头匹配一个字母或数字+匹配两个十进制数字+匹配一个字母或数字+匹配两个相同格式的的（-加数字）+已字母或数字结尾
+        //如：1111-111-1119
+        //string pattern = @"^[a-zA-Z0-9]\d{2}[a-zA-Z0-9](-\d{3}){2}[A-Za-z0-9]$";
+        //string pattern = @"^[a-zA-Z0-9]\d{2}$"; //开头以字母或数字，然后后面加两个数字字符
+        //string pattern = @"^[a-zA-Z0-9]*$"; //匹配所有字符都在字母和数字之间
+        //string pattern = @"^[a-z0-9]*$"; //匹配所有字符都在小写字母和数字之间
+        //string pattern = @"^[A-Z][0-9]*$"; //以大写字母开头，后面的都是数字
+        //string pattern = @"^\d{3}-\d{2}$";//匹配 333-22 格式,三个数字加-加两个数字
+        //只有数字
+        public static bool IsOnlyNumber(string value)
+        {
+            System.Text.RegularExpressions.Regex g = new System.Text.RegularExpressions.Regex(@"^[0-9]*$");
+            return g.IsMatch(value);
+        }
+
+        //只有字母
+        public static bool IsOnlyWord(string value)
+        {
+            Regex r = new Regex(@"^[a-zA-Z]*$");
+            return r.Match(value).Success;
+        }
+
+        //只有数字和字母
+        public static bool IsNumberAndWord(string value)
+        {
+            Regex r = new Regex(@"^[a-zA-Z0-9]*$");
+            return r.Match(value).Success;
+        }
     }
     public class PinYinConverterHelp
     {

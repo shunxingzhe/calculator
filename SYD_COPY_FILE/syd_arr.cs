@@ -188,14 +188,27 @@ namespace SYD_COPY_FILE
         }
         //获取最近创建的文件名和创建时间
         //如果没有指定类型的文件，返回null
-        static FileTimeInfo GetLatestFileTimeInfo(string dir, string ext)
+        //本函数的目的是找到微信重命名后的最新文件,所以目前识别的格式为:file.wav-->file(n).wav 也就是说最新的文件全路径(除扩展名)在排除掉原来的文件后只剩下()和数字
+        static FileTimeInfo GetLatestFileTimeInfo(string filepath)
         {
+            string dir = System.IO.Path.GetDirectoryName(filepath);
+            string ext = System.IO.Path.GetExtension(filepath);
+            string name = System.IO.Path.GetFileNameWithoutExtension(filepath);
+            int m = name.IndexOf("(");
+            if (m != -1)
+            {
+                name = name.Substring(0,m-1);
+            }
             List<FileTimeInfo> list = new List<FileTimeInfo>();
             DirectoryInfo d = new DirectoryInfo(dir);
             foreach (FileInfo fi in d.GetFiles())
             {
                 if (fi.Extension.ToUpper() == ext.ToUpper())
                 {
+                    //这里专门针对微信添加
+                    if (fi.Name.Contains(name)==false) continue;
+                    string filename = fi.Name.Replace(name,"").Replace("(", "").Replace(")", "").Replace(ext, "").Replace(" ", "");
+                    if(IsOnlyNumber(filename)== false) continue;
                     list.Add(new FileTimeInfo()
                     {
                         FileName = fi.FullName,
@@ -222,10 +235,11 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("源文件设置出错!");
                 return;
             }
-            FileTimeInfo fti =GetLatestFileTimeInfo(System.IO.Path.GetDirectoryName(filepath), System.IO.Path.GetExtension(filepath));
-            if (fti.FileName == "")
+            FileTimeInfo fti =GetLatestFileTimeInfo(filepath);
+            if ((fti==null) ||(fti.FileName == ""))
             {
                 MessageBox.Show("输入路径没有该类文件!");
+                return;
             }
             source_file_textBox.Text = fti.FileName;
             reintput_file(source_file_textBox.Text);
@@ -331,8 +345,11 @@ namespace SYD_COPY_FILE
         private void bintoarr()
        {
            int i = 0, data_residue = 0;
-           //string orgTxt1 = HoverTreeClearMark(textInput.Text.Trim());
-           string orgTxt1 = textInput.Text.Trim();
+            UInt16 ii = 0;
+            string str = "", str1 = "", str2 = "", str3 = "";
+            string path = label_outfilename.Text;
+            //string orgTxt1 = HoverTreeClearMark(textInput.Text.Trim());
+            string orgTxt1 = textInput.Text.Trim();
 
            orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace("\r\n", "");
            //List<string> lstArray = orgTxt1.Split(new char[1] { ';' }).ToList();
@@ -340,7 +357,99 @@ namespace SYD_COPY_FILE
 
             if ((comboBox_fonttype.SelectedIndex == 1) || (comboBox_fonttype.SelectedIndex == 2))
             {
-                orgTxt1=orgTxt1.Remove(0, 0x28*2);
+                orgTxt1 = orgTxt1.Remove(0, 0x28 * 2);
+            }
+            else if  ((comboBox_fonttype.SelectedIndex == 3) || (comboBox_fonttype.SelectedIndex == 4))
+            {
+                Byte data = 0, pre_data = 0;
+                str = orgTxt1.Remove(0, 0x2C * 2);
+                str2= "";
+                str3 = orgTxt1.Substring(0, 0x2C * 2);
+                if ((str3.Contains("52494646")==false) || (str3.Contains("57415645666d74")== false) || (str3.Contains("64617461") == false))//RIFF  WAVEfmt data
+                {
+                    MessageBox.Show("选择的文件不是WAV类型文件!");
+                    return;
+                }
+                for (i = 0; i < (str.Length / 8); i ++)
+                {
+                    str1 = str.Substring(i * 8+2, 2)+str.Substring(i * 8, 2);
+                    ii = Convert.ToUInt16(str1, 16);
+                    data = (Byte)(ii >> 8);
+                    data = (Byte)(data + 128);
+                    if (pre_data == data) data -= 1;
+                    str2 = str2 + data.ToString("X2");
+                    pre_data = data;
+                }
+                //编辑头部
+                //修改长度
+                UInt32 len = (UInt32)(str2.Length/2 + 0x2C - 8);//除去RIFF的文件长度
+                str1 = getStringFromUInt32(len);
+                str3=str3.Remove(4 * 2, 4*2);
+                str3 = str3.Insert(4 * 2, str1);
+
+                //修改音频采样率
+                len = getUInt32FromString(str3, 0x18 * 2);
+                if (len != 16000)
+                {
+                    MessageBox.Show("原音频采样率不是16K!"+ len.ToString());
+                    return;
+                }
+                len = 8000;
+                str1 = getStringFromUInt32(len);
+                str3 = str3.Remove(0x18 * 2, 4 * 2);
+                str3 = str3.Insert(0x18 * 2, str1);
+
+                //修改每秒数据量
+                len = getUInt32FromString(str3, 0x1C * 2);
+                if (len != 32000)
+                {
+                    MessageBox.Show("原音频采样率不是16K16Bit!" + len.ToString());
+                    return;
+                }
+                len = 8000;
+                str1 = getStringFromUInt32(len);
+                str3 = str3.Remove(0x1C * 2, 4 * 2);
+                str3 = str3.Insert(0x1C * 2, str1);
+
+                //修改数据块的调整数
+                UInt16 bit = getUInt16FromString(str3, 0x20 * 2);
+                if (bit != 2)
+                {
+                    MessageBox.Show("原音频数据块的调整数错误!" + len.ToString());
+                    return;
+                }
+                bit = 1;
+                str1 = getStringFromUInt16(bit);
+                str3 = str3.Remove(0x20 * 2, 2 * 2);
+                str3 = str3.Insert(0x20 * 2, str1);
+
+                //修改数据位数
+                bit = getUInt16FromString(str3, 0x22 * 2);
+                if (bit != 16)
+                {
+                    MessageBox.Show("原音频位宽不是16Bit!" + len.ToString());
+                    return;
+                }
+                bit = 8;
+                str1 = getStringFromUInt16(bit);
+                str3 = str3.Remove(0x22 * 2, 2 * 2);
+                str3 = str3.Insert(0x22 * 2, str1);
+
+                //修改语音数据大小
+                len = (UInt32)(str2.Length)/2;//除去头部的文件长度
+                str1 = getStringFromUInt32(len);
+                str3 = str3.Remove(0x28 * 2, 4 * 2);
+                str3 = str3.Insert(0x28 * 2, str1);
+
+                //组合文件
+                str3 = str3+str2;
+                string path1 = path.Replace(".txt", string.Empty).Replace(".TXT", string.Empty) + "_8BIT_8KHZ.wav";
+                using (FileStream fsWrite = new FileStream(path1, FileMode.Create, FileAccess.Write))
+                {
+                    byte[] buffer = strToToHexByte(str3);
+                    fsWrite.Write(buffer, 0, buffer.Length);
+                }
+                orgTxt1 = str3.Remove(0, 0x28 * 2); ;
             }
 
             data_residue = orgTxt1.Length % 32;
@@ -363,11 +472,8 @@ namespace SYD_COPY_FILE
                lstArray.Add(orgTxt1.Substring(32 * i, orgTxt1.Length % 32)); //i-起始位置，4-子串长度
            }
 
-           UInt16 ii = 0;
-
-           string str = "", str1 = "";
-           for (i = 0; i < lstArray.Count; i++)
-           {
+           for (i = 0; i < lstArray.Count; i++)//生成16进制数据 每行作为一个lstArray成员
+            {
                str = lstArray[i];
                try
                {
@@ -407,8 +513,8 @@ namespace SYD_COPY_FILE
                }
                lstArray[i] = str;
            }
-           if (comboBox_datatype.SelectedIndex == 1)
-           {
+            if (comboBox_datatype.SelectedIndex == 1)//封装数据,根据要输出的类型,产生不一样的数据,比如:0x52,0x49,0x46,0x46或者0x4952,0x4646或者0x46464952,
+            {
                for (i = 0; i < lstArray.Count; i++)
                {
                    str = lstArray[i];
@@ -479,7 +585,6 @@ namespace SYD_COPY_FILE
                if ((extract_len == 0) | (extract_len > lstArray.Count)) extract_len = lstArray.Count;
            }
 
-           string path = label_outfilename.Text;
            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
            {
                byte[] buffer = null;
@@ -499,7 +604,7 @@ namespace SYD_COPY_FILE
                richTextBox_out.Text = string.Join("", lstArray.ToArray());
            }
 
-            if (comboBox_fonttype.SelectedIndex == 2)
+            if ((comboBox_fonttype.SelectedIndex == 2) || (comboBox_fonttype.SelectedIndex == 4))
             {
                 string filePath = comboBox_indicate.Text.Trim().Replace("\"","");
                 string array_name = textBox_key.Text.Trim();
@@ -1399,7 +1504,31 @@ namespace SYD_COPY_FILE
            }
        }
 
-       private void Data_xor()
+        private void extract_array_name()
+        {
+            string str = textInput.Text.Trim(),str1="";
+            List<string> lstArray = new List<string>();
+            int j = 0, k = 0,i=0;
+            while (true)
+            {
+                j = str.IndexOf("[", j);
+                if (j == -1) break;
+                i = str.LastIndexOf("\n", j);
+                if (i == -1) break;
+                k = str.IndexOf("=", j);
+                if (k == -1) break;
+                str1 = str.Substring(i+1, k - i-1);
+                str1 = "extern " + str1+";";
+                lstArray.Add(str1);
+                j++;
+            }
+            foreach (string str2 in lstArray)
+            {
+                richTextBox_out.AppendText(str2 + "\r\n");
+            }
+        }
+
+        private void Data_xor()
        {
            int i = 0;
            string orgTxt1 = textInput.Text.Trim();
@@ -2410,7 +2539,10 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.C_struct_element_size)
             {
-                Cstruct_element_size();
+                if (comboBox_datatype.SelectedIndex == 0)
+                    Cstruct_element_size();
+                else if (comboBox_datatype.SelectedIndex == 1)
+                    extract_array_name();
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Cmd_XOR)
             {
@@ -2607,8 +2739,10 @@ namespace SYD_COPY_FILE
             {
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("输出数据无特殊处理");
-                this.comboBox_fonttype.Items.Add("输出数据根据WAV格式删除前面0X28个数据（0X28-0X2B为长度，0X2C开始为有效数据）");
-                this.comboBox_fonttype.Items.Add("上面的基础上,替换文件名指定文件中由数组名指定的数组内容");
+                this.comboBox_fonttype.Items.Add("输出PCM数据删除WAV文件前面0X28个数据（0X28-0X2B为长度，0X2C开始为有效数据）");
+                this.comboBox_fonttype.Items.Add("在上面的基础上,替换文件名指定文件中由数组名指定的数组内容");
+                this.comboBox_fonttype.Items.Add("WAV文件16Bit_16Khz转8Bit_8Khz");
+                this.comboBox_fonttype.Items.Add("WAV文件在上面的基础上,替换文件名指定文件中由数组名指定的数组内容");
                 this.label_font_type.Text = "输出处理：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Git_helper)
@@ -2684,6 +2818,10 @@ namespace SYD_COPY_FILE
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.C_struct_element_size)
             {
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Cstruct_element_size.txt", Encoding.Default);
+                this.comboBox_datatype.Items.Clear();
+                this.comboBox_datatype.Items.Add("C语言结构体计算偏移");
+                this.comboBox_datatype.Items.Add("从C文件提炼数组声明");
+                this.label_data_type.Text = "   模式选择：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Cmd_XOR)
             {
@@ -2699,7 +2837,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("输入数据为Studio的时间+数据复制行");
                 this.label_data_type.Text = "输入数据类型：";
             }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Bytes_to_utf8)
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Bytes_to_utf8) 
             {
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Bytestoutf8.txt", Encoding.Default);
 
@@ -2895,7 +3033,6 @@ namespace SYD_COPY_FILE
                 arr_restore_Defaults();
                 arr_restore_Defaults_Adjust();
             }
-            arr_restore_Defaults_Adjust();  //自动调整显示长度
         }
 
         private void comboBox_fonttype_DropDownClosed(object sender, EventArgs e)
