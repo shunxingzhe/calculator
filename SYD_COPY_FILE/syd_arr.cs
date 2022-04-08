@@ -355,11 +355,11 @@ namespace SYD_COPY_FILE
            //List<string> lstArray = orgTxt1.Split(new char[1] { ';' }).ToList();
            List<string> lstArray = new List<string>();
 
-            if ((comboBox_fonttype.SelectedIndex == 1) || (comboBox_fonttype.SelectedIndex == 2))
+            if (comboBox_fonttype.SelectedIndex == 1)
             {
                 orgTxt1 = orgTxt1.Remove(0, 0x28 * 2);
             }
-            else if  ((comboBox_fonttype.SelectedIndex == 3) || (comboBox_fonttype.SelectedIndex == 4))
+            else if (comboBox_fonttype.SelectedIndex == 2)
             {
                 Byte data = 0, pre_data = 0;
                 str = orgTxt1.Remove(0, 0x2C * 2);
@@ -603,8 +603,8 @@ namespace SYD_COPY_FILE
            {
                richTextBox_out.Text = string.Join("", lstArray.ToArray());
            }
-
-            if ((comboBox_fonttype.SelectedIndex == 2) || (comboBox_fonttype.SelectedIndex == 4))
+            
+            if (comboBox_additional_operations.SelectedIndex == 1)
             {
                 string filePath = comboBox_indicate.Text.Trim().Replace("\"","");
                 string array_name = textBox_key.Text.Trim();
@@ -2717,19 +2717,25 @@ namespace SYD_COPY_FILE
                     this.comboBox_indicate.Items.Add(comboBox_indicate_text[i]);
                 }
             }
+            this.comboBox_additional_operations.Items.Clear();
+            this.comboBox_additional_operations.Items.Add("无额外操作");
+            this.label_additional_operations.Text = "额外操作:";
         }
         private void arr_restore_Defaults_Adjust()
         {
             AdjustComboBoxDropDownListWidth(comboBox_datatype);
             AdjustComboBoxDropDownListWidth(comboBox_fonttype);
             AdjustComboBoxDropDownListWidth(comboBox_indicate);
+            AdjustComboBoxDropDownListWidth(comboBox_additional_operations);
             this.comboBox_datatype.SelectedItem = 0;
             this.comboBox_datatype.SelectedIndex = 0;
             this.comboBox_fonttype.SelectedItem = 0;
             this.comboBox_fonttype.SelectedIndex = 0;
             this.comboBox_indicate.SelectedItem = 0;
-            if(this.comboBox_indicate.Items.Count>0)
+            if (this.comboBox_indicate.Items.Count>0)
                 this.comboBox_indicate.SelectedIndex = 0;
+            this.comboBox_additional_operations.SelectedIndex = 0;
+            this.comboBox_additional_operations.SelectedItem = 0;
         }
         private void comboBox_mode_DropDownClosed(object sender, EventArgs e)
         {
@@ -2740,10 +2746,13 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("输出数据无特殊处理");
                 this.comboBox_fonttype.Items.Add("输出PCM数据删除WAV文件前面0X28个数据（0X28-0X2B为长度，0X2C开始为有效数据）");
-                this.comboBox_fonttype.Items.Add("在上面的基础上,替换文件名指定文件中由数组名指定的数组内容");
                 this.comboBox_fonttype.Items.Add("WAV文件16Bit_16Khz转8Bit_8Khz");
-                this.comboBox_fonttype.Items.Add("WAV文件在上面的基础上,替换文件名指定文件中由数组名指定的数组内容");
                 this.label_font_type.Text = "输出处理：";
+
+                this.comboBox_additional_operations.Items.Clear();
+                this.comboBox_additional_operations.Items.Add("无额外操作");
+                this.comboBox_additional_operations.Items.Add("替换文件名指定文件中由数组名指定的数组内容");
+                this.label_additional_operations.Text = "额外操作:";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Git_helper)
             {
