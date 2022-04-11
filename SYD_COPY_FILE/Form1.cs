@@ -999,50 +999,69 @@ namespace SYD_COPY_FILE
             if (BIT_MARK31.CheckState == CheckState.Checked) bit_mask |= 0x80000000;
             bit_mask_result.Text = "0x" + bit_mask.ToString("X8");
         }
+        private void LED_Display_U8toU32()
+        {
+            string str = LED_input1_textBox.Text.Trim(), str_out = "";
+            while (true)
+            {
+                if (str.Length >= 4)
+                {
+                    byte input = Convert.ToByte(str.Substring(2, 2), 16);
+                    UInt32 output = 0;
 
+                    byte temp = Convert.ToByte(textBox_GPIO0.Text, 10);
+                    if ((input & 0x01) == 0x01)
+                        output |= (UInt32)(1 << temp);
+
+                    temp = Convert.ToByte(textBox_GPIO1.Text, 10);
+                    if ((input & 0x02) == 0x02)
+                        output |= (UInt32)(1 << temp);
+
+                    temp = Convert.ToByte(textBox_GPIO2.Text, 10);
+                    if ((input & 0x04) == 0x04)
+                        output |= (UInt32)(1 << temp);
+
+                    temp = Convert.ToByte(textBox_GPIO3.Text, 10);
+                    if ((input & 0x08) == 0x08)
+                        output |= (UInt32)(1 << temp);
+
+                    temp = Convert.ToByte(textBox_GPIO4.Text, 10);
+                    if ((input & 0x10) == 0x10)
+                        output |= (UInt32)(1 << temp);
+
+                    temp = Convert.ToByte(textBox_GPIO5.Text, 10);
+                    if ((input & 0x20) == 0x20)
+                        output |= (UInt32)(1 << temp);
+
+                    temp = Convert.ToByte(textBox_GPIO6.Text, 10);
+                    if ((input & 0x40) == 0x40)
+                        output |= (UInt32)(1 << temp);
+
+                    if (textBox_GPIO7.Text.Length != 0)
+                    {
+                        temp = Convert.ToByte(textBox_GPIO7.Text, 10);
+                        if ((input & 0x80) == 0x80)
+                            output |= (UInt32)(1 << temp);
+                    }
+                    str_out += "0x" + output.ToString("X8");
+
+                    if (str.Length > 4)
+                    {
+                        str = str.Remove(0, 5);
+                        if (str.Length >= 4) str_out += ",";
+                    }
+                    else str = "";
+                }
+                else break;
+            }
+
+            LED_result1_textBox.Text = str_out;
+        }
         private void LED_input1_textBox_keydown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                byte input = Convert.ToByte(LED_input1_textBox.Text.Substring(2, 2), 16);
-                UInt32 output = 0;
-
-                byte temp = Convert.ToByte(textBox_GPIO0.Text, 10);
-                if ((input & 0x01) == 0x01)
-                    output |= (UInt32)(1 << temp);
-
-                temp = Convert.ToByte(textBox_GPIO1.Text, 10);
-                if ((input & 0x02) == 0x02)
-                    output |= (UInt32)(1 << temp);
-
-                temp = Convert.ToByte(textBox_GPIO2.Text, 10);
-                if ((input & 0x04) == 0x04)
-                    output |= (UInt32)(1 << temp);
-
-                temp = Convert.ToByte(textBox_GPIO3.Text, 10);
-                if ((input & 0x08) == 0x08)
-                    output |= (UInt32)(1 << temp);
-
-                temp = Convert.ToByte(textBox_GPIO4.Text, 10);
-                if ((input & 0x10) == 0x10)
-                    output |= (UInt32)(1 << temp);
-
-                temp = Convert.ToByte(textBox_GPIO5.Text, 10);
-                if ((input & 0x20) == 0x20)
-                    output |= (UInt32)(1 << temp);
-
-                temp = Convert.ToByte(textBox_GPIO6.Text, 10);
-                if ((input & 0x40) == 0x40)
-                    output |= (UInt32)(1 << temp);
-
-                if (textBox_GPIO7.Text.Length != 0)
-                {
-                    temp = Convert.ToByte(textBox_GPIO7.Text, 10);
-                    if ((input & 0x80) == 0x80)
-                        output |= (UInt32)(1 << temp);
-                }
-
-                LED_result1_textBox.Text = "0x" + output.ToString("X8");
+                LED_Display_U8toU32();
             }
         }
 
@@ -1868,6 +1887,11 @@ namespace SYD_COPY_FILE
             sw.Write(str);
             sw.Close();
             fs.Close();
+        }
+
+        private void label_turn1_Click(object sender, EventArgs e)
+        {
+            LED_Display_U8toU32();
         }
     }
 }

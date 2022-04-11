@@ -677,6 +677,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -3144,9 +3145,9 @@
             // 
             // button40
             // 
-            this.button40.Location = new System.Drawing.Point(213, 69);
+            this.button40.Location = new System.Drawing.Point(289, 18);
             this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(132, 22);
+            this.button40.Size = new System.Drawing.Size(62, 47);
             this.button40.TabIndex = 55;
             this.button40.Text = "执行LED段位码";
             this.button40.UseVisualStyleBackColor = true;
@@ -3155,9 +3156,9 @@
             // LED_result1_textBox
             // 
             this.LED_result1_textBox.AllowDrop = true;
-            this.LED_result1_textBox.Location = new System.Drawing.Point(116, 69);
+            this.LED_result1_textBox.Location = new System.Drawing.Point(166, 69);
             this.LED_result1_textBox.Name = "LED_result1_textBox";
-            this.LED_result1_textBox.Size = new System.Drawing.Size(92, 21);
+            this.LED_result1_textBox.Size = new System.Drawing.Size(186, 21);
             this.LED_result1_textBox.TabIndex = 44;
             // 
             // LED_input1_textBox
@@ -3165,27 +3166,30 @@
             this.LED_input1_textBox.AllowDrop = true;
             this.LED_input1_textBox.Location = new System.Drawing.Point(10, 69);
             this.LED_input1_textBox.Name = "LED_input1_textBox";
-            this.LED_input1_textBox.Size = new System.Drawing.Size(92, 21);
+            this.LED_input1_textBox.Size = new System.Drawing.Size(135, 21);
             this.LED_input1_textBox.TabIndex = 43;
             this.LED_input1_textBox.Text = "0x3F";
+            this.toolTip1.SetToolTip(this.LED_input1_textBox, "既可以输入一个数字比如:0x3F\r\n也可以输入几个数据,用逗号隔开比如:0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F," +
+        "0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71,0x00");
             this.LED_input1_textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LED_input1_textBox_keydown);
             // 
             // label_turn1
             // 
             this.label_turn1.AutoSize = true;
             this.label_turn1.Font = new System.Drawing.Font("宋体", 15F);
-            this.label_turn1.Location = new System.Drawing.Point(101, 70);
+            this.label_turn1.Location = new System.Drawing.Point(144, 70);
             this.label_turn1.Name = "label_turn1";
             this.label_turn1.Size = new System.Drawing.Size(19, 20);
             this.label_turn1.TabIndex = 42;
             this.label_turn1.Text = ">";
+            this.label_turn1.Click += new System.EventHandler(this.label_turn1_Click);
             // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("宋体", 12F);
             this.label37.ForeColor = System.Drawing.Color.Red;
-            this.label37.Location = new System.Drawing.Point(320, 22);
+            this.label37.Location = new System.Drawing.Point(256, 22);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(40, 16);
             this.label37.TabIndex = 40;
@@ -3196,7 +3200,7 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("宋体", 12F);
             this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(298, 22);
+            this.label38.Location = new System.Drawing.Point(242, 22);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(16, 16);
             this.label38.TabIndex = 39;
@@ -3207,7 +3211,7 @@
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("宋体", 12F);
             this.label39.ForeColor = System.Drawing.Color.Red;
-            this.label39.Location = new System.Drawing.Point(270, 22);
+            this.label39.Location = new System.Drawing.Point(214, 22);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(16, 16);
             this.label39.TabIndex = 38;
@@ -3218,7 +3222,7 @@
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("宋体", 12F);
             this.label40.ForeColor = System.Drawing.Color.Red;
-            this.label40.Location = new System.Drawing.Point(236, 22);
+            this.label40.Location = new System.Drawing.Point(185, 22);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(16, 16);
             this.label40.TabIndex = 37;
@@ -3229,7 +3233,7 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("宋体", 12F);
             this.label41.ForeColor = System.Drawing.Color.Red;
-            this.label41.Location = new System.Drawing.Point(204, 22);
+            this.label41.Location = new System.Drawing.Point(158, 22);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(16, 16);
             this.label41.TabIndex = 36;
@@ -3240,7 +3244,7 @@
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("宋体", 12F);
             this.label42.ForeColor = System.Drawing.Color.Red;
-            this.label42.Location = new System.Drawing.Point(168, 22);
+            this.label42.Location = new System.Drawing.Point(130, 22);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(16, 16);
             this.label42.TabIndex = 35;
@@ -3251,7 +3255,7 @@
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("宋体", 12F);
             this.label43.ForeColor = System.Drawing.Color.Red;
-            this.label43.Location = new System.Drawing.Point(140, 22);
+            this.label43.Location = new System.Drawing.Point(100, 22);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(16, 16);
             this.label43.TabIndex = 34;
@@ -3262,7 +3266,7 @@
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("宋体", 12F);
             this.label44.ForeColor = System.Drawing.Color.Red;
-            this.label44.Location = new System.Drawing.Point(106, 22);
+            this.label44.Location = new System.Drawing.Point(74, 22);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(16, 16);
             this.label44.TabIndex = 33;
@@ -3271,7 +3275,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(21, 26);
+            this.label45.Location = new System.Drawing.Point(6, 26);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(71, 12);
             this.label45.TabIndex = 32;
@@ -3280,7 +3284,7 @@
             // textBox_GPIO7
             // 
             this.textBox_GPIO7.AllowDrop = true;
-            this.textBox_GPIO7.Location = new System.Drawing.Point(330, 44);
+            this.textBox_GPIO7.Location = new System.Drawing.Point(268, 44);
             this.textBox_GPIO7.Name = "textBox_GPIO7";
             this.textBox_GPIO7.Size = new System.Drawing.Size(19, 21);
             this.textBox_GPIO7.TabIndex = 31;
@@ -3288,7 +3292,7 @@
             // textBox_GPIO6
             // 
             this.textBox_GPIO6.AllowDrop = true;
-            this.textBox_GPIO6.Location = new System.Drawing.Point(297, 44);
+            this.textBox_GPIO6.Location = new System.Drawing.Point(240, 44);
             this.textBox_GPIO6.Name = "textBox_GPIO6";
             this.textBox_GPIO6.Size = new System.Drawing.Size(19, 21);
             this.textBox_GPIO6.TabIndex = 30;
@@ -3297,7 +3301,7 @@
             // textBox_GPIO5
             // 
             this.textBox_GPIO5.AllowDrop = true;
-            this.textBox_GPIO5.Location = new System.Drawing.Point(266, 44);
+            this.textBox_GPIO5.Location = new System.Drawing.Point(212, 44);
             this.textBox_GPIO5.Name = "textBox_GPIO5";
             this.textBox_GPIO5.Size = new System.Drawing.Size(19, 21);
             this.textBox_GPIO5.TabIndex = 29;
@@ -3306,7 +3310,7 @@
             // textBox_GPIO4
             // 
             this.textBox_GPIO4.AllowDrop = true;
-            this.textBox_GPIO4.Location = new System.Drawing.Point(233, 44);
+            this.textBox_GPIO4.Location = new System.Drawing.Point(184, 44);
             this.textBox_GPIO4.Name = "textBox_GPIO4";
             this.textBox_GPIO4.Size = new System.Drawing.Size(19, 21);
             this.textBox_GPIO4.TabIndex = 28;
@@ -3315,7 +3319,7 @@
             // textBox_GPIO3
             // 
             this.textBox_GPIO3.AllowDrop = true;
-            this.textBox_GPIO3.Location = new System.Drawing.Point(201, 44);
+            this.textBox_GPIO3.Location = new System.Drawing.Point(156, 44);
             this.textBox_GPIO3.Name = "textBox_GPIO3";
             this.textBox_GPIO3.Size = new System.Drawing.Size(19, 21);
             this.textBox_GPIO3.TabIndex = 27;
@@ -3324,7 +3328,7 @@
             // textBox_GPIO2
             // 
             this.textBox_GPIO2.AllowDrop = true;
-            this.textBox_GPIO2.Location = new System.Drawing.Point(168, 44);
+            this.textBox_GPIO2.Location = new System.Drawing.Point(128, 44);
             this.textBox_GPIO2.Name = "textBox_GPIO2";
             this.textBox_GPIO2.Size = new System.Drawing.Size(19, 21);
             this.textBox_GPIO2.TabIndex = 26;
@@ -3333,7 +3337,7 @@
             // textBox_GPIO1
             // 
             this.textBox_GPIO1.AllowDrop = true;
-            this.textBox_GPIO1.Location = new System.Drawing.Point(137, 44);
+            this.textBox_GPIO1.Location = new System.Drawing.Point(100, 44);
             this.textBox_GPIO1.Name = "textBox_GPIO1";
             this.textBox_GPIO1.Size = new System.Drawing.Size(19, 21);
             this.textBox_GPIO1.TabIndex = 25;
@@ -3342,7 +3346,7 @@
             // textBox_GPIO0
             // 
             this.textBox_GPIO0.AllowDrop = true;
-            this.textBox_GPIO0.Location = new System.Drawing.Point(104, 44);
+            this.textBox_GPIO0.Location = new System.Drawing.Point(72, 44);
             this.textBox_GPIO0.Name = "textBox_GPIO0";
             this.textBox_GPIO0.Size = new System.Drawing.Size(19, 21);
             this.textBox_GPIO0.TabIndex = 23;
@@ -3353,9 +3357,9 @@
             this.label46.AutoSize = true;
             this.label46.Location = new System.Drawing.Point(6, 47);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(95, 12);
+            this.label46.Size = new System.Drawing.Size(71, 12);
             this.label46.TabIndex = 24;
-            this.label46.Text = "对应的GPIO管脚:";
+            this.label46.Text = "对应GPIO号:";
             // 
             // groupBox8
             // 
@@ -7341,6 +7345,16 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(110, 17);
             this.toolStripStatusLabel2.Text = "快捷键 锁定:Ctrl+L";
             // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 50;
+            this.toolTip1.ReshowDelay = 100;
+            this.toolTip1.ShowAlways = true;
+            this.toolTip1.ToolTipTitle = "提示信息:";
+            this.toolTip1.UseAnimation = false;
+            this.toolTip1.UseFading = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -7351,7 +7365,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.6.7";
+            this.Text = "SYD_Calculator V1.6.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8090,6 +8104,7 @@
         private System.Windows.Forms.Button button_difference_input_output;
         private System.Windows.Forms.ComboBox comboBox_additional_operations;
         private System.Windows.Forms.Label label_additional_operations;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
