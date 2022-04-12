@@ -1636,7 +1636,7 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_piecwise_mode.SelectedIndex == 2)
             {
-                y1 = x0/(x0+ y0) * x1;
+                y1 = y0 / (x0+ y0) * x1;
                 textBox_input_Y1.Text = y1.ToString("f3");
                 turn_text_color(textBox_input_Y1);
             }
