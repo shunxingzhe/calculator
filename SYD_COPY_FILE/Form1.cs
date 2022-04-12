@@ -69,7 +69,7 @@ namespace SYD_COPY_FILE
 
             pictureBoxinterface_Click(null, null);
 
-            AdjustComboBoxDropDownListWidth(comboBox5);
+            AdjustComboBoxDropDownListWidth(comboBox_piecwise_mode);
         }
 
         /// <summary>
@@ -1057,6 +1057,10 @@ namespace SYD_COPY_FILE
 
             LED_result1_textBox.Text = str_out;
         }
+        private void label_turn1_Click(object sender, EventArgs e)
+        {
+            LED_Display_U8toU32();
+        }
         private void LED_input1_textBox_keydown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -1615,7 +1619,7 @@ namespace SYD_COPY_FILE
             x0 = Convert.ToDouble(textBox_input_X0.Text);
             y0 = Convert.ToDouble(textBox_input_Y0.Text);
             x1 = Convert.ToDouble(textBox_input_X1.Text);
-            if (comboBox5.SelectedIndex == 0)
+            if (comboBox_piecwise_mode.SelectedIndex == 0)
             {
                 y1 = Convert.ToDouble(textBox_input_Y1.Text);
                 k = (y1 - y0) / (x1 - x0);
@@ -1623,12 +1627,35 @@ namespace SYD_COPY_FILE
                 turn_text_color(textBox_output_formula);
                 recover_text_color(textBox_input_Y1);
             }
-            else if (comboBox5.SelectedIndex == 1)
+            else if (comboBox_piecwise_mode.SelectedIndex == 1)
             {
                 y1 = (x1 * y0) / x0;
                 textBox_input_Y1.Text = y1.ToString("f3");
                 turn_text_color(textBox_input_Y1);
                 recover_text_color(textBox_output_formula);
+            }
+            else if (comboBox_piecwise_mode.SelectedIndex == 2)
+            {
+                y1 = x0/(x0+ y0) * x1;
+                textBox_input_Y1.Text = y1.ToString("f3");
+                turn_text_color(textBox_input_Y1);
+            }
+        }
+        private void comboBox_piecwise_mode_DropDownClosed(object sender, EventArgs e)
+        {
+            if (comboBox_piecwise_mode.SelectedIndex == 2)
+            {
+                this.label106.Text = "RU(上拉):";
+                this.label107.Text = "VT:";
+                this.label104.Text = "RD(下拉):";
+                this.label105.Text = "V:";
+            }
+            else
+            {
+                this.label106.Text = "X0(输入):";
+                this.label107.Text = "X1:";
+                this.label104.Text = "Y0(输出):";
+                this.label105.Text = "Y1:";
             }
         }
         private void button7_Click(object sender, EventArgs e)
@@ -1887,11 +1914,6 @@ namespace SYD_COPY_FILE
             sw.Write(str);
             sw.Close();
             fs.Close();
-        }
-
-        private void label_turn1_Click(object sender, EventArgs e)
-        {
-            LED_Display_U8toU32();
         }
     }
 }

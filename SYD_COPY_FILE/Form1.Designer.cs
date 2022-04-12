@@ -330,7 +330,7 @@
             this.label113 = new System.Windows.Forms.Label();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox_piecwise_mode = new System.Windows.Forms.ComboBox();
             this.button29 = new System.Windows.Forms.Button();
             this.textBox_input_Y1 = new System.Windows.Forms.TextBox();
             this.textBox_input_Y0 = new System.Windows.Forms.TextBox();
@@ -4014,7 +4014,7 @@
             // groupBox16
             // 
             this.groupBox16.Controls.Add(this.button7);
-            this.groupBox16.Controls.Add(this.comboBox5);
+            this.groupBox16.Controls.Add(this.comboBox_piecwise_mode);
             this.groupBox16.Controls.Add(this.button29);
             this.groupBox16.Controls.Add(this.textBox_input_Y1);
             this.groupBox16.Controls.Add(this.textBox_input_Y0);
@@ -4043,16 +4043,18 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // comboBox5
+            // comboBox_piecwise_mode
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.comboBox_piecwise_mode.FormattingEnabled = true;
+            this.comboBox_piecwise_mode.Items.AddRange(new object[] {
             "计算一次方程：k = (y1 - y0) / (x1 - x0); y=kx;",
-            "计算等比值：y1 = (x1 * y0) / x0;"});
-            this.comboBox5.Location = new System.Drawing.Point(204, 21);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(150, 20);
-            this.comboBox5.TabIndex = 44;
+            "计算等比值：y1 = (x1 * y0) / x0;",
+            "计算电阻分压:V=RU/(RU+RD)*VT"});
+            this.comboBox_piecwise_mode.Location = new System.Drawing.Point(204, 21);
+            this.comboBox_piecwise_mode.Name = "comboBox_piecwise_mode";
+            this.comboBox_piecwise_mode.Size = new System.Drawing.Size(150, 20);
+            this.comboBox_piecwise_mode.TabIndex = 44;
+            this.comboBox_piecwise_mode.DropDownClosed += new System.EventHandler(this.comboBox_piecwise_mode_DropDownClosed);
             // 
             // button29
             // 
@@ -7365,7 +7367,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.6.8";
+            this.Text = "SYD_Calculator V1.6.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -7625,7 +7627,7 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox_piecwise_mode;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.TextBox textBox_input_Y1;
         private System.Windows.Forms.TextBox textBox_input_Y0;
