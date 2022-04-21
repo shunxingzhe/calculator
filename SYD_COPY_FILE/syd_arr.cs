@@ -714,7 +714,6 @@ namespace SYD_COPY_FILE
 
            MessageBox.Show("保存成功!");
        }
-
         private void Git_helper()
         {
             string orgTxt1 = "";
@@ -722,6 +721,7 @@ namespace SYD_COPY_FILE
             {
                 orgTxt1 = textInput.Text.Trim();
                 orgTxt1 = orgTxt1.Replace("\"","'").Replace("!", ",");
+                orgTxt1 = RemoveHiddenCharacter(orgTxt1);
                 richTextBox_out.Text = "git commit -m \"" + orgTxt1+ "\"";
             }
             if (comboBox_fonttype.SelectedIndex == 1)
@@ -1587,7 +1587,8 @@ namespace SYD_COPY_FILE
        private void Rtc_Deviation()
        {
            int i = 0;
-           if (comboBox_indicate.Items.Count <= 0)
+            textInput.Text = textInput.Text.TrimEnd((char[])"\r\n".ToCharArray());
+            if (comboBox_indicate.Items.Count <= 0)
            {
                return;
            }

@@ -171,6 +171,15 @@ namespace SYD_COPY_FILE
             Regex r = new Regex(@"^[a-zA-Z0-9]*$");
             return r.Match(value).Success;
         }
+        //去掉字符串里除汉字、英文字母、数字、空格之外的字符
+        public static string RemoveHiddenCharacter(string input)
+        {
+            string inputReplaced = null;
+            Regex regex = new Regex(@"([^\u4e00-\u9fa5 -~\s].*?)");
+            inputReplaced = regex.Replace(input, "");
+
+            return inputReplaced;
+        }
     }
     public class PinYinConverterHelp
     {
