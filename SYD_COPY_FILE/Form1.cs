@@ -1140,7 +1140,16 @@ namespace SYD_COPY_FILE
                 else BIT_MARK31.Checked = false;
             }
         }
-
+        private void bit_mask_result_TextChanged(object sender, EventArgs e)
+        {
+            if(bit_mask_result.Text.Length==10)
+            {
+                UInt32 data = 0;
+                data = Convert.ToUInt32(bit_mask_result.Text, 16);
+                data = ~data;
+                bit_nomask_result.Text = "0x"+data.ToString("X8");
+            }
+        }
         private void button17_Click(object sender, EventArgs e)
         {
             BIT_MARK0.Checked = false;

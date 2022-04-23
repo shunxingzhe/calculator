@@ -313,7 +313,7 @@
             this.BIT_MARK13 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK2 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK9 = new System.Windows.Forms.CheckBox();
-            this.textBox53 = new System.Windows.Forms.TextBox();
+            this.bit_nomask_result = new System.Windows.Forms.TextBox();
             this.BIT_MARK1 = new System.Windows.Forms.CheckBox();
             this.label36 = new System.Windows.Forms.Label();
             this.BIT_MARK6 = new System.Windows.Forms.CheckBox();
@@ -678,6 +678,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label31 = new System.Windows.Forms.Label();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -3363,6 +3364,8 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.bit_nomask_result);
+            this.groupBox8.Controls.Add(this.label31);
             this.groupBox8.Controls.Add(this.BIT_MARK28);
             this.groupBox8.Controls.Add(this.BIT_MARK23);
             this.groupBox8.Controls.Add(this.BIT_MARK16);
@@ -3397,7 +3400,6 @@
             this.groupBox8.Controls.Add(this.BIT_MARK13);
             this.groupBox8.Controls.Add(this.BIT_MARK2);
             this.groupBox8.Controls.Add(this.BIT_MARK9);
-            this.groupBox8.Controls.Add(this.textBox53);
             this.groupBox8.Controls.Add(this.BIT_MARK1);
             this.groupBox8.Controls.Add(this.label36);
             this.groupBox8.Controls.Add(this.BIT_MARK6);
@@ -3665,6 +3667,7 @@
             this.bit_mask_result.Size = new System.Drawing.Size(91, 21);
             this.bit_mask_result.TabIndex = 10;
             this.bit_mask_result.Text = "0x00000F1A";
+            this.bit_mask_result.TextChanged += new System.EventHandler(this.bit_mask_result_TextChanged);
             this.bit_mask_result.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bit_mask_result_KeyDown);
             // 
             // label35
@@ -3769,7 +3772,7 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(285, 58);
+            this.button17.Location = new System.Drawing.Point(461, 58);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(53, 22);
             this.button17.TabIndex = 0;
@@ -3846,13 +3849,13 @@
             this.BIT_MARK9.UseVisualStyleBackColor = false;
             this.BIT_MARK9.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
             // 
-            // textBox53
+            // bit_nomask_result
             // 
-            this.textBox53.AllowDrop = true;
-            this.textBox53.Location = new System.Drawing.Point(344, 59);
-            this.textBox53.Name = "textBox53";
-            this.textBox53.Size = new System.Drawing.Size(118, 21);
-            this.textBox53.TabIndex = 9;
+            this.bit_nomask_result.AllowDrop = true;
+            this.bit_nomask_result.Location = new System.Drawing.Point(340, 59);
+            this.bit_nomask_result.Name = "bit_nomask_result";
+            this.bit_nomask_result.Size = new System.Drawing.Size(118, 21);
+            this.bit_nomask_result.TabIndex = 9;
             // 
             // BIT_MARK1
             // 
@@ -7357,6 +7360,15 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(282, 64);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(59, 12);
+            this.label31.TabIndex = 64;
+            this.label31.Text = "NOT_Mask:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -7367,7 +7379,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.7.1";
+            this.Text = "SYD_Calculator V1.7.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -7623,7 +7635,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox textBox52;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.TextBox textBox53;
+        private System.Windows.Forms.TextBox bit_nomask_result;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox16;
@@ -8107,6 +8119,7 @@
         private System.Windows.Forms.ComboBox comboBox_additional_operations;
         private System.Windows.Forms.Label label_additional_operations;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label31;
     }
 }
 
