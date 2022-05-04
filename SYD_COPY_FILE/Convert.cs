@@ -24,6 +24,13 @@ using System.Text.RegularExpressions;
 //byte[] byteArray = System.Text.Encoding.ASCII.GetBytes ( str );
 //ASCII byte[]转string:
 //string str = System.Text.Encoding.ASCII.GetString ( byteArray );
+//string filePath = "C:\\1.txt";
+//string str = "获取文件的全路径：" + Path.GetFullPath(filePath); //-->C:1.txt
+//str = "获取文件所在的目录：" + Path.GetDirectoryName(filePath); //-->C:
+//str = "获取文件的名称含有后缀：" + Path.GetFileName(filePath); //-->1.txt
+//str = "获取文件的名称没有后缀：" + Path.GetFileNameWithoutExtension(filePath); //-->1
+//str = "获取路径的后缀扩展名称：" + Path.GetExtension(filePath); //-->.txt
+//str = "获取路径的根目录：" + Path.GetPathRoot(filePath); //-->C:\
 
 namespace SYD_COPY_FILE
 {

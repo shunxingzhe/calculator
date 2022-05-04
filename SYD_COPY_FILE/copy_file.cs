@@ -756,6 +756,12 @@ namespace SYD_COPY_FILE
             dataObject.SetData(DataFormats.FileDrop, file);
             Clipboard.SetDataObject(dataObject, true);
         }
+        public void cope_string_to_Clipboard(string str)
+        {
+            DataObject dataObject = new DataObject();
+            dataObject.SetData(DataFormats.Text, str);
+            Clipboard.SetDataObject(dataObject, true);
+        }
 
         private void destination_file_button_generate_rename_Click(object sender, EventArgs e)
         {
@@ -768,6 +774,11 @@ namespace SYD_COPY_FILE
                     string name = Path.GetFileNameWithoutExtension(source_copyfile_textBox_rename.Text);  //"获取文件的名称没有后缀："
                     string suffix = Path.GetExtension(source_copyfile_textBox_rename.Text);//获取路径的后缀扩展名称："  后缀
                     string destFileName = "";
+                    if (checkBox_delete_prefile.Checked == true)
+                    {
+                        if (File.Exists(destination_file_textBox_rename.Text))
+                            File.Delete(destination_file_textBox_rename.Text);
+                    }
                     if (comboBox7.SelectedIndex == 0)
                     {
                         name = source_copyfile_prefix_textBox_rename.Text + name + source_copyfile_suffix_textBox_rename.Text;
@@ -836,6 +847,17 @@ namespace SYD_COPY_FILE
             }
             else
                 MessageBox.Show("source file inexistence");
+        }
+        private void destination_file_button_copy_filename_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(destination_file_textBox_rename.Text))
+                cope_string_to_Clipboard(Path.GetFileName(destination_file_textBox_rename.Text));
+        }
+
+        private void destination_file_button_open_dir_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(destination_file_textBox_rename.Text))
+                System.Diagnostics.Process.Start("Explorer.exe", Path.GetDirectoryName(destination_file_textBox_rename.Text));
         }
 
         private void checkBox_synccopy_sync_CheckedChanged(object sender, EventArgs e)

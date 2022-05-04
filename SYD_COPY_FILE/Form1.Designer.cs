@@ -279,6 +279,8 @@
             this.textBox_GPIO0 = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.bit_nomask_result = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.BIT_MARK28 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK23 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK16 = new System.Windows.Forms.CheckBox();
@@ -313,7 +315,6 @@
             this.BIT_MARK13 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK2 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK9 = new System.Windows.Forms.CheckBox();
-            this.bit_nomask_result = new System.Windows.Forms.TextBox();
             this.BIT_MARK1 = new System.Windows.Forms.CheckBox();
             this.label36 = new System.Windows.Forms.Label();
             this.BIT_MARK6 = new System.Windows.Forms.CheckBox();
@@ -502,6 +503,10 @@
             this.label127 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.destination_file_button_open_dir = new System.Windows.Forms.Button();
+            this.destination_file_button_copy_filename = new System.Windows.Forms.Button();
+            this.checkBox_delete_prefile = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.source_copyfile_suffix_textBox_rename = new System.Windows.Forms.ComboBox();
             this.comboBox_timetype_rename = new System.Windows.Forms.ComboBox();
             this.label99 = new System.Windows.Forms.Label();
@@ -515,7 +520,6 @@
             this.label80 = new System.Windows.Forms.Label();
             this.source_copyfile_button_rename = new System.Windows.Forms.Button();
             this.label82 = new System.Windows.Forms.Label();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox_delete_srcfile = new System.Windows.Forms.CheckBox();
             this.checkBox_systemtime_rename = new System.Windows.Forms.CheckBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -678,7 +682,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label31 = new System.Windows.Forms.Label();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -3411,6 +3414,23 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "bit_mask_U8toU32";
             // 
+            // bit_nomask_result
+            // 
+            this.bit_nomask_result.AllowDrop = true;
+            this.bit_nomask_result.Location = new System.Drawing.Point(340, 59);
+            this.bit_nomask_result.Name = "bit_nomask_result";
+            this.bit_nomask_result.Size = new System.Drawing.Size(118, 21);
+            this.bit_nomask_result.TabIndex = 9;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(282, 64);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(59, 12);
+            this.label31.TabIndex = 64;
+            this.label31.Text = "NOT_Mask:";
+            // 
             // BIT_MARK28
             // 
             this.BIT_MARK28.AutoSize = true;
@@ -3848,14 +3868,6 @@
             this.BIT_MARK9.Text = "09";
             this.BIT_MARK9.UseVisualStyleBackColor = false;
             this.BIT_MARK9.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
-            // 
-            // bit_nomask_result
-            // 
-            this.bit_nomask_result.AllowDrop = true;
-            this.bit_nomask_result.Location = new System.Drawing.Point(340, 59);
-            this.bit_nomask_result.Name = "bit_nomask_result";
-            this.bit_nomask_result.Size = new System.Drawing.Size(118, 21);
-            this.bit_nomask_result.TabIndex = 9;
             // 
             // BIT_MARK1
             // 
@@ -5852,6 +5864,10 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.destination_file_button_open_dir);
+            this.tabPage7.Controls.Add(this.destination_file_button_copy_filename);
+            this.tabPage7.Controls.Add(this.checkBox_delete_prefile);
+            this.tabPage7.Controls.Add(this.checkBox10);
             this.tabPage7.Controls.Add(this.source_copyfile_suffix_textBox_rename);
             this.tabPage7.Controls.Add(this.comboBox_timetype_rename);
             this.tabPage7.Controls.Add(this.label99);
@@ -5865,7 +5881,6 @@
             this.tabPage7.Controls.Add(this.label80);
             this.tabPage7.Controls.Add(this.source_copyfile_button_rename);
             this.tabPage7.Controls.Add(this.label82);
-            this.tabPage7.Controls.Add(this.checkBox10);
             this.tabPage7.Controls.Add(this.checkBox_delete_srcfile);
             this.tabPage7.Controls.Add(this.checkBox_systemtime_rename);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
@@ -5874,6 +5889,47 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Rename";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // destination_file_button_open_dir
+            // 
+            this.destination_file_button_open_dir.Location = new System.Drawing.Point(528, 86);
+            this.destination_file_button_open_dir.Name = "destination_file_button_open_dir";
+            this.destination_file_button_open_dir.Size = new System.Drawing.Size(61, 22);
+            this.destination_file_button_open_dir.TabIndex = 66;
+            this.destination_file_button_open_dir.Text = "打开目录";
+            this.destination_file_button_open_dir.UseVisualStyleBackColor = true;
+            this.destination_file_button_open_dir.Click += new System.EventHandler(this.destination_file_button_open_dir_Click);
+            // 
+            // destination_file_button_copy_filename
+            // 
+            this.destination_file_button_copy_filename.Location = new System.Drawing.Point(456, 86);
+            this.destination_file_button_copy_filename.Name = "destination_file_button_copy_filename";
+            this.destination_file_button_copy_filename.Size = new System.Drawing.Size(73, 22);
+            this.destination_file_button_copy_filename.TabIndex = 65;
+            this.destination_file_button_copy_filename.Text = "拷问文件名";
+            this.destination_file_button_copy_filename.UseVisualStyleBackColor = true;
+            this.destination_file_button_copy_filename.Click += new System.EventHandler(this.destination_file_button_copy_filename_Click);
+            // 
+            // checkBox_delete_prefile
+            // 
+            this.checkBox_delete_prefile.AutoSize = true;
+            this.checkBox_delete_prefile.Location = new System.Drawing.Point(454, 68);
+            this.checkBox_delete_prefile.Name = "checkBox_delete_prefile";
+            this.checkBox_delete_prefile.Size = new System.Drawing.Size(144, 16);
+            this.checkBox_delete_prefile.TabIndex = 64;
+            this.checkBox_delete_prefile.Text = "删除上一次生成的文件";
+            this.checkBox_delete_prefile.UseVisualStyleBackColor = true;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.Font = new System.Drawing.Font("宋体", 8F);
+            this.checkBox10.Location = new System.Drawing.Point(261, 47);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(123, 20);
+            this.checkBox10.TabIndex = 55;
+            this.checkBox10.Text = "设置名字到同步拷贝";
+            this.checkBox10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox10.UseVisualStyleBackColor = true;
             // 
             // source_copyfile_suffix_textBox_rename
             // 
@@ -5890,7 +5946,7 @@
             "yyyy-MM-dd HHmmss",
             "yyyyMMdd",
             "yyyyMMdd HHmmss"});
-            this.comboBox_timetype_rename.Location = new System.Drawing.Point(68, 66);
+            this.comboBox_timetype_rename.Location = new System.Drawing.Point(66, 66);
             this.comboBox_timetype_rename.Name = "comboBox_timetype_rename";
             this.comboBox_timetype_rename.Size = new System.Drawing.Size(150, 20);
             this.comboBox_timetype_rename.TabIndex = 43;
@@ -5898,7 +5954,7 @@
             // label99
             // 
             this.label99.Font = new System.Drawing.Font("宋体", 10F);
-            this.label99.Location = new System.Drawing.Point(3, 68);
+            this.label99.Location = new System.Drawing.Point(1, 68);
             this.label99.Name = "label99";
             this.label99.Size = new System.Drawing.Size(101, 19);
             this.label99.TabIndex = 61;
@@ -5912,7 +5968,7 @@
             "根据前尾缀修改文件名,不追加时间",
             "删除原文件时间尾缀,忽略前尾缀设置",
             "更新原文件时间尾缀,忽略前尾缀设置"});
-            this.comboBox7.Location = new System.Drawing.Point(371, 45);
+            this.comboBox7.Location = new System.Drawing.Point(44, 45);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(214, 20);
             this.comboBox7.TabIndex = 60;
@@ -5920,7 +5976,7 @@
             // label79
             // 
             this.label79.Font = new System.Drawing.Font("宋体", 10F);
-            this.label79.Location = new System.Drawing.Point(329, 47);
+            this.label79.Location = new System.Drawing.Point(2, 47);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(43, 19);
             this.label79.TabIndex = 59;
@@ -5949,10 +6005,10 @@
             // destination_file_textBox_rename
             // 
             this.destination_file_textBox_rename.AllowDrop = true;
-            this.destination_file_textBox_rename.Location = new System.Drawing.Point(3, 87);
+            this.destination_file_textBox_rename.Location = new System.Drawing.Point(0, 87);
             this.destination_file_textBox_rename.Name = "destination_file_textBox_rename";
             this.destination_file_textBox_rename.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.destination_file_textBox_rename.Size = new System.Drawing.Size(454, 21);
+            this.destination_file_textBox_rename.Size = new System.Drawing.Size(395, 21);
             this.destination_file_textBox_rename.TabIndex = 36;
             // 
             // button_copy_sourcefile4
@@ -5967,11 +6023,11 @@
             // 
             // destination_file_button_generate_rename
             // 
-            this.destination_file_button_generate_rename.Location = new System.Drawing.Point(462, 86);
+            this.destination_file_button_generate_rename.Location = new System.Drawing.Point(395, 86);
             this.destination_file_button_generate_rename.Name = "destination_file_button_generate_rename";
-            this.destination_file_button_generate_rename.Size = new System.Drawing.Size(125, 22);
+            this.destination_file_button_generate_rename.Size = new System.Drawing.Size(62, 22);
             this.destination_file_button_generate_rename.TabIndex = 41;
-            this.destination_file_button_generate_rename.Text = "Generate ";
+            this.destination_file_button_generate_rename.Text = "生成文件";
             this.destination_file_button_generate_rename.UseVisualStyleBackColor = true;
             this.destination_file_button_generate_rename.Click += new System.EventHandler(this.destination_file_button_generate_rename_Click);
             // 
@@ -6003,21 +6059,10 @@
             this.label82.TabIndex = 38;
             this.label82.Text = "文件名前缀:";
             // 
-            // checkBox10
-            // 
-            this.checkBox10.Font = new System.Drawing.Font("宋体", 8F);
-            this.checkBox10.Location = new System.Drawing.Point(462, 66);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(123, 20);
-            this.checkBox10.TabIndex = 55;
-            this.checkBox10.Text = "设置名字到同步拷贝";
-            this.checkBox10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
             // checkBox_delete_srcfile
             // 
             this.checkBox_delete_srcfile.AutoSize = true;
-            this.checkBox_delete_srcfile.Location = new System.Drawing.Point(383, 68);
+            this.checkBox_delete_srcfile.Location = new System.Drawing.Point(375, 68);
             this.checkBox_delete_srcfile.Name = "checkBox_delete_srcfile";
             this.checkBox_delete_srcfile.Size = new System.Drawing.Size(84, 16);
             this.checkBox_delete_srcfile.TabIndex = 62;
@@ -6027,7 +6072,7 @@
             // checkBox_systemtime_rename
             // 
             this.checkBox_systemtime_rename.AutoSize = true;
-            this.checkBox_systemtime_rename.Location = new System.Drawing.Point(224, 68);
+            this.checkBox_systemtime_rename.Location = new System.Drawing.Point(218, 68);
             this.checkBox_systemtime_rename.Name = "checkBox_systemtime_rename";
             this.checkBox_systemtime_rename.Size = new System.Drawing.Size(168, 16);
             this.checkBox_systemtime_rename.TabIndex = 45;
@@ -7360,15 +7405,6 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(282, 64);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(59, 12);
-            this.label31.TabIndex = 64;
-            this.label31.Text = "NOT_Mask:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -7379,7 +7415,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.7.2";
+            this.Text = "SYD_Calculator V1.7.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8120,6 +8156,9 @@
         private System.Windows.Forms.Label label_additional_operations;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.CheckBox checkBox_delete_prefile;
+        private System.Windows.Forms.Button destination_file_button_copy_filename;
+        private System.Windows.Forms.Button destination_file_button_open_dir;
     }
 }
 
