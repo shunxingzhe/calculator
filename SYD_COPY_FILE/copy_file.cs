@@ -218,8 +218,37 @@ namespace SYD_COPY_FILE
                     {
                         buttonOpenPic_Doing(fi.FullName);
                     }
+                    else if (sender == source_file_textBox)
+                    {
+                        source_file_textBox.Text= fi.FullName;
+                        reopen_source_file_button_Click(sender, e);
+                    }
+                    else if (sender == comboBox_indicate)
+                    {
+                        source_file_textBox.Text = fi.FullName;
+                    }
                     else
                         textbox.Text = fi.FullName; 
+                }
+            }
+        }
+        private void source_copyfile_ComBox_DragDrop(object sender, DragEventArgs e)
+        {
+            IDataObject dataObject = e.Data;
+
+            if (dataObject == null) return;
+
+            if (dataObject.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])dataObject.GetData(DataFormats.FileDrop);
+                ComboBox combox = (ComboBox)sender;
+                foreach (string file in files)
+                {
+                    System.IO.FileInfo fi = new System.IO.FileInfo(file);
+                    if (sender == comboBox_indicate)
+                    {
+                        comboBox_indicate.Text = fi.FullName;
+                    }
                 }
             }
         }

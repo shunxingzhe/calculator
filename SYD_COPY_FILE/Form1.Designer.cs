@@ -1923,12 +1923,15 @@
             // 
             // comboBox_indicate
             // 
+            this.comboBox_indicate.AllowDrop = true;
             this.comboBox_indicate.FormattingEnabled = true;
             this.comboBox_indicate.Location = new System.Drawing.Point(509, 94);
             this.comboBox_indicate.Name = "comboBox_indicate";
             this.comboBox_indicate.Size = new System.Drawing.Size(245, 20);
             this.comboBox_indicate.TabIndex = 33;
             this.comboBox_indicate.DropDownClosed += new System.EventHandler(this.comboBox_indicate_DropDownClosed);
+            this.comboBox_indicate.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_ComBox_DragDrop);
+            this.comboBox_indicate.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // comboBox_mode
             // 
@@ -1940,8 +1943,6 @@
             "DSView analysis逻辑分析仪数据分析",
             "Chinese to utf8/ASCII",
             "Keil读回的内存分析",
-            "数据前置补零",
-            "多数据翻转",
             "Text/ARR to bin",
             "找到目前可以用的最小关键词指定的元组序号",
             "提取指定列数据",
@@ -2232,6 +2233,8 @@
             this.source_file_textBox.Name = "source_file_textBox";
             this.source_file_textBox.Size = new System.Drawing.Size(599, 21);
             this.source_file_textBox.TabIndex = 7;
+            this.source_file_textBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
+            this.source_file_textBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // label_additional_operations
             // 
@@ -7415,7 +7418,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.7.3";
+            this.Text = "SYD_Calculator V1.7.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

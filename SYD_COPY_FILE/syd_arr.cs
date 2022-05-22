@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Threading;
 
 namespace SYD_COPY_FILE
 {
@@ -61,8 +62,6 @@ namespace SYD_COPY_FILE
             DSView_analysis,
             Chinese_to_utf8,
             Keil_memery_analysis,//5
-            Data_filled_complement_zero,
-            Multibyte__reversal,
             ARR_to_bin,
             Fine_max_not_use_index,
             extract_rank_data,
@@ -77,9 +76,9 @@ namespace SYD_COPY_FILE
             handle_File,
             TEXT_handle_and_analysis,
         }
-    #endregion
+        #endregion
 
-    public void syd_arr_init()
+        public void syd_arr_init()
         {
             if (Settings1.Default.comboBox_indicate_line1 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line1);
             if (Settings1.Default.comboBox_indicate_line2 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line2);
@@ -104,7 +103,8 @@ namespace SYD_COPY_FILE
             p_draw = new ToolTip();
             comboBox_mode_DropDownClosed(null, null);
 
-            comboBox_datatype.SelectedIndex=Settings1.Default.arr_data_type;
+            if(Settings1.Default.arr_data_type< comboBox_datatype.Items.Count)
+                comboBox_datatype.SelectedIndex=Settings1.Default.arr_data_type;
             comboBox_fonttype.SelectedIndex = Settings1.Default.arr_font_type;
         }
         public byte[] strToToDecByte(string DecString)
@@ -143,12 +143,6 @@ namespace SYD_COPY_FILE
         {
             if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File) || (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis))
             {
-                //FolderBrowserDialog path = new FolderBrowserDialog();
-
-                //if (path.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                //    source_file_textBox.Text = path.SelectedPath;
-                //else
-                //    return;
                 MyFolderBrowserDialog folderBrowserDialog1 = new MyFolderBrowserDialog();
                 if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
                 {
@@ -730,7 +724,8 @@ namespace SYD_COPY_FILE
                 richTextBox_out.Text = orgTxt1.Replace("\r\n", "  \r\n") ;
             }
         }
-       private void fonttxt_to_bin()
+
+        private void fonttxt_to_bin()
        {
            int i = 0, j = 0, k = 0;
            string orgTxt1 = textInput.Text.Trim();
@@ -1186,7 +1181,7 @@ namespace SYD_COPY_FILE
             richTextBox_out.Text = "";
             string str = "", str1 = "";
 
-            if (comboBox_datatype.SelectedIndex == 2)
+            if (comboBox_additional_operations.SelectedIndex == 2)
             {
                 orgTxt1 = textInput.Text;
                 lstArray = orgTxt1.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -1231,7 +1226,7 @@ namespace SYD_COPY_FILE
                     richTextBox_out.AppendText(strArray[i] + "\r\n");
                 }
 
-                if (comboBox_datatype.SelectedIndex == 0)
+                if (comboBox_additional_operations.SelectedIndex == 0)
                 {
                     richTextBox_out.AppendText("\r\n" + "difference value:" + "\r\n");
                     for (i = 0; i < lstArray.Count / 2; i++)
@@ -2474,6 +2469,14 @@ namespace SYD_COPY_FILE
                 }
                 richTextBox_out.Text = outTxt1;
             }
+            else if (comboBox_datatype.SelectedIndex == 6)
+            {
+                Data_filled_complement_zero();
+            }
+            else if (comboBox_datatype.SelectedIndex == 7)
+            {
+                Data_reversal();
+            }
 
             MessageBox.Show("提取完成!");
         }
@@ -2517,14 +2520,6 @@ namespace SYD_COPY_FILE
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Keil_memery_analysis)
             {
                 keil_memery();
-            }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Data_filled_complement_zero)
-            {
-                Data_filled_complement_zero();
-            }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Multibyte__reversal)
-            {
-                Data_reversal();
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.ARR_to_bin)
             {
@@ -2722,14 +2717,23 @@ namespace SYD_COPY_FILE
             this.comboBox_additional_operations.Items.Add("无额外操作");
             this.label_additional_operations.Text = "额外操作:";
         }
-        private void arr_restore_Defaults_Adjust()
+        /*
+         * ExcludeDatatype:TRUE:排除comboBox_datatype的设置 false:设置comboBox_datatype
+         */
+        private void arr_restore_Defaults_Adjust(bool ExcludeDatatype)
         {
-            AdjustComboBoxDropDownListWidth(comboBox_datatype);
+            if (ExcludeDatatype == false)
+            {
+                AdjustComboBoxDropDownListWidth(comboBox_datatype);
+            }
             AdjustComboBoxDropDownListWidth(comboBox_fonttype);
             AdjustComboBoxDropDownListWidth(comboBox_indicate);
             AdjustComboBoxDropDownListWidth(comboBox_additional_operations);
-            this.comboBox_datatype.SelectedItem = 0;
-            this.comboBox_datatype.SelectedIndex = 0;
+            if (ExcludeDatatype == false)
+            {
+                this.comboBox_datatype.SelectedItem = 0;
+                this.comboBox_datatype.SelectedIndex = 0;
+            }
             this.comboBox_fonttype.SelectedItem = 0;
             this.comboBox_fonttype.SelectedIndex = 0;
             this.comboBox_indicate.SelectedItem = 0;
@@ -2788,22 +2792,6 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("数据为带空格的数据");
                 this.comboBox_datatype.Items.Add("数据为不带空格的数据");
                 this.label_data_type.Text = "输出格式选择：";
-            }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Multibyte__reversal)
-            {
-                textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Data_reversal.txt", Encoding.Default);
-
-                this.comboBox_datatype.Items.Clear();
-                this.comboBox_datatype.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,并计算第二行-第一行");
-                this.comboBox_datatype.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,不计算数据");
-                this.comboBox_datatype.Items.Add("寻找有用行(非注释行)按字节调换大小端");
-                this.label_data_type.Text = "处理功能选择：";
-
-                this.comboBox_fonttype.Items.Clear();
-                this.comboBox_fonttype.Items.Add("不带0X的数据");
-                this.comboBox_fonttype.Items.Add("带0X的数据");
-                this.comboBox_fonttype.Items.Add("带0X的数组");
-                this.label_font_type.Text = "数据类型：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.ARR_to_bin)
             {
@@ -2937,6 +2925,8 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("提取关键字指定的关键字后面的字符到本行结束");
                 this.comboBox_datatype.Items.Add("提取关键字指定的关键字前面的字符到本行开始");
                 this.comboBox_datatype.Items.Add("提取数组名称并加入关键字指定的前导和逗号行尾");
+                this.comboBox_datatype.Items.Add("数据前置补零");
+                this.comboBox_datatype.Items.Add("多数据翻转");
                 this.label_data_type.Text = " 处理功能选择：";
 
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_TEXT_handle_and_analysis.txt", Encoding.Default);
@@ -2945,7 +2935,7 @@ namespace SYD_COPY_FILE
             {
                 //arr_restore_Defaults();
             }
-            arr_restore_Defaults_Adjust();  //自动调整显示长度
+            arr_restore_Defaults_Adjust(false);  //自动调整显示长度
         }
         private void comboBox_datatype_DropDownClosed(object sender, EventArgs e)
         {
@@ -3012,6 +3002,26 @@ namespace SYD_COPY_FILE
                     this.textBox_key.Text = "50M";
                 }
             }
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
+            {
+                if (comboBox_datatype.SelectedIndex == 7)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Data_reversal.txt", Encoding.Default);
+
+                    this.comboBox_additional_operations.Items.Clear();
+                    this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,并计算第二行-第一行");
+                    this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,不计算数据");
+                    this.comboBox_additional_operations.Items.Add("寻找有用行(非注释行)按字节调换大小端");
+                    this.label_additional_operations.Text = "处理功能选择：";
+
+                    this.comboBox_fonttype.Items.Clear();
+                    this.comboBox_fonttype.Items.Add("不带0X的数据");
+                    this.comboBox_fonttype.Items.Add("带0X的数据");
+                    this.comboBox_fonttype.Items.Add("带0X的数组");
+                    this.label_font_type.Text = "数据类型：";
+                }
+                else restore_Defaults = true;
+            }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Font_txt_to_bin)
             {
                 if (comboBox_datatype.SelectedIndex == 0)
@@ -3030,7 +3040,7 @@ namespace SYD_COPY_FILE
             }
             else
             {
-                if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Git_helper) || (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Font_txt_to_bin))
+                if((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Font_txt_to_bin) || (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Git_helper))
                 { 
                     if (comboBox_datatype.SelectedIndex == 1)
                     {
@@ -3038,10 +3048,14 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-            if(restore_Defaults==true)
+            if (restore_Defaults == true)
             {
                 arr_restore_Defaults();
-                arr_restore_Defaults_Adjust();
+                arr_restore_Defaults_Adjust(false);
+            }
+            else
+            {
+                arr_restore_Defaults_Adjust(true);
             }
         }
 
