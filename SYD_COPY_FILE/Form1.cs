@@ -468,7 +468,8 @@ namespace SYD_COPY_FILE
             timestamp = timestamp / 60;
             hour = (Int32)(timestamp % 24);
             timestamp = timestamp / 24;
-            day = (Int32)(timestamp % 31);
+            //day = (Int32)(timestamp % 31);
+            day = (Int32)timestamp;
 
             if (day == 0)
                 result = hour.ToString("D2") + ":" + minute.ToString("D2") + ":" + second.ToString("D2") + ":" + millisecond.ToString("D3");
