@@ -682,6 +682,8 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label32 = new System.Windows.Forms.Label();
+            this.label_ui_property = new System.Windows.Forms.Label();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -735,6 +737,8 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.label_ui_property);
+            this.tabPage11.Controls.Add(this.label32);
             this.tabPage11.Controls.Add(this.Generate_datafile_button);
             this.tabPage11.Controls.Add(this.label_ui_pich);
             this.tabPage11.Controls.Add(this.label136);
@@ -6568,19 +6572,19 @@
             this.toolStripMenuItem3,
             this.toolStripMenuItem8});
             this.contextMenuStrip1.Name = "contextMenuStripSplit";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
             this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "删除";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "设置坐标";
             // 
             // toolStripMenuItem3
@@ -6591,7 +6595,7 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem3.Text = "贴边缘载入图片";
             this.toolStripMenuItem3.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem3_DropDownItemClicked);
             // 
@@ -6630,7 +6634,7 @@
             this.toolStripMenuItem28,
             this.toolStripMenuItem29});
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem8.Text = "图片定义";
             // 
             // toolStripMenuItem9
@@ -6651,8 +6655,8 @@
             this.toolStripMenuItem_Step_Num12,
             this.toolStripMenuItem_Step_Num13});
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem9.Text = "定义为步数";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem9.Text = "步数";
             this.toolStripMenuItem9.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
             // toolStripMenuItem_Step_Num0
@@ -6757,8 +6761,8 @@
             this.toolStripMenuItem_Kcal_Num12,
             this.toolStripMenuItem_Kcal_Num13});
             this.toolStripMenuItem25.Name = "toolStripMenuItem25";
-            this.toolStripMenuItem25.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem25.Text = "定义为卡路里";
+            this.toolStripMenuItem25.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem25.Text = "卡路里";
             this.toolStripMenuItem25.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
             // toolStripMenuItem_Kcal_Num0
@@ -6863,8 +6867,8 @@
             this.toolStripMenuItem_Distance_Num12,
             this.toolStripMenuItem_Distance_Num13});
             this.toolStripMenuItem26.Name = "toolStripMenuItem26";
-            this.toolStripMenuItem26.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem26.Text = "定义为距离";
+            this.toolStripMenuItem26.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem26.Text = "距离";
             this.toolStripMenuItem26.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
             // toolStripMenuItem_Distance_Num0
@@ -6969,8 +6973,8 @@
             this.toolStripMenuItem_Heart_Num12,
             this.toolStripMenuItem_Heart_Num13});
             this.toolStripMenuItem24.Name = "toolStripMenuItem24";
-            this.toolStripMenuItem24.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem24.Text = "定义为心率";
+            this.toolStripMenuItem24.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem24.Text = "心率";
             this.toolStripMenuItem24.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
             // toolStripMenuItem_Heart_Num0
@@ -7075,8 +7079,8 @@
             this.toolStripMenuItem_Oxygen_Num12,
             this.toolStripMenuItem_Oxygen_Num13});
             this.toolStripMenuItem27.Name = "toolStripMenuItem27";
-            this.toolStripMenuItem27.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem27.Text = "定义为血氧";
+            this.toolStripMenuItem27.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem27.Text = "血氧";
             this.toolStripMenuItem27.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
             // toolStripMenuItem_Oxygen_Num0
@@ -7181,8 +7185,8 @@
             this.toolStripMenuItem_BLOOD_Num12,
             this.toolStripMenuItem_BLOOD_Num13});
             this.toolStripMenuItem28.Name = "toolStripMenuItem28";
-            this.toolStripMenuItem28.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem28.Text = "定义为血压";
+            this.toolStripMenuItem28.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem28.Text = "血压";
             this.toolStripMenuItem28.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
             // toolStripMenuItem_BLOOD_Num0
@@ -7287,8 +7291,8 @@
             this.toolStripMenuItem_Battary_Num12,
             this.toolStripMenuItem_Battary_Num13});
             this.toolStripMenuItem29.Name = "toolStripMenuItem29";
-            this.toolStripMenuItem29.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem29.Text = "定义为电量";
+            this.toolStripMenuItem29.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem29.Text = "电量";
             this.toolStripMenuItem29.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
             // toolStripMenuItem_Battary_Num0
@@ -7407,6 +7411,24 @@
             this.toolTip1.ToolTipTitle = "提示信息:";
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(136, 397);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(59, 12);
+            this.label32.TabIndex = 62;
+            this.label32.Text = "图片属性:";
+            // 
+            // label_ui_property
+            // 
+            this.label_ui_property.AutoSize = true;
+            this.label_ui_property.Location = new System.Drawing.Point(190, 397);
+            this.label_ui_property.Name = "label_ui_property";
+            this.label_ui_property.Size = new System.Drawing.Size(53, 12);
+            this.label_ui_property.TabIndex = 63;
+            this.label_ui_property.Text = "普通图片";
             // 
             // Form1
             // 
@@ -8162,6 +8184,8 @@
         private System.Windows.Forms.CheckBox checkBox_delete_prefile;
         private System.Windows.Forms.Button destination_file_button_copy_filename;
         private System.Windows.Forms.Button destination_file_button_open_dir;
+        private System.Windows.Forms.Label label_ui_property;
+        private System.Windows.Forms.Label label32;
     }
 }
 

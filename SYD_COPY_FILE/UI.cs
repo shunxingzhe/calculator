@@ -59,24 +59,24 @@ namespace SYD_COPY_FILE
             return true;
         }
         //align 参数代表是否需要贴边打开，不需要的话传入OPEN_PICTURE_ALIGN.NON
-        private void picture_addto_platfrom(string filename, int x, int y, OPEN_PICTURE_ALIGN align, SYDPictureBox picture)
+        private SYDPictureBox picture_addto_platfrom(string filename, int x, int y, OPEN_PICTURE_ALIGN align, SYDPictureBox picture)
         {
             if(picture_valid(filename)==false)
             {
                 MessageBox.Show("不能够重复打开相同图片");
-                return;
+                return null;
             }
             myBmp = new Bitmap(filename);
             myBmp = img_alpha(myBmp, 128);
             if (myBmp == null)
             {
                 MessageBox.Show("读取失败");
-                return;
+                return null;
             }
             if ((myBmp.Width > UI_SCREEN_WIDTH) || (myBmp.Height > UI_SCREEN_HIGHT))
             {
                 MessageBox.Show("图片太大");
-                return;
+                return null;
             }
             if (OPEN_PICTURE_ALIGN.NON != align)//有对齐
             {
@@ -102,7 +102,7 @@ namespace SYD_COPY_FILE
                 if ((x < 0) || (y < 0))
                 {
                     MessageBox.Show("贴边模式剩余空间不足以放下该图片");
-                    return;
+                    return null;
                 }
             }
             if ((myBmp.Width+ x)>= UI_SCREEN_WIDTH) x = UI_SCREEN_WIDTH - myBmp.Width;
@@ -140,6 +140,7 @@ namespace SYD_COPY_FILE
             //pictureBox_temp.SizeMode = PictureBoxSizeMode.Zoom; //设置SYDPictureBox为缩放模式
             pictureBox_temp.Width = myBmp.Width;
             pictureBox_temp.Height = myBmp.Height;
+            return pictureBox_temp;
         }
 
 
@@ -215,6 +216,7 @@ namespace SYD_COPY_FILE
                 label_ui_picy.Text = senderLabel.Location.Y.ToString();
                 label_ui_picw.Text = senderLabel.Width.ToString();
                 label_ui_pich.Text = senderLabel.Height.ToString();
+                label_ui_property.Text = senderLabel.property_first + "(" + senderLabel.property_second + ")";
             }
         }
         //鼠标松开功能
@@ -360,11 +362,16 @@ namespace SYD_COPY_FILE
                 xesub1.InnerText = SYDPictureBox.filename;//设置文本节
                 xe1.AppendChild(xesub1);//添加到<Node>节点中
 
-                XmlElement xesub2 = xmldoc.CreateElement("point");
-                xesub2.SetAttribute("x", point.X.ToString());//设置该节点genre属性
-                xesub2.SetAttribute("y", point.Y.ToString());//设置该节点ISBN属性
-                xe1.AppendChild(xesub2);
-                root.AppendChild(xe1);//添加到<Employees>节点中
+                XmlElement point_ement = xmldoc.CreateElement("point");
+                point_ement.SetAttribute("x", point.X.ToString());//设置该节点genre属性
+                point_ement.SetAttribute("y", point.Y.ToString());//设置该节点ISBN属性
+                xe1.AppendChild(point_ement);
+
+                XmlElement property_ement = xmldoc.CreateElement("property");
+                property_ement.SetAttribute("first", SYDPictureBox.property_first);//设置该节点genre属性
+                property_ement.SetAttribute("second", SYDPictureBox.property_second);//设置该节点ISBN属性
+                xe1.AppendChild(property_ement);
+                root.AppendChild(xe1);
             }
             XmlElement xe2 = xmldoc.CreateElement("background");//创建一个<Node>节点
             XmlElement xesub3 = xmldoc.CreateElement("filename");
@@ -402,7 +409,21 @@ namespace SYD_COPY_FILE
                     XmlElement point = (XmlElement)xnl0.Item(1);
                     int x = Convert.ToInt32(point.GetAttribute("x"), 10);
                     int y = Convert.ToInt32(point.GetAttribute("y"), 10);
-                    picture_addto_platfrom(filename, x, y, OPEN_PICTURE_ALIGN.NON, null);
+                    SYDPictureBox pic=picture_addto_platfrom(filename, x, y, OPEN_PICTURE_ALIGN.NON, null);
+                    if (pic != null)
+                    {
+                        string first = "普通图片";
+                        string second = "空";
+                        XmlElement property = (XmlElement)xnl0.Item(2);
+                        if (property != null)
+                        {
+                            first = property.GetAttribute("first");
+                            second = property.GetAttribute("second");
+                        }
+                        pic.property_first = first;
+                        pic.property_second = second;
+                    }
+                                    
                 }
                 else if (xe.Name == "background")
                 {
@@ -566,7 +587,7 @@ namespace SYD_COPY_FILE
         }
         private void picture_define_do(object sender,int select_index, SYDPictureBox picture)
         {
-            string ret = null;
+            string ret = "未知错误";
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
             if (item==toolStripMenuItem9)
             {
@@ -651,6 +672,12 @@ namespace SYD_COPY_FILE
                 {
                     MessageBox.Show("定义为电量无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
                 }
+            }
+            if (ret == null)//数据有效
+            {
+                picture.property_first = item.Text.Trim(); ;
+                picture.property_second = item.DropDownItems[select_index].Text.Trim();
+                label_ui_property.Text = picture.property_first + "(" + picture.property_second + ")";
             }
         }
         private void picture_define_DoWork(object sender,int select_index, SYDPictureBox senderLabel)
@@ -941,6 +968,8 @@ namespace SYD_COPY_FILE
     class SYDPictureBox : PictureBox
     {
         public string filename;
+        public string property_first;
+        public string property_second;
     }
     public static class InputDialog
     {
