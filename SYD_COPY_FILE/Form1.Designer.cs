@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.label_ui_property = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.Generate_datafile_button = new System.Windows.Forms.Button();
             this.label_ui_pich = new System.Windows.Forms.Label();
             this.label136 = new System.Windows.Forms.Label();
@@ -573,6 +575,7 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Step_Num0 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Step_Num1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -678,12 +681,26 @@
             this.toolStripMenuItem_Battary_Num11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Battary_Num12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Battary_Num13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_year1000 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_year100 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_year10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_year = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_mouth10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_mouth = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_day10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_day = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_hour10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_hour = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_minute10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_minute = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_second10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Time_second = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label32 = new System.Windows.Forms.Label();
-            this.label_ui_property = new System.Windows.Forms.Label();
+            this.空ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -766,6 +783,24 @@
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "UI";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // label_ui_property
+            // 
+            this.label_ui_property.AutoSize = true;
+            this.label_ui_property.Location = new System.Drawing.Point(190, 397);
+            this.label_ui_property.Name = "label_ui_property";
+            this.label_ui_property.Size = new System.Drawing.Size(53, 12);
+            this.label_ui_property.TabIndex = 63;
+            this.label_ui_property.Text = "普通图片";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(136, 397);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(59, 12);
+            this.label32.TabIndex = 62;
+            this.label32.Text = "图片属性:";
             // 
             // Generate_datafile_button
             // 
@@ -6626,16 +6661,27 @@
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem11,
             this.toolStripMenuItem9,
             this.toolStripMenuItem25,
             this.toolStripMenuItem26,
             this.toolStripMenuItem24,
             this.toolStripMenuItem27,
             this.toolStripMenuItem28,
-            this.toolStripMenuItem29});
+            this.toolStripMenuItem29,
+            this.toolStripMenuItem10});
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem8.Text = "图片定义";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.空ToolStripMenuItem});
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem11.Text = "普通图片";
+            this.toolStripMenuItem11.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
             // toolStripMenuItem9
             // 
@@ -6655,7 +6701,7 @@
             this.toolStripMenuItem_Step_Num12,
             this.toolStripMenuItem_Step_Num13});
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem9.Text = "步数";
             this.toolStripMenuItem9.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
@@ -6761,7 +6807,7 @@
             this.toolStripMenuItem_Kcal_Num12,
             this.toolStripMenuItem_Kcal_Num13});
             this.toolStripMenuItem25.Name = "toolStripMenuItem25";
-            this.toolStripMenuItem25.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem25.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem25.Text = "卡路里";
             this.toolStripMenuItem25.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
@@ -6867,7 +6913,7 @@
             this.toolStripMenuItem_Distance_Num12,
             this.toolStripMenuItem_Distance_Num13});
             this.toolStripMenuItem26.Name = "toolStripMenuItem26";
-            this.toolStripMenuItem26.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem26.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem26.Text = "距离";
             this.toolStripMenuItem26.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
@@ -6973,7 +7019,7 @@
             this.toolStripMenuItem_Heart_Num12,
             this.toolStripMenuItem_Heart_Num13});
             this.toolStripMenuItem24.Name = "toolStripMenuItem24";
-            this.toolStripMenuItem24.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem24.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem24.Text = "心率";
             this.toolStripMenuItem24.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
@@ -7079,7 +7125,7 @@
             this.toolStripMenuItem_Oxygen_Num12,
             this.toolStripMenuItem_Oxygen_Num13});
             this.toolStripMenuItem27.Name = "toolStripMenuItem27";
-            this.toolStripMenuItem27.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem27.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem27.Text = "血氧";
             this.toolStripMenuItem27.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
@@ -7185,7 +7231,7 @@
             this.toolStripMenuItem_BLOOD_Num12,
             this.toolStripMenuItem_BLOOD_Num13});
             this.toolStripMenuItem28.Name = "toolStripMenuItem28";
-            this.toolStripMenuItem28.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem28.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem28.Text = "血压";
             this.toolStripMenuItem28.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
@@ -7291,7 +7337,7 @@
             this.toolStripMenuItem_Battary_Num12,
             this.toolStripMenuItem_Battary_Num13});
             this.toolStripMenuItem29.Name = "toolStripMenuItem29";
-            this.toolStripMenuItem29.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem29.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem29.Text = "电量";
             this.toolStripMenuItem29.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
             // 
@@ -7379,6 +7425,112 @@
             this.toolStripMenuItem_Battary_Num13.Size = new System.Drawing.Size(143, 22);
             this.toolStripMenuItem_Battary_Num13.Text = "X0.0000001";
             // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Time_year1000,
+            this.toolStripMenuItem_Time_year100,
+            this.toolStripMenuItem_Time_year10,
+            this.toolStripMenuItem_Time_year,
+            this.toolStripMenuItem_Time_mouth10,
+            this.toolStripMenuItem_Time_mouth,
+            this.toolStripMenuItem_Time_day10,
+            this.toolStripMenuItem_Time_day,
+            this.toolStripMenuItem_Time_hour10,
+            this.toolStripMenuItem_Time_hour,
+            this.toolStripMenuItem_Time_minute10,
+            this.toolStripMenuItem_Time_minute,
+            this.toolStripMenuItem_Time_second10,
+            this.toolStripMenuItem_Time_second});
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem10.Text = "时间";
+            this.toolStripMenuItem10.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem_PictureDefine_DropDownItemClicked);
+            // 
+            // toolStripMenuItem_Time_year1000
+            // 
+            this.toolStripMenuItem_Time_year1000.Name = "toolStripMenuItem_Time_year1000";
+            this.toolStripMenuItem_Time_year1000.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_year1000.Text = "年千位";
+            // 
+            // toolStripMenuItem_Time_year100
+            // 
+            this.toolStripMenuItem_Time_year100.Name = "toolStripMenuItem_Time_year100";
+            this.toolStripMenuItem_Time_year100.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_year100.Text = "年百位";
+            // 
+            // toolStripMenuItem_Time_year10
+            // 
+            this.toolStripMenuItem_Time_year10.Name = "toolStripMenuItem_Time_year10";
+            this.toolStripMenuItem_Time_year10.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_year10.Text = "年十位";
+            // 
+            // toolStripMenuItem_Time_year
+            // 
+            this.toolStripMenuItem_Time_year.Name = "toolStripMenuItem_Time_year";
+            this.toolStripMenuItem_Time_year.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_year.Text = "年个位";
+            // 
+            // toolStripMenuItem_Time_mouth10
+            // 
+            this.toolStripMenuItem_Time_mouth10.Name = "toolStripMenuItem_Time_mouth10";
+            this.toolStripMenuItem_Time_mouth10.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_mouth10.Text = "月十位";
+            // 
+            // toolStripMenuItem_Time_mouth
+            // 
+            this.toolStripMenuItem_Time_mouth.Name = "toolStripMenuItem_Time_mouth";
+            this.toolStripMenuItem_Time_mouth.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_mouth.Text = "月个位";
+            // 
+            // toolStripMenuItem_Time_day10
+            // 
+            this.toolStripMenuItem_Time_day10.Name = "toolStripMenuItem_Time_day10";
+            this.toolStripMenuItem_Time_day10.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_day10.Text = "天十位";
+            // 
+            // toolStripMenuItem_Time_day
+            // 
+            this.toolStripMenuItem_Time_day.Name = "toolStripMenuItem_Time_day";
+            this.toolStripMenuItem_Time_day.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_day.Text = "天个位";
+            // 
+            // toolStripMenuItem_Time_hour10
+            // 
+            this.toolStripMenuItem_Time_hour10.Name = "toolStripMenuItem_Time_hour10";
+            this.toolStripMenuItem_Time_hour10.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_hour10.Text = "时十位";
+            // 
+            // toolStripMenuItem_Time_hour
+            // 
+            this.toolStripMenuItem_Time_hour.Name = "toolStripMenuItem_Time_hour";
+            this.toolStripMenuItem_Time_hour.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_hour.Text = "时个位";
+            // 
+            // toolStripMenuItem_Time_minute10
+            // 
+            this.toolStripMenuItem_Time_minute10.Name = "toolStripMenuItem_Time_minute10";
+            this.toolStripMenuItem_Time_minute10.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_minute10.Text = "分十位";
+            // 
+            // toolStripMenuItem_Time_minute
+            // 
+            this.toolStripMenuItem_Time_minute.Name = "toolStripMenuItem_Time_minute";
+            this.toolStripMenuItem_Time_minute.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_minute.Text = "分个位";
+            // 
+            // toolStripMenuItem_Time_second10
+            // 
+            this.toolStripMenuItem_Time_second10.Name = "toolStripMenuItem_Time_second10";
+            this.toolStripMenuItem_Time_second10.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_second10.Text = "秒十位";
+            // 
+            // toolStripMenuItem_Time_second
+            // 
+            this.toolStripMenuItem_Time_second.Name = "toolStripMenuItem_Time_second";
+            this.toolStripMenuItem_Time_second.Size = new System.Drawing.Size(112, 22);
+            this.toolStripMenuItem_Time_second.Text = "秒个位";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -7412,23 +7564,11 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
-            // label32
+            // 空ToolStripMenuItem
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(136, 397);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(59, 12);
-            this.label32.TabIndex = 62;
-            this.label32.Text = "图片属性:";
-            // 
-            // label_ui_property
-            // 
-            this.label_ui_property.AutoSize = true;
-            this.label_ui_property.Location = new System.Drawing.Point(190, 397);
-            this.label_ui_property.Name = "label_ui_property";
-            this.label_ui_property.Size = new System.Drawing.Size(53, 12);
-            this.label_ui_property.TabIndex = 63;
-            this.label_ui_property.Text = "普通图片";
+            this.空ToolStripMenuItem.Name = "空ToolStripMenuItem";
+            this.空ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.空ToolStripMenuItem.Text = "空";
             // 
             // Form1
             // 
@@ -8186,6 +8326,23 @@
         private System.Windows.Forms.Button destination_file_button_open_dir;
         private System.Windows.Forms.Label label_ui_property;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_year1000;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_year100;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_year10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_year;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_mouth10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_mouth;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_day10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_day;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_hour10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_hour;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_minute10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_minute;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_second10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Time_second;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem 空ToolStripMenuItem;
     }
 }
 

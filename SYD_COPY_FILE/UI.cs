@@ -673,6 +673,22 @@ namespace SYD_COPY_FILE
                     MessageBox.Show("定义为电量无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
                 }
             }
+            else if (item == toolStripMenuItem10)
+            {
+                ret = picture_num_define_isvalid(picture.filename);
+                if (ret == null)//图片判断成功
+                {
+                    MessageBox.Show("定义为时间有效 " + item.DropDownItems[select_index].Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("定义为时间无效 " + item.DropDownItems[select_index].Text.Trim() + "\r\nError:" + ret);
+                }
+            }
+            else if (item == toolStripMenuItem11)
+            {
+                MessageBox.Show("定义为普通图片有效 " + item.DropDownItems[select_index].Text.Trim());
+            }
             if (ret == null)//数据有效
             {
                 picture.property_first = item.Text.Trim(); ;
@@ -831,10 +847,22 @@ namespace SYD_COPY_FILE
                 richtextBox_picture_result.Text += stext;
             }
         }
+        private byte Get_Index_From_Table(string target, ToolStripMenuItem item)
+        {
+            for (int i = 0; i < item.DropDownItems.Count; i++)
+            {
+                if (item.DropDownItems[i].Text== target)
+                {
+                    return (byte)i;
+                }
+            }
+            return 0;
+        }
+        private static byte PICTURE_STRUCT_LENGHT = 14;
         private void Generate_datafile_button_Click(object sender, EventArgs e)
         {
             bool is_contain_background = false;
-            DialogResult key =MessageBox.Show("如果生成数据文件中要包含背景图选择是，不包含背景图选择后，其他选择退出本操作"," 是否包含背景图？",MessageBoxButtons.YesNoCancel);
+            DialogResult key =MessageBox.Show("如果生成数据文件中要包含背景图选择是，不包含背景图选择否，其他选择退出本操作"," 是否包含背景图？",MessageBoxButtons.YesNoCancel);
             if (key == DialogResult.Yes)
             {
                 is_contain_background = true;
@@ -849,6 +877,7 @@ namespace SYD_COPY_FILE
             UInt32 srcfilesize = 0;
             List<UInt32> picture_addr = new List<UInt32>();
             List<UInt16> picture_w = new List<UInt16>(), picture_h = new List<UInt16>(), picture_x = new List<UInt16>(), picture_y = new List<UInt16>();
+            List<byte> picture_property_first = new List<byte>(), picture_property_second = new List<byte>();
             string path="";
             byte[] text;
             byte[] bin=new byte[64000000];
@@ -865,6 +894,8 @@ namespace SYD_COPY_FILE
                     picture_h.Add((UInt16)(((UInt16)text[7] << 8) | (UInt16)text[6]));
                     picture_x.Add(0);
                     picture_y.Add(0);
+                    picture_property_first.Add(0);
+                    picture_property_second.Add(0);
                     picture_addr.Add(srcfilesize);
                     srcfilesize += (UInt32)text.Length - 16;
                     for (i = 0; i < (text.Length - 16) / 2; i++)
@@ -891,6 +922,9 @@ namespace SYD_COPY_FILE
                     picture_h.Add((UInt16)(((UInt16)text[7] << 8) | (UInt16)text[6]));
                     picture_x.Add((UInt16)SYDPictureBox.Location.X);
                     picture_y.Add((UInt16)SYDPictureBox.Location.Y);
+                    byte first = Get_Index_From_Table(SYDPictureBox.property_first, toolStripMenuItem8);
+                    picture_property_first.Add(first);
+                    picture_property_second.Add(Get_Index_From_Table(SYDPictureBox.property_second, (ToolStripMenuItem)(toolStripMenuItem8.DropDownItems[first])));
                     picture_addr.Add(srcfilesize);
                     srcfilesize += (UInt32)text.Length - 16;
                     for (i = 0; i < ((UInt32)text.Length - 16) / 2; i++)
@@ -916,27 +950,30 @@ namespace SYD_COPY_FILE
                 buff[5] = 0;//uint8_t explain;//特殊说明 00：无特殊说明 BIT0:本界面无背景图片
             else
                 buff[5] = 0X01;
-            UInt16 offset = (UInt16)(picture_w.Count * 12 + 8);//也代表了有效数据的起始位置
+            UInt16 offset = (UInt16)(picture_w.Count * PICTURE_STRUCT_LENGHT + 8);//也代表了有效数据的起始位置
             buff[6] = (byte)offset;//uint16_t offset;//图片数据的整体偏移
             buff[7] = (byte)(offset >> 8);
             for (i = 0; i < picture_w.Count; i++)
             {
-                buff[8+i*12]= (Byte)(picture_addr[i] & 0x000000FF);//uint32_t addr;//在数据区的起始位置
-                buff[8 + i * 12+1] = (Byte)((picture_addr[i] >> 8) & 0x000000FF);
-                buff[8 + i * 12 + 2] = (Byte)((picture_addr[i] >> 16) & 0x000000FF);
-                buff[8 + i * 12 + 3] = (Byte)((picture_addr[i] >> 24) & 0x000000FF);
+                buff[8 + i * PICTURE_STRUCT_LENGHT] = (Byte)(picture_addr[i] & 0x000000FF);//uint32_t addr;//在数据区的起始位置
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 1] = (Byte)((picture_addr[i] >> 8) & 0x000000FF);
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 2] = (Byte)((picture_addr[i] >> 16) & 0x000000FF);
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 3] = (Byte)((picture_addr[i] >> 24) & 0x000000FF);
 
-                buff[8 + i * 12 + 4] = (Byte)(picture_x[i] & 0x000000FF);//uint16_t x;//图片的X起点
-                buff[8 + i * 12 + 5] = (Byte)((picture_x[i] >> 8) & 0x000000FF);
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 4] = (Byte)(picture_x[i] & 0x000000FF);//uint16_t x;//图片的X起点
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 5] = (Byte)((picture_x[i] >> 8) & 0x000000FF);
 
-                buff[8 + i * 12 + 6] = (Byte)(picture_y[i] & 0x000000FF);//uint16_t y;//图片的Y起点
-                buff[8 + i * 12 + 7] = (Byte)((picture_y[i] >> 8) & 0x000000FF);
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 6] = (Byte)(picture_y[i] & 0x000000FF);//uint16_t y;//图片的Y起点
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 7] = (Byte)((picture_y[i] >> 8) & 0x000000FF);
 
-                buff[8 + i * 12 + 8] = (Byte)(picture_w[i] & 0x000000FF);//uint16_t w;//图片的宽度
-                buff[8 + i * 12 + 9] = (Byte)((picture_w[i] >> 8) & 0x000000FF);
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 8] = (Byte)(picture_w[i] & 0x000000FF);//uint16_t w;//图片的宽度
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 9] = (Byte)((picture_w[i] >> 8) & 0x000000FF);
 
-                buff[8 + i * 12 + 10] = (Byte)(picture_h[i] & 0x000000FF);//uint16_t h;//图片高度
-                buff[8 + i * 12 + 11] = (Byte)((picture_h[i] >> 8) & 0x000000FF);
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 10] = (Byte)(picture_h[i] & 0x000000FF);//uint16_t h;//图片高度
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 11] = (Byte)((picture_h[i] >> 8) & 0x000000FF);
+
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 12] = picture_property_first[i];//uint8_t h;//图片第一属性属性 步数
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 13] = picture_property_second[i]; ;//uint8_t h;//图片第二属性属性 X10000
             }
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
