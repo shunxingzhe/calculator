@@ -878,7 +878,11 @@ namespace SYD_COPY_FILE
             List<UInt32> picture_addr = new List<UInt32>();
             List<UInt16> picture_w = new List<UInt16>(), picture_h = new List<UInt16>(), picture_x = new List<UInt16>(), picture_y = new List<UInt16>();
             List<byte> picture_property_first = new List<byte>(), picture_property_second = new List<byte>();
+            List<string> commit_text_array = new List<string>();
+            List<string> font_array = new List<string>();
+            string commit_text = "";
             string path="";
+            string str = "";
             byte[] text;
             byte[] bin=new byte[64000000];
             byte[] buff = new byte[50*12+8];
@@ -903,6 +907,9 @@ namespace SYD_COPY_FILE
                         bin[j++] = text[16 + i * 2 + 1];
                         bin[j++] = text[16 + i * 2];
                     }
+                    commit_text = "filename:" + filename_background + " w:" + picture_w[picture_w.Count - 1].ToString() + " h:" + picture_h[picture_h.Count - 1].ToString() + " x:" + picture_x[picture_x.Count - 1].ToString()
+                        + " first:" + picture_property_first[picture_property_first.Count - 1].ToString() + " second:" + picture_property_second[picture_property_second.Count - 1].ToString() + " addr:" + picture_addr[picture_addr.Count - 1].ToString("X");
+                    commit_text_array.Add(commit_text);
                 }
                 else
                 {
@@ -915,6 +922,29 @@ namespace SYD_COPY_FILE
                 path = SYDPictureBox.filename;
                 path = path.Replace(".bmp", string.Empty).Replace(".BMP", string.Empty);
                 path = path + ".dta";
+                byte first = Get_Index_From_Table(SYDPictureBox.property_first, toolStripMenuItem8);
+                if (first!=0)
+                {
+                    if (font_array.Count == 0)
+                    {
+                        font_array.Add(path);
+                    }
+                    else
+                    {
+                        for (i = 0; i < font_array.Count; i++)
+                        {
+                            str = font_array[i].Substring(0, font_array[i].Length - 4);//得到文件头部
+                            if (path.Substring(0, font_array[i].Length - 4) == str)//字体文件已经存在
+                            {
+
+                            }
+                        }
+                        if (font_array.Count == i)//字体文件并没有存在
+                        {
+                            font_array.Add(path);
+                        }
+                    }
+                }
                 if (File.Exists(path))
                 {
                     text = System.IO.File.ReadAllBytes(path);
@@ -922,7 +952,6 @@ namespace SYD_COPY_FILE
                     picture_h.Add((UInt16)(((UInt16)text[7] << 8) | (UInt16)text[6]));
                     picture_x.Add((UInt16)SYDPictureBox.Location.X);
                     picture_y.Add((UInt16)SYDPictureBox.Location.Y);
-                    byte first = Get_Index_From_Table(SYDPictureBox.property_first, toolStripMenuItem8);
                     picture_property_first.Add(first);
                     picture_property_second.Add(Get_Index_From_Table(SYDPictureBox.property_second, (ToolStripMenuItem)(toolStripMenuItem8.DropDownItems[first])));
                     picture_addr.Add(srcfilesize);
@@ -932,6 +961,9 @@ namespace SYD_COPY_FILE
                         bin[j++] = text[16 + i * 2 + 1];
                         bin[j++] = text[16 + i * 2];
                     }
+                    commit_text = "filename:" + path + " w:" + picture_w[picture_w.Count - 1].ToString() + " h:" + picture_h[picture_h.Count - 1].ToString() + " x:" + picture_x[picture_x.Count - 1].ToString()
+                        + " first:" + picture_property_first[picture_property_first.Count - 1].ToString() + " second:" + picture_property_second[picture_property_second.Count - 1].ToString() + " addr:" + picture_addr[picture_addr.Count - 1].ToString("X");
+                    commit_text_array.Add(commit_text);
                 }
                 else
                 {
@@ -999,6 +1031,17 @@ namespace SYD_COPY_FILE
             bw.Write(bin, 0, (int)srcfilesize);
             bw.Close();
             fs.Close();
+            path = dlg.FileName;
+            path = path.Replace(".bin", ".txt").Replace(".BIN", ".txt");
+            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                byte[] buffer = null;
+                for (i = 0; i < commit_text_array.Count; i++)
+                {
+                    buffer = Encoding.Default.GetBytes(commit_text_array[i] + "\r\n");
+                    fsWrite.Write(buffer, 0, buffer.Length);
+                }
+            }
         }
     }
 

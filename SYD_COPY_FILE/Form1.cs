@@ -491,30 +491,33 @@ namespace SYD_COPY_FILE
         }
         private string cal_Calendar_time_difference_subtract(string a, string b, int c, TextBox testbox_display, TextBox testbox_display_timestamp)
         {
-            Int32 hour = 0, minute = 0, second = 0, millisecond = 0, hour1 = 0, minute1 = 0, second1 = 0, millisecond1 = 0;
             UInt64 timestamp = 0, timestamp1 = 0;
             if ((a.Length == 0) | (b.Length == 0))
             {
                 MessageBox.Show("input error");
                 return null;
             }
+            timestamp = cal_Calendar_srt_to_timestamp(a);
+
+            timestamp = (UInt32)c * 86400000 + timestamp;
+
+            timestamp1 = cal_Calendar_srt_to_timestamp(b);
+
+            timestamp = timestamp - timestamp1;
+            return cal_Calendar_time_difference_subtract_output(timestamp, timestamp_accuracy_type.accuracy_3, testbox_display, testbox_display_timestamp);
+        }
+        private UInt64 cal_Calendar_srt_to_timestamp(string a)
+        {
+            Int32 hour = 0, minute = 0, second = 0, millisecond = 0;
+            UInt64 timestamp = 0;
+
             hour = Convert.ToInt32(a.Substring(0, 2), 10);
             minute = Convert.ToInt32(a.Substring(3, 2), 10);
             second = Convert.ToInt32(a.Substring(6, 2), 10);
             millisecond = Convert.ToInt32(a.Substring(9, 3), 10);
             timestamp = ((UInt64)hour * 3600 + (UInt64)minute * 60 + (UInt64)second) * 1000 + (UInt64)millisecond;
 
-            timestamp = (UInt32)c * 86400000 + timestamp;
-
-            hour1 = Convert.ToInt32(b.Substring(0, 2), 10);
-            minute1 = Convert.ToInt32(b.Substring(3, 2), 10);
-            second1 = Convert.ToInt32(b.Substring(6, 2), 10);
-            millisecond1 = Convert.ToInt32(b.Substring(9, 3), 10);
-
-            timestamp1 = ((UInt32)hour1 * 3600 + (UInt32)minute1 * 60 + (UInt32)second1) * 1000 + (UInt32)millisecond1;
-
-            timestamp = timestamp - timestamp1;
-            return cal_Calendar_time_difference_subtract_output(timestamp, timestamp_accuracy_type.accuracy_3, testbox_display, testbox_display_timestamp);
+            return timestamp;
         }
 
         private string cal_Calendar_time_differenceble_subtract(string a, string b, TextBox testbox_display, TextBox testbox_display_timestamp)

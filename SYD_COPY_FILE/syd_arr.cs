@@ -1684,24 +1684,32 @@ namespace SYD_COPY_FILE
            }
             else if (comboBox_datatype.SelectedIndex == 2)
             {
+                string str = "";
+                UInt64 timestamp_min = 0, timestamp_max = 0, timestamp=0;
                 richTextBox_out.Text = "\r\n";
                 for (i = 1; i < lis.Length; i++)
                 {
                     string str1 = lis[i - 1][0];
-                    string str = lis[i][0];
-
+                    str = lis[i][0];
                     if ((str.Length == 0) || (str1.Length == 0))
                     {
                         MessageBox.Show("input error");
                         return;
                     }
-
                     str = str.Trim();
                     str1 = str1.Trim();
-
+                    str = cal_Calendar_time_difference_subtract(str, str1, 0, null, null);
+                    richTextBox_out.AppendText(" 和上行时间差值：" + str + "\r\n");
+                    timestamp = cal_Calendar_srt_to_timestamp(str);
+                    if (i == 1) timestamp_min = timestamp;
+                    if (timestamp_min > timestamp) timestamp_min = timestamp;
+                    if (timestamp_max < timestamp) timestamp_max = timestamp;
                     
-                    richTextBox_out.AppendText(" 和上行时间差值：" + cal_Calendar_time_difference_subtract(str, str1, 0, null, null)+ "\r\n");
                 }
+                str= cal_Calendar_time_difference_subtract_output(timestamp_min, timestamp_accuracy_type.accuracy_3, null, null);
+                richTextBox_out.AppendText(" 两行之间最小差值：" + str + "\r\n");
+                str = cal_Calendar_time_difference_subtract_output(timestamp_max, timestamp_accuracy_type.accuracy_3, null, null);
+                richTextBox_out.AppendText(" 两行之间最大差值：" + str + "\r\n");
             }
             MessageBox.Show("保存成功!");
        }
