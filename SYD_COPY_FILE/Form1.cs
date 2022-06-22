@@ -502,7 +502,11 @@ namespace SYD_COPY_FILE
             timestamp = (UInt32)c * 86400000 + timestamp;
 
             timestamp1 = cal_Calendar_srt_to_timestamp(b);
-
+            if (timestamp1 > timestamp)
+            {
+                timestamp = 86400000 + timestamp;
+                MessageBox.Show("发现隔天数据");
+            }
             timestamp = timestamp - timestamp1;
             return cal_Calendar_time_difference_subtract_output(timestamp, timestamp_accuracy_type.accuracy_3, testbox_display, testbox_display_timestamp);
         }
