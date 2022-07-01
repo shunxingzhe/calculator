@@ -858,7 +858,52 @@ namespace SYD_COPY_FILE
             }
             return 0;
         }
-        private static byte PICTURE_STRUCT_LENGHT = 14;
+        private static byte PICTURE_STRUCT_LENGHT = 16;
+        private static byte BAT_FILE_HEADER = 16;
+        private void pack_font_picture(string path, ref byte[] bin, ref UInt32 index)
+        {
+            int i = 0, j = 0;
+            string filenameheader = path.Substring(0, path.Length - 5);//得到文件头部;
+            int num = 0;
+            string filename_withoutext = Path.GetFileNameWithoutExtension(path);
+            string dir = Path.GetDirectoryName(path);
+            string ext = Path.GetExtension(path);
+            string[] filenames = Directory.GetFiles(dir, "*" + ext, SearchOption.TopDirectoryOnly);//获取目录文件名称集合
+            string[] filenames_array = new string[10];
+            byte[] text;
+            for (i = 0; i < filenames.Length; i++)
+            {
+                filename_withoutext = Path.GetFileNameWithoutExtension(filenames[i]);
+                if (filenames[i].Substring(0, filenames[i].Length - 5) == filenameheader)//文件头部正确
+                {
+                    if ((filename_withoutext[filename_withoutext.Length - 1] >= '0') && (filename_withoutext[filename_withoutext.Length - 1] <= '9'))//最后一位是数字
+                    {
+                        if (j >= 10)
+                        {
+                            MessageBox.Show("该图片目录下有过多的数字图片文件,要求有且仅有唯一一组从0到9的数据");
+                            return;
+                        }
+                        num = filename_withoutext[filename_withoutext.Length - 1] - '0';
+                        filenames_array[num] = filenames[i];
+                        j++;
+                    }
+                }
+            }
+            if (j != 10)
+            {
+                MessageBox.Show("该图片目录下的数字图片文件不足10个");
+                return;
+            }
+            for (j = 0; j < filenames_array.Length; j++)
+            {
+                text = System.IO.File.ReadAllBytes(filenames_array[j]);
+                for (i = 0; i < (text.Length - BAT_FILE_HEADER) / 2; i++)
+                {
+                    bin[index++] = text[BAT_FILE_HEADER + i * 2 + 1];
+                    bin[index++] = text[BAT_FILE_HEADER + i * 2];
+                }
+            }
+        }
         private void Generate_datafile_button_Click(object sender, EventArgs e)
         {
             bool is_contain_background = false;
@@ -872,20 +917,20 @@ namespace SYD_COPY_FILE
                 is_contain_background = false;
             }
             else return;
-            UInt32 j=0;
+            UInt32 index=0;
             int i = 0;
-            UInt32 srcfilesize = 0;
             List<UInt32> picture_addr = new List<UInt32>();
             List<UInt16> picture_w = new List<UInt16>(), picture_h = new List<UInt16>(), picture_x = new List<UInt16>(), picture_y = new List<UInt16>();
             List<byte> picture_property_first = new List<byte>(), picture_property_second = new List<byte>();
             List<string> commit_text_array = new List<string>();
             List<string> font_array = new List<string>();
+            List<UInt32> font_addr = new List<UInt32>();
             string commit_text = "";
             string path="";
             string str = "";
             byte[] text;
             byte[] bin=new byte[64000000];
-            byte[] buff = new byte[50*12+8];
+            byte[] buff = new byte[50* PICTURE_STRUCT_LENGHT + 8];
             if ((filename_background != null) && is_contain_background==true)
             {
                 path = filename_background;
@@ -900,12 +945,11 @@ namespace SYD_COPY_FILE
                     picture_y.Add(0);
                     picture_property_first.Add(0);
                     picture_property_second.Add(0);
-                    picture_addr.Add(srcfilesize);
-                    srcfilesize += (UInt32)text.Length - 16;
-                    for (i = 0; i < (text.Length - 16) / 2; i++)
+                    picture_addr.Add(index);
+                    for (i = 0; i < (text.Length - BAT_FILE_HEADER) / 2; i++)
                     {
-                        bin[j++] = text[16 + i * 2 + 1];
-                        bin[j++] = text[16 + i * 2];
+                        bin[index++] = text[BAT_FILE_HEADER + i * 2 + 1];
+                        bin[index++] = text[BAT_FILE_HEADER + i * 2];
                     }
                     commit_text = "filename:" + filename_background + " w:" + picture_w[picture_w.Count - 1].ToString() + " h:" + picture_h[picture_h.Count - 1].ToString() + " x:" + picture_x[picture_x.Count - 1].ToString()
                         + " first:" + picture_property_first[picture_property_first.Count - 1].ToString() + " second:" + picture_property_second[picture_property_second.Count - 1].ToString() + " addr:" + picture_addr[picture_addr.Count - 1].ToString("X");
@@ -923,25 +967,30 @@ namespace SYD_COPY_FILE
                 path = path.Replace(".bmp", string.Empty).Replace(".BMP", string.Empty);
                 path = path + ".dta";
                 byte first = Get_Index_From_Table(SYDPictureBox.property_first, toolStripMenuItem8);
+                i = 0;
                 if (first!=0)
                 {
                     if (font_array.Count == 0)
                     {
                         font_array.Add(path);
+                        font_addr.Add(index);
+                        pack_font_picture(path, ref bin, ref index);
                     }
                     else
                     {
                         for (i = 0; i < font_array.Count; i++)
                         {
-                            str = font_array[i].Substring(0, font_array[i].Length - 4);//得到文件头部
-                            if (path.Substring(0, font_array[i].Length - 4) == str)//字体文件已经存在
+                            str = font_array[i].Substring(0, font_array[i].Length - 5);//得到文件头部
+                            if (path.Substring(0, font_array[i].Length - 5) == str)//字体文件已经存在
                             {
-
+                                break;
                             }
                         }
                         if (font_array.Count == i)//字体文件并没有存在
                         {
                             font_array.Add(path);
+                            font_addr.Add(index);
+                            pack_font_picture(path, ref bin, ref index);
                         }
                     }
                 }
@@ -954,12 +1003,18 @@ namespace SYD_COPY_FILE
                     picture_y.Add((UInt16)SYDPictureBox.Location.Y);
                     picture_property_first.Add(first);
                     picture_property_second.Add(Get_Index_From_Table(SYDPictureBox.property_second, (ToolStripMenuItem)(toolStripMenuItem8.DropDownItems[first])));
-                    picture_addr.Add(srcfilesize);
-                    srcfilesize += (UInt32)text.Length - 16;
-                    for (i = 0; i < ((UInt32)text.Length - 16) / 2; i++)
+                    if (first != 0)
                     {
-                        bin[j++] = text[16 + i * 2 + 1];
-                        bin[j++] = text[16 + i * 2];
+                        picture_addr.Add(font_addr[i]);
+                    }
+                    else
+                    {
+                        picture_addr.Add(index);
+                        for (i = 0; i < ((UInt32)text.Length - BAT_FILE_HEADER) / 2; i++)
+                        {
+                            bin[index++] = text[BAT_FILE_HEADER + i * 2 + 1];
+                            bin[index++] = text[BAT_FILE_HEADER + i * 2];
+                        }
                     }
                     commit_text = "filename:" + path + " w:" + picture_w[picture_w.Count - 1].ToString() + " h:" + picture_h[picture_h.Count - 1].ToString() + " x:" + picture_x[picture_x.Count - 1].ToString()
                         + " first:" + picture_property_first[picture_property_first.Count - 1].ToString() + " second:" + picture_property_second[picture_property_second.Count - 1].ToString() + " addr:" + picture_addr[picture_addr.Count - 1].ToString("X");
@@ -1006,6 +1061,8 @@ namespace SYD_COPY_FILE
 
                 buff[8 + i * PICTURE_STRUCT_LENGHT + 12] = picture_property_first[i];//uint8_t h;//图片第一属性属性 步数
                 buff[8 + i * PICTURE_STRUCT_LENGHT + 13] = picture_property_second[i]; ;//uint8_t h;//图片第二属性属性 X10000
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 14] = 0; ;//保留位
+                buff[8 + i * PICTURE_STRUCT_LENGHT + 15] = 0; ;//保留位
             }
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
@@ -1028,7 +1085,7 @@ namespace SYD_COPY_FILE
             fs = new FileStream(dlg.FileName, FileMode.CreateNew);
             bw = new BinaryWriter(fs);
             bw.Write(buff, 0, offset);
-            bw.Write(bin, 0, (int)srcfilesize);
+            bw.Write(bin, 0, (int)index);
             bw.Close();
             fs.Close();
             path = dlg.FileName;
