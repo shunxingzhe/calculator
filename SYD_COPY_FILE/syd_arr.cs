@@ -1027,21 +1027,23 @@ namespace SYD_COPY_FILE
 
            for (i = 0; i < lstArray.Count; i++)
            {
-               buffer_utf8 = Encoding.UTF8.GetBytes(lstArray[i]);
+                if(comboBox_datatype.SelectedIndex == 0)
+                    buffer_utf8 = Encoding.UTF8.GetBytes(lstArray[i]);
+                else
+                    buffer_utf8 = Encoding.Unicode.GetBytes(lstArray[i]);
 
-                if ((comboBox_datatype.SelectedIndex == 0) || (comboBox_datatype.SelectedIndex == 1))
+                if ((comboBox_fonttype.SelectedIndex == 0) || (comboBox_fonttype.SelectedIndex == 1))
                 {
-                    if (comboBox_datatype.SelectedIndex == 0)
-                        str = "uint8_t buf[]={" + "0x" + buffer_utf8.Length.ToString("X02") + ",";
-                    else if (comboBox_datatype.SelectedIndex == 1)
-                        str = "uint8_t buf[]={";
+                    str = "uint8_t buf[]={";
+                    if (comboBox_fonttype.SelectedIndex == 0)
+                        str += "0x" + buffer_utf8.Length.ToString("X02") + ",";
                     for (j = 0; j < buffer_utf8.Length; j++)
                     {
                         str = str + "0x" + buffer_utf8[j].ToString("X") + ",";
                     }
                     lstArray[i] = str + "};" + "//" + lstArray[i];
                 }
-                else if (comboBox_datatype.SelectedIndex == 2)
+                else if (comboBox_fonttype.SelectedIndex == 2)
                 {
                     for (j = 0; j < buffer_utf8.Length; j++)
                     {
@@ -1049,13 +1051,25 @@ namespace SYD_COPY_FILE
                     }
                     lstArray[i] = str;
                 }
-                else if (comboBox_datatype.SelectedIndex == 3)
+                else if (comboBox_fonttype.SelectedIndex == 3)
                 {
                     for (j = 0; j < buffer_utf8.Length; j++)
                     {
                         str = str + buffer_utf8[j].ToString("X");
                     }
                     lstArray[i] = str;
+                }
+                else if ((comboBox_fonttype.SelectedIndex == 4) || (comboBox_fonttype.SelectedIndex == 5))
+                {
+                    str = "uint16_t buf[]={";
+                    if (comboBox_fonttype.SelectedIndex == 4)
+                        str += "0x" + (buffer_utf8.Length/2).ToString("X04") + ",";
+                        
+                    for (j = 0; j < (buffer_utf8.Length/2); j++)
+                    {
+                        str = str + "0x" + buffer_utf8[j + 1].ToString("X02") + buffer_utf8[j].ToString("X02") +  ",";
+                    }
+                    lstArray[i] = str + "};" + "//" + lstArray[i];
                 }
             }
 
@@ -2795,11 +2809,18 @@ namespace SYD_COPY_FILE
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_text_to_utf8_ASCII.txt", Encoding.Default);
 
                 this.comboBox_datatype.Items.Clear();
-                this.comboBox_datatype.Items.Add("数据为数组格式，第一个字节为数组长度");
-                this.comboBox_datatype.Items.Add("数据为数组格式，不带数组长度");
-                this.comboBox_datatype.Items.Add("数据为带空格的数据");
-                this.comboBox_datatype.Items.Add("数据为不带空格的数据");
-                this.label_data_type.Text = "输出格式选择：";
+                this.comboBox_datatype.Items.Add("Utf8_ASCII");
+                this.comboBox_datatype.Items.Add("Unicode");
+                this.label_data_type.Text = "转换处理方式：";
+
+                this.comboBox_fonttype.Items.Clear();
+                this.comboBox_fonttype.Items.Add("数据为数组格式，第一个字节为数组长度");
+                this.comboBox_fonttype.Items.Add("数据为数组格式，不带数组长度");
+                this.comboBox_fonttype.Items.Add("数据为带空格的数据");
+                this.comboBox_fonttype.Items.Add("数据为不带空格的数据");
+                this.comboBox_fonttype.Items.Add("数据为U16数组格式，第一个字节为数组长度");
+                this.comboBox_fonttype.Items.Add("数据为U16数组格式，不带数组长度");
+                this.label_font_type.Text = "输出格式：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.ARR_to_bin)
             {
@@ -3028,7 +3049,6 @@ namespace SYD_COPY_FILE
                     this.comboBox_fonttype.Items.Add("带0X的数组");
                     this.label_font_type.Text = "数据类型：";
                 }
-                else restore_Defaults = true;
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Font_txt_to_bin)
             {
