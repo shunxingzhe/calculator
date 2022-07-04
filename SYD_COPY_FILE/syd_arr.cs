@@ -1527,8 +1527,23 @@ namespace SYD_COPY_FILE
                 k = str.IndexOf("=", j);
                 if (k == -1) break;
                 str1 = str.Substring(i+1, k - i-1);
-                str1 = "extern " + str1+";";
-                lstArray.Add(str1);
+                if((!(str1.Contains("//"))) && (!(str1.Contains("/*"))))
+                {
+                    if (comboBox_additional_operations.SelectedIndex == 1)
+                    {
+                        i = str1.LastIndexOf("[");
+                        if (i != -1)
+                        {
+                            k = str1.LastIndexOf("]");
+                            if((k != -1) && (k >i))
+                            {
+                                str1=str1.Remove(i+1, k-i-1);
+                            }
+                        }
+                    }
+                    str1 = "extern " + str1 + ";";
+                    lstArray.Add(str1);
+                }
                 j++;
             }
             foreach (string str2 in lstArray)
@@ -2849,6 +2864,11 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("C语言结构体计算偏移");
                 this.comboBox_datatype.Items.Add("从C文件提炼数组声明");
                 this.label_data_type.Text = "   模式选择：";
+
+                this.comboBox_additional_operations.Items.Clear();
+                this.comboBox_additional_operations.Items.Add("无额外操作");
+                this.comboBox_additional_operations.Items.Add("去掉数组[]之间的数字");
+                this.label_additional_operations.Text = "额外操作:";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Cmd_XOR)
             {
