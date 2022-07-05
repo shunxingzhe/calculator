@@ -334,25 +334,6 @@ namespace SYD_COPY_FILE
             }
             textBox7.Text = result.ToString();
         }
-
-        private void cal_overtrun_subtract(string a)
-        {
-            string str = "", str1 = "";
-            if ((a.Length % 2) == 1)
-            {
-                str = "0" + a;
-            }
-            else
-            {
-                str = a;
-            }
-            for (int i = 0; i < str.Length / 2; i++)
-            {
-                str1 = str1 + str.Substring(str.Length - (i + 1) * 2, 2);
-            }
-            textBox61.Text = str1;
-        }
-
         private void cal_32768_hex_subtract(string a, string b, string multiplier)
         {
             Int32 num = 0, num1 = 0;
@@ -828,14 +809,6 @@ namespace SYD_COPY_FILE
             if (e.KeyCode == Keys.Enter)
             {
                 cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text);
-            }
-        }
-
-        private void textBox63_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                cal_overtrun_subtract(textBox63.Text);
             }
         }
 

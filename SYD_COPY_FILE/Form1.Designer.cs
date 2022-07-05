@@ -345,11 +345,6 @@
             this.label106 = new System.Windows.Forms.Label();
             this.label107 = new System.Windows.Forms.Label();
             this.button34 = new System.Windows.Forms.Button();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.textBox61 = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.textBox63 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox_min_difference = new System.Windows.Forms.TextBox();
@@ -731,7 +726,6 @@
             this.tabPage1.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox16.SuspendLayout();
-            this.groupBox14.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -3965,7 +3959,6 @@
             // 
             this.tabPage1.Controls.Add(this.groupBox20);
             this.tabPage1.Controls.Add(this.groupBox16);
-            this.tabPage1.Controls.Add(this.groupBox14);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.groupBox5);
@@ -4216,56 +4209,6 @@
             this.button34.Text = "cal";
             this.button34.UseVisualStyleBackColor = true;
             this.button34.Click += new System.EventHandler(this.button34_Click);
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.textBox61);
-            this.groupBox14.Controls.Add(this.label59);
-            this.groupBox14.Controls.Add(this.label61);
-            this.groupBox14.Controls.Add(this.textBox63);
-            this.groupBox14.Font = new System.Drawing.Font("宋体", 9F);
-            this.groupBox14.Location = new System.Drawing.Point(582, 3);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(167, 71);
-            this.groupBox14.TabIndex = 34;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "hex_overturn";
-            // 
-            // textBox61
-            // 
-            this.textBox61.AllowDrop = true;
-            this.textBox61.Location = new System.Drawing.Point(44, 40);
-            this.textBox61.Name = "textBox61";
-            this.textBox61.Size = new System.Drawing.Size(117, 21);
-            this.textBox61.TabIndex = 36;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(-1, 43);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(47, 12);
-            this.label59.TabIndex = 37;
-            this.label59.Text = "output:";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(0, 17);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(41, 12);
-            this.label61.TabIndex = 35;
-            this.label61.Text = "input:";
-            // 
-            // textBox63
-            // 
-            this.textBox63.AllowDrop = true;
-            this.textBox63.Location = new System.Drawing.Point(44, 14);
-            this.textBox63.Name = "textBox63";
-            this.textBox63.Size = new System.Drawing.Size(117, 21);
-            this.textBox63.TabIndex = 2;
-            this.textBox63.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox63_KeyDown);
-            this.textBox63.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // groupBox4
             // 
@@ -7637,8 +7580,6 @@
             this.groupBox20.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -7852,11 +7793,6 @@
         private System.Windows.Forms.Label label106;
         private System.Windows.Forms.Label label107;
         private System.Windows.Forms.Button button34;
-        private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.TextBox textBox61;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.TextBox textBox63;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.CheckBox checkBox1;
