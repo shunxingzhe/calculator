@@ -702,16 +702,6 @@ namespace SYD_COPY_FILE
             testbox_display.Text = result;
         }
 
-        private void cal_rgb_subtract(int input, TextBox output)
-        {
-            Byte a, b, c;
-            a = (Byte)(input >> 19);
-            b = (Byte)(input >> 10);
-            c = (Byte)(input >> 3);
-            input = (a << 11) | (b << 5) | c;
-            output.Text = "0x" + ((UInt32)input).ToString("X");
-        }
-
         private _OFFECT_ cal_offect_subtract(_OFFECT_ offect)
         {
             int x = 0, y = 0;
@@ -1271,7 +1261,6 @@ namespace SYD_COPY_FILE
             }
 
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             if (data_direction == true)
@@ -1285,76 +1274,12 @@ namespace SYD_COPY_FILE
                 button4.Image = Properties.Resources.up;
             }
         }
-
-        private void button18_Click(object sender, EventArgs e)
-        {
-            if (textBox58.Text.Length != 0)
-            {
-                string str = textBox58.Text;
-                cal_rgb_subtract(Convert.ToInt32(str, 10), textBox59);
-            }
-            else if (textBox55.Text.Length != 0)
-            {
-                string str = textBox55.Text.Remove(0, 2);
-                cal_rgb_subtract(Convert.ToInt32(str, 16), textBox59);
-            }
-            else
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-
-        }
-
-        private void cal_rgb_subtract(TextBox R, TextBox G, TextBox B, TextBox output)
-        {
-            //if (textBoxR.Text.Length == 0)
-            //{
-            //    textBoxR.Text = "0";
-            //}
-            //if (textBoxG.Text.Length == 0)
-            //{
-            //    textBoxG.Text = "0";
-            //}
-            //if (textBoxB.Text.Length == 0)
-            //{
-            //    textBoxB.Text = "0";
-            //}
-            //int temp = Convert.ToInt32(textBoxB.Text, 10) | (Convert.ToInt32(textBoxG.Text, 10) << 8) | (Convert.ToInt32(textBoxR.Text, 10) << 16);
-            //cal_rgb_subtract(temp, textBox59);
-
-            if (R.Text.Length == 0)
-            {
-                R.Text = "0";
-            }
-            if (G.Text.Length == 0)
-            {
-                G.Text = "0";
-            }
-            if (B.Text.Length == 0)
-            {
-                B.Text = "0";
-            }
-            int temp = Convert.ToInt32(B.Text, 10) | (Convert.ToInt32(G.Text, 10) << 8) | (Convert.ToInt32(R.Text, 10) << 16);
-            cal_rgb_subtract(temp, output);
-        }
-
-        private void buttonRGB_Click(object sender, EventArgs e)
-        {
-            cal_rgb_subtract(textBoxR, textBoxG, textBoxB, textBox59);
-        }
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if ((TextBox)sender == textBoxR)
-                    this.textBoxG.Focus();
-                else if ((TextBox)sender == textBoxG)
-                    this.textBoxB.Focus();
-                else if ((TextBox)sender == textBoxB)
-                {
-                    cal_rgb_subtract(textBoxR, textBoxG, textBoxB, textBox59);
-                }
+                //if ((TextBox)sender == textBoxR)
+                //    this.textBoxG.Focus();
             }
             else if (e.KeyChar == '\x1')
             {

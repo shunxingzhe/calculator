@@ -843,5 +843,54 @@ namespace SYD_COPY_FILE
             TimeSpan span = DateTime.Now - t1;
             MessageBox.Show(string.Format("批量转换格式完毕！耗时:{0}秒{1}毫秒", (int)(span.TotalMilliseconds / 1000), ((int)span.TotalMilliseconds) % 1000));
         }
+        private void cal_rgb_subtract(int input, TextBox output)
+        {
+            Byte a, b, c;
+            a = (Byte)(input >> 19);
+            b = (Byte)(input >> 10);
+            c = (Byte)(input >> 3);
+            input = (a << 11) | (b << 5) | c;
+            output.Text = "0x" + ((UInt32)input).ToString("X");
+        }
+        private void cal_rgb_subtract(TextBox R, TextBox G, TextBox B, TextBox output)
+        {
+            if (R.Text.Length == 0)
+            {
+                R.Text = "0";
+            }
+            if (G.Text.Length == 0)
+            {
+                G.Text = "0";
+            }
+            if (B.Text.Length == 0)
+            {
+                B.Text = "0";
+            }
+            int temp = 0;
+            if(checkBoxRgbHex.Checked) temp = Convert.ToInt32(B.Text, 16) | (Convert.ToInt32(G.Text, 16) << 8) | (Convert.ToInt32(R.Text, 16) << 16);
+            else temp = Convert.ToInt32(B.Text, 10) | (Convert.ToInt32(G.Text, 10) << 8) | (Convert.ToInt32(R.Text, 10) << 16);
+
+            cal_rgb_subtract(temp, output);
+        }
+        private void buttonRGB_Click(object sender, EventArgs e)
+        {
+            cal_rgb_subtract(textBoxSplitR, textBoxSplitG, textBoxSplitB, textBoxSplitRGB565);
+        }
+        private void checkBoxRgbHex_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox radiobtn = (CheckBox)sender;
+            if (radiobtn.Checked)
+            {
+                textBoxSplitR.Text = StringToHexString(textBoxSplitR.Text, "X");
+                textBoxSplitG.Text = StringToHexString(textBoxSplitG.Text, "X");
+                textBoxSplitB.Text = StringToHexString(textBoxSplitB.Text, "X");
+            }
+            else
+            {
+                textBoxSplitR.Text = HexStringToString(textBoxSplitR.Text);
+                textBoxSplitG.Text = HexStringToString(textBoxSplitG.Text);
+                textBoxSplitB.Text = HexStringToString(textBoxSplitB.Text);
+            }
+        }
     }
 }
