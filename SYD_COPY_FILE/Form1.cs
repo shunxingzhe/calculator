@@ -1615,7 +1615,7 @@ namespace SYD_COPY_FILE
 
         private void TabCrontrol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((TabCrontrol.SelectedIndex == 0) || (TabCrontrol.SelectedIndex == 1) || (TabCrontrol.SelectedIndex == 2) || (TabCrontrol.SelectedIndex == 3) || (TabCrontrol.SelectedIndex == 4))
+            if (TabCrontrol.SelectedIndex <= 5)
             {
                 pictureBoxinterface_Doing(true);
             }

@@ -545,6 +545,7 @@
             this.button_copy_destinationfileend = new System.Windows.Forms.Button();
             this.destination_file_textBox_two_checkBox = new System.Windows.Forms.CheckBox();
             this.TabCrontrol = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -721,6 +722,7 @@
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.TabCrontrol.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -5089,7 +5091,7 @@
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Size = new System.Drawing.Size(756, 552);
             this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "BIN_Combin";
+            this.tabPage9.Text = "BinCombin";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // label52
@@ -5412,7 +5414,7 @@
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Size = new System.Drawing.Size(756, 552);
             this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "BIN_Split";
+            this.tabPage8.Text = "BinSplit";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // label128
@@ -5696,7 +5698,6 @@
             this.tabPage7.Controls.Add(this.checkBox_delete_prefile);
             this.tabPage7.Controls.Add(this.checkBox_delete_srcfile);
             this.tabPage7.Controls.Add(this.checkBox_systemtime_rename);
-            this.tabPage7.Controls.Add(this.groupBox7);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(756, 552);
@@ -5897,7 +5898,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.button8);
-            this.groupBox7.Location = new System.Drawing.Point(1, 101);
+            this.groupBox7.Location = new System.Drawing.Point(3, 3);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(593, 67);
             this.groupBox7.TabIndex = 67;
@@ -6016,7 +6017,7 @@
             this.destination_file_textBox_two_sync.Location = new System.Drawing.Point(0, 106);
             this.destination_file_textBox_two_sync.Name = "destination_file_textBox_two_sync";
             this.destination_file_textBox_two_sync.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.destination_file_textBox_two_sync.Size = new System.Drawing.Size(326, 21);
+            this.destination_file_textBox_two_sync.Size = new System.Drawing.Size(306, 21);
             this.destination_file_textBox_two_sync.TabIndex = 28;
             this.destination_file_textBox_two_sync.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.destination_file_textBox_two_sync.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
@@ -6061,13 +6062,11 @@
             // 
             // checkBox_synccopy_sync
             // 
-            this.checkBox_synccopy_sync.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox_synccopy_sync.Location = new System.Drawing.Point(391, 38);
+            this.checkBox_synccopy_sync.Location = new System.Drawing.Point(344, 28);
             this.checkBox_synccopy_sync.Name = "checkBox_synccopy_sync";
-            this.checkBox_synccopy_sync.Size = new System.Drawing.Size(73, 31);
+            this.checkBox_synccopy_sync.Size = new System.Drawing.Size(73, 28);
             this.checkBox_synccopy_sync.TabIndex = 35;
             this.checkBox_synccopy_sync.Text = "同步拷贝";
-            this.checkBox_synccopy_sync.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.checkBox_synccopy_sync.UseVisualStyleBackColor = true;
             this.checkBox_synccopy_sync.CheckedChanged += new System.EventHandler(this.checkBox_synccopy_sync_CheckedChanged);
             // 
@@ -6103,13 +6102,11 @@
             // 
             // destination_file_textBox_two_sync_checkBox
             // 
-            this.destination_file_textBox_two_sync_checkBox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.destination_file_textBox_two_sync_checkBox.Location = new System.Drawing.Point(325, 97);
+            this.destination_file_textBox_two_sync_checkBox.Location = new System.Drawing.Point(309, 102);
             this.destination_file_textBox_two_sync_checkBox.Name = "destination_file_textBox_two_sync_checkBox";
-            this.destination_file_textBox_two_sync_checkBox.Size = new System.Drawing.Size(61, 31);
+            this.destination_file_textBox_two_sync_checkBox.Size = new System.Drawing.Size(74, 31);
             this.destination_file_textBox_two_sync_checkBox.TabIndex = 43;
             this.destination_file_textBox_two_sync_checkBox.Text = "拷贝副本";
-            this.destination_file_textBox_two_sync_checkBox.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.destination_file_textBox_two_sync_checkBox.UseVisualStyleBackColor = true;
             // 
             // button_copy_sourcefile_all_sync
@@ -6214,7 +6211,7 @@
             this.destination_file_textBox_two.Location = new System.Drawing.Point(0, 106);
             this.destination_file_textBox_two.Name = "destination_file_textBox_two";
             this.destination_file_textBox_two.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.destination_file_textBox_two.Size = new System.Drawing.Size(324, 21);
+            this.destination_file_textBox_two.Size = new System.Drawing.Size(306, 21);
             this.destination_file_textBox_two.TabIndex = 27;
             this.destination_file_textBox_two.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.destination_file_textBox_two.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
@@ -6231,13 +6228,11 @@
             // 
             // checkBox_synccopy
             // 
-            this.checkBox_synccopy.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox_synccopy.Location = new System.Drawing.Point(402, 35);
+            this.checkBox_synccopy.Location = new System.Drawing.Point(388, 35);
             this.checkBox_synccopy.Name = "checkBox_synccopy";
-            this.checkBox_synccopy.Size = new System.Drawing.Size(61, 31);
+            this.checkBox_synccopy.Size = new System.Drawing.Size(75, 31);
             this.checkBox_synccopy.TabIndex = 36;
             this.checkBox_synccopy.Text = "同步拷贝";
-            this.checkBox_synccopy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.checkBox_synccopy.UseVisualStyleBackColor = true;
             this.checkBox_synccopy.CheckedChanged += new System.EventHandler(this.checkBox_synccopy_sync_CheckedChanged);
             // 
@@ -6322,13 +6317,11 @@
             // 
             // destination_file_textBox_two_checkBox
             // 
-            this.destination_file_textBox_two_checkBox.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.destination_file_textBox_two_checkBox.Location = new System.Drawing.Point(323, 99);
+            this.destination_file_textBox_two_checkBox.Location = new System.Drawing.Point(310, 102);
             this.destination_file_textBox_two_checkBox.Name = "destination_file_textBox_two_checkBox";
-            this.destination_file_textBox_two_checkBox.Size = new System.Drawing.Size(61, 31);
+            this.destination_file_textBox_two_checkBox.Size = new System.Drawing.Size(72, 31);
             this.destination_file_textBox_two_checkBox.TabIndex = 40;
             this.destination_file_textBox_two_checkBox.Text = "拷贝副本";
-            this.destination_file_textBox_two_checkBox.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.destination_file_textBox_two_checkBox.UseVisualStyleBackColor = true;
             // 
             // TabCrontrol
@@ -6336,6 +6329,7 @@
             this.TabCrontrol.Controls.Add(this.tabPage5);
             this.TabCrontrol.Controls.Add(this.tabPage6);
             this.TabCrontrol.Controls.Add(this.tabPage7);
+            this.TabCrontrol.Controls.Add(this.tabPage2);
             this.TabCrontrol.Controls.Add(this.tabPage8);
             this.TabCrontrol.Controls.Add(this.tabPage9);
             this.TabCrontrol.Controls.Add(this.tabPage1);
@@ -6349,6 +6343,16 @@
             this.TabCrontrol.Size = new System.Drawing.Size(764, 578);
             this.TabCrontrol.TabIndex = 24;
             this.TabCrontrol.SelectedIndexChanged += new System.EventHandler(this.TabCrontrol_SelectedIndexChanged);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox7);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(756, 552);
+            this.tabPage2.TabIndex = 11;
+            this.tabPage2.Text = "COS";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -7294,7 +7298,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 575);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 576);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(767, 22);
             this.statusStrip1.TabIndex = 25;
@@ -7326,13 +7330,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 597);
+            this.ClientSize = new System.Drawing.Size(767, 598);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.TabCrontrol);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.8.0";
+            this.Text = "SYD_Calculator V1.8.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -7409,6 +7413,7 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.TabCrontrol.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -8069,6 +8074,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 
