@@ -196,12 +196,6 @@
             this.button21 = new System.Windows.Forms.Button();
             this.textBox_CRCInput = new System.Windows.Forms.TextBox();
             this.textBox_init = new System.Windows.Forms.TextBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.button43 = new System.Windows.Forms.Button();
-            this.button35 = new System.Windows.Forms.Button();
-            this.button37 = new System.Windows.Forms.Button();
-            this.button36 = new System.Windows.Forms.Button();
-            this.button33 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -216,6 +210,7 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.textBox78 = new System.Windows.Forms.TextBox();
             this.textBox81 = new System.Windows.Forms.TextBox();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.textBox70 = new System.Windows.Forms.TextBox();
@@ -225,7 +220,6 @@
             this.button27 = new System.Windows.Forms.Button();
             this.textBox74 = new System.Windows.Forms.TextBox();
             this.label77 = new System.Windows.Forms.Label();
-            this.textBox78 = new System.Windows.Forms.TextBox();
             this.label73 = new System.Windows.Forms.Label();
             this.button28 = new System.Windows.Forms.Button();
             this.textBox80 = new System.Windows.Forms.TextBox();
@@ -307,6 +301,12 @@
             this.label36 = new System.Windows.Forms.Label();
             this.BIT_MARK6 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK5 = new System.Windows.Forms.CheckBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button43 = new System.Windows.Forms.Button();
+            this.button35 = new System.Windows.Forms.Button();
+            this.button37 = new System.Windows.Forms.Button();
+            this.button36 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.textBox79 = new System.Windows.Forms.TextBox();
@@ -381,8 +381,12 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.timestamp_Difference_hex = new System.Windows.Forms.CheckBox();
             this.timestamp_Difference_select = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.timestamp_Difference_hex = new System.Windows.Forms.CheckBox();
             this.label83 = new System.Windows.Forms.Label();
             this.textBox40 = new System.Windows.Forms.TextBox();
             this.textBox31 = new System.Windows.Forms.TextBox();
@@ -397,6 +401,9 @@
             this.textBox37 = new System.Windows.Forms.TextBox();
             this.timestamp_Difference_cal = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.textBox60 = new System.Windows.Forms.TextBox();
             this.textBox57 = new System.Windows.Forms.TextBox();
             this.textBox56 = new System.Windows.Forms.TextBox();
@@ -420,6 +427,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.Calendar_Time_Difference_Cal = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.label52 = new System.Windows.Forms.Label();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.button19 = new System.Windows.Forms.Button();
             this.textBox_combin_section6 = new System.Windows.Forms.TextBox();
@@ -441,13 +449,13 @@
             this.button_sectionintput2 = new System.Windows.Forms.Button();
             this.button_sectionintput4 = new System.Windows.Forms.Button();
             this.button_sectionintput3 = new System.Windows.Forms.Button();
-            this.label_nowtime1 = new System.Windows.Forms.Label();
             this.button_combine = new System.Windows.Forms.Button();
-            this.label_nowtime2 = new System.Windows.Forms.Label();
-            this.label_nowtime4 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.label_nowtime3 = new System.Windows.Forms.Label();
-            this.label_nowtime0 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.label128 = new System.Windows.Forms.Label();
             this.label130 = new System.Windows.Forms.Label();
@@ -474,10 +482,11 @@
             this.label89 = new System.Windows.Forms.Label();
             this.label127 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.destination_file_button_open_dir = new System.Windows.Forms.Button();
             this.destination_file_button_copy_filename = new System.Windows.Forms.Button();
-            this.checkBox_delete_prefile = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.source_copyfile_suffix_textBox_rename = new System.Windows.Forms.ComboBox();
             this.comboBox_timetype_rename = new System.Windows.Forms.ComboBox();
@@ -492,8 +501,10 @@
             this.label80 = new System.Windows.Forms.Label();
             this.source_copyfile_button_rename = new System.Windows.Forms.Button();
             this.label82 = new System.Windows.Forms.Label();
+            this.checkBox_delete_prefile = new System.Windows.Forms.CheckBox();
             this.checkBox_delete_srcfile = new System.Windows.Forms.CheckBox();
             this.checkBox_systemtime_rename = new System.Windows.Forms.CheckBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.source_copyfile_textBox_sync_crc32 = new System.Windows.Forms.TextBox();
             this.button38 = new System.Windows.Forms.Button();
@@ -671,13 +682,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label18 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -695,7 +699,6 @@
             this.LED_Display.SuspendLayout();
             this.groupBox24.SuspendLayout();
             this.groupBox15.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox19.SuspendLayout();
@@ -703,6 +706,7 @@
             this.groupBox17.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox16.SuspendLayout();
@@ -2518,73 +2522,6 @@
             this.textBox_init.TabIndex = 43;
             this.textBox_init.Text = "0x555555";
             // 
-            // groupBox10
-            // 
-            this.groupBox10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox10.Controls.Add(this.button43);
-            this.groupBox10.Controls.Add(this.button35);
-            this.groupBox10.Controls.Add(this.button37);
-            this.groupBox10.Controls.Add(this.button36);
-            this.groupBox10.Controls.Add(this.button33);
-            this.groupBox10.Location = new System.Drawing.Point(586, 3);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(160, 176);
-            this.groupBox10.TabIndex = 25;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "执行外部工具";
-            // 
-            // button43
-            // 
-            this.button43.Location = new System.Drawing.Point(2, 125);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(152, 22);
-            this.button43.TabIndex = 55;
-            this.button43.Text = "显示ASCII图片";
-            this.button43.UseVisualStyleBackColor = true;
-            this.button43.Click += new System.EventHandler(this.button43_Click);
-            // 
-            // button35
-            // 
-            this.button35.Location = new System.Drawing.Point(2, 98);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(152, 22);
-            this.button35.TabIndex = 52;
-            this.button35.Text = "执行GIF工具";
-            this.button35.UseVisualStyleBackColor = true;
-            this.button35.Click += new System.EventHandler(this.button35_Click);
-            // 
-            // button37
-            // 
-            this.button37.Font = new System.Drawing.Font("宋体", 9F);
-            this.button37.Location = new System.Drawing.Point(2, 47);
-            this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(152, 22);
-            this.button37.TabIndex = 54;
-            this.button37.Text = "执行重命名文件工具";
-            this.button37.UseVisualStyleBackColor = true;
-            this.button37.Click += new System.EventHandler(this.button37_Click);
-            // 
-            // button36
-            // 
-            this.button36.Font = new System.Drawing.Font("宋体", 9F);
-            this.button36.Location = new System.Drawing.Point(2, 20);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(152, 22);
-            this.button36.TabIndex = 53;
-            this.button36.Text = "执行音频分析工具";
-            this.button36.UseVisualStyleBackColor = true;
-            this.button36.Click += new System.EventHandler(this.button36_Click);
-            // 
-            // button33
-            // 
-            this.button33.Location = new System.Drawing.Point(2, 72);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(152, 22);
-            this.button33.TabIndex = 51;
-            this.button33.Text = "执行嘉威的工具";
-            this.button33.UseVisualStyleBackColor = true;
-            this.button33.Click += new System.EventHandler(this.button33_Click);
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.textBox18);
@@ -2730,6 +2667,16 @@
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "BLE transmission speed";
             // 
+            // textBox78
+            // 
+            this.textBox78.AllowDrop = true;
+            this.textBox78.Location = new System.Drawing.Point(73, 15);
+            this.textBox78.Name = "textBox78";
+            this.textBox78.Size = new System.Drawing.Size(33, 21);
+            this.textBox78.TabIndex = 23;
+            this.textBox78.Text = "1000";
+            this.textBox78.Leave += new System.EventHandler(this.textBoxTrim_Leave);
+            // 
             // textBox81
             // 
             this.textBox81.AllowDrop = true;
@@ -2814,16 +2761,6 @@
             this.label77.Size = new System.Drawing.Size(77, 12);
             this.label77.TabIndex = 26;
             this.label77.Text = "ElapsedTime:";
-            // 
-            // textBox78
-            // 
-            this.textBox78.AllowDrop = true;
-            this.textBox78.Location = new System.Drawing.Point(73, 15);
-            this.textBox78.Name = "textBox78";
-            this.textBox78.Size = new System.Drawing.Size(33, 21);
-            this.textBox78.TabIndex = 23;
-            this.textBox78.Text = "1000";
-            this.textBox78.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // label73
             // 
@@ -3794,6 +3731,73 @@
             this.BIT_MARK5.UseVisualStyleBackColor = false;
             this.BIT_MARK5.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
             // 
+            // groupBox10
+            // 
+            this.groupBox10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox10.Controls.Add(this.button43);
+            this.groupBox10.Controls.Add(this.button35);
+            this.groupBox10.Controls.Add(this.button37);
+            this.groupBox10.Controls.Add(this.button36);
+            this.groupBox10.Controls.Add(this.button33);
+            this.groupBox10.Location = new System.Drawing.Point(586, 3);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(160, 176);
+            this.groupBox10.TabIndex = 25;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "执行外部工具";
+            // 
+            // button43
+            // 
+            this.button43.Location = new System.Drawing.Point(2, 125);
+            this.button43.Name = "button43";
+            this.button43.Size = new System.Drawing.Size(152, 22);
+            this.button43.TabIndex = 55;
+            this.button43.Text = "显示ASCII图片";
+            this.button43.UseVisualStyleBackColor = true;
+            this.button43.Click += new System.EventHandler(this.button43_Click);
+            // 
+            // button35
+            // 
+            this.button35.Location = new System.Drawing.Point(2, 98);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(152, 22);
+            this.button35.TabIndex = 52;
+            this.button35.Text = "执行GIF工具";
+            this.button35.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
+            // 
+            // button37
+            // 
+            this.button37.Font = new System.Drawing.Font("宋体", 9F);
+            this.button37.Location = new System.Drawing.Point(2, 47);
+            this.button37.Name = "button37";
+            this.button37.Size = new System.Drawing.Size(152, 22);
+            this.button37.TabIndex = 54;
+            this.button37.Text = "执行重命名文件工具";
+            this.button37.UseVisualStyleBackColor = true;
+            this.button37.Click += new System.EventHandler(this.button37_Click);
+            // 
+            // button36
+            // 
+            this.button36.Font = new System.Drawing.Font("宋体", 9F);
+            this.button36.Location = new System.Drawing.Point(2, 20);
+            this.button36.Name = "button36";
+            this.button36.Size = new System.Drawing.Size(152, 22);
+            this.button36.TabIndex = 53;
+            this.button36.Text = "执行音频分析工具";
+            this.button36.UseVisualStyleBackColor = true;
+            this.button36.Click += new System.EventHandler(this.button36_Click);
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(2, 72);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(152, 22);
+            this.button33.TabIndex = 51;
+            this.button33.Text = "执行嘉威的工具";
+            this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox20);
@@ -4602,19 +4606,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Timestamp Difference(0x23120D08)";
             // 
-            // timestamp_Difference_hex
-            // 
-            this.timestamp_Difference_hex.AutoSize = true;
-            this.timestamp_Difference_hex.Checked = true;
-            this.timestamp_Difference_hex.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.timestamp_Difference_hex.Location = new System.Drawing.Point(361, 15);
-            this.timestamp_Difference_hex.Name = "timestamp_Difference_hex";
-            this.timestamp_Difference_hex.Size = new System.Drawing.Size(42, 16);
-            this.timestamp_Difference_hex.TabIndex = 69;
-            this.timestamp_Difference_hex.Text = "HEX";
-            this.timestamp_Difference_hex.UseVisualStyleBackColor = true;
-            this.timestamp_Difference_hex.CheckedChanged += new System.EventHandler(this.timestamp_Difference_hex_CheckedChanged);
-            // 
             // timestamp_Difference_select
             // 
             this.timestamp_Difference_select.FormattingEnabled = true;
@@ -4629,6 +4620,55 @@
             this.timestamp_Difference_select.Size = new System.Drawing.Size(318, 20);
             this.timestamp_Difference_select.TabIndex = 40;
             this.timestamp_Difference_select.SelectedIndexChanged += new System.EventHandler(this.timestamp_Difference_select_SelectedIndexChanged);
+            // 
+            // label23
+            // 
+            this.label23.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.label23.Location = new System.Drawing.Point(116, 40);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(13, 73);
+            this.label23.TabIndex = 73;
+            this.label23.Text = "Time";
+            // 
+            // label24
+            // 
+            this.label24.Font = new System.Drawing.Font("宋体", 10F);
+            this.label24.Location = new System.Drawing.Point(104, 31);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(13, 84);
+            this.label24.TabIndex = 72;
+            this.label24.Text = "Before";
+            // 
+            // label21
+            // 
+            this.label21.Font = new System.Drawing.Font("宋体", 10F);
+            this.label21.Location = new System.Drawing.Point(17, 41);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(13, 73);
+            this.label21.TabIndex = 71;
+            this.label21.Text = "Time";
+            // 
+            // label22
+            // 
+            this.label22.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.label22.Location = new System.Drawing.Point(5, 45);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(13, 59);
+            this.label22.TabIndex = 70;
+            this.label22.Text = "Now";
+            // 
+            // timestamp_Difference_hex
+            // 
+            this.timestamp_Difference_hex.AutoSize = true;
+            this.timestamp_Difference_hex.Checked = true;
+            this.timestamp_Difference_hex.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.timestamp_Difference_hex.Location = new System.Drawing.Point(361, 15);
+            this.timestamp_Difference_hex.Name = "timestamp_Difference_hex";
+            this.timestamp_Difference_hex.Size = new System.Drawing.Size(42, 16);
+            this.timestamp_Difference_hex.TabIndex = 69;
+            this.timestamp_Difference_hex.Text = "HEX";
+            this.timestamp_Difference_hex.UseVisualStyleBackColor = true;
+            this.timestamp_Difference_hex.CheckedChanged += new System.EventHandler(this.timestamp_Difference_hex_CheckedChanged);
             // 
             // label83
             // 
@@ -4786,6 +4826,33 @@
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Calendar Time Difference(18:05:55:386或22:52:27.252726或20220223 124748)";
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.label15.Location = new System.Drawing.Point(150, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(13, 73);
+            this.label15.TabIndex = 49;
+            this.label15.Text = "Time";
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("宋体", 10F);
+            this.label18.Location = new System.Drawing.Point(16, 27);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(13, 73);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "Time";
+            // 
+            // label19
+            // 
+            this.label19.Font = new System.Drawing.Font("宋体", 10F);
+            this.label19.Location = new System.Drawing.Point(138, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(13, 84);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "Before";
             // 
             // textBox60
             // 
@@ -4990,6 +5057,7 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.label52);
             this.tabPage9.Controls.Add(this.checkBox7);
             this.tabPage9.Controls.Add(this.button19);
             this.tabPage9.Controls.Add(this.textBox_combin_section6);
@@ -5011,19 +5079,28 @@
             this.tabPage9.Controls.Add(this.button_sectionintput2);
             this.tabPage9.Controls.Add(this.button_sectionintput4);
             this.tabPage9.Controls.Add(this.button_sectionintput3);
-            this.tabPage9.Controls.Add(this.label_nowtime1);
             this.tabPage9.Controls.Add(this.button_combine);
-            this.tabPage9.Controls.Add(this.label_nowtime2);
-            this.tabPage9.Controls.Add(this.label_nowtime4);
-            this.tabPage9.Controls.Add(this.label90);
-            this.tabPage9.Controls.Add(this.label_nowtime3);
-            this.tabPage9.Controls.Add(this.label_nowtime0);
+            this.tabPage9.Controls.Add(this.label27);
+            this.tabPage9.Controls.Add(this.label28);
+            this.tabPage9.Controls.Add(this.label33);
+            this.tabPage9.Controls.Add(this.label34);
+            this.tabPage9.Controls.Add(this.label50);
+            this.tabPage9.Controls.Add(this.label51);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Size = new System.Drawing.Size(756, 552);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "BIN_Combin";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // label52
+            // 
+            this.label52.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.label52.Location = new System.Drawing.Point(7, 41);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(17, 128);
+            this.label52.TabIndex = 75;
+            this.label52.Text = "Section";
             // 
             // checkBox7
             // 
@@ -5049,7 +5126,7 @@
             // 
             // textBox_combin_section6
             // 
-            this.textBox_combin_section6.Location = new System.Drawing.Point(64, 142);
+            this.textBox_combin_section6.Location = new System.Drawing.Point(39, 142);
             this.textBox_combin_section6.Name = "textBox_combin_section6";
             this.textBox_combin_section6.Size = new System.Drawing.Size(79, 21);
             this.textBox_combin_section6.TabIndex = 66;
@@ -5058,7 +5135,7 @@
             // 
             // textBox_combin_section1
             // 
-            this.textBox_combin_section1.Location = new System.Drawing.Point(64, 29);
+            this.textBox_combin_section1.Location = new System.Drawing.Point(39, 29);
             this.textBox_combin_section1.Name = "textBox_combin_section1";
             this.textBox_combin_section1.Size = new System.Drawing.Size(79, 21);
             this.textBox_combin_section1.TabIndex = 60;
@@ -5067,7 +5144,7 @@
             // 
             // textBox_combin_section5
             // 
-            this.textBox_combin_section5.Location = new System.Drawing.Point(64, 119);
+            this.textBox_combin_section5.Location = new System.Drawing.Point(39, 119);
             this.textBox_combin_section5.Name = "textBox_combin_section5";
             this.textBox_combin_section5.Size = new System.Drawing.Size(79, 21);
             this.textBox_combin_section5.TabIndex = 64;
@@ -5076,7 +5153,7 @@
             // 
             // textBox_combin_section4
             // 
-            this.textBox_combin_section4.Location = new System.Drawing.Point(64, 96);
+            this.textBox_combin_section4.Location = new System.Drawing.Point(39, 96);
             this.textBox_combin_section4.Name = "textBox_combin_section4";
             this.textBox_combin_section4.Size = new System.Drawing.Size(79, 21);
             this.textBox_combin_section4.TabIndex = 63;
@@ -5085,7 +5162,7 @@
             // 
             // textBox_combin_section3
             // 
-            this.textBox_combin_section3.Location = new System.Drawing.Point(64, 74);
+            this.textBox_combin_section3.Location = new System.Drawing.Point(39, 74);
             this.textBox_combin_section3.Name = "textBox_combin_section3";
             this.textBox_combin_section3.Size = new System.Drawing.Size(79, 21);
             this.textBox_combin_section3.TabIndex = 62;
@@ -5094,7 +5171,7 @@
             // 
             // textBox_combin_section2
             // 
-            this.textBox_combin_section2.Location = new System.Drawing.Point(64, 52);
+            this.textBox_combin_section2.Location = new System.Drawing.Point(39, 52);
             this.textBox_combin_section2.Name = "textBox_combin_section2";
             this.textBox_combin_section2.Size = new System.Drawing.Size(79, 21);
             this.textBox_combin_section2.TabIndex = 61;
@@ -5105,54 +5182,54 @@
             // 
             this.textBox_sectionintput6.AllowDrop = true;
             this.textBox_sectionintput6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox_sectionintput6.Location = new System.Drawing.Point(149, 143);
+            this.textBox_sectionintput6.Location = new System.Drawing.Point(119, 143);
             this.textBox_sectionintput6.Name = "textBox_sectionintput6";
-            this.textBox_sectionintput6.Size = new System.Drawing.Size(367, 20);
+            this.textBox_sectionintput6.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput6.TabIndex = 43;
             // 
             // textBox_sectionintput1
             // 
             this.textBox_sectionintput1.AllowDrop = true;
             this.textBox_sectionintput1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox_sectionintput1.Location = new System.Drawing.Point(149, 30);
+            this.textBox_sectionintput1.Location = new System.Drawing.Point(119, 30);
             this.textBox_sectionintput1.Name = "textBox_sectionintput1";
-            this.textBox_sectionintput1.Size = new System.Drawing.Size(367, 20);
+            this.textBox_sectionintput1.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput1.TabIndex = 27;
             // 
             // textBox_sectionintput5
             // 
             this.textBox_sectionintput5.AllowDrop = true;
             this.textBox_sectionintput5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox_sectionintput5.Location = new System.Drawing.Point(149, 121);
+            this.textBox_sectionintput5.Location = new System.Drawing.Point(119, 121);
             this.textBox_sectionintput5.Name = "textBox_sectionintput5";
-            this.textBox_sectionintput5.Size = new System.Drawing.Size(367, 20);
+            this.textBox_sectionintput5.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput5.TabIndex = 40;
             // 
             // textBox_sectionintput2
             // 
             this.textBox_sectionintput2.AllowDrop = true;
             this.textBox_sectionintput2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox_sectionintput2.Location = new System.Drawing.Point(149, 53);
+            this.textBox_sectionintput2.Location = new System.Drawing.Point(119, 53);
             this.textBox_sectionintput2.Name = "textBox_sectionintput2";
-            this.textBox_sectionintput2.Size = new System.Drawing.Size(367, 20);
+            this.textBox_sectionintput2.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput2.TabIndex = 31;
             // 
             // textBox_sectionintput4
             // 
             this.textBox_sectionintput4.AllowDrop = true;
             this.textBox_sectionintput4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox_sectionintput4.Location = new System.Drawing.Point(149, 98);
+            this.textBox_sectionintput4.Location = new System.Drawing.Point(119, 98);
             this.textBox_sectionintput4.Name = "textBox_sectionintput4";
-            this.textBox_sectionintput4.Size = new System.Drawing.Size(367, 20);
+            this.textBox_sectionintput4.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput4.TabIndex = 37;
             // 
             // textBox_sectionintput3
             // 
             this.textBox_sectionintput3.AllowDrop = true;
             this.textBox_sectionintput3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox_sectionintput3.Location = new System.Drawing.Point(149, 75);
+            this.textBox_sectionintput3.Location = new System.Drawing.Point(119, 75);
             this.textBox_sectionintput3.Name = "textBox_sectionintput3";
-            this.textBox_sectionintput3.Size = new System.Drawing.Size(367, 20);
+            this.textBox_sectionintput3.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput3.TabIndex = 34;
             // 
             // comboBox6
@@ -5237,16 +5314,6 @@
             this.button_sectionintput3.UseVisualStyleBackColor = true;
             this.button_sectionintput3.Click += new System.EventHandler(this.button_combinopen_Click);
             // 
-            // label_nowtime1
-            // 
-            this.label_nowtime1.AutoSize = true;
-            this.label_nowtime1.Font = new System.Drawing.Font("宋体", 9F);
-            this.label_nowtime1.Location = new System.Drawing.Point(5, 145);
-            this.label_nowtime1.Name = "label_nowtime1";
-            this.label_nowtime1.Size = new System.Drawing.Size(59, 12);
-            this.label_nowtime1.TabIndex = 44;
-            this.label_nowtime1.Text = "Section6:";
-            // 
             // button_combine
             // 
             this.button_combine.Location = new System.Drawing.Point(466, 5);
@@ -5257,55 +5324,60 @@
             this.button_combine.UseVisualStyleBackColor = true;
             this.button_combine.Click += new System.EventHandler(this.button_combine_Click);
             // 
-            // label_nowtime2
+            // label27
             // 
-            this.label_nowtime2.AutoSize = true;
-            this.label_nowtime2.Font = new System.Drawing.Font("宋体", 9F);
-            this.label_nowtime2.Location = new System.Drawing.Point(5, 123);
-            this.label_nowtime2.Name = "label_nowtime2";
-            this.label_nowtime2.Size = new System.Drawing.Size(59, 12);
-            this.label_nowtime2.TabIndex = 41;
-            this.label_nowtime2.Text = "Section5:";
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(24, 147);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(17, 12);
+            this.label27.TabIndex = 76;
+            this.label27.Text = "6:";
             // 
-            // label_nowtime4
+            // label28
             // 
-            this.label_nowtime4.AutoSize = true;
-            this.label_nowtime4.Font = new System.Drawing.Font("宋体", 9F);
-            this.label_nowtime4.Location = new System.Drawing.Point(5, 35);
-            this.label_nowtime4.Name = "label_nowtime4";
-            this.label_nowtime4.Size = new System.Drawing.Size(59, 12);
-            this.label_nowtime4.TabIndex = 28;
-            this.label_nowtime4.Text = "Section1:";
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(24, 123);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(17, 12);
+            this.label28.TabIndex = 73;
+            this.label28.Text = "5:";
             // 
-            // label90
+            // label33
             // 
-            this.label90.AutoSize = true;
-            this.label90.Font = new System.Drawing.Font("宋体", 9F);
-            this.label90.Location = new System.Drawing.Point(5, 101);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(59, 12);
-            this.label90.TabIndex = 38;
-            this.label90.Text = "Section4:";
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(24, 101);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(17, 12);
+            this.label33.TabIndex = 72;
+            this.label33.Text = "4:";
             // 
-            // label_nowtime3
+            // label34
             // 
-            this.label_nowtime3.AutoSize = true;
-            this.label_nowtime3.Font = new System.Drawing.Font("宋体", 9F);
-            this.label_nowtime3.Location = new System.Drawing.Point(5, 56);
-            this.label_nowtime3.Name = "label_nowtime3";
-            this.label_nowtime3.Size = new System.Drawing.Size(59, 12);
-            this.label_nowtime3.TabIndex = 32;
-            this.label_nowtime3.Text = "Section2:";
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(24, 79);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(17, 12);
+            this.label34.TabIndex = 71;
+            this.label34.Text = "3:";
             // 
-            // label_nowtime0
+            // label50
             // 
-            this.label_nowtime0.AutoSize = true;
-            this.label_nowtime0.Font = new System.Drawing.Font("宋体", 9F);
-            this.label_nowtime0.Location = new System.Drawing.Point(5, 78);
-            this.label_nowtime0.Name = "label_nowtime0";
-            this.label_nowtime0.Size = new System.Drawing.Size(59, 12);
-            this.label_nowtime0.TabIndex = 35;
-            this.label_nowtime0.Text = "Section3:";
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(24, 56);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(17, 12);
+            this.label50.TabIndex = 70;
+            this.label50.Text = "2:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("宋体", 9F);
+            this.label51.Location = new System.Drawing.Point(24, 34);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(17, 12);
+            this.label51.TabIndex = 69;
+            this.label51.Text = "1:";
             // 
             // tabPage8
             // 
@@ -5334,6 +5406,8 @@
             this.tabPage8.Controls.Add(this.label89);
             this.tabPage8.Controls.Add(this.label127);
             this.tabPage8.Controls.Add(this.label129);
+            this.tabPage8.Controls.Add(this.label26);
+            this.tabPage8.Controls.Add(this.label25);
             this.tabPage8.Font = new System.Drawing.Font("宋体", 8F);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
@@ -5392,7 +5466,7 @@
             // textBox_section1
             // 
             this.textBox_section1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_section1.Location = new System.Drawing.Point(61, 25);
+            this.textBox_section1.Location = new System.Drawing.Point(30, 25);
             this.textBox_section1.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_section1.Name = "textBox_section1";
             this.textBox_section1.Size = new System.Drawing.Size(79, 20);
@@ -5404,60 +5478,60 @@
             // 
             this.textBox_sectionout6.AllowDrop = true;
             this.textBox_sectionout6.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_sectionout6.Location = new System.Drawing.Point(4, 131);
+            this.textBox_sectionout6.Location = new System.Drawing.Point(30, 131);
             this.textBox_sectionout6.Name = "textBox_sectionout6";
-            this.textBox_sectionout6.Size = new System.Drawing.Size(367, 20);
+            this.textBox_sectionout6.Size = new System.Drawing.Size(341, 20);
             this.textBox_sectionout6.TabIndex = 58;
             // 
             // textBox_sectionout5
             // 
             this.textBox_sectionout5.AllowDrop = true;
             this.textBox_sectionout5.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_sectionout5.Location = new System.Drawing.Point(146, 109);
+            this.textBox_sectionout5.Location = new System.Drawing.Point(112, 109);
             this.textBox_sectionout5.Name = "textBox_sectionout5";
-            this.textBox_sectionout5.Size = new System.Drawing.Size(444, 20);
+            this.textBox_sectionout5.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout5.TabIndex = 57;
             // 
             // textBox_sectionout4
             // 
             this.textBox_sectionout4.AllowDrop = true;
             this.textBox_sectionout4.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_sectionout4.Location = new System.Drawing.Point(146, 88);
+            this.textBox_sectionout4.Location = new System.Drawing.Point(112, 88);
             this.textBox_sectionout4.Name = "textBox_sectionout4";
-            this.textBox_sectionout4.Size = new System.Drawing.Size(444, 20);
+            this.textBox_sectionout4.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout4.TabIndex = 56;
             // 
             // textBox_sectionout3
             // 
             this.textBox_sectionout3.AllowDrop = true;
             this.textBox_sectionout3.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_sectionout3.Location = new System.Drawing.Point(146, 67);
+            this.textBox_sectionout3.Location = new System.Drawing.Point(112, 67);
             this.textBox_sectionout3.Name = "textBox_sectionout3";
-            this.textBox_sectionout3.Size = new System.Drawing.Size(444, 20);
+            this.textBox_sectionout3.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout3.TabIndex = 55;
             // 
             // textBox_sectionout2
             // 
             this.textBox_sectionout2.AllowDrop = true;
             this.textBox_sectionout2.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_sectionout2.Location = new System.Drawing.Point(146, 46);
+            this.textBox_sectionout2.Location = new System.Drawing.Point(112, 46);
             this.textBox_sectionout2.Name = "textBox_sectionout2";
-            this.textBox_sectionout2.Size = new System.Drawing.Size(444, 20);
+            this.textBox_sectionout2.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout2.TabIndex = 54;
             // 
             // textBox_sectionout1
             // 
             this.textBox_sectionout1.AllowDrop = true;
             this.textBox_sectionout1.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_sectionout1.Location = new System.Drawing.Point(146, 25);
+            this.textBox_sectionout1.Location = new System.Drawing.Point(112, 25);
             this.textBox_sectionout1.Name = "textBox_sectionout1";
-            this.textBox_sectionout1.Size = new System.Drawing.Size(444, 20);
+            this.textBox_sectionout1.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout1.TabIndex = 53;
             // 
             // textBox_section5
             // 
             this.textBox_section5.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_section5.Location = new System.Drawing.Point(61, 110);
+            this.textBox_section5.Location = new System.Drawing.Point(30, 110);
             this.textBox_section5.Name = "textBox_section5";
             this.textBox_section5.Size = new System.Drawing.Size(79, 20);
             this.textBox_section5.TabIndex = 51;
@@ -5467,7 +5541,7 @@
             // textBox_section4
             // 
             this.textBox_section4.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_section4.Location = new System.Drawing.Point(61, 88);
+            this.textBox_section4.Location = new System.Drawing.Point(30, 88);
             this.textBox_section4.Name = "textBox_section4";
             this.textBox_section4.Size = new System.Drawing.Size(79, 20);
             this.textBox_section4.TabIndex = 49;
@@ -5477,7 +5551,7 @@
             // textBox_section3
             // 
             this.textBox_section3.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_section3.Location = new System.Drawing.Point(61, 67);
+            this.textBox_section3.Location = new System.Drawing.Point(30, 67);
             this.textBox_section3.Name = "textBox_section3";
             this.textBox_section3.Size = new System.Drawing.Size(79, 20);
             this.textBox_section3.TabIndex = 47;
@@ -5487,7 +5561,7 @@
             // textBox_section2
             // 
             this.textBox_section2.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_section2.Location = new System.Drawing.Point(61, 46);
+            this.textBox_section2.Location = new System.Drawing.Point(30, 46);
             this.textBox_section2.Name = "textBox_section2";
             this.textBox_section2.Size = new System.Drawing.Size(79, 20);
             this.textBox_section2.TabIndex = 45;
@@ -5522,48 +5596,48 @@
             // label85
             // 
             this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(4, 114);
+            this.label85.Location = new System.Drawing.Point(17, 114);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(59, 11);
+            this.label85.Size = new System.Drawing.Size(17, 11);
             this.label85.TabIndex = 50;
-            this.label85.Text = "Section5:";
+            this.label85.Text = "5:";
             // 
             // label86
             // 
             this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(4, 93);
+            this.label86.Location = new System.Drawing.Point(17, 93);
             this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(59, 11);
+            this.label86.Size = new System.Drawing.Size(17, 11);
             this.label86.TabIndex = 48;
-            this.label86.Text = "Section4:";
+            this.label86.Text = "4:";
             // 
             // label87
             // 
             this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(4, 71);
+            this.label87.Location = new System.Drawing.Point(17, 71);
             this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(59, 11);
+            this.label87.Size = new System.Drawing.Size(17, 11);
             this.label87.TabIndex = 46;
-            this.label87.Text = "Section3:";
+            this.label87.Text = "3:";
             // 
             // label88
             // 
             this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(4, 49);
+            this.label88.Location = new System.Drawing.Point(17, 49);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(59, 11);
+            this.label88.Size = new System.Drawing.Size(17, 11);
             this.label88.TabIndex = 44;
-            this.label88.Text = "Section2:";
+            this.label88.Text = "2:";
             // 
             // label89
             // 
             this.label89.AutoSize = true;
             this.label89.Font = new System.Drawing.Font("宋体", 9F);
-            this.label89.Location = new System.Drawing.Point(4, 28);
+            this.label89.Location = new System.Drawing.Point(17, 28);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(59, 12);
+            this.label89.Size = new System.Drawing.Size(17, 12);
             this.label89.TabIndex = 42;
-            this.label89.Text = "Section1:";
+            this.label89.Text = "1:";
             // 
             // label127
             // 
@@ -5584,11 +5658,28 @@
             this.label129.TabIndex = 63;
             this.label129.Text = "注意:如果选择Addr模式,上面Section1-5输";
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(16, 136);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(22, 11);
+            this.label26.TabIndex = 67;
+            this.label26.Text = "余:";
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.label25.Location = new System.Drawing.Point(4, 32);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(17, 120);
+            this.label25.TabIndex = 66;
+            this.label25.Text = "Section";
+            // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.destination_file_button_open_dir);
             this.tabPage7.Controls.Add(this.destination_file_button_copy_filename);
-            this.tabPage7.Controls.Add(this.checkBox_delete_prefile);
             this.tabPage7.Controls.Add(this.checkBox10);
             this.tabPage7.Controls.Add(this.source_copyfile_suffix_textBox_rename);
             this.tabPage7.Controls.Add(this.comboBox_timetype_rename);
@@ -5603,8 +5694,10 @@
             this.tabPage7.Controls.Add(this.label80);
             this.tabPage7.Controls.Add(this.source_copyfile_button_rename);
             this.tabPage7.Controls.Add(this.label82);
+            this.tabPage7.Controls.Add(this.checkBox_delete_prefile);
             this.tabPage7.Controls.Add(this.checkBox_delete_srcfile);
             this.tabPage7.Controls.Add(this.checkBox_systemtime_rename);
+            this.tabPage7.Controls.Add(this.groupBox7);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(756, 552);
@@ -5614,9 +5707,9 @@
             // 
             // destination_file_button_open_dir
             // 
-            this.destination_file_button_open_dir.Location = new System.Drawing.Point(528, 86);
+            this.destination_file_button_open_dir.Location = new System.Drawing.Point(528, 80);
             this.destination_file_button_open_dir.Name = "destination_file_button_open_dir";
-            this.destination_file_button_open_dir.Size = new System.Drawing.Size(61, 22);
+            this.destination_file_button_open_dir.Size = new System.Drawing.Size(59, 22);
             this.destination_file_button_open_dir.TabIndex = 66;
             this.destination_file_button_open_dir.Text = "打开目录";
             this.destination_file_button_open_dir.UseVisualStyleBackColor = true;
@@ -5624,7 +5717,7 @@
             // 
             // destination_file_button_copy_filename
             // 
-            this.destination_file_button_copy_filename.Location = new System.Drawing.Point(456, 86);
+            this.destination_file_button_copy_filename.Location = new System.Drawing.Point(456, 80);
             this.destination_file_button_copy_filename.Name = "destination_file_button_copy_filename";
             this.destination_file_button_copy_filename.Size = new System.Drawing.Size(73, 22);
             this.destination_file_button_copy_filename.TabIndex = 65;
@@ -5632,24 +5725,15 @@
             this.destination_file_button_copy_filename.UseVisualStyleBackColor = true;
             this.destination_file_button_copy_filename.Click += new System.EventHandler(this.destination_file_button_copy_filename_Click);
             // 
-            // checkBox_delete_prefile
-            // 
-            this.checkBox_delete_prefile.AutoSize = true;
-            this.checkBox_delete_prefile.Location = new System.Drawing.Point(454, 68);
-            this.checkBox_delete_prefile.Name = "checkBox_delete_prefile";
-            this.checkBox_delete_prefile.Size = new System.Drawing.Size(144, 16);
-            this.checkBox_delete_prefile.TabIndex = 64;
-            this.checkBox_delete_prefile.Text = "删除上一次生成的文件";
-            this.checkBox_delete_prefile.UseVisualStyleBackColor = true;
-            // 
             // checkBox10
             // 
-            this.checkBox10.Font = new System.Drawing.Font("宋体", 8F);
-            this.checkBox10.Location = new System.Drawing.Point(261, 47);
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Font = new System.Drawing.Font("宋体", 8F, System.Drawing.FontStyle.Bold);
+            this.checkBox10.Location = new System.Drawing.Point(465, 50);
             this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(123, 20);
+            this.checkBox10.Size = new System.Drawing.Size(123, 15);
             this.checkBox10.TabIndex = 55;
-            this.checkBox10.Text = "设置名字到同步拷贝";
+            this.checkBox10.Text = "同步到Sync copy";
             this.checkBox10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox10.UseVisualStyleBackColor = true;
             // 
@@ -5668,7 +5752,7 @@
             "yyyy-MM-dd HHmmss",
             "yyyyMMdd",
             "yyyyMMdd HHmmss"});
-            this.comboBox_timetype_rename.Location = new System.Drawing.Point(66, 66);
+            this.comboBox_timetype_rename.Location = new System.Drawing.Point(69, 45);
             this.comboBox_timetype_rename.Name = "comboBox_timetype_rename";
             this.comboBox_timetype_rename.Size = new System.Drawing.Size(150, 20);
             this.comboBox_timetype_rename.TabIndex = 43;
@@ -5676,9 +5760,9 @@
             // label99
             // 
             this.label99.Font = new System.Drawing.Font("宋体", 10F);
-            this.label99.Location = new System.Drawing.Point(1, 68);
+            this.label99.Location = new System.Drawing.Point(4, 48);
             this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(101, 19);
+            this.label99.Size = new System.Drawing.Size(71, 19);
             this.label99.TabIndex = 61;
             this.label99.Text = "时间格式:";
             // 
@@ -5690,15 +5774,15 @@
             "根据前尾缀修改文件名,不追加时间",
             "删除原文件时间尾缀,忽略前尾缀设置",
             "更新原文件时间尾缀,忽略前尾缀设置"});
-            this.comboBox7.Location = new System.Drawing.Point(44, 45);
+            this.comboBox7.Location = new System.Drawing.Point(256, 45);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(214, 20);
+            this.comboBox7.Size = new System.Drawing.Size(207, 20);
             this.comboBox7.TabIndex = 60;
             // 
             // label79
             // 
             this.label79.Font = new System.Drawing.Font("宋体", 10F);
-            this.label79.Location = new System.Drawing.Point(2, 47);
+            this.label79.Location = new System.Drawing.Point(218, 47);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(43, 19);
             this.label79.TabIndex = 59;
@@ -5708,7 +5792,7 @@
             // 
             this.source_copyfile_prefix_textBox_rename.AllowDrop = true;
             this.source_copyfile_prefix_textBox_rename.Font = new System.Drawing.Font("宋体", 8F);
-            this.source_copyfile_prefix_textBox_rename.Location = new System.Drawing.Point(80, 25);
+            this.source_copyfile_prefix_textBox_rename.Location = new System.Drawing.Point(80, 24);
             this.source_copyfile_prefix_textBox_rename.Name = "source_copyfile_prefix_textBox_rename";
             this.source_copyfile_prefix_textBox_rename.Size = new System.Drawing.Size(190, 20);
             this.source_copyfile_prefix_textBox_rename.TabIndex = 37;
@@ -5727,7 +5811,7 @@
             // destination_file_textBox_rename
             // 
             this.destination_file_textBox_rename.AllowDrop = true;
-            this.destination_file_textBox_rename.Location = new System.Drawing.Point(0, 87);
+            this.destination_file_textBox_rename.Location = new System.Drawing.Point(0, 81);
             this.destination_file_textBox_rename.Name = "destination_file_textBox_rename";
             this.destination_file_textBox_rename.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.destination_file_textBox_rename.Size = new System.Drawing.Size(395, 21);
@@ -5737,7 +5821,7 @@
             // 
             this.button_copy_sourcefile4.Location = new System.Drawing.Point(540, 23);
             this.button_copy_sourcefile4.Name = "button_copy_sourcefile4";
-            this.button_copy_sourcefile4.Size = new System.Drawing.Size(45, 22);
+            this.button_copy_sourcefile4.Size = new System.Drawing.Size(48, 22);
             this.button_copy_sourcefile4.TabIndex = 42;
             this.button_copy_sourcefile4.Text = "清空";
             this.button_copy_sourcefile4.UseVisualStyleBackColor = true;
@@ -5745,7 +5829,7 @@
             // 
             // destination_file_button_generate_rename
             // 
-            this.destination_file_button_generate_rename.Location = new System.Drawing.Point(395, 86);
+            this.destination_file_button_generate_rename.Location = new System.Drawing.Point(395, 80);
             this.destination_file_button_generate_rename.Name = "destination_file_button_generate_rename";
             this.destination_file_button_generate_rename.Size = new System.Drawing.Size(62, 22);
             this.destination_file_button_generate_rename.TabIndex = 41;
@@ -5781,10 +5865,20 @@
             this.label82.TabIndex = 38;
             this.label82.Text = "文件名前缀:";
             // 
+            // checkBox_delete_prefile
+            // 
+            this.checkBox_delete_prefile.AutoSize = true;
+            this.checkBox_delete_prefile.Location = new System.Drawing.Point(243, 66);
+            this.checkBox_delete_prefile.Name = "checkBox_delete_prefile";
+            this.checkBox_delete_prefile.Size = new System.Drawing.Size(144, 16);
+            this.checkBox_delete_prefile.TabIndex = 64;
+            this.checkBox_delete_prefile.Text = "删除上一次生成的文件";
+            this.checkBox_delete_prefile.UseVisualStyleBackColor = true;
+            // 
             // checkBox_delete_srcfile
             // 
             this.checkBox_delete_srcfile.AutoSize = true;
-            this.checkBox_delete_srcfile.Location = new System.Drawing.Point(375, 68);
+            this.checkBox_delete_srcfile.Location = new System.Drawing.Point(164, 66);
             this.checkBox_delete_srcfile.Name = "checkBox_delete_srcfile";
             this.checkBox_delete_srcfile.Size = new System.Drawing.Size(84, 16);
             this.checkBox_delete_srcfile.TabIndex = 62;
@@ -5794,12 +5888,21 @@
             // checkBox_systemtime_rename
             // 
             this.checkBox_systemtime_rename.AutoSize = true;
-            this.checkBox_systemtime_rename.Location = new System.Drawing.Point(218, 68);
+            this.checkBox_systemtime_rename.Location = new System.Drawing.Point(7, 66);
             this.checkBox_systemtime_rename.Name = "checkBox_systemtime_rename";
             this.checkBox_systemtime_rename.Size = new System.Drawing.Size(168, 16);
             this.checkBox_systemtime_rename.TabIndex = 45;
             this.checkBox_systemtime_rename.Text = "文件时间（默认系统时间）";
             this.checkBox_systemtime_rename.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Location = new System.Drawing.Point(1, 101);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(587, 67);
+            this.groupBox7.TabIndex = 67;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Cos";
             // 
             // tabPage6
             // 
@@ -7250,69 +7353,6 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
-            // label18
-            // 
-            this.label18.Font = new System.Drawing.Font("宋体", 10F);
-            this.label18.Location = new System.Drawing.Point(16, 27);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(13, 73);
-            this.label18.TabIndex = 47;
-            this.label18.Text = "Time";
-            // 
-            // label15
-            // 
-            this.label15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(150, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 73);
-            this.label15.TabIndex = 49;
-            this.label15.Text = "Time";
-            // 
-            // label19
-            // 
-            this.label19.Font = new System.Drawing.Font("宋体", 10F);
-            this.label19.Location = new System.Drawing.Point(138, 16);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 84);
-            this.label19.TabIndex = 48;
-            this.label19.Text = "Before";
-            // 
-            // label21
-            // 
-            this.label21.Font = new System.Drawing.Font("宋体", 10F);
-            this.label21.Location = new System.Drawing.Point(17, 41);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(13, 73);
-            this.label21.TabIndex = 71;
-            this.label21.Text = "Time";
-            // 
-            // label22
-            // 
-            this.label22.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label22.Location = new System.Drawing.Point(5, 45);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(13, 59);
-            this.label22.TabIndex = 70;
-            this.label22.Text = "Now";
-            // 
-            // label23
-            // 
-            this.label23.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label23.Location = new System.Drawing.Point(116, 40);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(13, 73);
-            this.label23.TabIndex = 73;
-            this.label23.Text = "Time";
-            // 
-            // label24
-            // 
-            this.label24.Font = new System.Drawing.Font("宋体", 10F);
-            this.label24.Location = new System.Drawing.Point(104, 31);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(13, 84);
-            this.label24.TabIndex = 72;
-            this.label24.Text = "Before";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -7323,7 +7363,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.7.9";
+            this.Text = "SYD_Calculator V1.8.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -7356,7 +7396,6 @@
             this.groupBox24.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox18.ResumeLayout(false);
@@ -7371,6 +7410,7 @@
             this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox20.ResumeLayout(false);
             this.groupBox20.PerformLayout();
@@ -7670,13 +7710,7 @@
         private System.Windows.Forms.Button button_sectionintput2;
         private System.Windows.Forms.Button button_sectionintput4;
         private System.Windows.Forms.Button button_sectionintput3;
-        private System.Windows.Forms.Label label_nowtime1;
         private System.Windows.Forms.Button button_combine;
-        private System.Windows.Forms.Label label_nowtime2;
-        private System.Windows.Forms.Label label_nowtime4;
-        private System.Windows.Forms.Label label90;
-        private System.Windows.Forms.Label label_nowtime3;
-        private System.Windows.Forms.Label label_nowtime0;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Button button_copy_sourcefile5;
         private System.Windows.Forms.Button button_splitbinfile;
@@ -8057,6 +8091,16 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }
 
