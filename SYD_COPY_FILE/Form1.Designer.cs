@@ -505,9 +505,9 @@
             this.checkBox_delete_srcfile = new System.Windows.Forms.CheckBox();
             this.checkBox_systemtime_rename = new System.Windows.Forms.CheckBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.source_copyfile_textBox_sync_crc32 = new System.Windows.Forms.TextBox();
-            this.button38 = new System.Windows.Forms.Button();
             this.label_copy_time_sync = new System.Windows.Forms.Label();
             this.textBox_copy_destinationfileend_sync = new System.Windows.Forms.TextBox();
             this.source_copyfile_textBox_sync_checksum = new System.Windows.Forms.TextBox();
@@ -517,14 +517,12 @@
             this.destination_file_textBox_two_sync = new System.Windows.Forms.TextBox();
             this.button26 = new System.Windows.Forms.Button();
             this.destination_file_button_sync = new System.Windows.Forms.Button();
-            this.comboBox_Common_path = new System.Windows.Forms.ComboBox();
             this.label55 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.checkBox_synccopy_sync = new System.Windows.Forms.CheckBox();
             this.source_copyfile_button_sync = new System.Windows.Forms.Button();
             this.destination_file_button_copy_sourcefile_sync = new System.Windows.Forms.Button();
             this.button_copy_destinationfileend_sync = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.destination_file_textBox_two_sync_checkBox = new System.Windows.Forms.CheckBox();
             this.button_copy_sourcefile_all_sync = new System.Windows.Forms.Button();
             this.button_copy_destinationfile_sync = new System.Windows.Forms.Button();
@@ -719,6 +717,7 @@
             this.tabPage9.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.TabCrontrol.SuspendLayout();
@@ -5709,7 +5708,7 @@
             // 
             this.destination_file_button_open_dir.Location = new System.Drawing.Point(528, 80);
             this.destination_file_button_open_dir.Name = "destination_file_button_open_dir";
-            this.destination_file_button_open_dir.Size = new System.Drawing.Size(59, 22);
+            this.destination_file_button_open_dir.Size = new System.Drawing.Size(66, 22);
             this.destination_file_button_open_dir.TabIndex = 66;
             this.destination_file_button_open_dir.Text = "打开目录";
             this.destination_file_button_open_dir.UseVisualStyleBackColor = true;
@@ -5897,17 +5896,26 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.button8);
             this.groupBox7.Location = new System.Drawing.Point(1, 101);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(587, 67);
+            this.groupBox7.Size = new System.Drawing.Size(593, 67);
             this.groupBox7.TabIndex = 67;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Cos";
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(514, 9);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(79, 22);
+            this.button8.TabIndex = 68;
+            this.button8.Text = "获取储存桶";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.source_copyfile_textBox_sync_crc32);
-            this.tabPage6.Controls.Add(this.button38);
             this.tabPage6.Controls.Add(this.label_copy_time_sync);
             this.tabPage6.Controls.Add(this.textBox_copy_destinationfileend_sync);
             this.tabPage6.Controls.Add(this.source_copyfile_textBox_sync_checksum);
@@ -5917,14 +5925,12 @@
             this.tabPage6.Controls.Add(this.destination_file_textBox_two_sync);
             this.tabPage6.Controls.Add(this.button26);
             this.tabPage6.Controls.Add(this.destination_file_button_sync);
-            this.tabPage6.Controls.Add(this.comboBox_Common_path);
             this.tabPage6.Controls.Add(this.label55);
             this.tabPage6.Controls.Add(this.label54);
             this.tabPage6.Controls.Add(this.checkBox_synccopy_sync);
             this.tabPage6.Controls.Add(this.source_copyfile_button_sync);
             this.tabPage6.Controls.Add(this.destination_file_button_copy_sourcefile_sync);
             this.tabPage6.Controls.Add(this.button_copy_destinationfileend_sync);
-            this.tabPage6.Controls.Add(this.label5);
             this.tabPage6.Controls.Add(this.destination_file_textBox_two_sync_checkBox);
             this.tabPage6.Controls.Add(this.button_copy_sourcefile_all_sync);
             this.tabPage6.Controls.Add(this.button_copy_destinationfile_sync);
@@ -5944,16 +5950,6 @@
             this.source_copyfile_textBox_sync_crc32.Name = "source_copyfile_textBox_sync_crc32";
             this.source_copyfile_textBox_sync_crc32.Size = new System.Drawing.Size(76, 21);
             this.source_copyfile_textBox_sync_crc32.TabIndex = 54;
-            // 
-            // button38
-            // 
-            this.button38.Location = new System.Drawing.Point(339, 27);
-            this.button38.Name = "button38";
-            this.button38.Size = new System.Drawing.Size(62, 26);
-            this.button38.TabIndex = 52;
-            this.button38.Text = "执行切换";
-            this.button38.UseVisualStyleBackColor = true;
-            this.button38.Click += new System.EventHandler(this.button38_Click);
             // 
             // label_copy_time_sync
             // 
@@ -6045,24 +6041,6 @@
             this.destination_file_button_sync.UseVisualStyleBackColor = true;
             this.destination_file_button_sync.Click += new System.EventHandler(this.source_copyfile_button_Click);
             // 
-            // comboBox_Common_path
-            // 
-            this.comboBox_Common_path.FormattingEnabled = true;
-            this.comboBox_Common_path.Items.AddRange(new object[] {
-            "normal",
-            "F:\\SYD8801\\Company data\\SYDTEK Studio  release",
-            "D:\\keil_V5\\ARM\\Flash",
-            "F:\\SYD8801\\Company data\\SYDTEK Studio  Internal",
-            "F:\\SYD8801\\Company data\\SYDTEK Studio  factory",
-            "SYDTEK Studio  release and Internal and factory",
-            "ALL File move to target directory",
-            "Wechact new file(1)"});
-            this.comboBox_Common_path.Location = new System.Drawing.Point(61, 55);
-            this.comboBox_Common_path.Name = "comboBox_Common_path";
-            this.comboBox_Common_path.Size = new System.Drawing.Size(315, 20);
-            this.comboBox_Common_path.TabIndex = 40;
-            this.comboBox_Common_path.SelectedIndexChanged += new System.EventHandler(this.comboBox_Common_path_SelectedIndexChanged);
-            // 
             // label55
             // 
             this.label55.AutoSize = true;
@@ -6122,15 +6100,6 @@
             this.button_copy_destinationfileend_sync.Text = "destination file";
             this.button_copy_destinationfileend_sync.UseVisualStyleBackColor = true;
             this.button_copy_destinationfileend_sync.Click += new System.EventHandler(this.source_copyfile_button_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 58);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 12);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "常用路径:";
             // 
             // destination_file_textBox_two_sync_checkBox
             // 
@@ -7434,6 +7403,7 @@
             this.tabPage8.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -7754,14 +7724,12 @@
         private System.Windows.Forms.TextBox destination_file_textBox_two_sync;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button destination_file_button_sync;
-        private System.Windows.Forms.ComboBox comboBox_Common_path;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.CheckBox checkBox_synccopy_sync;
         private System.Windows.Forms.Button source_copyfile_button_sync;
         private System.Windows.Forms.Button destination_file_button_copy_sourcefile_sync;
         private System.Windows.Forms.Button button_copy_destinationfileend_sync;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button_copy_sourcefile_all_sync;
         private System.Windows.Forms.Button button_copy_destinationfile_sync;
         private System.Windows.Forms.Button button_copy_sourcefile_sync;
@@ -7789,7 +7757,6 @@
         private System.Windows.Forms.Button button37;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Button button38;
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.Label label112;
         private System.Windows.Forms.TextBox textBox75;
@@ -8101,6 +8068,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button button8;
     }
 }
 

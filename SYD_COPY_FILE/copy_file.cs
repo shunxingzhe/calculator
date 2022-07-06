@@ -68,8 +68,6 @@ namespace SYD_COPY_FILE
             if (Settings1.Default.suffix_textBox_rename_line10 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line10);
             this.source_copyfile_suffix_textBox_rename.Items.AddRange(suffix_textBox_rename_static);
 
-            comboBox_Common_path.SelectedIndex = 0;
-
             comboBox7.SelectedIndex = Settings1.Default.rename_mode_sel;
 
             update_StripStatusLabel();
@@ -551,33 +549,34 @@ namespace SYD_COPY_FILE
             if (source_copyfile_textBox_sync.TextLength != 0)
             {
                 string name = Path.GetFileNameWithoutExtension(source_copyfile_textBox_sync.Text);
-                if (comboBox_Common_path.SelectedIndex == 6)
+                if (destination_file_textBox_sync.TextLength != 0)
                 {
-                    if (destination_file_textBox_sync.TextLength != 0)
+                    if (File.Exists(@source_copyfile_textBox_sync.Text) == false)
                     {
-                        if ((Directory.Exists(source_copyfile_textBox_sync.Text)) && (Directory.Exists(destination_file_textBox_sync.Text)))
-                        {
-                            DeleteDir(destination_file_textBox_sync.Text);  //删除原来目标目录下文件
-                            Copy(destination_file_textBox_sync.Text, source_copyfile_textBox_sync.Text);   //拷贝目录下的所有文件
-                            DeleteDir(source_copyfile_textBox_sync.Text);  //删除原来源目录下文件
-                        }
-                        else
-                           MessageBox.Show("路径无效");
+                        MessageBox.Show("源文件不存在!");
+                        return;
                     }
-                    else
-                        MessageBox.Show("destination file inexistence");
-                }
-                else
-                {
-                    if (destination_file_textBox_sync.TextLength != 0)
+                    extension_src = Path.GetExtension(@source_copyfile_textBox_sync.Text);//扩展名 ".aspx"
+                    extension_des = Path.GetExtension(@destination_file_textBox_sync.Text);//扩展名 ".aspx"
+
+                    if (extension_src != extension_des)
                     {
-                        if (File.Exists(@source_copyfile_textBox_sync.Text) == false)
+                        if (ask_iscontinue() == false)
                         {
-                            MessageBox.Show("源文件不存在!");
                             return;
                         }
-                        extension_src = Path.GetExtension(@source_copyfile_textBox_sync.Text);//扩展名 ".aspx"
-                        extension_des = Path.GetExtension(@destination_file_textBox_sync.Text);//扩展名 ".aspx"
+                    }
+                    File.Copy(@source_copyfile_textBox_sync.Text, @destination_file_textBox_sync.Text, true);
+                }
+
+                else
+                    MessageBox.Show("destination file inexistence");
+
+                if (destination_file_textBox_two_sync_checkBox.Checked == true)
+                {
+                    if (destination_file_textBox_two_sync.TextLength != 0)
+                    {
+                        extension_des = Path.GetExtension(@destination_file_textBox_two_sync.Text);//扩展名 ".aspx"
 
                         if (extension_src != extension_des)
                         {
@@ -586,44 +585,16 @@ namespace SYD_COPY_FILE
                                 return;
                             }
                         }
-                        File.Copy(@source_copyfile_textBox_sync.Text, @destination_file_textBox_sync.Text, true);
+                        File.Copy(@source_copyfile_textBox_sync.Text, @destination_file_textBox_two_sync.Text, true);
                     }
-                        
-                    else
-                        MessageBox.Show("destination file inexistence");
-
-                    if (destination_file_textBox_two_sync_checkBox.Checked == true)
-                    {
-                        if (destination_file_textBox_two_sync.TextLength != 0)
-                        {
-                            extension_des = Path.GetExtension(@destination_file_textBox_two_sync.Text);//扩展名 ".aspx"
-
-                            if (extension_src != extension_des)
-                            {
-                                if (ask_iscontinue() == false)
-                                {
-                                    return;
-                                }
-                            }
-                            File.Copy(@source_copyfile_textBox_sync.Text, @destination_file_textBox_two_sync.Text, true);
-                        }
-                    }
-                    //else
-                    //    MessageBox.Show("destination file1 inexistence");
                 }
 
                 update_state(name, destination_file_textBox_sync.Text);
             }
             else
                 MessageBox.Show("source file inexistence");
-            if (comboBox_Common_path.SelectedIndex == 6)
-            {
-            }
-            else
-            {
-                if (sender != null)
-                    copy_sync(sender, e);
-            }
+            if (sender != null)
+                copy_sync(sender, e);
         }
 
         private void button_copy_destinationfile_Click(object sender, EventArgs e)
@@ -715,39 +686,11 @@ namespace SYD_COPY_FILE
 
         private void button_copy_sourcefile_all_Click_sync(object sender, EventArgs e)
         {
-            if (comboBox_Common_path.SelectedIndex == 5)
-            {
-                if (Directory.Exists(source_copyfile_textBox_sync.Text))
-                {
-                    if ((destination_file_textBox_sync.Text.Length != 0) || (destination_file_textBox_two_sync.Text.Length != 0) || (textBox_copy_destinationfileend_sync.Text.Length != 0))
-                    {
-                        if (destination_file_textBox_two_sync_checkBox.Checked)
-                        {
-                            string name = Path.GetFileNameWithoutExtension(@destination_file_textBox_sync.Text);
-                            File.Copy(@source_copyfile_textBox_sync.Text + "\\bin\\Debug\\SYDTEK_Studio.exe", @destination_file_textBox_two_sync.Text, true);
-                            File.Copy(@source_copyfile_textBox_sync.Text + "\\bin\\Factory\\SYDTEK_Studio.exe", @textBox_copy_destinationfileend_sync.Text, true);
-                            File.Copy(@source_copyfile_textBox_sync.Text + "\\bin\\Release\\SYDTEK_Studio.exe", @destination_file_textBox_sync.Text, true);
-                            update_state(name, destination_file_textBox_sync.Text);
-                        }
-                        else
-                        {
-                            MessageBox.Show("未选择拷贝副本，本次操作无效!");
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("输入路径不是有效目录!");
-                }
-            }
-            else
-            {
-                copy_button_Click_sync(sender, e);
-                button_copy_destinationfile_Click_sync(sender, e);
+            copy_button_Click_sync(sender, e);
+            button_copy_destinationfile_Click_sync(sender, e);
 
-                if (sender != null)
-                    copy_sync(sender, e);
-            }
+            if (sender != null)
+                copy_sync(sender, e);
         }
         private void update_StripStatusLabel()
         {
@@ -1522,36 +1465,10 @@ namespace SYD_COPY_FILE
             textBox_combin_section5.Text = "0x00000000";
             textBox_combin_section6.Text = "0x00000000";
         }
-
-        private void source_copyfile_textBox_sync_updatedir(string dir)
-        {
-            if (Directory.Exists(dir + "\\bin") == true)//如果有这个文件夹就提示
-            {
-                if ((File.Exists(dir + "\\bin\\Debug\\SYDTEK_Studio.exe")) || (File.Exists(dir + "\\bin\\Factory\\SYDTEK_Studio.exe")) || (File.Exists(dir + "\\bin\\Release\\SYDTEK_Studio.exe")))
-                {
-                    destination_file_textBox_sync.Text = comboBox_Common_path.Items[1] + "\\SYDTEK_Studio.exe";
-                    destination_file_textBox_two_sync.Text = comboBox_Common_path.Items[3] + "\\SYDTEK_Studio.exe";
-                    textBox_copy_destinationfileend_sync.Text = comboBox_Common_path.Items[4] + "\\SYDTEK_Studio.exe";
-                }
-                else
-                {
-                    MessageBox.Show("该目录及其子目录不存在指定文件!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("该目录及其子目录不存在bin文件夹!");
-            }
-        }
-
         private void source_copyfile_textBox_sync_TextChanged(object sender, EventArgs e)
         {
             if (Directory.Exists(source_copyfile_textBox_sync.Text))
             {
-                if (comboBox_Common_path.SelectedIndex == 5)
-                {
-                    source_copyfile_textBox_sync_updatedir(source_copyfile_textBox_sync.Text);
-                }
             }
             else
             {
@@ -1564,8 +1481,6 @@ namespace SYD_COPY_FILE
                     Checksum += byteArray[i];
                 }
                 source_copyfile_textBox_sync_checksum.Text = "0x" + Checksum.ToString("X");
-                if ((destination_file_textBox_sync.Text.Length > 0) && (comboBox_Common_path.SelectedIndex != 0) && (comboBox_Common_path.SelectedIndex != 7))
-                    destination_file_textBox_sync.Text = comboBox_Common_path.Text + "\\" + System.IO.Path.GetFileName(source_copyfile_textBox_sync.Text); 
             }
         }
         private int filename_index_get(string filename, ref string outfilenames)
@@ -1588,60 +1503,6 @@ namespace SYD_COPY_FILE
             else
             {
                 return Convert.ToInt32(index, 16);
-            }
-        }
-        private void comboBox_Common_path_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((comboBox_Common_path.SelectedIndex != 0) &&(comboBox_Common_path.SelectedIndex != 6))
-            {
-                if (comboBox_Common_path.SelectedIndex == 5)
-                {
-                    if (Directory.Exists(source_copyfile_textBox_sync.Text))
-                    {
-                        source_copyfile_textBox_sync_updatedir(source_copyfile_textBox_sync.Text);
-                    }
-                    else
-                    {
-                        MessageBox.Show("输入路径不是有效目录!");
-                    }
-                }
-                else if (comboBox_Common_path.SelectedIndex == 7)
-                {
-                    int maxindex = -1;
-                    string filepath = source_copyfile_textBox_sync.Text;//等到的完整的文件名
-                    string[] filenames = Directory.GetFiles(Path.GetDirectoryName(source_copyfile_textBox_sync.Text), "*.*", SearchOption.AllDirectories);//获取目录文件名称集合
-                    string origine_filenames = "";
-                    string now_filenames = "";
-                    int index = filename_index_get(Path.GetFileNameWithoutExtension(source_copyfile_textBox_sync.Text), ref origine_filenames);
-                    foreach (string filename in filenames)
-                    {
-                        if (filename.Contains(origine_filenames)) //找到你要查找的文件  包含这个文件
-                        {
-                            index = filename_index_get(filename, ref now_filenames);
-                            if (index != -1)
-                            {
-                                if (maxindex < index)
-                                {
-                                    maxindex = index;
-                                    filepath = filename;
-                                }
-                            }
-                            //break;
-                        }
-                    }
-                    if (filepath == "")
-                    {
-                        MessageBox.Show("输入路径没有该类文件!");
-                    }
-                    if (maxindex != -1)
-                    {
-                        source_copyfile_textBox_sync.Text = filepath;
-                    }//destination_file_textBox_sync
-                }
-                else
-                {
-                    destination_file_textBox_sync.Text = comboBox_Common_path.Text + "\\" + System.IO.Path.GetFileName(source_copyfile_textBox_sync.Text);
-                }
             }
         }
 
@@ -1691,10 +1552,6 @@ namespace SYD_COPY_FILE
             //this.Hide();    //隐藏窗口
             //process1.WaitForExit();
             //this.Show();//显示当前窗口
-        }
-        private void button38_Click(object sender, EventArgs e)
-        {
-            comboBox_Common_path_SelectedIndexChanged(null, null);
         }
         private void button40_Click(object sender, EventArgs e)
         {
