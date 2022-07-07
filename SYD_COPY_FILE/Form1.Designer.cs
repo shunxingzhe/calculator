@@ -5914,11 +5914,13 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.textBox_copy_destinationfileend_sync);
             this.tabPage6.Controls.Add(this.panel2);
             this.tabPage6.Controls.Add(this.source_copyfile_textBox_sync_crc32);
             this.tabPage6.Controls.Add(this.source_copyfile_textBox_sync_checksum);
             this.tabPage6.Controls.Add(this.source_copyfile_textBox_sync_size);
             this.tabPage6.Controls.Add(this.source_copyfile_textBox_sync);
+            this.tabPage6.Controls.Add(this.button_copy_destinationfileend_sync);
             this.tabPage6.Controls.Add(this.destination_file_textBox_sync);
             this.tabPage6.Controls.Add(this.destination_file_textBox_two_sync);
             this.tabPage6.Controls.Add(this.button26);
@@ -5943,13 +5945,11 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel2.Controls.Add(this.textBox_copy_destinationfileend_sync);
             this.panel2.Controls.Add(this.button9);
             this.panel2.Controls.Add(this.destination_file_textBox_two_checkBox);
             this.panel2.Controls.Add(this.destination_file_button_copy_sourcefile);
             this.panel2.Controls.Add(this.button_copy_sourcefile_all);
             this.panel2.Controls.Add(this.textBox_copy_destinationfileend);
-            this.panel2.Controls.Add(this.button_copy_destinationfileend_sync);
             this.panel2.Controls.Add(this.button_copy_destinationfile);
             this.panel2.Controls.Add(this.source_copyfile_textBox);
             this.panel2.Controls.Add(this.destination_file_button);
@@ -5959,16 +5959,16 @@
             this.panel2.Controls.Add(this.label_copy_time);
             this.panel2.Controls.Add(this.button_copy_destinationfileend);
             this.panel2.Controls.Add(this.destination_file_textBox_two);
-            this.panel2.Location = new System.Drawing.Point(0, 91);
+            this.panel2.Location = new System.Drawing.Point(0, 120);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(594, 146);
+            this.panel2.Size = new System.Drawing.Size(594, 124);
             this.panel2.TabIndex = 56;
             // 
             // textBox_copy_destinationfileend_sync
             // 
             this.textBox_copy_destinationfileend_sync.AllowDrop = true;
-            this.textBox_copy_destinationfileend_sync.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox_copy_destinationfileend_sync.Location = new System.Drawing.Point(3, 3);
+            this.textBox_copy_destinationfileend_sync.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox_copy_destinationfileend_sync.Location = new System.Drawing.Point(0, 96);
             this.textBox_copy_destinationfileend_sync.Name = "textBox_copy_destinationfileend_sync";
             this.textBox_copy_destinationfileend_sync.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_copy_destinationfileend_sync.Size = new System.Drawing.Size(438, 21);
@@ -5978,7 +5978,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(405, 50);
+            this.button9.Location = new System.Drawing.Point(405, 26);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(62, 18);
             this.button9.TabIndex = 55;
@@ -5988,7 +5988,7 @@
             // 
             // destination_file_textBox_two_checkBox
             // 
-            this.destination_file_textBox_two_checkBox.Location = new System.Drawing.Point(315, 95);
+            this.destination_file_textBox_two_checkBox.Location = new System.Drawing.Point(315, 71);
             this.destination_file_textBox_two_checkBox.Name = "destination_file_textBox_two_checkBox";
             this.destination_file_textBox_two_checkBox.Size = new System.Drawing.Size(72, 23);
             this.destination_file_textBox_two_checkBox.TabIndex = 40;
@@ -5997,7 +5997,7 @@
             // 
             // destination_file_button_copy_sourcefile
             // 
-            this.destination_file_button_copy_sourcefile.Location = new System.Drawing.Point(380, 95);
+            this.destination_file_button_copy_sourcefile.Location = new System.Drawing.Point(380, 71);
             this.destination_file_button_copy_sourcefile.Name = "destination_file_button_copy_sourcefile";
             this.destination_file_button_copy_sourcefile.Size = new System.Drawing.Size(109, 25);
             this.destination_file_button_copy_sourcefile.TabIndex = 28;
@@ -6008,7 +6008,7 @@
             // button_copy_sourcefile_all
             // 
             this.button_copy_sourcefile_all.Image = global::SYD_COPY_FILE.Properties.Resources.arrows45X200;
-            this.button_copy_sourcefile_all.Location = new System.Drawing.Point(540, 47);
+            this.button_copy_sourcefile_all.Location = new System.Drawing.Point(540, 23);
             this.button_copy_sourcefile_all.Name = "button_copy_sourcefile_all";
             this.button_copy_sourcefile_all.Size = new System.Drawing.Size(48, 73);
             this.button_copy_sourcefile_all.TabIndex = 34;
@@ -6019,7 +6019,7 @@
             // 
             this.textBox_copy_destinationfileend.AllowDrop = true;
             this.textBox_copy_destinationfileend.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox_copy_destinationfileend.Location = new System.Drawing.Point(2, 121);
+            this.textBox_copy_destinationfileend.Location = new System.Drawing.Point(2, 97);
             this.textBox_copy_destinationfileend.Name = "textBox_copy_destinationfileend";
             this.textBox_copy_destinationfileend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_copy_destinationfileend.Size = new System.Drawing.Size(461, 21);
@@ -6031,7 +6031,7 @@
             // 
             this.button_copy_destinationfileend_sync.BackColor = System.Drawing.Color.Gainsboro;
             this.button_copy_destinationfileend_sync.Font = new System.Drawing.Font("宋体", 9F);
-            this.button_copy_destinationfileend_sync.Location = new System.Drawing.Point(444, 1);
+            this.button_copy_destinationfileend_sync.Location = new System.Drawing.Point(441, 94);
             this.button_copy_destinationfileend_sync.Name = "button_copy_destinationfileend_sync";
             this.button_copy_destinationfileend_sync.Size = new System.Drawing.Size(146, 25);
             this.button_copy_destinationfileend_sync.TabIndex = 30;
@@ -6043,7 +6043,7 @@
             // 
             this.button_copy_destinationfile.Image = global::SYD_COPY_FILE.Properties.Resources.arrows45X50;
             this.button_copy_destinationfile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button_copy_destinationfile.Location = new System.Drawing.Point(490, 93);
+            this.button_copy_destinationfile.Location = new System.Drawing.Point(490, 69);
             this.button_copy_destinationfile.Name = "button_copy_destinationfile";
             this.button_copy_destinationfile.Size = new System.Drawing.Size(48, 28);
             this.button_copy_destinationfile.TabIndex = 33;
@@ -6054,7 +6054,7 @@
             // 
             this.source_copyfile_textBox.AllowDrop = true;
             this.source_copyfile_textBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.source_copyfile_textBox.Location = new System.Drawing.Point(3, 27);
+            this.source_copyfile_textBox.Location = new System.Drawing.Point(3, 3);
             this.source_copyfile_textBox.Name = "source_copyfile_textBox";
             this.source_copyfile_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.source_copyfile_textBox.Size = new System.Drawing.Size(454, 21);
@@ -6064,7 +6064,7 @@
             // 
             // destination_file_button
             // 
-            this.destination_file_button.Location = new System.Drawing.Point(352, 70);
+            this.destination_file_button.Location = new System.Drawing.Point(352, 46);
             this.destination_file_button.Name = "destination_file_button";
             this.destination_file_button.Size = new System.Drawing.Size(176, 25);
             this.destination_file_button.TabIndex = 24;
@@ -6076,7 +6076,7 @@
             // 
             this.destination_file_textBox.AllowDrop = true;
             this.destination_file_textBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.destination_file_textBox.Location = new System.Drawing.Point(2, 72);
+            this.destination_file_textBox.Location = new System.Drawing.Point(2, 48);
             this.destination_file_textBox.Name = "destination_file_textBox";
             this.destination_file_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.destination_file_textBox.Size = new System.Drawing.Size(346, 21);
@@ -6088,7 +6088,7 @@
             // 
             this.button_copy_sourcefile.Image = global::SYD_COPY_FILE.Properties.Resources.arrows45X50;
             this.button_copy_sourcefile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button_copy_sourcefile.Location = new System.Drawing.Point(467, 48);
+            this.button_copy_sourcefile.Location = new System.Drawing.Point(467, 24);
             this.button_copy_sourcefile.Name = "button_copy_sourcefile";
             this.button_copy_sourcefile.Size = new System.Drawing.Size(48, 23);
             this.button_copy_sourcefile.TabIndex = 32;
@@ -6097,7 +6097,7 @@
             // 
             // source_copyfile_button
             // 
-            this.source_copyfile_button.Location = new System.Drawing.Point(467, 27);
+            this.source_copyfile_button.Location = new System.Drawing.Point(467, 3);
             this.source_copyfile_button.Name = "source_copyfile_button";
             this.source_copyfile_button.Size = new System.Drawing.Size(125, 22);
             this.source_copyfile_button.TabIndex = 23;
@@ -6108,7 +6108,7 @@
             // label_copy_time
             // 
             this.label_copy_time.Font = new System.Drawing.Font("宋体", 9F);
-            this.label_copy_time.Location = new System.Drawing.Point(3, 52);
+            this.label_copy_time.Location = new System.Drawing.Point(3, 28);
             this.label_copy_time.Name = "label_copy_time";
             this.label_copy_time.Size = new System.Drawing.Size(404, 15);
             this.label_copy_time.TabIndex = 37;
@@ -6116,7 +6116,7 @@
             // 
             // button_copy_destinationfileend
             // 
-            this.button_copy_destinationfileend.Location = new System.Drawing.Point(469, 119);
+            this.button_copy_destinationfileend.Location = new System.Drawing.Point(469, 95);
             this.button_copy_destinationfileend.Name = "button_copy_destinationfileend";
             this.button_copy_destinationfileend.Size = new System.Drawing.Size(123, 25);
             this.button_copy_destinationfileend.TabIndex = 30;
@@ -6128,7 +6128,7 @@
             // 
             this.destination_file_textBox_two.AllowDrop = true;
             this.destination_file_textBox_two.BackColor = System.Drawing.SystemColors.Menu;
-            this.destination_file_textBox_two.Location = new System.Drawing.Point(2, 96);
+            this.destination_file_textBox_two.Location = new System.Drawing.Point(2, 72);
             this.destination_file_textBox_two.Name = "destination_file_textBox_two";
             this.destination_file_textBox_two.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.destination_file_textBox_two.Size = new System.Drawing.Size(312, 21);
