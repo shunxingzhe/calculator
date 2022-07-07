@@ -22,7 +22,6 @@ namespace SYD_COPY_FILE
     public void copy_file_init()
         {
             this.label_copy_time.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            this.label_copy_time_sync.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             this.timer1.Interval = 1000;
             this.timer1.Start();
 
@@ -76,26 +75,21 @@ namespace SYD_COPY_FILE
         {
 
             this.label_copy_time.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");  //UP
-            this.label_copy_time_sync.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             if (this.label_copy_time.ForeColor == Color.Blue)
             {
                 this.label_copy_time.ForeColor = Color.Red;
-                this.label_copy_time_sync.ForeColor = Color.Red;
             }
             else if (this.label_copy_time.ForeColor == Color.Red)
             {
                 this.label_copy_time.ForeColor = Color.Black;
-                this.label_copy_time_sync.ForeColor = Color.Black;
             }
             else if (this.label_copy_time.ForeColor == Color.Black)
             {
                 this.label_copy_time.ForeColor = Color.Blue;
-                this.label_copy_time_sync.ForeColor = Color.Blue;
             }
             else
             {
                 this.label_copy_time.ForeColor = Color.Blue;
-                this.label_copy_time_sync.ForeColor = Color.Blue;
             }
 
             this.Text = name;
@@ -113,26 +107,21 @@ namespace SYD_COPY_FILE
         {
 
             this.label_copy_time.Text = "重命名/拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");  //UP
-            this.label_copy_time_sync.Text = "重命名/拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");  //UP
             if (this.label_copy_time.ForeColor == Color.Blue)
             {
                 this.label_copy_time.ForeColor = Color.Red;
-                this.label_copy_time_sync.ForeColor = Color.Red;
             }
             else if (this.label_copy_time.ForeColor == Color.Red)
             {
                 this.label_copy_time.ForeColor = Color.Black;
-                this.label_copy_time_sync.ForeColor = Color.Black;
             }
             else if (this.label_copy_time.ForeColor == Color.Black)
             {
                 this.label_copy_time.ForeColor = Color.Blue;
-                this.label_copy_time_sync.ForeColor = Color.Blue;
             }
             else
             {
                 this.label_copy_time.ForeColor = Color.Blue;
-                this.label_copy_time_sync.ForeColor = Color.Blue;
             }
 
             this.Text = name;
@@ -359,7 +348,7 @@ namespace SYD_COPY_FILE
 
         private void copy_sync(object sender, EventArgs e)
         {
-            if (checkBox_synccopy.Checked)
+            if (checkBox_synccopy_sync.Checked)
             {
                 if (sender == button_copy_sourcefile)
                 {
@@ -831,25 +820,6 @@ namespace SYD_COPY_FILE
             if (File.Exists(destination_file_textBox_rename.Text))
                 System.Diagnostics.Process.Start("Explorer.exe", Path.GetDirectoryName(destination_file_textBox_rename.Text));
         }
-
-        private void checkBox_synccopy_sync_CheckedChanged(object sender, EventArgs e)
-        {
-            if (sender == checkBox_synccopy)
-            {
-                if (checkBox_synccopy.Checked)
-                    checkBox_synccopy_sync.Checked = true;
-                else
-                    checkBox_synccopy_sync.Checked = false;
-            }
-            else if (sender == checkBox_synccopy_sync)
-            {
-                if (checkBox_synccopy_sync.Checked)
-                    checkBox_synccopy.Checked = true;
-                else
-                    checkBox_synccopy.Checked = false;
-            }
-        }
-
         private void button_copy_sourcefile4_Click(object sender, EventArgs e)
         {
             source_copyfile_prefix_textBox_rename.Text = "";
@@ -1506,20 +1476,20 @@ namespace SYD_COPY_FILE
             }
         }
 
-        private void clear_copyfile_button_Click(object sender, EventArgs e)
-        {
-            source_copyfile_textBox.Text = "";
-            destination_file_textBox.Text = "";
-            destination_file_textBox_two.Text = "";
-            textBox_copy_destinationfileend.Text = "";
-        }
-
         private void clear_synccopyfile_button_Click(object sender, EventArgs e)
         {
             source_copyfile_textBox_sync.Text = "";
             destination_file_textBox_sync.Text = "";
             destination_file_textBox_two_sync.Text = "";
             textBox_copy_destinationfileend_sync.Text = "";
+            source_copyfile_textBox.Text = "";
+            destination_file_textBox.Text = "";
+            destination_file_textBox_two.Text = "";
+            textBox_copy_destinationfileend.Text = "";
+        }
+        private void extend_synccopyfile_button_Click(object sender, EventArgs e)
+        {
+            this.Height += 68;
         }
         private void button33_Click(object sender, EventArgs e)
         {
