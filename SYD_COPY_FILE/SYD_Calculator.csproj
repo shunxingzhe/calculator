@@ -65,6 +65,10 @@
     <Reference Include="ChnCharInfo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=18f031bd02e5e291, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.International.Converters.PinYinConverter.1.0.0\lib\ChnCharInfo.dll</HintPath>
     </Reference>
+    <Reference Include="COSXML-Compatible, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\COSXML-Compatible.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -79,8 +83,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Convert.cs" />
+    <Compile Include="Convert.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="copy_file.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="csv.cs">
@@ -151,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\exchange.png" />
+    <Content Include="image\Bucket.png" />
+    <Content Include="image\File.jpg" />
+    <Content Include="image\Folder.png" />
     <Content Include="logo_48X48.ico" />
     <None Include="Settings1.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -55,14 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SYD_COPY_FILE.exe" size="421888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="COSXML-Compatible.dll" size="182272">
+      <assemblyIdentity name="COSXML-Compatible" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>791xXFObuAN9nwilUMrRE8MVMe0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SYD_COPY_FILE.exe" size="431104">
       <assemblyIdentity name="SYD_COPY_FILE" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Ak0Sddoouu9QAlQkBn9D0kAktAo=</dsig:DigestValue>
+        <dsig:DigestValue>cuaPtdmcFla8f1y7yJSE4/nn79I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -219,6 +231,15 @@
       <dsig:DigestValue>NzXlgYdjFeTVpdPqPW637uHr2Ec=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="image\Bucket.png" size="1413">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>7jTW83MhSwYXsgzIDEjr8ELal3s=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="image\dowm.jpg" size="18215">
     <hash>
       <dsig:Transforms>
@@ -226,6 +247,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>KDY0xjPNtOyco+gUVNdHMtyCB0A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="image\File.jpg" size="1142">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>I63xHoLW9ZofVge9t7mpBykW/pM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="image\Folder.png" size="1110">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Jn/U0uPGQk/vzS1rayW1beKq43k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="image\left.jpg" size="18162">

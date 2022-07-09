@@ -70,6 +70,8 @@ namespace SYD_COPY_FILE
             pictureBoxinterface_Click(null, null);
 
             AdjustComboBoxDropDownListWidth(comboBox_piecwise_mode);
+
+            cos_init();
         }
 
         /// <summary>

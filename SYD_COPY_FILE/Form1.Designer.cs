@@ -68,7 +68,6 @@
             this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.textBox71 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox54 = new System.Windows.Forms.TextBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.textBox84 = new System.Windows.Forms.TextBox();
@@ -144,6 +143,7 @@
             this.buttonSelSaveDir = new System.Windows.Forms.Button();
             this.textBoxSaveDir = new System.Windows.Forms.TextBox();
             this.checkBox17 = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button_replace = new System.Windows.Forms.Button();
             this.comboBox_indicate = new System.Windows.Forms.ComboBox();
@@ -504,17 +504,14 @@
             this.checkBox_delete_prefile = new System.Windows.Forms.CheckBox();
             this.checkBox_delete_srcfile = new System.Windows.Forms.CheckBox();
             this.checkBox_systemtime_rename = new System.Windows.Forms.CheckBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.textBox_copy_destinationfileend_sync = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.destination_file_textBox_two_checkBox = new System.Windows.Forms.CheckBox();
             this.destination_file_button_copy_sourcefile = new System.Windows.Forms.Button();
             this.button_copy_sourcefile_all = new System.Windows.Forms.Button();
             this.textBox_copy_destinationfileend = new System.Windows.Forms.TextBox();
-            this.button_copy_destinationfileend_sync = new System.Windows.Forms.Button();
             this.button_copy_destinationfile = new System.Windows.Forms.Button();
             this.source_copyfile_textBox = new System.Windows.Forms.TextBox();
             this.destination_file_button = new System.Windows.Forms.Button();
@@ -528,6 +525,7 @@
             this.source_copyfile_textBox_sync_checksum = new System.Windows.Forms.TextBox();
             this.source_copyfile_textBox_sync_size = new System.Windows.Forms.TextBox();
             this.source_copyfile_textBox_sync = new System.Windows.Forms.TextBox();
+            this.button_copy_destinationfileend_sync = new System.Windows.Forms.Button();
             this.destination_file_textBox_sync = new System.Windows.Forms.TextBox();
             this.destination_file_textBox_two_sync = new System.Windows.Forms.TextBox();
             this.button26 = new System.Windows.Forms.Button();
@@ -544,6 +542,8 @@
             this.label131 = new System.Windows.Forms.Label();
             this.TabCrontrol = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridViewCos = new System.Windows.Forms.DataGridView();
+            this.button_CosBuckets = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -681,7 +681,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -689,6 +688,7 @@
             this.groupBox25.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.groupBox23.SuspendLayout();
             this.groupBox22.SuspendLayout();
@@ -716,11 +716,11 @@
             this.tabPage9.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.TabCrontrol.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -992,7 +992,6 @@
             this.tabPage10.Controls.Add(this.checkBox14);
             this.tabPage10.Controls.Add(this.checkBox13);
             this.tabPage10.Controls.Add(this.textBox71);
-            this.tabPage10.Controls.Add(this.pictureBox1);
             this.tabPage10.Controls.Add(this.textBox54);
             this.tabPage10.Controls.Add(this.checkBox12);
             this.tabPage10.Controls.Add(this.textBox84);
@@ -1021,6 +1020,7 @@
             this.tabPage10.Controls.Add(this.buttonSelSaveDir);
             this.tabPage10.Controls.Add(this.textBoxSaveDir);
             this.tabPage10.Controls.Add(this.checkBox17);
+            this.tabPage10.Controls.Add(this.pictureBox1);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Size = new System.Drawing.Size(756, 552);
@@ -1153,15 +1153,6 @@
             this.textBox71.Size = new System.Drawing.Size(25, 21);
             this.textBox71.TabIndex = 52;
             this.textBox71.Text = "183";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SYD_COPY_FILE.Properties.Resources.Align_center;
-            this.pictureBox1.Location = new System.Drawing.Point(609, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 45);
-            this.pictureBox1.TabIndex = 65;
-            this.pictureBox1.TabStop = false;
             // 
             // textBox54
             // 
@@ -1932,6 +1923,15 @@
             this.checkBox17.TabIndex = 70;
             this.checkBox17.Text = "批量操作";
             this.checkBox17.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SYD_COPY_FILE.Properties.Resources.Align_center;
+            this.pictureBox1.Location = new System.Drawing.Point(609, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 45);
+            this.pictureBox1.TabIndex = 65;
+            this.pictureBox1.TabStop = false;
             // 
             // tabPage4
             // 
@@ -5893,25 +5893,6 @@
             this.checkBox_systemtime_rename.Text = "文件时间（默认系统时间）";
             this.checkBox_systemtime_rename.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.button8);
-            this.groupBox7.Location = new System.Drawing.Point(3, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(593, 67);
-            this.groupBox7.TabIndex = 67;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Cos";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(514, 9);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(79, 22);
-            this.button8.TabIndex = 68;
-            this.button8.Text = "获取储存桶";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.textBox_copy_destinationfileend_sync);
@@ -5942,6 +5923,18 @@
             this.tabPage6.Text = "Copy";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // textBox_copy_destinationfileend_sync
+            // 
+            this.textBox_copy_destinationfileend_sync.AllowDrop = true;
+            this.textBox_copy_destinationfileend_sync.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox_copy_destinationfileend_sync.Location = new System.Drawing.Point(0, 96);
+            this.textBox_copy_destinationfileend_sync.Name = "textBox_copy_destinationfileend_sync";
+            this.textBox_copy_destinationfileend_sync.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox_copy_destinationfileend_sync.Size = new System.Drawing.Size(438, 21);
+            this.textBox_copy_destinationfileend_sync.TabIndex = 31;
+            this.textBox_copy_destinationfileend_sync.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
+            this.textBox_copy_destinationfileend_sync.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
@@ -5963,18 +5956,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(594, 124);
             this.panel2.TabIndex = 56;
-            // 
-            // textBox_copy_destinationfileend_sync
-            // 
-            this.textBox_copy_destinationfileend_sync.AllowDrop = true;
-            this.textBox_copy_destinationfileend_sync.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox_copy_destinationfileend_sync.Location = new System.Drawing.Point(0, 96);
-            this.textBox_copy_destinationfileend_sync.Name = "textBox_copy_destinationfileend_sync";
-            this.textBox_copy_destinationfileend_sync.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox_copy_destinationfileend_sync.Size = new System.Drawing.Size(438, 21);
-            this.textBox_copy_destinationfileend_sync.TabIndex = 31;
-            this.textBox_copy_destinationfileend_sync.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
-            this.textBox_copy_destinationfileend_sync.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // button9
             // 
@@ -6026,18 +6007,6 @@
             this.textBox_copy_destinationfileend.TabIndex = 31;
             this.textBox_copy_destinationfileend.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBox_copy_destinationfileend.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
-            // 
-            // button_copy_destinationfileend_sync
-            // 
-            this.button_copy_destinationfileend_sync.BackColor = System.Drawing.Color.Gainsboro;
-            this.button_copy_destinationfileend_sync.Font = new System.Drawing.Font("宋体", 9F);
-            this.button_copy_destinationfileend_sync.Location = new System.Drawing.Point(441, 94);
-            this.button_copy_destinationfileend_sync.Name = "button_copy_destinationfileend_sync";
-            this.button_copy_destinationfileend_sync.Size = new System.Drawing.Size(146, 25);
-            this.button_copy_destinationfileend_sync.TabIndex = 30;
-            this.button_copy_destinationfileend_sync.Text = "destination file";
-            this.button_copy_destinationfileend_sync.UseVisualStyleBackColor = false;
-            this.button_copy_destinationfileend_sync.Click += new System.EventHandler(this.source_copyfile_button_Click);
             // 
             // button_copy_destinationfile
             // 
@@ -6171,6 +6140,18 @@
             this.source_copyfile_textBox_sync.TextChanged += new System.EventHandler(this.source_copyfile_textBox_sync_TextChanged);
             this.source_copyfile_textBox_sync.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_copyfile_textBox_sync.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            // 
+            // button_copy_destinationfileend_sync
+            // 
+            this.button_copy_destinationfileend_sync.BackColor = System.Drawing.Color.Gainsboro;
+            this.button_copy_destinationfileend_sync.Font = new System.Drawing.Font("宋体", 9F);
+            this.button_copy_destinationfileend_sync.Location = new System.Drawing.Point(441, 94);
+            this.button_copy_destinationfileend_sync.Name = "button_copy_destinationfileend_sync";
+            this.button_copy_destinationfileend_sync.Size = new System.Drawing.Size(146, 25);
+            this.button_copy_destinationfileend_sync.TabIndex = 30;
+            this.button_copy_destinationfileend_sync.Text = "destination file";
+            this.button_copy_destinationfileend_sync.UseVisualStyleBackColor = false;
+            this.button_copy_destinationfileend_sync.Click += new System.EventHandler(this.source_copyfile_button_Click);
             // 
             // destination_file_textBox_sync
             // 
@@ -6333,13 +6314,36 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox7);
+            this.tabPage2.Controls.Add(this.dataGridViewCos);
+            this.tabPage2.Controls.Add(this.button_CosBuckets);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(756, 552);
             this.tabPage2.TabIndex = 11;
             this.tabPage2.Text = "COS";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewCos
+            // 
+            this.dataGridViewCos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCos.Location = new System.Drawing.Point(4, 2);
+            this.dataGridViewCos.Name = "dataGridViewCos";
+            this.dataGridViewCos.ReadOnly = true;
+            this.dataGridViewCos.RowHeadersVisible = false;
+            this.dataGridViewCos.RowTemplate.Height = 23;
+            this.dataGridViewCos.Size = new System.Drawing.Size(515, 174);
+            this.dataGridViewCos.TabIndex = 69;
+            this.dataGridViewCos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCos_CellDoubleClick);
+            // 
+            // button_CosBuckets
+            // 
+            this.button_CosBuckets.Location = new System.Drawing.Point(517, 2);
+            this.button_CosBuckets.Name = "button_CosBuckets";
+            this.button_CosBuckets.Size = new System.Drawing.Size(79, 22);
+            this.button_CosBuckets.TabIndex = 68;
+            this.button_CosBuckets.Text = "获取储存桶";
+            this.button_CosBuckets.UseVisualStyleBackColor = true;
+            this.button_CosBuckets.Click += new System.EventHandler(this.button_CosBuckets_Click);
             // 
             // contextMenuStrip1
             // 
@@ -7331,7 +7335,6 @@
             this.tabPage11.PerformLayout();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel1.PerformLayout();
             this.splitContainerMain.Panel2.ResumeLayout(false);
@@ -7343,6 +7346,7 @@
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.groupBox23.ResumeLayout(false);
@@ -7394,13 +7398,13 @@
             this.tabPage8.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.TabCrontrol.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCos)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -8055,11 +8059,11 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button_CosBuckets;
+        private System.Windows.Forms.DataGridView dataGridViewCos;
     }
 }
 
