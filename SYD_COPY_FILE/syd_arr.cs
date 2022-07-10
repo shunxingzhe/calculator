@@ -2321,6 +2321,7 @@ namespace SYD_COPY_FILE
                 Director(dd.FullName, list, size);
             }
         }
+        //列出目录的所有文件,包括子目录
         public void DirectorFileName(string dir, List<string> list)
         {
             DirectoryInfo d = new DirectoryInfo(dir);
@@ -2334,6 +2335,25 @@ namespace SYD_COPY_FILE
             foreach (DirectoryInfo dd in directs)
             {
                 DirectorFileName(dd.FullName, list);
+            }
+        }
+        //列出目录的所有文件和时间,包括子目录
+        public void DirectorFileNameSize(string dir, List<string> list, List<string> size)
+        {
+            DirectoryInfo d = new DirectoryInfo(dir);
+            FileInfo[] files = d.GetFiles();//文件
+            DirectoryInfo[] directs = d.GetDirectories();//文件夹
+            foreach (FileInfo f in files)
+            {
+                list.Add(Path.GetFileName(f.FullName));//添加文件名到列表中  
+                FileInfo fi = new FileInfo(f.FullName);
+                size.Add(fi.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss"));
+                //Response.Write("创建时间：" + fi.CreationTime.ToString() + "写入文件的时间" + fi.LastWriteTime + "访问的时间" + fi.LastAccessTime);
+            }
+            //获取子文件夹内的文件列表，递归遍历  
+            foreach (DirectoryInfo dd in directs)
+            {
+                DirectorFileNameSize(dd.FullName, list,size);
             }
         }
         //遍历所有文件夹获取特定格式的文件
