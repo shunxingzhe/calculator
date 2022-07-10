@@ -807,6 +807,8 @@
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -851,6 +853,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -6475,6 +6478,7 @@
             // 
             this.dataGridViewCos.AllowDrop = true;
             this.dataGridViewCos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCos.ContextMenuStrip = this.contextMenuStrip2;
             this.dataGridViewCos.Location = new System.Drawing.Point(4, 22);
             this.dataGridViewCos.Name = "dataGridViewCos";
             this.dataGridViewCos.ReadOnly = true;
@@ -6482,6 +6486,7 @@
             this.dataGridViewCos.RowTemplate.Height = 23;
             this.dataGridViewCos.Size = new System.Drawing.Size(592, 154);
             this.dataGridViewCos.TabIndex = 69;
+            this.dataGridViewCos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCos_CellClick);
             this.dataGridViewCos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCos_CellDoubleClick);
             this.dataGridViewCos.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridViewCos_DragDrop);
             this.dataGridViewCos.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
@@ -8224,6 +8229,21 @@
             this.toolStripMenuItem18.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem18.Text = "贴下边";
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem12});
+            this.contextMenuStrip2.Name = "contextMenuStripSplit";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(101, 26);
+            this.contextMenuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem12.Text = "删除";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -8234,7 +8254,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.8.2";
+            this.Text = "SYD_Calculator V1.8.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8315,6 +8335,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9099,6 +9120,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
         private System.Windows.Forms.Button button_commit_file;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
     }
 }
 

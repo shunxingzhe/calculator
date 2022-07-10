@@ -53,6 +53,9 @@ namespace SYD_COPY_FILE
         string bucket = null;
         string folder_out= null;
         string file_in = null;
+
+        public int ColumnIndexSelect = 0;
+        public int RowIndexSelect = 0;
         #endregion
         public void cos_init()
         {
@@ -331,15 +334,33 @@ namespace SYD_COPY_FILE
                     MessageBox.Show("下载成功");
                 }
             }
-            else if (bitmap == Bitmap_Zip)
+        }
+        private void contextMenuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            for (int i = 0; i < contextMenuStrip2.Items.Count; i++)
             {
-                if (folder_out != null)
+                if (contextMenuStrip2.Items[i].Selected)
                 {
-                    
-                    File.Delete(folder_out+"\\"+filename);
-                    Display_Folder(folder_out);
+                    if (contextMenuStrip2.Items[i].Text.Trim() == "删除")
+                    {
+                        Bitmap bitmap = (Bitmap)dataGridViewCos.Rows[RowIndexSelect].Cells[0].Value;
+                        if (bitmap == Bitmap_Zip)
+                        {
+                            if (folder_out != null)
+                            {
+                                string filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
+                                File.Delete(folder_out + "\\" + filename);
+                                Display_Folder(folder_out);
+                            }
+                        }
+                    }
                 }
             }
+        }
+        private void dataGridViewCos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ColumnIndexSelect = e.ColumnIndex;
+            RowIndexSelect = e.RowIndex;
         }
     }
 }
