@@ -74,6 +74,7 @@ namespace SYD_COPY_FILE
             //    ListCosCol.Add(item);
             //}
             dataGridViewCosBing(dataGridViewType.FILE);
+            button_commit_file.Enabled = false;
         }
         public void dataGridViewCosBing(dataGridViewType type)
         {
@@ -157,6 +158,7 @@ namespace SYD_COPY_FILE
 
                         PutObjectRequest request = new PutObjectRequest(bucket, key, srcPath);
                         //设置进度回调
+                        label_schedule.Text = "0%";
                         request.SetCosProgressCallback(delegate (long completed, long total)
                         {
                             label_schedule.Text=String.Format("{0:##.##}%", completed * 100.0 / total);
@@ -176,6 +178,7 @@ namespace SYD_COPY_FILE
                         //请求失败
                         MessageBox.Show("CosServerException: " + serverEx.GetInfo());
                     }
+                    button_commit_file.Enabled = false;
                 }
             }
         }
@@ -289,6 +292,7 @@ namespace SYD_COPY_FILE
                 {
                     GetObjectRequest request = new GetObjectRequest(bucket, key, localDir, localFileName);
                     //设置进度回调
+                    label_schedule.Text = "0%";
                     request.SetCosProgressCallback(delegate (long completed, long total)
                     {
                         label_schedule.Text=String.Format("{0:##.##}%", completed * 100.0 / total);
@@ -328,6 +332,7 @@ namespace SYD_COPY_FILE
                         return;
                     }
                     Display_Folder(folder_out);
+                    button_commit_file.Enabled = true;
                 }
                 else
                 {
