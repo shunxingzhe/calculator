@@ -6,3 +6,5 @@ ll_crc24_generate @ 1
 bleWhiten @ 2
 reverseBits @ 3
 crc32_fun @ 4
+Dll_log_read @ 5
+bmp_to_rbw @ 6

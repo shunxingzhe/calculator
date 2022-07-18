@@ -685,7 +685,7 @@ namespace SYD_COPY_FILE
         {
             this.toolStripStatusLabel1.Text = "当前系统时间：" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)//开机就有 1S一次
         {
             if (SC_MAX == true)
             {
@@ -693,6 +693,14 @@ namespace SYD_COPY_FILE
                 pictureBoxinterface_Click(null, null);
             }
             update_StripStatusLabel();
+            if (call_c_timer_timeout != 0)
+            {
+                call_c_timer_timeout--;
+                if (call_c_timer_timeout == 0)
+                {
+                    call_c_timer_evt();
+                }
+            }
         }
         private void source_copyfile_button_rename_Click(object sender, EventArgs e)
         {

@@ -75,7 +75,12 @@ namespace SYD_COPY_FILE
             Get_api_symdef,
             handle_File,
             TEXT_handle_and_analysis,
+            Call_C,
         }
+        public Boolean DllLogThreadStart=false;
+        public Thread DllLogThread;
+
+        public byte call_c_timer_timeout=0;//非0的时候1S定时器自减,减到0触发任务
         #endregion
 
         public void syd_arr_init()
@@ -106,6 +111,8 @@ namespace SYD_COPY_FILE
             if(Settings1.Default.arr_data_type< comboBox_datatype.Items.Count)
                 comboBox_datatype.SelectedIndex=Settings1.Default.arr_data_type;
             comboBox_fonttype.SelectedIndex = Settings1.Default.arr_font_type;
+
+            DllLogThread = new Thread(DllLogRead);
         }
         public byte[] strToToDecByte(string DecString)
         {
@@ -165,13 +172,23 @@ namespace SYD_COPY_FILE
                 if (dlg.ShowDialog() == false)
                     return;
                 source_file_textBox.Text = dlg.FileName;
-
-                if (comboBox_mode.SelectedIndex != 3)
+                if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
                 {
-                    reintput_file(source_file_textBox.Text);
+                    FileInfo fi = new FileInfo(source_file_textBox.Text);
+                    if (fi.Extension == ".bmp")
+                    {
+                        label_outfilename.Text = source_file_textBox.Text.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
+                    }
                 }
-                
-                label_intputsize.Text = (textInput.Text.Length / 2).ToString();
+                else
+                {
+                    if (comboBox_mode.SelectedIndex != 3)
+                    {
+                        reintput_file(source_file_textBox.Text);
+                    }
+
+                    label_intputsize.Text = (textInput.Text.Length / 2).ToString();
+                }
             }
         }
         //自定义一个类
@@ -2537,7 +2554,67 @@ namespace SYD_COPY_FILE
 
             MessageBox.Show("提取完成!");
         }
+        public void DllLogRead()
+        {
+            Byte[] buf = new Byte[1024];
+            int readByte = 0;
+            string str;
+            while (DllLogThreadStart)
+            {
+                Array.Clear(buf, 0, buf.Length);
+                readByte = 0;
 
+                if (DllLogThreadStart == false)
+                    break;
+
+                readByte = Dll_log_read(buf);
+                if (readByte != 0)
+                {
+                    //string str = System.Text.Encoding.ASCII.GetString(buf, 0, (int)readByte);
+                    str = Encoding.UTF8.GetString(buf);
+                    this.Invoke(new EventHandler(delegate
+                    {
+                        textInput.AppendText(str);
+
+                    }));
+                }
+
+                System.Threading.Thread.Sleep(1);
+            }
+        }
+        public void DllLogStop()
+        {
+            if (DllLogThreadStart == true)
+            {
+                DllLogThreadStart = false;
+                if (DllLogThread != null)
+                    while (DllLogThread.IsAlive) ;
+            }
+        }
+        public void DllLogStart()
+        {
+            if (DllLogThreadStart == false)
+            {
+                DllLogThreadStart = true;
+                DllLogThread.Start();
+            }
+        }
+        public void call_c_timer_evt()
+        {
+            richTextBox_out.Text = System.IO.File.ReadAllText(label_outfilename.Text, Encoding.Default);
+        }
+        private void call_c()
+        {
+            label_outfilename.Text = source_file_textBox.Text.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
+            textInput.Text = "";
+            byte[] buffer_utf8 = Encoding.UTF8.GetBytes(source_file_textBox.Text);
+            byte[] out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
+            UInt32 save_size=bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length));
+            if(save_size>0)
+            {
+                call_c_timer_timeout = 5;//1-2内触发定时任务
+            }
+        }
         private void draw_Click(object sender, EventArgs e)
         {
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
@@ -2633,6 +2710,17 @@ namespace SYD_COPY_FILE
             {
                 text_handle();
             }
+
+            if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
+            {
+                DllLogStart();
+                call_c();
+            }
+            else
+            {
+                DllLogStop();
+            }
+
             for (int i = 0; i < this.comboBox_indicate.Items.Count; i++)
             {
                 if (comboBox_indicate.Text == this.comboBox_indicate.Items[i].ToString()) return;
@@ -2689,8 +2777,6 @@ namespace SYD_COPY_FILE
                 string path = FileName;
                 label_outfilename.Text = path.Replace(".WAV", string.Empty).Replace(".wav", string.Empty) + "_ok.txt";
                 byte[] text = System.IO.File.ReadAllBytes(source_file_textBox.Text);
-                var str = DateTime.Now.ToString();
-                var encode = Encoding.UTF8;
                 var hex = BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
                 textInput.Text = hex;
             }
@@ -2699,8 +2785,6 @@ namespace SYD_COPY_FILE
                 string path = FileName;
                 label_outfilename.Text = path.Replace(".BIN", string.Empty).Replace(".bin", string.Empty) + "_ok.txt";
                 byte[] text = System.IO.File.ReadAllBytes(source_file_textBox.Text);
-                var str = DateTime.Now.ToString();
-                var encode = Encoding.UTF8;
                 var hex = BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
                 textInput.Text = hex;
             }
@@ -2717,6 +2801,13 @@ namespace SYD_COPY_FILE
                 var encode = Encoding.UTF8;
                 var hex = BitConverter.ToString(_Value, 0).Replace("-", string.Empty).ToLower();
                 textInput.Text = hex;
+                //string path = FileName;
+                //label_outfilename.Text = path.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
+                //byte[] text = System.IO.File.ReadAllBytes(source_file_textBox.Text);
+                ////var hex = BitConverter.ToString(text, 0);
+                ////var hex = byteToHexStr(text);
+                ////textInput.Text = hex;
+                //textInput.Text = ""+byteToHexStrBuilder(text);
             }
             else if (fi.Extension == ".csv")
             {
@@ -2999,6 +3090,12 @@ namespace SYD_COPY_FILE
                 this.label_data_type.Text = " 处理功能选择：";
 
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_TEXT_handle_and_analysis.txt", Encoding.Default);
+            }
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
+            {
+                this.comboBox_datatype.Items.Clear();
+                this.comboBox_datatype.Items.Add("BMP文件提取红白黑三色图");
+                this.label_data_type.Text = " 处理功能选择：";
             }
             else
             {

@@ -45,6 +45,10 @@ namespace SYD_COPY_FILE
         private static extern Byte reverseBits(Byte chan);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "crc32_fun", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 crc32_fun(byte[] buf, UInt32 size);
+        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "Dll_log_read", CallingConvention = CallingConvention.Cdecl)]
+        private static extern int Dll_log_read(byte[] buf);
+        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "bmp_to_rbw", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 bmp_to_rbw(byte[] Intputfilename, UInt32 Intputfilesize, byte[] Outfilename, UInt32 Outfilesize);
 
         timestamp_accuracy_type accuracy = timestamp_accuracy_type.accuracy_3;
         #endregion

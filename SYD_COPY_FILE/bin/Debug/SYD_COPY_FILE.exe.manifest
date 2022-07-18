@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SYD_COPY_FILE.exe" size="453120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SYD_COPY_FILE.exe" size="455168">
       <assemblyIdentity name="SYD_COPY_FILE" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>fkVFMwzX4Vi6rJskW1eF5cUq1GodBooom7oPL9OxZj0=</dsig:DigestValue>
+        <dsig:DigestValue>ZTuq5rsr4JtGIXSEG6IIjZEb/I+0AfijmoxDYB1KnZ0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

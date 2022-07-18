@@ -2127,7 +2127,8 @@
             "生成特定数组",
             "Get api symdef",
             "Find/handle File",
-            "TEXT handle and analysis"});
+            "TEXT handle and analysis",
+            "Call C"});
             this.comboBox_mode.Location = new System.Drawing.Point(33, 94);
             this.comboBox_mode.Name = "comboBox_mode";
             this.comboBox_mode.Size = new System.Drawing.Size(240, 20);
@@ -8254,7 +8255,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.8.4";
+            this.Text = "SYD_Calculator V1.8.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

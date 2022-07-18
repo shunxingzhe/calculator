@@ -51,6 +51,7 @@ namespace SYD_COPY_FILE
         }
         public List<ItemCosCol> ListCosCol = new List<ItemCosCol>();
         string bucket = null;
+        string cos_key = null;
         string folder_out= null;
         string file_in = null;
 
@@ -153,10 +154,10 @@ namespace SYD_COPY_FILE
                     try
                     {
                         // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
-                        string key = filename; //对象键
+                        //string key = filename; //对象键
                         string srcPath = file_in;//本地文件绝对路径
 
-                        PutObjectRequest request = new PutObjectRequest(bucket, key, srcPath);
+                        PutObjectRequest request = new PutObjectRequest(bucket, cos_key, srcPath);
                         //设置进度回调
                         label_schedule.Text = "0%";
                         request.SetCosProgressCallback(delegate (long completed, long total)
@@ -218,6 +219,7 @@ namespace SYD_COPY_FILE
         }
         private void dataGridViewCos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            int i;
             Bitmap bitmap = (Bitmap)dataGridViewCos. Rows[e.RowIndex].Cells[0].Value;
             string filename = (string)dataGridViewCos.Rows[e.RowIndex].Cells[1].Value; ;
             if (bitmap == Bitmap_Bucket)
@@ -239,7 +241,7 @@ namespace SYD_COPY_FILE
                         this.nextMarker = info.nextMarker;
                     }
                     ListCosCol.Clear();
-                    for (int i = 0; i < info.contentsList.Count; i++)
+                    for (i = 0; i < info.contentsList.Count; i++)
                     {
                         ItemCosCol item = new ItemCosCol();
                         item.FileName = info.contentsList[i].key;
@@ -284,13 +286,18 @@ namespace SYD_COPY_FILE
                 // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
                 //string bucket = "examplebucket-1250000000";
                 //string key = "exampleobject"; //对象键
-                string key = filename; //对象键
+                cos_key = filename; //对象键
                 //string localDir = System.IO.Path.GetTempPath();//本地文件夹
                 string localDir = dir;//本地文件夹
                 string localFileName = filename; //指定本地保存的文件名
+                i=filename.IndexOf("/");
+                if (i!=-1)
+                {
+                    localFileName = filename.Substring(i+1);
+                }
                 try
                 {
-                    GetObjectRequest request = new GetObjectRequest(bucket, key, localDir, localFileName);
+                    GetObjectRequest request = new GetObjectRequest(bucket, cos_key, localDir, localFileName);
                     //设置进度回调
                     label_schedule.Text = "0%";
                     request.SetCosProgressCallback(delegate (long completed, long total)

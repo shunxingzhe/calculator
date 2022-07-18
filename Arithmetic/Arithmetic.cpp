@@ -8,6 +8,81 @@
 #include <io.h>     //_finddata_t, _findfirst(), _findnext(), _findclose()
 #include <string.h>
 #include <stdint.h>
+#include <sys/stat.h>
+#include <iostream>
+#include <windows.h>
+
+#define SWD_LOG_LEN 1024
+
+struct LOG_CB   //只有一个RTT_BUFFER_UP
+{
+    unsigned int WrOff;
+    unsigned int RdOff;
+    char Buf[SWD_LOG_LEN];   //16个byte
+};
+
+static struct LOG_CB log_cb;
+
+void my_sprintf(const char* format, ...)
+{
+    int len = 0;
+    char Buf[SWD_LOG_LEN];   //16个byte
+    va_list args;
+
+    va_start(args, format);
+    len = vsprintf(Buf, format, args);
+    va_end(args);
+    if ((len + log_cb.RdOff) > SWD_LOG_LEN)
+    {
+        memcpy(&log_cb.Buf[log_cb.RdOff], Buf, SWD_LOG_LEN - log_cb.RdOff);
+        len -= (SWD_LOG_LEN - log_cb.RdOff);
+        memcpy(log_cb.Buf, &Buf[SWD_LOG_LEN - log_cb.RdOff], len);
+        log_cb.RdOff = len;
+    }
+    else
+    {
+        memcpy(&log_cb.Buf[log_cb.RdOff], Buf, len);
+        log_cb.RdOff += len;
+    }
+}
+void my_sprintf(const unsigned char* Buf, unsigned int len)
+{
+    if ((len + log_cb.RdOff) > SWD_LOG_LEN)
+    {
+        memcpy(&log_cb.Buf[log_cb.RdOff], Buf, SWD_LOG_LEN - log_cb.RdOff);
+        len -= (SWD_LOG_LEN - log_cb.RdOff);
+        memcpy(log_cb.Buf, &Buf[SWD_LOG_LEN - log_cb.RdOff], len);
+        log_cb.RdOff = len;
+    }
+    else
+    {
+        memcpy(&log_cb.Buf[log_cb.RdOff], Buf, len);
+        log_cb.RdOff += len;
+    }
+}
+
+int Dll_log_read(uint8_t* p_rsp)
+{
+    int len = 0;
+    if (log_cb.RdOff != log_cb.WrOff)
+    {
+        if (log_cb.RdOff > log_cb.WrOff)
+        {
+            len = log_cb.RdOff - log_cb.WrOff;
+            memcpy(p_rsp, log_cb.Buf + log_cb.WrOff, len);
+        }
+        else
+        {
+            memcpy(p_rsp, log_cb.Buf + log_cb.WrOff, SWD_LOG_LEN - log_cb.WrOff);
+            len = SWD_LOG_LEN - log_cb.WrOff;
+            memcpy(p_rsp + SWD_LOG_LEN - log_cb.WrOff, log_cb.Buf, log_cb.RdOff);
+            len += log_cb.RdOff;
+        }
+        log_cb.WrOff = log_cb.RdOff;
+    }
+
+    return len;
+}
 
 /**
  * @brief ll_crc24_generate()
@@ -159,4 +234,138 @@ unsigned int crc32_fun(const unsigned char* buf, unsigned int size)
         crc = crc32tab[(crc ^ buf[i]) & 0xff] ^ (crc >> 8);
 
     return crc ^ 0xFFFFFFFF;
+}
+
+int bmpwidth, bmpheight, linebyte;
+unsigned char* pBmpBuf;  //存储图像数据
+
+bool readBmp(char* bmpName)
+{
+    FILE* fp;
+    if ((fp = fopen(bmpName, "rb")) == NULL)  //以二进制的方式打开文件
+    {
+        my_sprintf("The file was not opened\r\n");
+        return FALSE;
+    }
+    if (fseek(fp, sizeof(BITMAPFILEHEADER), 0))  //跳过BITMAPFILEHEADE
+    {
+        my_sprintf("jump errpr\r\n");
+        return FALSE;
+    }
+    BITMAPINFOHEADER infoHead;
+    fread(&infoHead, sizeof(BITMAPINFOHEADER), 1, fp);   //从fp中读取BITMAPINFOHEADER信息到infoHead中,同时fp的指针移动
+    bmpwidth = infoHead.biWidth;
+    bmpheight = infoHead.biHeight;
+    linebyte = (bmpwidth * 24 / 8 + 3) / 4 * 4; //计算每行的字节数，24：该图片是24位的bmp图，3：确保不丢失像素
+
+    //cout<<bmpwidth<<" "<<bmpheight<<endl;
+    pBmpBuf = new unsigned char[linebyte * bmpheight];
+    fread(pBmpBuf, sizeof(char), linebyte * bmpheight, fp);
+    fclose(fp);   //关闭文件
+    return TRUE;
+}
+#define COLOR_RED_AND_White 0
+#define COLOR_White 		1
+#define COLOR_RED			2
+#define COLOR_BLACK 		3
+unsigned int saveRbw(char* Outfilename)
+{
+    unsigned char j = 0,data=0;
+    unsigned int i = 0,k=0;
+    if (_access(Outfilename, 0) == 0) {//文件存在删除
+        if (remove((char*)Outfilename) == 0) {
+            my_sprintf("delete origin file succeed\r\n");
+        }
+        else {
+            my_sprintf("delete origin file faile\r\n");
+            return 0;
+        }
+    }
+    FILE* fpWrite = fopen((char*)Outfilename, "w");
+    if (fpWrite == NULL)
+    {
+        my_sprintf("create file error\r\n");
+        return 0;
+    }
+    //for (i = 0; i < linebyte * bmpheight; i++)
+    //{
+    //    fprintf(fpWrite, "0x%02X,", pBmpBuf[i]);
+    //    if(i % 17 == 16)
+    //    {
+    //        fprintf(fpWrite, "\r\n");
+    //    }
+    //}
+    fprintf(fpWrite, "const unsigned char image_rbw[] = {\n");
+    for (i = 0; i < (linebyte * bmpheight); i += 3)
+    {
+        //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
+        if ((pBmpBuf[i] == 0xFF) && (pBmpBuf[i + 1] == 0xFF) && (pBmpBuf[i + 2] == 0xFF))
+        {
+            //fprintf(fpWrite, "0x%02X,", COLOR_BLACK);
+            data |= COLOR_BLACK << (j * 2);
+        }
+        else if ((pBmpBuf[i] == 0x00) && (pBmpBuf[i + 1] == 0x00) && (pBmpBuf[i + 2] == 0xFF))
+        {
+            //fprintf(fpWrite, "0x%02X,", COLOR_RED);
+            data |= COLOR_RED << (j * 2);
+        }
+        else if ((pBmpBuf[i] == 0x00) && (pBmpBuf[i + 1] == 0x00) && (pBmpBuf[i + 2] == 0x00))
+        {
+            //fprintf(fpWrite, "0x%02X,", COLOR_White);
+            data |= COLOR_White << (j * 2);
+        }
+        else
+        {
+            //fprintf(fpWrite, "0x%02X,", COLOR_RED_AND_White);
+            data |= COLOR_RED_AND_White << (j * 2);
+        }
+        j++;
+        if (j >= 4)
+        {
+            fprintf(fpWrite, "0x%02X,", data);
+            j = 0;
+            data = 0;
+            k++;
+            if ((k % 16) == 0)
+            {
+                fprintf(fpWrite, "\n");
+            }
+        }
+    }
+    fprintf(fpWrite, "\n};");
+    fclose(fpWrite);
+    return k;
+}
+
+unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const unsigned char* Outfilename, unsigned int Outfilesize)
+{
+    unsigned int ret = 0;
+    static HBITMAP hBitmap, hSysBitmap[5];
+    my_sprintf("Intputfilename:");
+    my_sprintf(filename, size);
+    my_sprintf("\r\n");
+    my_sprintf("Outfilename:");
+    my_sprintf(Outfilename, Outfilesize);
+    my_sprintf("\r\n");
+    //struct stat buffer;
+    struct _stat64 buffer;
+    WCHAR uni_buf[MAX_PATH] = { 0 };
+    int len = MultiByteToWideChar(CP_ACP, 0, (char *)filename, -1, NULL, 0);
+    MultiByteToWideChar(CP_UTF8, 0, (char*)filename, -1, uni_buf, len);
+    //if (stat((const char *)filename, &buffer) != 0)
+    if (_wstat64(uni_buf, &buffer) != 0)
+    {
+        my_sprintf("file not exists\r\n");
+        return 0;
+    }
+    my_sprintf("file size:%d\r\n", buffer.st_size);
+    if (FALSE == readBmp((char *)filename))
+        my_sprintf("readfile error!\r\n");
+    my_sprintf("bmp info width:%d height:%d linebyte:%d\r\n", bmpwidth, bmpheight, linebyte);
+
+    ret = saveRbw((char*)Outfilename);
+    if (ret == 0)
+        my_sprintf("savefile error!\r\n");
+    my_sprintf("save data total byte:%d\r\n", ret);
+    return ret;
 }

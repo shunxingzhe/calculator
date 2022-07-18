@@ -48,7 +48,18 @@ namespace SYD_COPY_FILE
             }
             return returnStr;
         }
-
+        public StringBuilder byteToHexStrBuilder(byte[] bytes)
+        {
+            var returnStr = new System.Text.StringBuilder("");
+            if (bytes != null)
+            {
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    returnStr.Append(bytes[i].ToString("X2"));
+                }
+            }
+            return returnStr;
+        }
         public string byteToHexStr(byte[] bytes, int index, int count)
         {
             string returnStr = "";
@@ -74,6 +85,17 @@ namespace SYD_COPY_FILE
                 returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
             return returnBytes;
          }
+        public byte[] strToToHexByteAddZero(string hexString)
+        {
+            hexString = hexString.Replace(" ", "");
+            if ((hexString.Length % 2) != 0)
+                hexString += " ";
+            byte[] returnBytes = new byte[hexString.Length / 2+1];
+            for (int i = 0; i < returnBytes.Length; i++)
+                returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+            returnBytes[returnBytes.Length - 1] = 0;
+            return returnBytes;
+        }
 
         public string StringToHexString(string s, Encoding encode)
         {
