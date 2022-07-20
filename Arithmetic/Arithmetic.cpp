@@ -270,8 +270,8 @@ bool readBmp(char* bmpName)
 #define COLOR_BLACK 		3
 unsigned int saveRbw(char* Outfilename)
 {
-    unsigned char j = 0,data=0;
-    unsigned int i = 0,k=0;
+    unsigned char j = 0, data = 0, data1 = 0;
+    unsigned int i = 0, k = 0;
     if (_access(Outfilename, 0) == 0) {//文件存在删除
         if (remove((char*)Outfilename) == 0) {
             my_sprintf("delete origin file succeed\r\n");
@@ -287,6 +287,65 @@ unsigned int saveRbw(char* Outfilename)
         my_sprintf("create file error\r\n");
         return 0;
     }
+    fprintf(fpWrite, "const unsigned char image_rbw[] = {\n");
+    /*白红黑横条 10个像素长度*/
+    //data1 = COLOR_White;
+    //for (i = 0; i < (linebyte * bmpheight); i += 3)
+    //{
+    //    data |= data1 << (j * 2);
+    //    j++;
+    //    if (j >= 4)
+    //    {
+    //        fprintf(fpWrite, "0x%02X,", data);
+    //        j = 0;
+    //        data = 0;
+    //        k++;
+    //        if ((k % 16) == 0)
+    //        {
+    //            fprintf(fpWrite, "\n");
+    //        }
+    //        if ((k % (400*10)) == 0)
+    //        {
+    //            data1++;
+    //            if(data1 > COLOR_BLACK) data1 = COLOR_White;
+    //        }
+    //    }
+    //}
+    /*白红黑竖调  像素长度:白:16 红:16 黑:8*/
+    //data1 = COLOR_White;
+    //for (i = 0; i < (linebyte * bmpheight); i += 3)
+    //{
+    //    data |= data1 << (j * 2);
+    //    j++;
+    //    if (j >= 4)
+    //    {
+    //        fprintf(fpWrite, "0x%02X,", data);
+    //        j = 0;
+    //        data = 0;
+    //        k++;
+    //        if ((k % 16) == 0)
+    //        {
+    //            fprintf(fpWrite, "\n");
+    //        }
+
+    //        if ((k % 10) == 4)
+    //        {
+    //            data1++;
+    //            if(data1 > COLOR_BLACK) data1 = COLOR_White;
+    //        }
+    //        else if ((k % 10) == 8)
+    //        {
+    //            data1++;
+    //            if (data1 > COLOR_BLACK) data1 = COLOR_White;
+    //        }
+    //        else if ((k % 10) == 0)
+    //        {
+    //            data1++;
+    //            if (data1 > COLOR_BLACK) data1 = COLOR_White;
+    //        }
+    //    }
+    //}
+    /*打印原图像素数据*/
     //for (i = 0; i < linebyte * bmpheight; i++)
     //{
     //    fprintf(fpWrite, "0x%02X,", pBmpBuf[i]);
@@ -295,7 +354,7 @@ unsigned int saveRbw(char* Outfilename)
     //        fprintf(fpWrite, "\r\n");
     //    }
     //}
-    fprintf(fpWrite, "const unsigned char image_rbw[] = {\n");
+    /*常规处理方式,把图片转为G1300的4像素一个Byte的数据*/
     for (i = 0; i < (linebyte * bmpheight); i += 3)
     {
         //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
@@ -336,7 +395,6 @@ unsigned int saveRbw(char* Outfilename)
     fclose(fpWrite);
     return k;
 }
-
 unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const unsigned char* Outfilename, unsigned int Outfilesize)
 {
     unsigned int ret = 0;

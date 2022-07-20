@@ -349,20 +349,47 @@ namespace SYD_COPY_FILE
         }
         private void contextMenuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            if (ListCosCol.Count == 0)
+            {
+                MessageBox.Show("请先获取存储桶");
+                return;
+            }
+            if (RowIndexSelect >= ListCosCol.Count)
+            {
+                MessageBox.Show("请先选择文件");
+                return;
+            }
             for (int i = 0; i < contextMenuStrip2.Items.Count; i++)
             {
                 if (contextMenuStrip2.Items[i].Selected)
                 {
+                    Bitmap bitmap = (Bitmap)dataGridViewCos.Rows[RowIndexSelect].Cells[0].Value;
+                    string filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
                     if (contextMenuStrip2.Items[i].Text.Trim() == "删除")
                     {
-                        Bitmap bitmap = (Bitmap)dataGridViewCos.Rows[RowIndexSelect].Cells[0].Value;
                         if (bitmap == Bitmap_Zip)
                         {
                             if (folder_out != null)
                             {
-                                string filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
                                 File.Delete(folder_out + "\\" + filename);
                                 Display_Folder(folder_out);
+                            }
+                        }
+                    }
+                    else if (contextMenuStrip2.Items[i].Text.Trim() == "复制文件名")
+                    {
+                        if (bitmap == Bitmap_Zip)
+                        {
+                            cope_string_to_Clipboard(filename);
+                        }
+                    }
+                    else if (contextMenuStrip2.Items[i].Text.Trim() == "打开本地目录")
+                    {
+                        if (bitmap == Bitmap_Zip)
+                        {
+                            if (folder_out != null)
+                            {
+                                System.Diagnostics.Process.Start("Explorer.exe", Path.GetDirectoryName(folder_out));
                             }
                         }
                     }

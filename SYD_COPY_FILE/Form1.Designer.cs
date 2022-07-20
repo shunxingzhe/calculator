@@ -809,6 +809,8 @@
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -6496,15 +6498,17 @@
             // 
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem12});
+            this.toolStripMenuItem12,
+            this.toolStripMenuItem13,
+            this.toolStripMenuItem14});
             this.contextMenuStrip2.Name = "contextMenuStripSplit";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(101, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(149, 70);
             this.contextMenuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItem12.Text = "删除";
             // 
             // button_CosBuckets
@@ -8245,6 +8249,18 @@
             this.toolStripMenuItem18.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem18.Text = "贴下边";
             // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem13.Text = "复制文件名";
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem14.Text = "打开本地目录";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -8255,7 +8271,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.8.5";
+            this.Text = "SYD_Calculator V1.8.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9123,6 +9139,8 @@
         private System.Windows.Forms.Button button_commit_file;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
     }
 }
 
