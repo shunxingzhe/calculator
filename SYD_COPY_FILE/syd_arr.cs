@@ -2609,7 +2609,7 @@ namespace SYD_COPY_FILE
             textInput.Text = "";
             byte[] buffer_utf8 = Encoding.UTF8.GetBytes(source_file_textBox.Text);
             byte[] out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
-            UInt32 save_size=bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length));
+            UInt32 save_size=bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex);
             if(save_size>0)
             {
                 call_c_timer_timeout = 5;//1-2内触发定时任务
@@ -3096,6 +3096,11 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("BMP文件提取红白黑三色图");
                 this.label_data_type.Text = " 处理功能选择：";
+
+                this.comboBox_fonttype.Items.Clear();
+                this.comboBox_fonttype.Items.Add("不旋转(原点为左下角)");
+                this.comboBox_fonttype.Items.Add("270度(原点为左上角)");
+                this.label_font_type.Text = "旋转角度：";
             }
             else
             {

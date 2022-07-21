@@ -268,10 +268,10 @@ bool readBmp(char* bmpName)
 #define COLOR_White 		1
 #define COLOR_RED			2
 #define COLOR_BLACK 		3
-unsigned int saveRbw(char* Outfilename)
+unsigned int saveRbw(char* Outfilename, unsigned char rotation)
 {
     unsigned char j = 0, data = 0, data1 = 0;
-    unsigned int i = 0, k = 0;
+    unsigned int i = 0, k = 0,z=0;
     if (_access(Outfilename, 0) == 0) {//文件存在删除
         if (remove((char*)Outfilename) == 0) {
             my_sprintf("delete origin file succeed\r\n");
@@ -354,48 +354,151 @@ unsigned int saveRbw(char* Outfilename)
     //        fprintf(fpWrite, "\r\n");
     //    }
     //}
+    /*常规处理方式(图片已经是红白黑三色),把图片转为G1300的4像素一个Byte的数据*/
+    //for (i = 0; i < (linebyte * bmpheight); i += 3)
+    //{
+    //    //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
+    //    if ((pBmpBuf[i] == 0xFF) && (pBmpBuf[i + 1] == 0xFF) && (pBmpBuf[i + 2] == 0xFF))
+    //    {
+    //        //fprintf(fpWrite, "0x%02X,", COLOR_BLACK);
+    //        data |= COLOR_BLACK << (j * 2);
+    //    }
+    //    else if ((pBmpBuf[i] == 0x00) && (pBmpBuf[i + 1] == 0x00) && (pBmpBuf[i + 2] == 0xFF))
+    //    {
+    //        //fprintf(fpWrite, "0x%02X,", COLOR_RED);
+    //        data |= COLOR_RED << (j * 2);
+    //    }
+    //    else if ((pBmpBuf[i] == 0x00) && (pBmpBuf[i + 1] == 0x00) && (pBmpBuf[i + 2] == 0x00))
+    //    {
+    //        //fprintf(fpWrite, "0x%02X,", COLOR_White);
+    //        data |= COLOR_White << (j * 2);
+    //    }
+    //    else
+    //    {
+    //        //fprintf(fpWrite, "0x%02X,", COLOR_RED_AND_White);
+    //        data |= COLOR_RED_AND_White << (j * 2);
+    //    }
+    //    j++;
+    //    if (j >= 4)
+    //    {
+    //        fprintf(fpWrite, "0x%02X,", data);
+    //        j = 0;
+    //        data = 0;
+    //        k++;
+    //        if ((k % 16) == 0)
+    //        {
+    //            fprintf(fpWrite, "\n");
+    //        }
+    //    }
+    //}
     /*常规处理方式,把图片转为G1300的4像素一个Byte的数据*/
-    for (i = 0; i < (linebyte * bmpheight); i += 3)
+    //unsigned char r = 0, g = 0, b = 0;
+    //for (i = 0; i < (linebyte * bmpheight); i += 3)
+    //{
+    //    //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
+    //    if (rotation == 1)
+    //    {
+    //        r = pBmpBuf[linebyte * bmpheight-3+i + 2];
+    //        g = pBmpBuf[linebyte * bmpheight - 3 + i + 1];
+    //        b = pBmpBuf[linebyte * bmpheight - 3 + i];
+    //    }
+    //    else
+    //    {
+    //        r = pBmpBuf[i + 2];
+    //        g = pBmpBuf[i + 1];
+    //        b = pBmpBuf[i];
+    //    }
+    //    if ((b >0x7f) && (g > 0x7f) && (r > 0x7f))
+    //    {
+    //        //fprintf(fpWrite, "0x%02X,", COLOR_BLACK);
+    //        data |= COLOR_White << (j * 2);
+    //    }
+    //    else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))
+    //    {
+    //        //fprintf(fpWrite, "0x%02X,", COLOR_RED);
+    //        data |= COLOR_RED << (j * 2);
+    //    }
+    //    else if ((b <= 0x7f) && (g <= 0x7f) && (r <= 0x7f))
+    //    {
+    //        //fprintf(fpWrite, "0x%02X,", COLOR_White);
+    //        data |= COLOR_BLACK << (j * 2);
+    //    }
+    //    else
+    //    {
+    //        //fprintf(fpWrite, "0x%02X,", COLOR_RED_AND_White);
+    //        data |= COLOR_RED_AND_White << (j * 2);
+    //    }
+    //    j++;
+    //    if (j >= 4)
+    //    {
+    //        fprintf(fpWrite, "0x%02X,", data);
+    //        j = 0;
+    //        data = 0;
+    //        k++;
+    //        if ((k % 16) == 0)
+    //        {
+    //            fprintf(fpWrite, "\n");
+    //        }
+    //    }
+    //}
+    unsigned char r = 0, g = 0, b = 0;
+    for (z = 0; z < bmpheight; z++)
     {
-        //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
-        if ((pBmpBuf[i] == 0xFF) && (pBmpBuf[i + 1] == 0xFF) && (pBmpBuf[i + 2] == 0xFF))
+        for (i = 0; i < linebyte; i += 3)
         {
-            //fprintf(fpWrite, "0x%02X,", COLOR_BLACK);
-            data |= COLOR_BLACK << (j * 2);
-        }
-        else if ((pBmpBuf[i] == 0x00) && (pBmpBuf[i + 1] == 0x00) && (pBmpBuf[i + 2] == 0xFF))
-        {
-            //fprintf(fpWrite, "0x%02X,", COLOR_RED);
-            data |= COLOR_RED << (j * 2);
-        }
-        else if ((pBmpBuf[i] == 0x00) && (pBmpBuf[i + 1] == 0x00) && (pBmpBuf[i + 2] == 0x00))
-        {
-            //fprintf(fpWrite, "0x%02X,", COLOR_White);
-            data |= COLOR_White << (j * 2);
-        }
-        else
-        {
-            //fprintf(fpWrite, "0x%02X,", COLOR_RED_AND_White);
-            data |= COLOR_RED_AND_White << (j * 2);
-        }
-        j++;
-        if (j >= 4)
-        {
-            fprintf(fpWrite, "0x%02X,", data);
-            j = 0;
-            data = 0;
-            k++;
-            if ((k % 16) == 0)
+            //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
+            if (rotation == 1)
             {
-                fprintf(fpWrite, "\n");
+                r = pBmpBuf[(bmpheight-z-1)* linebyte  + i + 2];
+                g = pBmpBuf[(bmpheight - z - 1) * linebyte + i + 1];
+                b = pBmpBuf[(bmpheight - z - 1) * linebyte +  i];
+            }
+            else
+            {
+                r = pBmpBuf[z* linebyte+i + 2];
+                g = pBmpBuf[z * linebyte+i + 1];
+                b = pBmpBuf[z * linebyte+i];
+            }
+            if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))
+            {
+                //fprintf(fpWrite, "0x%02X,", COLOR_BLACK);
+                data |= COLOR_White << (j * 2);
+            }
+            else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))
+            {
+                //fprintf(fpWrite, "0x%02X,", COLOR_RED);
+                data |= COLOR_RED << (j * 2);
+            }
+            else if ((b <= 0x7f) && (g <= 0x7f) && (r <= 0x7f))
+            {
+                //fprintf(fpWrite, "0x%02X,", COLOR_White);
+                data |= COLOR_BLACK << (j * 2);
+            }
+            else
+            {
+                //fprintf(fpWrite, "0x%02X,", COLOR_RED_AND_White);
+                data |= COLOR_RED_AND_White << (j * 2);
+            }
+            j++;
+            if (j >= 4)
+            {
+                fprintf(fpWrite, "0x%02X,", data);
+                j = 0;
+                data = 0;
+                k++;
+                if ((k % 16) == 0)
+                {
+                    fprintf(fpWrite, "\n");
+                }
             }
         }
     }
+    
     fprintf(fpWrite, "\n};");
     fclose(fpWrite);
     return k;
 }
-unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const unsigned char* Outfilename, unsigned int Outfilesize)
+unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation)
 {
     unsigned int ret = 0;
     static HBITMAP hBitmap, hSysBitmap[5];
@@ -405,6 +508,7 @@ unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const u
     my_sprintf("Outfilename:");
     my_sprintf(Outfilename, Outfilesize);
     my_sprintf("\r\n");
+    my_sprintf("rotation:%d\r\n", rotation);
     //struct stat buffer;
     struct _stat64 buffer;
     WCHAR uni_buf[MAX_PATH] = { 0 };
@@ -421,7 +525,7 @@ unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const u
         my_sprintf("readfile error!\r\n");
     my_sprintf("bmp info width:%d height:%d linebyte:%d\r\n", bmpwidth, bmpheight, linebyte);
 
-    ret = saveRbw((char*)Outfilename);
+    ret = saveRbw((char*)Outfilename, rotation);
     if (ret == 0)
         my_sprintf("savefile error!\r\n");
     my_sprintf("save data total byte:%d\r\n", ret);
