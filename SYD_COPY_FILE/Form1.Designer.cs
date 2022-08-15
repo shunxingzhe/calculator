@@ -145,12 +145,10 @@
             this.checkBox17 = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button_replace = new System.Windows.Forms.Button();
             this.comboBox_indicate = new System.Windows.Forms.ComboBox();
             this.comboBox_mode = new System.Windows.Forms.ComboBox();
             this.label_indicator = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
-            this.button_clear = new System.Windows.Forms.Button();
             this.draw = new System.Windows.Forms.Button();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.richTextBox_out = new System.Windows.Forms.TextBox();
@@ -161,6 +159,7 @@
             this.reopen_source_file_button = new System.Windows.Forms.Button();
             this.textBox_key = new System.Windows.Forms.TextBox();
             this.label_key_word = new System.Windows.Forms.Label();
+            this.button_clear = new System.Windows.Forms.Button();
             this.comboBox_fonttype = new System.Windows.Forms.ComboBox();
             this.label_font_type = new System.Windows.Forms.Label();
             this.comboBox_datatype = new System.Windows.Forms.ComboBox();
@@ -2068,12 +2067,10 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button_replace);
             this.tabPage4.Controls.Add(this.comboBox_indicate);
             this.tabPage4.Controls.Add(this.comboBox_mode);
             this.tabPage4.Controls.Add(this.label_indicator);
             this.tabPage4.Controls.Add(this.label84);
-            this.tabPage4.Controls.Add(this.button_clear);
             this.tabPage4.Controls.Add(this.draw);
             this.tabPage4.Controls.Add(this.groupBox23);
             this.tabPage4.Controls.Add(this.groupBox22);
@@ -2083,17 +2080,6 @@
             this.tabPage4.Size = new System.Drawing.Size(756, 552);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Arr";
-            // 
-            // button_replace
-            // 
-            this.button_replace.Location = new System.Drawing.Point(365, 92);
-            this.button_replace.Margin = new System.Windows.Forms.Padding(2);
-            this.button_replace.Name = "button_replace";
-            this.button_replace.Size = new System.Drawing.Size(61, 22);
-            this.button_replace.TabIndex = 35;
-            this.button_replace.Text = "调换文本";
-            this.button_replace.UseVisualStyleBackColor = true;
-            this.button_replace.Click += new System.EventHandler(this.button_replace_Click);
             // 
             // comboBox_indicate
             // 
@@ -2124,7 +2110,7 @@
             "XOR运算",
             "Rtc批量时间差计算",
             "Bytes to utf8(ASCII)/C#数组处理/Jlink数组处理",
-            "根据要求提取行",
+            "根据要求提取行或列",
             "Source Insight搜索栏文件解析",
             "生成特定数组",
             "Get api symdef",
@@ -2133,7 +2119,7 @@
             "Call C"});
             this.comboBox_mode.Location = new System.Drawing.Point(33, 94);
             this.comboBox_mode.Name = "comboBox_mode";
-            this.comboBox_mode.Size = new System.Drawing.Size(240, 20);
+            this.comboBox_mode.Size = new System.Drawing.Size(338, 20);
             this.comboBox_mode.TabIndex = 28;
             this.comboBox_mode.DropDownClosed += new System.EventHandler(this.comboBox_mode_DropDownClosed);
             // 
@@ -2155,22 +2141,11 @@
             this.label84.TabIndex = 29;
             this.label84.Text = "模式:";
             // 
-            // button_clear
-            // 
-            this.button_clear.Location = new System.Drawing.Point(426, 92);
-            this.button_clear.Margin = new System.Windows.Forms.Padding(2);
-            this.button_clear.Name = "button_clear";
-            this.button_clear.Size = new System.Drawing.Size(38, 22);
-            this.button_clear.TabIndex = 27;
-            this.button_clear.Text = "清除";
-            this.button_clear.UseVisualStyleBackColor = true;
-            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
-            // 
             // draw
             // 
             this.draw.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
             this.draw.ForeColor = System.Drawing.Color.Red;
-            this.draw.Location = new System.Drawing.Point(275, 89);
+            this.draw.Location = new System.Drawing.Point(374, 89);
             this.draw.Margin = new System.Windows.Forms.Padding(2);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(90, 30);
@@ -2233,6 +2208,7 @@
             this.groupBox21.Controls.Add(this.reopen_source_file_button);
             this.groupBox21.Controls.Add(this.textBox_key);
             this.groupBox21.Controls.Add(this.label_key_word);
+            this.groupBox21.Controls.Add(this.button_clear);
             this.groupBox21.Controls.Add(this.comboBox_fonttype);
             this.groupBox21.Controls.Add(this.label_font_type);
             this.groupBox21.Controls.Add(this.comboBox_datatype);
@@ -2267,7 +2243,7 @@
             // 
             // reopen_source_file_button
             // 
-            this.reopen_source_file_button.Location = new System.Drawing.Point(676, 18);
+            this.reopen_source_file_button.Location = new System.Drawing.Point(638, 18);
             this.reopen_source_file_button.Name = "reopen_source_file_button";
             this.reopen_source_file_button.Size = new System.Drawing.Size(85, 22);
             this.reopen_source_file_button.TabIndex = 36;
@@ -2291,6 +2267,17 @@
             this.label_key_word.Size = new System.Drawing.Size(47, 12);
             this.label_key_word.TabIndex = 34;
             this.label_key_word.Text = "关键字:";
+            // 
+            // button_clear
+            // 
+            this.button_clear.Location = new System.Drawing.Point(722, 18);
+            this.button_clear.Margin = new System.Windows.Forms.Padding(2);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(38, 22);
+            this.button_clear.TabIndex = 27;
+            this.button_clear.Text = "清除";
+            this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
             // comboBox_fonttype
             // 
@@ -2406,7 +2393,7 @@
             this.source_file_textBox.AllowDrop = true;
             this.source_file_textBox.Location = new System.Drawing.Point(77, 19);
             this.source_file_textBox.Name = "source_file_textBox";
-            this.source_file_textBox.Size = new System.Drawing.Size(599, 21);
+            this.source_file_textBox.Size = new System.Drawing.Size(559, 21);
             this.source_file_textBox.TabIndex = 7;
             this.source_file_textBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_file_textBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
@@ -8271,7 +8258,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.8.7";
+            this.Text = "SYD_Calculator V1.8.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8805,7 +8792,6 @@
         private System.Windows.Forms.CheckBox checkBox_delete_srcfile;
         private System.Windows.Forms.TextBox textBox87;
         private System.Windows.Forms.Label label132;
-        private System.Windows.Forms.Button button_replace;
         private System.Windows.Forms.CheckBox checkBox17;
         private System.Windows.Forms.GroupBox groupBox25;
         private System.Windows.Forms.TextBox textBox_Bulk_zoom_w;

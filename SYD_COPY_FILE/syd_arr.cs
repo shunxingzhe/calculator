@@ -1833,79 +1833,91 @@ namespace SYD_COPY_FILE
        }
         private void Get_rom_extract()
         {
-            int i = 0;
+            int i = 0,j=0;
             string orgTxt1 = textInput.Text.Trim();
-            List<string> lstArray = orgTxt1.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            List<string> outTxt_line = new List<string>();
-            List<string> line = new List<string>();
-            string separator = textBox_filesize.Text;
+            List<string> lstArray = orgTxt1.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();//所有的行
             string outTxt1 = "";
-            string separator_out = "";
-            int row_index = 0;
+            if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
+            {
+                string key_word = textBox_key.Text;
+                for (i = 0; i < lstArray.Count; i++)
+                {
+                    j = lstArray[i].IndexOf(key_word);
+                    if (j!=-1)
+                    {
+                        if (comboBox_datatype.SelectedIndex == 3)
+                        {
+                            outTxt1 += lstArray[i].Substring(j+ key_word.Length) + "\r\n";
+                        }
+                        else outTxt1 += lstArray[i] + "\r\n";
+                    }
+                }
+            }
+            else
+            {
+                List<string> outTxt_line = new List<string>();
+                List<string> line = new List<string>();
+                string separator = textBox_filesize.Text;
+                string separator_out = "";
+                int row_index = 0;
+                if (comboBox_datatype.SelectedIndex != 0)
+                {
+                    row_index = Convert.ToByte(textBox_key.Text);
+                }
 
-            if (comboBox_fonttype.SelectedIndex == 0)
-            {
-                separator_out = " ";
-            }
-            else if (comboBox_fonttype.SelectedIndex == 1)
-            {
-                separator_out = "\r\n";
-            }
-            if (comboBox_datatype.SelectedIndex == 0)
-            {
-                line = lstArray[0].Split(new string[] { separator }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                for (i = 0; i < line.Count; i++)
+                if (comboBox_fonttype.SelectedIndex == 0)
                 {
-                    if (line[i].Contains(textBox_key.Text))
-                    {
-                        row_index = i;
-                        break;
-                    }
+                    separator_out = " ";
                 }
-                if (i >= line.Count)
+                else if (comboBox_fonttype.SelectedIndex == 1)
                 {
-                    MessageBox.Show("找不到指定的关键字!");
-                    return;
+                    separator_out = "\r\n";
                 }
-                else
-                {
-                    for (i = 1; i < lstArray.Count; i++)
-                    {
-                        line = lstArray[i].Split(new string[] { separator }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                        outTxt1 += line[row_index] + separator_out;
-                        outTxt_line.Add(line[row_index]);
-                    }
-                }
-            }
-            else if (comboBox_datatype.SelectedIndex == 1)
-            {
-                row_index = Convert.ToInt32(textBox_key.Text);
+
                 for (i = 0; i < lstArray.Count; i++)
                 {
                     line = lstArray[i].Split(new string[] { separator }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                    outTxt1 += line[row_index] + separator_out;
-                    outTxt_line.Add(line[row_index]);
+                    if (line.Count > 1)
+                    {
+                        if (comboBox_datatype.SelectedIndex == 0)
+                        {
+                            for (i = 0; i < line.Count; i++)
+                            {
+                                outTxt1 += i.ToString() + "-->" + line[i] + "\r\n";
+                            }
+                            richTextBox_out.Text = outTxt1;
+                            MessageBox.Show("展示列内容成功");
+                            return;
+                        }
+                        outTxt1 += line[row_index] + separator_out;
+                        outTxt_line.Add(line[row_index]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("第" + i.ToString() + "行未找到换行符! ");
+                        return;
+                    }
                 }
-            }
 
-            if (comboBox_indicate.SelectedIndex == 1)
-            {
-                if (lstArray.Count == 3)
+                if (comboBox_additional_operations.SelectedIndex == 1)
                 {
-                    string ret = "第三行和第一行时间差:";
-                    string dif = "";
-                    dif = cal_Calendar_time_differenceble_subtract(outTxt_line[2], outTxt_line[0], null, null);
-                    ret += dif;
-                    ret += "\r\n";
+                    if (lstArray.Count == 3)
+                    {
+                        string ret = "第三行和第一行时间差:";
+                        string dif = "";
+                        dif = cal_Calendar_time_differenceble_subtract(outTxt_line[2], outTxt_line[0], null, null);
+                        ret += dif;
+                        ret += "\r\n";
 
-                    ret += "下一个连接事件的时间点:";
-                    ret += cal_Calendar_ble_time_sum(outTxt_line[2], dif, null, null);
-                    ret += "\r\n";
-                    outTxt1 = outTxt1.Insert(0, ret);
-                }
-                else
-                {
-                    MessageBox.Show("输入内容有错,应该从sniffer的LE DATA粘贴第一个和第三个为主机/从机的数据包!");
+                        ret += "下一个连接事件的时间点:";
+                        ret += cal_Calendar_ble_time_sum(outTxt_line[2], dif, null, null);
+                        ret += "\r\n";
+                        outTxt1 = outTxt1.Insert(0, ret);
+                    }
+                    else
+                    {
+                        MessageBox.Show("输入内容有错,应该从sniffer的LE DATA粘贴第一个和第三个为主机/从机的数据包!");
+                    }
                 }
             }
 
@@ -2739,30 +2751,6 @@ namespace SYD_COPY_FILE
             textInput.Clear();
             richTextBox_out.Clear();
         }
-
-        private void button_replace_Click(object sender, EventArgs e)
-        {
-            //int length1 = richTextBox_out.Text.Length;
-            //int length2 = textInput.Text.Length;
-            //if (length1 > 0)
-            //{
-            //    FileStream fs = new FileStream(".\\richTextBox_out.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            //    StreamWriter sw = new StreamWriter(fs);
-            //    sw.Write(richTextBox_out.Text);//写你的字符串。
-            //    sw.Close();
-            //    fs.Close();
-            //}
-            //if (length2 > 0)
-            //    File.WriteAllText("textInput.txt", textInput.Text);
-
-            //if (length2 > 0)
-            //    richTextBox_out.Text = System.IO.File.ReadAllText("textInput.txt", Encoding.Default);
-            //if (length1 > 0)
-            //    textInput.Text = System.IO.File.ReadAllText("richTextBox_out.txt", Encoding.Default);
-            string str = textInput.Text;
-            textInput.Text = richTextBox_out.Text;
-            richTextBox_out.Text = str;
-        }
         private void reintput_file(string FileName)
         {
             FileInfo fi = new FileInfo(FileName);
@@ -2892,7 +2880,6 @@ namespace SYD_COPY_FILE
         }
         private void comboBox_mode_DropDownClosed(object sender, EventArgs e)
         {
-            int i = 0;
             arr_restore_Defaults();
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
             {
@@ -3010,9 +2997,11 @@ namespace SYD_COPY_FILE
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Get_Row.txt", Encoding.Default);
 
                 this.comboBox_datatype.Items.Clear();
-                this.comboBox_datatype.Items.Add("提取行号从第一行以关键字为准");
-                this.comboBox_datatype.Items.Add("提取行号由关键字指定");
-                this.label_data_type.Text = "提取行号来源：";
+                this.comboBox_datatype.Items.Add("列出第一行根据分隔符获取到的列内容");
+                this.comboBox_datatype.Items.Add("根据分隔符提取关键字指定的列");
+                this.comboBox_datatype.Items.Add("列出包含关键字的所有行");
+                this.comboBox_datatype.Items.Add("列出包含关键字的所有行并提取至行尾");
+                this.label_data_type.Text = "提取数据依据：";
                 this.label_datasize.Text = "      分隔符:";
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("输出以空格符隔开");
@@ -3021,14 +3010,9 @@ namespace SYD_COPY_FILE
                 this.label_font_type.Text = "输出格式：";
                 this.label_indicator.Text = "附操作:";
 
-                comboBox_indicate_text.Clear();
-                for (i = 0; i < comboBox_indicate.Items.Count; i++)
-                {
-                    comboBox_indicate_text.Add(comboBox_indicate.Items[i].ToString());
-                }
-                comboBox_indicate.Items.Clear();
-                this.comboBox_indicate.Items.Add("无额外操作");
-                this.comboBox_indicate.Items.Add("BLE估算下一个连接事件的时间(两个主机数据包之间)");
+                comboBox_additional_operations.Items.Clear();
+                this.comboBox_additional_operations.Items.Add("无额外操作");
+                this.comboBox_additional_operations.Items.Add("BLE估算下一个连接事件的时间(两个主机数据包之间)");
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Source_Insight_Search_Results_Analysis)
             {
