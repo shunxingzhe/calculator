@@ -64,7 +64,6 @@ namespace SYD_COPY_FILE
             Keil_memery_analysis,//5
             ARR_to_bin,
             Fine_max_not_use_index,
-            extract_rank_data,
             C_struct_element_size,
             Cmd_XOR,
             Rtc_Deviation,//13
@@ -1299,7 +1298,65 @@ namespace SYD_COPY_FILE
 
            MessageBox.Show("保存成功!");
        }
-       private void text_to_bin()
+        private void Data_handle()
+        {
+            int i = 0;
+            string orgTxt1= textInput.Text.Replace("\r","").Replace("\n", "");
+            string str = "", str_out = "";
+            str = orgTxt1;
+            string key_word = textBox_key.Text;
+            if (comboBox_fonttype.SelectedIndex != 0)
+            {
+                if (comboBox_fonttype.SelectedIndex == 1)
+                {
+                    if (key_word.Length == 0)
+                    {
+                        MessageBox.Show("关键字输入错误!");
+                        return;
+                    }
+                    if (str.Contains(key_word))
+                    {
+                        str= str.Replace(key_word, "");
+                    }
+                    else
+                    {
+                        MessageBox.Show("输入数据未包含关键字!");
+                        return;
+                    }
+                }
+            }
+            if (comboBox_additional_operations.SelectedIndex == 0)
+            {
+                for (i = 0; i < (str.Length / 4); i++)
+                {
+                    str_out += getUInt16FromString(str, i * 4).ToString("X4") + "\r\n";
+                }
+            }
+            else if (comboBox_additional_operations.SelectedIndex == 1)
+            {
+                for (i = 0; i < (str.Length / 4); i++)
+                {
+                    str_out += getUInt32FromString(str, i * 4).ToString("X8") + "\r\n";
+                }
+            }
+            if (comboBox_additional_operations.SelectedIndex == 2)
+            {
+                for (i = 0; i < (str.Length / 4); i++)
+                {
+                    str_out += getUInt16FromString(str, i * 4).ToString() + "\r\n";
+                }
+            }
+            else if (comboBox_additional_operations.SelectedIndex == 3)
+            {
+                for (i = 0; i < (str.Length / 8); i++)
+                {
+                    str_out += getUInt32FromString(str, i * 8).ToString() + "\r\n";
+                }
+            }
+            richTextBox_out.Text = str_out;
+            MessageBox.Show("处理完成!");
+        }
+        private void text_to_bin()
        {
            string orgTxt1 = textInput.Text.Trim();
            if (comboBox_fonttype.SelectedIndex != 0)
@@ -1443,26 +1500,6 @@ namespace SYD_COPY_FILE
 
            if (i >0)
             richTextBox_out.AppendText("\r\notuse min index:" + array_index[0].ToString());
-       }
-
-       private void extract_rank_data()
-       {
-           int i = 0;
-           if (comboBox_indicate.Items.Count <= 0)
-           {
-               return;
-           }
-           List<string>[] lis = new List<string>[textInput.Lines.Length];
-
-           for (i = 0; i < textInput.Lines.Length; i++)
-           {
-               string str = new Regex("[\\s]+").Replace(textInput.Lines[i].ToString(), " ").Trim(); ;
-               lis[i] = str.Split(new string[] { " " }, StringSplitOptions.None).ToList();
-           }
-           for (i = 0; i < lis.Length; i++)
-           {
-               richTextBox_out.AppendText(lis[i][comboBox_indicate.SelectedIndex]+"\r\n");
-           }
        }
 
        private UInt32 get_struct_element_size(string a)
@@ -2505,33 +2542,7 @@ namespace SYD_COPY_FILE
                 }
                 richTextBox_out.Text = outTxt1;
             }
-            else if ((comboBox_datatype.SelectedIndex == 3) || (comboBox_datatype.SelectedIndex == 4))
-            {
-                for (i = 0; i < lstArray.Count; i++)
-                {
-                    m = lstArray[i].IndexOf(textBox_key.Text);
-                    if (m != -1)
-                    {
-                        row_index = 1;
-                        if (comboBox_datatype.SelectedIndex == 3)
-                        {
-                            outTxt1 += lstArray[i].Substring(m, lstArray[i].Length - m);
-                        }
-                        else if (comboBox_datatype.SelectedIndex == 4)
-                        {
-                            outTxt1 += lstArray[i].Substring(0, m) + "\r\n";
-                        }
-                        
-                    }
-                }
-                if (row_index == 0)
-                {
-                    MessageBox.Show("找不到指定的关键字!");
-                    return;
-                }
-                richTextBox_out.Text = outTxt1;
-            }
-            else if (comboBox_datatype.SelectedIndex == 5)
+            else if (comboBox_datatype.SelectedIndex == 3)
             {
                 string prefix = textBox_key.Text;
                 for (i = 0; i < lstArray.Count; i++)
@@ -2555,11 +2566,11 @@ namespace SYD_COPY_FILE
                 }
                 richTextBox_out.Text = outTxt1;
             }
-            else if (comboBox_datatype.SelectedIndex == 6)
+            else if (comboBox_datatype.SelectedIndex == 4)
             {
                 Data_filled_complement_zero();
             }
-            else if (comboBox_datatype.SelectedIndex == 7)
+            else if (comboBox_datatype.SelectedIndex == 5)
             {
                 Data_reversal();
             }
@@ -2675,10 +2686,6 @@ namespace SYD_COPY_FILE
             {
                 Fine_max_notuse_index();
             }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.extract_rank_data)
-            {
-                extract_rank_data();
-            }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.C_struct_element_size)
             {
                 if (comboBox_datatype.SelectedIndex == 0)
@@ -2720,7 +2727,10 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
             {
-                text_handle();
+                if (comboBox_datatype.SelectedIndex == 6)
+                    Data_handle();
+                else
+                    text_handle();
             }
 
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
@@ -2851,7 +2861,6 @@ namespace SYD_COPY_FILE
             }
             this.comboBox_additional_operations.Items.Clear();
             this.comboBox_additional_operations.Items.Add("无额外操作");
-            this.label_additional_operations.Text = "额外操作:";
         }
         /*
          * ExcludeDatatype:TRUE:排除comboBox_datatype的设置 false:设置comboBox_datatype
@@ -2892,7 +2901,6 @@ namespace SYD_COPY_FILE
                 this.comboBox_additional_operations.Items.Clear();
                 this.comboBox_additional_operations.Items.Add("无额外操作");
                 this.comboBox_additional_operations.Items.Add("替换文件名指定文件中由数组名指定的数组内容");
-                this.label_additional_operations.Text = "额外操作:";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Git_helper)
             {
@@ -2951,10 +2959,6 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Add("带0X的数组");
                 this.label_font_type.Text = "数据类型：";
             }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.extract_rank_data)
-            {
-                textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_extract_rank_data.txt", Encoding.Default);
-            }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.C_struct_element_size)
             {
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Cstruct_element_size.txt", Encoding.Default);
@@ -2966,7 +2970,6 @@ namespace SYD_COPY_FILE
                 this.comboBox_additional_operations.Items.Clear();
                 this.comboBox_additional_operations.Items.Add("无额外操作");
                 this.comboBox_additional_operations.Items.Add("去掉数组[]之间的数字");
-                this.label_additional_operations.Text = "额外操作:";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Cmd_XOR)
             {
@@ -3066,11 +3069,10 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("合并所有行的数据");
                 this.comboBox_datatype.Items.Add("把关键字加到每一行前面");
                 this.comboBox_datatype.Items.Add("把关键字加到每一行后面");
-                this.comboBox_datatype.Items.Add("提取关键字指定的关键字后面的字符到本行结束");
-                this.comboBox_datatype.Items.Add("提取关键字指定的关键字前面的字符到本行开始");
                 this.comboBox_datatype.Items.Add("提取数组名称并加入关键字指定的前导和逗号行尾");
                 this.comboBox_datatype.Items.Add("数据前置补零");
                 this.comboBox_datatype.Items.Add("多数据翻转");
+                this.comboBox_datatype.Items.Add("十六进制/十进制数据提取");
                 this.label_data_type.Text = " 处理功能选择：";
 
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_TEXT_handle_and_analysis.txt", Encoding.Default);
@@ -3159,20 +3161,35 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
             {
-                if (comboBox_datatype.SelectedIndex == 7)
-                {
+                if((comboBox_datatype.SelectedIndex == 5) || (comboBox_datatype.SelectedIndex == 6))
+                    {
                     textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Data_reversal.txt", Encoding.Default);
+                    if (comboBox_datatype.SelectedIndex == 5)
+                    {
+                        this.comboBox_additional_operations.Items.Clear();
+                        this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,并计算第二行-第一行");
+                        this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,不计算数据");
+                        this.comboBox_additional_operations.Items.Add("寻找有用行(非注释行)按字节调换大小端");
+                        this.comboBox_fonttype.Items.Clear();
+                        this.comboBox_fonttype.Items.Add("不带0X的数据");
+                        this.comboBox_fonttype.Items.Add("带0X的数据");
+                        this.comboBox_fonttype.Items.Add("带0X的数组");
+                    }
+                    else if (comboBox_datatype.SelectedIndex == 6)
+                    {
+                        this.comboBox_additional_operations.Items.Clear();
+                        this.comboBox_additional_operations.Items.Add("输入两个十六进制字节为一个数据输出十六进制");
+                        this.comboBox_additional_operations.Items.Add("输入四个十六进制字节为一个数据输出十六进制");
+                        this.comboBox_additional_operations.Items.Add("输入两个十六进制字节为一个数据输出十进制");
+                        this.comboBox_additional_operations.Items.Add("输入四个十六进制字节为一个数据输出十进制");
+                        this.comboBox_fonttype.Items.Clear();
+                        this.comboBox_fonttype.Items.Add("不改变输入数据(输入数据为A55A789632形式的十六进制数据)");
+                        this.comboBox_fonttype.Items.Add("替换输入数据中和关键字一样的字符串");
+                    }
 
-                    this.comboBox_additional_operations.Items.Clear();
-                    this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,并计算第二行-第一行");
-                    this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,不计算数据");
-                    this.comboBox_additional_operations.Items.Add("寻找有用行(非注释行)按字节调换大小端");
-                    this.label_additional_operations.Text = "处理功能选择：";
+                    this.label_additional_operations.Text = "处理模式：";
 
-                    this.comboBox_fonttype.Items.Clear();
-                    this.comboBox_fonttype.Items.Add("不带0X的数据");
-                    this.comboBox_fonttype.Items.Add("带0X的数据");
-                    this.comboBox_fonttype.Items.Add("带0X的数组");
+
                     this.label_font_type.Text = "数据类型：";
                 }
             }
@@ -3242,19 +3259,6 @@ namespace SYD_COPY_FILE
 
             }
         }
-
-        private void textInput_TextChanged(object sender, EventArgs e)
-        {
-            if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.extract_rank_data)
-            {
-                List<string> lis = new List<string>();
-                string str = new Regex("[\\s]+").Replace(textInput.Lines[0].ToString(), " ").Trim();
-                lis = str.Split(new string[] { " " }, StringSplitOptions.None).ToList();
-                if (lis.Count<20)
-                    comboBox_indicate.DataSource = lis;
-            }
-        }
-
         private void draw_MouseEnter(object sender, EventArgs e)
         {
             p_draw.ShowAlways = false;

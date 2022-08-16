@@ -2105,7 +2105,6 @@
             "Keil读回的内存分析",
             "Text/ARR to bin",
             "找到目前可以用的最小关键词指定的元组序号",
-            "提取指定列数据",
             "C语言结构体计算偏移/从C文件提炼数组声明",
             "XOR运算",
             "Rtc批量时间差计算",
@@ -2200,7 +2199,6 @@
             this.textInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textInput.Size = new System.Drawing.Size(747, 269);
             this.textInput.TabIndex = 0;
-            this.textInput.TextChanged += new System.EventHandler(this.textInput_TextChanged);
             // 
             // groupBox21
             // 
@@ -8258,7 +8256,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.8.8";
+            this.Text = "SYD_Calculator V1.8.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
