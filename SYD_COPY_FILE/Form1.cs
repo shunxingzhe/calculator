@@ -497,6 +497,20 @@ namespace SYD_COPY_FILE
             timestamp = timestamp - timestamp1;
             return cal_Calendar_time_difference_subtract_output(timestamp, timestamp_accuracy_type.accuracy_3, testbox_display, testbox_display_timestamp);
         }
+        private string time_difference_subtract(string a, string b, int c, TextBox testbox_display, TextBox testbox_display_timestamp)
+        {
+            if (a.Length > 13)
+            {
+                if (a.Contains(":") == true)
+                    return cal_Calendar_time_differenceble_subtract(a, b, testbox_display, testbox_display_timestamp);//22:52:27.252726
+                else
+                    return cal_Calendar_day_differenceble_subtract(a, b, testbox_display, testbox_display_timestamp);//20220223 124748
+            }
+            else
+            {
+                return cal_Calendar_time_difference_subtract(a, b, c, testbox_display, testbox_display_timestamp);//18:05:59:505
+            }
+        }
         private UInt64 cal_Calendar_srt_to_timestamp(string a)
         {
             Int32 hour = 0, minute = 0, second = 0, millisecond = 0;
@@ -894,18 +908,7 @@ namespace SYD_COPY_FILE
             {
                 date = Convert.ToInt32(Day_textBox.Text, 10);
             }
-
-            if (Now_Time_textBox.Text.Length > 13)
-            {
-                if (Now_Time_textBox.Text.Contains(":") == true)
-                    cal_Calendar_time_differenceble_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, Output_time_textBox, Output_hexsecond_textBox);//22:52:27.252726
-                else
-                    cal_Calendar_day_differenceble_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, Output_time_textBox, Output_hexsecond_textBox);//20220223 124748
-            }
-            else
-            {
-                cal_Calendar_time_difference_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, date, Output_time_textBox, Output_hexsecond_textBox);//18:05:59:505
-            }
+            time_difference_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, date, Output_time_textBox, Output_hexsecond_textBox);
         }
         private void timestamp_Difference_cal_Click(object sender, EventArgs e)
         {
@@ -1211,12 +1214,12 @@ namespace SYD_COPY_FILE
             }
         }
 
-        private void button20_Click(object sender, EventArgs e)
+        private void batch_time_difference_subtract_Click(object sender, EventArgs e)
         {
             int i = 0;
             string orgTxt1 = textBox_difference_input.Text.Trim();
 
-            orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "");
+            orgTxt1 = orgTxt1.Replace("\r\n\r\n", "\r\n");
 
             List<string> lstArray = orgTxt1.ToLower().Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
 
@@ -1227,7 +1230,7 @@ namespace SYD_COPY_FILE
             for (i = 1; i < lstArray.Count; i++)
             {
                 if (lstArray[i].Length != 0)
-                    textBox_difference_output.AppendText(cal_Calendar_time_difference_subtract(lstArray[i], lstArray[i - 1], 0, null, null) + "\r\n");
+                    textBox_difference_output.AppendText(time_difference_subtract(lstArray[i], lstArray[i - 1], 0, null, null) + "\r\n");
             }
         }
 
