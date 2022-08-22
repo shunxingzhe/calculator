@@ -810,6 +810,10 @@
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox_SecretId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox_secretKey = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
             this.tabPage11.SuspendLayout();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -6433,6 +6437,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBox_secretKey);
+            this.tabPage2.Controls.Add(this.label56);
+            this.tabPage2.Controls.Add(this.textBox_SecretId);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.button_commit_file);
             this.tabPage2.Controls.Add(this.label_schedule);
             this.tabPage2.Controls.Add(this.dataGridViewCos);
@@ -8246,6 +8254,44 @@
             this.toolStripMenuItem18.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem18.Text = "贴下边";
             // 
+            // textBox_SecretId
+            // 
+            this.textBox_SecretId.AllowDrop = true;
+            this.textBox_SecretId.Font = new System.Drawing.Font("宋体", 8F);
+            this.textBox_SecretId.Location = new System.Drawing.Point(213, 1);
+            this.textBox_SecretId.Name = "textBox_SecretId";
+            this.textBox_SecretId.PasswordChar = '*';
+            this.textBox_SecretId.Size = new System.Drawing.Size(107, 20);
+            this.textBox_SecretId.TabIndex = 72;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("宋体", 10F);
+            this.label5.Location = new System.Drawing.Point(145, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 17);
+            this.label5.TabIndex = 73;
+            this.label5.Text = "SecretId:";
+            // 
+            // textBox_secretKey
+            // 
+            this.textBox_secretKey.AllowDrop = true;
+            this.textBox_secretKey.Font = new System.Drawing.Font("宋体", 8F);
+            this.textBox_secretKey.Location = new System.Drawing.Point(389, 1);
+            this.textBox_secretKey.Name = "textBox_secretKey";
+            this.textBox_secretKey.PasswordChar = '*';
+            this.textBox_secretKey.Size = new System.Drawing.Size(107, 20);
+            this.textBox_secretKey.TabIndex = 74;
+            // 
+            // label56
+            // 
+            this.label56.Font = new System.Drawing.Font("宋体", 10F);
+            this.label56.Location = new System.Drawing.Point(321, 4);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(72, 17);
+            this.label56.TabIndex = 75;
+            this.label56.Text = "SecretKey:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -8256,7 +8302,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.8.9";
+            this.Text = "SYD_Calculator V1.9.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8333,6 +8379,7 @@
             this.panel2.PerformLayout();
             this.TabCrontrol.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCos)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -9125,6 +9172,10 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
+        private System.Windows.Forms.TextBox textBox_SecretId;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox_secretKey;
+        private System.Windows.Forms.Label label56;
     }
 }
 

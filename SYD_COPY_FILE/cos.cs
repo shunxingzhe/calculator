@@ -38,10 +38,8 @@ namespace SYD_COPY_FILE
           .SetDebugLog(true)  //显示日志
           .Build();  //创建 CosXmlConfig 对象
 
-        static string secretId = "AKIDELCn7AxWt0sSlnZ4IHzRcW9WcRzHH0Sd"; //"云 API 密钥 SecretId";
-        static string secretKey = "wbz6xWpqc7LIyOXP0KNAgvta091cMp2y"; //"云 API 密钥 SecretKey";
         static long durationSecond = 600;  //每次请求签名有效时长，单位为秒
-        QCloudCredentialProvider cosCredentialProvider = new DefaultQCloudCredentialProvider(secretId, secretKey, durationSecond);
+        QCloudCredentialProvider cosCredentialProvider ;
         CosXml cosXml;
         public class ItemCosCol
         {
@@ -57,11 +55,12 @@ namespace SYD_COPY_FILE
 
         public int ColumnIndexSelect = 0;
         public int RowIndexSelect = 0;
+
+        public static UInt32 secretId_lenght = 36;
+        public static UInt32 secretKey_lenght = 32;
         #endregion
         public void cos_init()
         {
-            cosXml = new CosXmlServer(config, cosCredentialProvider);
-
             Bitmap_Bucket = new Bitmap(global::SYD_COPY_FILE.Properties.Resources.Bucket);
             Bitmap_Folder = new Bitmap(global::SYD_COPY_FILE.Properties.Resources.Folder);
             Bitmap_File = new Bitmap(global::SYD_COPY_FILE.Properties.Resources.File);
@@ -76,6 +75,12 @@ namespace SYD_COPY_FILE
             //}
             dataGridViewCosBing(dataGridViewType.FILE);
             button_commit_file.Enabled = false;
+
+            if ((Settings1.Default.cos_secretId.Length == secretId_lenght) && (Settings1.Default.cos_secretKey.Length == secretKey_lenght))
+            {
+                 textBox_SecretId.Text= Settings1.Default.cos_secretId;
+                 textBox_secretKey.Text= Settings1.Default.cos_secretKey;
+            }
         }
         public void dataGridViewCosBing(dataGridViewType type)
         {
@@ -100,6 +105,18 @@ namespace SYD_COPY_FILE
         }
         private void button_CosBuckets_Click(object sender, EventArgs e)
         {
+            if (cosXml == null)
+            {
+                string secretId = textBox_SecretId.Text; //"云 API 密钥 SecretId";
+                string secretKey = textBox_secretKey.Text; //"云 API 密钥 SecretKey";
+                if ((secretId.Length != secretId_lenght) && (secretKey.Length != secretKey_lenght))
+                {
+                    MessageBox.Show("secretId 或 secretKey 输入错误!");
+                    return;
+                }
+                cosCredentialProvider = new DefaultQCloudCredentialProvider(secretId, secretKey, durationSecond);
+                cosXml = new CosXmlServer(config, cosCredentialProvider);
+            }
             try
             {
                 GetServiceRequest request = new GetServiceRequest();
@@ -216,6 +233,7 @@ namespace SYD_COPY_FILE
                 ListCosCol.Add(item);
             }
             dataGridViewCosBing(dataGridViewType.ZIP);
+            button_commit_file.Enabled = true;
         }
         private void dataGridViewCos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -339,7 +357,6 @@ namespace SYD_COPY_FILE
                         return;
                     }
                     Display_Folder(folder_out);
-                    button_commit_file.Enabled = true;
                 }
                 else
                 {

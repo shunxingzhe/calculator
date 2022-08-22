@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SYD_COPY_FILE.exe" size="455680">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SYD_COPY_FILE.exe" size="457216">
       <assemblyIdentity name="SYD_COPY_FILE" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zv8dVOD96CB+EfeP1Dko8HgSn7e8HdPJk145ZdsC6Gk=</dsig:DigestValue>
+        <dsig:DigestValue>64px4OEk8RVio5pvAuE0GghogV7ydeHq/GgPwnf5S4g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -303,13 +303,13 @@
       <dsig:DigestValue>4NCMDFbS93a1zSv02CD7OzGchy1jt4FXLK0yhgAkPVQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SYD_COPY_FILE.exe.config" size="7224">
+  <file name="SYD_COPY_FILE.exe.config" size="7529">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9Bvjr2gMmga/qNt6cBAhzdpdeQV8ggF+sxxngdd8/+o=</dsig:DigestValue>
+      <dsig:DigestValue>SusuOmCiIeJfJNlFvWykA0uYsL4uCzZO95NACx8Tvs8=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

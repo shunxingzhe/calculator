@@ -1395,6 +1395,12 @@ namespace SYD_COPY_FILE
             Settings1.Default.rename_mode_sel = comboBox7.SelectedIndex;
             Settings1.Default.Setting_checkBox_delete_srcfile = checkBox_delete_srcfile.Checked;
             Settings1.Default.Setting_textBoxSaveDir = textBoxSaveDir.Text;
+            if ((textBox_SecretId.Text.Length == secretId_lenght) && (textBox_secretKey.Text.Length == secretKey_lenght))
+            {
+                Settings1.Default.cos_secretId = textBox_SecretId.Text;
+                Settings1.Default.cos_secretKey = textBox_secretKey.Text;
+            }
+            
 
             int count = this.source_copyfile_suffix_textBox_rename.Items.Count - suffix_textBox_rename_static.Length;
             if (count > 10) count = 10;

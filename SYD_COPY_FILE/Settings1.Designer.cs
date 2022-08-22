@@ -622,5 +622,29 @@ namespace SYD_COPY_FILE {
                 this["comboBox_indicate_line10"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string cos_secretId {
+            get {
+                return ((string)(this["cos_secretId"]));
+            }
+            set {
+                this["cos_secretId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string cos_secretKey {
+            get {
+                return ((string)(this["cos_secretKey"]));
+            }
+            set {
+                this["cos_secretKey"] = value;
+            }
+        }
     }
 }
