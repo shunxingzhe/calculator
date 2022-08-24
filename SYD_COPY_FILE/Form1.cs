@@ -289,7 +289,7 @@ namespace SYD_COPY_FILE
             }
         }
 
-        private void cal_32768_subtract(string a, string b, string multiplier)
+        private void cal_32768_subtract(string a, string b, string multiplier, bool ishex, TextBox textBox_out, TextBox textBox_hex, ComboBox comboBox_First, ComboBox comboBox_second)
         {
             float result = 0, num = 0, num1 = 0;
             if ((a.Length == 0) | (b.Length == 0))
@@ -305,9 +305,17 @@ namespace SYD_COPY_FILE
             {
                 multiplier = multiplier.Replace(" ", "");
             }
-            num = Convert.ToSingle(a);
-            num1 = Convert.ToSingle(b);
-            switch (comboBox2.SelectedIndex)
+            if (ishex==true)
+            {
+                num =(float)(Convert.ToInt32(a, 16));
+                num1=(float)(Convert.ToInt32(b, 16));
+            }
+            else
+            {
+                num = Convert.ToSingle(a);
+                num1 = Convert.ToSingle(b);
+            }
+            switch (comboBox_First.SelectedIndex)
             {
                 case 0:
                     num = (float)num + (float)num1;
@@ -323,7 +331,7 @@ namespace SYD_COPY_FILE
                     break;
             }
             result = (float)CalcStr(multiplier);
-            switch (comboBox3.SelectedIndex)
+            switch (comboBox_second.SelectedIndex)
             {
                 case 0:
                     result = num + result;
@@ -338,60 +346,8 @@ namespace SYD_COPY_FILE
                     result = num / result;
                     break;
             }
-            textBox7.Text = result.ToString();
-        }
-        private void cal_32768_hex_subtract(string a, string b, string multiplier)
-        {
-            Int32 num = 0, num1 = 0;
-            float result = 0, temp = 0;
-            if ((a.Length == 0) | (b.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-            if (multiplier.Length == 0)
-            {
-                multiplier = "1";
-            }
-            else
-            {
-                multiplier = multiplier.Replace(" ", "");
-            }
-            num = Convert.ToInt32(a, 16);
-            num1 = Convert.ToInt32(b, 16);
-            switch (comboBox1.SelectedIndex)
-            {
-                case 0:
-                    temp = (float)num + (float)num1;
-                    break;
-                case 1:
-                    temp = (float)num - (float)num1;
-                    break;
-                case 2:
-                    temp = (float)num * (float)num1;
-                    break;
-                case 3:
-                    temp = (float)num / (float)num1;
-                    break;
-            }
-            result = (float)CalcStr(multiplier);
-            switch (comboBox4.SelectedIndex)
-            {
-                case 0:
-                    result = temp + result;
-                    break;
-                case 1:
-                    result = temp - result;
-                    break;
-                case 2:
-                    result = temp * result;
-                    break;
-                case 3:
-                    result = temp / result;
-                    break;
-            }
-            textBox4.Text = result.ToString();
-            textBox9.Text = "0x" + ((UInt32)result).ToString("X");
+            textBox_out.Text = result.ToString();
+            textBox_hex.Text = "0x" + ((UInt32)result).ToString("X");
         }
         private void cal_latency_hex_subtract(string d, string e, string a, string b, string c)
         {
@@ -814,41 +770,24 @@ namespace SYD_COPY_FILE
             this.WindowState = FormWindowState.Normal;
         }
 
-        private void textBox8_KeyDown(object sender, KeyEventArgs e)
+        private void cal_32768_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text);
+                if((sender == textBox8) || (sender == textBox1) || (sender == textBox6))
+                    cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
+                else
+                    cal_32768_subtract(textBox3.Text, textBox5.Text, textBox1.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void cal_32768_Click(object sender, EventArgs e)
         {
-            cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text);
+            if (sender == button2)
+                cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
+            else
+                cal_32768_subtract(textBox3.Text, textBox5.Text, textBox1.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
         }
-
-        private void textBox3_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if ((textBox3.Text.Length != 0) && (textBox5.Text.Length == 0))
-                    textBox5.Text = "0";
-                if ((textBox5.Text.Length != 0) && (textBox3.Text.Length == 0))
-                    textBox3.Text = "0";
-                cal_32768_hex_subtract(textBox3.Text, textBox5.Text, textBox2.Text);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if ((textBox3.Text.Length != 0) && (textBox5.Text.Length == 0))
-                textBox5.Text = "0";
-            if ((textBox5.Text.Length != 0) && (textBox3.Text.Length == 0))
-                textBox3.Text = "0";
-
-            cal_32768_hex_subtract(textBox3.Text, textBox5.Text, textBox2.Text);
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             if ((textBox18.Text.Length == 0) || (textBox17.Text.Length == 0) || (textBox13.Text.Length == 0) || (textBox15.Text.Length == 0) || (textBox16.Text.Length == 0))

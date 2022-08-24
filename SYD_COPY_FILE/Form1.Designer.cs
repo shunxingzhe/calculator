@@ -361,12 +361,13 @@
             this.label71 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -374,10 +375,11 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.timestamp_Difference_select = new System.Windows.Forms.ComboBox();
@@ -4492,12 +4494,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox9);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.comboBox4);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.textBox6);
@@ -4505,10 +4508,11 @@
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.checkBox6);
+            this.groupBox1.Controls.Add(this.checkBox8);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -4516,6 +4520,25 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "32768_timer_cal";
+            // 
+            // textBox10
+            // 
+            this.textBox10.AllowDrop = true;
+            this.textBox10.Location = new System.Drawing.Point(499, 13);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(68, 21);
+            this.textBox10.TabIndex = 47;
+            // 
+            // textBox2
+            // 
+            this.textBox2.AllowDrop = true;
+            this.textBox2.Location = new System.Drawing.Point(247, 41);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(114, 21);
+            this.textBox2.TabIndex = 21;
+            this.textBox2.Text = "1000/32768";
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox2.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // textBox9
             // 
@@ -4528,7 +4551,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 44);
+            this.label1.Location = new System.Drawing.Point(220, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 24;
@@ -4542,9 +4565,9 @@
             "-",
             "*",
             "/"});
-            this.comboBox3.Location = new System.Drawing.Point(257, 14);
+            this.comboBox3.Location = new System.Drawing.Point(187, 14);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(39, 20);
+            this.comboBox3.Size = new System.Drawing.Size(31, 20);
             this.comboBox3.TabIndex = 23;
             this.comboBox3.Text = " ";
             // 
@@ -4556,7 +4579,7 @@
             "-",
             "*",
             "/"});
-            this.comboBox4.Location = new System.Drawing.Point(182, 40);
+            this.comboBox4.Location = new System.Drawing.Point(188, 40);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(30, 20);
             this.comboBox4.TabIndex = 22;
@@ -4565,22 +4588,13 @@
             // textBox1
             // 
             this.textBox1.AllowDrop = true;
-            this.textBox1.Location = new System.Drawing.Point(299, 13);
+            this.textBox1.Location = new System.Drawing.Point(247, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(91, 21);
+            this.textBox1.Size = new System.Drawing.Size(114, 21);
             this.textBox1.TabIndex = 20;
             this.textBox1.Text = "1000/32768";
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
             this.textBox1.Leave += new System.EventHandler(this.textBoxTrim_Leave);
-            // 
-            // textBox2
-            // 
-            this.textBox2.AllowDrop = true;
-            this.textBox2.Location = new System.Drawing.Point(247, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(114, 21);
-            this.textBox2.TabIndex = 21;
-            this.textBox2.Text = "1000/32768";
-            this.textBox2.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // comboBox2
             // 
@@ -4590,9 +4604,9 @@
             "-",
             "*",
             "/"});
-            this.comboBox2.Location = new System.Drawing.Point(129, 14);
+            this.comboBox2.Location = new System.Drawing.Point(98, 13);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(41, 20);
+            this.comboBox2.Size = new System.Drawing.Size(30, 20);
             this.comboBox2.TabIndex = 19;
             this.comboBox2.Tag = "";
             this.comboBox2.Text = " ";
@@ -4605,7 +4619,7 @@
             "-",
             "*",
             "/"});
-            this.comboBox1.Location = new System.Drawing.Point(92, 40);
+            this.comboBox1.Location = new System.Drawing.Point(98, 40);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(30, 20);
             this.comboBox1.TabIndex = 18;
@@ -4614,58 +4628,50 @@
             // textBox6
             // 
             this.textBox6.AllowDrop = true;
-            this.textBox6.Location = new System.Drawing.Point(35, 13);
+            this.textBox6.Location = new System.Drawing.Point(41, 13);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(92, 21);
+            this.textBox6.Size = new System.Drawing.Size(54, 21);
             this.textBox6.TabIndex = 2;
+            this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
             this.textBox6.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(393, 11);
+            this.button2.Location = new System.Drawing.Point(367, 11);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(53, 22);
             this.button2.TabIndex = 0;
             this.button2.Text = "cal";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.cal_32768_Click);
             // 
             // textBox7
             // 
             this.textBox7.AllowDrop = true;
-            this.textBox7.Location = new System.Drawing.Point(449, 12);
+            this.textBox7.Location = new System.Drawing.Point(423, 12);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(118, 21);
+            this.textBox7.Size = new System.Drawing.Size(71, 21);
             this.textBox7.TabIndex = 9;
             // 
             // textBox3
             // 
             this.textBox3.AllowDrop = true;
-            this.textBox3.Location = new System.Drawing.Point(35, 40);
+            this.textBox3.Location = new System.Drawing.Point(41, 40);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(54, 21);
             this.textBox3.TabIndex = 2;
-            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
             this.textBox3.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // textBox8
             // 
             this.textBox8.AllowDrop = true;
-            this.textBox8.Location = new System.Drawing.Point(168, 13);
+            this.textBox8.Location = new System.Drawing.Point(132, 13);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(89, 21);
+            this.textBox8.Size = new System.Drawing.Size(54, 21);
             this.textBox8.TabIndex = 10;
-            this.textBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox8_KeyDown);
+            this.textBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
             this.textBox8.Leave += new System.EventHandler(this.textBoxTrim_Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "dec:";
             // 
             // button1
             // 
@@ -4675,7 +4681,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "cal";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.cal_32768_Click);
             // 
             // textBox4
             // 
@@ -4688,21 +4694,39 @@
             // textBox5
             // 
             this.textBox5.AllowDrop = true;
-            this.textBox5.Location = new System.Drawing.Point(125, 40);
+            this.textBox5.Location = new System.Drawing.Point(132, 40);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(54, 21);
             this.textBox5.TabIndex = 10;
-            this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
+            this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
             this.textBox5.Leave += new System.EventHandler(this.textBoxTrim_Leave);
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.Location = new System.Drawing.Point(2, 43);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(43, 18);
+            this.checkBox6.TabIndex = 44;
+            this.checkBox6.Text = "HEX";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.Location = new System.Drawing.Point(2, 15);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(43, 18);
+            this.checkBox8.TabIndex = 45;
+            this.checkBox8.Text = "HEX";
+            this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 44);
+            this.label4.Location = new System.Drawing.Point(220, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "hex:";
+            this.label4.TabIndex = 46;
+            this.label4.Text = "dec:";
             // 
             // groupBox5
             // 
@@ -8306,7 +8330,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.9.0";
+            this.Text = "SYD_Calculator V1.9.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8594,11 +8618,9 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox textBox40;
         private System.Windows.Forms.TextBox textBox31;
@@ -9180,6 +9202,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_secretKey;
         private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.Label label4;
     }
 }
 
