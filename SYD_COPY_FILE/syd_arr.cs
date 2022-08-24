@@ -1957,6 +1957,24 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
+            if (comboBox_additional_operations.SelectedIndex == 2)
+            {
+                string key_word = comboBox_indicate.Text;
+                if (key_word.Length == 0)
+                {
+                    MessageBox.Show("关键字输入错误!");
+                    return;
+                }
+                if (outTxt1.Contains(key_word))
+                {
+                    outTxt1 = outTxt1.Replace(key_word, "");
+                }
+                else
+                {
+                    MessageBox.Show("输入数据未包含关键字!");
+                    return;
+                }
+            }
 
             richTextBox_out.Text = outTxt1;
             MessageBox.Show("保存成功!");
@@ -3011,11 +3029,11 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Add("输出以换行符符隔开");
                 this.comboBox_fonttype.Items.Add("输出无间隙连接");
                 this.label_font_type.Text = "输出格式：";
-                this.label_indicator.Text = "附操作:";
 
                 comboBox_additional_operations.Items.Clear();
                 this.comboBox_additional_operations.Items.Add("无额外操作");
                 this.comboBox_additional_operations.Items.Add("BLE估算下一个连接事件的时间(两个主机数据包之间)");
+                this.comboBox_additional_operations.Items.Add("替换输入数据中和指示符一样的字符串");
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Source_Insight_Search_Results_Analysis)
             {
