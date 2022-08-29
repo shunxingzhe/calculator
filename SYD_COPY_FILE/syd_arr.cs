@@ -147,7 +147,8 @@ namespace SYD_COPY_FILE
 
         private void source_file_button_Click(object sender, EventArgs e)
         {
-            if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File) || (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis))
+            if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File) || 
+                ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis) && (comboBox_datatype.SelectedIndex != 3) && (comboBox_datatype.SelectedIndex != 4))   )
             {
                 MyFolderBrowserDialog folderBrowserDialog1 = new MyFolderBrowserDialog();
                 if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
@@ -2530,7 +2531,7 @@ namespace SYD_COPY_FILE
         }
         private void text_handle()
         {
-            int i = 0, j = 0, m;
+            int i = 0, j = 0, m,n;
             string orgTxt1 = textInput.Text.Trim();
             List<string> lstArray = orgTxt1.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
             string outTxt1 = "";
@@ -2560,20 +2561,42 @@ namespace SYD_COPY_FILE
                 }
                 richTextBox_out.Text = outTxt1;
             }
-            else if (comboBox_datatype.SelectedIndex == 3)
+            else if ((comboBox_datatype.SelectedIndex == 3) || (comboBox_datatype.SelectedIndex == 4))
             {
                 string prefix = textBox_key.Text;
+                string suffix = comboBox_indicate.Text;
                 for (i = 0; i < lstArray.Count; i++)
                 {
+                    string str;
                     m = lstArray[i].IndexOf("[");
                     if (m != -1)
                     {
-                        string str = lstArray[i].Substring(0, m).Trim();
-                        j = str.LastIndexOf(" ");
-                        if (j != -1)
+                        n = lstArray[i].IndexOf("]");
+                        if (n != -1)
                         {
+                            if (comboBox_datatype.SelectedIndex == 4)
+                            {
+                                n = lstArray[i].IndexOf("=");
+                                if (n != -1)
+                                {
+                                    str = lstArray[i].Substring(0, n).Trim();
+                                }
+                                else continue;
+                            }
+                            else
+                            {
+                                str = lstArray[i].Substring(0, m).Trim();
+                                j = str.LastIndexOf(" ");
+                                if (j != -1)
+                                {
+                                    str = str.Substring(j, str.Length - j).Trim();
+                                }
+                                else continue;
+                            }
+
                             row_index = 1;
-                            outTxt1 += prefix+str.Substring(j, str.Length-j).Trim() + ",\r\n";
+                            outTxt1 += prefix + str;
+                            outTxt1 += suffix + ",\r\n";
                         }
                     }
                 }
@@ -2584,11 +2607,11 @@ namespace SYD_COPY_FILE
                 }
                 richTextBox_out.Text = outTxt1;
             }
-            else if (comboBox_datatype.SelectedIndex == 4)
+            else if (comboBox_datatype.SelectedIndex == 5)
             {
                 Data_filled_complement_zero();
             }
-            else if (comboBox_datatype.SelectedIndex == 5)
+            else if (comboBox_datatype.SelectedIndex == 6)
             {
                 Data_reversal();
             }
@@ -2745,7 +2768,7 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
             {
-                if (comboBox_datatype.SelectedIndex == 6)
+                if (comboBox_datatype.SelectedIndex == 7)
                     Data_handle();
                 else
                     text_handle();
@@ -3087,7 +3110,8 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("合并所有行的数据");
                 this.comboBox_datatype.Items.Add("把关键字加到每一行前面");
                 this.comboBox_datatype.Items.Add("把关键字加到每一行后面");
-                this.comboBox_datatype.Items.Add("提取数组名称并加入关键字指定的前导和逗号行尾");
+                this.comboBox_datatype.Items.Add("提取数组名并加入关键字为前缀指示符为尾缀");
+                this.comboBox_datatype.Items.Add("提取数组定义并加入关键字为前缀指示符为尾缀");
                 this.comboBox_datatype.Items.Add("数据前置补零");
                 this.comboBox_datatype.Items.Add("多数据翻转");
                 this.comboBox_datatype.Items.Add("十六进制/十进制数据提取");
@@ -3179,7 +3203,7 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
             {
-                if((comboBox_datatype.SelectedIndex == 5) || (comboBox_datatype.SelectedIndex == 6))
+                if((comboBox_datatype.SelectedIndex == 6) || (comboBox_datatype.SelectedIndex == 7))
                     {
                     textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Data_reversal.txt", Encoding.Default);
                     if (comboBox_datatype.SelectedIndex == 5)

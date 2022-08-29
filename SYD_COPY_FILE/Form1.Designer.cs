@@ -2208,6 +2208,7 @@
             // 
             // groupBox21
             // 
+            this.groupBox21.Controls.Add(this.label_outfilename);
             this.groupBox21.Controls.Add(this.comboBox_additional_operations);
             this.groupBox21.Controls.Add(this.reopen_source_file_button);
             this.groupBox21.Controls.Add(this.textBox_key);
@@ -2221,7 +2222,6 @@
             this.groupBox21.Controls.Add(this.label_datasize);
             this.groupBox21.Controls.Add(this.label_intputsize);
             this.groupBox21.Controls.Add(this.label81);
-            this.groupBox21.Controls.Add(this.label_outfilename);
             this.groupBox21.Controls.Add(this.source_file_button);
             this.groupBox21.Controls.Add(this.label_outfile);
             this.groupBox21.Controls.Add(this.source_file_textBox);
@@ -8330,7 +8330,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.9.2";
+            this.Text = "SYD_Calculator V1.9.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
