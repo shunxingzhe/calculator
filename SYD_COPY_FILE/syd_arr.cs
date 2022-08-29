@@ -2596,7 +2596,7 @@ namespace SYD_COPY_FILE
 
                             row_index = 1;
                             outTxt1 += prefix + str;
-                            outTxt1 += suffix + ",\r\n";
+                            outTxt1 += suffix + "\r\n";
                         }
                     }
                 }

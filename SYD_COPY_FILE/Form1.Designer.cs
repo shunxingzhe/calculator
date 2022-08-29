@@ -155,6 +155,7 @@
             this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.textInput = new System.Windows.Forms.TextBox();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.label_outfilename = new System.Windows.Forms.Label();
             this.comboBox_additional_operations = new System.Windows.Forms.ComboBox();
             this.reopen_source_file_button = new System.Windows.Forms.Button();
             this.textBox_key = new System.Windows.Forms.TextBox();
@@ -168,7 +169,6 @@
             this.label_datasize = new System.Windows.Forms.Label();
             this.label_intputsize = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
-            this.label_outfilename = new System.Windows.Forms.Label();
             this.source_file_button = new System.Windows.Forms.Button();
             this.label_outfile = new System.Windows.Forms.Label();
             this.source_file_textBox = new System.Windows.Forms.TextBox();
@@ -2233,6 +2233,16 @@
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "file";
             // 
+            // label_outfilename
+            // 
+            this.label_outfilename.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label_outfilename.Location = new System.Drawing.Point(76, 44);
+            this.label_outfilename.Name = "label_outfilename";
+            this.label_outfilename.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label_outfilename.Size = new System.Drawing.Size(550, 12);
+            this.label_outfilename.TabIndex = 9;
+            this.label_outfilename.Text = "syd_arr_ok.txt";
+            // 
             // comboBox_additional_operations
             // 
             this.comboBox_additional_operations.FormattingEnabled = true;
@@ -2362,16 +2372,6 @@
             this.label81.Size = new System.Drawing.Size(83, 12);
             this.label81.TabIndex = 12;
             this.label81.Text = "数据量(Byte):";
-            // 
-            // label_outfilename
-            // 
-            this.label_outfilename.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_outfilename.Location = new System.Drawing.Point(76, 44);
-            this.label_outfilename.Name = "label_outfilename";
-            this.label_outfilename.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label_outfilename.Size = new System.Drawing.Size(550, 12);
-            this.label_outfilename.TabIndex = 9;
-            this.label_outfilename.Text = "syd_arr_ok.txt";
             // 
             // source_file_button
             // 
@@ -8330,7 +8330,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.9.3";
+            this.Text = "SYD_Calculator V1.9.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
