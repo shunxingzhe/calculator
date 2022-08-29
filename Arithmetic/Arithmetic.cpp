@@ -531,3 +531,64 @@ unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const u
     my_sprintf("save data total byte:%d\r\n", ret);
     return ret;
 }
+unsigned int big_bin_handle(const unsigned char* filename, unsigned int size, const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char funtion)
+{
+    unsigned int ret = 0;
+    static HBITMAP hBitmap, hSysBitmap[5];
+    my_sprintf("Intputfilename:");
+    my_sprintf(filename, size);
+    my_sprintf("\r\n");
+    my_sprintf("Outfilename:");
+    my_sprintf(Outfilename, Outfilesize);
+    my_sprintf("\r\n");
+    my_sprintf("funtion:%d\r\n", funtion);
+    //struct stat buffer;
+    struct _stat64 buffer;
+    WCHAR uni_buf[MAX_PATH] = { 0 };
+    int len = MultiByteToWideChar(CP_ACP, 0, (char*)filename, -1, NULL, 0);
+    MultiByteToWideChar(CP_UTF8, 0, (char*)filename, -1, uni_buf, len);
+    //if (stat((const char *)filename, &buffer) != 0)
+    if (_wstat64(uni_buf, &buffer) != 0)
+    {
+        my_sprintf("file not exists\r\n");
+        return 0;
+    }
+
+    FILE* in_file = fopen((char*)filename, "rb");
+    if (!in_file) {
+        my_sprintf("readfile error!\r\n");
+        return 0;
+    }
+
+    struct stat sb;
+    if (stat((char*)filename, &sb) == -1) {
+        my_sprintf("file format error!\r\n");
+        return 0;
+    }
+
+    char* file_contents = (char*)malloc(sb.st_size);
+    fread(file_contents, sb.st_size, 1, in_file);
+
+    for (ret = 0; ret < sb.st_size; ret++)
+    {
+        if (funtion == 0)
+        {
+            file_contents[ret] = ~file_contents[ret];
+        }
+    }
+
+    FILE* output_file = fopen((char*)Outfilename, "wb+");
+    if (!output_file) {
+        my_sprintf("fopen out file error!\r\n");
+        return 0;
+    }
+
+    fwrite(file_contents, 1, sb.st_size, output_file);
+    my_sprintf("Done Writing!\n");
+    fclose(output_file);
+
+    fclose(in_file);
+    free(file_contents);
+
+    return ret;
+}

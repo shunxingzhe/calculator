@@ -8,3 +8,4 @@ reverseBits @ 3
 crc32_fun @ 4
 Dll_log_read @ 5
 bmp_to_rbw @ 6
+big_bin_handle @ 7

@@ -2669,14 +2669,24 @@ namespace SYD_COPY_FILE
         }
         private void call_c()
         {
-            label_outfilename.Text = source_file_textBox.Text.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
-            textInput.Text = "";
             byte[] buffer_utf8 = Encoding.UTF8.GetBytes(source_file_textBox.Text);
             byte[] out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
-            UInt32 save_size=bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex);
-            if(save_size>0)
+            textInput.Text = "注意:目前本功能不支持中文目录!\r\n";
+            if (comboBox_datatype.SelectedIndex == 0)
             {
-                call_c_timer_timeout = 5;//1-2内触发定时任务
+                label_outfilename.Text = source_file_textBox.Text.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
+                out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
+                UInt32 save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex);
+                if (save_size > 0)
+                {
+                    call_c_timer_timeout = 5;//1-2内触发定时任务
+                }
+            }
+            else if (comboBox_datatype.SelectedIndex == 1)
+            {
+                label_outfilename.Text = source_file_textBox.Text.Replace(".BIN", string.Empty).Replace(".bin", string.Empty) + "_ok.bin";
+                out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
+                big_bin_handle(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex);
             }
         }
         private void draw_Click(object sender, EventArgs e)
@@ -3123,6 +3133,7 @@ namespace SYD_COPY_FILE
             {
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("BMP文件提取红白黑三色图");
+                this.comboBox_datatype.Items.Add("大二进制文件处理");
                 this.label_data_type.Text = " 处理功能选择：";
 
                 this.comboBox_fonttype.Items.Clear();
@@ -3249,6 +3260,15 @@ namespace SYD_COPY_FILE
                 else
                 {
                     this.label_indicator.Text = "指示符:";
+                }
+            }
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
+            {
+                if (comboBox_datatype.SelectedIndex == 1)
+                {
+                    this.comboBox_fonttype.Items.Clear();
+                    this.comboBox_fonttype.Items.Add("取反");
+                    this.label_font_type.Text = "数据处理：";
                 }
             }
             else
