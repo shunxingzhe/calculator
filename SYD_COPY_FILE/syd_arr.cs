@@ -3217,7 +3217,7 @@ namespace SYD_COPY_FILE
                 if((comboBox_datatype.SelectedIndex == 6) || (comboBox_datatype.SelectedIndex == 7))
                     {
                     textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Data_reversal.txt", Encoding.Default);
-                    if (comboBox_datatype.SelectedIndex == 5)
+                    if (comboBox_datatype.SelectedIndex == 6)
                     {
                         this.comboBox_additional_operations.Items.Clear();
                         this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,并计算第二行-第一行");
@@ -3228,7 +3228,7 @@ namespace SYD_COPY_FILE
                         this.comboBox_fonttype.Items.Add("带0X的数据");
                         this.comboBox_fonttype.Items.Add("带0X的数组");
                     }
-                    else if (comboBox_datatype.SelectedIndex == 6)
+                    else if (comboBox_datatype.SelectedIndex == 7)
                     {
                         this.comboBox_additional_operations.Items.Clear();
                         this.comboBox_additional_operations.Items.Add("输入两个十六进制字节为一个数据输出十六进制");
