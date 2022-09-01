@@ -1873,7 +1873,7 @@ namespace SYD_COPY_FILE
         {
             int i = 0,j=0;
             string orgTxt1 = textInput.Text.Trim();
-            List<string> lstArray = orgTxt1.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();//所有的行
+            List<string> lstArray = orgTxt1.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();//所有的行
             string outTxt1 = "";
             if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
             {
@@ -1885,7 +1885,7 @@ namespace SYD_COPY_FILE
                     {
                         if (comboBox_datatype.SelectedIndex == 3)
                         {
-                            outTxt1 += lstArray[i].Substring(j+ key_word.Length) + "\r\n";
+                            outTxt1 += lstArray[i].Substring(j+ key_word.Length).Replace("\r","") + "\r\n";
                         }
                         else outTxt1 += lstArray[i] + "\r\n";
                     }
