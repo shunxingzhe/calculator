@@ -181,18 +181,6 @@ namespace SYD_COPY_FILE {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string textBox_key {
-            get {
-                return ((string)(this["textBox_key"]));
-            }
-            set {
-                this["textBox_key"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool pictureBox_interface_ismin {
             get {
@@ -644,6 +632,126 @@ namespace SYD_COPY_FILE {
             }
             set {
                 this["cos_secretKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line1 {
+            get {
+                return ((string)(this["combobox_key_line1"]));
+            }
+            set {
+                this["combobox_key_line1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line2 {
+            get {
+                return ((string)(this["combobox_key_line2"]));
+            }
+            set {
+                this["combobox_key_line2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line3 {
+            get {
+                return ((string)(this["combobox_key_line3"]));
+            }
+            set {
+                this["combobox_key_line3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line4 {
+            get {
+                return ((string)(this["combobox_key_line4"]));
+            }
+            set {
+                this["combobox_key_line4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line5 {
+            get {
+                return ((string)(this["combobox_key_line5"]));
+            }
+            set {
+                this["combobox_key_line5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line6 {
+            get {
+                return ((string)(this["combobox_key_line6"]));
+            }
+            set {
+                this["combobox_key_line6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line7 {
+            get {
+                return ((string)(this["combobox_key_line7"]));
+            }
+            set {
+                this["combobox_key_line7"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line8 {
+            get {
+                return ((string)(this["combobox_key_line8"]));
+            }
+            set {
+                this["combobox_key_line8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line9 {
+            get {
+                return ((string)(this["combobox_key_line9"]));
+            }
+            set {
+                this["combobox_key_line9"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string combobox_key_line10 {
+            get {
+                return ((string)(this["combobox_key_line10"]));
+            }
+            set {
+                this["combobox_key_line10"] = value;
             }
         }
     }

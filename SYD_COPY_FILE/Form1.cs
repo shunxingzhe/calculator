@@ -1322,7 +1322,6 @@ namespace SYD_COPY_FILE
             Settings1.Default.destination_file_textBox_sync = destination_file_textBox_sync.Text;
             Settings1.Default.destination_file_textBox_two_sync = destination_file_textBox_two_sync.Text;
             Settings1.Default.textBox_copy_destinationfileend_sync = textBox_copy_destinationfileend_sync.Text;
-            Settings1.Default.textBox_key = textBox_key.Text;
 
             Settings1.Default.pictureBox_interface_ismin = !pictureBox_interface_ismin;
 
@@ -1420,6 +1419,45 @@ namespace SYD_COPY_FILE
                         break;
                     case 9:
                         Settings1.Default.comboBox_indicate_line10 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                }
+            }
+
+            count = this.combobox_key.Items.Count;
+            if (count > 10) count = 10;
+            for (int i = 0; i < count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        Settings1.Default.combobox_key_line1 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 1:
+                        Settings1.Default.combobox_key_line2 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 2:
+                        Settings1.Default.combobox_key_line3 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 3:
+                        Settings1.Default.combobox_key_line4 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 4:
+                        Settings1.Default.combobox_key_line5 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 5:
+                        Settings1.Default.combobox_key_line6 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 6:
+                        Settings1.Default.combobox_key_line7 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 7:
+                        Settings1.Default.combobox_key_line8 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 8:
+                        Settings1.Default.combobox_key_line9 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 9:
+                        Settings1.Default.combobox_key_line10 = this.combobox_key.Items[i].ToString();
                         break;
                 }
             }

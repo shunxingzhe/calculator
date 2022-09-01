@@ -155,10 +155,10 @@
             this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.textInput = new System.Windows.Forms.TextBox();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.combobox_key = new System.Windows.Forms.ComboBox();
             this.label_outfilename = new System.Windows.Forms.Label();
             this.comboBox_additional_operations = new System.Windows.Forms.ComboBox();
             this.reopen_source_file_button = new System.Windows.Forms.Button();
-            this.textBox_key = new System.Windows.Forms.TextBox();
             this.label_key_word = new System.Windows.Forms.Label();
             this.button_clear = new System.Windows.Forms.Button();
             this.comboBox_fonttype = new System.Windows.Forms.ComboBox();
@@ -2095,7 +2095,6 @@
             this.comboBox_indicate.Name = "comboBox_indicate";
             this.comboBox_indicate.Size = new System.Drawing.Size(245, 20);
             this.comboBox_indicate.TabIndex = 33;
-            this.comboBox_indicate.DropDownClosed += new System.EventHandler(this.comboBox_indicate_DropDownClosed);
             this.comboBox_indicate.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_ComBox_DragDrop);
             this.comboBox_indicate.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
@@ -2208,10 +2207,10 @@
             // 
             // groupBox21
             // 
+            this.groupBox21.Controls.Add(this.combobox_key);
             this.groupBox21.Controls.Add(this.label_outfilename);
             this.groupBox21.Controls.Add(this.comboBox_additional_operations);
             this.groupBox21.Controls.Add(this.reopen_source_file_button);
-            this.groupBox21.Controls.Add(this.textBox_key);
             this.groupBox21.Controls.Add(this.label_key_word);
             this.groupBox21.Controls.Add(this.button_clear);
             this.groupBox21.Controls.Add(this.comboBox_fonttype);
@@ -2232,6 +2231,15 @@
             this.groupBox21.TabIndex = 25;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "file";
+            // 
+            // combobox_key
+            // 
+            this.combobox_key.AllowDrop = true;
+            this.combobox_key.FormattingEnabled = true;
+            this.combobox_key.Location = new System.Drawing.Point(606, 65);
+            this.combobox_key.Name = "combobox_key";
+            this.combobox_key.Size = new System.Drawing.Size(152, 20);
+            this.combobox_key.TabIndex = 35;
             // 
             // label_outfilename
             // 
@@ -2264,14 +2272,6 @@
             this.reopen_source_file_button.Text = "调入最新文件";
             this.reopen_source_file_button.UseVisualStyleBackColor = true;
             this.reopen_source_file_button.Click += new System.EventHandler(this.reopen_source_file_button_Click);
-            // 
-            // textBox_key
-            // 
-            this.textBox_key.AllowDrop = true;
-            this.textBox_key.Location = new System.Drawing.Point(606, 64);
-            this.textBox_key.Name = "textBox_key";
-            this.textBox_key.Size = new System.Drawing.Size(152, 21);
-            this.textBox_key.TabIndex = 35;
             // 
             // label_key_word
             // 
@@ -8330,7 +8330,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.9.6";
+            this.Text = "SYD_Calculator V1.9.7";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8485,7 +8485,6 @@
         private System.Windows.Forms.GroupBox groupBox22;
         private System.Windows.Forms.TextBox textInput;
         private System.Windows.Forms.GroupBox groupBox21;
-        private System.Windows.Forms.TextBox textBox_key;
         private System.Windows.Forms.Label label_key_word;
         private System.Windows.Forms.ComboBox comboBox_fonttype;
         private System.Windows.Forms.Label label_font_type;
@@ -9206,6 +9205,7 @@
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox combobox_key;
     }
 }
 

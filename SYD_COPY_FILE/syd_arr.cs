@@ -95,6 +95,17 @@ namespace SYD_COPY_FILE
             if (Settings1.Default.comboBox_indicate_line9 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line9);
             if (Settings1.Default.comboBox_indicate_line10 != "") this.comboBox_indicate.Items.Add(Settings1.Default.comboBox_indicate_line10);
 
+            if (Settings1.Default.combobox_key_line1 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line1);
+            if (Settings1.Default.combobox_key_line2 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line2);
+            if (Settings1.Default.combobox_key_line3 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line3);
+            if (Settings1.Default.combobox_key_line4 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line4);
+            if (Settings1.Default.combobox_key_line5 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line5);
+            if (Settings1.Default.combobox_key_line6 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line6);
+            if (Settings1.Default.combobox_key_line7 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line7);
+            if (Settings1.Default.combobox_key_line8 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line8);
+            if (Settings1.Default.combobox_key_line9 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line9);
+            if (Settings1.Default.combobox_key_line10 != "") this.combobox_key.Items.Add(Settings1.Default.combobox_key_line10);
+
             string path = System.AppDomain.CurrentDomain.BaseDirectory + "syd_arr_ok.txt";
             label_outfilename.Text = path;
             if(Settings1.Default.arr_fun_sel< comboBox_mode.Items.Count)comboBox_mode.SelectedIndex = Settings1.Default.arr_fun_sel;
@@ -102,7 +113,6 @@ namespace SYD_COPY_FILE
             if (Settings1.Default.arr_font_type >= 2) Settings1.Default.arr_font_type = 0;
             
             source_file_textBox.Text = Settings1.Default.arr_source_file_text;
-            textBox_key.Text = Settings1.Default.textBox_key;
 
             p_draw = new ToolTip();
             comboBox_mode_DropDownClosed(null, null);
@@ -618,7 +628,7 @@ namespace SYD_COPY_FILE
             if (comboBox_additional_operations.SelectedIndex == 1)
             {
                 string filePath = comboBox_indicate.Text.Trim().Replace("\"","");
-                string array_name = textBox_key.Text.Trim();
+                string array_name = combobox_key.Text.Trim();
                 if (!File.Exists(filePath))
                 {
                     MessageBox.Show(filePath + " not exists!");
@@ -871,7 +881,7 @@ namespace SYD_COPY_FILE
         
         private void Diary()
         {
-            if (textBox_key.Text.Length != 6)
+            if (combobox_key.Text.Length != 6)
             {
                 MessageBox.Show("密码长度不对!");
                 return;
@@ -880,7 +890,7 @@ namespace SYD_COPY_FILE
             {
                 string str = textInput.Text;
                 byte[] byteArray = System.Text.Encoding.Default.GetBytes(str);
-                byte[] EncryData = GetEncryData(byteArray, byteArray.Length, textBox_key.Text);
+                byte[] EncryData = GetEncryData(byteArray, byteArray.Length, combobox_key.Text);
                 string path = "C://Users//HP//Desktop//" + "chengdong" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".diary";
 
                 FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
@@ -916,7 +926,7 @@ namespace SYD_COPY_FILE
 
                 binReader.Close();
                 fs.Close();
-                byte[] EncryData = GetDeEncryData(bBuffer, textBox_key.Text);
+                byte[] EncryData = GetDeEncryData(bBuffer, combobox_key.Text);
                 string str = System.Text.Encoding.Default.GetString(EncryData);
                 richTextBox_out.Text = str;
                 MessageBox.Show("解密完成!");
@@ -1305,7 +1315,7 @@ namespace SYD_COPY_FILE
             string orgTxt1= textInput.Text.Replace("\r","").Replace("\n", "");
             string str = "", str_out = "";
             str = orgTxt1;
-            string key_word = textBox_key.Text;
+            string key_word = combobox_key.Text;
             if (comboBox_fonttype.SelectedIndex != 0)
             {
                 if (comboBox_fonttype.SelectedIndex == 1)
@@ -1447,7 +1457,7 @@ namespace SYD_COPY_FILE
            int i = 0,j=0,k=0;
            string orgTxt1 = textInput.Text.Trim();
            List<string> lstArray = new List<string>();
-           string key = textBox_key.Text;
+           string key = combobox_key.Text;
            Regex r = new Regex(key+@"([1-9]\d*)", RegexOptions.Compiled | RegexOptions.CultureInvariant);//正则
            Match m = r.Match(orgTxt1);//匹配
 
@@ -1666,6 +1676,7 @@ namespace SYD_COPY_FILE
        private void Rtc_Deviation()
        {
            int i = 0;
+            string resut = "";
             textInput.Text = textInput.Text.TrimEnd((char[])"\r\n".ToCharArray());
             if (comboBox_indicate.Items.Count <= 0)
            {
@@ -1706,20 +1717,20 @@ namespace SYD_COPY_FILE
                    str = str.Trim();
                    str1 = str1.Trim();
 
-                   if (comboBox_indicate.Text.Length != 0)
+                    if (comboBox_indicate.Text.Length != 0)
                    {
                        date = Convert.ToInt32(comboBox_indicate.Text, 10);
                    }
 
                    if (str.Length > 13)
                    {
-                       cal_Calendar_time_differenceble_subtract(str, str1, textBox_key, textBox_filesize);
+                        resut=cal_Calendar_time_differenceble_subtract(str, str1, null, textBox_filesize);
                    }
                    else
                    {
-                       cal_Calendar_time_difference_subtract(str, str1, date, textBox_key, textBox_filesize);
+                        resut = cal_Calendar_time_difference_subtract(str, str1, date, null, textBox_filesize);
                    }
-                   richTextBox_out.AppendText(textBox_key.Text + " 手机时间戳差值：" + textBox_filesize.Text);
+                   richTextBox_out.AppendText(resut + " 手机时间戳差值：" + textBox_filesize.Text);
 
                    str1 = lis[i - 1][5].Substring(18, 11).Replace("-", "");
                    str = lis[i][5].Substring(18, 11).Replace("-", "");
@@ -1762,8 +1773,8 @@ namespace SYD_COPY_FILE
                    str = str.Trim();
                    str1 = str1.Trim();
 
-                   cal_Calendar_time_differenceble_subtract(str, str1, textBox_key, textBox_filesize);
-                   richTextBox_out.AppendText(textBox_key.Text + " 时间戳差值：" + textBox_filesize.Text);
+                    resut=cal_Calendar_time_differenceble_subtract(str, str1, null, textBox_filesize);
+                   richTextBox_out.AppendText(resut + " 时间戳差值：" + textBox_filesize.Text);
                }
            }
             else if (comboBox_datatype.SelectedIndex == 2)
@@ -1805,8 +1816,8 @@ namespace SYD_COPY_FILE
             if (comboBox_datatype.SelectedIndex == 0)
             {
                 orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "").Replace("\r\n", "").Replace("\r", "").Replace("0x", "").Replace("0X", "").Replace("\t", "").Replace(":", "");
-                if (textBox_key.Text.Length > 0)
-                    orgTxt1 = orgTxt1.Replace(textBox_key.Text, "");
+                if (combobox_key.Text.Length > 0)
+                    orgTxt1 = orgTxt1.Replace(combobox_key.Text, "");
 
                 while (true)
                 {
@@ -1877,7 +1888,7 @@ namespace SYD_COPY_FILE
             string outTxt1 = "";
             if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
             {
-                string key_word = textBox_key.Text;
+                string key_word = combobox_key.Text;
                 for (i = 0; i < lstArray.Count; i++)
                 {
                     j = lstArray[i].IndexOf(key_word);
@@ -1900,7 +1911,7 @@ namespace SYD_COPY_FILE
                 int row_index = 0;
                 if (comboBox_datatype.SelectedIndex != 0)
                 {
-                    row_index = Convert.ToByte(textBox_key.Text);
+                    row_index = Convert.ToByte(combobox_key.Text);
                 }
 
                 if (comboBox_fonttype.SelectedIndex == 0)
@@ -2047,7 +2058,7 @@ namespace SYD_COPY_FILE
                     }
                     else
                     {
-                        data = Convert.ToByte(textBox_key.Text, 16);
+                        data = Convert.ToByte(combobox_key.Text, 16);
                         str.Append("0x" + data.ToString("X2") + ",");
                     }
                     if (((i+2) % 16 == 0) && (i!=0)) str.Append("\r\n");
@@ -2060,7 +2071,7 @@ namespace SYD_COPY_FILE
                     if (comboBox_datatype.SelectedIndex == 2)
                     {
                         if (i == 0)
-                            data = Convert.ToByte(textBox_key.Text, 16);
+                            data = Convert.ToByte(combobox_key.Text, 16);
                         m = data;
                     }
                     str.Append("0x" + m.ToString("X2") + ",");
@@ -2455,21 +2466,21 @@ namespace SYD_COPY_FILE
             int i = 0;
             if (comboBox_datatype.SelectedIndex == 0)
             {
-                char unit = textBox_key.Text[textBox_key.Text.Length - 1];
+                char unit = combobox_key.Text[combobox_key.Text.Length - 1];
                 uint size = 0;
                 if (unit == 'M')
                 {
-                    size = Convert.ToUInt32(textBox_key.Text.Substring(0, textBox_key.Text.Length - 1));
+                    size = Convert.ToUInt32(combobox_key.Text.Substring(0, combobox_key.Text.Length - 1));
                     size = size * 1024 * 1000;
                 }
                 else if (unit == 'K')
                 {
-                    size = Convert.ToUInt32(textBox_key.Text.Substring(0, textBox_key.Text.Length - 1));
+                    size = Convert.ToUInt32(combobox_key.Text.Substring(0, combobox_key.Text.Length - 1));
                     size = size * 1024;
                 }
                 else
                 {
-                    size = Convert.ToUInt32(textBox_key.Text);  //当做没有单位处理 默认byte
+                    size = Convert.ToUInt32(combobox_key.Text);  //当做没有单位处理 默认byte
                 }
                 List<string> file = fine_filename(source_file_textBox.Text, size);
                 richTextBox_out.Text = "";
@@ -2481,7 +2492,7 @@ namespace SYD_COPY_FILE
             else if (comboBox_datatype.SelectedIndex == 1)
             {
                 string str = "", str_dir= source_file_textBox.Text,out_dir= label_outfilename.Text;
-                List<string> bmpfile = fine_filename(str_dir, this.textBox_key.Text);
+                List<string> bmpfile = fine_filename(str_dir, this.combobox_key.Text);
                 str_dir = Directory.GetParent(source_file_textBox.Text).ToString();
                 if (Directory.Exists(out_dir))
                 {//do nothing
@@ -2542,7 +2553,7 @@ namespace SYD_COPY_FILE
             }
             else if ((comboBox_datatype.SelectedIndex == 1) || (comboBox_datatype.SelectedIndex == 2))
             {
-                string str = textBox_key.Text;
+                string str = combobox_key.Text;
                 if (str.Length == 0)
                 {
                     MessageBox.Show("关键字长度错误!");
@@ -2563,7 +2574,7 @@ namespace SYD_COPY_FILE
             }
             else if ((comboBox_datatype.SelectedIndex == 3) || (comboBox_datatype.SelectedIndex == 4))
             {
-                string prefix = textBox_key.Text;
+                string prefix = combobox_key.Text;
                 string suffix = comboBox_indicate.Text;
                 for (i = 0; i < lstArray.Count; i++)
                 {
@@ -2793,12 +2804,18 @@ namespace SYD_COPY_FILE
             {
                 DllLogStop();
             }
-
-            for (int i = 0; i < this.comboBox_indicate.Items.Count; i++)
+            int i = 0;
+            for (i = 0; i < this.comboBox_indicate.Items.Count; i++)
             {
-                if (comboBox_indicate.Text == this.comboBox_indicate.Items[i].ToString()) return;
+                if (comboBox_indicate.Text == this.comboBox_indicate.Items[i].ToString()) break;
             }
-            this.comboBox_indicate.Items.Insert(0, comboBox_indicate.Text);
+            if(i == this.comboBox_indicate.Items.Count) this.comboBox_indicate.Items.Insert(0, comboBox_indicate.Text);
+
+            for (i = 0; i < this.combobox_key.Items.Count; i++)
+            {
+                if (combobox_key.Text == this.combobox_key.Items[i].ToString()) return;
+            }
+            if (i == this.combobox_key.Items.Count)  this.combobox_key.Items.Insert(0, combobox_key.Text);
         }
 
         private void button_clear_Click(object sender, EventArgs e)
@@ -2924,6 +2941,7 @@ namespace SYD_COPY_FILE
             }
             AdjustComboBoxDropDownListWidth(comboBox_fonttype);
             AdjustComboBoxDropDownListWidth(comboBox_indicate);
+            AdjustComboBoxDropDownListWidth(combobox_key);
             AdjustComboBoxDropDownListWidth(comboBox_additional_operations);
             if (ExcludeDatatype == false)
             {
@@ -2932,9 +2950,10 @@ namespace SYD_COPY_FILE
             }
             this.comboBox_fonttype.SelectedItem = 0;
             this.comboBox_fonttype.SelectedIndex = 0;
-            this.comboBox_indicate.SelectedItem = 0;
             if (this.comboBox_indicate.Items.Count>0)
                 this.comboBox_indicate.SelectedIndex = 0;
+            if (this.combobox_key.Items.Count > 0)
+                this.combobox_key.SelectedIndex = 0;
             this.comboBox_additional_operations.SelectedIndex = 0;
             this.comboBox_additional_operations.SelectedItem = 0;
         }
@@ -3083,7 +3102,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("数据由输入框转为ASCII码然后填充关键字定义的值");
                 this.comboBox_datatype.Items.Add("在上面基础上输入框前面两个数据为十进制数");
 
-                textBox_key.Text = "0xFF";
+                combobox_key.Text = "0xFF";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Get_api_symdef)
             {
@@ -3112,7 +3131,7 @@ namespace SYD_COPY_FILE
                 this.label_key_word.Text = "临界值";
                 this.source_file_button.Text = "选择目录";
                 this.label_outfile.Text = "输出目录名称:";
-                this.textBox_key.Text = "50M";
+                this.combobox_key.Text = "50M";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
             {
@@ -3204,12 +3223,12 @@ namespace SYD_COPY_FILE
                 if (comboBox_datatype.SelectedIndex == 1)
                 {
                     this.label_key_word.Text = "扩展名";
-                    this.textBox_key.Text = ".bmp";
+                    this.combobox_key.Text = ".bmp";
                 }
                 else
                 {
                     this.label_key_word.Text = "临界值";
-                    this.textBox_key.Text = "50M";
+                    this.combobox_key.Text = "50M";
                 }
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
@@ -3303,22 +3322,6 @@ namespace SYD_COPY_FILE
             {
                 //arr_restore_Defaults();
                 //arr_restore_Defaults_Adjust();
-            }
-        }
-        private void comboBox_indicate_DropDownClosed(object sender, EventArgs e)
-        {
-            if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Get_Row)
-            {
-                textBox_filesize.Text = "	";
-                this.comboBox_datatype.SelectedItem = 1;
-                this.comboBox_datatype.SelectedIndex = 1;
-                this.comboBox_fonttype.SelectedItem = 1;
-                this.comboBox_fonttype.SelectedIndex = 1;
-                this.textBox_key.Text = "14";
-            }
-            else
-            {
-
             }
         }
         private void draw_MouseEnter(object sender, EventArgs e)
