@@ -1884,9 +1884,18 @@ namespace SYD_COPY_FILE
         {
             int i = 0,j=0;
             string orgTxt1 = textInput.Text.Trim();
-            List<string> lstArray = orgTxt1.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();//所有的行
+            List<string> lstArray = orgTxt1.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();//所有的行
             string outTxt1 = "";
-            if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
+            string separator_out = "";
+            if (comboBox_fonttype.SelectedIndex == 0)
+            {
+                separator_out = " ";
+            }
+            else if (comboBox_fonttype.SelectedIndex == 1)
+            {
+                separator_out = "\r\n";
+            }
+            if ((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
             {
                 string key_word = combobox_key.Text;
                 for (i = 0; i < lstArray.Count; i++)
@@ -1896,9 +1905,9 @@ namespace SYD_COPY_FILE
                     {
                         if (comboBox_datatype.SelectedIndex == 3)
                         {
-                            outTxt1 += lstArray[i].Substring(j+ key_word.Length).Replace("\r","") + "\r\n";
+                            outTxt1 += lstArray[i].Substring(j+ key_word.Length).Replace("\r","") + separator_out;
                         }
-                        else outTxt1 += lstArray[i] + "\r\n";
+                        else outTxt1 += lstArray[i] + separator_out;
                     }
                 }
             }
@@ -1907,20 +1916,10 @@ namespace SYD_COPY_FILE
                 List<string> outTxt_line = new List<string>();
                 List<string> line = new List<string>();
                 string separator = textBox_filesize.Text;
-                string separator_out = "";
                 int row_index = 0;
                 if (comboBox_datatype.SelectedIndex != 0)
                 {
                     row_index = Convert.ToByte(combobox_key.Text);
-                }
-
-                if (comboBox_fonttype.SelectedIndex == 0)
-                {
-                    separator_out = " ";
-                }
-                else if (comboBox_fonttype.SelectedIndex == 1)
-                {
-                    separator_out = "\r\n";
                 }
 
                 for (i = 0; i < lstArray.Count; i++)
