@@ -361,6 +361,16 @@
             this.label71 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.textBox43 = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.textBox44 = new System.Windows.Forms.TextBox();
+            this.textBox45 = new System.Windows.Forms.TextBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -3949,7 +3959,7 @@
             this.groupBox20.Controls.Add(this.button39);
             this.groupBox20.Controls.Add(this.textBox76);
             this.groupBox20.Controls.Add(this.label113);
-            this.groupBox20.Location = new System.Drawing.Point(0, 368);
+            this.groupBox20.Location = new System.Drawing.Point(0, 375);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Size = new System.Drawing.Size(411, 44);
             this.groupBox20.TabIndex = 41;
@@ -4044,7 +4054,7 @@
             this.groupBox16.Controls.Add(this.label106);
             this.groupBox16.Controls.Add(this.label107);
             this.groupBox16.Controls.Add(this.button34);
-            this.groupBox16.Location = new System.Drawing.Point(0, 294);
+            this.groupBox16.Location = new System.Drawing.Point(0, 301);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Size = new System.Drawing.Size(411, 73);
             this.groupBox16.TabIndex = 40;
@@ -4195,9 +4205,9 @@
             this.groupBox4.Controls.Add(this.panel13);
             this.groupBox4.Controls.Add(this.label71);
             this.groupBox4.Controls.Add(this.label78);
-            this.groupBox4.Location = new System.Drawing.Point(414, 176);
+            this.groupBox4.Location = new System.Drawing.Point(412, 183);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(338, 374);
+            this.groupBox4.Size = new System.Drawing.Size(340, 369);
             this.groupBox4.TabIndex = 32;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "批量差值";
@@ -4337,7 +4347,7 @@
             this.textBox_difference_output.Location = new System.Drawing.Point(231, 32);
             this.textBox_difference_output.Multiline = true;
             this.textBox_difference_output.Name = "textBox_difference_output";
-            this.textBox_difference_output.Size = new System.Drawing.Size(104, 340);
+            this.textBox_difference_output.Size = new System.Drawing.Size(104, 334);
             this.textBox_difference_output.TabIndex = 26;
             this.textBox_difference_output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
@@ -4347,7 +4357,7 @@
             this.textBox_difference_input.Location = new System.Drawing.Point(3, 32);
             this.textBox_difference_input.Multiline = true;
             this.textBox_difference_input.Name = "textBox_difference_input";
-            this.textBox_difference_input.Size = new System.Drawing.Size(113, 340);
+            this.textBox_difference_input.Size = new System.Drawing.Size(113, 334);
             this.textBox_difference_input.TabIndex = 25;
             this.textBox_difference_input.Text = "3.133\r\n2.618\r\n2.401\r\n1.801\r\n1.574\r\n1.008\r\n0.395\r\n0.046\r\n0.000";
             this.textBox_difference_input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
@@ -4494,6 +4504,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox11);
+            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.comboBox5);
+            this.groupBox1.Controls.Add(this.comboBox8);
+            this.groupBox1.Controls.Add(this.textBox43);
+            this.groupBox1.Controls.Add(this.button8);
+            this.groupBox1.Controls.Add(this.textBox44);
+            this.groupBox1.Controls.Add(this.textBox45);
+            this.groupBox1.Controls.Add(this.checkBox9);
             this.groupBox1.Controls.Add(this.textBox10);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox9);
@@ -4516,10 +4536,113 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(573, 71);
+            this.groupBox1.Size = new System.Drawing.Size(573, 82);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "32768_timer_cal";
+            // 
+            // textBox11
+            // 
+            this.textBox11.AllowDrop = true;
+            this.textBox11.Location = new System.Drawing.Point(247, 57);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(114, 21);
+            this.textBox11.TabIndex = 53;
+            this.textBox11.Text = "1000/32768";
+            this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox11.Leave += new System.EventHandler(this.textBoxTrim_Leave);
+            // 
+            // textBox12
+            // 
+            this.textBox12.AllowDrop = true;
+            this.textBox12.Location = new System.Drawing.Point(499, 57);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(68, 21);
+            this.textBox12.TabIndex = 56;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(220, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "dec:";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "+",
+            "-",
+            "*",
+            "/"});
+            this.comboBox5.Location = new System.Drawing.Point(188, 57);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(30, 20);
+            this.comboBox5.TabIndex = 54;
+            this.comboBox5.Text = " ";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "+",
+            "-",
+            "*",
+            "/"});
+            this.comboBox8.Location = new System.Drawing.Point(98, 57);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(30, 20);
+            this.comboBox8.TabIndex = 52;
+            this.comboBox8.Text = " ";
+            // 
+            // textBox43
+            // 
+            this.textBox43.AllowDrop = true;
+            this.textBox43.Location = new System.Drawing.Point(41, 57);
+            this.textBox43.Name = "textBox43";
+            this.textBox43.Size = new System.Drawing.Size(54, 21);
+            this.textBox43.TabIndex = 49;
+            this.textBox43.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox43.Leave += new System.EventHandler(this.textBoxTrim_Leave);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(367, 56);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(53, 22);
+            this.button8.TabIndex = 48;
+            this.button8.Text = "cal";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.cal_32768_Click);
+            // 
+            // textBox44
+            // 
+            this.textBox44.AllowDrop = true;
+            this.textBox44.Location = new System.Drawing.Point(425, 57);
+            this.textBox44.Name = "textBox44";
+            this.textBox44.Size = new System.Drawing.Size(68, 21);
+            this.textBox44.TabIndex = 50;
+            // 
+            // textBox45
+            // 
+            this.textBox45.AllowDrop = true;
+            this.textBox45.Location = new System.Drawing.Point(132, 57);
+            this.textBox45.Name = "textBox45";
+            this.textBox45.Size = new System.Drawing.Size(54, 21);
+            this.textBox45.TabIndex = 51;
+            this.textBox45.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox45.Leave += new System.EventHandler(this.textBoxTrim_Leave);
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.Location = new System.Drawing.Point(2, 58);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(43, 18);
+            this.checkBox9.TabIndex = 57;
+            this.checkBox9.Text = "HEX";
+            this.checkBox9.UseVisualStyleBackColor = true;
             // 
             // textBox10
             // 
@@ -4532,7 +4655,7 @@
             // textBox2
             // 
             this.textBox2.AllowDrop = true;
-            this.textBox2.Location = new System.Drawing.Point(247, 41);
+            this.textBox2.Location = new System.Drawing.Point(247, 35);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(114, 21);
             this.textBox2.TabIndex = 21;
@@ -4543,7 +4666,7 @@
             // textBox9
             // 
             this.textBox9.AllowDrop = true;
-            this.textBox9.Location = new System.Drawing.Point(499, 42);
+            this.textBox9.Location = new System.Drawing.Point(499, 35);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(68, 21);
             this.textBox9.TabIndex = 25;
@@ -4551,7 +4674,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 44);
+            this.label1.Location = new System.Drawing.Point(220, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 24;
@@ -4579,7 +4702,7 @@
             "-",
             "*",
             "/"});
-            this.comboBox4.Location = new System.Drawing.Point(188, 40);
+            this.comboBox4.Location = new System.Drawing.Point(188, 35);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(30, 20);
             this.comboBox4.TabIndex = 22;
@@ -4619,7 +4742,7 @@
             "-",
             "*",
             "/"});
-            this.comboBox1.Location = new System.Drawing.Point(98, 40);
+            this.comboBox1.Location = new System.Drawing.Point(98, 35);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(30, 20);
             this.comboBox1.TabIndex = 18;
@@ -4656,7 +4779,7 @@
             // textBox3
             // 
             this.textBox3.AllowDrop = true;
-            this.textBox3.Location = new System.Drawing.Point(41, 40);
+            this.textBox3.Location = new System.Drawing.Point(41, 35);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(54, 21);
             this.textBox3.TabIndex = 2;
@@ -4675,7 +4798,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(367, 40);
+            this.button1.Location = new System.Drawing.Point(367, 34);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 22);
             this.button1.TabIndex = 0;
@@ -4686,7 +4809,7 @@
             // textBox4
             // 
             this.textBox4.AllowDrop = true;
-            this.textBox4.Location = new System.Drawing.Point(425, 41);
+            this.textBox4.Location = new System.Drawing.Point(425, 35);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(68, 21);
             this.textBox4.TabIndex = 9;
@@ -4694,7 +4817,7 @@
             // textBox5
             // 
             this.textBox5.AllowDrop = true;
-            this.textBox5.Location = new System.Drawing.Point(132, 40);
+            this.textBox5.Location = new System.Drawing.Point(132, 35);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(54, 21);
             this.textBox5.TabIndex = 10;
@@ -4703,7 +4826,7 @@
             // 
             // checkBox6
             // 
-            this.checkBox6.Location = new System.Drawing.Point(2, 43);
+            this.checkBox6.Location = new System.Drawing.Point(2, 36);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(43, 18);
             this.checkBox6.TabIndex = 44;
@@ -4749,7 +4872,7 @@
             this.groupBox5.Controls.Add(this.textBox36);
             this.groupBox5.Controls.Add(this.textBox37);
             this.groupBox5.Controls.Add(this.timestamp_Difference_cal);
-            this.groupBox5.Location = new System.Drawing.Point(3, 176);
+            this.groupBox5.Location = new System.Drawing.Point(3, 183);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(408, 119);
             this.groupBox5.TabIndex = 23;
@@ -4970,9 +5093,9 @@
             this.groupBox3.Controls.Add(this.textBox21);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.Calendar_Time_Difference_Cal);
-            this.groupBox3.Location = new System.Drawing.Point(3, 72);
+            this.groupBox3.Location = new System.Drawing.Point(3, 86);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(573, 102);
+            this.groupBox3.Size = new System.Drawing.Size(573, 95);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Calendar Time Difference(18:05:55:386或22:52:27.252726或20220223 124748)";
@@ -4980,7 +5103,7 @@
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(150, 20);
+            this.label15.Location = new System.Drawing.Point(150, 18);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(13, 73);
             this.label15.TabIndex = 49;
@@ -4989,7 +5112,7 @@
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("宋体", 10F);
-            this.label18.Location = new System.Drawing.Point(16, 27);
+            this.label18.Location = new System.Drawing.Point(16, 25);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(13, 73);
             this.label18.TabIndex = 47;
@@ -4997,17 +5120,17 @@
             // 
             // label19
             // 
-            this.label19.Font = new System.Drawing.Font("宋体", 10F);
-            this.label19.Location = new System.Drawing.Point(138, 16);
+            this.label19.Font = new System.Drawing.Font("宋体", 9F);
+            this.label19.Location = new System.Drawing.Point(138, 17);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 84);
+            this.label19.Size = new System.Drawing.Size(13, 75);
             this.label19.TabIndex = 48;
             this.label19.Text = "Before";
             // 
             // textBox60
             // 
             this.textBox60.AllowDrop = true;
-            this.textBox60.Location = new System.Drawing.Point(485, 73);
+            this.textBox60.Location = new System.Drawing.Point(485, 71);
             this.textBox60.Name = "textBox60";
             this.textBox60.Size = new System.Drawing.Size(82, 21);
             this.textBox60.TabIndex = 46;
@@ -5015,7 +5138,7 @@
             // textBox57
             // 
             this.textBox57.AllowDrop = true;
-            this.textBox57.Location = new System.Drawing.Point(485, 43);
+            this.textBox57.Location = new System.Drawing.Point(485, 41);
             this.textBox57.Name = "textBox57";
             this.textBox57.Size = new System.Drawing.Size(82, 21);
             this.textBox57.TabIndex = 45;
@@ -5023,7 +5146,7 @@
             // textBox56
             // 
             this.textBox56.AllowDrop = true;
-            this.textBox56.Location = new System.Drawing.Point(485, 17);
+            this.textBox56.Location = new System.Drawing.Point(485, 15);
             this.textBox56.Name = "textBox56";
             this.textBox56.Size = new System.Drawing.Size(82, 21);
             this.textBox56.TabIndex = 44;
@@ -5031,7 +5154,7 @@
             // textBox30
             // 
             this.textBox30.AllowDrop = true;
-            this.textBox30.Location = new System.Drawing.Point(289, 73);
+            this.textBox30.Location = new System.Drawing.Point(289, 71);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(18, 21);
             this.textBox30.TabIndex = 43;
@@ -5040,7 +5163,7 @@
             // textBox26
             // 
             this.textBox26.AllowDrop = true;
-            this.textBox26.Location = new System.Drawing.Point(289, 43);
+            this.textBox26.Location = new System.Drawing.Point(289, 41);
             this.textBox26.Name = "textBox26";
             this.textBox26.Size = new System.Drawing.Size(18, 21);
             this.textBox26.TabIndex = 35;
@@ -5049,7 +5172,7 @@
             // textBox34
             // 
             this.textBox34.AllowDrop = true;
-            this.textBox34.Location = new System.Drawing.Point(372, 73);
+            this.textBox34.Location = new System.Drawing.Point(372, 71);
             this.textBox34.Name = "textBox34";
             this.textBox34.Size = new System.Drawing.Size(107, 21);
             this.textBox34.TabIndex = 41;
@@ -5057,7 +5180,7 @@
             // textBox27
             // 
             this.textBox27.AllowDrop = true;
-            this.textBox27.Location = new System.Drawing.Point(372, 43);
+            this.textBox27.Location = new System.Drawing.Point(372, 41);
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new System.Drawing.Size(107, 21);
             this.textBox27.TabIndex = 33;
@@ -5065,7 +5188,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(267, 78);
+            this.label20.Location = new System.Drawing.Point(265, 76);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(29, 12);
             this.label20.TabIndex = 42;
@@ -5074,7 +5197,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(265, 48);
+            this.label17.Location = new System.Drawing.Point(265, 46);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(29, 12);
             this.label17.TabIndex = 34;
@@ -5083,7 +5206,7 @@
             // textBox38
             // 
             this.textBox38.AllowDrop = true;
-            this.textBox38.Location = new System.Drawing.Point(164, 73);
+            this.textBox38.Location = new System.Drawing.Point(164, 71);
             this.textBox38.Name = "textBox38";
             this.textBox38.Size = new System.Drawing.Size(100, 21);
             this.textBox38.TabIndex = 40;
@@ -5093,7 +5216,7 @@
             // textBox28
             // 
             this.textBox28.AllowDrop = true;
-            this.textBox28.Location = new System.Drawing.Point(164, 43);
+            this.textBox28.Location = new System.Drawing.Point(164, 41);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(100, 21);
             this.textBox28.TabIndex = 32;
@@ -5103,7 +5226,7 @@
             // textBox39
             // 
             this.textBox39.AllowDrop = true;
-            this.textBox39.Location = new System.Drawing.Point(29, 75);
+            this.textBox39.Location = new System.Drawing.Point(29, 71);
             this.textBox39.Name = "textBox39";
             this.textBox39.Size = new System.Drawing.Size(109, 21);
             this.textBox39.TabIndex = 38;
@@ -5113,7 +5236,7 @@
             // textBox29
             // 
             this.textBox29.AllowDrop = true;
-            this.textBox29.Location = new System.Drawing.Point(29, 45);
+            this.textBox29.Location = new System.Drawing.Point(29, 43);
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(109, 21);
             this.textBox29.TabIndex = 30;
@@ -5122,7 +5245,7 @@
             // 
             // Calendar_Time_Difference_Cal2
             // 
-            this.Calendar_Time_Difference_Cal2.Location = new System.Drawing.Point(313, 73);
+            this.Calendar_Time_Difference_Cal2.Location = new System.Drawing.Point(313, 71);
             this.Calendar_Time_Difference_Cal2.Name = "Calendar_Time_Difference_Cal2";
             this.Calendar_Time_Difference_Cal2.Size = new System.Drawing.Size(53, 22);
             this.Calendar_Time_Difference_Cal2.TabIndex = 36;
@@ -5132,7 +5255,7 @@
             // 
             // Calendar_Time_Difference_Cal1
             // 
-            this.Calendar_Time_Difference_Cal1.Location = new System.Drawing.Point(313, 43);
+            this.Calendar_Time_Difference_Cal1.Location = new System.Drawing.Point(313, 41);
             this.Calendar_Time_Difference_Cal1.Name = "Calendar_Time_Difference_Cal1";
             this.Calendar_Time_Difference_Cal1.Size = new System.Drawing.Size(53, 22);
             this.Calendar_Time_Difference_Cal1.TabIndex = 28;
@@ -5143,7 +5266,7 @@
             // textBox25
             // 
             this.textBox25.AllowDrop = true;
-            this.textBox25.Location = new System.Drawing.Point(289, 16);
+            this.textBox25.Location = new System.Drawing.Point(289, 14);
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(18, 21);
             this.textBox25.TabIndex = 27;
@@ -5152,7 +5275,7 @@
             // textBox23
             // 
             this.textBox23.AllowDrop = true;
-            this.textBox23.Location = new System.Drawing.Point(372, 16);
+            this.textBox23.Location = new System.Drawing.Point(372, 14);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(107, 21);
             this.textBox23.TabIndex = 26;
@@ -5160,7 +5283,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(265, 21);
+            this.label16.Location = new System.Drawing.Point(265, 19);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(29, 12);
             this.label16.TabIndex = 26;
@@ -5169,7 +5292,7 @@
             // textBox22
             // 
             this.textBox22.AllowDrop = true;
-            this.textBox22.Location = new System.Drawing.Point(164, 16);
+            this.textBox22.Location = new System.Drawing.Point(164, 14);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(100, 21);
             this.textBox22.TabIndex = 25;
@@ -5179,7 +5302,7 @@
             // textBox21
             // 
             this.textBox21.AllowDrop = true;
-            this.textBox21.Location = new System.Drawing.Point(29, 18);
+            this.textBox21.Location = new System.Drawing.Point(29, 16);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(109, 21);
             this.textBox21.TabIndex = 23;
@@ -5189,7 +5312,7 @@
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(4, 31);
+            this.label14.Location = new System.Drawing.Point(4, 29);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(13, 59);
             this.label14.TabIndex = 24;
@@ -5197,7 +5320,7 @@
             // 
             // Calendar_Time_Difference_Cal
             // 
-            this.Calendar_Time_Difference_Cal.Location = new System.Drawing.Point(313, 16);
+            this.Calendar_Time_Difference_Cal.Location = new System.Drawing.Point(313, 14);
             this.Calendar_Time_Difference_Cal.Name = "Calendar_Time_Difference_Cal";
             this.Calendar_Time_Difference_Cal.Size = new System.Drawing.Size(53, 22);
             this.Calendar_Time_Difference_Cal.TabIndex = 0;
@@ -8330,7 +8453,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V1.9.9";
+            this.Text = "SYD_Calculator V2.0.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9206,6 +9329,16 @@
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox combobox_key;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.TextBox textBox43;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox textBox44;
+        private System.Windows.Forms.TextBox textBox45;
+        private System.Windows.Forms.CheckBox checkBox9;
     }
 }
 

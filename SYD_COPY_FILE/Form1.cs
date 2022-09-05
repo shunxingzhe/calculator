@@ -61,8 +61,10 @@ namespace SYD_COPY_FILE
 
             comboBox4.SelectedIndex = 2;
             comboBox3.SelectedIndex = 2;
+            comboBox5.SelectedIndex = 2;
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
+            comboBox8.SelectedIndex = 1;
             timestamp_Difference_select.SelectedIndex = 0;
 
             data_direction = false;
@@ -778,6 +780,8 @@ namespace SYD_COPY_FILE
             {
                 if((sender == textBox8) || (sender == textBox1) || (sender == textBox6))
                     cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
+                else if ((sender == textBox45) || (sender == textBox11) || (sender == textBox43))
+                    cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
                 else
                     cal_32768_subtract(textBox3.Text, textBox5.Text, textBox1.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
             }
@@ -787,6 +791,8 @@ namespace SYD_COPY_FILE
         {
             if (sender == button2)
                 cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
+            else if (sender == button8)
+                cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
             else
                 cal_32768_subtract(textBox3.Text, textBox5.Text, textBox1.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
         }
