@@ -1094,7 +1094,7 @@ namespace SYD_COPY_FILE
                         
                     for (j = 0; j < (buffer_utf8.Length/2); j++)
                     {
-                        str = str + "0x" + buffer_utf8[j + 1].ToString("X02") + buffer_utf8[j].ToString("X02") +  ",";
+                        str = str + "0x" + buffer_utf8[j*2 + 1].ToString("X02") + buffer_utf8[j*2].ToString("X02") +  ",";
                     }
                     lstArray[i] = str + "};" + "//" + lstArray[i];
                 }
