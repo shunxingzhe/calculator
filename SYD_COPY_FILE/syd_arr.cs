@@ -1561,7 +1561,7 @@ namespace SYD_COPY_FILE
            }
            for (int m = 0; m < lstArray.Count; m++)
            {
-               if (lstArray[m].Length!=0)
+               if (lstArray[m].Length>7)//最短的定义 char t
                {
                    uint k = get_struct_element_size(lstArray[m]);
                    if (k > 0)
