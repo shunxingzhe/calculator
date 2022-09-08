@@ -1581,12 +1581,18 @@ namespace SYD_COPY_FILE
             {
                 j = str.IndexOf("[", j);
                 if (j == -1) break;
-                i = str.LastIndexOf("\n", j);
-                if (i == -1) break;
+                if(lstArray.Count!=0)
+                {
+                    i = str.LastIndexOf("\n", j);
+                    if (i == -1) break;
+                }
                 k = str.IndexOf("=", j);
                 if (k == -1) break;
-                str1 = str.Substring(i+1, k - i-1);
-                if((!(str1.Contains("//"))) && (!(str1.Contains("/*"))))
+                if(i != 0)
+                    str1 = str.Substring(i+1, k - i-1);
+                else
+                    str1 = str.Substring(0, k - 1);
+                if ((!(str1.Contains("//"))) && (!(str1.Contains("/*"))))
                 {
                     if (comboBox_additional_operations.SelectedIndex == 1)
                     {
