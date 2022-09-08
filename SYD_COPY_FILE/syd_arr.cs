@@ -157,8 +157,9 @@ namespace SYD_COPY_FILE
 
         private void source_file_button_Click(object sender, EventArgs e)
         {
-            if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File) || 
-                ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis) && (comboBox_datatype.SelectedIndex != 3) && (comboBox_datatype.SelectedIndex != 4))   )
+            //if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File) || 
+            //    ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis) && (comboBox_datatype.SelectedIndex != 3) && (comboBox_datatype.SelectedIndex != 4))   )
+            if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File)
             {
                 MyFolderBrowserDialog folderBrowserDialog1 = new MyFolderBrowserDialog();
                 if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
@@ -179,6 +180,8 @@ namespace SYD_COPY_FILE
 
                 dlg.Filter = "txt file (.txt)|*.txt|wav file (.wav)|*.wav|bin file (.bin)|*.bin|bmp file (.bmp)|*.bmp|c file (.c)|*.c|csv file (.csv)|*.csv|log file (.log)|*.log|diary file (.diary)|*.diary";
 
+                dlg.Multiselect = true;//是否允许多选，false表示单选
+
                 if (dlg.ShowDialog() == false)
                     return;
                 source_file_textBox.Text = dlg.FileName;
@@ -192,11 +195,15 @@ namespace SYD_COPY_FILE
                 }
                 else
                 {
-                    if (comboBox_mode.SelectedIndex != 3)
+                    if (dlg.FileNames.Length > 1)
                     {
-                        reintput_file(source_file_textBox.Text);
+                        textInput.Text = "";
+                        foreach (var FileName in dlg.FileNames)
+                        {
+                            textInput.Text += reintput_file(FileName);
+                        }
                     }
-
+                    else textInput.Text = reintput_file(source_file_textBox.Text);
                     label_intputsize.Text = (textInput.Text.Length / 2).ToString();
                 }
             }
@@ -263,7 +270,7 @@ namespace SYD_COPY_FILE
                 return;
             }
             source_file_textBox.Text = fti.FileName;
-            reintput_file(source_file_textBox.Text);
+            textInput.Text=reintput_file(source_file_textBox.Text);
             label_intputsize.Text = (textInput.Text.Length / 2).ToString();
         }
         private void source_file_textBox_DragEnter(object sender, DragEventArgs e)
@@ -2828,47 +2835,44 @@ namespace SYD_COPY_FILE
             textInput.Clear();
             richTextBox_out.Clear();
         }
-        private void reintput_file(string FileName)
+        private string reintput_file(string FileName)
         {
             FileInfo fi = new FileInfo(FileName);
 
             if ((fi.Extension).ToLower() == ".txt")
             {
-                label_outfilename.Text = source_file_textBox.Text;
-                textInput.Text = System.IO.File.ReadAllText(source_file_textBox.Text, Encoding.Default);
+                label_outfilename.Text = FileName;
+                return System.IO.File.ReadAllText(FileName, Encoding.Default);
             }
             else if (fi.Extension == ".wav")
             {
                 string path = FileName;
                 label_outfilename.Text = path.Replace(".WAV", string.Empty).Replace(".wav", string.Empty) + "_ok.txt";
-                byte[] text = System.IO.File.ReadAllBytes(source_file_textBox.Text);
-                var hex = BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
-                textInput.Text = hex;
+                byte[] text = System.IO.File.ReadAllBytes(FileName);
+                return BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
             }
             else if (fi.Extension == ".bin")
             {
                 string path = FileName;
                 label_outfilename.Text = path.Replace(".BIN", string.Empty).Replace(".bin", string.Empty) + "_ok.txt";
-                byte[] text = System.IO.File.ReadAllBytes(source_file_textBox.Text);
-                var hex = BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
-                textInput.Text = hex;
+                byte[] text = System.IO.File.ReadAllBytes(FileName);
+                return BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
             }
             else if (fi.Extension == ".bmp")
             {
                 string path = FileName;
                 label_outfilename.Text = path.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
-                Bitmap _Bitmap = (Bitmap)Image.FromFile(source_file_textBox.Text);
+                Bitmap _Bitmap = (Bitmap)Image.FromFile(FileName);
                 BitmapData _BitmapData = _Bitmap.LockBits(new Rectangle(0, 0, _Bitmap.Width, _Bitmap.Height), ImageLockMode.ReadWrite, _Bitmap.PixelFormat);
                 byte[] _Value = new byte[_BitmapData.Stride * _BitmapData.Height];
                 Marshal.Copy(_BitmapData.Scan0, _Value, 0, _Value.Length);
                 //写回去还是用 Marshal.Copy.
                 var str = DateTime.Now.ToString();
                 var encode = Encoding.UTF8;
-                var hex = BitConverter.ToString(_Value, 0).Replace("-", string.Empty).ToLower();
-                textInput.Text = hex;
+                return BitConverter.ToString(_Value, 0).Replace("-", string.Empty).ToLower();
                 //string path = FileName;
                 //label_outfilename.Text = path.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
-                //byte[] text = System.IO.File.ReadAllBytes(source_file_textBox.Text);
+                //byte[] text = System.IO.File.ReadAllBytes(FileName);
                 ////var hex = BitConverter.ToString(text, 0);
                 ////var hex = byteToHexStr(text);
                 ////textInput.Text = hex;
@@ -2882,23 +2886,24 @@ namespace SYD_COPY_FILE
                 //textInput.Text = str;
 
                 DataTable data = OpenCSV(path);
-                StringBuilder str = new StringBuilder("", data.Rows.Count*10);
+                StringBuilder str = new StringBuilder("", data.Rows.Count * 10);
                 foreach (DataRow row in data.Rows)
                 {
                     str.Append(row[0] + Environment.NewLine);
                 }
-                textInput.Text = str.ToString();
+                return str.ToString();
             }
             else if ((fi.Extension).ToLower() == ".c")
             {
-                label_outfilename.Text = source_file_textBox.Text;
-                textInput.Text = System.IO.File.ReadAllText(source_file_textBox.Text, Encoding.Default);
+                label_outfilename.Text = FileName;
+                return System.IO.File.ReadAllText(FileName, Encoding.Default);
             }
             else if ((fi.Extension).ToLower() == ".log")
             {
-                label_outfilename.Text = source_file_textBox.Text;
-                textInput.Text = System.IO.File.ReadAllText(source_file_textBox.Text, Encoding.Default);
+                label_outfilename.Text = FileName;
+                return System.IO.File.ReadAllText(FileName, Encoding.Default);
             }
+            return "";
         }
         private void arr_restore_Defaults()
         {
