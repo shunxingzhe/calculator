@@ -1113,19 +1113,6 @@ namespace SYD_COPY_FILE
            {
                richTextBox_out.AppendText(lstArray[i] + "\r\n");
            }
-
-           string path = label_outfilename.Text;
-           path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-           using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-           {
-               byte[] buffer = null;
-               for (i = 0; i < lstArray.Count; i++)
-               {
-                   buffer = Encoding.Default.GetBytes(lstArray[i] + "\r\n");
-                   fsWrite.Write(buffer, 0, buffer.Length);
-               }
-           }
-
            MessageBox.Show("保存成功!");
        }
 
