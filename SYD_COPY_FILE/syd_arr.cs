@@ -1581,11 +1581,8 @@ namespace SYD_COPY_FILE
             {
                 j = str.IndexOf("[", j);
                 if (j == -1) break;
-                if(lstArray.Count!=0)
-                {
-                    i = str.LastIndexOf("\n", j);
-                    if (i == -1) break;
-                }
+                i = str.LastIndexOf("\n", j);
+                if ((i == -1)&& (lstArray.Count != 0)) break;
                 k = str.IndexOf("=", j);
                 if (k == -1) break;
                 if(i != 0)
@@ -2686,7 +2683,7 @@ namespace SYD_COPY_FILE
             {
                 label_outfilename.Text = source_file_textBox.Text.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
                 out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
-                UInt32 save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex);
+                UInt32 save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex,(byte)comboBox_additional_operations.SelectedIndex );
                 if (save_size > 0)
                 {
                     call_c_timer_timeout = 5;//1-2内触发定时任务
@@ -3156,6 +3153,10 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Add("不旋转(原点为左下角)");
                 this.comboBox_fonttype.Items.Add("270度(原点为左上角)");
                 this.label_font_type.Text = "旋转角度：";
+
+                comboBox_additional_operations.Items.Clear();
+                this.comboBox_additional_operations.Items.Add("无额外操作");
+                this.comboBox_additional_operations.Items.Add("显示2行12列，BIT[3 1]=>Pix1 BIT[4 2]=>Pix1错位输出");
             }
             else
             {
