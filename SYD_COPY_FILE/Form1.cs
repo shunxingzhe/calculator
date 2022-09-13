@@ -783,7 +783,7 @@ namespace SYD_COPY_FILE
                 else if ((sender == textBox45) || (sender == textBox11) || (sender == textBox43))
                     cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
                 else
-                    cal_32768_subtract(textBox3.Text, textBox5.Text, textBox1.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
+                    cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
             }
         }
 
@@ -794,7 +794,7 @@ namespace SYD_COPY_FILE
             else if (sender == button8)
                 cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
             else
-                cal_32768_subtract(textBox3.Text, textBox5.Text, textBox1.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
+                cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
         }
         private void button5_Click(object sender, EventArgs e)
         {
