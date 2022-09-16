@@ -276,10 +276,8 @@ unsigned char data_convert(unsigned char data)
     data = data2;
     return data;
 }
-unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ext_opt)
+unsigned char Outfile_check(char* Outfilename)
 {
-    unsigned char j = 0, data = 0;
-    unsigned int i = 0, k = 0,z=0;
     if (_access(Outfilename, 0) == 0) {//文件存在删除
         if (remove((char*)Outfilename) == 0) {
             my_sprintf("delete origin file succeed\r\n");
@@ -289,6 +287,15 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
             return 0;
         }
     }
+    return 1;
+}
+unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ext_opt)
+{
+    unsigned char j = 0, data = 0;
+    unsigned int i = 0, k = 0,z=0;
+
+    if (Outfile_check(Outfilename) == 0)    return 0;
+
     FILE* fpWrite = fopen((char*)Outfilename, "w");
     if (fpWrite == NULL)
     {
@@ -401,9 +408,79 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
     fclose(fpWrite);
     return k;
 }
-unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation, unsigned char ext_opt)
+unsigned int saveBlackWhite(char* Outfilename, unsigned char rotation, unsigned char ext_opt)
 {
-    unsigned int ret = 0;
+    unsigned char j = 0, data = 0;
+    unsigned int i = 0, k = 0, z = 0;
+
+    if (Outfile_check(Outfilename) == 0)    return 0;
+
+    FILE* fpWrite = fopen((char*)Outfilename, "w");
+    if (fpWrite == NULL)
+    {
+        my_sprintf("create file error\r\n");
+        return 0;
+    }
+    fprintf(fpWrite, "const unsigned char image_black_white[] = {\n");
+    unsigned char r = 0, g = 0, b = 0,y;
+    for (z = 0; z < bmpwidth; z += 2)
+    {
+        for (i = 0; i < bmpheight; i++)
+        {
+            //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
+            if (rotation == 1)
+            {
+                r = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 2];
+                g = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 1];
+                b = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3];
+            }
+            else
+            {
+                r = pBmpBuf[i * linebyte + z * 3 + 2];
+                g = pBmpBuf[i * linebyte + z * 3 + 1];
+                b = pBmpBuf[i * linebyte + z * 3];
+            }
+            y = 0.299*r + 0.587*g + 0.114*b;
+            data = data << 1;
+            if (y < 128)
+                data |= 0x01;
+            j++;
+            //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
+            if (rotation == 1)
+            {
+                r = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 2];
+                g = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 1];
+                b = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3];
+            }
+            else
+            {
+                r = pBmpBuf[i * linebyte + (z + 1) * 3 + 2];
+                g = pBmpBuf[i * linebyte + (z + 1) * 3 + 1];
+                b = pBmpBuf[i * linebyte + (z + 1) * 3];
+            }
+            y = 0.299 * r + 0.587 * g + 0.114 * b;
+            data=data << 1;
+            if (y < 128)
+                data |= 0x01;
+            j++;
+
+            if (j >= 8)
+            {
+                fprintf(fpWrite, "0x%02X,", data);
+                k++;
+                if ((k % 16) == 0)fprintf(fpWrite, "\n");
+                j = 0;
+                data = 0;
+            }
+        }
+    }
+
+    fprintf(fpWrite, "\n};");
+    fclose(fpWrite);
+    return k;
+}
+unsigned int bmp_open_check(const unsigned char* filename, unsigned int size, const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation, unsigned char ext_opt)
+{
     static HBITMAP hBitmap, hSysBitmap[5];
     my_sprintf("Intputfilename:");
     my_sprintf(filename, size);
@@ -415,7 +492,7 @@ unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const u
     //struct stat buffer;
     struct _stat64 buffer;
     WCHAR uni_buf[MAX_PATH] = { 0 };
-    int len = MultiByteToWideChar(CP_ACP, 0, (char *)filename, -1, NULL, 0);
+    int len = MultiByteToWideChar(CP_ACP, 0, (char*)filename, -1, NULL, 0);
     MultiByteToWideChar(CP_UTF8, 0, (char*)filename, -1, uni_buf, len);
     //if (stat((const char *)filename, &buffer) != 0)
     if (_wstat64(uni_buf, &buffer) != 0)
@@ -424,11 +501,29 @@ unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const u
         return 0;
     }
     my_sprintf("file size:%d\r\n", buffer.st_size);
-    if (FALSE == readBmp((char *)filename))
+    if (FALSE == readBmp((char*)filename))
         my_sprintf("readfile error!\r\n");
     my_sprintf("bmp info width:%d height:%d linebyte:%d\r\n", bmpwidth, bmpheight, linebyte);
 
+    return 1;
+}
+unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation, unsigned char ext_opt)
+{
+    unsigned int ret = 0;
+    if (bmp_open_check(filename, size, Outfilename, Outfilesize, rotation, ext_opt)==0) return 0;
+
     ret = saveRbw((char*)Outfilename, rotation, ext_opt);
+    if (ret == 0)
+        my_sprintf("savefile error!\r\n");
+    my_sprintf("save data total byte:%d\r\n", ret);
+    return ret;
+}
+unsigned int bmp_to_BlackWhite(const unsigned char* filename, unsigned int size, const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation, unsigned char ext_opt)
+{
+    unsigned int ret = 0;
+    if (bmp_open_check(filename, size, Outfilename, Outfilesize, rotation, ext_opt) == 0)   return 0;
+
+    ret = saveBlackWhite((char*)Outfilename, rotation, ext_opt);
     if (ret == 0)
         my_sprintf("savefile error!\r\n");
     my_sprintf("save data total byte:%d\r\n", ret);

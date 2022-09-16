@@ -2704,11 +2704,15 @@ namespace SYD_COPY_FILE
             byte[] buffer_utf8 = Encoding.UTF8.GetBytes(source_file_textBox.Text);
             byte[] out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
             textInput.Text = "注意:目前本功能不支持中文目录!\r\n";
-            if (comboBox_datatype.SelectedIndex == 0)
+            if ((comboBox_datatype.SelectedIndex == 0) || (comboBox_datatype.SelectedIndex == 2))
             {
                 label_outfilename.Text = source_file_textBox.Text.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
                 out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
-                UInt32 save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex,(byte)comboBox_additional_operations.SelectedIndex );
+                UInt32 save_size = 0;
+                if (comboBox_datatype.SelectedIndex == 0)
+                    save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex,(byte)comboBox_additional_operations.SelectedIndex );
+                else
+                    save_size = bmp_to_BlackWhite(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex);
                 if (save_size > 0)
                 {
                     call_c_timer_timeout = 5;//1-2内触发定时任务
@@ -3173,6 +3177,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("BMP文件提取红白黑三色图");
                 this.comboBox_datatype.Items.Add("大二进制文件处理");
+                this.comboBox_datatype.Items.Add("BMP文件提取黑白图(24BIT为一包显示2行12列，BIT0=>Pix[0,0] BIT1=>Pix[0,1]错位输出)");
                 this.label_data_type.Text = " 处理功能选择：";
 
                 this.comboBox_fonttype.Items.Clear();
@@ -3182,7 +3187,7 @@ namespace SYD_COPY_FILE
 
                 comboBox_additional_operations.Items.Clear();
                 this.comboBox_additional_operations.Items.Add("无额外操作");
-                this.comboBox_additional_operations.Items.Add("显示2行12列，BIT[3 1]=>Pix1 BIT[4 2]=>Pix1错位输出");
+                this.comboBox_additional_operations.Items.Add("24BIT为一包显示2行6列，BIT[2,0]=>Pix[0,0] BIT[3,1]=>Pix[0,1]错位输出");
             }
             else
             {

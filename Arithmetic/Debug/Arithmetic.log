@@ -2,14 +2,19 @@
   Arithmetic.cpp
 F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(33,11): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(245,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(306,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(308,27): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(365,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(367,27): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(292,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(475,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(460,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(483,25): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(313,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(315,27): warning C4018: “<”: 有符号/无符号不匹配
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(372,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(374,27): warning C4018: “<”: 有符号/无符号不匹配
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(299,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(426,19): warning C4018: “<”: 有符号/无符号不匹配
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(428,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(443,35): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(461,39): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(418,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(570,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(555,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(578,25): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   dllmain.cpp
     正在创建库 F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.lib 和对象 F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.exp
   Arithmetic.vcxproj -> F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.dll
