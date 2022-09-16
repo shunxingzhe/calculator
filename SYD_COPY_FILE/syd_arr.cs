@@ -374,6 +374,7 @@ namespace SYD_COPY_FILE
        {
            int i = 0, data_residue = 0;
             UInt16 ii = 0;
+            UInt32 len = 0;
             string str = "", str1 = "", str2 = "", str3 = "";
             string path = label_outfilename.Text;
             //string orgTxt1 = HoverTreeClearMark(textInput.Text.Trim());
@@ -387,97 +388,121 @@ namespace SYD_COPY_FILE
             {
                 orgTxt1 = orgTxt1.Remove(0, 0x28 * 2);
             }
-            else if (comboBox_fonttype.SelectedIndex == 2)
+            else if ((comboBox_fonttype.SelectedIndex == 2) || (comboBox_fonttype.SelectedIndex == 3))
             {
                 Byte data = 0, pre_data = 0;
-                str = orgTxt1.Remove(0, 0x2C * 2);
-                str2= "";
-                str3 = orgTxt1.Substring(0, 0x2C * 2);
+                str2 = "";
+                str3 = orgTxt1.Substring(0x2C * 2, 8*2);
+                if (str3.Contains("494e464f49534654") == true)//INFOISFT  适配布谷鸟配音
+                {
+                    str = orgTxt1.Remove(0, 0x4E * 2);
+                    str3 = orgTxt1.Substring(0, 0x4E * 2);
+                }
+                else
+                {
+                    str = orgTxt1.Remove(0, 0x2C * 2);
+                    str3 = orgTxt1.Substring(0, 0x2C * 2);
+                }
+                
                 if ((str3.Contains("52494646")==false) || (str3.Contains("57415645666d74")== false) || (str3.Contains("64617461") == false))//RIFF  WAVEfmt data
                 {
                     MessageBox.Show("选择的文件不是WAV类型文件!");
                     return;
                 }
-                for (i = 0; i < (str.Length / 8); i ++)
+                if (comboBox_fonttype.SelectedIndex == 3)
                 {
-                    str1 = str.Substring(i * 8+2, 2)+str.Substring(i * 8, 2);
-                    ii = Convert.ToUInt16(str1, 16);
-                    data = (Byte)(ii >> 8);
-                    data = (Byte)(data + 128);
-                    if (pre_data == data) data -= 1;
-                    str2 = str2 + data.ToString("X2");
-                    pre_data = data;
+                    for (i = 0; i < (str.Length / 4); i++)
+                    {
+                        str1 = str.Substring(i * 4 + 2, 2) + str.Substring(i * 4, 2);
+                        ii = Convert.ToUInt16(str1, 16);
+                        data = (Byte)(ii >> 8);
+                        data = (Byte)(data + 128);
+                        if (pre_data == data) data -= 1;
+                        str2 = str2 + data.ToString("X2");
+                        pre_data = data;
+                    }
+                    //修改语音数据大小
+                    len = (UInt32)(str2.Length) / 2;//除去头部的文件长度
+                    str1 = getStringFromUInt32(len);
+                    orgTxt1 = str1+str2;
                 }
-                //编辑头部
-                //修改长度
-                UInt32 len = (UInt32)(str2.Length/2 + 0x2C - 8);//除去RIFF的文件长度
-                str1 = getStringFromUInt32(len);
-                str3=str3.Remove(4 * 2, 4*2);
-                str3 = str3.Insert(4 * 2, str1);
-
-                //修改音频采样率
-                len = getUInt32FromString(str3, 0x18 * 2);
-                if (len != 16000)
+                else
                 {
-                    MessageBox.Show("原音频采样率不是16K!"+ len.ToString());
-                    return;
-                }
-                len = 8000;
-                str1 = getStringFromUInt32(len);
-                str3 = str3.Remove(0x18 * 2, 4 * 2);
-                str3 = str3.Insert(0x18 * 2, str1);
+                    for (i = 0; i < (str.Length / 8); i++)
+                    {
+                        str1 = str.Substring(i * 8 + 2, 2) + str.Substring(i * 8, 2);
+                        ii = Convert.ToUInt16(str1, 16);
+                        data = (Byte)(ii >> 8);
+                        data = (Byte)(data + 128);
+                        if (pre_data == data) data -= 1;
+                        str2 = str2 + data.ToString("X2");
+                        pre_data = data;
+                    }
+                    //编辑头部
+                    //修改长度
+                    len = (UInt32)(str2.Length / 2 + 0x2C - 8);//除去RIFF的文件长度
+                    str1 = getStringFromUInt32(len);
+                    str3 = str3.Remove(4 * 2, 4 * 2);
+                    str3 = str3.Insert(4 * 2, str1);
 
-                //修改每秒数据量
-                len = getUInt32FromString(str3, 0x1C * 2);
-                if (len != 32000)
-                {
-                    MessageBox.Show("原音频采样率不是16K16Bit!" + len.ToString());
-                    return;
-                }
-                len = 8000;
-                str1 = getStringFromUInt32(len);
-                str3 = str3.Remove(0x1C * 2, 4 * 2);
-                str3 = str3.Insert(0x1C * 2, str1);
+                    //修改音频采样率
+                    len = getUInt32FromString(str3, 0x18 * 2);
+                    if (len != 16000)
+                    {
+                        MessageBox.Show("原音频采样率不是16K!" + len.ToString());
+                        return;
+                    }
+                    len = 8000;
+                    str1 = getStringFromUInt32(len);
+                    str3 = str3.Remove(0x18 * 2, 4 * 2);
+                    str3 = str3.Insert(0x18 * 2, str1);
 
-                //修改数据块的调整数
-                UInt16 bit = getUInt16FromString(str3, 0x20 * 2);
-                if (bit != 2)
-                {
-                    MessageBox.Show("原音频数据块的调整数错误!" + len.ToString());
-                    return;
-                }
-                bit = 1;
-                str1 = getStringFromUInt16(bit);
-                str3 = str3.Remove(0x20 * 2, 2 * 2);
-                str3 = str3.Insert(0x20 * 2, str1);
+                    //修改每秒数据量
+                    len = getUInt32FromString(str3, 0x1C * 2);
+                    if (len != 32000)
+                    {
+                        MessageBox.Show("原音频采样率不是16K16Bit!" + len.ToString());
+                        return;
+                    }
+                    len = 8000;
+                    str1 = getStringFromUInt32(len);
+                    str3 = str3.Remove(0x1C * 2, 4 * 2);
+                    str3 = str3.Insert(0x1C * 2, str1);
 
-                //修改数据位数
-                bit = getUInt16FromString(str3, 0x22 * 2);
-                if (bit != 16)
-                {
-                    MessageBox.Show("原音频位宽不是16Bit!" + len.ToString());
-                    return;
-                }
-                bit = 8;
-                str1 = getStringFromUInt16(bit);
-                str3 = str3.Remove(0x22 * 2, 2 * 2);
-                str3 = str3.Insert(0x22 * 2, str1);
+                    //修改数据块的调整数
+                    UInt16 bit = getUInt16FromString(str3, 0x20 * 2);
+                    if (bit != 2)
+                    {
+                        MessageBox.Show("原音频数据块的调整数错误!" + len.ToString());
+                        return;
+                    }
+                    bit = 1;
+                    str1 = getStringFromUInt16(bit);
+                    str3 = str3.Remove(0x20 * 2, 2 * 2);
+                    str3 = str3.Insert(0x20 * 2, str1);
 
-                //修改语音数据大小
-                len = (UInt32)(str2.Length)/2;//除去头部的文件长度
-                str1 = getStringFromUInt32(len);
-                str3 = str3.Remove(0x28 * 2, 4 * 2);
-                str3 = str3.Insert(0x28 * 2, str1);
+                    //修改数据位数
+                    bit = getUInt16FromString(str3, 0x22 * 2);
+                    if (bit != 16)
+                    {
+                        MessageBox.Show("原音频位宽不是16Bit!" + len.ToString());
+                        return;
+                    }
+                    bit = 8;
+                    str1 = getStringFromUInt16(bit);
+                    str3 = str3.Remove(0x22 * 2, 2 * 2);
+                    str3 = str3.Insert(0x22 * 2, str1);
 
-                //组合文件
-                str3 = str3+str2;
-                string path1 = path.Replace(".txt", string.Empty).Replace(".TXT", string.Empty) + "_8BIT_8KHZ.wav";
-                using (FileStream fsWrite = new FileStream(path1, FileMode.Create, FileAccess.Write))
-                {
-                    byte[] buffer = strToToHexByte(str3);
-                    fsWrite.Write(buffer, 0, buffer.Length);
+                    //组合文件
+                    str3 = str3 + str2;
+                    string path1 = path.Replace(".txt", string.Empty).Replace(".TXT", string.Empty) + "_8BIT_8KHZ.wav";
+                    using (FileStream fsWrite = new FileStream(path1, FileMode.Create, FileAccess.Write))
+                    {
+                        byte[] buffer = strToToHexByte(str3);
+                        fsWrite.Write(buffer, 0, buffer.Length);
+                    }
+                    orgTxt1 = str3.Remove(0, 0x28 * 2);
                 }
-                orgTxt1 = str3.Remove(0, 0x28 * 2); ;
             }
 
             data_residue = orgTxt1.Length % 32;
@@ -507,10 +532,10 @@ namespace SYD_COPY_FILE
                {
                    if ((i == lstArray.Count - 1) & (data_residue != 0))  //最后一个
                    {
-                       for (ii = 0; ii < data_residue; ii++)
+                       for (ii = 0; ii < data_residue/2; ii++)
                        {
                            if (ii == 0) str = str.Insert(0, "0x");
-                           else if (ii == 1) str = str.Insert(4, ",0x");
+                           else if ((ii == 1) & (ii < (data_residue / 2))) str = str.Insert(4, ",0x");
                            else if ((ii > 1) & (ii < (data_residue / 2 - 1))) str = str.Insert((ii - 2) * 5 + 9, ",0x");
                            else if (ii == (data_residue / 2 - 1))
                            {
@@ -2959,7 +2984,8 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("输出数据无特殊处理");
                 this.comboBox_fonttype.Items.Add("输出PCM数据删除WAV文件前面0X28个数据（0X28-0X2B为长度，0X2C开始为有效数据）");
-                this.comboBox_fonttype.Items.Add("WAV文件16Bit_16Khz转8Bit_8Khz");
+                this.comboBox_fonttype.Items.Add("WAV文件16Bit_16Khz转8Bit_8Khz(同时生成转换后的wav文件)");
+                this.comboBox_fonttype.Items.Add("WAV文件16SBit_8Khz转8Bit_8Khz(不生成wav)");
                 this.label_font_type.Text = "输出处理：";
 
                 this.comboBox_additional_operations.Items.Clear();
