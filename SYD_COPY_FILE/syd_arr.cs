@@ -3318,6 +3318,12 @@ namespace SYD_COPY_FILE
                     this.comboBox_fonttype.Items.Add("取反");
                     this.label_font_type.Text = "数据处理：";
                 }
+                if (comboBox_datatype.SelectedIndex == 2)
+                {
+                    comboBox_additional_operations.Items.Clear();
+                    this.comboBox_additional_operations.Items.Add("无额外操作");
+                    this.comboBox_additional_operations.Items.Add("行无法被12整除，就往上12取整并且填充0");
+                }
             }
             else
             {

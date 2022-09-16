@@ -412,6 +412,7 @@ unsigned int saveBlackWhite(char* Outfilename, unsigned char rotation, unsigned 
 {
     unsigned char j = 0, data = 0;
     unsigned int i = 0, k = 0, z = 0;
+    int  height=0;
 
     if (Outfile_check(Outfilename) == 0)    return 0;
 
@@ -423,24 +424,49 @@ unsigned int saveBlackWhite(char* Outfilename, unsigned char rotation, unsigned 
     }
     fprintf(fpWrite, "const unsigned char image_black_white[] = {\n");
     unsigned char r = 0, g = 0, b = 0,y;
+    if (ext_opt == 1)
+    {
+        if ((bmpheight % 12) != 0)height = (bmpheight / 12 + 1) * 12;
+        else height = bmpheight;
+        my_sprintf("height:%d\r\n", height);
+    }
+    else height = bmpheight;
     for (z = 0; z < bmpwidth; z += 2)
     {
-        for (i = 0; i < bmpheight; i++)
+        for (i = 0; i < height; i++)
         {
             //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
             if (rotation == 1)
             {
-                r = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 2];
-                g = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 1];
-                b = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3];
+                if (i >= bmpheight)
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                }
+                else
+                {
+                    r = pBmpBuf[(height - i - 1) * linebyte + z * 3 + 2];
+                    g = pBmpBuf[(height - i - 1) * linebyte + z * 3 + 1];
+                    b = pBmpBuf[(height - i - 1) * linebyte + z * 3];
+                }
             }
             else
             {
-                r = pBmpBuf[i * linebyte + z * 3 + 2];
-                g = pBmpBuf[i * linebyte + z * 3 + 1];
-                b = pBmpBuf[i * linebyte + z * 3];
+                if (i>= bmpheight)
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                }
+                else
+                {
+                    r = pBmpBuf[i * linebyte + z * 3 + 2];
+                    g = pBmpBuf[i * linebyte + z * 3 + 1];
+                    b = pBmpBuf[i * linebyte + z * 3];
+                }
             }
-            y = 0.299*r + 0.587*g + 0.114*b;
+            y = 0.299 * r + 0.587 * g + 0.114 * b;
             data = data << 1;
             if (y < 128)
                 data |= 0x01;
@@ -448,18 +474,36 @@ unsigned int saveBlackWhite(char* Outfilename, unsigned char rotation, unsigned 
             //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
             if (rotation == 1)
             {
-                r = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 2];
-                g = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 1];
-                b = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3];
+                if (i >= bmpheight)
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                }
+                else
+                {
+                    r = pBmpBuf[(height - i - 1) * linebyte + (z + 1) * 3 + 2];
+                    g = pBmpBuf[(height - i - 1) * linebyte + (z + 1) * 3 + 1];
+                    b = pBmpBuf[(height - i - 1) * linebyte + (z + 1) * 3];
+                }
             }
             else
             {
-                r = pBmpBuf[i * linebyte + (z + 1) * 3 + 2];
-                g = pBmpBuf[i * linebyte + (z + 1) * 3 + 1];
-                b = pBmpBuf[i * linebyte + (z + 1) * 3];
+                if (i >= bmpheight)
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                }
+                else
+                {
+                    r = pBmpBuf[i * linebyte + (z + 1) * 3 + 2];
+                    g = pBmpBuf[i * linebyte + (z + 1) * 3 + 1];
+                    b = pBmpBuf[i * linebyte + (z + 1) * 3];
+                }
             }
             y = 0.299 * r + 0.587 * g + 0.114 * b;
-            data=data << 1;
+            data = data << 1;
             if (y < 128)
                 data |= 0x01;
             j++;
