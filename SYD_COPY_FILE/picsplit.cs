@@ -511,23 +511,11 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("图片高度出错");
                 return;
             }
-            if (textBox85.Text.Length == 0)
-            {
-                MessageBox.Show("X0偏移出错");
-                return;
-            }
-            if (textBox86.Text.Length == 0)
-            {
-                MessageBox.Show("Y0偏移出错");
-                return;
-            }
-            UInt32 sw = 0, sh = 0, pw = 0, ph = 0, x0 = 0, x1 = 0, y0 = 0, y1 = 0, x0_offect = 0, y0_offect = 0;
+            UInt32 sw = 0, sh = 0, pw = 0, ph = 0, x0 = 0, x1 = 0, y0 = 0, y1 = 0;
             sw = Convert.ToUInt32(textBox84.Text);
             sh = Convert.ToUInt32(textBox83.Text);
             pw = Convert.ToUInt32(textBox54.Text);
             ph = Convert.ToUInt32(textBox69.Text);
-            x0_offect = Convert.ToUInt32(textBox85.Text);
-            y0_offect = Convert.ToUInt32(textBox86.Text);
             if (pw> sw)
             {
                 MessageBox.Show("图片宽度太大");
@@ -538,18 +526,6 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("图片高度太大");
                 return;
             }
-            if (x0_offect > sw)
-            {
-                MessageBox.Show("X偏于太大");
-                return;
-            }
-            if (y0_offect > sh)
-            {
-                MessageBox.Show("Y偏于太大");
-                return;
-            }
-            sw -= x0_offect;  //减去偏移值,然后计算
-            sh -= y0_offect;
             if (ui_align_select== (Byte)UI_ALIGN_SELECT_TYPE.ALIGN_CENTER)  //居中
             { 
                 x0 = (sw - pw) / 2;
@@ -613,10 +589,6 @@ namespace SYD_COPY_FILE
                 y0 = sh - ph;
                 y1 = sh;
             }
-            x0 += x0_offect;
-            x1 += x0_offect;
-            y0 += y0_offect;
-            y1 += y0_offect;
             textBox71.Text = x0.ToString();
             textBox82.Text = x1.ToString();
             textBox73.Text = y0.ToString();
