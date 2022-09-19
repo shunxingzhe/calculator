@@ -41,7 +41,6 @@
             this.textBox73 = new System.Windows.Forms.TextBox();
             this.textBox77 = new System.Windows.Forms.TextBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.label119 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.textBox69 = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox15 = new System.Windows.Forms.CheckBox();
             this.label115 = new System.Windows.Forms.Label();
+            this.label119 = new System.Windows.Forms.Label();
             this.label_ui_property = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.Generate_datafile_button = new System.Windows.Forms.Button();
@@ -86,16 +86,16 @@
             this.button_Batch_convert_format_Click = new System.Windows.Forms.Button();
             this.button44 = new System.Windows.Forms.Button();
             this.comboBoxFileType = new System.Windows.Forms.ComboBox();
-            this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.checkBoxRgbHex = new System.Windows.Forms.CheckBox();
-            this.button_manual_cal = new System.Windows.Forms.Button();
-            this.label74 = new System.Windows.Forms.Label();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.textBox_Bulk_zoom_w = new System.Windows.Forms.TextBox();
             this.button_Bulk_zoom = new System.Windows.Forms.Button();
             this.label76 = new System.Windows.Forms.Label();
             this.textBox_Bulk_zoom_h = new System.Windows.Forms.TextBox();
             this.label96 = new System.Windows.Forms.Label();
+            this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.checkBoxRgbHex = new System.Windows.Forms.CheckBox();
+            this.button_manual_cal = new System.Windows.Forms.Button();
+            this.label74 = new System.Windows.Forms.Label();
             this.label124 = new System.Windows.Forms.Label();
             this.label125 = new System.Windows.Forms.Label();
             this.label126 = new System.Windows.Forms.Label();
@@ -298,6 +298,7 @@
             this.BIT_MARK6 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK5 = new System.Windows.Forms.CheckBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.button43 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
@@ -827,11 +828,11 @@
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage10.SuspendLayout();
+            this.groupBox25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            this.groupBox25.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -1016,15 +1017,6 @@
             this.checkBox5.UseVisualStyleBackColor = true;
             this.checkBox5.Click += new System.EventHandler(this.checkBox5_Click);
             // 
-            // label119
-            // 
-            this.label119.AutoSize = true;
-            this.label119.Location = new System.Drawing.Point(126, 73);
-            this.label119.Name = "label119";
-            this.label119.Size = new System.Drawing.Size(17, 12);
-            this.label119.TabIndex = 55;
-            this.label119.Text = "X1";
-            // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
@@ -1190,6 +1182,15 @@
             this.label115.Size = new System.Drawing.Size(23, 12);
             this.label115.TabIndex = 49;
             this.label115.Text = "高:";
+            // 
+            // label119
+            // 
+            this.label119.AutoSize = true;
+            this.label119.Location = new System.Drawing.Point(126, 73);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(17, 12);
+            this.label119.TabIndex = 55;
+            this.label119.Text = "X1";
             // 
             // label_ui_property
             // 
@@ -1457,6 +1458,63 @@
             this.comboBoxFileType.Size = new System.Drawing.Size(45, 20);
             this.comboBoxFileType.TabIndex = 17;
             // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.textBox_Bulk_zoom_w);
+            this.groupBox25.Controls.Add(this.button_Bulk_zoom);
+            this.groupBox25.Controls.Add(this.label76);
+            this.groupBox25.Controls.Add(this.textBox_Bulk_zoom_h);
+            this.groupBox25.Controls.Add(this.label96);
+            this.groupBox25.Location = new System.Drawing.Point(379, 0);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(112, 50);
+            this.groupBox25.TabIndex = 48;
+            this.groupBox25.TabStop = false;
+            // 
+            // textBox_Bulk_zoom_w
+            // 
+            this.textBox_Bulk_zoom_w.Location = new System.Drawing.Point(3, 26);
+            this.textBox_Bulk_zoom_w.Name = "textBox_Bulk_zoom_w";
+            this.textBox_Bulk_zoom_w.Size = new System.Drawing.Size(32, 21);
+            this.textBox_Bulk_zoom_w.TabIndex = 8;
+            this.textBox_Bulk_zoom_w.Text = "34";
+            // 
+            // button_Bulk_zoom
+            // 
+            this.button_Bulk_zoom.Location = new System.Drawing.Point(73, 13);
+            this.button_Bulk_zoom.Name = "button_Bulk_zoom";
+            this.button_Bulk_zoom.Size = new System.Drawing.Size(38, 36);
+            this.button_Bulk_zoom.TabIndex = 18;
+            this.button_Bulk_zoom.Text = "批量缩放";
+            this.button_Bulk_zoom.UseVisualStyleBackColor = true;
+            this.button_Bulk_zoom.Click += new System.EventHandler(this.button_Bulk_zoom_Click);
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(5, 9);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(29, 12);
+            this.label76.TabIndex = 7;
+            this.label76.Text = "宽度";
+            // 
+            // textBox_Bulk_zoom_h
+            // 
+            this.textBox_Bulk_zoom_h.Location = new System.Drawing.Point(39, 26);
+            this.textBox_Bulk_zoom_h.Name = "textBox_Bulk_zoom_h";
+            this.textBox_Bulk_zoom_h.Size = new System.Drawing.Size(33, 21);
+            this.textBox_Bulk_zoom_h.TabIndex = 10;
+            this.textBox_Bulk_zoom_h.Text = "54";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(40, 9);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(29, 12);
+            this.label96.TabIndex = 9;
+            this.label96.Text = "高度";
+            // 
             // splitContainerMain
             // 
             this.splitContainerMain.AllowDrop = true;
@@ -1546,63 +1604,6 @@
             this.label74.Size = new System.Drawing.Size(20, 10);
             this.label74.TabIndex = 68;
             this.label74.Text = "600";
-            // 
-            // groupBox25
-            // 
-            this.groupBox25.Controls.Add(this.textBox_Bulk_zoom_w);
-            this.groupBox25.Controls.Add(this.button_Bulk_zoom);
-            this.groupBox25.Controls.Add(this.label76);
-            this.groupBox25.Controls.Add(this.textBox_Bulk_zoom_h);
-            this.groupBox25.Controls.Add(this.label96);
-            this.groupBox25.Location = new System.Drawing.Point(379, 0);
-            this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(112, 50);
-            this.groupBox25.TabIndex = 48;
-            this.groupBox25.TabStop = false;
-            // 
-            // textBox_Bulk_zoom_w
-            // 
-            this.textBox_Bulk_zoom_w.Location = new System.Drawing.Point(3, 26);
-            this.textBox_Bulk_zoom_w.Name = "textBox_Bulk_zoom_w";
-            this.textBox_Bulk_zoom_w.Size = new System.Drawing.Size(32, 21);
-            this.textBox_Bulk_zoom_w.TabIndex = 8;
-            this.textBox_Bulk_zoom_w.Text = "34";
-            // 
-            // button_Bulk_zoom
-            // 
-            this.button_Bulk_zoom.Location = new System.Drawing.Point(73, 13);
-            this.button_Bulk_zoom.Name = "button_Bulk_zoom";
-            this.button_Bulk_zoom.Size = new System.Drawing.Size(38, 36);
-            this.button_Bulk_zoom.TabIndex = 18;
-            this.button_Bulk_zoom.Text = "批量缩放";
-            this.button_Bulk_zoom.UseVisualStyleBackColor = true;
-            this.button_Bulk_zoom.Click += new System.EventHandler(this.button_Bulk_zoom_Click);
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(5, 9);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(29, 12);
-            this.label76.TabIndex = 7;
-            this.label76.Text = "宽度";
-            // 
-            // textBox_Bulk_zoom_h
-            // 
-            this.textBox_Bulk_zoom_h.Location = new System.Drawing.Point(39, 26);
-            this.textBox_Bulk_zoom_h.Name = "textBox_Bulk_zoom_h";
-            this.textBox_Bulk_zoom_h.Size = new System.Drawing.Size(33, 21);
-            this.textBox_Bulk_zoom_h.TabIndex = 10;
-            this.textBox_Bulk_zoom_h.Text = "54";
-            // 
-            // label96
-            // 
-            this.label96.AutoSize = true;
-            this.label96.Location = new System.Drawing.Point(40, 9);
-            this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(29, 12);
-            this.label96.TabIndex = 9;
-            this.label96.Text = "高度";
             // 
             // label124
             // 
@@ -3838,6 +3839,7 @@
             // groupBox10
             // 
             this.groupBox10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox10.Controls.Add(this.button10);
             this.groupBox10.Controls.Add(this.button43);
             this.groupBox10.Controls.Add(this.button35);
             this.groupBox10.Controls.Add(this.button37);
@@ -3849,6 +3851,16 @@
             this.groupBox10.TabIndex = 25;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "执行外部工具";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(2, 152);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(152, 22);
+            this.button10.TabIndex = 56;
+            this.button10.Text = "执行SYD_Python";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button43
             // 
@@ -8423,7 +8435,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.1.0";
+            this.Text = "SYD_Calculator V2.1.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8434,14 +8446,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel1.PerformLayout();
             this.splitContainerMain.Panel2.ResumeLayout(false);
             this.splitContainerMain.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            this.groupBox25.ResumeLayout(false);
-            this.groupBox25.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).EndInit();
@@ -9308,6 +9320,7 @@
         private System.Windows.Forms.TextBox textBox45;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button button10;
     }
 }
 

@@ -1556,7 +1556,12 @@ namespace SYD_COPY_FILE
             //此处可以更改进程所打开窗体的显示样式，可以不设    
             process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
             process.Start();
-            //process.Close();
+            //process.Close();e
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Process process1 = null;
+            process1 = Process.Start(@".\\SYD_Python.exe");
         }
     }
 }
