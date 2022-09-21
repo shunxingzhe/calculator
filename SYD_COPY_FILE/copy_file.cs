@@ -1090,8 +1090,8 @@ namespace SYD_COPY_FILE
             bw.Close();
             fs.Close();
         }
-
-        public static void Bytes2File(byte[] buff, UInt32 addr, byte[] buff1, UInt32 addr1, byte[] buff2, UInt32 addr2, byte[] buff3, UInt32 addr3, byte[] buff4, UInt32 addr4, byte[] buff5, UInt32 addr5, string savepath)
+        //如果addr1大于buff的长度将会填充buff到addr1
+        public static void Bytes2File(byte[] buff, byte[] buff1, UInt32 addr1, byte[] buff2, UInt32 addr2, byte[] buff3, UInt32 addr3, byte[] buff4, UInt32 addr4, byte[] buff5, UInt32 addr5, string savepath)
         {
              FileStream fs;
             BinaryWriter bw;
@@ -1217,6 +1217,7 @@ namespace SYD_COPY_FILE
 
         private void button_combinopen_Click(object sender, EventArgs e)
         {
+            long size = 0;
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
             dlg.FileName = "source_file";
@@ -1235,6 +1236,12 @@ namespace SYD_COPY_FILE
                 {
                     textBox_combin_section1.Text = "0x00000000";
                 }
+                size = GetFileSize(textBox_sectionintput1.Text);
+                if (size % 4096 != 0)
+                {
+                    size = (size / 4096 + 1) * 4096;
+                }
+                textBox_combin_section2.Text = "0x" + (size).ToString("x8");
             }
             else if ((Button)(sender) == button_sectionintput2)
             {
@@ -1245,7 +1252,7 @@ namespace SYD_COPY_FILE
                 }
                 textBox_sectionintput2.Text = dlg.FileName;
 
-                long size = GetFileSize(textBox_sectionintput1.Text);
+                size = GetFileSize(textBox_sectionintput1.Text);
                 if (comboBox6.SelectedIndex == 0)
                 {
                     textBox_combin_section2.Text = "0x"+size.ToString("x8");
@@ -1278,7 +1285,7 @@ namespace SYD_COPY_FILE
                 }
                 textBox_sectionintput3.Text = dlg.FileName;
 
-                long size = GetFileSize(textBox_sectionintput2.Text);  //上个文件的大小
+                size = GetFileSize(textBox_sectionintput2.Text);  //上个文件的大小
                 if (comboBox6.SelectedIndex == 0)
                 {
                     size += Convert.ToInt32(textBox_combin_section2.Text, 16);
@@ -1313,7 +1320,7 @@ namespace SYD_COPY_FILE
                 }
                 textBox_sectionintput4.Text = dlg.FileName;
 
-                long size = GetFileSize(textBox_sectionintput3.Text);  //上个文件的大小
+                size = GetFileSize(textBox_sectionintput3.Text);  //上个文件的大小
                 if (comboBox6.SelectedIndex == 0)
                 {
                     size += Convert.ToInt32(textBox_combin_section3.Text, 16);
@@ -1348,7 +1355,7 @@ namespace SYD_COPY_FILE
                 }
                 textBox_sectionintput5.Text = dlg.FileName;
 
-                long size = GetFileSize(textBox_sectionintput4.Text);  //上个文件的大小
+                size = GetFileSize(textBox_sectionintput4.Text);  //上个文件的大小
                 if (comboBox6.SelectedIndex == 0)
                 {
                     size += Convert.ToInt32(textBox_combin_section4.Text, 16);
@@ -1383,7 +1390,7 @@ namespace SYD_COPY_FILE
                 }
                 textBox_sectionintput6.Text = dlg.FileName;
 
-                long size = GetFileSize(textBox_sectionintput5.Text);  //上个文件的大小
+                size = GetFileSize(textBox_sectionintput5.Text);  //上个文件的大小
                 if (comboBox6.SelectedIndex == 0)
                 {
                     size += Convert.ToInt32(textBox_combin_section5.Text, 16);
@@ -1422,7 +1429,7 @@ namespace SYD_COPY_FILE
             if (textBox_sectionintput6.Text.Length != 0) byteArray6 = File2Bytes(textBox_sectionintput6.Text);
             string savepath = Path.GetDirectoryName(textBox_sectionintput1.Text); ;
             savepath = savepath + "\\BIN_Combin" + ".bin";
-            Bytes2File(byteArray1, Convert.ToUInt32(textBox_combin_section1.Text, 16), byteArray2, Convert.ToUInt32(textBox_combin_section2.Text, 16), byteArray3, Convert.ToUInt32(textBox_combin_section3.Text, 16), byteArray4, Convert.ToUInt32(textBox_combin_section4.Text, 16), byteArray5, Convert.ToUInt32(textBox_combin_section5.Text, 16), byteArray6, Convert.ToUInt32(textBox_combin_section6.Text, 16), savepath);
+            Bytes2File(byteArray1, byteArray2, Convert.ToUInt32(textBox_combin_section2.Text, 16), byteArray3, Convert.ToUInt32(textBox_combin_section3.Text, 16), byteArray4, Convert.ToUInt32(textBox_combin_section4.Text, 16), byteArray5, Convert.ToUInt32(textBox_combin_section5.Text, 16), byteArray6, Convert.ToUInt32(textBox_combin_section6.Text, 16), savepath);
         }
 
         private void button_copy_sourcefile5_Click(object sender, EventArgs e)
