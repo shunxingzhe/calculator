@@ -1509,7 +1509,7 @@ namespace SYD_COPY_FILE
         private void button33_Click(object sender, EventArgs e)
         {
             Process process1 = null;
-            process1=Process.Start(@".\\SYDTEK Tools.exe");
+            process1=Process.Start(@".\\SYDTEK_Tools.exe");
             //this.Hide();    //隐藏窗口
             //process1.WaitForExit();
             //this.Show();//显示当前窗口
@@ -1564,11 +1564,6 @@ namespace SYD_COPY_FILE
             process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
             process.Start();
             //process.Close();e
-        }
-        private void button10_Click(object sender, EventArgs e)
-        {
-            Process process1 = null;
-            process1 = Process.Start(@".\\SYD_Python.exe");
         }
     }
 }

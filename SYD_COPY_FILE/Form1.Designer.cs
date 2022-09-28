@@ -298,7 +298,6 @@
             this.BIT_MARK6 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK5 = new System.Windows.Forms.CheckBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
             this.button43 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
@@ -3839,7 +3838,6 @@
             // groupBox10
             // 
             this.groupBox10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox10.Controls.Add(this.button10);
             this.groupBox10.Controls.Add(this.button43);
             this.groupBox10.Controls.Add(this.button35);
             this.groupBox10.Controls.Add(this.button37);
@@ -3851,16 +3849,6 @@
             this.groupBox10.TabIndex = 25;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "执行外部工具";
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(2, 152);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(152, 22);
-            this.button10.TabIndex = 56;
-            this.button10.Text = "执行SYD_Python";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button43
             // 
@@ -8435,7 +8423,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.1.2";
+            this.Text = "SYD_Calculator V2.1.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9320,7 +9308,6 @@
         private System.Windows.Forms.TextBox textBox45;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button10;
     }
 }
 
