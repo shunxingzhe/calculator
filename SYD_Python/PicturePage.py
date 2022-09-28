@@ -36,23 +36,14 @@ class PictureProcess(QMainWindow, Ui_MainWindow):
         if outdir:
             self.lineEditTargetFilePath_0.setText(outdir )
 
-    def picture(path,outpath):
-        upPath = os.path.abspath(os.path.dirname(path)).replace('\\', '/') + '/'
-        print(upPath)
-        print("图片目录0:" + path)
-        files = os.listdir(r'F:\download\pic')
-        print("files0:" + files)
-        for i in files:
-            files = os.path.join(path, i)
-            print("files:" + files)
-            img = Image.open(files).convert('RGB')
-            dirpath = outpath
-            print("dirpath:" + dirpath)
-            file_name, file_extend = os.path.splitext(i)
-            dst = os.path.join(os.path.abspath(dirpath), file_name + '.png')
-            img.save(dst)
-
     def btnConvertPictureClicked(self):
+
+        def picture_filter(f):
+            if f[-4:] in ['.jpg', '.png', '.bmp']:
+                return True
+            else:
+                return False
+
         print("开始图片转换")
         path = self.lineEditSrcFilePath_0.text()
         outpath = self.lineEditTargetFilePath_0.text()
@@ -60,10 +51,20 @@ class PictureProcess(QMainWindow, Ui_MainWindow):
         print("目标目录:" + outpath)
         # files = os.listdir("F:\\download\\pic")\
         files = os.listdir(path)
+        files = list(filter(picture_filter, files))
+        #print(files)
+        print(self.comboBox_picture_rotate.currentIndex())
         for i in files:
             file = os.path.join(path, i)
             print("file:" + file)
             img = Image.open(file).convert('RGB')
+            #img = img.rotate(-90, expand=1)#顺时针90度
+            if self.comboBox_picture_rotate.currentIndex() == 1:
+                img = img.rotate(-90, expand=1)  # 顺时针90度
+            elif self.comboBox_picture_rotate.currentIndex() == 2:
+                img = img.rotate(-180, expand=1)  # 顺时针180度
+            elif self.comboBox_picture_rotate.currentIndex() == 3:
+                img = img.rotate(-270, expand=1)  # 顺时针180度
             print("outpath:" + outpath)
             file_name, file_extend = os.path.splitext(i)
             dst = os.path.join(os.path.abspath(outpath), file_name + '.bmp')

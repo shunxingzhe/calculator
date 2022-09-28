@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>936</width>
-    <height>208</height>
+    <width>781</width>
+    <height>203</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,6 +57,47 @@
              </widget>
             </item>
            </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>旋转角度</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_picture_rotate">
+            <item>
+             <property name="text">
+              <string>不旋转图片</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>顺时针旋转90°</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>顺时针旋转180°</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>顺时针旋转270°</string>
+             </property>
+            </item>
+           </widget>
           </item>
          </layout>
         </item>
