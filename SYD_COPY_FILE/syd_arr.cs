@@ -80,6 +80,8 @@ namespace SYD_COPY_FILE
         public Thread DllLogThread;
 
         public byte call_c_timer_timeout=0;//非0的时候1S定时器自减,减到0触发任务
+
+        string dlgDefaultExt = ".txt";
         #endregion
 
         public void syd_arr_init()
@@ -157,6 +159,12 @@ namespace SYD_COPY_FILE
 
         private void source_file_button_Click(object sender, EventArgs e)
         {
+            string txt = "txt file (.txt)|*.txt|";
+            string wav = "wav file (.wav)|*.wav|";
+            string bin = "bin file (.bin)|*.bin|";
+            string bmp = "bmp file (.bmp)|*.bmp|";
+            string c = "c file (.c)|*.c|";
+            string ext = "";
             //if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File) || 
             //    ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis) && (comboBox_datatype.SelectedIndex != 3) && (comboBox_datatype.SelectedIndex != 4))   )
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File)
@@ -177,13 +185,34 @@ namespace SYD_COPY_FILE
                 dlg.FileName = "source_file";
 
                 dlg.DefaultExt = ".txt";
-
-                dlg.Filter = "txt file (.txt)|*.txt|wav file (.wav)|*.wav|bin file (.bin)|*.bin|bmp file (.bmp)|*.bmp|c file (.c)|*.c|csv file (.csv)|*.csv|log file (.log)|*.log|diary file (.diary)|*.diary";
+                if (dlgDefaultExt == ".txt")
+                {
+                    ext = txt + wav+ bin+ bmp+ c;
+                }
+                else if (dlgDefaultExt == ".wav")
+                {
+                    ext = wav+txt + bin + bmp + c;
+                }
+                else if (dlgDefaultExt == ".bin")
+                {
+                    ext = bin  + txt + wav +  bmp + c;
+                }
+                else if (dlgDefaultExt == ".bmp")
+                {
+                    ext = bmp + txt + wav + bin + c;
+                }
+                else if (dlgDefaultExt == ".c")
+                {
+                    ext = c + txt + wav + bin + bmp;
+                }
+                ext += "csv file (.csv)|*.csv|log file (.log)|*.log|diary file (.diary)|*.diary";
+                dlg.Filter = ext;
 
                 dlg.Multiselect = true;//是否允许多选，false表示单选
 
                 if (dlg.ShowDialog() == false)
                     return;
+                dlgDefaultExt = Path.GetExtension(dlg.FileName);
                 source_file_textBox.Text = dlg.FileName;
                 if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
                 {
@@ -388,7 +417,7 @@ namespace SYD_COPY_FILE
             {
                 orgTxt1 = orgTxt1.Remove(0, 0x28 * 2);
             }
-            else if ((comboBox_fonttype.SelectedIndex == 2) || (comboBox_fonttype.SelectedIndex == 3))
+            else if ((comboBox_fonttype.SelectedIndex == 2) || (comboBox_fonttype.SelectedIndex == 3) || (comboBox_fonttype.SelectedIndex == 4))
             {
                 Byte data = 0, pre_data = 0;
                 str2 = "";
@@ -409,7 +438,7 @@ namespace SYD_COPY_FILE
                     MessageBox.Show("选择的文件不是WAV类型文件!");
                     return;
                 }
-                if (comboBox_fonttype.SelectedIndex == 3)
+                if ((comboBox_fonttype.SelectedIndex == 3) || (comboBox_fonttype.SelectedIndex == 4))
                 {
                     for (i = 0; i < (str.Length / 4); i++)
                     {
@@ -2854,10 +2883,59 @@ namespace SYD_COPY_FILE
             textInput.Clear();
             richTextBox_out.Clear();
         }
+        /// <summary>
+        /// 运行cmd命令
+        /// 不显示命令窗口
+        /// </summary>
+        /// <param name="cmdExe">指定应用程序的完整路径</param>
+        /// <param name="cmdStr">执行命令行参数</param>
+        static bool exec(string cmdExe, string cmdStr)
+        {
+            bool result = false;
+            try
+            {
+                using (Process myPro = new Process())
+                {
+                    myPro.StartInfo.FileName = "cmd.exe";
+                    myPro.StartInfo.UseShellExecute = false;
+                    myPro.StartInfo.RedirectStandardInput = true;
+                    myPro.StartInfo.RedirectStandardOutput = true;
+                    myPro.StartInfo.RedirectStandardError = true;
+                    myPro.StartInfo.CreateNoWindow = true;
+                    myPro.Start();//如果调用程序路径中有空格时，cmd命令执行失败，可以用双引号括起来 ，在这里两个引号表示一个引号（转义）
+                    string str = string.Format(@"""{0}"" {1} {2}", cmdExe, cmdStr, "&exit");
+
+                    myPro.StandardInput.WriteLine(str);
+                    myPro.StandardInput.AutoFlush = true;
+                    myPro.WaitForExit();
+
+                    result = true;
+                }
+            }
+            catch
+            {
+
+            }
+            return result;
+        }
+
+
+        private void processOutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            //if (e.Data.Contains("Microsoft Corporation"))
+            //{
+            //    processInputDataLine("");
+            //}
+            // MessageBox.Show(e.Data);
+            this.Invoke(new EventHandler(delegate
+            {
+                richTextBox_out.AppendText(e.Data);
+            }));
+        }
         private string reintput_file(string FileName)
         {
             FileInfo fi = new FileInfo(FileName);
-
+            richTextBox_out.Clear();
             if ((fi.Extension).ToLower() == ".txt")
             {
                 label_outfilename.Text = FileName;
@@ -2866,8 +2944,23 @@ namespace SYD_COPY_FILE
             else if (fi.Extension == ".wav")
             {
                 string path = FileName;
+                if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
+                {
+                    if (comboBox_fonttype.SelectedIndex == 4)
+                    {
+                        string pathout = path.Replace(".WAV", string.Empty).Replace(".wav", string.Empty) + "_16BIT8KHZ.wav";
+                        //string para = @"-i F:\download\1.wav -ar 8000 F:\download\1_16BIT8KHZ.wav";
+                        string para = @"-i "+ path + " -ar 8000 "+ pathout;
+                        if (System.IO.File.Exists(Path.GetFullPath(pathout)))
+                        {
+                            File.Delete(Path.GetFullPath(pathout));
+                        }
+                        exec("ffmpeg", para);
+                        path = pathout;
+                    }
+                }
                 label_outfilename.Text = path.Replace(".WAV", string.Empty).Replace(".wav", string.Empty) + "_ok.txt";
-                byte[] text = System.IO.File.ReadAllBytes(FileName);
+                byte[] text = System.IO.File.ReadAllBytes(path);
                 return BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
             }
             else if (fi.Extension == ".bin")
@@ -2990,6 +3083,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Add("输出PCM数据删除WAV文件前面0X28个数据（0X28-0X2B为长度，0X2C开始为有效数据）");
                 this.comboBox_fonttype.Items.Add("WAV文件16Bit_16Khz转8Bit_8Khz(同时生成转换后的wav文件)");
                 this.comboBox_fonttype.Items.Add("WAV文件16SBit_8Khz转8Bit_8Khz(不生成wav)");
+                this.comboBox_fonttype.Items.Add("先用ffmpeg转WAV文件为16SBit_8Khz再转8Bit_8Khz(不生成wav)");
                 this.label_font_type.Text = "输出处理：";
 
                 this.comboBox_additional_operations.Items.Clear();
