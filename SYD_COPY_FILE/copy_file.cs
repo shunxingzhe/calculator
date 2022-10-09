@@ -334,8 +334,6 @@ namespace SYD_COPY_FILE
                         File.Copy(@source_copyfile_textBox.Text, @destination_file_textBox_two.Text, true);
                     }
                 }
-                //else
-                //    MessageBox.Show("destination file1 inexistence");
 
                 update_state(name,destination_file_textBox.Text);
             }

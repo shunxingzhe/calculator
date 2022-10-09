@@ -729,18 +729,6 @@ namespace SYD_COPY_FILE
         {
 
         }
-
-        private void lock_button_Click(object sender, EventArgs e)
-        {
-            if (this.TopMost == true)
-            {
-                this.TopMost = false;
-            }
-            else
-            {
-                this.TopMost = true;
-            }
-        }
         private void pictureBoxinterface_Doing(bool min)
         {
             if (min == true)
@@ -1611,7 +1599,6 @@ namespace SYD_COPY_FILE
         {
             if (e.KeyCode == Keys.L && e.Control)
             {
-                lock_button_Click(null, null);
             }
         }
 
@@ -1831,6 +1818,26 @@ namespace SYD_COPY_FILE
             sw.Write(str);
             sw.Close();
             fs.Close();
+        }
+        public void StripStatusLabelSet(string text)
+        {
+            toolStripStatusLabel2.Text = text;
+            if (this.toolStripStatusLabel2.ForeColor == Color.Red)
+            {
+                this.toolStripStatusLabel2.ForeColor = Color.Blue;
+            }
+            else
+            {
+                this.toolStripStatusLabel2.ForeColor = Color.Red;
+            }
+        }
+        public void StripStatusLabelEnd(string text)
+        {
+            if (this.toolStripStatusLabel2.ForeColor == Color.Red)
+            {
+                toolStripStatusLabel2.Text = text;
+                this.toolStripStatusLabel2.ForeColor = Color.Blue;
+            }
         }
     }
 }

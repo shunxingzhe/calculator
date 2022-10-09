@@ -159,6 +159,7 @@ namespace SYD_COPY_FILE
 
         private void source_file_button_Click(object sender, EventArgs e)
         {
+            StripStatusLabelSet("开始");
             string txt = "txt file (.txt)|*.txt|";
             string wav = "wav file (.wav)|*.wav|";
             string bin = "bin file (.bin)|*.bin|";
@@ -234,6 +235,7 @@ namespace SYD_COPY_FILE
                     }
                     else textInput.Text = reintput_file(source_file_textBox.Text);
                     label_intputsize.Text = (textInput.Text.Length / 2).ToString();
+                    StripStatusLabelSet("载入文件完成");
                 }
             }
         }
@@ -301,6 +303,7 @@ namespace SYD_COPY_FILE
             source_file_textBox.Text = fti.FileName;
             textInput.Text=reintput_file(source_file_textBox.Text);
             label_intputsize.Text = (textInput.Text.Length / 2).ToString();
+            StripStatusLabelSet("重载文件完成");
         }
         private void source_file_textBox_DragEnter(object sender, DragEventArgs e)
         {
@@ -417,7 +420,7 @@ namespace SYD_COPY_FILE
             {
                 orgTxt1 = orgTxt1.Remove(0, 0x28 * 2);
             }
-            else if ((comboBox_fonttype.SelectedIndex == 2) || (comboBox_fonttype.SelectedIndex == 3) || (comboBox_fonttype.SelectedIndex == 4))
+            else if ((comboBox_fonttype.SelectedIndex == 2) || (comboBox_fonttype.SelectedIndex == 3) || (comboBox_fonttype.SelectedIndex == 4) || (comboBox_fonttype.SelectedIndex == 5))
             {
                 Byte data = 0, pre_data = 0;
                 str2 = "";
@@ -438,7 +441,7 @@ namespace SYD_COPY_FILE
                     MessageBox.Show("选择的文件不是WAV类型文件!");
                     return;
                 }
-                if ((comboBox_fonttype.SelectedIndex == 3) || (comboBox_fonttype.SelectedIndex == 4))
+                if ((comboBox_fonttype.SelectedIndex == 3) || (comboBox_fonttype.SelectedIndex == 4) || (comboBox_fonttype.SelectedIndex == 5))
                 {
                     for (i = 0; i < (str.Length / 4); i++)
                     {
@@ -713,7 +716,7 @@ namespace SYD_COPY_FILE
                 }
             }
 
-            MessageBox.Show("保存成功!");
+            StripStatusLabelSet("保存成功!");
        }
 
        private void RGB_565()
@@ -794,7 +797,7 @@ namespace SYD_COPY_FILE
 
            richTextBox_out.Text = System.IO.File.ReadAllText(path);
 
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
         private void Git_helper()
         {
@@ -937,7 +940,7 @@ namespace SYD_COPY_FILE
            bw.Flush();
            bw.Close();
 
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
         
         private void Diary()
@@ -963,7 +966,7 @@ namespace SYD_COPY_FILE
                 richTextBox_out.Text = "";
                 richTextBox_out.AppendText("输出文件名:" + path + "\r\n");
                 richTextBox_out.AppendText("已复制到剪切板\r\n");
-                MessageBox.Show("保存成功!");
+                StripStatusLabelSet("保存成功!");
             }
             else if (comboBox_fonttype.SelectedIndex == 1)
             {
@@ -1100,7 +1103,7 @@ namespace SYD_COPY_FILE
             }
 
             
-            MessageBox.Show("保存成功!");
+            StripStatusLabelSet("保存成功!");
        }
 
        private void Chinese_to_utf8_arr()
@@ -1167,7 +1170,7 @@ namespace SYD_COPY_FILE
            {
                richTextBox_out.AppendText(lstArray[i] + "\r\n");
            }
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
 
        private void keil_memery()
@@ -1195,7 +1198,7 @@ namespace SYD_COPY_FILE
                    fsWrite.Write(buffer, 0, buffer.Length);
                }
            }
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
 
        private void Data_filled_complement_zero()
@@ -1224,7 +1227,7 @@ namespace SYD_COPY_FILE
                fsWrite.Write(buffer, 0, buffer.Length);
            }
 
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
     
        private string Byte_reversal(string input)//整个字符串调换
@@ -1355,7 +1358,7 @@ namespace SYD_COPY_FILE
                fsWrite.Write(buffer, 0, buffer.Length);
            }
 
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
         private void Data_handle()
         {
@@ -1469,7 +1472,7 @@ namespace SYD_COPY_FILE
            bw.Flush();
            bw.Close();
 
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
 
        public int[] MinToMax(int[] array)
@@ -1721,7 +1724,7 @@ namespace SYD_COPY_FILE
                fsWrite.Write(buffer, 0, buffer.Length);
            }
 
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
 
        private void Rtc_Deviation()
@@ -1857,7 +1860,7 @@ namespace SYD_COPY_FILE
                 str = cal_Calendar_time_difference_subtract_output(timestamp_max, timestamp_accuracy_type.accuracy_3, null, null);
                 richTextBox_out.AppendText(" 两行之间最大差值：" + str + "\r\n");
             }
-            MessageBox.Show("保存成功!");
+            StripStatusLabelSet("保存成功!");
        }
         
        private void Bytestoutf8()
@@ -1929,7 +1932,7 @@ namespace SYD_COPY_FILE
             //orgTxt1 = Regex.Replace(orgTxt1, "[^\x0d\x0a\x20-\x7e\t]", "");
             orgTxt1 = Regex.Replace(orgTxt1, "[^\x20-\x7e]", "");
             richTextBox_out.Text = orgTxt1;
-           MessageBox.Show("保存成功!");
+           StripStatusLabelSet("保存成功!");
        }
         private void Get_rom_extract()
         {
@@ -2039,7 +2042,7 @@ namespace SYD_COPY_FILE
             }
 
             richTextBox_out.Text = outTxt1;
-            MessageBox.Show("保存成功!");
+            StripStatusLabelSet("保存成功!");
         }
 
         private void SourceInsight_SearchResults_Analysis()
@@ -2075,7 +2078,7 @@ namespace SYD_COPY_FILE
                 str += lstArray[i].Substring(line_indexof[i]);
             }
             richTextBox_out.Text = str;
-            MessageBox.Show("保存成功!");
+            StripStatusLabelSet("保存成功!");
         }
 
         private void Get_arr()
@@ -2144,7 +2147,7 @@ namespace SYD_COPY_FILE
             }
            
             richTextBox_out.Text = "" + str;
-            MessageBox.Show("保存成功!");
+            StripStatusLabelSet("保存成功!");
         }
 
         private bool return_type_isvalid(List<string> return_type_Array,string type)
@@ -2432,7 +2435,7 @@ namespace SYD_COPY_FILE
                 fsWrite.Write(buffer, 0, buffer.Length);
             }
 
-            MessageBox.Show("保存成功!");
+            StripStatusLabelSet("保存成功!");
         }
         public void Director(string dir, List<string> list)
         {
@@ -2677,7 +2680,7 @@ namespace SYD_COPY_FILE
                 Data_reversal();
             }
 
-            MessageBox.Show("提取完成!");
+            StripStatusLabelSet("提取完成!");
         }
         public void DllLogRead()
         {
@@ -2756,6 +2759,7 @@ namespace SYD_COPY_FILE
         }
         private void draw_Click(object sender, EventArgs e)
         {
+            StripStatusLabelSet("提取");
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
             {
                 bintoarr();
@@ -2867,9 +2871,11 @@ namespace SYD_COPY_FILE
 
             for (i = 0; i < this.combobox_key.Items.Count; i++)
             {
-                if (combobox_key.Text == this.combobox_key.Items[i].ToString()) return;
+                if (combobox_key.Text == this.combobox_key.Items[i].ToString()) break;
             }
             if (i == this.combobox_key.Items.Count)  this.combobox_key.Items.Insert(0, combobox_key.Text);
+
+            StripStatusLabelEnd("提取完成");
         }
 
         private void button_clear_Click(object sender, EventArgs e)
@@ -2922,11 +2928,6 @@ namespace SYD_COPY_FILE
 
         private void processOutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            //if (e.Data.Contains("Microsoft Corporation"))
-            //{
-            //    processInputDataLine("");
-            //}
-            // MessageBox.Show(e.Data);
             this.Invoke(new EventHandler(delegate
             {
                 richTextBox_out.AppendText(e.Data);
@@ -2950,13 +2951,26 @@ namespace SYD_COPY_FILE
                     {
                         string pathout = path.Replace(".WAV", string.Empty).Replace(".wav", string.Empty) + "_16BIT8KHZ.wav";
                         //string para = @"-i F:\download\1.wav -ar 8000 F:\download\1_16BIT8KHZ.wav";
-                        string para = @"-i "+ path + " -ar 8000 "+ pathout;
+                        string para = @"-i " + path + " -ar 8000 " + pathout;
+
                         if (System.IO.File.Exists(Path.GetFullPath(pathout)))
                         {
                             File.Delete(Path.GetFullPath(pathout));
                         }
                         exec("ffmpeg", para);
                         path = pathout;
+                    }
+                    else if (comboBox_fonttype.SelectedIndex == 5)
+                    {
+                        //ffmpeg -i 1.wav -filter:a "volume=10dB" 1_10db.wav
+                        string pathout = path.Replace(".WAV", string.Empty).Replace(".wav", string.Empty) + "_10DB.wav";
+                        string para = @"-i " + path + " -filter:a \"volume = "+ textBox_filesize .Text+ "dB\" " + pathout;
+                        if (System.IO.File.Exists(Path.GetFullPath(pathout)))
+                        {
+                            File.Delete(Path.GetFullPath(pathout));
+                        }
+                        exec("ffmpeg", para);
+                        return "转换文件完成!";
                     }
                 }
                 label_outfilename.Text = path.Replace(".WAV", string.Empty).Replace(".wav", string.Empty) + "_ok.txt";
@@ -3084,6 +3098,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Add("WAV文件16Bit_16Khz转8Bit_8Khz(同时生成转换后的wav文件)");
                 this.comboBox_fonttype.Items.Add("WAV文件16SBit_8Khz转8Bit_8Khz(不生成wav)");
                 this.comboBox_fonttype.Items.Add("先用ffmpeg转WAV文件为16SBit_8Khz再转8Bit_8Khz(不生成wav)");
+                this.comboBox_fonttype.Items.Add("根据指定的DB音量用ffmpeg转WAV文件(不加载文件)");
                 this.label_font_type.Text = "输出处理：";
 
                 this.comboBox_additional_operations.Items.Clear();
@@ -3447,6 +3462,20 @@ namespace SYD_COPY_FILE
                 this.label_key_word.Text = "数组名:";
                 this.label_indicator.Text = "文件名:";
             }
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
+            {
+                if (comboBox_fonttype.SelectedIndex == 5)
+                {
+                    this.label_datasize.Text = "增加音频DB数:";
+                    this.textBox_filesize.Text = "10";
+                }
+                else
+                {
+                    this.label_datasize.Text = "提取数组大小:";
+                    this.textBox_filesize.Text = "";
+                }
+            }
+            
             else
             {
                 //arr_restore_Defaults();

@@ -147,8 +147,6 @@
             this.label_indicator = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
             this.draw = new System.Windows.Forms.Button();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.richTextBox_out = new System.Windows.Forms.TextBox();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.textInput = new System.Windows.Forms.TextBox();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
@@ -170,6 +168,8 @@
             this.label_outfile = new System.Windows.Forms.Label();
             this.source_file_textBox = new System.Windows.Forms.TextBox();
             this.label_additional_operations = new System.Windows.Forms.Label();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.richTextBox_out = new System.Windows.Forms.TextBox();
             this.LED_Display = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.textBox_Ignore_fb = new System.Windows.Forms.TextBox();
@@ -835,9 +835,9 @@
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.groupBox23.SuspendLayout();
             this.groupBox22.SuspendLayout();
             this.groupBox21.SuspendLayout();
+            this.groupBox23.SuspendLayout();
             this.LED_Display.SuspendLayout();
             this.groupBox24.SuspendLayout();
             this.groupBox15.SuspendLayout();
@@ -2058,9 +2058,9 @@
             this.tabPage4.Controls.Add(this.label_indicator);
             this.tabPage4.Controls.Add(this.label84);
             this.tabPage4.Controls.Add(this.draw);
-            this.tabPage4.Controls.Add(this.groupBox23);
             this.tabPage4.Controls.Add(this.groupBox22);
             this.tabPage4.Controls.Add(this.groupBox21);
+            this.tabPage4.Controls.Add(this.groupBox23);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(756, 552);
@@ -2139,29 +2139,6 @@
             this.draw.Click += new System.EventHandler(this.draw_Click);
             this.draw.MouseEnter += new System.EventHandler(this.draw_MouseEnter);
             // 
-            // groupBox23
-            // 
-            this.groupBox23.Controls.Add(this.richTextBox_out);
-            this.groupBox23.Location = new System.Drawing.Point(-4, 411);
-            this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(765, 138);
-            this.groupBox23.TabIndex = 31;
-            this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "Output text";
-            // 
-            // richTextBox_out
-            // 
-            this.richTextBox_out.BackColor = System.Drawing.Color.White;
-            this.richTextBox_out.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox_out.Location = new System.Drawing.Point(8, 13);
-            this.richTextBox_out.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBox_out.MaxLength = 100000000;
-            this.richTextBox_out.Multiline = true;
-            this.richTextBox_out.Name = "richTextBox_out";
-            this.richTextBox_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.richTextBox_out.Size = new System.Drawing.Size(745, 120);
-            this.richTextBox_out.TabIndex = 1;
-            // 
             // groupBox22
             // 
             this.groupBox22.Controls.Add(this.textInput);
@@ -2182,7 +2159,7 @@
             this.textInput.Multiline = true;
             this.textInput.Name = "textInput";
             this.textInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textInput.Size = new System.Drawing.Size(747, 269);
+            this.textInput.Size = new System.Drawing.Size(747, 274);
             this.textInput.TabIndex = 0;
             // 
             // groupBox21
@@ -2390,6 +2367,29 @@
             this.label_additional_operations.Size = new System.Drawing.Size(59, 12);
             this.label_additional_operations.TabIndex = 38;
             this.label_additional_operations.Text = "额外操作:";
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.richTextBox_out);
+            this.groupBox23.Location = new System.Drawing.Point(-4, 411);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(765, 138);
+            this.groupBox23.TabIndex = 31;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Output text";
+            // 
+            // richTextBox_out
+            // 
+            this.richTextBox_out.BackColor = System.Drawing.Color.White;
+            this.richTextBox_out.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox_out.Location = new System.Drawing.Point(8, 13);
+            this.richTextBox_out.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox_out.MaxLength = 100000000;
+            this.richTextBox_out.Multiline = true;
+            this.richTextBox_out.Name = "richTextBox_out";
+            this.richTextBox_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.richTextBox_out.Size = new System.Drawing.Size(745, 125);
+            this.richTextBox_out.TabIndex = 1;
             // 
             // LED_Display
             // 
@@ -7643,9 +7643,10 @@
             // 
             // toolStripStatusLabel2
             // 
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(110, 17);
-            this.toolStripStatusLabel2.Text = "快捷键 锁定:Ctrl+L";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel2.Text = "空闲状态";
             // 
             // toolTip1
             // 
@@ -8423,7 +8424,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.1.4";
+            this.Text = "SYD_Calculator V2.1.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8447,12 +8448,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSrc)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.groupBox23.ResumeLayout(false);
-            this.groupBox23.PerformLayout();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
             this.LED_Display.ResumeLayout(false);
             this.groupBox24.ResumeLayout(false);
             this.groupBox24.PerformLayout();
