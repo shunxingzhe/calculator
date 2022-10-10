@@ -82,6 +82,7 @@ namespace SYD_COPY_FILE
         public byte call_c_timer_timeout=0;//非0的时候1S定时器自减,减到0触发任务
 
         string dlgDefaultExt = ".txt";
+        string dlgDefaultName = "source_file";
         #endregion
 
         public void syd_arr_init()
@@ -183,7 +184,7 @@ namespace SYD_COPY_FILE
             {
                 Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
-                dlg.FileName = "source_file";
+                dlg.FileName = dlgDefaultName;
 
                 dlg.DefaultExt = ".txt";
                 if (dlgDefaultExt == ".txt")
@@ -214,6 +215,7 @@ namespace SYD_COPY_FILE
                 if (dlg.ShowDialog() == false)
                     return;
                 dlgDefaultExt = Path.GetExtension(dlg.FileName);
+                dlgDefaultName= Path.GetFileNameWithoutExtension(dlg.FileName);
                 source_file_textBox.Text = dlg.FileName;
                 if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
                 {
@@ -294,13 +296,16 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("源文件设置出错!");
                 return;
             }
-            FileTimeInfo fti =GetLatestFileTimeInfo(filepath);
-            if ((fti==null) ||(fti.FileName == ""))
+            if (sender == open_last_source_file_button)
             {
-                MessageBox.Show("输入路径没有该类文件!");
-                return;
+                FileTimeInfo fti = GetLatestFileTimeInfo(filepath);
+                if ((fti == null) || (fti.FileName == ""))
+                {
+                    MessageBox.Show("输入路径没有该类文件!");
+                    return;
+                }
+                source_file_textBox.Text = fti.FileName;
             }
-            source_file_textBox.Text = fti.FileName;
             textInput.Text=reintput_file(source_file_textBox.Text);
             label_intputsize.Text = (textInput.Text.Length / 2).ToString();
             StripStatusLabelSet("重载文件完成");

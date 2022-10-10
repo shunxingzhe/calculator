@@ -150,10 +150,11 @@
             this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.textInput = new System.Windows.Forms.TextBox();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.reopen_source_file_button = new System.Windows.Forms.Button();
             this.combobox_key = new System.Windows.Forms.ComboBox();
             this.label_outfilename = new System.Windows.Forms.Label();
             this.comboBox_additional_operations = new System.Windows.Forms.ComboBox();
-            this.reopen_source_file_button = new System.Windows.Forms.Button();
+            this.open_last_source_file_button = new System.Windows.Forms.Button();
             this.label_key_word = new System.Windows.Forms.Label();
             this.button_clear = new System.Windows.Forms.Button();
             this.comboBox_fonttype = new System.Windows.Forms.ComboBox();
@@ -2164,10 +2165,11 @@
             // 
             // groupBox21
             // 
+            this.groupBox21.Controls.Add(this.reopen_source_file_button);
             this.groupBox21.Controls.Add(this.combobox_key);
             this.groupBox21.Controls.Add(this.label_outfilename);
             this.groupBox21.Controls.Add(this.comboBox_additional_operations);
-            this.groupBox21.Controls.Add(this.reopen_source_file_button);
+            this.groupBox21.Controls.Add(this.open_last_source_file_button);
             this.groupBox21.Controls.Add(this.label_key_word);
             this.groupBox21.Controls.Add(this.button_clear);
             this.groupBox21.Controls.Add(this.comboBox_fonttype);
@@ -2188,6 +2190,16 @@
             this.groupBox21.TabIndex = 25;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "file";
+            // 
+            // reopen_source_file_button
+            // 
+            this.reopen_source_file_button.Location = new System.Drawing.Point(577, 18);
+            this.reopen_source_file_button.Name = "reopen_source_file_button";
+            this.reopen_source_file_button.Size = new System.Drawing.Size(62, 22);
+            this.reopen_source_file_button.TabIndex = 39;
+            this.reopen_source_file_button.Text = "重载文件";
+            this.reopen_source_file_button.UseVisualStyleBackColor = true;
+            this.reopen_source_file_button.Click += new System.EventHandler(this.reopen_source_file_button_Click);
             // 
             // combobox_key
             // 
@@ -2220,15 +2232,15 @@
             this.comboBox_additional_operations.TabIndex = 37;
             this.comboBox_additional_operations.Text = "无额外操作";
             // 
-            // reopen_source_file_button
+            // open_last_source_file_button
             // 
-            this.reopen_source_file_button.Location = new System.Drawing.Point(638, 18);
-            this.reopen_source_file_button.Name = "reopen_source_file_button";
-            this.reopen_source_file_button.Size = new System.Drawing.Size(85, 22);
-            this.reopen_source_file_button.TabIndex = 36;
-            this.reopen_source_file_button.Text = "调入最新文件";
-            this.reopen_source_file_button.UseVisualStyleBackColor = true;
-            this.reopen_source_file_button.Click += new System.EventHandler(this.reopen_source_file_button_Click);
+            this.open_last_source_file_button.Location = new System.Drawing.Point(638, 18);
+            this.open_last_source_file_button.Name = "open_last_source_file_button";
+            this.open_last_source_file_button.Size = new System.Drawing.Size(85, 22);
+            this.open_last_source_file_button.TabIndex = 36;
+            this.open_last_source_file_button.Text = "调入最新文件";
+            this.open_last_source_file_button.UseVisualStyleBackColor = true;
+            this.open_last_source_file_button.Click += new System.EventHandler(this.reopen_source_file_button_Click);
             // 
             // label_key_word
             // 
@@ -2354,7 +2366,7 @@
             this.source_file_textBox.AllowDrop = true;
             this.source_file_textBox.Location = new System.Drawing.Point(77, 19);
             this.source_file_textBox.Name = "source_file_textBox";
-            this.source_file_textBox.Size = new System.Drawing.Size(559, 21);
+            this.source_file_textBox.Size = new System.Drawing.Size(500, 21);
             this.source_file_textBox.TabIndex = 7;
             this.source_file_textBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_file_textBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
@@ -8424,7 +8436,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.1.5";
+            this.Text = "SYD_Calculator V2.1.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8909,7 +8921,7 @@
         private System.Windows.Forms.Button button42;
         private System.Windows.Forms.TextBox textBox_Ignore_fb;
         private System.Windows.Forms.Label label114;
-        private System.Windows.Forms.Button reopen_source_file_button;
+        private System.Windows.Forms.Button open_last_source_file_button;
         private System.Windows.Forms.Button button43;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.Label label79;
@@ -9309,6 +9321,7 @@
         private System.Windows.Forms.TextBox textBox45;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button reopen_source_file_button;
     }
 }
 
