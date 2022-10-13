@@ -2765,6 +2765,10 @@ namespace SYD_COPY_FILE
         private void draw_Click(object sender, EventArgs e)
         {
             StripStatusLabelSet("提取");
+            if (comboBox_mode.SelectedIndex != (int)comboBox_mode_type.Git_helper)
+            {
+                richTextBox_out.Clear();
+            }
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
             {
                 bintoarr();

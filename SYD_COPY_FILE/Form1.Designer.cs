@@ -3857,14 +3857,14 @@
             this.groupBox10.Controls.Add(this.button33);
             this.groupBox10.Location = new System.Drawing.Point(586, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(160, 176);
+            this.groupBox10.Size = new System.Drawing.Size(160, 130);
             this.groupBox10.TabIndex = 25;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "执行外部工具";
             // 
             // button43
             // 
-            this.button43.Location = new System.Drawing.Point(2, 125);
+            this.button43.Location = new System.Drawing.Point(2, 107);
             this.button43.Name = "button43";
             this.button43.Size = new System.Drawing.Size(152, 22);
             this.button43.TabIndex = 55;
@@ -3874,7 +3874,7 @@
             // 
             // button35
             // 
-            this.button35.Location = new System.Drawing.Point(2, 98);
+            this.button35.Location = new System.Drawing.Point(2, 84);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(152, 22);
             this.button35.TabIndex = 52;
@@ -3885,7 +3885,7 @@
             // button37
             // 
             this.button37.Font = new System.Drawing.Font("宋体", 9F);
-            this.button37.Location = new System.Drawing.Point(2, 47);
+            this.button37.Location = new System.Drawing.Point(2, 38);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(152, 22);
             this.button37.TabIndex = 54;
@@ -3896,7 +3896,7 @@
             // button36
             // 
             this.button36.Font = new System.Drawing.Font("宋体", 9F);
-            this.button36.Location = new System.Drawing.Point(2, 20);
+            this.button36.Location = new System.Drawing.Point(2, 15);
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(152, 22);
             this.button36.TabIndex = 53;
@@ -3906,7 +3906,7 @@
             // 
             // button33
             // 
-            this.button33.Location = new System.Drawing.Point(2, 72);
+            this.button33.Location = new System.Drawing.Point(2, 61);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(152, 22);
             this.button33.TabIndex = 51;
@@ -8436,7 +8436,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.1.6";
+            this.Text = "SYD_Calculator V2.1.7";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
