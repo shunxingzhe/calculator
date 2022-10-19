@@ -289,10 +289,14 @@ unsigned char Outfile_check(char* Outfilename)
     }
     return 1;
 }
-unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ext_opt)
+unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ext_opt, unsigned char extract_mode)
 {
     unsigned char j = 0, data = 0;
     unsigned int i = 0, k = 0,z=0;
+    unsigned char color_red_white=0, color_white = 0, color_red=0, color_black=0;
+
+    my_sprintf("\r\n");
+    my_sprintf("extract_mode:%d\r\n", extract_mode);
 
     if (Outfile_check(Outfilename) == 0)    return 0;
 
@@ -304,12 +308,30 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
     }
     fprintf(fpWrite, "const unsigned char image_rbw[] = {\n");
     unsigned char r = 0, g = 0, b = 0;
+
+    if (extract_mode == 1)
+    {
+        color_red_white = 2;
+        color_white = 0;
+        color_red = 1;
+        color_black = 3;
+    }
+    else if(extract_mode == 2)
+    {
+        color_red_white = 0;
+        color_white = 2;
+        color_red = 1;
+        color_black = 3;
+    }
+    else
+    {
+        color_red_white = 0;
+        color_white = 1;
+        color_red = 2;
+        color_black = 3;
+    }
     if (ext_opt == 1)
     {
-        #define COLOR_RED_White1    2
-        #define COLOR_White1 		0
-        #define COLOR_RED1			1
-        #define COLOR_BLACK1 		3
         for (z = 0; z < bmpwidth; z += 2)
         {
             for (i = 0; i < bmpheight; i++)
@@ -327,10 +349,10 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
                     g = pBmpBuf[i * linebyte + z * 3 + 1];
                     b = pBmpBuf[i * linebyte + z * 3];
                 }
-                if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= COLOR_White1 << ((3-j) * 2);
-                else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= COLOR_RED1 << ((3 - j) * 2);
-                else if ((b <= 0x7f) && (g <= 0x7f) && (r <= 0x7f))data |= COLOR_BLACK1 << ((3 - j) * 2);
-                else data |= COLOR_RED_White1 << ((3 - j) * 2);
+                if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= color_white << ((3 - j) * 2);
+                else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= color_red << ((3 - j) * 2);
+                else if ((b <= 0x7f) && (g <= 0x7f) && (r <= 0x7f))data |= color_black << ((3 - j) * 2);
+                else data |= color_red_white << ((3 - j) * 2);
                 j++;
                 //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
                 if (rotation == 1)
@@ -345,10 +367,10 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
                     g = pBmpBuf[i * linebyte + (z + 1) * 3 + 1];
                     b = pBmpBuf[i * linebyte + (z + 1) * 3];
                 }
-                if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= COLOR_White1 << ((3 - j) * 2);
-                else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= COLOR_RED1 << ((3 - j) * 2);
-                else if ((b <= 0x7f) && (g <= 0x7f) && (r <= 0x7f))data |= COLOR_BLACK1 << ((3 - j) * 2);
-                else data |= COLOR_RED_White1 << ((3 - j) * 2);
+                if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= color_white << ((3 - j) * 2);
+                else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= color_red << ((3 - j) * 2);
+                else if ((b <= 0x7f) && (g <= 0x7f) && (r <= 0x7f))data |= color_black << ((3 - j) * 2);
+                else data |= color_red_white << ((3 - j) * 2);
                 j++;
 
                 if (j >= 4)
@@ -365,10 +387,7 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
     }
     else
     {
-        #define COLOR_RED_AND_White 0
-        #define COLOR_White 		1
-        #define COLOR_RED			2
-        #define COLOR_BLACK 		3
+
         for (z = 0; z < bmpheight; z++)
         {
             for (i = 0; i < linebyte; i += 3)
@@ -386,10 +405,10 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
                     g = pBmpBuf[z * linebyte + i + 1];
                     b = pBmpBuf[z * linebyte + i];
                 }
-                if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= COLOR_White << (j * 2);
-                else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= COLOR_RED << (j * 2);
-                else if ((b <= 0x7f) && (g <= 0x7f) && (r <= 0x7f))data |= COLOR_BLACK << (j * 2);
-                else data |= COLOR_RED_AND_White << (j * 2);
+                if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= color_white << (j * 2);
+                else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= color_red << (j * 2);
+                else if ((b <= 0x7f) && (g <= 0x7f) && (r <= 0x7f))data |= color_black << (j * 2);
+                else data |= color_red_white << (j * 2);
                 j++;
                 if (j >= 4)
                 {
@@ -402,7 +421,6 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
             }
         }
     }
-    
     
     fprintf(fpWrite, "\n};");
     fclose(fpWrite);
@@ -551,12 +569,12 @@ unsigned int bmp_open_check(const unsigned char* filename, unsigned int size, co
 
     return 1;
 }
-unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation, unsigned char ext_opt)
+unsigned int bmp_to_rbw(const unsigned char* filename, unsigned int size,const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation, unsigned char ext_opt, unsigned char extract_mode)
 {
     unsigned int ret = 0;
     if (bmp_open_check(filename, size, Outfilename, Outfilesize, rotation, ext_opt)==0) return 0;
 
-    ret = saveRbw((char*)Outfilename, rotation, ext_opt);
+    ret = saveRbw((char*)Outfilename, rotation, ext_opt, extract_mode);
     if (ret == 0)
         my_sprintf("savefile error!\r\n");
     my_sprintf("save data total byte:%d\r\n", ret);
