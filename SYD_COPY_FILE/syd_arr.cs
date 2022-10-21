@@ -3133,7 +3133,7 @@ namespace SYD_COPY_FILE
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Font_txt_to_bin)
             {
                 this.comboBox_datatype.Items.Clear();
-                this.comboBox_datatype.Items.Add("QQ控件提取");
+                this.comboBox_datatype.Items.Add("QQ空间新增图片提取");
                 this.comboBox_datatype.Items.Add("Font txt to bin");
                 this.label_data_type.Text = "   模式选择：";
             }

@@ -6003,9 +6003,9 @@
             // 
             this.comboBox_timetype_rename.FormattingEnabled = true;
             this.comboBox_timetype_rename.Items.AddRange(new object[] {
-            "yyyy-MM-dd HHmmss",
+            "yyyy-MM-dd_HHmmss",
             "yyyyMMdd",
-            "yyyyMMdd HHmmss"});
+            "yyyyMMdd_HHmmss"});
             this.comboBox_timetype_rename.Location = new System.Drawing.Point(69, 45);
             this.comboBox_timetype_rename.Name = "comboBox_timetype_rename";
             this.comboBox_timetype_rename.Size = new System.Drawing.Size(150, 20);
@@ -8436,7 +8436,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.1.8";
+            this.Text = "SYD_Calculator V2.1.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
