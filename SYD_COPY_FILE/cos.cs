@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using COSXML.Transfer;
+using System.ComponentModel;
 
 namespace SYD_COPY_FILE
 {
@@ -149,6 +150,37 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("服务器端请求失败:" + str);
             }
         }
+        private void CosPutObject()
+        {
+            try
+            {
+                // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
+                //string key = filename; //对象键
+                string srcPath = file_in;//本地文件绝对路径
+
+                PutObjectRequest request = new PutObjectRequest(bucket, cos_key, srcPath);
+                //设置进度回调
+                label_schedule.Text = "0%";
+                request.SetCosProgressCallback(delegate (long completed, long total)
+                {
+                    label_schedule.Text = String.Format("{0:##.##}%", completed * 100.0 / total);
+                });
+                //执行请求
+                PutObjectResult result = cosXml.PutObject(request);
+                //对象的 eTag
+                string eTag = result.eTag;
+            }
+            catch (COSXML.CosException.CosClientException clientEx)
+            {
+                //请求失败
+                MessageBox.Show("CosClientException: " + clientEx);
+            }
+            catch (COSXML.CosException.CosServerException serverEx)
+            {
+                //请求失败
+                MessageBox.Show("CosServerException: " + serverEx.GetInfo());
+            }
+        }
         private void button_commit_file_Click(object sender, EventArgs e)
         {
             Bitmap bitmap = (Bitmap)dataGridViewCos.Rows[0].Cells[0].Value;
@@ -168,34 +200,7 @@ namespace SYD_COPY_FILE
                         MessageBox.Show("压缩失败" + ex);
                         return;
                     }
-                    try
-                    {
-                        // 存储桶名称，此处填入格式必须为 bucketname-APPID, 其中 APPID 获取参考 https://console.cloud.tencent.com/developer
-                        //string key = filename; //对象键
-                        string srcPath = file_in;//本地文件绝对路径
-
-                        PutObjectRequest request = new PutObjectRequest(bucket, cos_key, srcPath);
-                        //设置进度回调
-                        label_schedule.Text = "0%";
-                        request.SetCosProgressCallback(delegate (long completed, long total)
-                        {
-                            label_schedule.Text=String.Format("{0:##.##}%", completed * 100.0 / total);
-                        });
-                        //执行请求
-                        PutObjectResult result = cosXml.PutObject(request);
-                        //对象的 eTag
-                        string eTag = result.eTag;
-                    }
-                    catch (COSXML.CosException.CosClientException clientEx)
-                    {
-                        //请求失败
-                        MessageBox.Show("CosClientException: " + clientEx);
-                    }
-                    catch (COSXML.CosException.CosServerException serverEx)
-                    {
-                        //请求失败
-                        MessageBox.Show("CosServerException: " + serverEx.GetInfo());
-                    }
+                    CosPutObject();
                     button_commit_file.Enabled = false;
                 }
             }
@@ -376,12 +381,13 @@ namespace SYD_COPY_FILE
                 MessageBox.Show("请先选择文件");
                 return;
             }
+            string filename = "";
             for (int i = 0; i < contextMenuStrip2.Items.Count; i++)
             {
                 if (contextMenuStrip2.Items[i].Selected)
                 {
                     Bitmap bitmap = (Bitmap)dataGridViewCos.Rows[RowIndexSelect].Cells[0].Value;
-                    string filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
+                    filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
                     if (contextMenuStrip2.Items[i].Text.Trim() == "删除")
                     {
                         if (bitmap == Bitmap_Zip)
@@ -408,6 +414,54 @@ namespace SYD_COPY_FILE
                             {
                                 System.Diagnostics.Process.Start("Explorer.exe", Path.GetDirectoryName(folder_out));
                             }
+                        }
+                    }
+                    else if (contextMenuStrip2.Items[i].Text.Trim() == "更新文件")
+                    {
+                        if (bitmap == Bitmap_File)
+                        {
+                            BackgroundWorker work = new BackgroundWorker();
+
+                            work.DoWork += (o, ea) =>
+                            {
+                                this.Invoke(new EventHandler(delegate
+                                {
+                                    string apk = "apk file (.apk)|*.apk";
+                                    string zip = "zip file (.zip)|*.zip";
+                                    string png = "png file (.png)|*.png";
+                                    filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
+                                    string ext = filename.Substring(filename.Length - 4, 4);
+                                    Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+                                    dlg.FileName = dlgDefaultName;
+
+                                    dlg.DefaultExt = ".zip";
+                                    if (apk.Contains(ext))
+                                        ext = apk;
+                                    else if (zip.Contains(ext))
+                                        ext = zip;
+                                    else if (png.Contains(ext))
+                                        ext = png;
+                                    dlg.Filter = ext;
+
+                                    //dlg.Multiselect = true;//是否允许多选，false表示单选
+
+                                    if (dlg.ShowDialog() == false)
+                                        return;
+                                    dlgDefaultExt = Path.GetExtension(dlg.FileName);
+
+                                    if (Path.GetFileName(dlg.FileName) != filename)
+                                    {
+                                        MessageBox.Show("请选择同名文件");
+                                        return;
+                                    }
+                                    cos_key = filename; //对象键
+                                    file_in = dlg.FileName;
+                                    CosPutObject();
+                                }));
+                            };
+
+                            work.RunWorkerAsync();
                         }
                     }
                 }

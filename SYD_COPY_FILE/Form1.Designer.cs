@@ -824,6 +824,7 @@
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.更新文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -6664,9 +6665,10 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem12,
             this.toolStripMenuItem13,
-            this.toolStripMenuItem14});
+            this.toolStripMenuItem14,
+            this.更新文件ToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStripSplit";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(149, 70);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(149, 92);
             this.contextMenuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
             // 
             // toolStripMenuItem12
@@ -8426,6 +8428,12 @@
             this.toolStripMenuItem18.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem18.Text = "贴下边";
             // 
+            // 更新文件ToolStripMenuItem
+            // 
+            this.更新文件ToolStripMenuItem.Name = "更新文件ToolStripMenuItem";
+            this.更新文件ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.更新文件ToolStripMenuItem.Text = "更新文件";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -8436,7 +8444,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.1.9";
+            this.Text = "SYD_Calculator V2.2.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9322,6 +9330,7 @@
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button reopen_source_file_button;
+        private System.Windows.Forms.ToolStripMenuItem 更新文件ToolStripMenuItem;
     }
 }
 
