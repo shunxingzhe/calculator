@@ -562,6 +562,7 @@
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.更新文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button_CosBuckets = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -824,7 +825,6 @@
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
-            this.更新文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -6689,6 +6689,12 @@
             this.toolStripMenuItem14.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItem14.Text = "打开本地目录";
             // 
+            // 更新文件ToolStripMenuItem
+            // 
+            this.更新文件ToolStripMenuItem.Name = "更新文件ToolStripMenuItem";
+            this.更新文件ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.更新文件ToolStripMenuItem.Text = "更新文件";
+            // 
             // button_CosBuckets
             // 
             this.button_CosBuckets.Location = new System.Drawing.Point(2, 0);
@@ -8428,12 +8434,6 @@
             this.toolStripMenuItem18.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem18.Text = "贴下边";
             // 
-            // 更新文件ToolStripMenuItem
-            // 
-            this.更新文件ToolStripMenuItem.Name = "更新文件ToolStripMenuItem";
-            this.更新文件ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.更新文件ToolStripMenuItem.Text = "更新文件";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -8444,7 +8444,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.2.0";
+            this.Text = "SYD_Calculator V2.2.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

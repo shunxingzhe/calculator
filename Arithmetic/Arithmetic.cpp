@@ -446,7 +446,7 @@ unsigned int saveBlackWhite(char* Outfilename, unsigned char rotation, unsigned 
     {
         if ((bmpheight % 12) != 0)height = (bmpheight / 12 + 1) * 12;
         else height = bmpheight;
-        my_sprintf("height:%d\r\n", height);
+        my_sprintf("height_adj:%d\r\n", height);
     }
     else height = bmpheight;
     for (z = 0; z < bmpwidth; z += 2)
@@ -464,9 +464,9 @@ unsigned int saveBlackWhite(char* Outfilename, unsigned char rotation, unsigned 
                 }
                 else
                 {
-                    r = pBmpBuf[(height - i - 1) * linebyte + z * 3 + 2];
-                    g = pBmpBuf[(height - i - 1) * linebyte + z * 3 + 1];
-                    b = pBmpBuf[(height - i - 1) * linebyte + z * 3];
+                    r = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 2];
+                    g = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 1];
+                    b = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3];
                 }
             }
             else
@@ -500,9 +500,9 @@ unsigned int saveBlackWhite(char* Outfilename, unsigned char rotation, unsigned 
                 }
                 else
                 {
-                    r = pBmpBuf[(height - i - 1) * linebyte + (z + 1) * 3 + 2];
-                    g = pBmpBuf[(height - i - 1) * linebyte + (z + 1) * 3 + 1];
-                    b = pBmpBuf[(height - i - 1) * linebyte + (z + 1) * 3];
+                    r = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 2];
+                    g = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 1];
+                    b = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3];
                 }
             }
             else
