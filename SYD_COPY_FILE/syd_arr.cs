@@ -1970,6 +1970,41 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
+            else if (comboBox_datatype.SelectedIndex == 4)
+            {
+                string key_word = combobox_key.Text;
+                string key_word1 = textBox_filesize.Text;
+                orgTxt1 = orgTxt1.Replace("\r\n","").Replace("\r", "").Replace("\n", "");
+                i = orgTxt1.IndexOf(key_word);
+                if (i == -1)
+                {
+                    MessageBox.Show("未找到关键字");
+                    return;
+                }
+                j = orgTxt1.IndexOf(key_word1, i);
+                if (j == -1)
+                {
+                    MessageBox.Show("未找到第二关键字");
+                    return;
+                }
+                if ((i + key_word.Length) < j)
+                    outTxt1 = orgTxt1.Substring(i+ key_word.Length,j-(i + key_word.Length)) + separator_out;
+                while (true)
+                {
+                    i = orgTxt1.IndexOf(key_word, j);
+                    if (i != -1)
+                    {
+                        j = orgTxt1.IndexOf(key_word1, i);
+                        if (j != -1)
+                        {
+                            if((i+ key_word.Length )< j)
+                                outTxt1 += orgTxt1.Substring(i + key_word.Length, j - (i + key_word.Length)) + separator_out;
+                        }
+                        else break;
+                    }
+                    else break;
+                }
+            }
             else
             {
                 List<string> outTxt_line = new List<string>();
@@ -3220,6 +3255,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("根据分隔符提取关键字指定的列");
                 this.comboBox_datatype.Items.Add("列出包含关键字的所有行");
                 this.comboBox_datatype.Items.Add("列出包含关键字的所有行并提取至行尾");
+                this.comboBox_datatype.Items.Add("列出包含关键字和分隔符之间的内容并忽略空行(删除换行后)");
                 this.label_data_type.Text = "提取数据依据：";
                 this.label_datasize.Text = "      分隔符:";
                 this.comboBox_fonttype.Items.Clear();
