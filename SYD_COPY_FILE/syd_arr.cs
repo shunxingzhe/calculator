@@ -2776,7 +2776,7 @@ namespace SYD_COPY_FILE
             byte[] buffer_utf8 = Encoding.UTF8.GetBytes(source_file_textBox.Text);
             byte[] out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
             textInput.Text = "注意:目前本功能不支持中文目录!\r\n";
-            if ((comboBox_datatype.SelectedIndex == 0) || (comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3) || (comboBox_datatype.SelectedIndex == 4))
+            if ((comboBox_datatype.SelectedIndex == 0) || (comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3) || (comboBox_datatype.SelectedIndex == 4) || (comboBox_datatype.SelectedIndex == 5))
             {
                 label_outfilename.Text = source_file_textBox.Text.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
                 out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
@@ -2787,6 +2787,8 @@ namespace SYD_COPY_FILE
                     save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex, 1);
                 else if (comboBox_datatype.SelectedIndex == 4)
                     save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex, 2);
+                else if (comboBox_datatype.SelectedIndex == 5)
+                    save_size = bmp_to_8Color(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex);
                 else
                     save_size = bmp_to_BlackWhite(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex);
                 if (save_size > 0)
@@ -3338,6 +3340,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("BMP文件提取黑白图(24BIT为一包显示2行12列，BIT0=>Pix[0,0] BIT1=>Pix[0,1]错位输出)");
                 this.comboBox_datatype.Items.Add("BMP文件提取红白黑三色图(R:01 W:00 B:11 RW:10)");
                 this.comboBox_datatype.Items.Add("BMP文件提取红白黑三色图(R:01 W:10 B:11 RW:00)");
+                this.comboBox_datatype.Items.Add("BMP文件提取3Bit八色图(24BIT为一包显示2行4列错位输出)");
                 this.label_data_type.Text = " 处理功能选择：";
 
                 this.comboBox_fonttype.Items.Clear();
@@ -3478,7 +3481,7 @@ namespace SYD_COPY_FILE
                     this.comboBox_fonttype.Items.Add("取反");
                     this.label_font_type.Text = "数据处理：";
                 }
-                else if (comboBox_datatype.SelectedIndex == 2)
+                else if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 5))
                 {
                     comboBox_additional_operations.Items.Clear();
                     this.comboBox_additional_operations.Items.Add("无额外操作");

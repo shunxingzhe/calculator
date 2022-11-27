@@ -47,10 +47,12 @@ namespace SYD_COPY_FILE
         private static extern UInt32 crc32_fun(byte[] buf, UInt32 size);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "Dll_log_read", CallingConvention = CallingConvention.Cdecl)]
         private static extern int Dll_log_read(byte[] buf);
-        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "bmp_to_rbw", CallingConvention = CallingConvention.Cdecl)]
+        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "bmp_to_rbw", CallingConvention = CallingConvention.Cdecl)] 
         private static extern UInt32 bmp_to_rbw(byte[] Intputfilename, UInt32 Intputfilesize, byte[] Outfilename, UInt32 Outfilesize, byte rotation, byte ext_opt, byte extract_mode);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "bmp_to_BlackWhite", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 bmp_to_BlackWhite(byte[] Intputfilename, UInt32 Intputfilesize, byte[] Outfilename, UInt32 Outfilesize, byte rotation, byte ext_opt);
+        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "bmp_to_8Color", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 bmp_to_8Color(byte[] Intputfilename, UInt32 Intputfilesize, byte[] Outfilename, UInt32 Outfilesize, byte rotation, byte ext_opt);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "big_bin_handle", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 big_bin_handle(byte[] Intputfilename, UInt32 Intputfilesize, byte[] Outfilename, UInt32 Outfilesize, byte funtion);
 

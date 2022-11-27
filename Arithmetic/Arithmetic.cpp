@@ -541,6 +541,123 @@ unsigned int saveBlackWhite(char* Outfilename, unsigned char rotation, unsigned 
     fclose(fpWrite);
     return k;
 }
+void data8Color(unsigned char color, FILE* fpWrite)
+{
+    static unsigned int k = 0;
+    static char j = 7;
+    static unsigned char  data = 0;
+    if (color > 0x7f)  data |= (1 << j);
+    j--;
+    if (j < 0)
+    {
+        fprintf(fpWrite, "0x%02X,", data);
+        k++;
+        if ((k % 16) == 0)fprintf(fpWrite, "\n");
+        j = 7;
+        data = 0;
+    }
+}
+unsigned int save8Color(char* Outfilename, unsigned char rotation, unsigned char ext_opt)
+{
+    unsigned int i = 0, z = 0;
+    int  height = 0;
+
+    if (Outfile_check(Outfilename) == 0)    return 0;
+
+    FILE* fpWrite = fopen((char*)Outfilename, "w");
+    if (fpWrite == NULL)
+    {
+        my_sprintf("create file error\r\n");
+        return 0;
+    }
+    fprintf(fpWrite, "const unsigned char image_8Color[] = {\n");
+    unsigned char r = 0, g = 0, b = 0, y;
+    if (ext_opt == 1)
+    {
+        if ((bmpheight % 12) != 0)height = (bmpheight / 12 + 1) * 12;
+        else height = bmpheight;
+        my_sprintf("height_adj:%d\r\n", height);
+    }
+    else height = bmpheight;
+    for (z = 0; z < bmpwidth; z += 2)
+    {
+        for (i = 0; i < height; i++)
+        {
+            //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
+            if (rotation == 1)
+            {
+                if (i >= bmpheight)
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                }
+                else
+                {
+                    r = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 2];
+                    g = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 1];
+                    b = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3];
+                }
+            }
+            else
+            {
+                if (i >= bmpheight)
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                }
+                else
+                {
+                    r = pBmpBuf[i * linebyte + z * 3 + 2];
+                    g = pBmpBuf[i * linebyte + z * 3 + 1];
+                    b = pBmpBuf[i * linebyte + z * 3];
+                }
+            }
+            data8Color(r, fpWrite);
+            data8Color(g, fpWrite);
+            data8Color(b, fpWrite);
+            //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
+            if (rotation == 1)
+            {
+                if (i >= bmpheight)
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                }
+                else
+                {
+                    r = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 2];
+                    g = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 1];
+                    b = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3];
+                }
+            }
+            else
+            {
+                if (i >= bmpheight)
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                }
+                else
+                {
+                    r = pBmpBuf[i * linebyte + (z + 1) * 3 + 2];
+                    g = pBmpBuf[i * linebyte + (z + 1) * 3 + 1];
+                    b = pBmpBuf[i * linebyte + (z + 1) * 3];
+                }
+            }
+            data8Color(r, fpWrite);
+            data8Color(g, fpWrite);
+            data8Color(b, fpWrite);
+        }
+    }
+
+    fprintf(fpWrite, "\n};");
+    fclose(fpWrite);
+    return (bmpwidth* height*3/8);
+}
 unsigned int bmp_open_check(const unsigned char* filename, unsigned int size, const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation, unsigned char ext_opt)
 {
     static HBITMAP hBitmap, hSysBitmap[5];
@@ -586,6 +703,17 @@ unsigned int bmp_to_BlackWhite(const unsigned char* filename, unsigned int size,
     if (bmp_open_check(filename, size, Outfilename, Outfilesize, rotation, ext_opt) == 0)   return 0;
 
     ret = saveBlackWhite((char*)Outfilename, rotation, ext_opt);
+    if (ret == 0)
+        my_sprintf("savefile error!\r\n");
+    my_sprintf("save data total byte:%d\r\n", ret);
+    return ret;
+}
+unsigned int bmp_to_8Color(const unsigned char* filename, unsigned int size, const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char rotation, unsigned char ext_opt)
+{
+    unsigned int ret = 0;
+    if (bmp_open_check(filename, size, Outfilename, Outfilesize, rotation, ext_opt) == 0)   return 0;
+
+    ret = save8Color((char*)Outfilename, rotation, ext_opt);
     if (ret == 0)
         my_sprintf("savefile error!\r\n");
     my_sprintf("save data total byte:%d\r\n", ret);
