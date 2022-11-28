@@ -614,9 +614,9 @@ unsigned int save8Color(char* Outfilename, unsigned char rotation, unsigned char
                     b = pBmpBuf[i * linebyte + z * 3];
                 }
             }
-            data8Color(r, fpWrite);
-            data8Color(g, fpWrite);
             data8Color(b, fpWrite);
+            data8Color(g, fpWrite);
+            data8Color(r, fpWrite);
             //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
             if (rotation == 1)
             {
@@ -648,9 +648,9 @@ unsigned int save8Color(char* Outfilename, unsigned char rotation, unsigned char
                     b = pBmpBuf[i * linebyte + (z + 1) * 3];
                 }
             }
-            data8Color(r, fpWrite);
-            data8Color(g, fpWrite);
             data8Color(b, fpWrite);
+            data8Color(g, fpWrite);
+            data8Color(r, fpWrite);
         }
     }
 
