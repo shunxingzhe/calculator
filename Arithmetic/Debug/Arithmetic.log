@@ -24,9 +24,9 @@ F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(623,23): war
 F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(638,23): warning C4018: “>=”: 有符号/无符号不匹配
 F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(567,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(574,40): warning C4101: “y”: 未引用的局部变量
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(760,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(745,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(768,25): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(759,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(746,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(773,29): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   dllmain.cpp
     正在创建库 F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.lib 和对象 F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.exp
   Arithmetic.vcxproj -> F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.dll

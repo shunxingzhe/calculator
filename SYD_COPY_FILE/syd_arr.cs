@@ -166,6 +166,7 @@ namespace SYD_COPY_FILE
             string bin = "bin file (.bin)|*.bin|";
             string bmp = "bmp file (.bmp)|*.bmp|";
             string c = "c file (.c)|*.c|";
+            string dat = "dat file (.dat)|*.dat|";
             string ext = "";
             //if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File) || 
             //    ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis) && (comboBox_datatype.SelectedIndex != 3) && (comboBox_datatype.SelectedIndex != 4))   )
@@ -189,23 +190,27 @@ namespace SYD_COPY_FILE
                 dlg.DefaultExt = ".txt";
                 if (dlgDefaultExt == ".txt")
                 {
-                    ext = txt + wav+ bin+ bmp+ c;
+                    ext = txt + wav+ bin+ bmp+ c+ dat;
                 }
                 else if (dlgDefaultExt == ".wav")
                 {
-                    ext = wav+txt + bin + bmp + c;
+                    ext = wav+txt + bin + bmp + c + dat;
                 }
                 else if (dlgDefaultExt == ".bin")
                 {
-                    ext = bin  + txt + wav +  bmp + c;
+                    ext = bin  + txt + wav +  bmp + c + dat;
                 }
                 else if (dlgDefaultExt == ".bmp")
                 {
-                    ext = bmp + txt + wav + bin + c;
+                    ext = bmp + txt + wav + bin + c + dat;
                 }
                 else if (dlgDefaultExt == ".c")
                 {
-                    ext = c + txt + wav + bin + bmp;
+                    ext = c + txt + wav + bin + bmp + dat;
+                }
+                else if (dlgDefaultExt == ".dat")
+                {
+                    ext = dat+c + txt + wav + bin + bmp;
                 }
                 ext += "csv file (.csv)|*.csv|log file (.log)|*.log|diary file (.diary)|*.diary";
                 dlg.Filter = ext;
@@ -214,7 +219,7 @@ namespace SYD_COPY_FILE
 
                 if (dlg.ShowDialog() == false)
                     return;
-                dlgDefaultExt = Path.GetExtension(dlg.FileName);
+                dlgDefaultExt = Path.GetExtension(dlg.FileName).ToLower();
                 dlgDefaultName= Path.GetFileNameWithoutExtension(dlg.FileName);
                 source_file_textBox.Text = dlg.FileName;
                 if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
@@ -1419,6 +1424,41 @@ namespace SYD_COPY_FILE
                 {
                     str_out += getUInt32FromString(str, i * 8).ToString() + "\r\n";
                 }
+            }
+            richTextBox_out.Text = str_out;
+            MessageBox.Show("处理完成!");
+        }
+        private void Data_statistics()
+        {
+            int i = 0;
+            byte j = 0;
+            string orgTxt1 = textInput.Text.Trim();
+            string str_out = "";
+            byte[] hex=strToToHexByte(orgTxt1);
+            byte[] hex_statistics = new byte[100];
+            UInt32 [] hex_statistics_count = new UInt32[100];
+            byte hex_count = 0;
+            for (i = 0; i < hex.Length; i++)
+            {
+                for (j = 0; j < hex_count; j++)
+                {
+                    if (hex_statistics[j] == hex[i])
+                    {
+                        hex_statistics_count[j]++;
+                        break;
+                    }
+                }
+                if (j >= hex_count)
+                {
+                    hex_statistics[hex_count] = hex[i];
+                    hex_statistics_count[hex_count]=1;
+                    hex_count++;
+                }
+            }
+            str_out = "总字节数量:" + hex.Length.ToString()+"\r\n";
+            for (j = 0; j < hex_count; j++)
+            {
+                str_out += hex_statistics[j].ToString("X2")+":"+ hex_statistics_count[j].ToString() + "\r\n";
             }
             richTextBox_out.Text = str_out;
             MessageBox.Show("处理完成!");
@@ -2800,7 +2840,8 @@ namespace SYD_COPY_FILE
             {
                 label_outfilename.Text = source_file_textBox.Text.Replace(".BIN", string.Empty).Replace(".bin", string.Empty) + "_ok.bin";
                 out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
-                big_bin_handle(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex);
+                if (comboBox_fonttype.SelectedIndex == 0) big_bin_handle(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, 0, 0);
+                else big_bin_handle(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, Convert.ToByte(combobox_key.Text, 16), Convert.ToByte(textBox_filesize.Text));
             }
         }
         private void draw_Click(object sender, EventArgs e)
@@ -2899,6 +2940,8 @@ namespace SYD_COPY_FILE
             {
                 if (comboBox_datatype.SelectedIndex == 7)
                     Data_handle();
+                else if (comboBox_datatype.SelectedIndex == 8)
+                    Data_statistics();
                 else
                     text_handle();
             }
@@ -2992,7 +3035,7 @@ namespace SYD_COPY_FILE
                 label_outfilename.Text = FileName;
                 return System.IO.File.ReadAllText(FileName, Encoding.Default);
             }
-            else if (fi.Extension == ".wav")
+            else if (fi.Extension.ToLower() == ".wav")
             {
                 string path = FileName;
                 if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
@@ -3027,14 +3070,21 @@ namespace SYD_COPY_FILE
                 byte[] text = System.IO.File.ReadAllBytes(path);
                 return BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
             }
-            else if (fi.Extension == ".bin")
+            else if (fi.Extension.ToLower() == ".bin")
             {
                 string path = FileName;
                 label_outfilename.Text = path.Replace(".BIN", string.Empty).Replace(".bin", string.Empty) + "_ok.txt";
                 byte[] text = System.IO.File.ReadAllBytes(FileName);
                 return BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
             }
-            else if (fi.Extension == ".bmp")
+            else if (fi.Extension.ToLower() == ".dat")
+            {
+                string path = FileName;
+                label_outfilename.Text = path.Replace(".DAT", string.Empty).Replace(".dat", string.Empty) + "_ok.txt";
+                byte[] text = System.IO.File.ReadAllBytes(FileName);
+                return BitConverter.ToString(text, 0).Replace("-", string.Empty).ToLower();
+            }
+            else if (fi.Extension.ToLower() == ".bmp")
             {
                 string path = FileName;
                 label_outfilename.Text = path.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
@@ -3054,7 +3104,7 @@ namespace SYD_COPY_FILE
                 ////textInput.Text = hex;
                 //textInput.Text = ""+byteToHexStrBuilder(text);
             }
-            else if (fi.Extension == ".csv")
+            else if (fi.Extension.ToLower() == ".csv")
             {
                 string path = FileName;
                 label_outfilename.Text = path.Replace(".CSV", string.Empty).Replace(".csv", string.Empty) + "_ok.txt";
@@ -3328,6 +3378,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("数据前置补零");
                 this.comboBox_datatype.Items.Add("多数据翻转");
                 this.comboBox_datatype.Items.Add("十六进制/十进制数据提取");
+                this.comboBox_datatype.Items.Add("数目统计(Byte)");
                 this.label_data_type.Text = " 处理功能选择：";
 
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_TEXT_handle_and_analysis.txt", Encoding.Default);
@@ -3479,7 +3530,10 @@ namespace SYD_COPY_FILE
                 {
                     this.comboBox_fonttype.Items.Clear();
                     this.comboBox_fonttype.Items.Add("取反");
+                    this.comboBox_fonttype.Items.Add("提取关键字后面的数据(大小由提取数组大小决定)");
                     this.label_font_type.Text = "数据处理：";
+
+                    this.textBox_filesize.Text = "1";
                 }
                 else if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 5))
                 {

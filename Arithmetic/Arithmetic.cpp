@@ -719,9 +719,10 @@ unsigned int bmp_to_8Color(const unsigned char* filename, unsigned int size, con
     my_sprintf("save data total byte:%d\r\n", ret);
     return ret;
 }
-unsigned int big_bin_handle(const unsigned char* filename, unsigned int size, const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char funtion)
+//parm1,parm2只是在funtion==1的时候有用
+unsigned int big_bin_handle(const unsigned char* filename, unsigned int size, const unsigned char* Outfilename, unsigned int Outfilesize, unsigned char funtion, unsigned char parm1, unsigned char parm2)
 {
-    unsigned int ret = 0;
+    unsigned int ret = 0,index=0;
     static HBITMAP hBitmap, hSysBitmap[5];
     my_sprintf("Intputfilename:");
     my_sprintf(filename, size);
@@ -729,7 +730,7 @@ unsigned int big_bin_handle(const unsigned char* filename, unsigned int size, co
     my_sprintf("Outfilename:");
     my_sprintf(Outfilename, Outfilesize);
     my_sprintf("\r\n");
-    my_sprintf("funtion:%d\r\n", funtion);
+    my_sprintf("funtion:%d parm1:%x parm2:%d\r\n", funtion,parm1,parm2);
     //struct stat buffer;
     struct _stat64 buffer;
     WCHAR uni_buf[MAX_PATH] = { 0 };
@@ -753,30 +754,36 @@ unsigned int big_bin_handle(const unsigned char* filename, unsigned int size, co
         my_sprintf("file format error!\r\n");
         return 0;
     }
-
-    char* file_contents = (char*)malloc(sb.st_size);
+    unsigned char* file_contents = (unsigned char*)malloc(sb.st_size);
     fread(file_contents, sb.st_size, 1, in_file);
-
     for (ret = 0; ret < sb.st_size; ret++)
     {
         if (funtion == 0)
+            file_contents[index++] = ~file_contents[ret];
+        else if (funtion == 1)
         {
-            file_contents[ret] = ~file_contents[ret];
+            if (file_contents[ret] == parm1)
+            {
+                file_contents[index++] = file_contents[ret + 1];
+            }
         }
     }
+    if (index > 0)
+    {
+        FILE* output_file = fopen((char*)Outfilename, "wb+");
+        if (!output_file) {
+            my_sprintf("fopen out file error!\r\n");
+            free(file_contents);
+            return 0;
+        }
 
-    FILE* output_file = fopen((char*)Outfilename, "wb+");
-    if (!output_file) {
-        my_sprintf("fopen out file error!\r\n");
-        return 0;
+        fwrite(file_contents, 1, index, output_file);
+        fclose(output_file);
     }
-
-    fwrite(file_contents, 1, sb.st_size, output_file);
-    my_sprintf("Done Writing!\n");
-    fclose(output_file);
-
+    
+    my_sprintf("Done Writing sz:%d\n", index);
     fclose(in_file);
     free(file_contents);
 
-    return ret;
+    return index;
 }
