@@ -450,7 +450,7 @@ namespace SYD_COPY_FILE
                                         return;
                                     dlgDefaultExt = Path.GetExtension(dlg.FileName);
 
-                                    if (Path.GetFileName(dlg.FileName) != filename)
+                                    if (Path.GetFileName(dlg.FileName) != Path.GetFileName(filename))
                                     {
                                         MessageBox.Show("请选择同名文件");
                                         return;
