@@ -1783,6 +1783,7 @@ namespace SYD_COPY_FILE
            }
            List<string>[] lis = new List<string>[textInput.Lines.Length];
 
+
            for (i = 0; i < textInput.Lines.Length; i++)
            {
                string str = textInput.Lines[i].ToString();
@@ -1792,7 +1793,9 @@ namespace SYD_COPY_FILE
 
            if (comboBox_datatype.SelectedIndex == 0)
            {
-               for (i = 1; i < lis.Length; i++)
+                byte phone_index=Convert.ToByte(textBox_filesize.Text);
+                byte device_index = Convert.ToByte(combobox_key.Text);
+                for (i = 1; i < lis.Length; i++)
                {
                    if ((lis[i - 1].Count < 3) || (lis[i].Count < 3))
                    {
@@ -1801,8 +1804,8 @@ namespace SYD_COPY_FILE
                    }
 
                    richTextBox_out.Text = "运行时间：";
-                   string str1 = lis[i - 1][3];
-                   string str = lis[i][3];
+                   string str1 = lis[i - 1][phone_index];
+                   string str = lis[i][phone_index];
 
                    Int32 date = 0;
                    if ((str.Length == 0) || (str1.Length == 0))
@@ -1823,16 +1826,16 @@ namespace SYD_COPY_FILE
 
                    if (str.Length > 13)
                    {
-                        resut=cal_Calendar_time_differenceble_subtract(str, str1, null, textBox_filesize);
+                        resut=cal_Calendar_time_differenceble_subtract(str, str1, null, source_file_textBox);
                    }
                    else
                    {
-                        resut = cal_Calendar_time_difference_subtract(str, str1, date, null, textBox_filesize);
+                        resut = cal_Calendar_time_difference_subtract(str, str1, date, null, source_file_textBox);
                    }
-                   richTextBox_out.AppendText(resut + " 手机时间戳差值：" + textBox_filesize.Text);
+                   richTextBox_out.AppendText(resut + " 手机时间戳差值：" + source_file_textBox.Text);
 
-                   str1 = lis[i - 1][5].Substring(18, 11).Replace("-", "");
-                   str = lis[i][5].Substring(18, 11).Replace("-", "");
+                   str1 = lis[i - 1][device_index].Substring(18, 11).Replace("-", "");
+                   str = lis[i][device_index].Substring(18, 11).Replace("-", "");
                    str1 = Byte_reversal(str1);
                    str = Byte_reversal(str);
                    UInt32 timer1 = Convert.ToUInt32(str1, 16);
@@ -1840,7 +1843,7 @@ namespace SYD_COPY_FILE
                    timer = timer - timer1;
                    richTextBox_out.AppendText(" 手环时间戳差值：0x" + timer.ToString("X"));
 
-                   timer1 = Convert.ToUInt32(textBox_filesize.Text, 16);
+                   timer1 = Convert.ToUInt32(source_file_textBox.Text, 16);
                    date = (Int32)((double)timer1 - (double)timer);
                    if (date > 0)
                        richTextBox_out.AppendText(" 手环时间偏差：+" + date.ToString());
@@ -3447,8 +3450,11 @@ namespace SYD_COPY_FILE
                 if (comboBox_datatype.SelectedIndex == 0)
                 {
                     this.label_indicator.Text = "天数差:";
-                    comboBox_indicate.Items.Clear();
-                    this.comboBox_indicate.Items.Add("0");
+                    this.comboBox_indicate.Text="0";
+                    this.label_datasize.Text = "手机字段序号:";
+                    this.textBox_filesize.Text = "3";
+                    this.label_key_word.Text = "设备序:";
+                    this.combobox_key.Text = "5";
                     this.comboBox_indicate.SelectedIndex = 0;
                 }     
                 else
@@ -3607,6 +3613,16 @@ namespace SYD_COPY_FILE
             {
                 p_draw.SetToolTip(this.draw, "点击该按钮提取数据");
             }
+        }
+        private void textInput_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                int index = textInput.GetFirstCharIndexOfCurrentLine();//得到当前行第一个字符的索引
+                int line = textInput.GetLineFromCharIndex(index);//得到当前行的行号,从0开始
+                int col = textInput.SelectionStart - index;//.SelectionStart得到光标所在位置的索引 减去 当前行第一个字符的索引 = 光标所在的列数（从0开始)
+                toolStripStatusLabel3.Text = "行" + line.ToString() + "列" + col.ToString();
+            } //左键
         }
     }
 }

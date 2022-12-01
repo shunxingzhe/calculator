@@ -698,6 +698,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
@@ -2163,6 +2164,7 @@
             this.textInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textInput.Size = new System.Drawing.Size(747, 274);
             this.textInput.TabIndex = 0;
+            this.textInput.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseClick);
             // 
             // groupBox21
             // 
@@ -7648,7 +7650,8 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 576);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(767, 22);
@@ -7667,6 +7670,12 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(56, 17);
             this.toolStripStatusLabel2.Text = "空闲状态";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(46, 17);
+            this.toolStripStatusLabel3.Text = "行0列0";
             // 
             // toolTip1
             // 
@@ -8444,7 +8453,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.2.6";
+            this.Text = "SYD_Calculator V2.2.7";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9331,6 +9340,7 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button reopen_source_file_button;
         private System.Windows.Forms.ToolStripMenuItem 更新文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
     }
 }
 

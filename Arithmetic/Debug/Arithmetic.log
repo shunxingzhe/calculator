@@ -1,35 +1,4 @@
-﻿  stdafx.cpp
-  Arithmetic.cpp
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(33,11): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(245,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(335,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(337,27): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(391,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(393,27): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(303,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(452,19): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(454,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(459,23): warning C4018: “>=”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(474,22): warning C4018: “>=”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(487,39): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(495,23): warning C4018: “>=”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(510,23): warning C4018: “>=”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(523,39): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(437,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(582,19): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(584,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(589,23): warning C4018: “>=”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(604,23): warning C4018: “>=”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(623,23): warning C4018: “>=”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(638,23): warning C4018: “>=”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(567,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(574,40): warning C4101: “y”: 未引用的局部变量
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(759,23): warning C4018: “<”: 有符号/无符号不匹配
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(746,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\SYD8801\tool\calculator\SYD_Calculator\Arithmetic\Arithmetic.cpp(773,29): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  dllmain.cpp
-    正在创建库 F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.lib 和对象 F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.exp
-  Arithmetic.vcxproj -> F:\SYD8801\tool\calculator\SYD_Calculator\Debug\Arithmetic.dll
+﻿  Arithmetic.vcxproj -> F:\Study_Work\SYD_Calculator\Debug\Arithmetic.dll
   已复制         1 个文件。
   已复制         1 个文件。
   已复制         1 个文件。
