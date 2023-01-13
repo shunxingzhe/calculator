@@ -294,6 +294,7 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
     unsigned char j = 0, data = 0;
     unsigned int i = 0, k = 0,z=0;
     unsigned char color_red_white=0, color_white = 0, color_red=0, color_black=0;
+    int  height = 0;
 
     my_sprintf("\r\n");
     my_sprintf("extract_mode:%d\r\n", extract_mode);
@@ -330,24 +331,49 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
         color_red = 2;
         color_black = 3;
     }
-    if (ext_opt == 1)
+    if (ext_opt == 2)
+    {
+        if ((bmpheight % 12) != 0)height = (bmpheight / 12 + 1) * 12;
+        else height = bmpheight;
+        my_sprintf("height_adj:%d\r\n", height);
+    }
+    else height = bmpheight;
+    if ((ext_opt == 1) || (ext_opt == 2))
     {
         for (z = 0; z < bmpwidth; z += 2)
         {
-            for (i = 0; i < bmpheight; i++)
+            for (i = 0; i < height; i++)
             {
                 //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
                 if (rotation == 1)
                 {
-                    r = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 2];
-                    g = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 1];
-                    b = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3];
+                    if (i >= bmpheight)
+                    {
+                        r = 0;
+                        g = 0;
+                        b = 0;
+                    }
+                    else
+                    {
+                        r = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 2];
+                        g = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3 + 1];
+                        b = pBmpBuf[(bmpheight - i - 1) * linebyte + z * 3];
+                    }
                 }
                 else
                 {
-                    r = pBmpBuf[i * linebyte + z * 3 + 2];
-                    g = pBmpBuf[i * linebyte + z * 3 + 1];
-                    b = pBmpBuf[i * linebyte + z * 3];
+                    if (i >= bmpheight)
+                    {
+                        r = 0;
+                        g = 0;
+                        b = 0;
+                    }
+                    else
+                    {
+                        r = pBmpBuf[i * linebyte + z * 3 + 2];
+                        g = pBmpBuf[i * linebyte + z * 3 + 1];
+                        b = pBmpBuf[i * linebyte + z * 3];
+                    }
                 }
                 if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= color_white << ((3 - j) * 2);
                 else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= color_red << ((3 - j) * 2);
@@ -357,15 +383,33 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
                 //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
                 if (rotation == 1)
                 {
-                    r = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 2];
-                    g = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 1];
-                    b = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3];
+                    if (i >= bmpheight)
+                    {
+                        r = 0;
+                        g = 0;
+                        b = 0;
+                    }
+                    else
+                    {
+                        r = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 2];
+                        g = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3 + 1];
+                        b = pBmpBuf[(bmpheight - i - 1) * linebyte + (z + 1) * 3];
+                    }
                 }
                 else
                 {
-                    r = pBmpBuf[i * linebyte + (z + 1) * 3 + 2];
-                    g = pBmpBuf[i * linebyte + (z + 1) * 3 + 1];
-                    b = pBmpBuf[i * linebyte + (z + 1) * 3];
+                    if (i >= bmpheight)
+                    {
+                        r = 0;
+                        g = 0;
+                        b = 0;
+                    }
+                    else
+                    {
+                        r = pBmpBuf[i * linebyte + (z + 1) * 3 + 2];
+                        g = pBmpBuf[i * linebyte + (z + 1) * 3 + 1];
+                        b = pBmpBuf[i * linebyte + (z + 1) * 3];
+                    }
                 }
                 if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= color_white << ((3 - j) * 2);
                 else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= color_red << ((3 - j) * 2);
@@ -387,23 +431,40 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
     }
     else
     {
-
-        for (z = 0; z < bmpheight; z++)
+        for (z = 0; z < height; z++)
         {
             for (i = 0; i < linebyte; i += 3)
             {
                 //位图全部的像素，是按照自下向上，自左向右的顺序排列的。   RGB数据也是倒着念的，原始数据是按B、G、R的顺序排列的。
                 if (rotation == 1)
                 {
-                    r = pBmpBuf[(bmpheight - z - 1) * linebyte + i + 2];
-                    g = pBmpBuf[(bmpheight - z - 1) * linebyte + i + 1];
-                    b = pBmpBuf[(bmpheight - z - 1) * linebyte + i];
+                    if (z >= bmpheight)
+                    {
+                        r = 0;
+                        g = 0;
+                        b = 0;
+                    }
+                    else
+                    {
+                        r = pBmpBuf[(bmpheight - z - 1) * linebyte + i + 2];
+                        g = pBmpBuf[(bmpheight - z - 1) * linebyte + i + 1];
+                        b = pBmpBuf[(bmpheight - z - 1) * linebyte + i];
+                    }
                 }
                 else
                 {
-                    r = pBmpBuf[z * linebyte + i + 2];
-                    g = pBmpBuf[z * linebyte + i + 1];
-                    b = pBmpBuf[z * linebyte + i];
+                    if (z >= bmpheight)
+                    {
+                        r = 0;
+                        g = 0;
+                        b = 0;
+                    }
+                    else
+                    {
+                        r = pBmpBuf[z * linebyte + i + 2];
+                        g = pBmpBuf[z * linebyte + i + 1];
+                        b = pBmpBuf[z * linebyte + i];
+                    }
                 }
                 if ((b > 0x7f) && (g > 0x7f) && (r > 0x7f))data |= color_white << (j * 2);
                 else if ((b <= 0x7f) && (g <= 0x7f) && (r >= 0x7f))data |= color_red << (j * 2);

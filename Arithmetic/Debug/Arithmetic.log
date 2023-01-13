@@ -1,4 +1,41 @@
-﻿  Arithmetic.vcxproj -> F:\Study_Work\SYD_Calculator\Debug\Arithmetic.dll
+﻿  stdafx.cpp
+  Arithmetic.cpp
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(33,11): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(245,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(343,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(345,27): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(350,27): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(365,27): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(386,27): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(401,27): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(434,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(436,27): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(441,27): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(456,27): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(304,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(513,19): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(515,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(520,23): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(535,22): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(548,39): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(556,23): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(571,23): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(584,39): warning C4244: “=”: 从“double”转换到“unsigned char”，可能丢失数据
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(498,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(643,19): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(645,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(650,23): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(665,23): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(684,23): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(699,23): warning C4018: “>=”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(628,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(635,40): warning C4101: “y”: 未引用的局部变量
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(820,23): warning C4018: “<”: 有符号/无符号不匹配
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(807,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Study_Work\SYD_Calculator\Arithmetic\Arithmetic.cpp(834,29): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  dllmain.cpp
+    正在创建库 F:\Study_Work\SYD_Calculator\Debug\Arithmetic.lib 和对象 F:\Study_Work\SYD_Calculator\Debug\Arithmetic.exp
+  Arithmetic.vcxproj -> F:\Study_Work\SYD_Calculator\Debug\Arithmetic.dll
   已复制         1 个文件。
   已复制         1 个文件。
   已复制         1 个文件。

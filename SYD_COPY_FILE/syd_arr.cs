@@ -3322,7 +3322,7 @@ namespace SYD_COPY_FILE
                 comboBox_additional_operations.Items.Clear();
                 this.comboBox_additional_operations.Items.Add("无额外操作");
                 this.comboBox_additional_operations.Items.Add("BLE估算下一个连接事件的时间(两个主机数据包之间)");
-                this.comboBox_additional_operations.Items.Add("替换输入数据中和指示符一样的字符串");
+                this.comboBox_additional_operations.Items.Add("替换输入数据中和指示符一样的字符串为空");
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Source_Insight_Search_Results_Analysis)
             {
@@ -3552,6 +3552,7 @@ namespace SYD_COPY_FILE
                     comboBox_additional_operations.Items.Clear();
                     this.comboBox_additional_operations.Items.Add("无额外操作");
                     this.comboBox_additional_operations.Items.Add("24BIT为一包显示2行6列，BIT[2,0]=>Pix[0,0] BIT[3,1]=>Pix[0,1]错位输出");
+                    this.comboBox_additional_operations.Items.Add("错位输出并且行无法被12整除，就往上12取整并且填充0");
                 }
             }
             else
