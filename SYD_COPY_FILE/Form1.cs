@@ -745,6 +745,7 @@ namespace SYD_COPY_FILE
                 this.Width = 782;
                 this.Height = 620 + 22;
             }
+            extend_synccopyfile_state = false;
         }
 
         private void pictureBoxinterface_Click(object sender, EventArgs e)

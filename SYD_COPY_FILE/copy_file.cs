@@ -19,6 +19,7 @@ namespace SYD_COPY_FILE
         "_CP_L32_V118_",
         "_letu_L32_V109_",
         "_wuling_L33_V124_"};
+        public bool extend_synccopyfile_state = false;
     public void copy_file_init()
         {
             this.label_copy_time.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -290,55 +291,7 @@ namespace SYD_COPY_FILE
         }
         private void copy_button_Click(object sender, EventArgs e)
         {
-            string extension_src = "";
-            string extension_des = "";
-            if (source_copyfile_textBox.TextLength != 0)
-            {
-                string name = Path.GetFileNameWithoutExtension(source_copyfile_textBox.Text);
-
-                if (destination_file_textBox.TextLength != 0)
-                {
-                    if (File.Exists(source_copyfile_textBox.Text) == false)
-                    {
-                        MessageBox.Show("源文件不存在!");
-                        return;
-                    }
-                    extension_src = Path.GetExtension(source_copyfile_textBox.Text);//扩展名 ".aspx"
-                    extension_des = Path.GetExtension(destination_file_textBox.Text);//扩展名 ".aspx"
-
-                    if (extension_src != extension_des)
-                    {
-                        if (ask_iscontinue() == false)
-                        {
-                            return;
-                        }
-                    }
-                    File.Copy(@source_copyfile_textBox.Text, @destination_file_textBox.Text, true);
-                }
-                else
-                    MessageBox.Show("destination file inexistence");
-
-                if (destination_file_textBox_two_checkBox.Checked == true)
-                {
-                    if (destination_file_textBox_two.TextLength != 0)
-                    {
-                        extension_des = Path.GetExtension(@destination_file_textBox_two.Text);//扩展名 ".aspx"
-
-                        if (extension_src != extension_des)
-                        {
-                            if (ask_iscontinue() == false)
-                            {
-                                return;
-                            }
-                        }
-                        File.Copy(@source_copyfile_textBox.Text, @destination_file_textBox_two.Text, true);
-                    }
-                }
-
-                update_state(name,destination_file_textBox.Text);
-            }
-            else 
-               MessageBox.Show("source file inexistence");
+            copy_file(source_copyfile_textBox, destination_file_textBox);
 
             if (sender != null)
                 copy_sync(sender, e);
@@ -528,23 +481,22 @@ namespace SYD_COPY_FILE
             return true;
 
         }
-
-        private void copy_button_Click_sync(object sender, EventArgs e)
+        private void copy_file(TextBox source, TextBox destination)
         {
             string extension_src = "";
             string extension_des = "";
-            if (source_copyfile_textBox_sync.TextLength != 0)
+            if (source.TextLength != 0)
             {
-                string name = Path.GetFileNameWithoutExtension(source_copyfile_textBox_sync.Text);
-                if (destination_file_textBox_sync.TextLength != 0)
+                string name = Path.GetFileNameWithoutExtension(source.Text);
+                if (destination.TextLength != 0)
                 {
-                    if (File.Exists(@source_copyfile_textBox_sync.Text) == false)
+                    if (File.Exists(@source.Text) == false)
                     {
                         MessageBox.Show("源文件不存在!");
                         return;
                     }
-                    extension_src = Path.GetExtension(@source_copyfile_textBox_sync.Text);//扩展名 ".aspx"
-                    extension_des = Path.GetExtension(@destination_file_textBox_sync.Text);//扩展名 ".aspx"
+                    extension_src = Path.GetExtension(@source.Text);//扩展名 ".aspx"
+                    extension_des = Path.GetExtension(@destination.Text);//扩展名 ".aspx"
 
                     if (extension_src != extension_des)
                     {
@@ -553,71 +505,32 @@ namespace SYD_COPY_FILE
                             return;
                         }
                     }
-                    File.Copy(@source_copyfile_textBox_sync.Text, @destination_file_textBox_sync.Text, true);
+                    File.Copy(@source.Text, @destination.Text, true);
                 }
-
                 else
-                    MessageBox.Show("destination file inexistence");
-
-                if (destination_file_textBox_two_sync_checkBox.Checked == true)
                 {
-                    if (destination_file_textBox_two_sync.TextLength != 0)
-                    {
-                        extension_des = Path.GetExtension(@destination_file_textBox_two_sync.Text);//扩展名 ".aspx"
-
-                        if (extension_src != extension_des)
-                        {
-                            if (ask_iscontinue() == false)
-                            {
-                                return;
-                            }
-                        }
-                        File.Copy(@source_copyfile_textBox_sync.Text, @destination_file_textBox_two_sync.Text, true);
-                    }
+                    MessageBox.Show("destination file inexistence");
+                    return;
                 }
-
-                update_state(name, destination_file_textBox_sync.Text);
+                update_state(name, destination.Text);
             }
             else
+            {
                 MessageBox.Show("source file inexistence");
+                return;
+            }
+        }
+        private void copy_button_Click_sync(object sender, EventArgs e)
+        {
+            copy_file(source_copyfile_textBox_sync, destination_file_textBox_sync);
             if (sender != null)
                 copy_sync(sender, e);
         }
 
         private void button_copy_destinationfile_Click(object sender, EventArgs e)
         {
-            string extension_src = "";
-            string extension_des = "";
-            if (destination_file_textBox.TextLength != 0)
-            {
-                string name = Path.GetFileNameWithoutExtension(source_copyfile_textBox.Text);
-
-                if (textBox_copy_destinationfileend.TextLength != 0)
-                {
-                    if (File.Exists(source_copyfile_textBox.Text) == false)
-                    {
-                        MessageBox.Show("二级源文件不存在!");
-                        return;
-                    }
-                    extension_src = Path.GetExtension(@destination_file_textBox.Text);//扩展名 ".aspx"
-                    extension_des = Path.GetExtension(textBox_copy_destinationfileend.Text);//扩展名 ".aspx"
-
-                    if (extension_src != extension_des)
-                    {
-                        if (ask_iscontinue() == false)
-                        {
-                            return;
-                        }
-                    }
-                    File.Copy(@destination_file_textBox.Text, textBox_copy_destinationfileend.Text, true);
-                }
-                else
-                    MessageBox.Show("destination file inexistence");
-
-                update_state(name, destination_file_textBox.Text);
-            }
-            else
-                MessageBox.Show("source file inexistence");
+            copy_button_Click(sender, e);
+            copy_file(source_copyfile_textBox, destination_file_textBox_two);
 
             if (sender != null)
                 copy_sync(sender, e);
@@ -625,38 +538,8 @@ namespace SYD_COPY_FILE
 
         private void button_copy_destinationfile_Click_sync(object sender, EventArgs e)
         {
-            string extension_src = "";
-            string extension_des = "";
-            if (destination_file_textBox_sync.TextLength != 0)
-            {
-                string name = Path.GetFileNameWithoutExtension(destination_file_textBox_sync.Text);
-
-                if (textBox_copy_destinationfileend_sync.TextLength != 0)
-                {
-                        if (File.Exists(source_copyfile_textBox_sync.Text) == false)
-                        {
-                            MessageBox.Show("二级源文件不存在!");
-                            return;
-                        }
-                        extension_src = Path.GetExtension(@destination_file_textBox_sync.Text);//扩展名 ".aspx"
-                        extension_des = Path.GetExtension(textBox_copy_destinationfileend_sync.Text);//扩展名 ".aspx"
-
-                        if (extension_src != extension_des)
-                        {
-                            if (ask_iscontinue() == false)
-                            {
-                                return;
-                            }
-                        }
-                        File.Copy(@destination_file_textBox_sync.Text, textBox_copy_destinationfileend_sync.Text, true);
-                }
-                else
-                    MessageBox.Show("destination file inexistence");
-
-                update_state(name, destination_file_textBox_sync.Text);
-            }
-            else
-                MessageBox.Show("source file inexistence");
+            copy_button_Click_sync(sender, e);
+            copy_file(source_copyfile_textBox_sync, destination_file_textBox_two_sync);
 
             if (sender != null)
                 copy_sync(sender, e);
@@ -664,8 +547,8 @@ namespace SYD_COPY_FILE
 
         private void button_copy_sourcefile_all_Click(object sender, EventArgs e)
         {
-            copy_button_Click(sender, e);
             button_copy_destinationfile_Click(sender, e);
+            copy_file(source_copyfile_textBox, textBox_copy_destinationfileend);
 
             if (sender != null)
                 copy_sync(sender, e);
@@ -673,8 +556,8 @@ namespace SYD_COPY_FILE
 
         private void button_copy_sourcefile_all_Click_sync(object sender, EventArgs e)
         {
-            copy_button_Click_sync(sender, e);
             button_copy_destinationfile_Click_sync(sender, e);
+            copy_file(source_copyfile_textBox_sync, textBox_copy_destinationfileend_sync);
 
             if (sender != null)
                 copy_sync(sender, e);
@@ -749,6 +632,7 @@ namespace SYD_COPY_FILE
                     if (comboBox7.SelectedIndex == 0)
                     {
                         name = source_copyfile_prefix_textBox_rename.Text + name + source_copyfile_suffix_textBox_rename.Text;
+                        if ((name[name.Length - 1] >= '0') && (name[name.Length - 1] <= '9')) name += '_';
                         if (checkBox_systemtime_rename.Checked == true)
                         {
                             FileInfo fi = new FileInfo(source_copyfile_textBox_rename.Text);
@@ -1502,7 +1386,16 @@ namespace SYD_COPY_FILE
         }
         private void extend_synccopyfile_button_Click(object sender, EventArgs e)
         {
-            this.Height += 68;
+            if(extend_synccopyfile_state==false)
+            {
+                this.Height += 76;
+                extend_synccopyfile_state = true;
+            }
+            else
+            {
+                this.Height -= 76;
+                extend_synccopyfile_state = false;
+            }
         }
         private void button33_Click(object sender, EventArgs e)
         {
