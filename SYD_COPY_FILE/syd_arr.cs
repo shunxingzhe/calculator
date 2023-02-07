@@ -1172,6 +1172,16 @@ namespace SYD_COPY_FILE
                     }
                     lstArray[i] = str + "};" + "//" + lstArray[i];
                 }
+                else if (comboBox_fonttype.SelectedIndex == 6)
+                {
+                    str = "\"";
+                    for (j = 0; j < buffer_utf8.Length; j++)
+                    {
+                        str = str + "\\x" + buffer_utf8[j].ToString("X");
+                    }
+                    str += "\""+ "/*" + lstArray[i]+ "*/";
+                    lstArray[i] = str;
+                }
             }
 
            richTextBox_out.Text = "";
@@ -3247,6 +3257,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Add("数据为不带空格的数据");
                 this.comboBox_fonttype.Items.Add("数据为U16数组格式，第一个字节为数组长度");
                 this.comboBox_fonttype.Items.Add("数据为U16数组格式，不带数组长度");
+                this.comboBox_fonttype.Items.Add("数据为C语言十六进制字符串(\\x6F\\x62)");
                 this.label_font_type.Text = "输出格式：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.ARR_to_bin)
