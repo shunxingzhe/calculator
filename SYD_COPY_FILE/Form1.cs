@@ -57,6 +57,9 @@ namespace SYD_COPY_FILE
         private static extern UInt32 big_bin_handle(byte[] Intputfilename, UInt32 Intputfilesize, byte[] Outfilename, UInt32 Outfilesize, byte funtion, byte parm1, byte parm2);
 
         timestamp_accuracy_type accuracy = timestamp_accuracy_type.accuracy_3;
+
+        public bool extend_bit_mask_state = false;
+        public byte care_bit_index = 0, care_bit_high = 15, care_bit_low = 0;
         #endregion
 
         public Form1()
@@ -1068,6 +1071,48 @@ namespace SYD_COPY_FILE
                 data = Convert.ToUInt32(bit_mask_result.Text, 16);
                 data = ~data;
                 bit_nomask_result.Text = "0x"+data.ToString("X8");
+
+                data = Convert.ToUInt32(bit_mask_result.Text, 16);
+                data >>= care_bit_low;
+                UInt16 bit = 0;
+                for (byte i=0;i<=(care_bit_high- care_bit_low);i++)
+                {
+                    bit |= (UInt16)(1<<i);
+                }
+                UInt16 input = (UInt16)(data & bit);
+                if ((input & 0x01) == 0x01) Care_BIT_MARK0.Checked = true;
+                else Care_BIT_MARK0.Checked = false;
+                if ((input & 0x02) == 0x02) Care_BIT_MARK1.Checked = true;
+                else Care_BIT_MARK1.Checked = false;
+                if ((input & 0x04) == 0x04) Care_BIT_MARK2.Checked = true;
+                else Care_BIT_MARK2.Checked = false;
+                if ((input & 0x08) == 0x08) Care_BIT_MARK3.Checked = true;
+                else Care_BIT_MARK3.Checked = false;
+                if ((input & 0x10) == 0x10) Care_BIT_MARK4.Checked = true;
+                else Care_BIT_MARK4.Checked = false;
+                if ((input & 0x20) == 0x20) Care_BIT_MARK5.Checked = true;
+                else Care_BIT_MARK5.Checked = false;
+                if ((input & 0x40) == 0x40) Care_BIT_MARK6.Checked = true;
+                else Care_BIT_MARK6.Checked = false;
+                if ((input & 0x80) == 0x80) Care_BIT_MARK7.Checked = true;
+                else Care_BIT_MARK7.Checked = false;
+                if ((input & 0x100) == 0x100) Care_BIT_MARK8.Checked = true;
+                else Care_BIT_MARK8.Checked = false;
+                if ((input & 0x200) == 0x200) Care_BIT_MARK9.Checked = true;
+                else Care_BIT_MARK9.Checked = false;
+                if ((input & 0x400) == 0x400) Care_BIT_MARK10.Checked = true;
+                else Care_BIT_MARK10.Checked = false;
+                if ((input & 0x800) == 0x800) Care_BIT_MARK11.Checked = true;
+                else Care_BIT_MARK11.Checked = false;
+                if ((input & 0x1000) == 0x1000) Care_BIT_MARK12.Checked = true;
+                else Care_BIT_MARK12.Checked = false;
+                if ((input & 0x2000) == 0x2000) Care_BIT_MARK13.Checked = true;
+                else Care_BIT_MARK13.Checked = false;
+                if ((input & 0x4000) == 0x4000) Care_BIT_MARK14.Checked = true;
+                else Care_BIT_MARK14.Checked = false;
+                if ((input & 0x8000) == 0x8000) Care_BIT_MARK15.Checked = true;
+                else Care_BIT_MARK15.Checked = false;
+                bit_mask_care_result.Text = "0x" + input.ToString("X4");
             }
         }
         private void button17_Click(object sender, EventArgs e)
@@ -1104,6 +1149,89 @@ namespace SYD_COPY_FILE
             BIT_MARK29.Checked = false;
             BIT_MARK30.Checked = false;
             BIT_MARK31.Checked = false;
+        }
+        private void BIT_MARK_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuStrip3.Show(Control.MousePosition.X, Control.MousePosition.Y);
+                if ((CheckBox)sender == BIT_MARK0) care_bit_index = 0;
+                else if ((CheckBox)sender == BIT_MARK1) care_bit_index = 1;
+                else if ((CheckBox)sender == BIT_MARK2) care_bit_index = 2;
+                else if ((CheckBox)sender == BIT_MARK3) care_bit_index = 3;
+                else if ((CheckBox)sender == BIT_MARK4) care_bit_index = 4;
+                else if ((CheckBox)sender == BIT_MARK5) care_bit_index = 5;
+                else if ((CheckBox)sender == BIT_MARK6) care_bit_index = 6;
+                else if ((CheckBox)sender == BIT_MARK7) care_bit_index = 7;
+                else if ((CheckBox)sender == BIT_MARK8) care_bit_index = 8;
+                else if ((CheckBox)sender == BIT_MARK9) care_bit_index = 9;
+                else if ((CheckBox)sender == BIT_MARK10) care_bit_index = 10;
+                else if ((CheckBox)sender == BIT_MARK11) care_bit_index = 11;
+                else if ((CheckBox)sender == BIT_MARK12) care_bit_index = 12;
+                else if ((CheckBox)sender == BIT_MARK13) care_bit_index = 13;
+                else if ((CheckBox)sender == BIT_MARK14) care_bit_index = 14;
+                else if ((CheckBox)sender == BIT_MARK15) care_bit_index = 15;
+                else if ((CheckBox)sender == BIT_MARK16) care_bit_index = 16;
+                else if ((CheckBox)sender == BIT_MARK17) care_bit_index = 17;
+                else if ((CheckBox)sender == BIT_MARK18) care_bit_index = 18;
+                else if ((CheckBox)sender == BIT_MARK19) care_bit_index = 19;
+                else if ((CheckBox)sender == BIT_MARK20) care_bit_index = 20;
+                else if ((CheckBox)sender == BIT_MARK21) care_bit_index = 21;
+                else if ((CheckBox)sender == BIT_MARK22) care_bit_index = 22;
+                else if ((CheckBox)sender == BIT_MARK23) care_bit_index = 23;
+                else if ((CheckBox)sender == BIT_MARK24) care_bit_index = 24;
+                else if ((CheckBox)sender == BIT_MARK25) care_bit_index = 25;
+                else if ((CheckBox)sender == BIT_MARK26) care_bit_index = 26;
+                else if ((CheckBox)sender == BIT_MARK27) care_bit_index = 27;
+                else if ((CheckBox)sender == BIT_MARK28) care_bit_index = 28;
+                else if ((CheckBox)sender == BIT_MARK29) care_bit_index = 29;
+                else if ((CheckBox)sender == BIT_MARK30) care_bit_index = 30;
+                else if ((CheckBox)sender == BIT_MARK31) care_bit_index = 31;
+
+            }
+        }
+        private void contextMenuStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            for (int i = 0; i < contextMenuStrip3.Items.Count; i++)
+            {
+                if (contextMenuStrip3.Items[i].Selected)
+                {
+                    if (contextMenuStrip3.Items[i].Text.Trim() == "定位最低Bit")
+                    {
+                        if(care_bit_index>= care_bit_high)
+                        {
+                            MessageBox.Show("设置错误,底位必须底于高位");
+                            return;
+                        }
+                        care_bit_low = care_bit_index;
+                        label57.Text = "[" + care_bit_high.ToString("D2") + ":" + care_bit_low.ToString("D2");
+
+                    }
+                    else if (contextMenuStrip3.Items[i].Text.Trim() == "定位最高Bit")
+                    {
+                        if(care_bit_index<= care_bit_low)
+                        {
+                            MessageBox.Show("设置错误,高位必须高于底位");
+                            return;
+                        }
+                        care_bit_high = care_bit_index;
+                        label57.Text = "[" + care_bit_high.ToString("D2") + ":" + care_bit_low.ToString("D2");
+                    }
+                }
+            }
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (extend_bit_mask_state == false)
+            {
+                this.Height -= 460;
+                extend_bit_mask_state = true;
+            }
+            else
+            {
+                this.Height += 460;
+                extend_bit_mask_state = false;
+            }
         }
 
         private void BIT_MARK_CheckStateChanged(object sender, EventArgs e)

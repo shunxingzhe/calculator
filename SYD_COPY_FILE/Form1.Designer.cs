@@ -258,19 +258,37 @@
             this.textBox_GPIO0 = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.Care_BIT_MARK12 = new System.Windows.Forms.CheckBox();
+            this.bit_mask_care_result = new System.Windows.Forms.TextBox();
+            this.Care_BIT_MARK0 = new System.Windows.Forms.CheckBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.Care_BIT_MARK15 = new System.Windows.Forms.CheckBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.Care_BIT_MARK4 = new System.Windows.Forms.CheckBox();
             this.bit_nomask_result = new System.Windows.Forms.TextBox();
+            this.Care_BIT_MARK8 = new System.Windows.Forms.CheckBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.Care_BIT_MARK14 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK28 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK3 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK23 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK11 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK16 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK7 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK27 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK10 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK12 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK13 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK0 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK2 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK9 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK26 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK1 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK19 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK6 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK31 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK5 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK25 = new System.Windows.Forms.CheckBox();
-            this.button16 = new System.Windows.Forms.Button();
             this.BIT_MARK15 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK30 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK22 = new System.Windows.Forms.CheckBox();
@@ -285,7 +303,6 @@
             this.BIT_MARK14 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK3 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK17 = new System.Windows.Forms.CheckBox();
-            this.textBox52 = new System.Windows.Forms.TextBox();
             this.BIT_MARK11 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK20 = new System.Windows.Forms.CheckBox();
             this.button17 = new System.Windows.Forms.Button();
@@ -295,9 +312,9 @@
             this.BIT_MARK2 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK9 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK1 = new System.Windows.Forms.CheckBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.BIT_MARK6 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK5 = new System.Windows.Forms.CheckBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button43 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
@@ -824,6 +841,9 @@
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem148 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -870,6 +890,7 @@
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -2436,7 +2457,7 @@
             this.groupBox24.Controls.Add(this.label101);
             this.groupBox24.Controls.Add(this.button41);
             this.groupBox24.Controls.Add(this.textBox_whitening);
-            this.groupBox24.Location = new System.Drawing.Point(364, 169);
+            this.groupBox24.Location = new System.Drawing.Point(364, 174);
             this.groupBox24.Name = "groupBox24";
             this.groupBox24.Size = new System.Drawing.Size(391, 108);
             this.groupBox24.TabIndex = 27;
@@ -2569,7 +2590,7 @@
             this.groupBox15.Controls.Add(this.button21);
             this.groupBox15.Controls.Add(this.textBox_CRCInput);
             this.groupBox15.Controls.Add(this.textBox_init);
-            this.groupBox15.Location = new System.Drawing.Point(364, 102);
+            this.groupBox15.Location = new System.Drawing.Point(364, 107);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(391, 65);
             this.groupBox15.TabIndex = 26;
@@ -2653,7 +2674,7 @@
             this.groupBox6.Controls.Add(this.button5);
             this.groupBox6.Controls.Add(this.textBox14);
             this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Location = new System.Drawing.Point(3, 295);
+            this.groupBox6.Location = new System.Drawing.Point(3, 300);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(604, 40);
             this.groupBox6.TabIndex = 22;
@@ -2777,7 +2798,7 @@
             this.groupBox18.Controls.Add(this.label73);
             this.groupBox18.Controls.Add(this.button28);
             this.groupBox18.Controls.Add(this.textBox80);
-            this.groupBox18.Location = new System.Drawing.Point(4, 253);
+            this.groupBox18.Location = new System.Drawing.Point(4, 258);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(359, 40);
             this.groupBox18.TabIndex = 24;
@@ -2915,7 +2936,7 @@
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.textBox24);
-            this.groupBox2.Location = new System.Drawing.Point(4, 201);
+            this.groupBox2.Location = new System.Drawing.Point(4, 206);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(359, 50);
             this.groupBox2.TabIndex = 23;
@@ -3069,7 +3090,7 @@
             this.groupBox9.Controls.Add(this.textBox_GPIO1);
             this.groupBox9.Controls.Add(this.textBox_GPIO0);
             this.groupBox9.Controls.Add(this.label46);
-            this.groupBox9.Location = new System.Drawing.Point(3, 102);
+            this.groupBox9.Location = new System.Drawing.Point(3, 107);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(360, 97);
             this.groupBox9.TabIndex = 22;
@@ -3296,19 +3317,37 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK12);
+            this.groupBox8.Controls.Add(this.bit_mask_care_result);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK0);
+            this.groupBox8.Controls.Add(this.label36);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK15);
+            this.groupBox8.Controls.Add(this.button10);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK4);
             this.groupBox8.Controls.Add(this.bit_nomask_result);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK8);
             this.groupBox8.Controls.Add(this.label31);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK14);
             this.groupBox8.Controls.Add(this.BIT_MARK28);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK3);
             this.groupBox8.Controls.Add(this.BIT_MARK23);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK11);
             this.groupBox8.Controls.Add(this.BIT_MARK16);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK7);
             this.groupBox8.Controls.Add(this.BIT_MARK27);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK10);
             this.groupBox8.Controls.Add(this.BIT_MARK12);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK13);
             this.groupBox8.Controls.Add(this.BIT_MARK0);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK2);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK9);
             this.groupBox8.Controls.Add(this.BIT_MARK26);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK1);
             this.groupBox8.Controls.Add(this.BIT_MARK19);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK6);
             this.groupBox8.Controls.Add(this.BIT_MARK31);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK5);
             this.groupBox8.Controls.Add(this.BIT_MARK25);
-            this.groupBox8.Controls.Add(this.button16);
             this.groupBox8.Controls.Add(this.BIT_MARK15);
             this.groupBox8.Controls.Add(this.BIT_MARK30);
             this.groupBox8.Controls.Add(this.BIT_MARK22);
@@ -3323,7 +3362,6 @@
             this.groupBox8.Controls.Add(this.BIT_MARK14);
             this.groupBox8.Controls.Add(this.BIT_MARK3);
             this.groupBox8.Controls.Add(this.BIT_MARK17);
-            this.groupBox8.Controls.Add(this.textBox52);
             this.groupBox8.Controls.Add(this.BIT_MARK11);
             this.groupBox8.Controls.Add(this.BIT_MARK20);
             this.groupBox8.Controls.Add(this.button17);
@@ -3333,224 +3371,462 @@
             this.groupBox8.Controls.Add(this.BIT_MARK2);
             this.groupBox8.Controls.Add(this.BIT_MARK9);
             this.groupBox8.Controls.Add(this.BIT_MARK1);
-            this.groupBox8.Controls.Add(this.label36);
             this.groupBox8.Controls.Add(this.BIT_MARK6);
             this.groupBox8.Controls.Add(this.BIT_MARK5);
+            this.groupBox8.Controls.Add(this.label57);
             this.groupBox8.Location = new System.Drawing.Point(1, 6);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(755, 90);
+            this.groupBox8.Size = new System.Drawing.Size(752, 88);
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "bit_mask_U8toU32";
             // 
+            // Care_BIT_MARK12
+            // 
+            this.Care_BIT_MARK12.AutoSize = true;
+            this.Care_BIT_MARK12.BackColor = System.Drawing.Color.DarkGray;
+            this.Care_BIT_MARK12.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK12.Location = new System.Drawing.Point(368, 51);
+            this.Care_BIT_MARK12.Name = "Care_BIT_MARK12";
+            this.Care_BIT_MARK12.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK12.TabIndex = 59;
+            this.Care_BIT_MARK12.Text = "12";
+            this.Care_BIT_MARK12.UseVisualStyleBackColor = false;
+            // 
+            // bit_mask_care_result
+            // 
+            this.bit_mask_care_result.AllowDrop = true;
+            this.bit_mask_care_result.Location = new System.Drawing.Point(703, 56);
+            this.bit_mask_care_result.Name = "bit_mask_care_result";
+            this.bit_mask_care_result.Size = new System.Drawing.Size(45, 21);
+            this.bit_mask_care_result.TabIndex = 66;
+            this.bit_mask_care_result.Text = "0x0F1A";
+            // 
+            // Care_BIT_MARK0
+            // 
+            this.Care_BIT_MARK0.AutoSize = true;
+            this.Care_BIT_MARK0.BackColor = System.Drawing.Color.Gray;
+            this.Care_BIT_MARK0.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK0.Location = new System.Drawing.Point(620, 51);
+            this.Care_BIT_MARK0.Name = "Care_BIT_MARK0";
+            this.Care_BIT_MARK0.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK0.TabIndex = 71;
+            this.Care_BIT_MARK0.Text = "00";
+            this.Care_BIT_MARK0.UseVisualStyleBackColor = false;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(641, 67);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(65, 12);
+            this.label36.TabIndex = 67;
+            this.label36.Text = "Care_Mask:";
+            // 
+            // Care_BIT_MARK15
+            // 
+            this.Care_BIT_MARK15.AutoSize = true;
+            this.Care_BIT_MARK15.BackColor = System.Drawing.Color.DarkGray;
+            this.Care_BIT_MARK15.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK15.Location = new System.Drawing.Point(305, 51);
+            this.Care_BIT_MARK15.Name = "Care_BIT_MARK15";
+            this.Care_BIT_MARK15.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK15.TabIndex = 56;
+            this.Care_BIT_MARK15.Text = "15";
+            this.Care_BIT_MARK15.UseVisualStyleBackColor = false;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(681, 31);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(71, 21);
+            this.button10.TabIndex = 65;
+            this.button10.Text = "扩展";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // Care_BIT_MARK4
+            // 
+            this.Care_BIT_MARK4.AutoSize = true;
+            this.Care_BIT_MARK4.BackColor = System.Drawing.Color.Gray;
+            this.Care_BIT_MARK4.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK4.Checked = true;
+            this.Care_BIT_MARK4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Care_BIT_MARK4.Location = new System.Drawing.Point(536, 51);
+            this.Care_BIT_MARK4.Name = "Care_BIT_MARK4";
+            this.Care_BIT_MARK4.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK4.TabIndex = 67;
+            this.Care_BIT_MARK4.Text = "04";
+            this.Care_BIT_MARK4.UseVisualStyleBackColor = false;
+            // 
             // bit_nomask_result
             // 
             this.bit_nomask_result.AllowDrop = true;
-            this.bit_nomask_result.Location = new System.Drawing.Point(340, 59);
+            this.bit_nomask_result.Location = new System.Drawing.Point(190, 53);
             this.bit_nomask_result.Name = "bit_nomask_result";
-            this.bit_nomask_result.Size = new System.Drawing.Size(118, 21);
+            this.bit_nomask_result.Size = new System.Drawing.Size(69, 21);
             this.bit_nomask_result.TabIndex = 9;
+            // 
+            // Care_BIT_MARK8
+            // 
+            this.Care_BIT_MARK8.AutoSize = true;
+            this.Care_BIT_MARK8.BackColor = System.Drawing.Color.DarkGray;
+            this.Care_BIT_MARK8.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK8.Checked = true;
+            this.Care_BIT_MARK8.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Care_BIT_MARK8.Location = new System.Drawing.Point(452, 51);
+            this.Care_BIT_MARK8.Name = "Care_BIT_MARK8";
+            this.Care_BIT_MARK8.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK8.TabIndex = 63;
+            this.Care_BIT_MARK8.Text = "08";
+            this.Care_BIT_MARK8.UseVisualStyleBackColor = false;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(282, 64);
+            this.label31.Location = new System.Drawing.Point(132, 58);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(59, 12);
             this.label31.TabIndex = 64;
             this.label31.Text = "NOT_Mask:";
+            // 
+            // Care_BIT_MARK14
+            // 
+            this.Care_BIT_MARK14.AutoSize = true;
+            this.Care_BIT_MARK14.BackColor = System.Drawing.Color.DarkGray;
+            this.Care_BIT_MARK14.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK14.Location = new System.Drawing.Point(326, 51);
+            this.Care_BIT_MARK14.Name = "Care_BIT_MARK14";
+            this.Care_BIT_MARK14.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK14.TabIndex = 57;
+            this.Care_BIT_MARK14.Text = "14";
+            this.Care_BIT_MARK14.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK28
             // 
             this.BIT_MARK28.AutoSize = true;
             this.BIT_MARK28.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BIT_MARK28.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK28.Location = new System.Drawing.Point(68, 20);
+            this.BIT_MARK28.Location = new System.Drawing.Point(68, 16);
             this.BIT_MARK28.Name = "BIT_MARK28";
             this.BIT_MARK28.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK28.TabIndex = 27;
             this.BIT_MARK28.Text = "28";
             this.BIT_MARK28.UseVisualStyleBackColor = false;
             this.BIT_MARK28.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK28.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK3
+            // 
+            this.Care_BIT_MARK3.AutoSize = true;
+            this.Care_BIT_MARK3.BackColor = System.Drawing.Color.Gray;
+            this.Care_BIT_MARK3.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK3.Checked = true;
+            this.Care_BIT_MARK3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Care_BIT_MARK3.Location = new System.Drawing.Point(557, 51);
+            this.Care_BIT_MARK3.Name = "Care_BIT_MARK3";
+            this.Care_BIT_MARK3.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK3.TabIndex = 68;
+            this.Care_BIT_MARK3.Text = "03";
+            this.Care_BIT_MARK3.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK23
             // 
             this.BIT_MARK23.AutoSize = true;
             this.BIT_MARK23.BackColor = System.Drawing.Color.Gainsboro;
             this.BIT_MARK23.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK23.Location = new System.Drawing.Point(173, 20);
+            this.BIT_MARK23.Location = new System.Drawing.Point(173, 16);
             this.BIT_MARK23.Name = "BIT_MARK23";
             this.BIT_MARK23.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK23.TabIndex = 23;
             this.BIT_MARK23.Text = "23";
             this.BIT_MARK23.UseVisualStyleBackColor = false;
             this.BIT_MARK23.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK11
+            // 
+            this.Care_BIT_MARK11.AutoSize = true;
+            this.Care_BIT_MARK11.BackColor = System.Drawing.Color.DarkGray;
+            this.Care_BIT_MARK11.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK11.Checked = true;
+            this.Care_BIT_MARK11.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Care_BIT_MARK11.Location = new System.Drawing.Point(389, 51);
+            this.Care_BIT_MARK11.Name = "Care_BIT_MARK11";
+            this.Care_BIT_MARK11.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK11.TabIndex = 60;
+            this.Care_BIT_MARK11.Text = "11";
+            this.Care_BIT_MARK11.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK16
             // 
             this.BIT_MARK16.AutoSize = true;
             this.BIT_MARK16.BackColor = System.Drawing.Color.Gainsboro;
             this.BIT_MARK16.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK16.Location = new System.Drawing.Point(320, 20);
+            this.BIT_MARK16.Location = new System.Drawing.Point(320, 16);
             this.BIT_MARK16.Name = "BIT_MARK16";
             this.BIT_MARK16.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK16.TabIndex = 39;
             this.BIT_MARK16.Text = "16";
             this.BIT_MARK16.UseVisualStyleBackColor = false;
             this.BIT_MARK16.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK7
+            // 
+            this.Care_BIT_MARK7.AutoSize = true;
+            this.Care_BIT_MARK7.BackColor = System.Drawing.Color.Gray;
+            this.Care_BIT_MARK7.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK7.Location = new System.Drawing.Point(473, 51);
+            this.Care_BIT_MARK7.Name = "Care_BIT_MARK7";
+            this.Care_BIT_MARK7.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK7.TabIndex = 64;
+            this.Care_BIT_MARK7.Text = "07";
+            this.Care_BIT_MARK7.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK27
             // 
             this.BIT_MARK27.AutoSize = true;
             this.BIT_MARK27.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BIT_MARK27.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK27.Location = new System.Drawing.Point(89, 20);
+            this.BIT_MARK27.Location = new System.Drawing.Point(89, 16);
             this.BIT_MARK27.Name = "BIT_MARK27";
             this.BIT_MARK27.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK27.TabIndex = 28;
             this.BIT_MARK27.Text = "27";
             this.BIT_MARK27.UseVisualStyleBackColor = false;
             this.BIT_MARK27.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK27.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK10
+            // 
+            this.Care_BIT_MARK10.AutoSize = true;
+            this.Care_BIT_MARK10.BackColor = System.Drawing.Color.DarkGray;
+            this.Care_BIT_MARK10.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK10.Checked = true;
+            this.Care_BIT_MARK10.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Care_BIT_MARK10.Location = new System.Drawing.Point(410, 51);
+            this.Care_BIT_MARK10.Name = "Care_BIT_MARK10";
+            this.Care_BIT_MARK10.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK10.TabIndex = 61;
+            this.Care_BIT_MARK10.Text = "10";
+            this.Care_BIT_MARK10.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK12
             // 
             this.BIT_MARK12.AutoSize = true;
             this.BIT_MARK12.BackColor = System.Drawing.Color.DarkGray;
             this.BIT_MARK12.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK12.Location = new System.Drawing.Point(404, 20);
+            this.BIT_MARK12.Location = new System.Drawing.Point(404, 16);
             this.BIT_MARK12.Name = "BIT_MARK12";
             this.BIT_MARK12.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK12.TabIndex = 43;
             this.BIT_MARK12.Text = "12";
             this.BIT_MARK12.UseVisualStyleBackColor = false;
             this.BIT_MARK12.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK13
+            // 
+            this.Care_BIT_MARK13.AutoSize = true;
+            this.Care_BIT_MARK13.BackColor = System.Drawing.Color.DarkGray;
+            this.Care_BIT_MARK13.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK13.Location = new System.Drawing.Point(347, 51);
+            this.Care_BIT_MARK13.Name = "Care_BIT_MARK13";
+            this.Care_BIT_MARK13.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK13.TabIndex = 58;
+            this.Care_BIT_MARK13.Text = "13";
+            this.Care_BIT_MARK13.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK0
             // 
             this.BIT_MARK0.AutoSize = true;
             this.BIT_MARK0.BackColor = System.Drawing.Color.Gray;
             this.BIT_MARK0.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK0.Location = new System.Drawing.Point(656, 20);
+            this.BIT_MARK0.Location = new System.Drawing.Point(656, 16);
             this.BIT_MARK0.Name = "BIT_MARK0";
             this.BIT_MARK0.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK0.TabIndex = 55;
             this.BIT_MARK0.Text = "00";
             this.BIT_MARK0.UseVisualStyleBackColor = false;
             this.BIT_MARK0.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK0.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK2
+            // 
+            this.Care_BIT_MARK2.AutoSize = true;
+            this.Care_BIT_MARK2.BackColor = System.Drawing.Color.Gray;
+            this.Care_BIT_MARK2.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK2.Location = new System.Drawing.Point(578, 51);
+            this.Care_BIT_MARK2.Name = "Care_BIT_MARK2";
+            this.Care_BIT_MARK2.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK2.TabIndex = 69;
+            this.Care_BIT_MARK2.Text = "02";
+            this.Care_BIT_MARK2.UseVisualStyleBackColor = false;
+            // 
+            // Care_BIT_MARK9
+            // 
+            this.Care_BIT_MARK9.AutoSize = true;
+            this.Care_BIT_MARK9.BackColor = System.Drawing.Color.DarkGray;
+            this.Care_BIT_MARK9.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK9.Checked = true;
+            this.Care_BIT_MARK9.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Care_BIT_MARK9.Location = new System.Drawing.Point(431, 51);
+            this.Care_BIT_MARK9.Name = "Care_BIT_MARK9";
+            this.Care_BIT_MARK9.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK9.TabIndex = 62;
+            this.Care_BIT_MARK9.Text = "09";
+            this.Care_BIT_MARK9.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK26
             // 
             this.BIT_MARK26.AutoSize = true;
             this.BIT_MARK26.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BIT_MARK26.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK26.Location = new System.Drawing.Point(110, 20);
+            this.BIT_MARK26.Location = new System.Drawing.Point(110, 16);
             this.BIT_MARK26.Name = "BIT_MARK26";
             this.BIT_MARK26.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK26.TabIndex = 29;
             this.BIT_MARK26.Text = "26";
             this.BIT_MARK26.UseVisualStyleBackColor = false;
             this.BIT_MARK26.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK26.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK1
+            // 
+            this.Care_BIT_MARK1.AutoSize = true;
+            this.Care_BIT_MARK1.BackColor = System.Drawing.Color.Gray;
+            this.Care_BIT_MARK1.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK1.Checked = true;
+            this.Care_BIT_MARK1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Care_BIT_MARK1.Location = new System.Drawing.Point(599, 51);
+            this.Care_BIT_MARK1.Name = "Care_BIT_MARK1";
+            this.Care_BIT_MARK1.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK1.TabIndex = 70;
+            this.Care_BIT_MARK1.Text = "01";
+            this.Care_BIT_MARK1.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK19
             // 
             this.BIT_MARK19.AutoSize = true;
             this.BIT_MARK19.BackColor = System.Drawing.Color.Gainsboro;
             this.BIT_MARK19.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK19.Location = new System.Drawing.Point(257, 20);
+            this.BIT_MARK19.Location = new System.Drawing.Point(257, 16);
             this.BIT_MARK19.Name = "BIT_MARK19";
             this.BIT_MARK19.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK19.TabIndex = 36;
             this.BIT_MARK19.Text = "19";
             this.BIT_MARK19.UseVisualStyleBackColor = false;
             this.BIT_MARK19.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK6
+            // 
+            this.Care_BIT_MARK6.AutoSize = true;
+            this.Care_BIT_MARK6.BackColor = System.Drawing.Color.Gray;
+            this.Care_BIT_MARK6.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK6.Location = new System.Drawing.Point(494, 51);
+            this.Care_BIT_MARK6.Name = "Care_BIT_MARK6";
+            this.Care_BIT_MARK6.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK6.TabIndex = 65;
+            this.Care_BIT_MARK6.Text = "06";
+            this.Care_BIT_MARK6.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK31
             // 
             this.BIT_MARK31.AutoSize = true;
             this.BIT_MARK31.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BIT_MARK31.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK31.Location = new System.Drawing.Point(5, 20);
+            this.BIT_MARK31.Location = new System.Drawing.Point(5, 16);
             this.BIT_MARK31.Name = "BIT_MARK31";
             this.BIT_MARK31.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK31.TabIndex = 24;
             this.BIT_MARK31.Text = "31";
             this.BIT_MARK31.UseVisualStyleBackColor = false;
             this.BIT_MARK31.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // Care_BIT_MARK5
+            // 
+            this.Care_BIT_MARK5.AutoSize = true;
+            this.Care_BIT_MARK5.BackColor = System.Drawing.Color.Gray;
+            this.Care_BIT_MARK5.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK5.Location = new System.Drawing.Point(515, 51);
+            this.Care_BIT_MARK5.Name = "Care_BIT_MARK5";
+            this.Care_BIT_MARK5.Size = new System.Drawing.Size(21, 30);
+            this.Care_BIT_MARK5.TabIndex = 66;
+            this.Care_BIT_MARK5.Text = "05";
+            this.Care_BIT_MARK5.UseVisualStyleBackColor = false;
             // 
             // BIT_MARK25
             // 
             this.BIT_MARK25.AutoSize = true;
             this.BIT_MARK25.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BIT_MARK25.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK25.Location = new System.Drawing.Point(131, 20);
+            this.BIT_MARK25.Location = new System.Drawing.Point(131, 16);
             this.BIT_MARK25.Name = "BIT_MARK25";
             this.BIT_MARK25.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK25.TabIndex = 30;
             this.BIT_MARK25.Text = "25";
             this.BIT_MARK25.UseVisualStyleBackColor = false;
             this.BIT_MARK25.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(680, 16);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(72, 37);
-            this.button16.TabIndex = 63;
-            this.button16.Text = "Generate";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.bitmask_checkbox_Click);
+            this.BIT_MARK25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK15
             // 
             this.BIT_MARK15.AutoSize = true;
             this.BIT_MARK15.BackColor = System.Drawing.Color.DarkGray;
             this.BIT_MARK15.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK15.Location = new System.Drawing.Point(341, 20);
+            this.BIT_MARK15.Location = new System.Drawing.Point(341, 16);
             this.BIT_MARK15.Name = "BIT_MARK15";
             this.BIT_MARK15.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK15.TabIndex = 40;
             this.BIT_MARK15.Text = "15";
             this.BIT_MARK15.UseVisualStyleBackColor = false;
             this.BIT_MARK15.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK30
             // 
             this.BIT_MARK30.AutoSize = true;
             this.BIT_MARK30.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BIT_MARK30.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK30.Location = new System.Drawing.Point(26, 20);
+            this.BIT_MARK30.Location = new System.Drawing.Point(26, 16);
             this.BIT_MARK30.Name = "BIT_MARK30";
             this.BIT_MARK30.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK30.TabIndex = 25;
             this.BIT_MARK30.Text = "30";
             this.BIT_MARK30.UseVisualStyleBackColor = false;
             this.BIT_MARK30.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK22
             // 
             this.BIT_MARK22.AutoSize = true;
             this.BIT_MARK22.BackColor = System.Drawing.Color.Gainsboro;
             this.BIT_MARK22.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK22.Location = new System.Drawing.Point(194, 20);
+            this.BIT_MARK22.Location = new System.Drawing.Point(194, 16);
             this.BIT_MARK22.Name = "BIT_MARK22";
             this.BIT_MARK22.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK22.TabIndex = 33;
             this.BIT_MARK22.Text = "22";
             this.BIT_MARK22.UseVisualStyleBackColor = false;
             this.BIT_MARK22.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK24
             // 
             this.BIT_MARK24.AutoSize = true;
             this.BIT_MARK24.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BIT_MARK24.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK24.Location = new System.Drawing.Point(152, 20);
+            this.BIT_MARK24.Location = new System.Drawing.Point(152, 16);
             this.BIT_MARK24.Name = "BIT_MARK24";
             this.BIT_MARK24.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK24.TabIndex = 24;
             this.BIT_MARK24.Text = "24";
             this.BIT_MARK24.UseVisualStyleBackColor = false;
             this.BIT_MARK24.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK4
             // 
@@ -3559,13 +3835,14 @@
             this.BIT_MARK4.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BIT_MARK4.Checked = true;
             this.BIT_MARK4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.BIT_MARK4.Location = new System.Drawing.Point(572, 20);
+            this.BIT_MARK4.Location = new System.Drawing.Point(572, 16);
             this.BIT_MARK4.Name = "BIT_MARK4";
             this.BIT_MARK4.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK4.TabIndex = 51;
             this.BIT_MARK4.Text = "04";
             this.BIT_MARK4.UseVisualStyleBackColor = false;
             this.BIT_MARK4.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK8
             // 
@@ -3574,46 +3851,49 @@
             this.BIT_MARK8.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BIT_MARK8.Checked = true;
             this.BIT_MARK8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.BIT_MARK8.Location = new System.Drawing.Point(488, 20);
+            this.BIT_MARK8.Location = new System.Drawing.Point(488, 16);
             this.BIT_MARK8.Name = "BIT_MARK8";
             this.BIT_MARK8.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK8.TabIndex = 47;
             this.BIT_MARK8.Text = "08";
             this.BIT_MARK8.UseVisualStyleBackColor = false;
             this.BIT_MARK8.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK29
             // 
             this.BIT_MARK29.AutoSize = true;
             this.BIT_MARK29.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BIT_MARK29.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK29.Location = new System.Drawing.Point(47, 20);
+            this.BIT_MARK29.Location = new System.Drawing.Point(47, 16);
             this.BIT_MARK29.Name = "BIT_MARK29";
             this.BIT_MARK29.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK29.TabIndex = 26;
             this.BIT_MARK29.Text = "29";
             this.BIT_MARK29.UseVisualStyleBackColor = false;
             this.BIT_MARK29.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK18
             // 
             this.BIT_MARK18.AutoSize = true;
             this.BIT_MARK18.BackColor = System.Drawing.Color.Gainsboro;
             this.BIT_MARK18.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK18.Location = new System.Drawing.Point(278, 20);
+            this.BIT_MARK18.Location = new System.Drawing.Point(278, 16);
             this.BIT_MARK18.Name = "BIT_MARK18";
             this.BIT_MARK18.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK18.TabIndex = 37;
             this.BIT_MARK18.Text = "18";
             this.BIT_MARK18.UseVisualStyleBackColor = false;
             this.BIT_MARK18.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // bit_mask_result
             // 
             this.bit_mask_result.AllowDrop = true;
-            this.bit_mask_result.Location = new System.Drawing.Point(188, 59);
+            this.bit_mask_result.Location = new System.Drawing.Point(62, 53);
             this.bit_mask_result.Name = "bit_mask_result";
-            this.bit_mask_result.Size = new System.Drawing.Size(91, 21);
+            this.bit_mask_result.Size = new System.Drawing.Size(69, 21);
             this.bit_mask_result.TabIndex = 10;
             this.bit_mask_result.Text = "0x00000F1A";
             this.bit_mask_result.TextChanged += new System.EventHandler(this.bit_mask_result_TextChanged);
@@ -3622,7 +3902,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(131, 63);
+            this.label35.Location = new System.Drawing.Point(5, 57);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(59, 12);
             this.label35.TabIndex = 22;
@@ -3633,26 +3913,28 @@
             this.BIT_MARK21.AutoSize = true;
             this.BIT_MARK21.BackColor = System.Drawing.Color.Gainsboro;
             this.BIT_MARK21.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK21.Location = new System.Drawing.Point(215, 20);
+            this.BIT_MARK21.Location = new System.Drawing.Point(215, 16);
             this.BIT_MARK21.Name = "BIT_MARK21";
             this.BIT_MARK21.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK21.TabIndex = 34;
             this.BIT_MARK21.Text = "21";
             this.BIT_MARK21.UseVisualStyleBackColor = false;
             this.BIT_MARK21.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK14
             // 
             this.BIT_MARK14.AutoSize = true;
             this.BIT_MARK14.BackColor = System.Drawing.Color.DarkGray;
             this.BIT_MARK14.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK14.Location = new System.Drawing.Point(362, 20);
+            this.BIT_MARK14.Location = new System.Drawing.Point(362, 16);
             this.BIT_MARK14.Name = "BIT_MARK14";
             this.BIT_MARK14.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK14.TabIndex = 41;
             this.BIT_MARK14.Text = "14";
             this.BIT_MARK14.UseVisualStyleBackColor = false;
             this.BIT_MARK14.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK3
             // 
@@ -3661,35 +3943,28 @@
             this.BIT_MARK3.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BIT_MARK3.Checked = true;
             this.BIT_MARK3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.BIT_MARK3.Location = new System.Drawing.Point(593, 20);
+            this.BIT_MARK3.Location = new System.Drawing.Point(593, 16);
             this.BIT_MARK3.Name = "BIT_MARK3";
             this.BIT_MARK3.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK3.TabIndex = 52;
             this.BIT_MARK3.Text = "03";
             this.BIT_MARK3.UseVisualStyleBackColor = false;
             this.BIT_MARK3.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK17
             // 
             this.BIT_MARK17.AutoSize = true;
             this.BIT_MARK17.BackColor = System.Drawing.Color.Gainsboro;
             this.BIT_MARK17.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK17.Location = new System.Drawing.Point(299, 20);
+            this.BIT_MARK17.Location = new System.Drawing.Point(299, 16);
             this.BIT_MARK17.Name = "BIT_MARK17";
             this.BIT_MARK17.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK17.TabIndex = 38;
             this.BIT_MARK17.Text = "17";
             this.BIT_MARK17.UseVisualStyleBackColor = false;
             this.BIT_MARK17.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
-            // 
-            // textBox52
-            // 
-            this.textBox52.AllowDrop = true;
-            this.textBox52.Location = new System.Drawing.Point(31, 60);
-            this.textBox52.Name = "textBox52";
-            this.textBox52.Size = new System.Drawing.Size(92, 21);
-            this.textBox52.TabIndex = 2;
-            this.textBox52.Leave += new System.EventHandler(this.textBoxTrim_Leave);
+            this.BIT_MARK17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK11
             // 
@@ -3698,32 +3973,34 @@
             this.BIT_MARK11.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BIT_MARK11.Checked = true;
             this.BIT_MARK11.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.BIT_MARK11.Location = new System.Drawing.Point(425, 20);
+            this.BIT_MARK11.Location = new System.Drawing.Point(425, 16);
             this.BIT_MARK11.Name = "BIT_MARK11";
             this.BIT_MARK11.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK11.TabIndex = 44;
             this.BIT_MARK11.Text = "11";
             this.BIT_MARK11.UseVisualStyleBackColor = false;
             this.BIT_MARK11.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK20
             // 
             this.BIT_MARK20.AutoSize = true;
             this.BIT_MARK20.BackColor = System.Drawing.Color.Gainsboro;
             this.BIT_MARK20.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK20.Location = new System.Drawing.Point(236, 20);
+            this.BIT_MARK20.Location = new System.Drawing.Point(236, 16);
             this.BIT_MARK20.Name = "BIT_MARK20";
             this.BIT_MARK20.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK20.TabIndex = 35;
             this.BIT_MARK20.Text = "20";
             this.BIT_MARK20.UseVisualStyleBackColor = false;
             this.BIT_MARK20.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(461, 58);
+            this.button17.Location = new System.Drawing.Point(681, 10);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(53, 22);
+            this.button17.Size = new System.Drawing.Size(70, 22);
             this.button17.TabIndex = 0;
             this.button17.Text = "Clear";
             this.button17.UseVisualStyleBackColor = true;
@@ -3734,13 +4011,14 @@
             this.BIT_MARK7.AutoSize = true;
             this.BIT_MARK7.BackColor = System.Drawing.Color.Gray;
             this.BIT_MARK7.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK7.Location = new System.Drawing.Point(509, 20);
+            this.BIT_MARK7.Location = new System.Drawing.Point(509, 16);
             this.BIT_MARK7.Name = "BIT_MARK7";
             this.BIT_MARK7.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK7.TabIndex = 48;
             this.BIT_MARK7.Text = "07";
             this.BIT_MARK7.UseVisualStyleBackColor = false;
             this.BIT_MARK7.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK10
             // 
@@ -3749,39 +4027,42 @@
             this.BIT_MARK10.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BIT_MARK10.Checked = true;
             this.BIT_MARK10.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.BIT_MARK10.Location = new System.Drawing.Point(446, 20);
+            this.BIT_MARK10.Location = new System.Drawing.Point(446, 16);
             this.BIT_MARK10.Name = "BIT_MARK10";
             this.BIT_MARK10.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK10.TabIndex = 45;
             this.BIT_MARK10.Text = "10";
             this.BIT_MARK10.UseVisualStyleBackColor = false;
             this.BIT_MARK10.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK13
             // 
             this.BIT_MARK13.AutoSize = true;
             this.BIT_MARK13.BackColor = System.Drawing.Color.DarkGray;
             this.BIT_MARK13.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK13.Location = new System.Drawing.Point(383, 20);
+            this.BIT_MARK13.Location = new System.Drawing.Point(383, 16);
             this.BIT_MARK13.Name = "BIT_MARK13";
             this.BIT_MARK13.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK13.TabIndex = 42;
             this.BIT_MARK13.Text = "13";
             this.BIT_MARK13.UseVisualStyleBackColor = false;
             this.BIT_MARK13.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK2
             // 
             this.BIT_MARK2.AutoSize = true;
             this.BIT_MARK2.BackColor = System.Drawing.Color.Gray;
             this.BIT_MARK2.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK2.Location = new System.Drawing.Point(614, 20);
+            this.BIT_MARK2.Location = new System.Drawing.Point(614, 16);
             this.BIT_MARK2.Name = "BIT_MARK2";
             this.BIT_MARK2.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK2.TabIndex = 53;
             this.BIT_MARK2.Text = "02";
             this.BIT_MARK2.UseVisualStyleBackColor = false;
             this.BIT_MARK2.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK9
             // 
@@ -3790,13 +4071,14 @@
             this.BIT_MARK9.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BIT_MARK9.Checked = true;
             this.BIT_MARK9.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.BIT_MARK9.Location = new System.Drawing.Point(467, 20);
+            this.BIT_MARK9.Location = new System.Drawing.Point(467, 16);
             this.BIT_MARK9.Name = "BIT_MARK9";
             this.BIT_MARK9.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK9.TabIndex = 46;
             this.BIT_MARK9.Text = "09";
             this.BIT_MARK9.UseVisualStyleBackColor = false;
             this.BIT_MARK9.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK1
             // 
@@ -3805,48 +4087,51 @@
             this.BIT_MARK1.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BIT_MARK1.Checked = true;
             this.BIT_MARK1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.BIT_MARK1.Location = new System.Drawing.Point(635, 20);
+            this.BIT_MARK1.Location = new System.Drawing.Point(635, 16);
             this.BIT_MARK1.Name = "BIT_MARK1";
             this.BIT_MARK1.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK1.TabIndex = 54;
             this.BIT_MARK1.Text = "01";
             this.BIT_MARK1.UseVisualStyleBackColor = false;
             this.BIT_MARK1.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(4, 64);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(29, 12);
-            this.label36.TabIndex = 11;
-            this.label36.Text = "hex:";
+            this.BIT_MARK1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK6
             // 
             this.BIT_MARK6.AutoSize = true;
             this.BIT_MARK6.BackColor = System.Drawing.Color.Gray;
             this.BIT_MARK6.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK6.Location = new System.Drawing.Point(530, 20);
+            this.BIT_MARK6.Location = new System.Drawing.Point(530, 16);
             this.BIT_MARK6.Name = "BIT_MARK6";
             this.BIT_MARK6.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK6.TabIndex = 49;
             this.BIT_MARK6.Text = "06";
             this.BIT_MARK6.UseVisualStyleBackColor = false;
             this.BIT_MARK6.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
             // 
             // BIT_MARK5
             // 
             this.BIT_MARK5.AutoSize = true;
             this.BIT_MARK5.BackColor = System.Drawing.Color.Gray;
             this.BIT_MARK5.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BIT_MARK5.Location = new System.Drawing.Point(551, 20);
+            this.BIT_MARK5.Location = new System.Drawing.Point(551, 16);
             this.BIT_MARK5.Name = "BIT_MARK5";
             this.BIT_MARK5.Size = new System.Drawing.Size(21, 30);
             this.BIT_MARK5.TabIndex = 50;
             this.BIT_MARK5.Text = "05";
             this.BIT_MARK5.UseVisualStyleBackColor = false;
             this.BIT_MARK5.CheckStateChanged += new System.EventHandler(this.BIT_MARK_CheckStateChanged);
+            this.BIT_MARK5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BIT_MARK_MouseClick);
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(647, 55);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(47, 12);
+            this.label57.TabIndex = 72;
+            this.label57.Text = "[15:00]";
             // 
             // groupBox10
             // 
@@ -8421,6 +8706,28 @@
             this.toolStripMenuItem18.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem18.Text = "贴下边";
             // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem19,
+            this.toolStripMenuItem148});
+            this.contextMenuStrip3.Name = "contextMenuStripSplit";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(140, 48);
+            this.contextMenuStrip3.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip3_ItemClicked);
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(139, 22);
+            this.toolStripMenuItem19.Text = "定位最低Bit";
+            // 
+            // toolStripMenuItem148
+            // 
+            this.toolStripMenuItem148.Name = "toolStripMenuItem148";
+            this.toolStripMenuItem148.Size = new System.Drawing.Size(139, 22);
+            this.toolStripMenuItem148.Text = "定位最高Bit";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -8431,7 +8738,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.3.0";
+            this.Text = "SYD_Calculator V2.3.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8516,6 +8823,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8668,10 +8976,8 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.TextBox bit_mask_result;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBox52;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.TextBox bit_nomask_result;
-        private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox16;
         private System.Windows.Forms.ComboBox comboBox_piecwise_mode;
@@ -8860,7 +9166,6 @@
         private System.Windows.Forms.TextBox textBox79;
         private System.Windows.Forms.Label label113;
         private System.Windows.Forms.Button button40;
-        private System.Windows.Forms.Button button16;
         private System.Windows.Forms.CheckBox BIT_MARK28;
         private System.Windows.Forms.CheckBox BIT_MARK27;
         private System.Windows.Forms.CheckBox BIT_MARK31;
@@ -9317,6 +9622,29 @@
         private System.Windows.Forms.Button reopen_source_file_button;
         private System.Windows.Forms.ToolStripMenuItem 更新文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK12;
+        private System.Windows.Forms.TextBox bit_mask_care_result;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK0;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK15;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK4;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK8;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK14;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK3;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK11;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK7;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK10;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK13;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK2;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK9;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK1;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK6;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem148;
+        private System.Windows.Forms.Label label57;
     }
 }
 
