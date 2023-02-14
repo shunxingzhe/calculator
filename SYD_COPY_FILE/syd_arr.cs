@@ -815,7 +815,7 @@ namespace SYD_COPY_FILE
             if (comboBox_fonttype.SelectedIndex == 0)
             {
                 orgTxt1 = textInput.Text.Trim();
-                orgTxt1 = orgTxt1.Replace("\"","'").Replace("!", ",");
+                orgTxt1 = orgTxt1.Replace("\"", "\\\"").Replace("!", ",");
                 orgTxt1 = RemoveHiddenCharacter(orgTxt1);
                 richTextBox_out.Text = "git commit -m \"" + orgTxt1+ "\"";
             }
