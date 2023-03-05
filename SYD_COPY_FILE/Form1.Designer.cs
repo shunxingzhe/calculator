@@ -3898,6 +3898,7 @@
             this.bit_mask_result.Text = "0x00000F1A";
             this.bit_mask_result.TextChanged += new System.EventHandler(this.bit_mask_result_TextChanged);
             this.bit_mask_result.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bit_mask_result_KeyDown);
+            this.bit_mask_result.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // label35
             // 
@@ -8738,7 +8739,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.3.2";
+            this.Text = "SYD_Calculator V2.3.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

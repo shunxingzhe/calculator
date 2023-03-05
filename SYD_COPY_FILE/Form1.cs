@@ -996,7 +996,8 @@ namespace SYD_COPY_FILE
         {
             if (e.KeyCode == Keys.Enter)
             {
-                UInt32 input = Convert.ToUInt32(bit_mask_result.Text.Substring(2, 8), 16);
+                string input_str = bit_mask_result.Text.Trim().Replace("0X", "").Replace("0x", "");
+                UInt32 input = Convert.ToUInt32(input_str, 16);
                 if ((input & 0x01) == 0x01) BIT_MARK0.Checked = true;
                 else BIT_MARK0.Checked = false;
                 if ((input & 0x02) == 0x02) BIT_MARK1.Checked = true;
@@ -1065,14 +1066,15 @@ namespace SYD_COPY_FILE
         }
         private void bit_mask_result_TextChanged(object sender, EventArgs e)
         {
-            if(bit_mask_result.Text.Length==10)
+            string input_str= bit_mask_result.Text.Trim().Replace("0X","").Replace("0x", "");
+            if (input_str.Length<=8)
             {
                 UInt32 data = 0;
-                data = Convert.ToUInt32(bit_mask_result.Text, 16);
+                data = Convert.ToUInt32(input_str, 16);
                 data = ~data;
                 bit_nomask_result.Text = "0x"+data.ToString("X8");
 
-                data = Convert.ToUInt32(bit_mask_result.Text, 16);
+                data = Convert.ToUInt32(input_str, 16);
                 data >>= care_bit_low;
                 UInt16 bit = 0;
                 for (byte i=0;i<=(care_bit_high- care_bit_low);i++)
