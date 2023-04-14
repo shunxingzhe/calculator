@@ -1493,7 +1493,7 @@ namespace SYD_COPY_FILE
            }
            if (comboBox_datatype.SelectedIndex != 0)
            {
-               orgTxt1 = orgTxt1.Replace(" ", "");
+               orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "");
            }
            orgTxt1 = orgTxt1.Replace("\r\n", "");
            byte[] bin=new byte[10];
