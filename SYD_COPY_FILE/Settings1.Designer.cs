@@ -754,5 +754,125 @@ namespace SYD_COPY_FILE {
                 this["combobox_key_line10"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_sectionintput1 {
+            get {
+                return ((string)(this["textBox_sectionintput1"]));
+            }
+            set {
+                this["textBox_sectionintput1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_sectionintput2 {
+            get {
+                return ((string)(this["textBox_sectionintput2"]));
+            }
+            set {
+                this["textBox_sectionintput2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_sectionintput3 {
+            get {
+                return ((string)(this["textBox_sectionintput3"]));
+            }
+            set {
+                this["textBox_sectionintput3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_sectionintput4 {
+            get {
+                return ((string)(this["textBox_sectionintput4"]));
+            }
+            set {
+                this["textBox_sectionintput4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_sectionintput5 {
+            get {
+                return ((string)(this["textBox_sectionintput5"]));
+            }
+            set {
+                this["textBox_sectionintput5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_sectionintput6 {
+            get {
+                return ((string)(this["textBox_sectionintput6"]));
+            }
+            set {
+                this["textBox_sectionintput6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_sectionoutput {
+            get {
+                return ((string)(this["textBox_sectionoutput"]));
+            }
+            set {
+                this["textBox_sectionoutput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_splitbinfile {
+            get {
+                return ((string)(this["textBox_splitbinfile"]));
+            }
+            set {
+                this["textBox_splitbinfile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int comboBox_Combin_SelectedIndex {
+            get {
+                return ((int)(this["comboBox_Combin_SelectedIndex"]));
+            }
+            set {
+                this["comboBox_Combin_SelectedIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int comboBox_splittype_SelectedIndex {
+            get {
+                return ((int)(this["comboBox_splittype_SelectedIndex"]));
+            }
+            set {
+                this["comboBox_splittype_SelectedIndex"] = value;
+            }
+        }
     }
 }

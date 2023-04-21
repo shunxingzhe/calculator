@@ -453,8 +453,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.Calendar_Time_Difference_Cal = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.button_combine_output = new System.Windows.Forms.Button();
+            this.textBox_sectionoutput = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.button19 = new System.Windows.Forms.Button();
             this.textBox_combin_section6 = new System.Windows.Forms.TextBox();
             this.textBox_combin_section1 = new System.Windows.Forms.TextBox();
@@ -468,7 +469,7 @@
             this.textBox_sectionintput2 = new System.Windows.Forms.TextBox();
             this.textBox_sectionintput4 = new System.Windows.Forms.TextBox();
             this.textBox_sectionintput3 = new System.Windows.Forms.TextBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox_Combin = new System.Windows.Forms.ComboBox();
             this.button_sectionintput6 = new System.Windows.Forms.Button();
             this.button_sectionintput1 = new System.Windows.Forms.Button();
             this.button_sectionintput5 = new System.Windows.Forms.Button();
@@ -482,6 +483,7 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.label128 = new System.Windows.Forms.Label();
             this.label130 = new System.Windows.Forms.Label();
@@ -5599,8 +5601,9 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.button_combine_output);
+            this.tabPage9.Controls.Add(this.textBox_sectionoutput);
             this.tabPage9.Controls.Add(this.label52);
-            this.tabPage9.Controls.Add(this.checkBox7);
             this.tabPage9.Controls.Add(this.button19);
             this.tabPage9.Controls.Add(this.textBox_combin_section6);
             this.tabPage9.Controls.Add(this.textBox_combin_section1);
@@ -5614,7 +5617,7 @@
             this.tabPage9.Controls.Add(this.textBox_sectionintput2);
             this.tabPage9.Controls.Add(this.textBox_sectionintput4);
             this.tabPage9.Controls.Add(this.textBox_sectionintput3);
-            this.tabPage9.Controls.Add(this.comboBox6);
+            this.tabPage9.Controls.Add(this.comboBox_Combin);
             this.tabPage9.Controls.Add(this.button_sectionintput6);
             this.tabPage9.Controls.Add(this.button_sectionintput1);
             this.tabPage9.Controls.Add(this.button_sectionintput5);
@@ -5628,12 +5631,35 @@
             this.tabPage9.Controls.Add(this.label34);
             this.tabPage9.Controls.Add(this.label50);
             this.tabPage9.Controls.Add(this.label51);
+            this.tabPage9.Controls.Add(this.checkBox7);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Size = new System.Drawing.Size(756, 552);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "BinCombin";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // button_combine_output
+            // 
+            this.button_combine_output.Location = new System.Drawing.Point(279, 5);
+            this.button_combine_output.Name = "button_combine_output";
+            this.button_combine_output.Size = new System.Drawing.Size(88, 21);
+            this.button_combine_output.TabIndex = 78;
+            this.button_combine_output.Text = "设置输出路径";
+            this.button_combine_output.UseVisualStyleBackColor = true;
+            this.button_combine_output.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            // 
+            // textBox_sectionoutput
+            // 
+            this.textBox_sectionoutput.AllowDrop = true;
+            this.textBox_sectionoutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBox_sectionoutput.Location = new System.Drawing.Point(368, 6);
+            this.textBox_sectionoutput.Name = "textBox_sectionoutput";
+            this.textBox_sectionoutput.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox_sectionoutput.Size = new System.Drawing.Size(215, 20);
+            this.textBox_sectionoutput.TabIndex = 77;
+            this.textBox_sectionoutput.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
+            this.textBox_sectionoutput.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // label52
             // 
@@ -5644,21 +5670,9 @@
             this.label52.TabIndex = 75;
             this.label52.Text = "Section";
             // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Checked = true;
-            this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox7.Location = new System.Drawing.Point(90, 7);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(78, 16);
-            this.checkBox7.TabIndex = 68;
-            this.checkBox7.Text = "首地址为0";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(405, 4);
+            this.button19.Location = new System.Drawing.Point(160, 4);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(55, 22);
             this.button19.TabIndex = 67;
@@ -5726,8 +5740,11 @@
             this.textBox_sectionintput6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox_sectionintput6.Location = new System.Drawing.Point(119, 143);
             this.textBox_sectionintput6.Name = "textBox_sectionintput6";
+            this.textBox_sectionintput6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionintput6.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput6.TabIndex = 43;
+            this.textBox_sectionintput6.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
+            this.textBox_sectionintput6.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // textBox_sectionintput1
             // 
@@ -5735,8 +5752,11 @@
             this.textBox_sectionintput1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox_sectionintput1.Location = new System.Drawing.Point(119, 30);
             this.textBox_sectionintput1.Name = "textBox_sectionintput1";
+            this.textBox_sectionintput1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionintput1.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput1.TabIndex = 27;
+            this.textBox_sectionintput1.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
+            this.textBox_sectionintput1.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // textBox_sectionintput5
             // 
@@ -5744,8 +5764,11 @@
             this.textBox_sectionintput5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox_sectionintput5.Location = new System.Drawing.Point(119, 121);
             this.textBox_sectionintput5.Name = "textBox_sectionintput5";
+            this.textBox_sectionintput5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionintput5.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput5.TabIndex = 40;
+            this.textBox_sectionintput5.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
+            this.textBox_sectionintput5.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // textBox_sectionintput2
             // 
@@ -5753,8 +5776,11 @@
             this.textBox_sectionintput2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox_sectionintput2.Location = new System.Drawing.Point(119, 53);
             this.textBox_sectionintput2.Name = "textBox_sectionintput2";
+            this.textBox_sectionintput2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionintput2.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput2.TabIndex = 31;
+            this.textBox_sectionintput2.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
+            this.textBox_sectionintput2.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // textBox_sectionintput4
             // 
@@ -5762,8 +5788,11 @@
             this.textBox_sectionintput4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox_sectionintput4.Location = new System.Drawing.Point(119, 98);
             this.textBox_sectionintput4.Name = "textBox_sectionintput4";
+            this.textBox_sectionintput4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionintput4.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput4.TabIndex = 37;
+            this.textBox_sectionintput4.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
+            this.textBox_sectionintput4.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
             // textBox_sectionintput3
             // 
@@ -5771,24 +5800,27 @@
             this.textBox_sectionintput3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox_sectionintput3.Location = new System.Drawing.Point(119, 75);
             this.textBox_sectionintput3.Name = "textBox_sectionintput3";
+            this.textBox_sectionintput3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionintput3.Size = new System.Drawing.Size(400, 20);
             this.textBox_sectionintput3.TabIndex = 34;
+            this.textBox_sectionintput3.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
+            this.textBox_sectionintput3.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
-            // comboBox6
+            // comboBox_Combin
             // 
-            this.comboBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.comboBox6.Font = new System.Drawing.Font("宋体", 10F);
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.comboBox_Combin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBox_Combin.Font = new System.Drawing.Font("宋体", 10F);
+            this.comboBox_Combin.FormattingEnabled = true;
+            this.comboBox_Combin.Items.AddRange(new object[] {
             "无缝拼接",
             "扇区补齐",
             "地址插入"});
-            this.comboBox6.Location = new System.Drawing.Point(3, 5);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBox6.Size = new System.Drawing.Size(81, 21);
-            this.comboBox6.TabIndex = 65;
-            this.comboBox6.Text = "无缝拼接";
+            this.comboBox_Combin.Location = new System.Drawing.Point(3, 5);
+            this.comboBox_Combin.Name = "comboBox_Combin";
+            this.comboBox_Combin.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.comboBox_Combin.Size = new System.Drawing.Size(81, 21);
+            this.comboBox_Combin.TabIndex = 65;
+            this.comboBox_Combin.Text = "无缝拼接";
             // 
             // button_sectionintput6
             // 
@@ -5858,9 +5890,9 @@
             // 
             // button_combine
             // 
-            this.button_combine.Location = new System.Drawing.Point(466, 5);
+            this.button_combine.Location = new System.Drawing.Point(214, 5);
             this.button_combine.Name = "button_combine";
-            this.button_combine.Size = new System.Drawing.Size(117, 21);
+            this.button_combine.Size = new System.Drawing.Size(66, 21);
             this.button_combine.TabIndex = 29;
             this.button_combine.Text = "Combine";
             this.button_combine.UseVisualStyleBackColor = true;
@@ -5921,6 +5953,18 @@
             this.label51.TabIndex = 69;
             this.label51.Text = "1:";
             // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Checked = true;
+            this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox7.Location = new System.Drawing.Point(86, 8);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(78, 16);
+            this.checkBox7.TabIndex = 68;
+            this.checkBox7.Text = "首地址为0";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.label128);
@@ -5953,6 +5997,7 @@
             this.tabPage8.Font = new System.Drawing.Font("宋体", 8F);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
+            this.tabPage8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabPage8.Size = new System.Drawing.Size(756, 552);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "BinSplit";
@@ -6000,6 +6045,7 @@
             this.textBox_splitbinfile.AllowDrop = true;
             this.textBox_splitbinfile.Location = new System.Drawing.Point(6, 3);
             this.textBox_splitbinfile.Name = "textBox_splitbinfile";
+            this.textBox_splitbinfile.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_splitbinfile.Size = new System.Drawing.Size(327, 20);
             this.textBox_splitbinfile.TabIndex = 41;
             this.textBox_splitbinfile.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
@@ -6022,6 +6068,7 @@
             this.textBox_sectionout6.Font = new System.Drawing.Font("宋体", 8F);
             this.textBox_sectionout6.Location = new System.Drawing.Point(30, 131);
             this.textBox_sectionout6.Name = "textBox_sectionout6";
+            this.textBox_sectionout6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout6.Size = new System.Drawing.Size(341, 20);
             this.textBox_sectionout6.TabIndex = 58;
             // 
@@ -6031,6 +6078,7 @@
             this.textBox_sectionout5.Font = new System.Drawing.Font("宋体", 8F);
             this.textBox_sectionout5.Location = new System.Drawing.Point(112, 109);
             this.textBox_sectionout5.Name = "textBox_sectionout5";
+            this.textBox_sectionout5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout5.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout5.TabIndex = 57;
             // 
@@ -6040,6 +6088,7 @@
             this.textBox_sectionout4.Font = new System.Drawing.Font("宋体", 8F);
             this.textBox_sectionout4.Location = new System.Drawing.Point(112, 88);
             this.textBox_sectionout4.Name = "textBox_sectionout4";
+            this.textBox_sectionout4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout4.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout4.TabIndex = 56;
             // 
@@ -6049,6 +6098,7 @@
             this.textBox_sectionout3.Font = new System.Drawing.Font("宋体", 8F);
             this.textBox_sectionout3.Location = new System.Drawing.Point(112, 67);
             this.textBox_sectionout3.Name = "textBox_sectionout3";
+            this.textBox_sectionout3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout3.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout3.TabIndex = 55;
             // 
@@ -6058,6 +6108,7 @@
             this.textBox_sectionout2.Font = new System.Drawing.Font("宋体", 8F);
             this.textBox_sectionout2.Location = new System.Drawing.Point(112, 46);
             this.textBox_sectionout2.Name = "textBox_sectionout2";
+            this.textBox_sectionout2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout2.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout2.TabIndex = 54;
             // 
@@ -6067,6 +6118,7 @@
             this.textBox_sectionout1.Font = new System.Drawing.Font("宋体", 8F);
             this.textBox_sectionout1.Location = new System.Drawing.Point(112, 25);
             this.textBox_sectionout1.Name = "textBox_sectionout1";
+            this.textBox_sectionout1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout1.Size = new System.Drawing.Size(478, 20);
             this.textBox_sectionout1.TabIndex = 53;
             // 
@@ -8739,7 +8791,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.3.4";
+            this.Text = "SYD_Calculator V2.3.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9081,7 +9133,7 @@
         private System.Windows.Forms.TextBox textBox_sectionintput2;
         private System.Windows.Forms.TextBox textBox_sectionintput4;
         private System.Windows.Forms.TextBox textBox_sectionintput3;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBox_Combin;
         private System.Windows.Forms.Button button_sectionintput6;
         private System.Windows.Forms.Button button_sectionintput1;
         private System.Windows.Forms.Button button_sectionintput5;
@@ -9646,6 +9698,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem148;
         private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Button button_combine_output;
+        private System.Windows.Forms.TextBox textBox_sectionoutput;
     }
 }
 

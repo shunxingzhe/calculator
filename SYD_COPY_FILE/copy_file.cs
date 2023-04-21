@@ -56,6 +56,16 @@ namespace SYD_COPY_FILE
             checkBox_systemtime_rename.Checked = Settings1.Default.Setting_checkBox_systemtime_rename;
             checkBox_delete_srcfile.Checked = Settings1.Default.Setting_checkBox_delete_srcfile;
 
+            textBox_sectionintput1.Text = Settings1.Default.textBox_sectionintput1;
+            textBox_sectionintput2.Text = Settings1.Default.textBox_sectionintput2;
+            textBox_sectionintput3.Text = Settings1.Default.textBox_sectionintput3;
+            textBox_sectionintput4.Text = Settings1.Default.textBox_sectionintput4;
+            textBox_sectionintput5.Text = Settings1.Default.textBox_sectionintput5;
+            textBox_sectionintput6.Text = Settings1.Default.textBox_sectionintput6;
+            textBox_splitbinfile.Text = Settings1.Default.textBox_splitbinfile;
+            comboBox_Combin.SelectedIndex= Settings1.Default.comboBox_Combin_SelectedIndex;
+            comboBox_splittype.SelectedIndex=Settings1.Default.comboBox_splittype_SelectedIndex;
+
             if (Settings1.Default.suffix_textBox_rename_line1 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line1);
             if (Settings1.Default.suffix_textBox_rename_line2 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line2);
             if (Settings1.Default.suffix_textBox_rename_line3 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line3);
@@ -71,6 +81,171 @@ namespace SYD_COPY_FILE
             comboBox7.SelectedIndex = Settings1.Default.rename_mode_sel;
 
             update_StripStatusLabel();
+        }
+        public void copy_file_uninit()
+        {
+            Settings1.Default.arr_data_type = comboBox_datatype.SelectedIndex;
+            Settings1.Default.arr_font_type = comboBox_fonttype.SelectedIndex;
+            Settings1.Default.arr_fun_sel = comboBox_mode.SelectedIndex;
+            Settings1.Default.arr_source_file_text = source_file_textBox.Text;
+            Settings1.Default.arr_extract_len = textBox_filesize.Text;
+
+            Settings1.Default.source_copyfile_textBox = source_copyfile_textBox.Text;
+            Settings1.Default.destination_file_textBox = destination_file_textBox.Text;
+            Settings1.Default.destination_file_textBox_two = destination_file_textBox_two.Text;
+            Settings1.Default.textBox_copy_destinationfileend = textBox_copy_destinationfileend.Text;
+            Settings1.Default.source_copyfile_textBox_sync = source_copyfile_textBox_sync.Text;
+            Settings1.Default.destination_file_textBox_sync = destination_file_textBox_sync.Text;
+            Settings1.Default.destination_file_textBox_two_sync = destination_file_textBox_two_sync.Text;
+            Settings1.Default.textBox_copy_destinationfileend_sync = textBox_copy_destinationfileend_sync.Text;
+
+            Settings1.Default.pictureBox_interface_ismin = !pictureBox_interface_ismin;
+
+            Settings1.Default.Setting_textBox_section1 = textBox_section1.Text;
+            Settings1.Default.Setting_textBox_section2 = textBox_section2.Text;
+            Settings1.Default.Setting_textBox_section3 = textBox_section3.Text;
+            Settings1.Default.Setting_textBox_section4 = textBox_section4.Text;
+            Settings1.Default.Setting_textBox_section5 = textBox_section5.Text;
+            Settings1.Default.Setting_source_copyfile_textBox_rename = source_copyfile_textBox_rename.Text;
+            Settings1.Default.Setting_source_copyfile_prefix_textBox_rename = source_copyfile_prefix_textBox_rename.Text;
+            Settings1.Default.Setting_source_copyfile_suffix_textBox_rename = source_copyfile_suffix_textBox_rename.Text;
+            Settings1.Default.Setting_checkBox10 = checkBox10.Checked;
+            Settings1.Default.Setting_checkBox_systemtime_rename = checkBox_systemtime_rename.Checked;
+            Settings1.Default.rename_mode_sel = comboBox7.SelectedIndex;
+            Settings1.Default.Setting_checkBox_delete_srcfile = checkBox_delete_srcfile.Checked;
+            Settings1.Default.Setting_textBoxSaveDir = textBoxSaveDir.Text;
+            if ((textBox_SecretId.Text.Length == secretId_lenght) && (textBox_secretKey.Text.Length == secretKey_lenght))
+            {
+                Settings1.Default.cos_secretId = textBox_SecretId.Text;
+                Settings1.Default.cos_secretKey = textBox_secretKey.Text;
+            }
+
+            Settings1.Default.textBox_sectionintput1=textBox_sectionintput1.Text;
+            Settings1.Default.textBox_sectionintput2=textBox_sectionintput2.Text;
+            Settings1.Default.textBox_sectionintput3=textBox_sectionintput3.Text;
+            Settings1.Default.textBox_sectionintput4=textBox_sectionintput4.Text;
+            Settings1.Default.textBox_sectionintput5=textBox_sectionintput5.Text;
+            Settings1.Default.textBox_sectionintput6=textBox_sectionintput6.Text;
+            Settings1.Default.textBox_splitbinfile=textBox_splitbinfile.Text;
+            Settings1.Default.comboBox_Combin_SelectedIndex=comboBox_Combin.SelectedIndex;
+            Settings1.Default.comboBox_splittype_SelectedIndex = comboBox_splittype.SelectedIndex; 
+
+            int count = this.source_copyfile_suffix_textBox_rename.Items.Count - suffix_textBox_rename_static.Length;
+            if (count > 10) count = 10;
+            for (int i = 0; i < count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        Settings1.Default.suffix_textBox_rename_line1 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 1:
+                        Settings1.Default.suffix_textBox_rename_line2 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 2:
+                        Settings1.Default.suffix_textBox_rename_line3 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 3:
+                        Settings1.Default.suffix_textBox_rename_line4 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 4:
+                        Settings1.Default.suffix_textBox_rename_line5 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 5:
+                        Settings1.Default.suffix_textBox_rename_line6 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 6:
+                        Settings1.Default.suffix_textBox_rename_line7 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 7:
+                        Settings1.Default.suffix_textBox_rename_line8 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 8:
+                        Settings1.Default.suffix_textBox_rename_line9 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                    case 9:
+                        Settings1.Default.suffix_textBox_rename_line10 = this.source_copyfile_suffix_textBox_rename.Items[i].ToString();
+                        break;
+                }
+            }
+
+            count = this.comboBox_indicate.Items.Count;
+            if (count > 10) count = 10;
+            for (int i = 0; i < count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        Settings1.Default.comboBox_indicate_line1 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 1:
+                        Settings1.Default.comboBox_indicate_line2 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 2:
+                        Settings1.Default.comboBox_indicate_line3 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 3:
+                        Settings1.Default.comboBox_indicate_line4 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 4:
+                        Settings1.Default.comboBox_indicate_line5 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 5:
+                        Settings1.Default.comboBox_indicate_line6 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 6:
+                        Settings1.Default.comboBox_indicate_line7 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 7:
+                        Settings1.Default.comboBox_indicate_line8 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 8:
+                        Settings1.Default.comboBox_indicate_line9 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                    case 9:
+                        Settings1.Default.comboBox_indicate_line10 = this.comboBox_indicate.Items[i].ToString();
+                        break;
+                }
+            }
+
+            count = this.combobox_key.Items.Count;
+            if (count > 10) count = 10;
+            for (int i = 0; i < count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        Settings1.Default.combobox_key_line1 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 1:
+                        Settings1.Default.combobox_key_line2 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 2:
+                        Settings1.Default.combobox_key_line3 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 3:
+                        Settings1.Default.combobox_key_line4 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 4:
+                        Settings1.Default.combobox_key_line5 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 5:
+                        Settings1.Default.combobox_key_line6 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 6:
+                        Settings1.Default.combobox_key_line7 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 7:
+                        Settings1.Default.combobox_key_line8 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 8:
+                        Settings1.Default.combobox_key_line9 = this.combobox_key.Items[i].ToString();
+                        break;
+                    case 9:
+                        Settings1.Default.combobox_key_line10 = this.combobox_key.Items[i].ToString();
+                        break;
+                }
+            }
         }
         private void update_state(string name, string Clipboard_name)
         {
@@ -160,6 +335,8 @@ namespace SYD_COPY_FILE
                 this.destination_file_textBox_two.Text = dlg.FileName;
             else if (sender == button_copy_destinationfileend)
                 this.textBox_copy_destinationfileend.Text = dlg.FileName;
+            else if (sender == button_combine_output)
+                this.textBox_sectionoutput.Text = dlg.FileName;
         }
         private void source_copyfile_textBox_DragEnter(object sender, DragEventArgs e)
         {
@@ -1096,24 +1273,12 @@ namespace SYD_COPY_FILE
                 lSize = new FileInfo(sFullName).Length;
             return lSize;
         }
-
-        private void button_combinopen_Click(object sender, EventArgs e)
+        private void combin_input_read(object sender, string FileName)
         {
             long size = 0;
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            dlg.FileName = "source_file";
-
-            dlg.DefaultExt = ".bin";
-
-            dlg.Filter = "bin file (.bin)|*.bin";
-
-            if (dlg.ShowDialog() == false)
-                return;
-
-            if ((Button)(sender) == button_sectionintput1)
+            if (((sender is Button) && ((Button)(sender) == button_sectionintput1)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput1)))
             {
-                textBox_sectionintput1.Text = dlg.FileName;
+                textBox_sectionintput1.Text = FileName;
                 if (checkBox7.Checked == true)
                 {
                     textBox_combin_section1.Text = "0x00000000";
@@ -1125,30 +1290,30 @@ namespace SYD_COPY_FILE
                 }
                 textBox_combin_section2.Text = "0x" + (size).ToString("x8");
             }
-            else if ((Button)(sender) == button_sectionintput2)
+            else if (((sender is Button) && ((Button)(sender) == button_sectionintput2)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput2)))
             {
                 if (!(File.Exists(textBox_sectionintput1.Text)))
                 {
                     MessageBox.Show("之前段落文件无效!");
                     return;
                 }
-                textBox_sectionintput2.Text = dlg.FileName;
+                textBox_sectionintput2.Text = FileName;
 
                 size = GetFileSize(textBox_sectionintput1.Text);
-                if (comboBox6.SelectedIndex == 0)
+                if (comboBox_Combin.SelectedIndex == 0)
                 {
-                    textBox_combin_section2.Text = "0x"+size.ToString("x8");
+                    textBox_combin_section2.Text = "0x" + size.ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 1)
+                else if (comboBox_Combin.SelectedIndex == 1)
                 {
                     long addr = Convert.ToInt32(textBox_combin_section1.Text, 16);
-                    if (size%4096!=0)
+                    if (size % 4096 != 0)
                     {
                         size = (size / 4096 + 1) * 4096;
                     }
-                    textBox_combin_section2.Text = "0x" + (size+addr).ToString("x8");
+                    textBox_combin_section2.Text = "0x" + (size + addr).ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 2)
+                else if (comboBox_Combin.SelectedIndex == 2)
                 {
                     long addr = Convert.ToInt32(textBox_combin_section2.Text, 16);
                     if (addr < size)
@@ -1158,22 +1323,22 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-            else if ((Button)(sender) == button_sectionintput3)
+            else if (((sender is Button) && ((Button)(sender) == button_sectionintput3)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput3)))
             {
                 if ((!(File.Exists(textBox_sectionintput1.Text))) || (!(File.Exists(textBox_sectionintput2.Text))))
                 {
                     MessageBox.Show("之前段落文件无效!");
                     return;
                 }
-                textBox_sectionintput3.Text = dlg.FileName;
+                textBox_sectionintput3.Text = FileName;
 
                 size = GetFileSize(textBox_sectionintput2.Text);  //上个文件的大小
-                if (comboBox6.SelectedIndex == 0)
+                if (comboBox_Combin.SelectedIndex == 0)
                 {
                     size += Convert.ToInt32(textBox_combin_section2.Text, 16);
                     textBox_combin_section3.Text = "0x" + size.ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 1)
+                else if (comboBox_Combin.SelectedIndex == 1)
                 {
                     long addr = Convert.ToInt32(textBox_combin_section2.Text, 16);
                     if (size % 4096 != 0)
@@ -1182,7 +1347,7 @@ namespace SYD_COPY_FILE
                     }
                     textBox_combin_section3.Text = "0x" + (size + addr).ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 2)
+                else if (comboBox_Combin.SelectedIndex == 2)
                 {
                     size += Convert.ToInt32(textBox_combin_section2.Text, 16);
                     long addr = Convert.ToInt32(textBox_combin_section3.Text, 16);
@@ -1193,22 +1358,22 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-            else if ((Button)(sender) == button_sectionintput4)
+            else if (((sender is Button) && ((Button)(sender) == button_sectionintput4)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput4)))
             {
                 if ((!(File.Exists(textBox_sectionintput1.Text))) || (!(File.Exists(textBox_sectionintput2.Text))) || (!(File.Exists(textBox_sectionintput3.Text))))
                 {
                     MessageBox.Show("之前段落文件无效!");
                     return;
                 }
-                textBox_sectionintput4.Text = dlg.FileName;
+                textBox_sectionintput4.Text = FileName;
 
                 size = GetFileSize(textBox_sectionintput3.Text);  //上个文件的大小
-                if (comboBox6.SelectedIndex == 0)
+                if (comboBox_Combin.SelectedIndex == 0)
                 {
                     size += Convert.ToInt32(textBox_combin_section3.Text, 16);
                     textBox_combin_section4.Text = "0x" + size.ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 1)
+                else if (comboBox_Combin.SelectedIndex == 1)
                 {
                     long addr = Convert.ToInt32(textBox_combin_section3.Text, 16);
                     if (size % 4096 != 0)
@@ -1217,7 +1382,7 @@ namespace SYD_COPY_FILE
                     }
                     textBox_combin_section4.Text = "0x" + (size + addr).ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 2)
+                else if (comboBox_Combin.SelectedIndex == 2)
                 {
                     size += Convert.ToInt32(textBox_combin_section3.Text, 16);
                     long addr = Convert.ToInt32(textBox_combin_section4.Text, 16);
@@ -1228,22 +1393,22 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-            else if ((Button)(sender) == button_sectionintput5)
+            else if (((sender is Button) && ((Button)(sender) == button_sectionintput5)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput5)))
             {
                 if ((!(File.Exists(textBox_sectionintput1.Text))) || (!(File.Exists(textBox_sectionintput2.Text))) || (!(File.Exists(textBox_sectionintput3.Text))) || (!(File.Exists(textBox_sectionintput4.Text))))
                 {
                     MessageBox.Show("之前段落文件无效!");
                     return;
                 }
-                textBox_sectionintput5.Text = dlg.FileName;
+                textBox_sectionintput5.Text = FileName;
 
                 size = GetFileSize(textBox_sectionintput4.Text);  //上个文件的大小
-                if (comboBox6.SelectedIndex == 0)
+                if (comboBox_Combin.SelectedIndex == 0)
                 {
                     size += Convert.ToInt32(textBox_combin_section4.Text, 16);
                     textBox_combin_section5.Text = "0x" + size.ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 1)
+                else if (comboBox_Combin.SelectedIndex == 1)
                 {
                     long addr = Convert.ToInt32(textBox_combin_section4.Text, 16);
                     if (size % 4096 != 0)
@@ -1252,7 +1417,7 @@ namespace SYD_COPY_FILE
                     }
                     textBox_combin_section5.Text = "0x" + (size + addr).ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 2)
+                else if (comboBox_Combin.SelectedIndex == 2)
                 {
                     size += Convert.ToInt32(textBox_combin_section4.Text, 16);
                     long addr = Convert.ToInt32(textBox_combin_section5.Text, 16);
@@ -1263,22 +1428,22 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-            else if ((Button)(sender) == button_sectionintput6)
+            else if (((sender is Button) && ((Button)(sender) == button_sectionintput6)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput6)))
             {
                 if ((!(File.Exists(textBox_sectionintput1.Text))) || (!(File.Exists(textBox_sectionintput2.Text))) || (!(File.Exists(textBox_sectionintput3.Text))) || (!(File.Exists(textBox_sectionintput4.Text))) || (!(File.Exists(textBox_sectionintput5.Text))))
                 {
                     MessageBox.Show("之前段落文件无效!");
                     return;
                 }
-                textBox_sectionintput6.Text = dlg.FileName;
+                textBox_sectionintput6.Text = FileName;
 
                 size = GetFileSize(textBox_sectionintput5.Text);  //上个文件的大小
-                if (comboBox6.SelectedIndex == 0)
+                if (comboBox_Combin.SelectedIndex == 0)
                 {
                     size += Convert.ToInt32(textBox_combin_section5.Text, 16);
                     textBox_combin_section6.Text = "0x" + size.ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 1)
+                else if (comboBox_Combin.SelectedIndex == 1)
                 {
                     long addr = Convert.ToInt32(textBox_combin_section5.Text, 16);
                     if (size % 4096 != 0)
@@ -1287,7 +1452,7 @@ namespace SYD_COPY_FILE
                     }
                     textBox_combin_section6.Text = "0x" + (size + addr).ToString("x8");
                 }
-                else if (comboBox6.SelectedIndex == 2)
+                else if (comboBox_Combin.SelectedIndex == 2)
                 {
                     size += Convert.ToInt32(textBox_combin_section5.Text, 16);
                     long addr = Convert.ToInt32(textBox_combin_section6.Text, 16);
@@ -1299,7 +1464,38 @@ namespace SYD_COPY_FILE
                 }
             }
         }
+        private void button_combinopen_Click(object sender, EventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
+            dlg.FileName = "source_file";
+
+            dlg.DefaultExt = ".bin";
+
+            dlg.Filter = "bin file (.bin)|*.bin";
+
+            if (dlg.ShowDialog() == false)
+                return;
+
+            combin_input_read(sender, dlg.FileName);
+        }
+        private void combin_textBox_DragDrop(object sender, DragEventArgs e)
+        {
+            IDataObject dataObject = e.Data;
+
+            if (dataObject == null) return;
+
+            if (dataObject.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])dataObject.GetData(DataFormats.FileDrop);
+                TextBox textbox = (TextBox)sender;
+                foreach (string file in files)
+                {
+                    System.IO.FileInfo fi = new System.IO.FileInfo(file);
+                    combin_input_read(sender, fi.FullName);
+                }
+            }
+        }
         private void button_combine_Click(object sender, EventArgs e)
         {
             byte[] byteArray1 = null, byteArray2 = null, byteArray3 = null, byteArray4 = null, byteArray5 = null, byteArray6 = null;
@@ -1310,7 +1506,8 @@ namespace SYD_COPY_FILE
             if (textBox_sectionintput5.Text.Length != 0) byteArray5 = File2Bytes(textBox_sectionintput5.Text);
             if (textBox_sectionintput6.Text.Length != 0) byteArray6 = File2Bytes(textBox_sectionintput6.Text);
             string savepath = Path.GetDirectoryName(textBox_sectionintput1.Text); ;
-            savepath = savepath + "\\BIN_Combin" + ".bin";
+            //savepath = savepath + "\\BIN_Combin" + ".bin";
+            savepath = textBox_sectionoutput.Text;
             Bytes2File(byteArray1, byteArray2, Convert.ToUInt32(textBox_combin_section2.Text, 16), byteArray3, Convert.ToUInt32(textBox_combin_section3.Text, 16), byteArray4, Convert.ToUInt32(textBox_combin_section4.Text, 16), byteArray5, Convert.ToUInt32(textBox_combin_section5.Text, 16), byteArray6, Convert.ToUInt32(textBox_combin_section6.Text, 16), savepath);
         }
 
