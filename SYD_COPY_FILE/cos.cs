@@ -126,7 +126,7 @@ namespace SYD_COPY_FILE
                 //得到所有的 buckets
                 List<ListAllMyBuckets.Bucket> allBuckets = result.listAllMyBuckets.buckets;
                 ListCosCol.Clear();
-                for (int i = 2; i < allBuckets.Count; i++)
+                for (int i = 0; i < allBuckets.Count; i++)
                 {
                     ItemCosCol item = new ItemCosCol();
                     item.FileName = allBuckets[i].name;
