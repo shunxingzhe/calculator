@@ -79,6 +79,7 @@ namespace SYD_COPY_FILE
             syd_arr_init();
             PicSplit_init();
             ui_init();
+            UIgen_init();
 
             pictureBox_interface_ismin = Settings1.Default.pictureBox_interface_ismin;
 
@@ -1438,7 +1439,7 @@ namespace SYD_COPY_FILE
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             copy_file_uninit();
-            
+            UIgen_uninit();
             Settings1.Default.Save();
         }
 

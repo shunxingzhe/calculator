@@ -341,15 +341,6 @@ namespace SYD_COPY_FILE
                 }
             }
         }
-
-       private string HoverTreeClearMark(string input)
-        {
-            input = Regex.Replace(input, @"/\*[\s\S]*?\*/", "", RegexOptions.IgnoreCase);
-            input = Regex.Replace(input, @"^\s*$\n", "", RegexOptions.Multiline);  //有点多
-            input = Regex.Replace(input, @"//[^\n]*", "", RegexOptions.Multiline);
-            return input;
-        }
-
        /// <summary>读取文件，返回一个含有文件数据的行列表</summary>
        /// <param name="TxtFilePath">文件路径</param>
        /// <returns>文件数据的行列表</returns>

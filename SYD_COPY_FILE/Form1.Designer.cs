@@ -574,6 +574,39 @@
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.更新文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button_CosBuckets = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.UIgen_checkBox5 = new System.Windows.Forms.CheckBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.UIgen_button3 = new System.Windows.Forms.Button();
+            this.UIgen_button2 = new System.Windows.Forms.Button();
+            this.UIgen_label2 = new System.Windows.Forms.Label();
+            this.UIgen_source_file_button = new System.Windows.Forms.Button();
+            this.label76 = new System.Windows.Forms.Label();
+            this.UIgen_source_file_textBox = new System.Windows.Forms.TextBox();
+            this.UIgen_checkBox4 = new System.Windows.Forms.CheckBox();
+            this.UIgen_draw = new System.Windows.Forms.Button();
+            this.UIgen_comboBox6 = new System.Windows.Forms.ComboBox();
+            this.UIgen_button1 = new System.Windows.Forms.Button();
+            this.label59 = new System.Windows.Forms.Label();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.UIgen_richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.UIgen_button4 = new System.Windows.Forms.Button();
+            this.UIgen_comboBox5 = new System.Windows.Forms.ComboBox();
+            this.UIgen_comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.UIgen_comboBox1 = new System.Windows.Forms.ComboBox();
+            this.UIgen_comboBox2 = new System.Windows.Forms.ComboBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.UIgen_progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.UIgen_textInput = new System.Windows.Forms.RichTextBox();
+            this.UIgen_comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label103 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.UIgen_checkBox1 = new System.Windows.Forms.CheckBox();
+            this.UIgen_checkBox3 = new System.Windows.Forms.CheckBox();
+            this.UIgen_checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label96 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -882,6 +915,10 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCos)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
@@ -6802,6 +6839,7 @@
             this.TabCrontrol.Controls.Add(this.tabPage4);
             this.TabCrontrol.Controls.Add(this.tabPage10);
             this.TabCrontrol.Controls.Add(this.tabPage11);
+            this.TabCrontrol.Controls.Add(this.tabPage3);
             this.TabCrontrol.Location = new System.Drawing.Point(1, 1);
             this.TabCrontrol.Name = "TabCrontrol";
             this.TabCrontrol.SelectedIndex = 0;
@@ -6944,6 +6982,377 @@
             this.button_CosBuckets.Text = "获取储存桶";
             this.button_CosBuckets.UseVisualStyleBackColor = true;
             this.button_CosBuckets.Click += new System.EventHandler(this.button_CosBuckets_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.UIgen_checkBox5);
+            this.tabPage3.Controls.Add(this.groupBox13);
+            this.tabPage3.Controls.Add(this.UIgen_checkBox4);
+            this.tabPage3.Controls.Add(this.UIgen_draw);
+            this.tabPage3.Controls.Add(this.UIgen_comboBox6);
+            this.tabPage3.Controls.Add(this.UIgen_button1);
+            this.tabPage3.Controls.Add(this.label59);
+            this.tabPage3.Controls.Add(this.groupBox14);
+            this.tabPage3.Controls.Add(this.UIgen_button4);
+            this.tabPage3.Controls.Add(this.UIgen_comboBox5);
+            this.tabPage3.Controls.Add(this.UIgen_comboBox4);
+            this.tabPage3.Controls.Add(this.label61);
+            this.tabPage3.Controls.Add(this.UIgen_comboBox1);
+            this.tabPage3.Controls.Add(this.UIgen_comboBox2);
+            this.tabPage3.Controls.Add(this.groupBox11);
+            this.tabPage3.Controls.Add(this.UIgen_comboBox3);
+            this.tabPage3.Controls.Add(this.label97);
+            this.tabPage3.Controls.Add(this.label103);
+            this.tabPage3.Controls.Add(this.label90);
+            this.tabPage3.Controls.Add(this.UIgen_checkBox1);
+            this.tabPage3.Controls.Add(this.UIgen_checkBox3);
+            this.tabPage3.Controls.Add(this.UIgen_checkBox2);
+            this.tabPage3.Controls.Add(this.label96);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(756, 552);
+            this.tabPage3.TabIndex = 12;
+            this.tabPage3.Text = "UIgen";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // UIgen_checkBox5
+            // 
+            this.UIgen_checkBox5.AutoSize = true;
+            this.UIgen_checkBox5.Checked = true;
+            this.UIgen_checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UIgen_checkBox5.Location = new System.Drawing.Point(688, 42);
+            this.UIgen_checkBox5.Name = "UIgen_checkBox5";
+            this.UIgen_checkBox5.Size = new System.Drawing.Size(72, 16);
+            this.UIgen_checkBox5.TabIndex = 65;
+            this.UIgen_checkBox5.Text = "输出长度";
+            this.UIgen_checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.UIgen_button3);
+            this.groupBox13.Controls.Add(this.UIgen_button2);
+            this.groupBox13.Controls.Add(this.UIgen_label2);
+            this.groupBox13.Controls.Add(this.UIgen_source_file_button);
+            this.groupBox13.Controls.Add(this.label76);
+            this.groupBox13.Controls.Add(this.UIgen_source_file_textBox);
+            this.groupBox13.Location = new System.Drawing.Point(0, 3);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(526, 57);
+            this.groupBox13.TabIndex = 47;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "file";
+            // 
+            // UIgen_button3
+            // 
+            this.UIgen_button3.Font = new System.Drawing.Font("宋体", 9F);
+            this.UIgen_button3.Location = new System.Drawing.Point(430, 32);
+            this.UIgen_button3.Margin = new System.Windows.Forms.Padding(2);
+            this.UIgen_button3.Name = "UIgen_button3";
+            this.UIgen_button3.Size = new System.Drawing.Size(92, 22);
+            this.UIgen_button3.TabIndex = 29;
+            this.UIgen_button3.Text = "重载输入数据";
+            this.UIgen_button3.UseVisualStyleBackColor = true;
+            this.UIgen_button3.Click += new System.EventHandler(this.UIgen_button3_Click);
+            // 
+            // UIgen_button2
+            // 
+            this.UIgen_button2.Font = new System.Drawing.Font("宋体", 9F);
+            this.UIgen_button2.Location = new System.Drawing.Point(430, 11);
+            this.UIgen_button2.Margin = new System.Windows.Forms.Padding(2);
+            this.UIgen_button2.Name = "UIgen_button2";
+            this.UIgen_button2.Size = new System.Drawing.Size(92, 22);
+            this.UIgen_button2.TabIndex = 28;
+            this.UIgen_button2.Text = "保存输入数据";
+            this.UIgen_button2.UseVisualStyleBackColor = true;
+            this.UIgen_button2.Click += new System.EventHandler(this.UIgen_button2_Click);
+            // 
+            // UIgen_label2
+            // 
+            this.UIgen_label2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.UIgen_label2.Location = new System.Drawing.Point(85, 38);
+            this.UIgen_label2.Name = "UIgen_label2";
+            this.UIgen_label2.Size = new System.Drawing.Size(340, 12);
+            this.UIgen_label2.TabIndex = 9;
+            this.UIgen_label2.Text = "syd_ui_ok.bin";
+            // 
+            // UIgen_source_file_button
+            // 
+            this.UIgen_source_file_button.Location = new System.Drawing.Point(6, 12);
+            this.UIgen_source_file_button.Name = "UIgen_source_file_button";
+            this.UIgen_source_file_button.Size = new System.Drawing.Size(73, 22);
+            this.UIgen_source_file_button.TabIndex = 6;
+            this.UIgen_source_file_button.Text = "选择文件";
+            this.UIgen_source_file_button.UseVisualStyleBackColor = true;
+            this.UIgen_source_file_button.Click += new System.EventHandler(this.UIgen_source_file_button_Click);
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(7, 38);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(83, 12);
+            this.label76.TabIndex = 8;
+            this.label76.Text = "输出文件名称:";
+            // 
+            // UIgen_source_file_textBox
+            // 
+            this.UIgen_source_file_textBox.AllowDrop = true;
+            this.UIgen_source_file_textBox.Location = new System.Drawing.Point(85, 13);
+            this.UIgen_source_file_textBox.Name = "UIgen_source_file_textBox";
+            this.UIgen_source_file_textBox.Size = new System.Drawing.Size(340, 21);
+            this.UIgen_source_file_textBox.TabIndex = 7;
+            // 
+            // UIgen_checkBox4
+            // 
+            this.UIgen_checkBox4.AutoSize = true;
+            this.UIgen_checkBox4.Location = new System.Drawing.Point(577, 386);
+            this.UIgen_checkBox4.Name = "UIgen_checkBox4";
+            this.UIgen_checkBox4.Size = new System.Drawing.Size(180, 16);
+            this.UIgen_checkBox4.TabIndex = 63;
+            this.UIgen_checkBox4.Text = "数组增加压缩模式和图片类型";
+            this.UIgen_checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // UIgen_draw
+            // 
+            this.UIgen_draw.Location = new System.Drawing.Point(531, 3);
+            this.UIgen_draw.Margin = new System.Windows.Forms.Padding(2);
+            this.UIgen_draw.Name = "UIgen_draw";
+            this.UIgen_draw.Size = new System.Drawing.Size(71, 33);
+            this.UIgen_draw.TabIndex = 43;
+            this.UIgen_draw.Text = "提取";
+            this.UIgen_draw.UseVisualStyleBackColor = true;
+            this.UIgen_draw.Click += new System.EventHandler(this.UIgen_draw_Click);
+            // 
+            // UIgen_comboBox6
+            // 
+            this.UIgen_comboBox6.FormattingEnabled = true;
+            this.UIgen_comboBox6.Items.AddRange(new object[] {
+            "黑白图",
+            "256色图",
+            "16位全彩图"});
+            this.UIgen_comboBox6.Location = new System.Drawing.Point(57, 382);
+            this.UIgen_comboBox6.Name = "UIgen_comboBox6";
+            this.UIgen_comboBox6.Size = new System.Drawing.Size(89, 20);
+            this.UIgen_comboBox6.TabIndex = 62;
+            // 
+            // UIgen_button1
+            // 
+            this.UIgen_button1.Location = new System.Drawing.Point(603, 3);
+            this.UIgen_button1.Margin = new System.Windows.Forms.Padding(2);
+            this.UIgen_button1.Name = "UIgen_button1";
+            this.UIgen_button1.Size = new System.Drawing.Size(71, 33);
+            this.UIgen_button1.TabIndex = 44;
+            this.UIgen_button1.Text = "清除";
+            this.UIgen_button1.UseVisualStyleBackColor = true;
+            this.UIgen_button1.Click += new System.EventHandler(this.UIgen_button1_Click);
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(3, 386);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(59, 12);
+            this.label59.TabIndex = 61;
+            this.label59.Text = "图片类型:";
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.UIgen_richTextBox1);
+            this.groupBox14.Location = new System.Drawing.Point(0, 401);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(760, 155);
+            this.groupBox14.TabIndex = 46;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Output text";
+            // 
+            // UIgen_richTextBox1
+            // 
+            this.UIgen_richTextBox1.BackColor = System.Drawing.Color.White;
+            this.UIgen_richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UIgen_richTextBox1.Location = new System.Drawing.Point(1, 13);
+            this.UIgen_richTextBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.UIgen_richTextBox1.Name = "UIgen_richTextBox1";
+            this.UIgen_richTextBox1.Size = new System.Drawing.Size(755, 135);
+            this.UIgen_richTextBox1.TabIndex = 0;
+            this.UIgen_richTextBox1.Text = "";
+            // 
+            // UIgen_button4
+            // 
+            this.UIgen_button4.Location = new System.Drawing.Point(678, 3);
+            this.UIgen_button4.Margin = new System.Windows.Forms.Padding(2);
+            this.UIgen_button4.Name = "UIgen_button4";
+            this.UIgen_button4.Size = new System.Drawing.Size(71, 33);
+            this.UIgen_button4.TabIndex = 60;
+            this.UIgen_button4.Text = "输出显示为声明";
+            this.UIgen_button4.UseVisualStyleBackColor = true;
+            this.UIgen_button4.Click += new System.EventHandler(this.UIgen_button4_Output_Click);
+            // 
+            // UIgen_comboBox5
+            // 
+            this.UIgen_comboBox5.FormattingEnabled = true;
+            this.UIgen_comboBox5.Items.AddRange(new object[] {
+            "不压缩",
+            "Rel正常压缩(某些图片可能压缩后大小大于压缩前）",
+            "Rel混合压缩(对于某些图片可能压缩后大小大于压缩前）"});
+            this.UIgen_comboBox5.Location = new System.Drawing.Point(662, 361);
+            this.UIgen_comboBox5.Name = "UIgen_comboBox5";
+            this.UIgen_comboBox5.Size = new System.Drawing.Size(89, 20);
+            this.UIgen_comboBox5.TabIndex = 58;
+            // 
+            // UIgen_comboBox4
+            // 
+            this.UIgen_comboBox4.FormattingEnabled = true;
+            this.UIgen_comboBox4.Items.AddRange(new object[] {
+            "W:U8 H:U8",
+            "W:U16 H:U16",
+            "H:U8 W:U8",
+            "H:U16 W:U16"});
+            this.UIgen_comboBox4.Location = new System.Drawing.Point(528, 361);
+            this.UIgen_comboBox4.Name = "UIgen_comboBox4";
+            this.UIgen_comboBox4.Size = new System.Drawing.Size(78, 20);
+            this.UIgen_comboBox4.TabIndex = 56;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(472, 365);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(59, 12);
+            this.label61.TabIndex = 57;
+            this.label61.Text = "宽高模式:";
+            // 
+            // UIgen_comboBox1
+            // 
+            this.UIgen_comboBox1.FormattingEnabled = true;
+            this.UIgen_comboBox1.Items.AddRange(new object[] {
+            "Length:U16 Offect:U16",
+            "Length:U16 Offect:U32",
+            "Length(1/2):U16 Offect:U32",
+            "Length:U32 Offect:U32",
+            "Offect:U32 Length:U32"});
+            this.UIgen_comboBox1.Location = new System.Drawing.Point(563, 40);
+            this.UIgen_comboBox1.Name = "UIgen_comboBox1";
+            this.UIgen_comboBox1.Size = new System.Drawing.Size(122, 20);
+            this.UIgen_comboBox1.TabIndex = 48;
+            // 
+            // UIgen_comboBox2
+            // 
+            this.UIgen_comboBox2.FormattingEnabled = true;
+            this.UIgen_comboBox2.Items.AddRange(new object[] {
+            "输出不带任何注释",
+            "输出带数组第一行的注释",
+            "数组第一行的数据改为注释"});
+            this.UIgen_comboBox2.Location = new System.Drawing.Point(96, 361);
+            this.UIgen_comboBox2.Name = "UIgen_comboBox2";
+            this.UIgen_comboBox2.Size = new System.Drawing.Size(162, 20);
+            this.UIgen_comboBox2.TabIndex = 52;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.UIgen_progressBar1);
+            this.groupBox11.Controls.Add(this.UIgen_textInput);
+            this.groupBox11.Location = new System.Drawing.Point(4, 62);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(752, 299);
+            this.groupBox11.TabIndex = 45;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Input text";
+            // 
+            // UIgen_progressBar1
+            // 
+            this.UIgen_progressBar1.Location = new System.Drawing.Point(72, 1);
+            this.UIgen_progressBar1.Name = "UIgen_progressBar1";
+            this.UIgen_progressBar1.Size = new System.Drawing.Size(676, 10);
+            this.UIgen_progressBar1.TabIndex = 1;
+            // 
+            // UIgen_textInput
+            // 
+            this.UIgen_textInput.BackColor = System.Drawing.Color.White;
+            this.UIgen_textInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UIgen_textInput.Location = new System.Drawing.Point(1, 14);
+            this.UIgen_textInput.Margin = new System.Windows.Forms.Padding(2);
+            this.UIgen_textInput.Name = "UIgen_textInput";
+            this.UIgen_textInput.Size = new System.Drawing.Size(749, 280);
+            this.UIgen_textInput.TabIndex = 0;
+            this.UIgen_textInput.Text = "";
+            // 
+            // UIgen_comboBox3
+            // 
+            this.UIgen_comboBox3.FormattingEnabled = true;
+            this.UIgen_comboBox3.Items.AddRange(new object[] {
+            "无任何额外动作",
+            "去掉数组名开头的 gImage_",
+            "增加4字节对齐的修饰符"});
+            this.UIgen_comboBox3.Location = new System.Drawing.Point(319, 361);
+            this.UIgen_comboBox3.Name = "UIgen_comboBox3";
+            this.UIgen_comboBox3.Size = new System.Drawing.Size(150, 20);
+            this.UIgen_comboBox3.TabIndex = 54;
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(530, 44);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(35, 12);
+            this.label97.TabIndex = 49;
+            this.label97.Text = "模式:";
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(606, 365);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(59, 12);
+            this.label103.TabIndex = 59;
+            this.label103.Text = "压缩模式:";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(262, 365);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(59, 12);
+            this.label90.TabIndex = 55;
+            this.label90.Text = "额外动作:";
+            // 
+            // UIgen_checkBox1
+            // 
+            this.UIgen_checkBox1.AutoSize = true;
+            this.UIgen_checkBox1.Location = new System.Drawing.Point(400, 386);
+            this.UIgen_checkBox1.Name = "UIgen_checkBox1";
+            this.UIgen_checkBox1.Size = new System.Drawing.Size(180, 16);
+            this.UIgen_checkBox1.TabIndex = 64;
+            this.UIgen_checkBox1.Text = "注释增加压缩模式和图片类型";
+            this.UIgen_checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // UIgen_checkBox3
+            // 
+            this.UIgen_checkBox3.AutoSize = true;
+            this.UIgen_checkBox3.Location = new System.Drawing.Point(295, 386);
+            this.UIgen_checkBox3.Name = "UIgen_checkBox3";
+            this.UIgen_checkBox3.Size = new System.Drawing.Size(108, 16);
+            this.UIgen_checkBox3.TabIndex = 51;
+            this.UIgen_checkBox3.Text = "数组中增加宽高";
+            this.UIgen_checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // UIgen_checkBox2
+            // 
+            this.UIgen_checkBox2.AutoSize = true;
+            this.UIgen_checkBox2.Location = new System.Drawing.Point(164, 386);
+            this.UIgen_checkBox2.Name = "UIgen_checkBox2";
+            this.UIgen_checkBox2.Size = new System.Drawing.Size(132, 16);
+            this.UIgen_checkBox2.TabIndex = 50;
+            this.UIgen_checkBox2.Text = "注释增加十进制宽高";
+            this.UIgen_checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(2, 365);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(95, 12);
+            this.label96.TabIndex = 53;
+            this.label96.Text = "注释来源与作用:";
             // 
             // contextMenuStrip1
             // 
@@ -7890,9 +8299,9 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 576);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 580);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(763, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(765, 22);
             this.statusStrip1.TabIndex = 25;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -8707,13 +9116,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 598);
+            this.ClientSize = new System.Drawing.Size(765, 602);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.TabCrontrol);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.3.8";
+            this.Text = "SYD_Calculator V2.3.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8793,6 +9202,12 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCos)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -9613,6 +10028,39 @@
         private System.Windows.Forms.Button button_combine_output;
         private System.Windows.Forms.TextBox textBox_sectionoutput;
         private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.CheckBox UIgen_checkBox5;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Button UIgen_button3;
+        private System.Windows.Forms.Button UIgen_button2;
+        private System.Windows.Forms.Label UIgen_label2;
+        private System.Windows.Forms.Button UIgen_source_file_button;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.TextBox UIgen_source_file_textBox;
+        private System.Windows.Forms.CheckBox UIgen_checkBox1;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.CheckBox UIgen_checkBox4;
+        private System.Windows.Forms.Button UIgen_draw;
+        private System.Windows.Forms.ComboBox UIgen_comboBox6;
+        private System.Windows.Forms.Button UIgen_button1;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.RichTextBox UIgen_richTextBox1;
+        private System.Windows.Forms.Button UIgen_button4;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.ComboBox UIgen_comboBox5;
+        private System.Windows.Forms.CheckBox UIgen_checkBox2;
+        private System.Windows.Forms.ComboBox UIgen_comboBox4;
+        private System.Windows.Forms.CheckBox UIgen_checkBox3;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.ComboBox UIgen_comboBox1;
+        private System.Windows.Forms.ComboBox UIgen_comboBox2;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.ProgressBar UIgen_progressBar1;
+        private System.Windows.Forms.RichTextBox UIgen_textInput;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.ComboBox UIgen_comboBox3;
     }
 }
 

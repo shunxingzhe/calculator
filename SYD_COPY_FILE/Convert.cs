@@ -72,6 +72,13 @@ namespace SYD_COPY_FILE
             }
             return returnStr;
         }
+        private string HoverTreeClearMark(string input)
+        {
+            input = Regex.Replace(input, @"/\*[\s\S]*?\*/", "", RegexOptions.IgnoreCase);
+            input = Regex.Replace(input, @"^\s*$\n", "", RegexOptions.Multiline);  //有点多
+            input = Regex.Replace(input, @"//[^\n]*", "", RegexOptions.Multiline);
+            return input;
+        }
         /*
          * 字符串转16进制数据
          * */

@@ -874,5 +874,149 @@ namespace SYD_COPY_FILE {
                 this["comboBox_splittype_SelectedIndex"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UIgen_source_file_textBox {
+            get {
+                return ((string)(this["UIgen_source_file_textBox"]));
+            }
+            set {
+                this["UIgen_source_file_textBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UIgen_comboBox1 {
+            get {
+                return ((int)(this["UIgen_comboBox1"]));
+            }
+            set {
+                this["UIgen_comboBox1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UIgen_checkBox5 {
+            get {
+                return ((bool)(this["UIgen_checkBox5"]));
+            }
+            set {
+                this["UIgen_checkBox5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UIgen_comboBox2 {
+            get {
+                return ((int)(this["UIgen_comboBox2"]));
+            }
+            set {
+                this["UIgen_comboBox2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UIgen_comboBox3 {
+            get {
+                return ((int)(this["UIgen_comboBox3"]));
+            }
+            set {
+                this["UIgen_comboBox3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UIgen_comboBox4 {
+            get {
+                return ((int)(this["UIgen_comboBox4"]));
+            }
+            set {
+                this["UIgen_comboBox4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UIgen_comboBox5 {
+            get {
+                return ((int)(this["UIgen_comboBox5"]));
+            }
+            set {
+                this["UIgen_comboBox5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UIgen_comboBox6 {
+            get {
+                return ((int)(this["UIgen_comboBox6"]));
+            }
+            set {
+                this["UIgen_comboBox6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UIgen_checkBox2 {
+            get {
+                return ((bool)(this["UIgen_checkBox2"]));
+            }
+            set {
+                this["UIgen_checkBox2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UIgen_checkBox3 {
+            get {
+                return ((bool)(this["UIgen_checkBox3"]));
+            }
+            set {
+                this["UIgen_checkBox3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UIgen_checkBox1 {
+            get {
+                return ((bool)(this["UIgen_checkBox1"]));
+            }
+            set {
+                this["UIgen_checkBox1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UIgen_checkBox4 {
+            get {
+                return ((bool)(this["UIgen_checkBox4"]));
+            }
+            set {
+                this["UIgen_checkBox4"] = value;
+            }
+        }
     }
 }
