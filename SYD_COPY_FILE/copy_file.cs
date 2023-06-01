@@ -1634,24 +1634,5 @@ namespace SYD_COPY_FILE
             //process1.WaitForExit();
             //this.Show();//显示当前窗口
         }
-        private void button43_Click(object sender, EventArgs e)
-        {
-            //建立新的系统进程    
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-
-            //设置图片的真实路径和文件名    
-            process.StartInfo.FileName = Environment.CurrentDirectory + "//ascii-Table.jpg";//获取和设置当前目录（即该进程从中启动的目录）的完全限定路径。
-
-            //设置进程运行参数，这里以最大化窗口方法显示图片。    
-            process.StartInfo.Arguments = "rundl132.exe C://WINDOWS//system32//shimgvw.dll,ImageView_Fullscreen";
-
-            //此项为是否使用Shell执行程序，因系统默认为true，此项也可不设，但若设置必须为true    
-            process.StartInfo.UseShellExecute = true;
-
-            //此处可以更改进程所打开窗体的显示样式，可以不设    
-            process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            process.Start();
-            //process.Close();e
-        }
     }
 }

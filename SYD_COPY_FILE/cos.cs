@@ -30,7 +30,6 @@ namespace SYD_COPY_FILE
             BUCKET = 2,
         }
         //初始化 CosXmlConfig 
-        //static string appid = "1304918232";//设置腾讯云账户的账户标识 APPID
         static string region = "ap-nanjing"; //设置一个默认的存储桶地域
         public string nextMarker;
         CosXmlConfig config = new CosXmlConfig.Builder()
@@ -67,13 +66,6 @@ namespace SYD_COPY_FILE
             Bitmap_File = new Bitmap(global::SYD_COPY_FILE.Properties.Resources.File);
             Bitmap_Zip = new Bitmap(global::SYD_COPY_FILE.Properties.Resources.zip);
 
-            //for (int i = 0; i < 5; ++i)
-            //{
-            //    ItemCosCol item = new ItemCosCol();
-            //    item.FileName = "Listitem1-" + i;
-            //    item.ModifyTime = "Listitem2-" + i;
-            //    ListCosCol.Add(item);
-            //}
             dataGridViewCosBing(dataGridViewType.FILE);
             button_commit_file.Enabled = false;
 

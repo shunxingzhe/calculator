@@ -324,6 +324,13 @@ unsigned int saveRbw(char* Outfilename, unsigned char rotation, unsigned char ex
         color_red = 1;
         color_black = 3;
     }
+    else if (extract_mode == 3)
+    {
+        color_red_white = 1;
+        color_white = 0;
+        color_red = 2;
+        color_black = 3;
+    }
     else
     {
         color_red_white = 0;

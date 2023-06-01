@@ -78,7 +78,6 @@ namespace SYD_COPY_FILE
             copy_file_init();
             syd_arr_init();
             PicSplit_init();
-            ui_init();
 
             pictureBox_interface_ismin = Settings1.Default.pictureBox_interface_ismin;
 

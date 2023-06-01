@@ -130,9 +130,6 @@
     <Compile Include="syd_arr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

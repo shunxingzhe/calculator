@@ -41,6 +41,8 @@ namespace SYD_COPY_FILE
         };
         public void PicSplit_init()
         {
+            buttonOpenPic_Doing(Environment.CurrentDirectory + "//ascii-Table.jpg");
+            ZoomIn(661, 466);
             comboBoxFileType.Items.Add("png");
             comboBoxFileType.Items.Add("jpg");
             comboBoxFileType.Items.Add("bmp");
@@ -87,9 +89,6 @@ namespace SYD_COPY_FILE
             if (fileDialog1.ShowDialog() == DialogResult.OK)
             {
                 buttonOpenPic_Doing(fileDialog1.FileName);
-            }
-            else
-            {
             }
         }
         private void buttonReset_Click(object sender, EventArgs e)
@@ -262,20 +261,22 @@ namespace SYD_COPY_FILE
                 ShowPicOnCtrl(newImage);
             }
         }
-
+        private void ZoomIn(Double newWidth, Double newHeight)
+        {
+            Image newImage = null; ;
+            PicManage.ZoomAuto(_initImage, ref newImage, newWidth, newHeight);
+            if (newImage != null)
+            {
+                ShowPicOnCtrl(newImage);
+            }
+        }
         private void buttonZoomIn_Click(object sender, EventArgs e)
         {
             if (_initImage == null)
                 return;
 
             _zoomRate.GetNextZoomIn(ref widthNew, ref heightNew);
-
-            Image newImage = null; ;
-            PicManage.ZoomAuto(_initImage, ref newImage, widthNew, heightNew);
-            if (newImage != null)
-            {
-                ShowPicOnCtrl(newImage);
-            }
+            ZoomIn(widthNew, heightNew);
         }
 
         private void buttonActualSize_Click(object sender, EventArgs e)
@@ -742,78 +743,6 @@ namespace SYD_COPY_FILE
             {
                 e.Effect = DragDropEffects.Copy;
             }
-        }
-        private void button_Bulk_zoom_Click(object sender, EventArgs e)
-        {
-            DateTime t1 = DateTime.Now;
-            string filepath = source_copyfile_textBox_sync.Text;//等到的完整的文件名
-            string dir = Path.GetDirectoryName(textBoxSrcPic.Text);
-            string ext = Path.GetExtension(textBoxSrcPic.Text);
-            string[] filenames = Directory.GetFiles(dir, "*" + ext, SearchOption.AllDirectories);//获取目录文件名称集合
-            int quality = 100; //图片质量
-            string fileType = comboBoxFileType.Text;
-
-            foreach (string filename in filenames)
-            {
-                try
-                {
-                    Image output;
-                    System.Drawing.Image source = System.Drawing.Image.FromFile(filename);
-                    output = source.GetThumbnailImage(Convert.ToInt32(textBox_Bulk_zoom_w.Text), Convert.ToInt32(textBox_Bulk_zoom_h.Text), () => false, IntPtr.Zero);
-                    string str=Path.GetFileNameWithoutExtension(filename);//没有扩展名
-                    string filePath = Path.Combine(textBoxSaveDir.Text, str + "."+ fileType);
-                    File.Delete(filePath);
-
-                    //获取系统编码类型数组,包含了jpeg,bmp,png,gif,tiff
-                    ImageCodecInfo ici = PicManage.GetCodeInfo(filePath);
-                    EncoderParameters ep = new EncoderParameters(1);
-                    ep.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)quality);
-                    output.Save(filePath, ici, ep);
-                }
-                catch
-                {
-                    MessageBox.Show("缩放失败:"+ filename);
-                    return;
-                }
-            }
-            TimeSpan span = DateTime.Now - t1;
-            MessageBox.Show(string.Format("缩放完毕！耗时:{0}秒{1}毫秒", (int)(span.TotalMilliseconds / 1000), ((int)span.TotalMilliseconds) % 1000));
-        }
-        private void button_Batch_convert_format_Click_Click(object sender, EventArgs e)
-        {
-            DateTime t1 = DateTime.Now;
-            string filepath = source_copyfile_textBox_sync.Text;//等到的完整的文件名
-            string dir = Path.GetDirectoryName(textBoxSrcPic.Text);
-            string ext = Path.GetExtension(textBoxSrcPic.Text);
-            string[] filenames = Directory.GetFiles(dir, "*" + ext, SearchOption.AllDirectories);//获取目录文件名称集合
-            int quality = 100; //图片质量
-            string fileType = comboBoxFileType.Text;
-
-            foreach (string filename in filenames)
-            {
-                try
-                {
-                    System.Drawing.Image source = System.Drawing.Image.FromFile(filename);
-                    string str = Path.GetFileNameWithoutExtension(filename);//没有扩展名
-                    var pingyins = PinYinConverterHelp.GetTotalPingYin(str);
-                    str = String.Join("_", pingyins.TotalPingYin);
-                    string filePath = Path.Combine(textBoxSaveDir.Text, str + "." + fileType);
-                    File.Delete(filePath);
-
-                    //获取系统编码类型数组,包含了jpeg,bmp,png,gif,tiff
-                    ImageCodecInfo ici = PicManage.GetCodeInfo(filePath);
-                    EncoderParameters ep = new EncoderParameters(1);
-                    ep.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)quality);
-                    source.Save(filePath, ici, ep);
-                }
-                catch
-                {
-                    MessageBox.Show("批量转换格式失败:" + filename);
-                    return;
-                }
-            }
-            TimeSpan span = DateTime.Now - t1;
-            MessageBox.Show(string.Format("批量转换格式完毕！耗时:{0}秒{1}毫秒", (int)(span.TotalMilliseconds / 1000), ((int)span.TotalMilliseconds) % 1000));
         }
         private void cal_rgb_subtract(int input, TextBox output)
         {
