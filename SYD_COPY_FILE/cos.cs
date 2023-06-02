@@ -379,17 +379,25 @@ namespace SYD_COPY_FILE
                 if (contextMenuStrip2.Items[i].Selected)
                 {
                     Bitmap bitmap = (Bitmap)dataGridViewCos.Rows[RowIndexSelect].Cells[0].Value;
-                    filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
+                    filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value;
                     if (contextMenuStrip2.Items[i].Text.Trim() == "删除")
                     {
-                        if (bitmap == Bitmap_Zip)
+                        for (int row = 0; row < dataGridViewCos.Rows.Count; row++)
                         {
-                            if (folder_out != null)
+                            if (dataGridViewCos.Rows[row].Selected)
                             {
-                                File.Delete(folder_out + "\\" + filename);
-                                Display_Folder(folder_out);
+                                bitmap = (Bitmap)dataGridViewCos.Rows[row].Cells[0].Value;
+                                filename = (string)dataGridViewCos.Rows[row].Cells[1].Value;
+                                if (bitmap == Bitmap_Zip)
+                                {
+                                    if (folder_out != null)
+                                    {
+                                        File.Delete(folder_out + "\\" + filename);
+                                    }
+                                }
                             }
                         }
+                        Display_Folder(folder_out);
                     }
                     else if (contextMenuStrip2.Items[i].Text.Trim() == "复制文件名")
                     {

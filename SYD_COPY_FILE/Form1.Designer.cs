@@ -312,7 +312,6 @@
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button35 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
-            this.button36 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
@@ -4111,18 +4110,17 @@
             this.groupBox10.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox10.Controls.Add(this.button35);
             this.groupBox10.Controls.Add(this.button37);
-            this.groupBox10.Controls.Add(this.button36);
             this.groupBox10.Controls.Add(this.button33);
             this.groupBox10.Location = new System.Drawing.Point(586, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(160, 114);
+            this.groupBox10.Size = new System.Drawing.Size(160, 88);
             this.groupBox10.TabIndex = 25;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "执行外部工具";
             // 
             // button35
             // 
-            this.button35.Location = new System.Drawing.Point(2, 84);
+            this.button35.Location = new System.Drawing.Point(2, 62);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(152, 22);
             this.button35.TabIndex = 52;
@@ -4133,7 +4131,7 @@
             // button37
             // 
             this.button37.Font = new System.Drawing.Font("宋体", 9F);
-            this.button37.Location = new System.Drawing.Point(2, 38);
+            this.button37.Location = new System.Drawing.Point(2, 16);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(152, 22);
             this.button37.TabIndex = 54;
@@ -4141,20 +4139,9 @@
             this.button37.UseVisualStyleBackColor = true;
             this.button37.Click += new System.EventHandler(this.button37_Click);
             // 
-            // button36
-            // 
-            this.button36.Font = new System.Drawing.Font("宋体", 9F);
-            this.button36.Location = new System.Drawing.Point(2, 15);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(152, 22);
-            this.button36.TabIndex = 53;
-            this.button36.Text = "执行音频分析工具";
-            this.button36.UseVisualStyleBackColor = true;
-            this.button36.Click += new System.EventHandler(this.button36_Click);
-            // 
             // button33
             // 
-            this.button33.Location = new System.Drawing.Point(2, 61);
+            this.button33.Location = new System.Drawing.Point(2, 39);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(152, 22);
             this.button33.TabIndex = 51;
@@ -6025,10 +6012,10 @@
             // 
             this.textBox_sectionout6.AllowDrop = true;
             this.textBox_sectionout6.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_sectionout6.Location = new System.Drawing.Point(30, 131);
+            this.textBox_sectionout6.Location = new System.Drawing.Point(36, 131);
             this.textBox_sectionout6.Name = "textBox_sectionout6";
             this.textBox_sectionout6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox_sectionout6.Size = new System.Drawing.Size(341, 20);
+            this.textBox_sectionout6.Size = new System.Drawing.Size(326, 20);
             this.textBox_sectionout6.TabIndex = 58;
             // 
             // textBox_sectionout5
@@ -6151,6 +6138,7 @@
             this.label85.AutoSize = true;
             this.label85.Location = new System.Drawing.Point(17, 114);
             this.label85.Name = "label85";
+            this.label85.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label85.Size = new System.Drawing.Size(17, 11);
             this.label85.TabIndex = 50;
             this.label85.Text = "5:";
@@ -6160,6 +6148,7 @@
             this.label86.AutoSize = true;
             this.label86.Location = new System.Drawing.Point(17, 93);
             this.label86.Name = "label86";
+            this.label86.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label86.Size = new System.Drawing.Size(17, 11);
             this.label86.TabIndex = 48;
             this.label86.Text = "4:";
@@ -6169,6 +6158,7 @@
             this.label87.AutoSize = true;
             this.label87.Location = new System.Drawing.Point(17, 71);
             this.label87.Name = "label87";
+            this.label87.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label87.Size = new System.Drawing.Size(17, 11);
             this.label87.TabIndex = 46;
             this.label87.Text = "3:";
@@ -6178,6 +6168,7 @@
             this.label88.AutoSize = true;
             this.label88.Location = new System.Drawing.Point(17, 49);
             this.label88.Name = "label88";
+            this.label88.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label88.Size = new System.Drawing.Size(17, 11);
             this.label88.TabIndex = 44;
             this.label88.Text = "2:";
@@ -6188,6 +6179,7 @@
             this.label89.Font = new System.Drawing.Font("宋体", 9F);
             this.label89.Location = new System.Drawing.Point(17, 28);
             this.label89.Name = "label89";
+            this.label89.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label89.Size = new System.Drawing.Size(17, 12);
             this.label89.TabIndex = 42;
             this.label89.Text = "1:";
@@ -6214,8 +6206,9 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(16, 136);
+            this.label26.Location = new System.Drawing.Point(17, 136);
             this.label26.Name = "label26";
+            this.label26.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label26.Size = new System.Drawing.Size(22, 11);
             this.label26.TabIndex = 67;
             this.label26.Text = "余:";
@@ -6930,6 +6923,7 @@
             this.dataGridViewCos.ReadOnly = true;
             this.dataGridViewCos.RowHeadersVisible = false;
             this.dataGridViewCos.RowTemplate.Height = 23;
+            this.dataGridViewCos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCos.Size = new System.Drawing.Size(592, 154);
             this.dataGridViewCos.TabIndex = 69;
             this.dataGridViewCos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCos_CellClick);
@@ -9122,7 +9116,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.3.9";
+            this.Text = "SYD_Calculator V2.4.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9542,7 +9536,6 @@
         private System.Windows.Forms.TabControl TabCrontrol;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button35;
-        private System.Windows.Forms.Button button36;
         private System.Windows.Forms.Button button37;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.GroupBox groupBox10;
