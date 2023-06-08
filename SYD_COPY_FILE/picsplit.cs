@@ -22,7 +22,7 @@ namespace SYD_COPY_FILE
 
         SpliteRectGroup _splitRectGroup = new SpliteRectGroup();
 
-        bool _Hiddenborder = true;
+        bool _Hiddenborder = false;
         int widthNew = 0;
         int heightNew = 0;
         string File_Filter = "xls files (*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp|All files (*.*)|*.*";
@@ -434,7 +434,7 @@ namespace SYD_COPY_FILE
             {
                 _picStartPoint.Y = 0;
             }
-
+            _Hiddenborder = true;
             _splitRectGroup.StartPointMoveTo(_picStartPoint.X, _picStartPoint.Y);
             pictureBoxSrc.Invalidate();
         }
@@ -450,7 +450,7 @@ namespace SYD_COPY_FILE
 
             if (int.Parse(((TextBox)sender).Text) == 0)
                 return;
-
+            _Hiddenborder = true;
             SetSpliteRect(true);
             pictureBoxSrc.Invalidate();
         }
@@ -474,21 +474,6 @@ namespace SYD_COPY_FILE
             {
                 textBoxSaveDir.Text = folderDlg.DirectoryPath;
             }
-        }
-        private void button_Hiddenborder_Click(object sender, EventArgs e)
-        {
-            if (_Hiddenborder == true)
-            {
-                _Hiddenborder = false;
-                this.button_Hiddenborder.Text = "显示边框";
-            }
-            else
-            {
-                _Hiddenborder = true;
-                this.button_Hiddenborder.Text = "隐藏边框";
-            }
-            buttonZoomOut_Click(null, null);
-            buttonZoomIn_Click(null, null);
         }
         private void ui_xy_cal()
         {

@@ -109,7 +109,6 @@
             this.label_11xsite = new System.Windows.Forms.Label();
             this.label110 = new System.Windows.Forms.Label();
             this.textBoxSplitRGB565 = new System.Windows.Forms.TextBox();
-            this.button_Hiddenborder = new System.Windows.Forms.Button();
             this.textBoxSplitB = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
             this.textBoxSplitG = new System.Windows.Forms.TextBox();
@@ -1531,7 +1530,6 @@
             this.splitContainerMain.Panel1.Controls.Add(this.label_11xsite);
             this.splitContainerMain.Panel1.Controls.Add(this.label110);
             this.splitContainerMain.Panel1.Controls.Add(this.textBoxSplitRGB565);
-            this.splitContainerMain.Panel1.Controls.Add(this.button_Hiddenborder);
             this.splitContainerMain.Panel1.Controls.Add(this.textBoxSplitB);
             this.splitContainerMain.Panel1.Controls.Add(this.label49);
             this.splitContainerMain.Panel1.Controls.Add(this.textBoxSplitG);
@@ -1638,7 +1636,7 @@
             this.groupBox12.Controls.Add(this.textBoxSplitHeight);
             this.groupBox12.Controls.Add(this.label94);
             this.groupBox12.Controls.Add(this.checkBoxSplitWidth);
-            this.groupBox12.Location = new System.Drawing.Point(3, 211);
+            this.groupBox12.Location = new System.Drawing.Point(3, 188);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(80, 138);
             this.groupBox12.TabIndex = 13;
@@ -1787,16 +1785,6 @@
             this.textBoxSplitRGB565.Size = new System.Drawing.Size(45, 21);
             this.textBoxSplitRGB565.TabIndex = 54;
             this.textBoxSplitRGB565.Text = "0";
-            // 
-            // button_Hiddenborder
-            // 
-            this.button_Hiddenborder.Location = new System.Drawing.Point(1, 185);
-            this.button_Hiddenborder.Name = "button_Hiddenborder";
-            this.button_Hiddenborder.Size = new System.Drawing.Size(75, 24);
-            this.button_Hiddenborder.TabIndex = 53;
-            this.button_Hiddenborder.Text = "隐藏边框";
-            this.button_Hiddenborder.UseVisualStyleBackColor = true;
-            this.button_Hiddenborder.Click += new System.EventHandler(this.button_Hiddenborder_Click);
             // 
             // textBoxSplitB
             // 
@@ -9116,7 +9104,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.4.0";
+            this.Text = "SYD_Calculator V2.4.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9241,7 +9229,6 @@
         private System.Windows.Forms.Label label_11xsite;
         private System.Windows.Forms.Label label110;
         private System.Windows.Forms.TextBox textBoxSplitRGB565;
-        private System.Windows.Forms.Button button_Hiddenborder;
         private System.Windows.Forms.TextBox textBoxSplitB;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox textBoxSplitG;
