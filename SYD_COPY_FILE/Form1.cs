@@ -66,7 +66,7 @@ namespace SYD_COPY_FILE
         {
             InitializeComponent();
 
-            comboBox4.SelectedIndex = 2;
+            comboBox4.SelectedIndex = 3;
             comboBox3.SelectedIndex = 2;
             comboBox5.SelectedIndex = 2;
             comboBox1.SelectedIndex = 1;

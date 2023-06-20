@@ -4864,7 +4864,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(114, 21);
             this.textBox2.TabIndex = 21;
-            this.textBox2.Text = "1000/32768";
+            this.textBox2.Text = "4";
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
             this.textBox2.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
@@ -5031,6 +5031,8 @@
             // 
             // checkBox6
             // 
+            this.checkBox6.Checked = true;
+            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox6.Location = new System.Drawing.Point(2, 36);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(43, 18);
@@ -9104,7 +9106,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.4.1";
+            this.Text = "SYD_Calculator V2.4.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

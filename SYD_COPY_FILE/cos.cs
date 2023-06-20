@@ -232,6 +232,23 @@ namespace SYD_COPY_FILE
             dataGridViewCosBing(dataGridViewType.ZIP);
             button_commit_file.Enabled = true;
         }
+        /// <summary>
+        ///  用来遍历删除目录下的文件以及该文件夹
+        /// </summary>
+        public void DeleteFileByDirectory(DirectoryInfo info)
+        {
+            foreach (DirectoryInfo newInfo in info.GetDirectories())
+            {
+                DeleteFileByDirectory(newInfo);
+            }
+            foreach (FileInfo newInfo in info.GetFiles())
+            {
+                newInfo.Attributes = newInfo.Attributes & ~(FileAttributes.Archive | FileAttributes.ReadOnly | FileAttributes.Hidden);
+                newInfo.Delete();
+            }
+            info.Attributes = info.Attributes & ~(FileAttributes.Archive | FileAttributes.ReadOnly | FileAttributes.Hidden);
+            info.Delete();
+        }
         private void dataGridViewCos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int i;
@@ -340,8 +357,7 @@ namespace SYD_COPY_FILE
                     folder_out = file_in.Replace(ext, "");
                     if (Directory.Exists(folder_out))
                     {
-                        DirectoryInfo di = new DirectoryInfo(folder_out);
-                        di.Delete(true);
+                        DeleteFileByDirectory(new DirectoryInfo(folder_out));//删除文件夹
                     }
                     try
                     {
