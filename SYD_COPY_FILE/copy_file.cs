@@ -1597,7 +1597,7 @@ namespace SYD_COPY_FILE
         private void button33_Click(object sender, EventArgs e)
         {
             Process process1 = null;
-            process1=Process.Start(@".\\SYDTEK_Tools.exe");
+            process1=Process.Start(@"..\..\..\Python\\dist\\My_Tools.exe");
             //this.Hide();    //隐藏窗口
             //process1.WaitForExit();
             //this.Show();//显示当前窗口
@@ -1606,22 +1606,6 @@ namespace SYD_COPY_FILE
         {
             Process process1 = null;
             process1 = Process.Start(@".\\Animated GIF Producer V4.0.exe");
-            //this.Hide();    //隐藏窗口
-            //process1.WaitForExit();
-            //this.Show();//显示当前窗口
-        }
-        private void button36_Click(object sender, EventArgs e)
-        {
-            //Process process1 = null;
-            System.Diagnostics.Process.Start(@".\\Audacity.lnk");
-            //this.Hide();    //隐藏窗口
-            //process1.WaitForExit();
-            //this.Show();//显示当前窗口
-        }
-        private void button37_Click(object sender, EventArgs e)
-        {
-            Process process1 = null;
-            process1 = Process.Start(@".\\批量修改文件名.exe");
             //this.Hide();    //隐藏窗口
             //process1.WaitForExit();
             //this.Show();//显示当前窗口

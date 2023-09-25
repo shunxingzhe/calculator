@@ -308,9 +308,7 @@
             this.BIT_MARK6 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK5 = new System.Windows.Forms.CheckBox();
             this.label57 = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button35 = new System.Windows.Forms.Button();
-            this.button37 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
@@ -894,7 +892,6 @@
             this.groupBox17.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox16.SuspendLayout();
@@ -4093,45 +4090,21 @@
             this.label57.TabIndex = 72;
             this.label57.Text = "[15:00]";
             // 
-            // groupBox10
-            // 
-            this.groupBox10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox10.Controls.Add(this.button35);
-            this.groupBox10.Controls.Add(this.button37);
-            this.groupBox10.Controls.Add(this.button33);
-            this.groupBox10.Location = new System.Drawing.Point(586, 3);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(160, 88);
-            this.groupBox10.TabIndex = 25;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "执行外部工具";
-            // 
             // button35
             // 
-            this.button35.Location = new System.Drawing.Point(2, 62);
+            this.button35.Location = new System.Drawing.Point(283, 25);
             this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(152, 22);
+            this.button35.Size = new System.Drawing.Size(81, 21);
             this.button35.TabIndex = 52;
             this.button35.Text = "执行GIF工具";
             this.button35.UseVisualStyleBackColor = true;
             this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
-            // button37
-            // 
-            this.button37.Font = new System.Drawing.Font("宋体", 9F);
-            this.button37.Location = new System.Drawing.Point(2, 16);
-            this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(152, 22);
-            this.button37.TabIndex = 54;
-            this.button37.Text = "执行重命名文件工具";
-            this.button37.UseVisualStyleBackColor = true;
-            this.button37.Click += new System.EventHandler(this.button37_Click);
-            // 
             // button33
             // 
-            this.button33.Location = new System.Drawing.Point(2, 39);
+            this.button33.Location = new System.Drawing.Point(339, 25);
             this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(152, 22);
+            this.button33.Size = new System.Drawing.Size(105, 22);
             this.button33.TabIndex = 51;
             this.button33.Text = "执行嘉威的工具";
             this.button33.UseVisualStyleBackColor = true;
@@ -4141,7 +4114,6 @@
             // 
             this.tabPage1.Controls.Add(this.groupBox20);
             this.tabPage1.Controls.Add(this.groupBox16);
-            this.tabPage1.Controls.Add(this.groupBox10);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.groupBox5);
@@ -6432,6 +6404,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button33);
             this.tabPage6.Controls.Add(this.textBox_copy_destinationfileend_sync);
             this.tabPage6.Controls.Add(this.panel2);
             this.tabPage6.Controls.Add(this.source_copyfile_textBox_sync_crc32);
@@ -6472,6 +6445,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.Controls.Add(this.button35);
             this.panel2.Controls.Add(this.destination_file_button_copy_sourcefile);
             this.panel2.Controls.Add(this.button9);
             this.panel2.Controls.Add(this.button_copy_sourcefile_all);
@@ -6504,7 +6478,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(410, 27);
+            this.button9.Location = new System.Drawing.Point(410, 25);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(40, 21);
             this.button9.TabIndex = 55;
@@ -6592,7 +6566,7 @@
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(366, 27);
+            this.button26.Location = new System.Drawing.Point(366, 25);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(43, 21);
             this.button26.TabIndex = 42;
@@ -6615,7 +6589,7 @@
             this.label_copy_time.Font = new System.Drawing.Font("宋体", 9F);
             this.label_copy_time.Location = new System.Drawing.Point(3, 28);
             this.label_copy_time.Name = "label_copy_time";
-            this.label_copy_time.Size = new System.Drawing.Size(290, 15);
+            this.label_copy_time.Size = new System.Drawing.Size(203, 15);
             this.label_copy_time.TabIndex = 37;
             this.label_copy_time.Text = "label91";
             // 
@@ -6643,7 +6617,7 @@
             // 
             // checkBox_synccopy_sync
             // 
-            this.checkBox_synccopy_sync.Location = new System.Drawing.Point(299, 23);
+            this.checkBox_synccopy_sync.Location = new System.Drawing.Point(216, 22);
             this.checkBox_synccopy_sync.Name = "checkBox_synccopy_sync";
             this.checkBox_synccopy_sync.Size = new System.Drawing.Size(73, 28);
             this.checkBox_synccopy_sync.TabIndex = 35;
@@ -8285,7 +8259,7 @@
             this.toolStripStatusLabel3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 580);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(765, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(766, 22);
             this.statusStrip1.TabIndex = 25;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -9100,7 +9074,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 602);
+            this.ClientSize = new System.Drawing.Size(766, 602);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.TabCrontrol);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -9153,7 +9127,6 @@
             this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox20.ResumeLayout(false);
             this.groupBox20.PerformLayout();
@@ -9525,9 +9498,7 @@
         private System.Windows.Forms.TabControl TabCrontrol;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button35;
-        private System.Windows.Forms.Button button37;
         private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.Label label112;
         private System.Windows.Forms.TextBox textBox75;
