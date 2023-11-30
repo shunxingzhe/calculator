@@ -13,12 +13,6 @@ namespace SYD_COPY_FILE
 {
     public partial class Form1
     {
-        public static object[] suffix_textBox_rename_static = new object[] {
-        "_Integration ",
-        "_changan_L31_V110_",
-        "_CP_L32_V118_",
-        "_letu_L32_V109_",
-        "_wuling_L33_V124_"};
         public bool extend_synccopyfile_state = false;
     public void copy_file_init()
         {
@@ -76,7 +70,6 @@ namespace SYD_COPY_FILE
             if (Settings1.Default.suffix_textBox_rename_line8 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line8);
             if (Settings1.Default.suffix_textBox_rename_line9 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line9);
             if (Settings1.Default.suffix_textBox_rename_line10 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line10);
-            this.source_copyfile_suffix_textBox_rename.Items.AddRange(suffix_textBox_rename_static);
 
             comboBox7.SelectedIndex = Settings1.Default.rename_mode_sel;
 
@@ -130,7 +123,7 @@ namespace SYD_COPY_FILE
             Settings1.Default.comboBox_Combin_SelectedIndex=comboBox_Combin.SelectedIndex;
             Settings1.Default.comboBox_splittype_SelectedIndex = comboBox_splittype.SelectedIndex; 
 
-            int count = this.source_copyfile_suffix_textBox_rename.Items.Count - suffix_textBox_rename_static.Length;
+            int count = this.source_copyfile_suffix_textBox_rename.Items.Count;
             if (count > 10) count = 10;
             for (int i = 0; i < count; i++)
             {
