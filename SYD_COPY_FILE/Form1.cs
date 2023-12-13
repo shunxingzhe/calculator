@@ -68,10 +68,10 @@ namespace SYD_COPY_FILE
 
             comboBox4.SelectedIndex = 3;
             comboBox3.SelectedIndex = 2;
-            comboBox5.SelectedIndex = 2;
+            comboBox5.SelectedIndex = 3;
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
-            comboBox8.SelectedIndex = 1;
+            comboBox8.SelectedIndex = 2;
             timestamp_Difference_select.SelectedIndex = 0;
 
             data_direction = false;
@@ -533,6 +533,8 @@ namespace SYD_COPY_FILE
         }
         private string cal_Calendar_day_differenceble_subtract(string a, string b, TextBox testbox_display, TextBox testbox_display_timestamp)
         {
+            if (a.Contains("_")) a=a.Replace("_"," ");
+            if (b.Contains("_")) b=b.Replace("_", " ");
             DateTime Now_Time = DateTime.ParseExact(a, "yyyyMMdd HHmmss", new CultureInfo("fr-FR"));
             DateTime Before_Time = DateTime.ParseExact(b, "yyyyMMdd HHmmss", new CultureInfo("fr-FR"));
             TimeSpan ts = Now_Time.Subtract(Before_Time);
@@ -762,12 +764,6 @@ namespace SYD_COPY_FILE
             {
                 pictureBoxinterface_Doing(false);
             }
-            //最大化窗口：
-            //ApiCalls.ShowWindow(Form.ActiveForm.Handle,3); 
-            //最小化窗口：
-            //ApiCalls.ShowWindow(Form.ActiveForm.Handle,2);
-            //恢复正常大小窗口：
-            //ApiCalls.ShowWindow(Form.ActiveForm.Handle,1);
             this.WindowState = FormWindowState.Normal;
         }
 
@@ -1385,10 +1381,6 @@ namespace SYD_COPY_FILE
                 UInt32 difference = 0;
                 if (textBox62.Text.Length != 0)
                     difference = Convert.ToUInt32(textBox62.Text, 10);
-                if (difference == 0)
-                {
-                    difference = Convert.ToUInt32(textBox64.Text, 16);
-                }
                 UInt32 result = base_data;
                 textBox_difference_output.Text = "";
                 if (checkBox1.Checked)
