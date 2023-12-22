@@ -14,7 +14,7 @@ namespace SYD_COPY_FILE
     public partial class Form1
     {
         public bool extend_synccopyfile_state = false;
-    public void copy_file_init()
+        public void copy_file_init()
         {
             this.label_copy_time.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             this.timer1.Interval = 1000;
@@ -31,21 +31,21 @@ namespace SYD_COPY_FILE
             destination_file_textBox_two_sync.Text = Settings1.Default.destination_file_textBox_two_sync;
             textBox_copy_destinationfileend_sync.Text = Settings1.Default.textBox_copy_destinationfileend_sync;
             if (Settings1.Default.Setting_textBox_section1 != "")
-            textBox_section1.Text = Settings1.Default.Setting_textBox_section1;
+                textBox_section1.Text = Settings1.Default.Setting_textBox_section1;
             if (Settings1.Default.Setting_textBox_section2 != "")
-            textBox_section2.Text = Settings1.Default.Setting_textBox_section2;
+                textBox_section2.Text = Settings1.Default.Setting_textBox_section2;
             if (Settings1.Default.Setting_textBox_section3 != "")
-            textBox_section3.Text = Settings1.Default.Setting_textBox_section3;
+                textBox_section3.Text = Settings1.Default.Setting_textBox_section3;
             if (Settings1.Default.Setting_textBox_section4 != "")
-            textBox_section4.Text = Settings1.Default.Setting_textBox_section4;
+                textBox_section4.Text = Settings1.Default.Setting_textBox_section4;
             if (Settings1.Default.Setting_textBox_section5 != "")
-            textBox_section5.Text = Settings1.Default.Setting_textBox_section5;
+                textBox_section5.Text = Settings1.Default.Setting_textBox_section5;
             if (Settings1.Default.Setting_source_copyfile_textBox_rename != "")
                 source_copyfile_textBox_rename.Text = Settings1.Default.Setting_source_copyfile_textBox_rename;
             if (Settings1.Default.Setting_source_copyfile_prefix_textBox_rename != "")
                 source_copyfile_prefix_textBox_rename.Text = Settings1.Default.Setting_source_copyfile_prefix_textBox_rename.Trim();
             if (Settings1.Default.Setting_source_copyfile_suffix_textBox_rename != "")
-                source_copyfile_suffix_textBox_rename.Text = Settings1.Default.Setting_source_copyfile_suffix_textBox_rename.Trim(); 
+                source_copyfile_suffix_textBox_rename.Text = Settings1.Default.Setting_source_copyfile_suffix_textBox_rename.Trim();
             checkBox10.Checked = Settings1.Default.Setting_checkBox10;
             checkBox_systemtime_rename.Checked = Settings1.Default.Setting_checkBox_systemtime_rename;
             checkBox_delete_srcfile.Checked = Settings1.Default.Setting_checkBox_delete_srcfile;
@@ -57,8 +57,8 @@ namespace SYD_COPY_FILE
             textBox_sectionintput5.Text = Settings1.Default.textBox_sectionintput5;
             textBox_sectionintput6.Text = Settings1.Default.textBox_sectionintput6;
             textBox_splitbinfile.Text = Settings1.Default.textBox_splitbinfile;
-            comboBox_Combin.SelectedIndex= Settings1.Default.comboBox_Combin_SelectedIndex;
-            comboBox_splittype.SelectedIndex=Settings1.Default.comboBox_splittype_SelectedIndex;
+            comboBox_Combin.SelectedIndex = Settings1.Default.comboBox_Combin_SelectedIndex;
+            comboBox_splittype.SelectedIndex = Settings1.Default.comboBox_splittype_SelectedIndex;
 
             if (Settings1.Default.suffix_textBox_rename_line1 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line1);
             if (Settings1.Default.suffix_textBox_rename_line2 != "") this.source_copyfile_suffix_textBox_rename.Items.Add(Settings1.Default.suffix_textBox_rename_line2);
@@ -113,15 +113,15 @@ namespace SYD_COPY_FILE
                 Settings1.Default.cos_secretKey = textBox_secretKey.Text;
             }
 
-            Settings1.Default.textBox_sectionintput1=textBox_sectionintput1.Text;
-            Settings1.Default.textBox_sectionintput2=textBox_sectionintput2.Text;
-            Settings1.Default.textBox_sectionintput3=textBox_sectionintput3.Text;
-            Settings1.Default.textBox_sectionintput4=textBox_sectionintput4.Text;
-            Settings1.Default.textBox_sectionintput5=textBox_sectionintput5.Text;
-            Settings1.Default.textBox_sectionintput6=textBox_sectionintput6.Text;
-            Settings1.Default.textBox_splitbinfile=textBox_splitbinfile.Text;
-            Settings1.Default.comboBox_Combin_SelectedIndex=comboBox_Combin.SelectedIndex;
-            Settings1.Default.comboBox_splittype_SelectedIndex = comboBox_splittype.SelectedIndex; 
+            Settings1.Default.textBox_sectionintput1 = textBox_sectionintput1.Text;
+            Settings1.Default.textBox_sectionintput2 = textBox_sectionintput2.Text;
+            Settings1.Default.textBox_sectionintput3 = textBox_sectionintput3.Text;
+            Settings1.Default.textBox_sectionintput4 = textBox_sectionintput4.Text;
+            Settings1.Default.textBox_sectionintput5 = textBox_sectionintput5.Text;
+            Settings1.Default.textBox_sectionintput6 = textBox_sectionintput6.Text;
+            Settings1.Default.textBox_splitbinfile = textBox_splitbinfile.Text;
+            Settings1.Default.comboBox_Combin_SelectedIndex = comboBox_Combin.SelectedIndex;
+            Settings1.Default.comboBox_splittype_SelectedIndex = comboBox_splittype.SelectedIndex;
 
             int count = this.source_copyfile_suffix_textBox_rename.Items.Count;
             if (count > 10) count = 10;
@@ -307,7 +307,7 @@ namespace SYD_COPY_FILE
 
             dlg.FileName = "source_file";
 
-           // dlg.DefaultExt = ".txt";
+            // dlg.DefaultExt = ".txt";
 
             dlg.Filter = "All files（*.*）|*.*|All files(*.*)|*.* ";
 
@@ -348,7 +348,7 @@ namespace SYD_COPY_FILE
             if (dataObject.GetDataPresent(DataFormats.FileDrop))
             {
                 string[] files = (string[])dataObject.GetData(DataFormats.FileDrop);
-                TextBox textbox=(TextBox)sender;
+                TextBox textbox = (TextBox)sender;
                 foreach (string file in files)
                 {
                     System.IO.FileInfo fi = new System.IO.FileInfo(file);
@@ -378,7 +378,7 @@ namespace SYD_COPY_FILE
                     }
                     else if (sender == source_file_textBox)
                     {
-                        source_file_textBox.Text= fi.FullName;
+                        source_file_textBox.Text = fi.FullName;
                         reopen_source_file_button_Click(sender, e);
                     }
                     else if (sender == comboBox_indicate)
@@ -386,7 +386,7 @@ namespace SYD_COPY_FILE
                         source_file_textBox.Text = fi.FullName;
                     }
                     else
-                        textbox.Text = fi.FullName; 
+                        textbox.Text = fi.FullName;
                 }
             }
         }
@@ -416,7 +416,7 @@ namespace SYD_COPY_FILE
 
             dlg.FileName = "destination_file";
 
-           // dlg.DefaultExt = ".txt";
+            // dlg.DefaultExt = ".txt";
 
             dlg.Filter = "All files（*.*）|*.*|All files(*.*)|*.* ";
 
@@ -767,7 +767,14 @@ namespace SYD_COPY_FILE
                 return;
             source_copyfile_textBox_rename.Text = dlg.FileName;
         }
-
+        private void destination_file_button_rename_Click(object sender, EventArgs e)
+        {
+            MyFolderBrowserDialog folderDlg = new MyFolderBrowserDialog();
+            if (folderDlg.ShowDialog(this) == DialogResult.OK)
+            {
+                destination_folder_textBox_rename.Text = folderDlg.DirectoryPath;
+            }
+        }
         public void cope_to_Clipboard(string destFileName)
         {
             string[] file = new string[1];
@@ -782,7 +789,20 @@ namespace SYD_COPY_FILE
             dataObject.SetData(DataFormats.Text, str);
             Clipboard.SetDataObject(dataObject, true);
         }
-
+        private void FileCopy(string sourceFileName, string destFileName, bool overwrite)
+        {
+            if (checkBox16.Checked == true)
+            {
+                string path = Path.GetDirectoryName(sourceFileName); ;
+                if (!Directory.Exists(path))//判断是否存在
+                {
+                    MessageBox.Show("目标目录不存在!");
+                    return;
+                }
+                destFileName= destination_folder_textBox_rename.Text+"\\"+Path.GetFileName(destFileName);
+            }
+            File.Copy(sourceFileName, destFileName, overwrite);
+        }
         private void destination_file_button_generate_rename_Click(object sender, EventArgs e)
         {
             if (source_copyfile_textBox_rename.TextLength != 0)
@@ -814,20 +834,20 @@ namespace SYD_COPY_FILE
                         }
                         
                         destFileName = pathcopy + "\\" + name + suffix;
-                        File.Copy(@source_copyfile_textBox_rename.Text, destFileName, true);
+                        FileCopy(@source_copyfile_textBox_rename.Text, destFileName, true);
                         destination_file_textBox_rename.Text = destFileName;
                     }
                     else if (comboBox7.SelectedIndex == 1)
                     {
                         name = source_copyfile_prefix_textBox_rename.Text + name + source_copyfile_suffix_textBox_rename.Text;
                         destFileName = pathcopy + "\\" + name + suffix;
-                        File.Copy(@source_copyfile_textBox_rename.Text, destFileName, true);
+                        FileCopy(@source_copyfile_textBox_rename.Text, destFileName, true);
                         destination_file_textBox_rename.Text = destFileName;
                     }
                     else if (comboBox7.SelectedIndex == 2)
                     {
                         name = name.Remove(name.Length - comboBox_timetype_rename.SelectedItem.ToString().Length);
-                        File.Copy(@source_copyfile_textBox_rename.Text, destFileName, true);
+                        FileCopy(@source_copyfile_textBox_rename.Text, destFileName, true);
                         destination_file_textBox_rename.Text = destFileName;
                     }
                     else if (comboBox7.SelectedIndex == 3)
@@ -843,7 +863,7 @@ namespace SYD_COPY_FILE
                             name = name + DateTime.Now.ToString(comboBox_timetype_rename.SelectedItem.ToString());
                         }
                         destFileName = pathcopy + "\\" + name + suffix;
-                        File.Copy(@source_copyfile_textBox_rename.Text, destFileName, true);
+                        FileCopy(@source_copyfile_textBox_rename.Text, destFileName, true);
                         destination_file_textBox_rename.Text = destFileName;
                     }
 

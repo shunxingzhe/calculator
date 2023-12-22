@@ -502,6 +502,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.destination_folder_textBox_rename = new System.Windows.Forms.TextBox();
+            this.button11 = new System.Windows.Forms.Button();
             this.destination_file_button_open_dir = new System.Windows.Forms.Button();
             this.destination_file_button_copy_filename = new System.Windows.Forms.Button();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
@@ -868,6 +870,7 @@
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem148 = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.tabPage11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -6188,6 +6191,9 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.checkBox16);
+            this.tabPage7.Controls.Add(this.destination_folder_textBox_rename);
+            this.tabPage7.Controls.Add(this.button11);
             this.tabPage7.Controls.Add(this.destination_file_button_open_dir);
             this.tabPage7.Controls.Add(this.destination_file_button_copy_filename);
             this.tabPage7.Controls.Add(this.checkBox10);
@@ -6214,9 +6220,30 @@
             this.tabPage7.Text = "Rename";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // destination_folder_textBox_rename
+            // 
+            this.destination_folder_textBox_rename.AllowDrop = true;
+            this.destination_folder_textBox_rename.Location = new System.Drawing.Point(3, 24);
+            this.destination_folder_textBox_rename.Name = "destination_folder_textBox_rename";
+            this.destination_folder_textBox_rename.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.destination_folder_textBox_rename.Size = new System.Drawing.Size(501, 21);
+            this.destination_folder_textBox_rename.TabIndex = 68;
+            this.destination_folder_textBox_rename.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
+            this.destination_folder_textBox_rename.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(505, 23);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(83, 22);
+            this.button11.TabIndex = 67;
+            this.button11.Text = "Dest folder";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.destination_file_button_rename_Click);
+            // 
             // destination_file_button_open_dir
             // 
-            this.destination_file_button_open_dir.Location = new System.Drawing.Point(528, 80);
+            this.destination_file_button_open_dir.Location = new System.Drawing.Point(528, 102);
             this.destination_file_button_open_dir.Name = "destination_file_button_open_dir";
             this.destination_file_button_open_dir.Size = new System.Drawing.Size(66, 22);
             this.destination_file_button_open_dir.TabIndex = 66;
@@ -6226,7 +6253,7 @@
             // 
             // destination_file_button_copy_filename
             // 
-            this.destination_file_button_copy_filename.Location = new System.Drawing.Point(456, 80);
+            this.destination_file_button_copy_filename.Location = new System.Drawing.Point(456, 102);
             this.destination_file_button_copy_filename.Name = "destination_file_button_copy_filename";
             this.destination_file_button_copy_filename.Size = new System.Drawing.Size(73, 22);
             this.destination_file_button_copy_filename.TabIndex = 65;
@@ -6238,7 +6265,7 @@
             // 
             this.checkBox10.AutoSize = true;
             this.checkBox10.Font = new System.Drawing.Font("宋体", 8F, System.Drawing.FontStyle.Bold);
-            this.checkBox10.Location = new System.Drawing.Point(465, 50);
+            this.checkBox10.Location = new System.Drawing.Point(465, 72);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(123, 15);
             this.checkBox10.TabIndex = 55;
@@ -6249,7 +6276,7 @@
             // source_copyfile_suffix_textBox_rename
             // 
             this.source_copyfile_suffix_textBox_rename.FormattingEnabled = true;
-            this.source_copyfile_suffix_textBox_rename.Location = new System.Drawing.Point(348, 24);
+            this.source_copyfile_suffix_textBox_rename.Location = new System.Drawing.Point(348, 46);
             this.source_copyfile_suffix_textBox_rename.Name = "source_copyfile_suffix_textBox_rename";
             this.source_copyfile_suffix_textBox_rename.Size = new System.Drawing.Size(190, 20);
             this.source_copyfile_suffix_textBox_rename.TabIndex = 63;
@@ -6261,7 +6288,7 @@
             "yyyy-MM-dd_HHmmss",
             "yyyyMMdd",
             "yyyyMMdd_HHmmss"});
-            this.comboBox_timetype_rename.Location = new System.Drawing.Point(69, 45);
+            this.comboBox_timetype_rename.Location = new System.Drawing.Point(69, 67);
             this.comboBox_timetype_rename.Name = "comboBox_timetype_rename";
             this.comboBox_timetype_rename.Size = new System.Drawing.Size(150, 20);
             this.comboBox_timetype_rename.TabIndex = 43;
@@ -6269,7 +6296,7 @@
             // label99
             // 
             this.label99.Font = new System.Drawing.Font("宋体", 10F);
-            this.label99.Location = new System.Drawing.Point(4, 48);
+            this.label99.Location = new System.Drawing.Point(4, 70);
             this.label99.Name = "label99";
             this.label99.Size = new System.Drawing.Size(71, 19);
             this.label99.TabIndex = 61;
@@ -6283,7 +6310,7 @@
             "根据前尾缀修改文件名,不追加时间",
             "删除原文件时间尾缀,忽略前尾缀设置",
             "更新原文件时间尾缀,忽略前尾缀设置"});
-            this.comboBox7.Location = new System.Drawing.Point(256, 45);
+            this.comboBox7.Location = new System.Drawing.Point(256, 67);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(207, 20);
             this.comboBox7.TabIndex = 60;
@@ -6291,7 +6318,7 @@
             // label79
             // 
             this.label79.Font = new System.Drawing.Font("宋体", 10F);
-            this.label79.Location = new System.Drawing.Point(218, 47);
+            this.label79.Location = new System.Drawing.Point(218, 69);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(43, 19);
             this.label79.TabIndex = 59;
@@ -6301,7 +6328,7 @@
             // 
             this.source_copyfile_prefix_textBox_rename.AllowDrop = true;
             this.source_copyfile_prefix_textBox_rename.Font = new System.Drawing.Font("宋体", 8F);
-            this.source_copyfile_prefix_textBox_rename.Location = new System.Drawing.Point(80, 24);
+            this.source_copyfile_prefix_textBox_rename.Location = new System.Drawing.Point(80, 46);
             this.source_copyfile_prefix_textBox_rename.Name = "source_copyfile_prefix_textBox_rename";
             this.source_copyfile_prefix_textBox_rename.Size = new System.Drawing.Size(190, 20);
             this.source_copyfile_prefix_textBox_rename.TabIndex = 37;
@@ -6312,7 +6339,7 @@
             this.source_copyfile_textBox_rename.Location = new System.Drawing.Point(3, 2);
             this.source_copyfile_textBox_rename.Name = "source_copyfile_textBox_rename";
             this.source_copyfile_textBox_rename.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.source_copyfile_textBox_rename.Size = new System.Drawing.Size(454, 21);
+            this.source_copyfile_textBox_rename.Size = new System.Drawing.Size(501, 21);
             this.source_copyfile_textBox_rename.TabIndex = 35;
             this.source_copyfile_textBox_rename.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_copyfile_textBox_rename.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
@@ -6320,7 +6347,7 @@
             // destination_file_textBox_rename
             // 
             this.destination_file_textBox_rename.AllowDrop = true;
-            this.destination_file_textBox_rename.Location = new System.Drawing.Point(0, 81);
+            this.destination_file_textBox_rename.Location = new System.Drawing.Point(0, 103);
             this.destination_file_textBox_rename.Name = "destination_file_textBox_rename";
             this.destination_file_textBox_rename.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.destination_file_textBox_rename.Size = new System.Drawing.Size(395, 21);
@@ -6328,7 +6355,7 @@
             // 
             // button_copy_sourcefile4
             // 
-            this.button_copy_sourcefile4.Location = new System.Drawing.Point(540, 23);
+            this.button_copy_sourcefile4.Location = new System.Drawing.Point(540, 45);
             this.button_copy_sourcefile4.Name = "button_copy_sourcefile4";
             this.button_copy_sourcefile4.Size = new System.Drawing.Size(48, 22);
             this.button_copy_sourcefile4.TabIndex = 42;
@@ -6338,7 +6365,7 @@
             // 
             // destination_file_button_generate_rename
             // 
-            this.destination_file_button_generate_rename.Location = new System.Drawing.Point(395, 80);
+            this.destination_file_button_generate_rename.Location = new System.Drawing.Point(395, 102);
             this.destination_file_button_generate_rename.Name = "destination_file_button_generate_rename";
             this.destination_file_button_generate_rename.Size = new System.Drawing.Size(62, 22);
             this.destination_file_button_generate_rename.TabIndex = 41;
@@ -6349,7 +6376,7 @@
             // label80
             // 
             this.label80.Font = new System.Drawing.Font("宋体", 10F);
-            this.label80.Location = new System.Drawing.Point(268, 27);
+            this.label80.Location = new System.Drawing.Point(268, 49);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(101, 24);
             this.label80.TabIndex = 40;
@@ -6357,9 +6384,9 @@
             // 
             // source_copyfile_button_rename
             // 
-            this.source_copyfile_button_rename.Location = new System.Drawing.Point(462, 1);
+            this.source_copyfile_button_rename.Location = new System.Drawing.Point(505, 1);
             this.source_copyfile_button_rename.Name = "source_copyfile_button_rename";
-            this.source_copyfile_button_rename.Size = new System.Drawing.Size(125, 22);
+            this.source_copyfile_button_rename.Size = new System.Drawing.Size(83, 22);
             this.source_copyfile_button_rename.TabIndex = 34;
             this.source_copyfile_button_rename.Text = "Source file";
             this.source_copyfile_button_rename.UseVisualStyleBackColor = true;
@@ -6368,7 +6395,7 @@
             // label82
             // 
             this.label82.Font = new System.Drawing.Font("宋体", 10F);
-            this.label82.Location = new System.Drawing.Point(0, 27);
+            this.label82.Location = new System.Drawing.Point(0, 49);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(101, 24);
             this.label82.TabIndex = 38;
@@ -6377,7 +6404,7 @@
             // checkBox_delete_prefile
             // 
             this.checkBox_delete_prefile.AutoSize = true;
-            this.checkBox_delete_prefile.Location = new System.Drawing.Point(243, 66);
+            this.checkBox_delete_prefile.Location = new System.Drawing.Point(243, 88);
             this.checkBox_delete_prefile.Name = "checkBox_delete_prefile";
             this.checkBox_delete_prefile.Size = new System.Drawing.Size(144, 16);
             this.checkBox_delete_prefile.TabIndex = 64;
@@ -6387,7 +6414,7 @@
             // checkBox_delete_srcfile
             // 
             this.checkBox_delete_srcfile.AutoSize = true;
-            this.checkBox_delete_srcfile.Location = new System.Drawing.Point(164, 66);
+            this.checkBox_delete_srcfile.Location = new System.Drawing.Point(164, 88);
             this.checkBox_delete_srcfile.Name = "checkBox_delete_srcfile";
             this.checkBox_delete_srcfile.Size = new System.Drawing.Size(84, 16);
             this.checkBox_delete_srcfile.TabIndex = 62;
@@ -6397,7 +6424,7 @@
             // checkBox_systemtime_rename
             // 
             this.checkBox_systemtime_rename.AutoSize = true;
-            this.checkBox_systemtime_rename.Location = new System.Drawing.Point(7, 66);
+            this.checkBox_systemtime_rename.Location = new System.Drawing.Point(7, 88);
             this.checkBox_systemtime_rename.Name = "checkBox_systemtime_rename";
             this.checkBox_systemtime_rename.Size = new System.Drawing.Size(168, 16);
             this.checkBox_systemtime_rename.TabIndex = 45;
@@ -9072,6 +9099,16 @@
             this.toolStripMenuItem148.Size = new System.Drawing.Size(139, 22);
             this.toolStripMenuItem148.Text = "定位最高Bit";
             // 
+            // checkBox16
+            // 
+            this.checkBox16.AutoSize = true;
+            this.checkBox16.Location = new System.Drawing.Point(383, 88);
+            this.checkBox16.Name = "checkBox16";
+            this.checkBox16.Size = new System.Drawing.Size(108, 16);
+            this.checkBox16.TabIndex = 69;
+            this.checkBox16.Text = "拷贝到目标目录";
+            this.checkBox16.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -9082,7 +9119,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.4.5";
+            this.Text = "SYD_Calculator V2.4.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -10018,6 +10055,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.TextBox destination_folder_textBox_rename;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.CheckBox checkBox16;
     }
 }
 
