@@ -21,19 +21,19 @@ namespace SYD_COPY_FILE
 
         #region define 
 
-        private static UInt32 UTF8_CODE_BASS= 0X4E00;
-        private static UInt32 UTF8_CODE_END= 0X9FA5;
-       
-        private static UInt32 UTF8_SYMBLE1_BASS= 0X2010;
-        private static UInt32 UTF8_SYMBLE1_END= 0X201F;
-        private static UInt32 UTF8_SYMBLE1_ADDR= ((UTF8_CODE_END-UTF8_CODE_BASS+1)*32);  //((0X9FA5-0X4E00+1)*20)
-       
-        private static UInt32 UTF8_SYMBLE2_BASS= 0X3001;
-        private static UInt32 UTF8_SYMBLE2_END= 0X301F;
-        private static UInt32 UTF8_SYMBLE2_ADDR= (UTF8_SYMBLE1_ADDR+(UTF8_SYMBLE1_END-UTF8_SYMBLE1_BASS+1)*32);  //((0X9FA5-0X4E00+1)*20+(0X301F-0X3001+1)*20)
-       
-        private static UInt32 UTF8_SYMBLE3_BASS= 0XFF01;
-        private static UInt32 UTF8_SYMBLE3_END= 0XFF0F;
+        private static UInt32 UTF8_CODE_BASS = 0X4E00;
+        private static UInt32 UTF8_CODE_END = 0X9FA5;
+
+        private static UInt32 UTF8_SYMBLE1_BASS = 0X2010;
+        private static UInt32 UTF8_SYMBLE1_END = 0X201F;
+        private static UInt32 UTF8_SYMBLE1_ADDR = ((UTF8_CODE_END - UTF8_CODE_BASS + 1) * 32);  //((0X9FA5-0X4E00+1)*20)
+
+        private static UInt32 UTF8_SYMBLE2_BASS = 0X3001;
+        private static UInt32 UTF8_SYMBLE2_END = 0X301F;
+        private static UInt32 UTF8_SYMBLE2_ADDR = (UTF8_SYMBLE1_ADDR + (UTF8_SYMBLE1_END - UTF8_SYMBLE1_BASS + 1) * 32);  //((0X9FA5-0X4E00+1)*20+(0X301F-0X3001+1)*20)
+
+        private static UInt32 UTF8_SYMBLE3_BASS = 0XFF01;
+        private static UInt32 UTF8_SYMBLE3_END = 0XFF0F;
         private static UInt32 UTF8_SYMBLE3_ADDR = (UTF8_SYMBLE2_ADDR + (UTF8_SYMBLE2_END - UTF8_SYMBLE2_BASS + 1) * 32);  //((0X9FA5-0X4E00+1)*20+(0X301F-0X3001+1)*20+(0XFF0F-0XFF01+1)*20)
 
         private static UInt32 UTF8_ASCII_BASS = 0X20;
@@ -54,9 +54,10 @@ namespace SYD_COPY_FILE
         ToolTip p_draw;
 
         List<string> comboBox_indicate_text = new List<string>();
+        string[] Batch_Rename_source_files, Batch_Rename_distination_files;
         enum comboBox_mode_type
         {
-            BIN_to_ARR=0,//三位精度
+            BIN_to_ARR = 0,//三位精度
             Git_helper,
             Font_txt_to_bin,
             DSView_analysis,
@@ -76,10 +77,10 @@ namespace SYD_COPY_FILE
             TEXT_handle_and_analysis,
             Call_C,
         }
-        public Boolean DllLogThreadStart=false;
+        public Boolean DllLogThreadStart = false;
         public Thread DllLogThread;
 
-        public byte call_c_timer_timeout=0;//非0的时候1S定时器自减,减到0触发任务
+        public byte call_c_timer_timeout = 0;//非0的时候1S定时器自减,减到0触发任务
 
         string dlgDefaultExt = ".txt";
         string dlgDefaultName = "source_file";
@@ -111,17 +112,17 @@ namespace SYD_COPY_FILE
 
             string path = System.AppDomain.CurrentDomain.BaseDirectory + "syd_arr_ok.txt";
             label_outfilename.Text = path;
-            if(Settings1.Default.arr_fun_sel< comboBox_mode.Items.Count)comboBox_mode.SelectedIndex = Settings1.Default.arr_fun_sel;
+            if (Settings1.Default.arr_fun_sel < comboBox_mode.Items.Count) comboBox_mode.SelectedIndex = Settings1.Default.arr_fun_sel;
             else comboBox_mode.SelectedIndex = 0;
             if (Settings1.Default.arr_font_type >= 2) Settings1.Default.arr_font_type = 0;
-            
+
             source_file_textBox.Text = Settings1.Default.arr_source_file_text;
 
             p_draw = new ToolTip();
             comboBox_mode_DropDownClosed(null, null);
 
-            if(Settings1.Default.arr_data_type< comboBox_datatype.Items.Count)
-                comboBox_datatype.SelectedIndex=Settings1.Default.arr_data_type;
+            if (Settings1.Default.arr_data_type < comboBox_datatype.Items.Count)
+                comboBox_datatype.SelectedIndex = Settings1.Default.arr_data_type;
             comboBox_fonttype.SelectedIndex = Settings1.Default.arr_font_type;
 
             DllLogThread = new Thread(DllLogRead);
@@ -157,8 +158,37 @@ namespace SYD_COPY_FILE
                 comboBox.DropDownWidth = maxSize;
             }
         }
-
-        private void source_file_button_Click(object sender, EventArgs e)
+        public void file_preproccess(string[] str_array, string[] dist_array)
+        {
+            if((str_array==null)||(str_array.Length == 0)) return;
+            int i = 0;
+            string key = combobox_key.Text;
+            string replay = comboBox_indicate.Text;
+            string str;
+            for (i = 0; i< str_array.Length; i++)
+            {
+                str = str_array[i];
+                if (comboBox_datatype.SelectedIndex == 2)
+                    str = str.Replace(key, replay);
+                else if (comboBox_datatype.SelectedIndex == 3)
+                    str = str.Replace(key, "");
+                dist_array[i] = str;
+            }
+            str = array_combine(Batch_Rename_source_files);
+            textInput.Text = str;
+            str = array_combine(Batch_Rename_distination_files);
+            richTextBox_out.Text = str;
+        }
+        public string array_combine(string[] str_array)
+        {
+            string tempName = "";
+            foreach (string str in str_array)
+            {
+                tempName += Path.GetFileName(str) + "\r\n";
+            }
+            return tempName;
+        }
+         private void source_file_button_Click(object sender, EventArgs e)
         {
             StripStatusLabelSet("开始");
             string txt = "txt file (.txt)|*.txt|";
@@ -176,7 +206,22 @@ namespace SYD_COPY_FILE
                 if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
                 {
                     source_file_textBox.Text = folderBrowserDialog1.DirectoryPath;
-                    label_outfilename.Text = source_file_textBox.Text + "_ok\\";
+                    if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
+                    {
+                        int i = 0;
+                        string path = source_file_textBox.Text;
+                        string[] files = Directory.GetFiles(path);
+                        Batch_Rename_source_files = new string[files.Length];
+                        Batch_Rename_distination_files = new string[files.Length];
+                        for (i = 0; i < files.Length; i++)
+                        {
+                            Batch_Rename_source_files[i] = Path.GetFileName(files[i]);
+                        }
+                        file_preproccess(Batch_Rename_source_files, Batch_Rename_distination_files);
+                        label_outfilename.Text = source_file_textBox.Text + "\\";
+                    }
+                    else
+                        label_outfilename.Text = source_file_textBox.Text + "_ok\\";
                 }
                 else
                     return;
@@ -246,7 +291,6 @@ namespace SYD_COPY_FILE
                 }
             }
         }
-        //自定义一个类
         public class FileTimeInfo
         {
             public string FileName;  //文件名
@@ -2648,6 +2692,17 @@ namespace SYD_COPY_FILE
                 }
             }
         }
+        private void Batch_Rename()
+        {
+            int i = 0;
+            for (i = 0; i < Batch_Rename_source_files.Length; i++)
+            {
+                if (Batch_Rename_source_files[i] != Batch_Rename_distination_files[i])
+                {
+                    File.Move(label_outfilename.Text + Batch_Rename_source_files[i], label_outfilename.Text + Batch_Rename_distination_files[i]);
+                }
+            }
+        }
         private void statr_Process(string exe, string strInput)
         {
             Process p = new Process();
@@ -2853,7 +2908,7 @@ namespace SYD_COPY_FILE
         private void draw_Click(object sender, EventArgs e)
         {
             StripStatusLabelSet("提取");
-            if (comboBox_mode.SelectedIndex != (int)comboBox_mode_type.Git_helper)
+            if((comboBox_mode.SelectedIndex != (int)comboBox_mode_type.Git_helper) && (comboBox_mode.SelectedIndex != (int)comboBox_mode_type.handle_File))
             {
                 richTextBox_out.Clear();
             }
@@ -2940,7 +2995,13 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File)
             {
-                find_file();
+                if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
+                    Batch_Rename();
+                else
+                {
+                    richTextBox_out.Clear();
+                    find_file();
+                }
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
             {
@@ -3368,6 +3429,8 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("找出大于等于临界值的文件");
                 this.comboBox_datatype.Items.Add("按照目录加文件名拷贝到输出目录");
+                this.comboBox_datatype.Items.Add("替换文件名中关键字为指示符");
+                this.comboBox_datatype.Items.Add("删除文件名中关键字的内容");
                 this.label_data_type.Text = "  要做的工作：";
                 this.label_key_word.Text = "临界值";
                 this.source_file_button.Text = "选择目录";
@@ -3417,6 +3480,14 @@ namespace SYD_COPY_FILE
             }
             arr_restore_Defaults_Adjust(false);  //自动调整显示长度
         }
+        public void comboBox_inster_first(ComboBox box,string str)
+        {
+            if (box.Text != str)
+            {
+                box.Items.Insert(0, str);
+                box.SelectedIndex = 0;
+            }
+        }
         private void comboBox_datatype_DropDownClosed(object sender, EventArgs e)
         {
             bool restore_Defaults = false;
@@ -3455,12 +3526,11 @@ namespace SYD_COPY_FILE
                 if (comboBox_datatype.SelectedIndex == 0)
                 {
                     this.label_indicator.Text = "天数差:";
-                    this.comboBox_indicate.Text="0";
+                    comboBox_inster_first(comboBox_indicate, "0");
                     this.label_datasize.Text = "手机字段序号:";
                     this.textBox_filesize.Text = "3";
                     this.label_key_word.Text = "设备序:";
-                    this.combobox_key.Text = "5";
-                    this.comboBox_indicate.SelectedIndex = 0;
+                    comboBox_inster_first(combobox_key, "5");
                 }     
                 else
                 {
@@ -3477,12 +3547,16 @@ namespace SYD_COPY_FILE
                 if (comboBox_datatype.SelectedIndex == 1)
                 {
                     this.label_key_word.Text = "扩展名";
-                    this.combobox_key.Text = ".bmp";
+                    comboBox_inster_first(combobox_key, ".bmp");
+                }
+                else if (comboBox_datatype.SelectedIndex == 0)
+                {
+                    this.label_key_word.Text = "临界值";
+                    comboBox_inster_first(combobox_key, "50M");
                 }
                 else
                 {
-                    this.label_key_word.Text = "临界值";
-                    this.combobox_key.Text = "50M";
+                    this.label_key_word.Text = "关键字";
                 }
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
@@ -3580,7 +3654,13 @@ namespace SYD_COPY_FILE
                 arr_restore_Defaults_Adjust(true);
             }
         }
-
+        private void combobox_key_TextChanged(object sender, EventArgs e)
+        {
+            if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File) && ((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3)))
+            {
+                file_preproccess(Batch_Rename_source_files, Batch_Rename_distination_files);
+            }
+        }
         private void comboBox_fonttype_DropDownClosed(object sender, EventArgs e)
         {
             if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR) && ((comboBox_fonttype.SelectedIndex == 1) || (comboBox_fonttype.SelectedIndex == 2)))

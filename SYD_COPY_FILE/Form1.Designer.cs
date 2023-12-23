@@ -145,7 +145,6 @@
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.reopen_source_file_button = new System.Windows.Forms.Button();
             this.combobox_key = new System.Windows.Forms.ComboBox();
-            this.label_outfilename = new System.Windows.Forms.Label();
             this.comboBox_additional_operations = new System.Windows.Forms.ComboBox();
             this.open_last_source_file_button = new System.Windows.Forms.Button();
             this.label_key_word = new System.Windows.Forms.Label();
@@ -162,6 +161,7 @@
             this.label_outfile = new System.Windows.Forms.Label();
             this.source_file_textBox = new System.Windows.Forms.TextBox();
             this.label_additional_operations = new System.Windows.Forms.Label();
+            this.label_outfilename = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.richTextBox_out = new System.Windows.Forms.TextBox();
             this.LED_Display = new System.Windows.Forms.TabPage();
@@ -520,6 +520,7 @@
             this.label80 = new System.Windows.Forms.Label();
             this.source_copyfile_button_rename = new System.Windows.Forms.Button();
             this.label82 = new System.Windows.Forms.Label();
+            this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox_delete_prefile = new System.Windows.Forms.CheckBox();
             this.checkBox_delete_srcfile = new System.Windows.Forms.CheckBox();
             this.checkBox_systemtime_rename = new System.Windows.Forms.CheckBox();
@@ -870,7 +871,6 @@
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem148 = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.tabPage11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2149,7 +2149,6 @@
             // 
             this.groupBox21.Controls.Add(this.reopen_source_file_button);
             this.groupBox21.Controls.Add(this.combobox_key);
-            this.groupBox21.Controls.Add(this.label_outfilename);
             this.groupBox21.Controls.Add(this.comboBox_additional_operations);
             this.groupBox21.Controls.Add(this.open_last_source_file_button);
             this.groupBox21.Controls.Add(this.label_key_word);
@@ -2166,6 +2165,7 @@
             this.groupBox21.Controls.Add(this.label_outfile);
             this.groupBox21.Controls.Add(this.source_file_textBox);
             this.groupBox21.Controls.Add(this.label_additional_operations);
+            this.groupBox21.Controls.Add(this.label_outfilename);
             this.groupBox21.Location = new System.Drawing.Point(-4, 3);
             this.groupBox21.Name = "groupBox21";
             this.groupBox21.Size = new System.Drawing.Size(765, 87);
@@ -2191,16 +2191,7 @@
             this.combobox_key.Name = "combobox_key";
             this.combobox_key.Size = new System.Drawing.Size(152, 20);
             this.combobox_key.TabIndex = 35;
-            // 
-            // label_outfilename
-            // 
-            this.label_outfilename.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_outfilename.Location = new System.Drawing.Point(76, 44);
-            this.label_outfilename.Name = "label_outfilename";
-            this.label_outfilename.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label_outfilename.Size = new System.Drawing.Size(550, 12);
-            this.label_outfilename.TabIndex = 9;
-            this.label_outfilename.Text = "syd_arr_ok.txt";
+            this.combobox_key.TextChanged += new System.EventHandler(this.combobox_key_TextChanged);
             // 
             // comboBox_additional_operations
             // 
@@ -2273,9 +2264,9 @@
             "uint8",
             "uint16",
             "uint32"});
-            this.comboBox_datatype.Location = new System.Drawing.Point(268, 64);
+            this.comboBox_datatype.Location = new System.Drawing.Point(222, 64);
             this.comboBox_datatype.Name = "comboBox_datatype";
-            this.comboBox_datatype.Size = new System.Drawing.Size(58, 20);
+            this.comboBox_datatype.Size = new System.Drawing.Size(104, 20);
             this.comboBox_datatype.TabIndex = 19;
             this.comboBox_datatype.Text = "uint8";
             this.comboBox_datatype.DropDownClosed += new System.EventHandler(this.comboBox_datatype_DropDownClosed);
@@ -2283,7 +2274,7 @@
             // label_data_type
             // 
             this.label_data_type.AutoSize = true;
-            this.label_data_type.Location = new System.Drawing.Point(188, 67);
+            this.label_data_type.Location = new System.Drawing.Point(143, 67);
             this.label_data_type.Name = "label_data_type";
             this.label_data_type.Size = new System.Drawing.Size(83, 12);
             this.label_data_type.TabIndex = 20;
@@ -2294,7 +2285,7 @@
             this.textBox_filesize.AllowDrop = true;
             this.textBox_filesize.Location = new System.Drawing.Point(86, 64);
             this.textBox_filesize.Name = "textBox_filesize";
-            this.textBox_filesize.Size = new System.Drawing.Size(99, 21);
+            this.textBox_filesize.Size = new System.Drawing.Size(56, 21);
             this.textBox_filesize.TabIndex = 18;
             // 
             // label_datasize
@@ -2361,6 +2352,16 @@
             this.label_additional_operations.Size = new System.Drawing.Size(59, 12);
             this.label_additional_operations.TabIndex = 38;
             this.label_additional_operations.Text = "额外操作:";
+            // 
+            // label_outfilename
+            // 
+            this.label_outfilename.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label_outfilename.Location = new System.Drawing.Point(76, 44);
+            this.label_outfilename.Name = "label_outfilename";
+            this.label_outfilename.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label_outfilename.Size = new System.Drawing.Size(550, 12);
+            this.label_outfilename.TabIndex = 9;
+            this.label_outfilename.Text = "syd_arr_ok.txt";
             // 
             // groupBox23
             // 
@@ -6191,7 +6192,6 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.checkBox16);
             this.tabPage7.Controls.Add(this.destination_folder_textBox_rename);
             this.tabPage7.Controls.Add(this.button11);
             this.tabPage7.Controls.Add(this.destination_file_button_open_dir);
@@ -6210,6 +6210,7 @@
             this.tabPage7.Controls.Add(this.label80);
             this.tabPage7.Controls.Add(this.source_copyfile_button_rename);
             this.tabPage7.Controls.Add(this.label82);
+            this.tabPage7.Controls.Add(this.checkBox16);
             this.tabPage7.Controls.Add(this.checkBox_delete_prefile);
             this.tabPage7.Controls.Add(this.checkBox_delete_srcfile);
             this.tabPage7.Controls.Add(this.checkBox_systemtime_rename);
@@ -6400,6 +6401,16 @@
             this.label82.Size = new System.Drawing.Size(101, 24);
             this.label82.TabIndex = 38;
             this.label82.Text = "文件名前缀:";
+            // 
+            // checkBox16
+            // 
+            this.checkBox16.AutoSize = true;
+            this.checkBox16.Location = new System.Drawing.Point(383, 88);
+            this.checkBox16.Name = "checkBox16";
+            this.checkBox16.Size = new System.Drawing.Size(108, 16);
+            this.checkBox16.TabIndex = 69;
+            this.checkBox16.Text = "拷贝到目标目录";
+            this.checkBox16.UseVisualStyleBackColor = true;
             // 
             // checkBox_delete_prefile
             // 
@@ -9099,16 +9110,6 @@
             this.toolStripMenuItem148.Size = new System.Drawing.Size(139, 22);
             this.toolStripMenuItem148.Text = "定位最高Bit";
             // 
-            // checkBox16
-            // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(383, 88);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(108, 16);
-            this.checkBox16.TabIndex = 69;
-            this.checkBox16.Text = "拷贝到目标目录";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -9119,7 +9120,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.4.6";
+            this.Text = "SYD_Calculator V2.4.7";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
