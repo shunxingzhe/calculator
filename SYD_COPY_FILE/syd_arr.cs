@@ -3211,7 +3211,7 @@ namespace SYD_COPY_FILE
             this.comboBox_fonttype.Items.Add("32X32");
             this.label_font_type.Text = "字库类型：";
             this.label_indicator.Text = "指示符:";
-            this.label_data_type.Text = "生成数据类型:";
+            this.label_data_type.Text = "数据类型:";
             this.label_datasize.Text = "提取数组大小:";
             this.label_key_word.Text = "关键字";
             this.source_file_button.Text = "选择文件";
@@ -3277,7 +3277,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("Git helper");
                 this.comboBox_datatype.Items.Add("RGB palette 24BIT TO 565");
-                this.label_data_type.Text = "   模式选择：";
+                this.label_data_type.Text = "模式选择：";
 
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("生成git commit命令");
@@ -3289,7 +3289,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("QQ空间新增图片提取");
                 this.comboBox_datatype.Items.Add("Font txt to bin");
-                this.label_data_type.Text = "   模式选择：";
+                this.label_data_type.Text = "模式选择：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.DSView_analysis)
             {
@@ -3302,7 +3302,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("Utf8_ASCII");
                 this.comboBox_datatype.Items.Add("Unicode");
-                this.label_data_type.Text = "转换处理方式：";
+                this.label_data_type.Text = "转换方式：";
 
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("数据为数组格式，第一个字节为数组长度");
@@ -3322,7 +3322,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("不改变输入数据");
                 this.comboBox_datatype.Items.Add("提取输入十进制数据为Ascii码");
                 this.comboBox_datatype.Items.Add("提取输入十六进制数据为Ascii码");
-                this.label_data_type.Text = "输入数据处理：";
+                this.label_data_type.Text = "输入处理：";
 
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("不带0X的数据");
@@ -3336,7 +3336,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("C语言结构体计算偏移");
                 this.comboBox_datatype.Items.Add("从C文件提炼数组声明");
-                this.label_data_type.Text = "   模式选择：";
+                this.label_data_type.Text = "模式选择：";
 
                 this.comboBox_additional_operations.Items.Clear();
                 this.comboBox_additional_operations.Items.Add("无额外操作");
@@ -3354,7 +3354,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("输入数据为手环RTC统计数据");
                 this.comboBox_datatype.Items.Add("输入数据为sniffer数据包");
                 this.comboBox_datatype.Items.Add("输入数据为Studio的时间+数据复制行");
-                this.label_data_type.Text = "输入数据类型：";
+                this.label_data_type.Text = "输入类型：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Bytes_to_utf8) 
             {
@@ -3364,7 +3364,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("普通的数组转UTF8");
                 this.comboBox_datatype.Items.Add("C#数组转UTF8");
                 this.comboBox_datatype.Items.Add("Jlink_commander数组转UTF8");
-                this.label_data_type.Text = "   模式选择：";
+                this.label_data_type.Text = "模式选择：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Get_Row)
             {
@@ -3376,7 +3376,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("列出包含关键字的所有行");
                 this.comboBox_datatype.Items.Add("列出包含关键字的所有行并提取至行尾");
                 this.comboBox_datatype.Items.Add("列出包含关键字和分隔符之间的内容并忽略空行(删除换行后)");
-                this.label_data_type.Text = "提取数据依据：";
+                this.label_data_type.Text = "提取依据：";
                 this.label_datasize.Text = "      分隔符:";
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("输出以空格符隔开");
@@ -3422,7 +3422,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("刷新地址");
                 this.comboBox_datatype.Items.Add("从源码中更新接口");
-                this.label_data_type.Text = "数据处理方式：";
+                this.label_data_type.Text = "处理方式：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File)
             {
@@ -3431,7 +3431,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("按照目录加文件名拷贝到输出目录");
                 this.comboBox_datatype.Items.Add("替换文件名中关键字为指示符");
                 this.comboBox_datatype.Items.Add("删除文件名中关键字的内容");
-                this.label_data_type.Text = "  要做的工作：";
+                this.label_data_type.Text = "要做工作：";
                 this.label_key_word.Text = "临界值";
                 this.source_file_button.Text = "选择目录";
                 this.label_outfile.Text = "输出目录名称:";
@@ -3449,7 +3449,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("多数据翻转");
                 this.comboBox_datatype.Items.Add("十六进制/十进制数据提取");
                 this.comboBox_datatype.Items.Add("数目统计(Byte)");
-                this.label_data_type.Text = " 处理功能选择：";
+                this.label_data_type.Text = "功能选择：";
 
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_TEXT_handle_and_analysis.txt", Encoding.Default);
             }
@@ -3463,7 +3463,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("BMP文件提取红白黑三色图(R:01 W:10 B:11 RW:00)");
                 this.comboBox_datatype.Items.Add("BMP文件提取3Bit八色图(24BIT为一包显示2行4列错位输出)");
                 this.comboBox_datatype.Items.Add("BMP文件提取红白黑三色图(R:10 W:00 B:11 RW:01)");
-                this.label_data_type.Text = " 处理功能选择：";
+                this.label_data_type.Text = "功能选择：";
 
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("不旋转(原点为左下角)");

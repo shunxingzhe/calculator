@@ -2241,9 +2241,9 @@
             this.comboBox_fonttype.Items.AddRange(new object[] {
             "16X16",
             "32X32"});
-            this.comboBox_fonttype.Location = new System.Drawing.Point(388, 64);
+            this.comboBox_fonttype.Location = new System.Drawing.Point(382, 64);
             this.comboBox_fonttype.Name = "comboBox_fonttype";
-            this.comboBox_fonttype.Size = new System.Drawing.Size(57, 20);
+            this.comboBox_fonttype.Size = new System.Drawing.Size(62, 20);
             this.comboBox_fonttype.TabIndex = 21;
             this.comboBox_fonttype.Text = "16X16";
             this.comboBox_fonttype.DropDownClosed += new System.EventHandler(this.comboBox_fonttype_DropDownClosed);
@@ -2264,9 +2264,9 @@
             "uint8",
             "uint16",
             "uint32"});
-            this.comboBox_datatype.Location = new System.Drawing.Point(222, 64);
+            this.comboBox_datatype.Location = new System.Drawing.Point(197, 64);
             this.comboBox_datatype.Name = "comboBox_datatype";
-            this.comboBox_datatype.Size = new System.Drawing.Size(104, 20);
+            this.comboBox_datatype.Size = new System.Drawing.Size(129, 20);
             this.comboBox_datatype.TabIndex = 19;
             this.comboBox_datatype.Text = "uint8";
             this.comboBox_datatype.DropDownClosed += new System.EventHandler(this.comboBox_datatype_DropDownClosed);
@@ -2276,9 +2276,9 @@
             this.label_data_type.AutoSize = true;
             this.label_data_type.Location = new System.Drawing.Point(143, 67);
             this.label_data_type.Name = "label_data_type";
-            this.label_data_type.Size = new System.Drawing.Size(83, 12);
+            this.label_data_type.Size = new System.Drawing.Size(59, 12);
             this.label_data_type.TabIndex = 20;
-            this.label_data_type.Text = "生成数据类型:";
+            this.label_data_type.Text = "数据类型:";
             // 
             // textBox_filesize
             // 
@@ -4107,9 +4107,9 @@
             // 
             // button33
             // 
-            this.button33.Location = new System.Drawing.Point(339, 25);
+            this.button33.Location = new System.Drawing.Point(347, 25);
             this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(105, 22);
+            this.button33.Size = new System.Drawing.Size(103, 22);
             this.button33.TabIndex = 51;
             this.button33.Text = "执行嘉威的工具";
             this.button33.UseVisualStyleBackColor = true;
@@ -6667,15 +6667,15 @@
             // source_copyfile_textBox_sync_crc32
             // 
             this.source_copyfile_textBox_sync_crc32.AllowDrop = true;
-            this.source_copyfile_textBox_sync_crc32.Location = new System.Drawing.Point(259, 26);
+            this.source_copyfile_textBox_sync_crc32.Location = new System.Drawing.Point(275, 26);
             this.source_copyfile_textBox_sync_crc32.Name = "source_copyfile_textBox_sync_crc32";
-            this.source_copyfile_textBox_sync_crc32.Size = new System.Drawing.Size(76, 21);
+            this.source_copyfile_textBox_sync_crc32.Size = new System.Drawing.Size(72, 21);
             this.source_copyfile_textBox_sync_crc32.TabIndex = 54;
             // 
             // source_copyfile_textBox_sync_checksum
             // 
             this.source_copyfile_textBox_sync_checksum.AllowDrop = true;
-            this.source_copyfile_textBox_sync_checksum.Location = new System.Drawing.Point(172, 26);
+            this.source_copyfile_textBox_sync_checksum.Location = new System.Drawing.Point(188, 26);
             this.source_copyfile_textBox_sync_checksum.Name = "source_copyfile_textBox_sync_checksum";
             this.source_copyfile_textBox_sync_checksum.Size = new System.Drawing.Size(53, 21);
             this.source_copyfile_textBox_sync_checksum.TabIndex = 39;
@@ -6685,7 +6685,7 @@
             this.source_copyfile_textBox_sync_size.AllowDrop = true;
             this.source_copyfile_textBox_sync_size.Location = new System.Drawing.Point(33, 26);
             this.source_copyfile_textBox_sync_size.Name = "source_copyfile_textBox_sync_size";
-            this.source_copyfile_textBox_sync_size.Size = new System.Drawing.Size(84, 21);
+            this.source_copyfile_textBox_sync_size.Size = new System.Drawing.Size(101, 21);
             this.source_copyfile_textBox_sync_size.TabIndex = 37;
             // 
             // source_copyfile_textBox_sync
@@ -6747,7 +6747,7 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(117, 29);
+            this.label55.Location = new System.Drawing.Point(133, 29);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(59, 12);
             this.label55.TabIndex = 38;
@@ -6818,7 +6818,7 @@
             // label131
             // 
             this.label131.AutoSize = true;
-            this.label131.Location = new System.Drawing.Point(223, 30);
+            this.label131.Location = new System.Drawing.Point(239, 30);
             this.label131.Name = "label131";
             this.label131.Size = new System.Drawing.Size(41, 12);
             this.label131.TabIndex = 53;
@@ -9120,7 +9120,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.4.7";
+            this.Text = "SYD_Calculator V2.4.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

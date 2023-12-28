@@ -821,7 +821,10 @@ namespace SYD_COPY_FILE
                     }
                     if (comboBox7.SelectedIndex == 0)
                     {
-                        name = source_copyfile_prefix_textBox_rename.Text + name + source_copyfile_suffix_textBox_rename.Text;
+                        if ((source_copyfile_suffix_textBox_rename.Text.Length>=1) && (source_copyfile_suffix_textBox_rename.Text[source_copyfile_suffix_textBox_rename.Text.Length - 1] >= '0') && (source_copyfile_suffix_textBox_rename.Text[source_copyfile_suffix_textBox_rename.Text.Length - 1] <= '9'))
+                            name = source_copyfile_prefix_textBox_rename.Text + name + '_'+ source_copyfile_suffix_textBox_rename.Text;
+                        else
+                            name = source_copyfile_prefix_textBox_rename.Text + name + source_copyfile_suffix_textBox_rename.Text;
                         if ((name[name.Length - 1] >= '0') && (name[name.Length - 1] <= '9')) name += '_';
                         if (checkBox_systemtime_rename.Checked == true)
                         {
