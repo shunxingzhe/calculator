@@ -1765,7 +1765,7 @@ namespace SYD_COPY_FILE
        {
            int i = 0;
            string orgTxt1 = textInput.Text.Trim();
-           orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "");
+           orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "").Replace("0x", "").Replace(",", "");
 
            List<string> lstArray = orgTxt1.ToLower().Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -1782,29 +1782,6 @@ namespace SYD_COPY_FILE
                }
                richTextBox_out.AppendText(crc.ToString("X") + "\r\n");
            }
-
-           //richTextBox_out.AppendText("\r\n" + "difference value:" + "\r\n");
-           //for (i = 0; i < lstArray.Count / 2; i++)
-           //{
-           //    if ((strArray[i].Length <= 16) && (strArray[i + 1].Length <= 16))
-           //    {
-           //        UInt64 n = Convert.ToUInt64(strArray[i], 16);
-           //        UInt64 m = Convert.ToUInt64(strArray[i + 1], 16);
-           //        if (m >= n)
-           //        {
-           //            richTextBox_out.AppendText("0X" + (m - n).ToString("X") + "\r\n");
-           //        }
-           //        else
-           //        {
-           //            richTextBox_out.AppendText("Error m<n\r\n");
-           //        }
-           //    }
-           //    else
-           //    {
-           //        richTextBox_out.AppendText("Error m>16 || n>16\r\n");
-           //    }
-           //}
-
            string path = label_outfilename.Text;
            path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
