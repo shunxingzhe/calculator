@@ -1769,18 +1769,19 @@ namespace SYD_COPY_FILE
 
            List<string> lstArray = orgTxt1.ToLower().Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-           richTextBox_out.Text = "CRC:\r\n";
+           richTextBox_out.Text = "";
 
            for (i = 0; i < lstArray.Count; i++)
            {
                byte[] data= strToToHexByte(lstArray[i]);
                byte crc = 0;
-
+                UInt32 sum = 0;
                for (int j = 0; j < data.Length; j++)
                {
                    crc ^= data[j];
-               }
-               richTextBox_out.AppendText(crc.ToString("X") + "\r\n");
+                    sum += data[j];
+                }
+               richTextBox_out.AppendText("xor:"+crc.ToString("X") +"  sum:" + sum.ToString("X")+"\r\n");
            }
            string path = label_outfilename.Text;
            path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
