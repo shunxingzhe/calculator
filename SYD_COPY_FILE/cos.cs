@@ -417,10 +417,7 @@ namespace SYD_COPY_FILE
                     }
                     else if (contextMenuStrip2.Items[i].Text.Trim() == "复制文件名")
                     {
-                        if (bitmap == Bitmap_Zip)
-                        {
-                            cope_string_to_Clipboard(filename);
-                        }
+                        cope_string_to_Clipboard(filename);
                     }
                     else if (contextMenuStrip2.Items[i].Text.Trim() == "打开本地目录")
                     {
