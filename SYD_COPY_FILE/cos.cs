@@ -442,25 +442,11 @@ namespace SYD_COPY_FILE
                             {
                                 this.Invoke(new EventHandler(delegate
                                 {
-                                    string apk = "apk file (.apk)|*.apk";
-                                    string zip = "zip file (.zip)|*.zip";
-                                    string png = "png file (.png)|*.png";
                                     filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
                                     string ext = filename.Substring(filename.Length - 4, 4);
                                     Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
                                     dlg.FileName = dlgDefaultName;
-
-                                    dlg.DefaultExt = ".zip";
-                                    if (apk.Contains(ext))
-                                        ext = apk;
-                                    else if (zip.Contains(ext))
-                                        ext = zip;
-                                    else if (png.Contains(ext))
-                                        ext = png;
-                                    dlg.Filter = ext;
-
-                                    //dlg.Multiselect = true;//是否允许多选，false表示单选
 
                                     if (dlg.ShowDialog() == false)
                                         return;

@@ -2112,7 +2112,7 @@
             this.draw.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
             this.draw.ForeColor = System.Drawing.Color.Red;
             this.draw.Location = new System.Drawing.Point(374, 89);
-            this.draw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.draw.Margin = new System.Windows.Forms.Padding(2);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(90, 30);
             this.draw.TabIndex = 26;
@@ -2136,7 +2136,7 @@
             this.textInput.BackColor = System.Drawing.Color.White;
             this.textInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textInput.Location = new System.Drawing.Point(6, 19);
-            this.textInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textInput.Margin = new System.Windows.Forms.Padding(2);
             this.textInput.MaxLength = 100000000;
             this.textInput.Multiline = true;
             this.textInput.Name = "textInput";
@@ -2227,7 +2227,7 @@
             // button_clear
             // 
             this.button_clear.Location = new System.Drawing.Point(722, 18);
-            this.button_clear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_clear.Margin = new System.Windows.Forms.Padding(2);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(38, 22);
             this.button_clear.TabIndex = 27;
@@ -2378,7 +2378,7 @@
             this.richTextBox_out.BackColor = System.Drawing.Color.White;
             this.richTextBox_out.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox_out.Location = new System.Drawing.Point(8, 13);
-            this.richTextBox_out.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox_out.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox_out.MaxLength = 100000000;
             this.richTextBox_out.Multiline = true;
             this.richTextBox_out.Name = "richTextBox_out";
@@ -2397,7 +2397,7 @@
             this.LED_Display.Controls.Add(this.groupBox8);
             this.LED_Display.Location = new System.Drawing.Point(4, 22);
             this.LED_Display.Name = "LED_Display";
-            this.LED_Display.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LED_Display.Padding = new System.Windows.Forms.Padding(3);
             this.LED_Display.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LED_Display.Size = new System.Drawing.Size(756, 552);
             this.LED_Display.TabIndex = 1;
@@ -4125,7 +4125,7 @@
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(756, 552);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "timer/cal";
@@ -7045,7 +7045,7 @@
             // 
             this.UIgen_button3.Font = new System.Drawing.Font("宋体", 9F);
             this.UIgen_button3.Location = new System.Drawing.Point(430, 32);
-            this.UIgen_button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UIgen_button3.Margin = new System.Windows.Forms.Padding(2);
             this.UIgen_button3.Name = "UIgen_button3";
             this.UIgen_button3.Size = new System.Drawing.Size(92, 22);
             this.UIgen_button3.TabIndex = 29;
@@ -7057,7 +7057,7 @@
             // 
             this.UIgen_button2.Font = new System.Drawing.Font("宋体", 9F);
             this.UIgen_button2.Location = new System.Drawing.Point(430, 11);
-            this.UIgen_button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UIgen_button2.Margin = new System.Windows.Forms.Padding(2);
             this.UIgen_button2.Name = "UIgen_button2";
             this.UIgen_button2.Size = new System.Drawing.Size(92, 22);
             this.UIgen_button2.TabIndex = 28;
@@ -7114,7 +7114,7 @@
             // UIgen_draw
             // 
             this.UIgen_draw.Location = new System.Drawing.Point(531, 3);
-            this.UIgen_draw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UIgen_draw.Margin = new System.Windows.Forms.Padding(2);
             this.UIgen_draw.Name = "UIgen_draw";
             this.UIgen_draw.Size = new System.Drawing.Size(71, 33);
             this.UIgen_draw.TabIndex = 43;
@@ -7137,7 +7137,7 @@
             // UIgen_button1
             // 
             this.UIgen_button1.Location = new System.Drawing.Point(603, 3);
-            this.UIgen_button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UIgen_button1.Margin = new System.Windows.Forms.Padding(2);
             this.UIgen_button1.Name = "UIgen_button1";
             this.UIgen_button1.Size = new System.Drawing.Size(71, 33);
             this.UIgen_button1.TabIndex = 44;
@@ -7169,7 +7169,7 @@
             this.UIgen_richTextBox1.BackColor = System.Drawing.Color.White;
             this.UIgen_richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UIgen_richTextBox1.Location = new System.Drawing.Point(1, 13);
-            this.UIgen_richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UIgen_richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.UIgen_richTextBox1.Name = "UIgen_richTextBox1";
             this.UIgen_richTextBox1.Size = new System.Drawing.Size(755, 135);
             this.UIgen_richTextBox1.TabIndex = 0;
@@ -7178,7 +7178,7 @@
             // UIgen_button4
             // 
             this.UIgen_button4.Location = new System.Drawing.Point(678, 3);
-            this.UIgen_button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UIgen_button4.Margin = new System.Windows.Forms.Padding(2);
             this.UIgen_button4.Name = "UIgen_button4";
             this.UIgen_button4.Size = new System.Drawing.Size(71, 33);
             this.UIgen_button4.TabIndex = 60;
@@ -7269,7 +7269,7 @@
             this.UIgen_textInput.BackColor = System.Drawing.Color.White;
             this.UIgen_textInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UIgen_textInput.Location = new System.Drawing.Point(1, 14);
-            this.UIgen_textInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UIgen_textInput.Margin = new System.Windows.Forms.Padding(2);
             this.UIgen_textInput.Name = "UIgen_textInput";
             this.UIgen_textInput.Size = new System.Drawing.Size(749, 280);
             this.UIgen_textInput.TabIndex = 0;
@@ -9122,7 +9122,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.5.0";
+            this.Text = "SYD_Calculator V2.5.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
