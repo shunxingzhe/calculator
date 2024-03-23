@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
-using System.Diagnostics;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace SYD_COPY_FILE
 {
@@ -160,12 +158,12 @@ namespace SYD_COPY_FILE
         }
         public void file_preproccess(string[] str_array, string[] dist_array)
         {
-            if((str_array==null)||(str_array.Length == 0)) return;
+            if ((str_array == null) || (str_array.Length == 0)) return;
             int i = 0;
             string key = combobox_key.Text;
             string replay = comboBox_indicate.Text;
             string str;
-            for (i = 0; i< str_array.Length; i++)
+            for (i = 0; i < str_array.Length; i++)
             {
                 str = str_array[i];
                 if (comboBox_datatype.SelectedIndex == 2)
@@ -188,7 +186,7 @@ namespace SYD_COPY_FILE
             }
             return tempName;
         }
-         private void source_file_button_Click(object sender, EventArgs e)
+        private void source_file_button_Click(object sender, EventArgs e)
         {
             StripStatusLabelSet("开始");
             string txt = "txt file (.txt)|*.txt|";
@@ -206,7 +204,7 @@ namespace SYD_COPY_FILE
                 if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
                 {
                     source_file_textBox.Text = folderBrowserDialog1.DirectoryPath;
-                    if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
+                    if ((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
                     {
                         int i = 0;
                         string path = source_file_textBox.Text;
@@ -235,15 +233,15 @@ namespace SYD_COPY_FILE
                 dlg.DefaultExt = ".txt";
                 if (dlgDefaultExt == ".txt")
                 {
-                    ext = txt + wav+ bin+ bmp+ c+ dat;
+                    ext = txt + wav + bin + bmp + c + dat;
                 }
                 else if (dlgDefaultExt == ".wav")
                 {
-                    ext = wav+txt + bin + bmp + c + dat;
+                    ext = wav + txt + bin + bmp + c + dat;
                 }
                 else if (dlgDefaultExt == ".bin")
                 {
-                    ext = bin  + txt + wav +  bmp + c + dat;
+                    ext = bin + txt + wav + bmp + c + dat;
                 }
                 else if (dlgDefaultExt == ".bmp")
                 {
@@ -255,9 +253,9 @@ namespace SYD_COPY_FILE
                 }
                 else if (dlgDefaultExt == ".dat")
                 {
-                    ext = dat+c + txt + wav + bin + bmp;
+                    ext = dat + c + txt + wav + bin + bmp;
                 }
-                ext += "csv file (.csv)|*.csv|log file (.log)|*.log|diary file (.diary)|*.diary";
+                ext += "csv file (.csv)|*.csv|log file (.log)|*.log|diary file (.diary)|*.diary|md file (.md)|*.md";
                 dlg.Filter = ext;
 
                 dlg.Multiselect = true;//是否允许多选，false表示单选
@@ -265,7 +263,7 @@ namespace SYD_COPY_FILE
                 if (dlg.ShowDialog() == false)
                     return;
                 dlgDefaultExt = Path.GetExtension(dlg.FileName).ToLower();
-                dlgDefaultName= Path.GetFileNameWithoutExtension(dlg.FileName);
+                dlgDefaultName = Path.GetFileNameWithoutExtension(dlg.FileName);
                 source_file_textBox.Text = dlg.FileName;
                 if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
                 {
@@ -307,7 +305,7 @@ namespace SYD_COPY_FILE
             int m = name.IndexOf("(");
             if (m != -1)
             {
-                name = name.Substring(0,m-1);
+                name = name.Substring(0, m - 1);
             }
             List<FileTimeInfo> list = new List<FileTimeInfo>();
             DirectoryInfo d = new DirectoryInfo(dir);
@@ -316,9 +314,9 @@ namespace SYD_COPY_FILE
                 if (fi.Extension.ToUpper() == ext.ToUpper())
                 {
                     //这里专门针对微信添加
-                    if (fi.Name.Contains(name)==false) continue;
-                    string filename = fi.Name.Replace(name,"").Replace("(", "").Replace(")", "").Replace(ext, "").Replace(" ", "");
-                    if(IsOnlyNumber(filename)== false) continue;
+                    if (fi.Name.Contains(name) == false) continue;
+                    string filename = fi.Name.Replace(name, "").Replace("(", "").Replace(")", "").Replace(ext, "").Replace(" ", "");
+                    if (IsOnlyNumber(filename) == false) continue;
                     list.Add(new FileTimeInfo()
                     {
                         FileName = fi.FullName,
@@ -355,7 +353,7 @@ namespace SYD_COPY_FILE
                 }
                 source_file_textBox.Text = fti.FileName;
             }
-            textInput.Text=reintput_file(source_file_textBox.Text);
+            textInput.Text = reintput_file(source_file_textBox.Text);
             label_intputsize.Text = (textInput.Text.Length / 2).ToString();
             StripStatusLabelSet("重载文件完成");
         }
@@ -385,29 +383,29 @@ namespace SYD_COPY_FILE
                 }
             }
         }
-       /// <summary>读取文件，返回一个含有文件数据的行列表</summary>
-       /// <param name="TxtFilePath">文件路径</param>
-       /// <returns>文件数据的行列表</returns>
-       private List<string> ReadTxtFromFile(string TxtFilePath)
-       {
-           // 1 首先创建一个泛型为string 的List列表
-           List<string> AllRowStrList = new List<string>();
-           {
-               // 2 加载文件
-               System.IO.StreamReader sr = new
-               System.IO.StreamReader(TxtFilePath,Encoding.Default);
-               String line; // 3 调用StreamReader的ReadLine()函数
-               while ((line = sr.ReadLine()) != null)
-               {   // 4 将每行添加到文件List中
-                   AllRowStrList.Add(line);
-               }
-               // 5 关闭流
-               sr.Close();
-           }
-           // 6 完成操作
-           return AllRowStrList;
-       }
-        public void Director(string dir, List<string> list,string ext)
+        /// <summary>读取文件，返回一个含有文件数据的行列表</summary>
+        /// <param name="TxtFilePath">文件路径</param>
+        /// <returns>文件数据的行列表</returns>
+        private List<string> ReadTxtFromFile(string TxtFilePath)
+        {
+            // 1 首先创建一个泛型为string 的List列表
+            List<string> AllRowStrList = new List<string>();
+            {
+                // 2 加载文件
+                System.IO.StreamReader sr = new
+                System.IO.StreamReader(TxtFilePath, Encoding.Default);
+                String line; // 3 调用StreamReader的ReadLine()函数
+                while ((line = sr.ReadLine()) != null)
+                {   // 4 将每行添加到文件List中
+                    AllRowStrList.Add(line);
+                }
+                // 5 关闭流
+                sr.Close();
+            }
+            // 6 完成操作
+            return AllRowStrList;
+        }
+        public void Director(string dir, List<string> list, string ext)
         {
             DirectoryInfo d = new DirectoryInfo(dir);
             FileInfo[] files = d.GetFiles();//文件
@@ -448,8 +446,8 @@ namespace SYD_COPY_FILE
         }
 
         private void bintoarr()
-       {
-           int i = 0, data_residue = 0;
+        {
+            int i = 0, data_residue = 0;
             UInt16 ii = 0;
             UInt32 len = 0;
             string str = "", str1 = "", str2 = "", str3 = "";
@@ -457,9 +455,9 @@ namespace SYD_COPY_FILE
             //string orgTxt1 = HoverTreeClearMark(textInput.Text.Trim());
             string orgTxt1 = textInput.Text.Trim();
 
-           orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace("\r\n", "");
-           //List<string> lstArray = orgTxt1.Split(new char[1] { ';' }).ToList();
-           List<string> lstArray = new List<string>();
+            orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace("\r\n", "");
+            //List<string> lstArray = orgTxt1.Split(new char[1] { ';' }).ToList();
+            List<string> lstArray = new List<string>();
 
             if (comboBox_fonttype.SelectedIndex == 1)
             {
@@ -469,7 +467,7 @@ namespace SYD_COPY_FILE
             {
                 Byte data = 0, pre_data = 0;
                 str2 = "";
-                str3 = orgTxt1.Substring(0x2C * 2, 8*2);
+                str3 = orgTxt1.Substring(0x2C * 2, 8 * 2);
                 if (str3.Contains("494e464f49534654") == true)//INFOISFT  适配布谷鸟配音
                 {
                     str = orgTxt1.Remove(0, 0x4E * 2);
@@ -480,8 +478,8 @@ namespace SYD_COPY_FILE
                     str = orgTxt1.Remove(0, 0x2C * 2);
                     str3 = orgTxt1.Substring(0, 0x2C * 2);
                 }
-                
-                if ((str3.Contains("52494646")==false) || (str3.Contains("57415645666d74")== false) || (str3.Contains("64617461") == false))//RIFF  WAVEfmt data
+
+                if ((str3.Contains("52494646") == false) || (str3.Contains("57415645666d74") == false) || (str3.Contains("64617461") == false))//RIFF  WAVEfmt data
                 {
                     MessageBox.Show("选择的文件不是WAV类型文件!");
                     return;
@@ -501,7 +499,7 @@ namespace SYD_COPY_FILE
                     //修改语音数据大小
                     len = (UInt32)(str2.Length) / 2;//除去头部的文件长度
                     str1 = getStringFromUInt32(len);
-                    orgTxt1 = str1+str2;
+                    orgTxt1 = str1 + str2;
                 }
                 else
                 {
@@ -584,159 +582,159 @@ namespace SYD_COPY_FILE
 
             data_residue = orgTxt1.Length % 32;
 
-           //将字符串分割为长度为4的字符数组
-           for (i = 0; i < (orgTxt1.Length / 32); i = i + 1)
-           {
-               try
-               {
-                   lstArray.Add(orgTxt1.Substring(32 * i, 32)); //i-起始位置，4-子串长度
-               }
-               catch (Exception e1)
-               {
-                   MessageBox.Show(e1.ToString(), "异常提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                   continue;
-               }
-           }
-           if (data_residue != 0)
-           {
-               lstArray.Add(orgTxt1.Substring(32 * i, orgTxt1.Length % 32)); //i-起始位置，4-子串长度
-           }
-
-           for (i = 0; i < lstArray.Count; i++)//生成16进制数据 每行作为一个lstArray成员
+            //将字符串分割为长度为4的字符数组
+            for (i = 0; i < (orgTxt1.Length / 32); i = i + 1)
             {
-               str = lstArray[i];
-               try
-               {
-                   if ((i == lstArray.Count - 1) & (data_residue != 0))  //最后一个
-                   {
-                       for (ii = 0; ii < data_residue/2; ii++)
-                       {
-                           if (ii == 0) str = str.Insert(0, "0x");
-                           else if ((ii == 1) & (ii < (data_residue / 2))) str = str.Insert(4, ",0x");
-                           else if ((ii > 1) & (ii < (data_residue / 2 - 1))) str = str.Insert((ii - 2) * 5 + 9, ",0x");
-                           else if (ii == (data_residue / 2 - 1))
-                           {
-                               str = str.Insert((ii - 2) * 5 + 9, ",0x");
-                               str = str.Insert((ii - 1) * 5 + 9, ",\r\n");
-                           }
-                       }
-                   }
-                   else
-                   {
-                       for (ii = 0; ii < 16; ii++)
-                       {
-                           if (ii == 0) str = str.Insert(0, "0x");
-                           else if (ii == 1) str = str.Insert(4, ",0x");
-                           else if ((ii > 1) & (ii < 15)) str = str.Insert((ii - 2) * 5 + 9, ",0x");
-                           else if (ii == 15)
-                           {
-                               str = str.Insert((ii - 2) * 5 + 9, ",0x");
-                               str = str.Insert((ii - 1) * 5 + 9, ",\r\n");
-                           }
-                       }
-                   }
-               }
-               catch
-               {
-                   MessageBox.Show("出错位置第" + (i + 1).ToString() + "个数组");
-                   Application.Exit();
-               }
-               lstArray[i] = str;
-           }
+                try
+                {
+                    lstArray.Add(orgTxt1.Substring(32 * i, 32)); //i-起始位置，4-子串长度
+                }
+                catch (Exception e1)
+                {
+                    MessageBox.Show(e1.ToString(), "异常提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    continue;
+                }
+            }
+            if (data_residue != 0)
+            {
+                lstArray.Add(orgTxt1.Substring(32 * i, orgTxt1.Length % 32)); //i-起始位置，4-子串长度
+            }
+
+            for (i = 0; i < lstArray.Count; i++)//生成16进制数据 每行作为一个lstArray成员
+            {
+                str = lstArray[i];
+                try
+                {
+                    if ((i == lstArray.Count - 1) & (data_residue != 0))  //最后一个
+                    {
+                        for (ii = 0; ii < data_residue / 2; ii++)
+                        {
+                            if (ii == 0) str = str.Insert(0, "0x");
+                            else if ((ii == 1) & (ii < (data_residue / 2))) str = str.Insert(4, ",0x");
+                            else if ((ii > 1) & (ii < (data_residue / 2 - 1))) str = str.Insert((ii - 2) * 5 + 9, ",0x");
+                            else if (ii == (data_residue / 2 - 1))
+                            {
+                                str = str.Insert((ii - 2) * 5 + 9, ",0x");
+                                str = str.Insert((ii - 1) * 5 + 9, ",\r\n");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (ii = 0; ii < 16; ii++)
+                        {
+                            if (ii == 0) str = str.Insert(0, "0x");
+                            else if (ii == 1) str = str.Insert(4, ",0x");
+                            else if ((ii > 1) & (ii < 15)) str = str.Insert((ii - 2) * 5 + 9, ",0x");
+                            else if (ii == 15)
+                            {
+                                str = str.Insert((ii - 2) * 5 + 9, ",0x");
+                                str = str.Insert((ii - 1) * 5 + 9, ",\r\n");
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("出错位置第" + (i + 1).ToString() + "个数组");
+                    Application.Exit();
+                }
+                lstArray[i] = str;
+            }
             if (comboBox_datatype.SelectedIndex == 1)//封装数据,根据要输出的类型,产生不一样的数据,比如:0x52,0x49,0x46,0x46或者0x4952,0x4646或者0x46464952,
             {
-               for (i = 0; i < lstArray.Count; i++)
-               {
-                   str = lstArray[i];
-                   str1 = "";
-                   if ((i == lstArray.Count - 1) & (data_residue != 0))  //最后一个
-                   {
-                       for (ii = 0; ii < (data_residue / 4); ii++)
-                       {
-                           str1 += str.Substring(ii * 10 + 5, 4) + str.Substring(ii * 10 + 2, 3);
-                       }
-                       if (((data_residue / 2) % 2) != 0)
-                       {
-                           str1 += "0x00" + str.Substring(ii * 10 + 2, 3);
-                       }
-                   }
-                   else
-                   {
-                       for (ii = 0; ii < 8; ii++)
-                       {
-                           str1 += str.Substring(ii * 10 + 5, 4) + str.Substring(ii * 10 + 2, 3);
-                       }
-                   }
-                   if ((i % 2) != 0) str1 += "\r\n";
-                   lstArray[i] = str1;
-               }
-           }
-           else if (comboBox_datatype.SelectedIndex == 2)
-           {
-               for (i = 0; i < lstArray.Count; i++)
-               {
-                   str = lstArray[i];
-                   str1 = "";
-                   if ((i == lstArray.Count - 1) & (data_residue != 0))  //最后一个
-                   {
-                       for (ii = 0; ii < (data_residue / 8); ii++)
-                       {
-                           str1 += str.Substring(ii * 20 + 15, 4) + str.Substring(ii * 20 + 12, 2) + str.Substring(ii * 20 + 7, 2) + str.Substring(ii * 20 + 2, 3);
-                       }
-                       if (((data_residue / 2) % 4) == 1)
-                       {
-                           str1 += "0x000000" + str.Substring(ii * 20 + 2, 3);
-                       }
-                       else if (((data_residue / 2) % 4) == 2)
-                       {
-                           str1 += "0x0000" + str.Substring(ii * 20 + 7, 2) + str.Substring(ii * 20 + 2, 3);
-                       }
-                       else if (((data_residue / 2) % 4) == 3)
-                       {
-                           str1 += "0x00" + str.Substring(ii * 20 + 12, 2) + str.Substring(ii * 20 + 7, 2) + str.Substring(ii * 20 + 2, 3);
-                       }
-                   }
-                   else
-                   {
-                       for (ii = 0; ii < 4; ii++)
-                       {
-                           str1 += str.Substring(ii * 20 + 15, 4) + str.Substring(ii * 20 + 12, 2) + str.Substring(ii * 20 + 7, 2) + str.Substring(ii * 20 + 2, 3);
-                       }
-                   }
-                   if ((i % 2) != 0) str1 += "\r\n";
-                   lstArray[i] = str1;
-               }
-           }
+                for (i = 0; i < lstArray.Count; i++)
+                {
+                    str = lstArray[i];
+                    str1 = "";
+                    if ((i == lstArray.Count - 1) & (data_residue != 0))  //最后一个
+                    {
+                        for (ii = 0; ii < (data_residue / 4); ii++)
+                        {
+                            str1 += str.Substring(ii * 10 + 5, 4) + str.Substring(ii * 10 + 2, 3);
+                        }
+                        if (((data_residue / 2) % 2) != 0)
+                        {
+                            str1 += "0x00" + str.Substring(ii * 10 + 2, 3);
+                        }
+                    }
+                    else
+                    {
+                        for (ii = 0; ii < 8; ii++)
+                        {
+                            str1 += str.Substring(ii * 10 + 5, 4) + str.Substring(ii * 10 + 2, 3);
+                        }
+                    }
+                    if ((i % 2) != 0) str1 += "\r\n";
+                    lstArray[i] = str1;
+                }
+            }
+            else if (comboBox_datatype.SelectedIndex == 2)
+            {
+                for (i = 0; i < lstArray.Count; i++)
+                {
+                    str = lstArray[i];
+                    str1 = "";
+                    if ((i == lstArray.Count - 1) & (data_residue != 0))  //最后一个
+                    {
+                        for (ii = 0; ii < (data_residue / 8); ii++)
+                        {
+                            str1 += str.Substring(ii * 20 + 15, 4) + str.Substring(ii * 20 + 12, 2) + str.Substring(ii * 20 + 7, 2) + str.Substring(ii * 20 + 2, 3);
+                        }
+                        if (((data_residue / 2) % 4) == 1)
+                        {
+                            str1 += "0x000000" + str.Substring(ii * 20 + 2, 3);
+                        }
+                        else if (((data_residue / 2) % 4) == 2)
+                        {
+                            str1 += "0x0000" + str.Substring(ii * 20 + 7, 2) + str.Substring(ii * 20 + 2, 3);
+                        }
+                        else if (((data_residue / 2) % 4) == 3)
+                        {
+                            str1 += "0x00" + str.Substring(ii * 20 + 12, 2) + str.Substring(ii * 20 + 7, 2) + str.Substring(ii * 20 + 2, 3);
+                        }
+                    }
+                    else
+                    {
+                        for (ii = 0; ii < 4; ii++)
+                        {
+                            str1 += str.Substring(ii * 20 + 15, 4) + str.Substring(ii * 20 + 12, 2) + str.Substring(ii * 20 + 7, 2) + str.Substring(ii * 20 + 2, 3);
+                        }
+                    }
+                    if ((i % 2) != 0) str1 += "\r\n";
+                    lstArray[i] = str1;
+                }
+            }
 
-           int extract_len = lstArray.Count;
-           if(textBox_filesize.Text.Length != 0)  //不是提取WAV的特殊操作
-           {
-               extract_len = Convert.ToInt32(textBox_filesize.Text) / 16;
-               if ((extract_len == 0) | (extract_len > lstArray.Count)) extract_len = lstArray.Count;
-           }
+            int extract_len = lstArray.Count;
+            if (textBox_filesize.Text.Length != 0)  //不是提取WAV的特殊操作
+            {
+                extract_len = Convert.ToInt32(textBox_filesize.Text) / 16;
+                if ((extract_len == 0) | (extract_len > lstArray.Count)) extract_len = lstArray.Count;
+            }
 
-           using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-           {
-               byte[] buffer = null;
-               for (i = 0; i < extract_len; i++)
-               {
-                   buffer = Encoding.Default.GetBytes(lstArray[i]);
-                   fsWrite.Write(buffer, 0, buffer.Length);
-               }
-           }
+            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                byte[] buffer = null;
+                for (i = 0; i < extract_len; i++)
+                {
+                    buffer = Encoding.Default.GetBytes(lstArray[i]);
+                    fsWrite.Write(buffer, 0, buffer.Length);
+                }
+            }
 
-           if (extract_len != lstArray.Count)
-           {
-               richTextBox_out.Text = System.IO.File.ReadAllText(path);
-           }
-           else
-           {
-               richTextBox_out.Text = string.Join("", lstArray.ToArray());
-           }
-            
+            if (extract_len != lstArray.Count)
+            {
+                richTextBox_out.Text = System.IO.File.ReadAllText(path);
+            }
+            else
+            {
+                richTextBox_out.Text = string.Join("", lstArray.ToArray());
+            }
+
             if (comboBox_additional_operations.SelectedIndex == 1)
             {
-                string filePath = comboBox_indicate.Text.Trim().Replace("\"","");
+                string filePath = comboBox_indicate.Text.Trim().Replace("\"", "");
                 string array_name = combobox_key.Text.Trim();
                 if (!File.Exists(filePath))
                 {
@@ -755,95 +753,95 @@ namespace SYD_COPY_FILE
                     }
                     j = str.IndexOf("{", j);
                     k = str.IndexOf("};", j);
-                    str = str.Remove(j + 1, k-j - 1);
-                    str = str.Insert(j+1, "\n"+richTextBox_out.Text);
+                    str = str.Remove(j + 1, k - j - 1);
+                    str = str.Insert(j + 1, "\n" + richTextBox_out.Text);
                     File.WriteAllText(filePath, str);
                 }
             }
 
             StripStatusLabelSet("保存成功!");
-       }
+        }
 
-       private void RGB_565()
-       {
-           int i = 0, data_residue = 0;
-           string orgTxt1 = textInput.Text.Trim();
+        private void RGB_565()
+        {
+            int i = 0, data_residue = 0;
+            string orgTxt1 = textInput.Text.Trim();
 
-           orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace("\r\n", "");
-           List<string> lstArray = new List<string>();
+            orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace("\r\n", "");
+            List<string> lstArray = new List<string>();
 
-           data_residue = orgTxt1.Length % 6;
+            data_residue = orgTxt1.Length % 6;
 
-           //将字符串分割为长度为4的字符数组
-           for (i = 0; i < (orgTxt1.Length / 6); i = i + 1)
-           {
-               try
-               {
-                   lstArray.Add(orgTxt1.Substring(6 * i, 6)); //i-起始位置，4-子串长度
-               }
-               catch (Exception e1)
-               {
-                   MessageBox.Show(e1.ToString(), "异常提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                   continue;
-               }
-           }
-           if (data_residue != 0)
-           {
-               lstArray.Add(orgTxt1.Substring(6 * i, orgTxt1.Length % 6)); //i-起始位置，4-子串长度
-           }
+            //将字符串分割为长度为4的字符数组
+            for (i = 0; i < (orgTxt1.Length / 6); i = i + 1)
+            {
+                try
+                {
+                    lstArray.Add(orgTxt1.Substring(6 * i, 6)); //i-起始位置，4-子串长度
+                }
+                catch (Exception e1)
+                {
+                    MessageBox.Show(e1.ToString(), "异常提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    continue;
+                }
+            }
+            if (data_residue != 0)
+            {
+                lstArray.Add(orgTxt1.Substring(6 * i, orgTxt1.Length % 6)); //i-起始位置，4-子串长度
+            }
 
-           string str = "";
+            string str = "";
 
-           Int32[] RGB_List = new Int32[lstArray.Count];
+            Int32[] RGB_List = new Int32[lstArray.Count];
 
-           Int32 temp = 0;
+            Int32 temp = 0;
 
-           for (i = 0; i < lstArray.Count; i++)
-           {
-               str = lstArray[i];
-               try
-               {
-                   temp = Convert.ToInt32(lstArray[i],16);
-                   Byte a, b, c;
-                   a = (Byte)(temp >> 19);
-                   b = (Byte)(temp >> 10);
-                   c = (Byte)(temp >> 3);
-                   temp = (a << 11) | (b << 5) | c;
-                   RGB_List[i] = temp;
-               }
-               catch
-               {
-                   MessageBox.Show("出错位置第" + (i + 1).ToString() + "个数组");
-                   Application.Exit();
-               }
-               lstArray[i] = str;
-           }
-           int extract_len = lstArray.Count;
+            for (i = 0; i < lstArray.Count; i++)
+            {
+                str = lstArray[i];
+                try
+                {
+                    temp = Convert.ToInt32(lstArray[i], 16);
+                    Byte a, b, c;
+                    a = (Byte)(temp >> 19);
+                    b = (Byte)(temp >> 10);
+                    c = (Byte)(temp >> 3);
+                    temp = (a << 11) | (b << 5) | c;
+                    RGB_List[i] = temp;
+                }
+                catch
+                {
+                    MessageBox.Show("出错位置第" + (i + 1).ToString() + "个数组");
+                    Application.Exit();
+                }
+                lstArray[i] = str;
+            }
+            int extract_len = lstArray.Count;
 
-           string path = label_outfilename.Text;
-           path = path.Replace(".bin", string.Empty).Replace(".BIN", string.Empty);
-           path = path + ".txt";
-           using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-           {
-               byte[] buffer = null;
-               for (i = 0; i < lstArray.Count/8; i++)
-               {
-                   str = "";
-                   for (int j = 0; j < 8; j++)
-                   {
-                       str = str + "0x" + ((byte)RGB_List[i * 8 + j]).ToString("X2") + ",0x" + (RGB_List[i * 8 + j] >> 8).ToString("X2") + ",";
-                   }
+            string path = label_outfilename.Text;
+            path = path.Replace(".bin", string.Empty).Replace(".BIN", string.Empty);
+            path = path + ".txt";
+            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                byte[] buffer = null;
+                for (i = 0; i < lstArray.Count / 8; i++)
+                {
+                    str = "";
+                    for (int j = 0; j < 8; j++)
+                    {
+                        str = str + "0x" + ((byte)RGB_List[i * 8 + j]).ToString("X2") + ",0x" + (RGB_List[i * 8 + j] >> 8).ToString("X2") + ",";
+                    }
 
-                   buffer = Encoding.Default.GetBytes(str + "\r");
+                    buffer = Encoding.Default.GetBytes(str + "\r");
 
-                   fsWrite.Write(buffer, 0, buffer.Length);
-               }
-           }
+                    fsWrite.Write(buffer, 0, buffer.Length);
+                }
+            }
 
-           richTextBox_out.Text = System.IO.File.ReadAllText(path);
+            richTextBox_out.Text = System.IO.File.ReadAllText(path);
 
-           StripStatusLabelSet("保存成功!");
-       }
+            StripStatusLabelSet("保存成功!");
+        }
         private void Git_helper()
         {
             string orgTxt1 = "";
@@ -852,142 +850,172 @@ namespace SYD_COPY_FILE
                 orgTxt1 = textInput.Text.Trim();
                 orgTxt1 = orgTxt1.Replace("\"", "\\\"").Replace("!", ",");
                 orgTxt1 = RemoveHiddenCharacter(orgTxt1);
-                richTextBox_out.Text = "git commit -m \"" + orgTxt1+ "\"";
+                richTextBox_out.Text = "git commit -m \"" + orgTxt1 + "\"";
             }
             if (comboBox_fonttype.SelectedIndex == 1)
             {
+                int i = 0, j = 0;
                 orgTxt1 = textInput.Text;
-                richTextBox_out.Text = orgTxt1.Replace("\r\n", "  \r\n") ;
+                while (true)
+                {
+                    j = orgTxt1.IndexOf("\n", j + 1);
+                    if (j == -1) break;
+                    if (j > (i + 2))
+                    {
+                        if (orgTxt1[j - 1] == '\r')
+                        {
+                            if ((orgTxt1[j - 2] != ' ') || (orgTxt1[j - 3] != ' '))
+                            {
+                                orgTxt1 = orgTxt1.Insert(j - 1, "  ");
+                                j += 2;
+                            }
+                        }
+                        else
+                        {
+                            if ((orgTxt1[j - 1] != ' ') || (orgTxt1[j - 2] != ' '))
+                            {
+                                orgTxt1 = orgTxt1.Insert(j, "  ");
+                                j += 2;
+                            }
+                        }
+                        i = j;
+                    }
+                }
+                richTextBox_out.Text = orgTxt1;
+                if (comboBox_additional_operations.SelectedIndex == 1)
+                {
+                    File.WriteAllText(source_file_textBox.Text, richTextBox_out.Text);
+                }
             }
         }
 
         private void fonttxt_to_bin()
-       {
-           int i = 0, j = 0, k = 0;
-           string orgTxt1 = textInput.Text.Trim();
-           orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace("\r\n", "");
+        {
+            int i = 0, j = 0, k = 0;
+            string orgTxt1 = textInput.Text.Trim();
+            orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace("\r\n", "");
 
-           List<string> lstArray = orgTxt1.Split(new string[] { "/*", "*/" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> lstArray = orgTxt1.Split(new string[] { "/*", "*/" }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-           string str = "";
-           long bin_len = 0;
+            string str = "";
+            long bin_len = 0;
 
-           for (i = 0,j=0,k=0; i < lstArray.Count / 2; i++)
-           {
-               bin_len = bin_len +lstArray[i * 2].Length/2;
+            for (i = 0, j = 0, k = 0; i < lstArray.Count / 2; i++)
+            {
+                bin_len = bin_len + lstArray[i * 2].Length / 2;
 
-               str = lstArray[i*2+1];
+                str = lstArray[i * 2 + 1];
 
-               j = str.IndexOf("\"",0);
-               k = str.IndexOf("\"", j+1);
+                j = str.IndexOf("\"", 0);
+                k = str.IndexOf("\"", j + 1);
 
-               try
-               {
-                   str = str.Substring(j+1,k-j-1);
-                   lstArray[i * 2 + 1] = str;
-               }
-               catch
-               {
-                   MessageBox.Show("出错位置第" + (i + 1).ToString() + "个数组");
-                   Application.Exit();
-                   return;
-               }
-           }
+                try
+                {
+                    str = str.Substring(j + 1, k - j - 1);
+                    lstArray[i * 2 + 1] = str;
+                }
+                catch
+                {
+                    MessageBox.Show("出错位置第" + (i + 1).ToString() + "个数组");
+                    Application.Exit();
+                    return;
+                }
+            }
 
-           byte[] bin = new byte[bin_len];
-           UInt32 index = 0,addr=0;
+            byte[] bin = new byte[bin_len];
+            UInt32 index = 0, addr = 0;
 
-           for (i = 0; i < lstArray.Count / 2; i++)
-           {
-               str = lstArray[i * 2+1];
-               byte[] bytes = System.Text.Encoding.Unicode.GetBytes(str);
+            for (i = 0; i < lstArray.Count / 2; i++)
+            {
+                str = lstArray[i * 2 + 1];
+                byte[] bytes = System.Text.Encoding.Unicode.GetBytes(str);
 
-               if (bytes.Length == 1)
-               {
-                   index = bytes[0];
-               }
-               else if (bytes.Length == 2)
-               {
-                   index = (UInt32)(bytes[1] << 8) | (UInt32)bytes[0];
-               }
+                if (bytes.Length == 1)
+                {
+                    index = bytes[0];
+                }
+                else if (bytes.Length == 2)
+                {
+                    index = (UInt32)(bytes[1] << 8) | (UInt32)bytes[0];
+                }
 
-               if (comboBox_fonttype.SelectedIndex == 0)
-               {
-                   if ((index <= UTF8_CODE_END) && (index >= UTF8_CODE_BASS))
-                   {
-                       index = index - UTF8_CODE_BASS;
-                       addr = index * 32;
-                   }
-                   else if ((index <= UTF8_SYMBLE1_END) && (index >= UTF8_SYMBLE1_BASS))
-                   {
-                       index = index - UTF8_SYMBLE1_BASS;
-                       addr = index * 32 + UTF8_SYMBLE1_ADDR;
-                   }
-                   else if ((index <= UTF8_SYMBLE2_END) && (index >= UTF8_SYMBLE2_BASS))
-                   {
-                       index = index - UTF8_SYMBLE2_BASS;
-                       addr = index * 32 + UTF8_SYMBLE2_ADDR;
-                   }
-                   else if ((index <= UTF8_SYMBLE3_END) && (index >= UTF8_SYMBLE3_BASS))
-                   {
-                       index = index - UTF8_SYMBLE3_BASS;
-                       addr = index * 32 + UTF8_SYMBLE3_ADDR;
-                   }
-                   else if ((index <= UTF8_ASCII_END) && (index >= UTF8_ASCII_BASS))
-                   {
-                       index = index - UTF8_ASCII_BASS;
-                       addr = index * (32 / 2) + UTF8_ASCII_ADDR;
-                   }
-               }
-               else if (comboBox_fonttype.SelectedIndex == 1)
-               {
-                   if ((index <= UTF8_CODE_END) && (index >= UTF8_CODE_BASS))
-                   {
-                       index = index - UTF8_CODE_BASS;
-                       addr = index * 128 + UTF8_MASK_32X32_ADDR;
-                   }
-                   else if ((index <= UTF8_SYMBLE1_END) && (index >= UTF8_SYMBLE1_BASS))
-                   {
-                       index = index - UTF8_SYMBLE1_BASS;
-                       addr = index * 128 + UTF8_SYMBLE1_32X32_ADDR;
-                   }
-                   else if ((index <= UTF8_SYMBLE2_END) && (index >= UTF8_SYMBLE2_BASS))
-                   {
-                       index = index - UTF8_SYMBLE2_BASS;
-                       addr = index * 128 + UTF8_SYMBLE2_32X32_ADDR;
-                   }
-                   else if ((index <= UTF8_SYMBLE3_END) && (index >= UTF8_SYMBLE3_BASS))
-                   {
-                       index = index - UTF8_SYMBLE3_BASS;
-                       addr = index * 128 + UTF8_SYMBLE3_32X32_ADDR;
-                   }
-                   else if ((index <= UTF8_ASCII_END) && (index >= UTF8_ASCII_BASS))
-                   {
-                       index = index - UTF8_ASCII_BASS;
-                       addr = index * (128 / 2) + UTF8_ASCII_32X32_ADDR;
-                   }
-               }
+                if (comboBox_fonttype.SelectedIndex == 0)
+                {
+                    if ((index <= UTF8_CODE_END) && (index >= UTF8_CODE_BASS))
+                    {
+                        index = index - UTF8_CODE_BASS;
+                        addr = index * 32;
+                    }
+                    else if ((index <= UTF8_SYMBLE1_END) && (index >= UTF8_SYMBLE1_BASS))
+                    {
+                        index = index - UTF8_SYMBLE1_BASS;
+                        addr = index * 32 + UTF8_SYMBLE1_ADDR;
+                    }
+                    else if ((index <= UTF8_SYMBLE2_END) && (index >= UTF8_SYMBLE2_BASS))
+                    {
+                        index = index - UTF8_SYMBLE2_BASS;
+                        addr = index * 32 + UTF8_SYMBLE2_ADDR;
+                    }
+                    else if ((index <= UTF8_SYMBLE3_END) && (index >= UTF8_SYMBLE3_BASS))
+                    {
+                        index = index - UTF8_SYMBLE3_BASS;
+                        addr = index * 32 + UTF8_SYMBLE3_ADDR;
+                    }
+                    else if ((index <= UTF8_ASCII_END) && (index >= UTF8_ASCII_BASS))
+                    {
+                        index = index - UTF8_ASCII_BASS;
+                        addr = index * (32 / 2) + UTF8_ASCII_ADDR;
+                    }
+                }
+                else if (comboBox_fonttype.SelectedIndex == 1)
+                {
+                    if ((index <= UTF8_CODE_END) && (index >= UTF8_CODE_BASS))
+                    {
+                        index = index - UTF8_CODE_BASS;
+                        addr = index * 128 + UTF8_MASK_32X32_ADDR;
+                    }
+                    else if ((index <= UTF8_SYMBLE1_END) && (index >= UTF8_SYMBLE1_BASS))
+                    {
+                        index = index - UTF8_SYMBLE1_BASS;
+                        addr = index * 128 + UTF8_SYMBLE1_32X32_ADDR;
+                    }
+                    else if ((index <= UTF8_SYMBLE2_END) && (index >= UTF8_SYMBLE2_BASS))
+                    {
+                        index = index - UTF8_SYMBLE2_BASS;
+                        addr = index * 128 + UTF8_SYMBLE2_32X32_ADDR;
+                    }
+                    else if ((index <= UTF8_SYMBLE3_END) && (index >= UTF8_SYMBLE3_BASS))
+                    {
+                        index = index - UTF8_SYMBLE3_BASS;
+                        addr = index * 128 + UTF8_SYMBLE3_32X32_ADDR;
+                    }
+                    else if ((index <= UTF8_ASCII_END) && (index >= UTF8_ASCII_BASS))
+                    {
+                        index = index - UTF8_ASCII_BASS;
+                        addr = index * (128 / 2) + UTF8_ASCII_32X32_ADDR;
+                    }
+                }
 
-                
 
-               for (k = 0; k < lstArray[i*2].Length/2; k++)
-               {
-                   bin[addr + k] = Convert.ToByte(lstArray[i*2].Substring(k*2,2), 16);
-               }
-           }
 
-           string path = label_outfilename.Text;
-           path = path.Replace(".txt", string.Empty).Replace(".TXT", string.Empty);
-           path = path + ".bin";
-           FileStream fs = new FileStream(path, FileMode.Create);
-           BinaryWriter bw = new BinaryWriter(fs);
-           bw.Write(bin, 0, bin.Length);
-           bw.Flush();
-           bw.Close();
+                for (k = 0; k < lstArray[i * 2].Length / 2; k++)
+                {
+                    bin[addr + k] = Convert.ToByte(lstArray[i * 2].Substring(k * 2, 2), 16);
+                }
+            }
 
-           StripStatusLabelSet("保存成功!");
-       }
-        
+            string path = label_outfilename.Text;
+            path = path.Replace(".txt", string.Empty).Replace(".TXT", string.Empty);
+            path = path + ".bin";
+            FileStream fs = new FileStream(path, FileMode.Create);
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write(bin, 0, bin.Length);
+            bw.Flush();
+            bw.Close();
+
+            StripStatusLabelSet("保存成功!");
+        }
+
         private void Diary()
         {
             if (combobox_key.Text.Length != 6)
@@ -1066,7 +1094,7 @@ namespace SYD_COPY_FILE
                             break;
                         }
                     }
-                    if(j >= lstArray.Count) imagenonexist.Add(str);
+                    if (j >= lstArray.Count) imagenonexist.Add(str);
                 }
                 str = "不存在设定目录的文件列表:\r\n";
                 for (i = 0; i < imagenonexist.Count; i++)
@@ -1080,7 +1108,7 @@ namespace SYD_COPY_FILE
                     Director(comboBox_indicate.Text, dirfile);
                     for (i = 0; i < dirfile.Count; i++)
                     {
-                        str =Path.GetFileNameWithoutExtension(dirfile[i]);
+                        str = Path.GetFileNameWithoutExtension(dirfile[i]);
                         for (j = 0; j < imageexist.Count; j++)
                         {
                             if (str == lstArray[j])
@@ -1089,21 +1117,21 @@ namespace SYD_COPY_FILE
                                 break;
                             }
                         }
-                        
+
                     }
                 }
             }
             else MessageBox.Show("设定的目录不存在!");
         }
         private void dsview_analysis()
-       {
-            int i = 0,j=0;
+        {
+            int i = 0, j = 0;
             UInt32 frequency = 0;
             string f_str = "";
             string path = source_file_textBox.Text;
             label_outfilename.Text = path.Replace(".CSV", string.Empty).Replace(".csv", string.Empty) + "_ok.txt";
-            List<string> str_List=new List<string>(); ;
-            DataTable data = OpenCSV(path,4, ref str_List);
+            List<string> str_List = new List<string>(); ;
+            DataTable data = OpenCSV(path, 4, ref str_List);
             StringBuilder str = new StringBuilder("", data.Rows.Count * 10);
             foreach (DataRow row in data.Rows)
             {
@@ -1112,7 +1140,7 @@ namespace SYD_COPY_FILE
             textInput.Text = str.ToString();
 
             i = str_List[2].IndexOf("Hz");
-            Double[] period = new Double[data.Rows.Count-2];
+            Double[] period = new Double[data.Rows.Count - 2];
             Double max, min, average;
             if (i != -1)
             {
@@ -1121,11 +1149,11 @@ namespace SYD_COPY_FILE
                 {
                     f_str = str_List[2].Substring(j + 13, i - (j + 15));
                     frequency = Convert.ToUInt32(f_str);
-                    if (str_List[2][i-1] == 'M')
+                    if (str_List[2][i - 1] == 'M')
                     {
                         frequency = frequency * 1000000;
                     }
-                    else if (str_List[2][i-1] == 'K')
+                    else if (str_List[2][i - 1] == 'K')
                     {
                         frequency = frequency * 1000;
                     }
@@ -1135,35 +1163,35 @@ namespace SYD_COPY_FILE
                     {
                         a = Convert.ToDouble(data.Rows[i][0]);
                         b = Convert.ToDouble(data.Rows[i - 1][0]);
-                        period[i-2] = a-b;
-                        str.Append(period[i-2].ToString("f6") + Environment.NewLine);
+                        period[i - 2] = a - b;
+                        str.Append(period[i - 2].ToString("f6") + Environment.NewLine);
                     }
                     min = period.Min();
                     max = period.Max();
                     average = period.Average();
-                    string header = "总共处理周期:"+ data.Rows.Count.ToString() + Environment.NewLine;
+                    string header = "总共处理周期:" + data.Rows.Count.ToString() + Environment.NewLine;
                     header += "最大周期:" + max.ToString("f6") + "  最小周期:" + min.ToString("f6") + "  平均周期:" + average.ToString("f6") + Environment.NewLine;
-                    richTextBox_out.Text = header+str.ToString();
+                    richTextBox_out.Text = header + str.ToString();
                 }
             }
 
-            
+
             StripStatusLabelSet("保存成功!");
-       }
+        }
 
-       private void Chinese_to_utf8_arr()
-       {
-           int i = 0,j=0;
-           string orgTxt1 = textInput.Text.Trim();
+        private void Chinese_to_utf8_arr()
+        {
+            int i = 0, j = 0;
+            string orgTxt1 = textInput.Text.Trim();
 
-           List<string> lstArray = orgTxt1.ToLower().Split(new char[2] { '\r', '\n' }).ToList();
+            List<string> lstArray = orgTxt1.ToLower().Split(new char[2] { '\r', '\n' }).ToList();
 
-           string str = "";
-           byte[] buffer_utf8;
+            string str = "";
+            byte[] buffer_utf8;
 
-           for (i = 0; i < lstArray.Count; i++)
-           {
-                if(comboBox_datatype.SelectedIndex == 0)
+            for (i = 0; i < lstArray.Count; i++)
+            {
+                if (comboBox_datatype.SelectedIndex == 0)
                     buffer_utf8 = Encoding.UTF8.GetBytes(lstArray[i]);
                 else
                     buffer_utf8 = Encoding.Unicode.GetBytes(lstArray[i]);
@@ -1199,11 +1227,11 @@ namespace SYD_COPY_FILE
                 {
                     str = "uint16_t buf[]={";
                     if (comboBox_fonttype.SelectedIndex == 4)
-                        str += "0x" + (buffer_utf8.Length/2).ToString("X04") + ",";
-                        
-                    for (j = 0; j < (buffer_utf8.Length/2); j++)
+                        str += "0x" + (buffer_utf8.Length / 2).ToString("X04") + ",";
+
+                    for (j = 0; j < (buffer_utf8.Length / 2); j++)
                     {
-                        str = str + "0x" + buffer_utf8[j*2 + 1].ToString("X02") + buffer_utf8[j*2].ToString("X02") +  ",";
+                        str = str + "0x" + buffer_utf8[j * 2 + 1].ToString("X02") + buffer_utf8[j * 2].ToString("X02") + ",";
                     }
                     lstArray[i] = str + "};" + "//" + lstArray[i];
                 }
@@ -1214,93 +1242,93 @@ namespace SYD_COPY_FILE
                     {
                         str = str + "\\x" + buffer_utf8[j].ToString("X");
                     }
-                    str += "\""+ "/*" + lstArray[i]+ "*/";
+                    str += "\"" + "/*" + lstArray[i] + "*/";
                     lstArray[i] = str;
                 }
             }
 
-           richTextBox_out.Text = "";
+            richTextBox_out.Text = "";
 
-           for (i = 0; i < lstArray.Count; i++)
-           {
-               richTextBox_out.AppendText(lstArray[i] + "\r\n");
-           }
-           StripStatusLabelSet("保存成功!");
-       }
+            for (i = 0; i < lstArray.Count; i++)
+            {
+                richTextBox_out.AppendText(lstArray[i] + "\r\n");
+            }
+            StripStatusLabelSet("保存成功!");
+        }
 
-       private void keil_memery()
-       {
-           int i = 0;
-           string orgTxt1 = textInput.Text.Trim();
+        private void keil_memery()
+        {
+            int i = 0;
+            string orgTxt1 = textInput.Text.Trim();
 
-           List<string> lstArray = orgTxt1.ToLower().Split(new char[2] { '\r', '\n' }).ToList();
+            List<string> lstArray = orgTxt1.ToLower().Split(new char[2] { '\r', '\n' }).ToList();
 
-           richTextBox_out.Text = "";
+            richTextBox_out.Text = "";
 
-           for (i = 1; i < (lstArray.Count-2); i++)
-           {
-               richTextBox_out.AppendText(lstArray[i].Substring(9,32) + "\r\n");
-           }
+            for (i = 1; i < (lstArray.Count - 2); i++)
+            {
+                richTextBox_out.AppendText(lstArray[i].Substring(9, 32) + "\r\n");
+            }
 
-           string path = label_outfilename.Text;
-           path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-           using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-           {
-               byte[] buffer = null;
-               for (i = 1; i < (lstArray.Count-2); i++)
-               {
-                   buffer = Encoding.Default.GetBytes(lstArray[i].Substring(9, 32) + "\r\n");
-                   fsWrite.Write(buffer, 0, buffer.Length);
-               }
-           }
-           StripStatusLabelSet("保存成功!");
-       }
+            string path = label_outfilename.Text;
+            path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
+            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                byte[] buffer = null;
+                for (i = 1; i < (lstArray.Count - 2); i++)
+                {
+                    buffer = Encoding.Default.GetBytes(lstArray[i].Substring(9, 32) + "\r\n");
+                    fsWrite.Write(buffer, 0, buffer.Length);
+                }
+            }
+            StripStatusLabelSet("保存成功!");
+        }
 
-       private void Data_filled_complement_zero()
-       {
-           int i = 0;
-           string orgTxt1 = textInput.Text.Trim();
+        private void Data_filled_complement_zero()
+        {
+            int i = 0;
+            string orgTxt1 = textInput.Text.Trim();
 
-           List<string> lstArray = orgTxt1.ToLower().Split(new char[1] { ' '}).ToList();
+            List<string> lstArray = orgTxt1.ToLower().Split(new char[1] { ' ' }).ToList();
 
-           richTextBox_out.Text = "";
+            richTextBox_out.Text = "";
 
-           for (i = 0; i < lstArray.Count; i++)
-           {
-               if (lstArray[i].Length==1) 
-                  richTextBox_out.AppendText("0"+lstArray[i]+" ");
-               else
-                   richTextBox_out.AppendText(lstArray[i] + " ");
-           }
+            for (i = 0; i < lstArray.Count; i++)
+            {
+                if (lstArray[i].Length == 1)
+                    richTextBox_out.AppendText("0" + lstArray[i] + " ");
+                else
+                    richTextBox_out.AppendText(lstArray[i] + " ");
+            }
 
-           string path = label_outfilename.Text;
-           path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-           using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-           {
-               byte[] buffer = null;
-               buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
-               fsWrite.Write(buffer, 0, buffer.Length);
-           }
+            string path = label_outfilename.Text;
+            path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
+            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                byte[] buffer = null;
+                buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
+                fsWrite.Write(buffer, 0, buffer.Length);
+            }
 
-           StripStatusLabelSet("保存成功!");
-       }
-    
-       private string Byte_reversal(string input)//整个字符串调换
-       {
-           string str = "";
-           for (int i = 0; i < (input.Length) / 2; i++)
-           {
-               str = str + input.Substring(input.Length-(i+1)*2,2);
-           }
-               return str;
-       }
+            StripStatusLabelSet("保存成功!");
+        }
+
+        private string Byte_reversal(string input)//整个字符串调换
+        {
+            string str = "";
+            for (int i = 0; i < (input.Length) / 2; i++)
+            {
+                str = str + input.Substring(input.Length - (i + 1) * 2, 2);
+            }
+            return str;
+        }
 
         private string Byte_reversal_endian(string input)//只是调换两个字节,局部变化
         {
             string str = "";
-            for (int i = 0; i < (input.Length) / 2/2; i++)
+            for (int i = 0; i < (input.Length) / 2 / 2; i++)
             {
-                str = str + "0X"+input.Substring( i*4+2, 2) +"," + "0X" + input.Substring(i * 4 , 2) + ",";
+                str = str + "0X" + input.Substring(i * 4 + 2, 2) + "," + "0X" + input.Substring(i * 4, 2) + ",";
             }
             return str;
         }
@@ -1320,11 +1348,11 @@ namespace SYD_COPY_FILE
         }
 
         private void Data_reversal()
-       {
-           int i = 0;
+        {
+            int i = 0;
             List<string> lstArray;
             string orgTxt1;
-           
+
             richTextBox_out.Text = "";
             string str = "", str1 = "";
 
@@ -1338,7 +1366,7 @@ namespace SYD_COPY_FILE
                     if (effective_rows_judge(str) == true)
                     {
                         str = str.Replace("0X", "").Replace("0x", "").Replace(",", "");
-                        str=Byte_reversal_endian(str);
+                        str = Byte_reversal_endian(str);
                     }
                     //richTextBox_out.AppendText(str + "\r\n");
                     str1 += str + "\r\n";
@@ -1399,7 +1427,7 @@ namespace SYD_COPY_FILE
                 }
             }
 
-           string path = label_outfilename.Text;
+            string path = label_outfilename.Text;
             if ((path.Contains(".txt")) || path.Contains(".TXT"))
                 path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
             else if ((path.Contains(".c")) || path.Contains(".C"))
@@ -1407,18 +1435,18 @@ namespace SYD_COPY_FILE
             else
                 return;
             using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-           {
-               byte[] buffer = null;
-               buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
-               fsWrite.Write(buffer, 0, buffer.Length);
-           }
+            {
+                byte[] buffer = null;
+                buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
+                fsWrite.Write(buffer, 0, buffer.Length);
+            }
 
-           StripStatusLabelSet("保存成功!");
-       }
+            StripStatusLabelSet("保存成功!");
+        }
         private void Data_handle()
         {
             int i = 0;
-            string orgTxt1= textInput.Text.Replace("\r","").Replace("\n", "");
+            string orgTxt1 = textInput.Text.Replace("\r", "").Replace("\n", "");
             string str = "", str_out = "";
             str = orgTxt1;
             string key_word = combobox_key.Text;
@@ -1433,7 +1461,7 @@ namespace SYD_COPY_FILE
                     }
                     if (str.Contains(key_word))
                     {
-                        str= str.Replace(key_word, "");
+                        str = str.Replace(key_word, "");
                     }
                     else
                     {
@@ -1479,9 +1507,9 @@ namespace SYD_COPY_FILE
             byte j = 0;
             string orgTxt1 = textInput.Text.Trim();
             string str_out = "";
-            byte[] hex=strToToHexByte(orgTxt1);
+            byte[] hex = strToToHexByte(orgTxt1);
             byte[] hex_statistics = new byte[100];
-            UInt32 [] hex_statistics_count = new UInt32[100];
+            UInt32[] hex_statistics_count = new UInt32[100];
             byte hex_count = 0;
             for (i = 0; i < hex.Length; i++)
             {
@@ -1496,244 +1524,244 @@ namespace SYD_COPY_FILE
                 if (j >= hex_count)
                 {
                     hex_statistics[hex_count] = hex[i];
-                    hex_statistics_count[hex_count]=1;
+                    hex_statistics_count[hex_count] = 1;
                     hex_count++;
                 }
             }
-            str_out = "总字节数量:" + hex.Length.ToString()+"\r\n";
+            str_out = "总字节数量:" + hex.Length.ToString() + "\r\n";
             for (j = 0; j < hex_count; j++)
             {
-                str_out += hex_statistics[j].ToString("X2")+":"+ hex_statistics_count[j].ToString() + "\r\n";
+                str_out += hex_statistics[j].ToString("X2") + ":" + hex_statistics_count[j].ToString() + "\r\n";
             }
             richTextBox_out.Text = str_out;
             MessageBox.Show("处理完成!");
         }
         private void text_to_bin()
-       {
-           string orgTxt1 = textInput.Text.Trim();
-           if (comboBox_fonttype.SelectedIndex != 0)
-           {
-               if (comboBox_fonttype.SelectedIndex == 1)
-               {
-                   orgTxt1 = orgTxt1.Replace("0X", "").Replace("0x", "").Replace(",", " ");
-               }
-               else if (comboBox_fonttype.SelectedIndex == 2)
-               {
-                   int index = orgTxt1.IndexOf("\r\n");
-                   orgTxt1 = orgTxt1.Remove(0, index+2);
-                   index = orgTxt1.LastIndexOf("\r\n");
-                   orgTxt1 = orgTxt1.Remove(index, orgTxt1.Length - index);
-                   orgTxt1 = orgTxt1.Replace("0X", "").Replace("0x", "").Replace(",", " ");
-               }
-           }
-           if (comboBox_datatype.SelectedIndex != 0)
-           {
-               orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "");
-           }
-           orgTxt1 = orgTxt1.Replace("\r\n", "");
-           byte[] bin=new byte[10];
-           if (comboBox_datatype.SelectedIndex == 0)
-           {
-               bin = System.Text.Encoding.ASCII.GetBytes(orgTxt1);
-           }
-           else if (comboBox_datatype.SelectedIndex == 1)
-           {
-               bin = strToToDecByte(orgTxt1);
-           }
-           else if (comboBox_datatype.SelectedIndex == 2)
-           {
-               bin = strToToHexByte(orgTxt1);
-           }
+        {
+            string orgTxt1 = textInput.Text.Trim();
+            if (comboBox_fonttype.SelectedIndex != 0)
+            {
+                if (comboBox_fonttype.SelectedIndex == 1)
+                {
+                    orgTxt1 = orgTxt1.Replace("0X", "").Replace("0x", "").Replace(",", " ");
+                }
+                else if (comboBox_fonttype.SelectedIndex == 2)
+                {
+                    int index = orgTxt1.IndexOf("\r\n");
+                    orgTxt1 = orgTxt1.Remove(0, index + 2);
+                    index = orgTxt1.LastIndexOf("\r\n");
+                    orgTxt1 = orgTxt1.Remove(index, orgTxt1.Length - index);
+                    orgTxt1 = orgTxt1.Replace("0X", "").Replace("0x", "").Replace(",", " ");
+                }
+            }
+            if (comboBox_datatype.SelectedIndex != 0)
+            {
+                orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "");
+            }
+            orgTxt1 = orgTxt1.Replace("\r\n", "");
+            byte[] bin = new byte[10];
+            if (comboBox_datatype.SelectedIndex == 0)
+            {
+                bin = System.Text.Encoding.ASCII.GetBytes(orgTxt1);
+            }
+            else if (comboBox_datatype.SelectedIndex == 1)
+            {
+                bin = strToToDecByte(orgTxt1);
+            }
+            else if (comboBox_datatype.SelectedIndex == 2)
+            {
+                bin = strToToHexByte(orgTxt1);
+            }
 
-           Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
-           dlg.FileName = "bin";
+            dlg.FileName = "bin";
 
-           dlg.DefaultExt = ".bin";
+            dlg.DefaultExt = ".bin";
 
-           dlg.Filter = "bin file (.bin)|*.bin";
+            dlg.Filter = "bin file (.bin)|*.bin";
 
-           if (dlg.ShowDialog() == false)
-               return;
+            if (dlg.ShowDialog() == false)
+                return;
 
-           FileStream fs = new FileStream(dlg.FileName, FileMode.Create);
-           BinaryWriter bw = new BinaryWriter(fs);
-           bw.Write(bin, 0, bin.Length);
-           bw.Flush();
-           bw.Close();
+            FileStream fs = new FileStream(dlg.FileName, FileMode.Create);
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write(bin, 0, bin.Length);
+            bw.Flush();
+            bw.Close();
 
-           StripStatusLabelSet("保存成功!");
-       }
+            StripStatusLabelSet("保存成功!");
+        }
 
-       public int[] MinToMax(int[] array)
-       {
-           int[] FianlMTM = new int[array.Length];
+        public int[] MinToMax(int[] array)
+        {
+            int[] FianlMTM = new int[array.Length];
 
-           for (int j = 0; j < array.Length; j++)
-           {
-               int last = 0;
-               for (int i = 1; i < array.Length - j; i++)
-               {
-                   int t = array[i];
+            for (int j = 0; j < array.Length; j++)
+            {
+                int last = 0;
+                for (int i = 1; i < array.Length - j; i++)
+                {
+                    int t = array[i];
 
-                   if ((array[i]) < (array[i - 1]))
-                   {
+                    if ((array[i]) < (array[i - 1]))
+                    {
 
-                       array[i] = array[i - 1];
-                       last = array[i];
-                       array[i - 1] = t;
+                        array[i] = array[i - 1];
+                        last = array[i];
+                        array[i - 1] = t;
 
-                   }
-                   else
-                       last = array[i];
-               }
-               FianlMTM[array.Length - (j + 1)] = last;
+                    }
+                    else
+                        last = array[i];
+                }
+                FianlMTM[array.Length - (j + 1)] = last;
 
-           }
-           return FianlMTM;
-       }
+            }
+            return FianlMTM;
+        }
 
-       private void Fine_max_notuse_index()
-       {
-           int i = 0,j=0,k=0;
-           string orgTxt1 = textInput.Text.Trim();
-           List<string> lstArray = new List<string>();
-           string key = combobox_key.Text;
-           Regex r = new Regex(key+@"([1-9]\d*)", RegexOptions.Compiled | RegexOptions.CultureInvariant);//正则
-           Match m = r.Match(orgTxt1);//匹配
+        private void Fine_max_notuse_index()
+        {
+            int i = 0, j = 0, k = 0;
+            string orgTxt1 = textInput.Text.Trim();
+            List<string> lstArray = new List<string>();
+            string key = combobox_key.Text;
+            Regex r = new Regex(key + @"([1-9]\d*)", RegexOptions.Compiled | RegexOptions.CultureInvariant);//正则
+            Match m = r.Match(orgTxt1);//匹配
 
-           while (m.Success)
-           {
-               lstArray.Add(m.Groups[0].Value);
-               m = m.NextMatch();//匹配下一个
-           }
+            while (m.Success)
+            {
+                lstArray.Add(m.Groups[0].Value);
+                m = m.NextMatch();//匹配下一个
+            }
 
-           richTextBox_out.Text = "input order:";
-           int[] array = new int[lstArray.Count];
+            richTextBox_out.Text = "input order:";
+            int[] array = new int[lstArray.Count];
 
-           for (i = 0; i < lstArray.Count; i++)
-           {
-               richTextBox_out.AppendText(lstArray[i] + " ");
-               array[i] = Convert.ToInt32(lstArray[i].Substring(key.Length, lstArray[i].Length - key.Length));
-           }
+            for (i = 0; i < lstArray.Count; i++)
+            {
+                richTextBox_out.AppendText(lstArray[i] + " ");
+                array[i] = Convert.ToInt32(lstArray[i].Substring(key.Length, lstArray[i].Length - key.Length));
+            }
 
-           for (i = 0; i < array.Length; i++)
-	       {
-               for (j = i + 1; j < array.Length; j++)
-		        {
+            for (i = 0; i < array.Length; i++)
+            {
+                for (j = i + 1; j < array.Length; j++)
+                {
                     if (array[i] > array[j])
-			        {
+                    {
                         k = array[i];
                         array[i] = array[j];
                         array[j] = k;
-			        }
-		        }
-	        }
+                    }
+                }
+            }
 
-           int[] array_index = new int[lstArray.Count];
-           i = 0;
-           richTextBox_out.AppendText("\r\nupon order:");
-           for (j = 0; j < array.Length; j++)
-           {
-               richTextBox_out.AppendText(array[j] + " ");
-               if (j == 0)
-               {
-                   if(array[j] != 1)
-                     array_index[i++] = 1;
-               }
-               else
-               {
-                   if (array[j] > (array[j - 1] + 1))
-                   {
-                       array_index[i++] = array[j - 1] + 1;
-                   }
-               }
-           }
+            int[] array_index = new int[lstArray.Count];
+            i = 0;
+            richTextBox_out.AppendText("\r\nupon order:");
+            for (j = 0; j < array.Length; j++)
+            {
+                richTextBox_out.AppendText(array[j] + " ");
+                if (j == 0)
+                {
+                    if (array[j] != 1)
+                        array_index[i++] = 1;
+                }
+                else
+                {
+                    if (array[j] > (array[j - 1] + 1))
+                    {
+                        array_index[i++] = array[j - 1] + 1;
+                    }
+                }
+            }
 
-           if (i >0)
-            richTextBox_out.AppendText("\r\notuse min index:" + array_index[0].ToString());
-       }
+            if (i > 0)
+                richTextBox_out.AppendText("\r\notuse min index:" + array_index[0].ToString());
+        }
 
-       private UInt32 get_struct_element_size(string a)
-       {
-           UInt32 c_base = 0;
-           int k = a.IndexOf("u");
-           if (!(a.Substring(0, k).Contains("/")))
-           {
-               if (a.Contains("uint8_t"))
-               {
-                   c_base = 1;
-               }
-               else if (a.Contains("uint16_t"))
-               {
-                   c_base = 2;
-               }
-               else if (a.Contains("uint32_t"))
-               {
-                   c_base = 4;
-               }
+        private UInt32 get_struct_element_size(string a)
+        {
+            UInt32 c_base = 0;
+            int k = a.IndexOf("u");
+            if (!(a.Substring(0, k).Contains("/")))
+            {
+                if (a.Contains("uint8_t"))
+                {
+                    c_base = 1;
+                }
+                else if (a.Contains("uint16_t"))
+                {
+                    c_base = 2;
+                }
+                else if (a.Contains("uint32_t"))
+                {
+                    c_base = 4;
+                }
 
-               int n = a.IndexOf("[");
-               int m = a.IndexOf("]");
-               if ((n > 0) && (m > n))
-               {
-                   if (m < (n + 4))
-                   {
-                       string str = a.Substring(n + 1, m - n - 1);
-                       c_base = Convert.ToUInt32(str);
-                   }
-               }
-           }
-           
-           return c_base;
-       }
+                int n = a.IndexOf("[");
+                int m = a.IndexOf("]");
+                if ((n > 0) && (m > n))
+                {
+                    if (m < (n + 4))
+                    {
+                        string str = a.Substring(n + 1, m - n - 1);
+                        c_base = Convert.ToUInt32(str);
+                    }
+                }
+            }
 
-       private void Cstruct_element_size()
-       {
-           int max_len = 0;
-           uint offect = 0;
-           List<string> lstArray = textInput.Text.Split('\n').ToList(); ;
+            return c_base;
+        }
 
-           for (int m = 0; m < lstArray.Count; m++)
-           {
-               lstArray[m] = lstArray[m].TrimEnd();
-               if (lstArray[m].Length > max_len)
-                   max_len = lstArray[m].Length;
-           }
-           for (int m = 0; m < lstArray.Count; m++)
-           {
-               if (lstArray[m].Length>7)//最短的定义 char t
-               {
-                   uint k = get_struct_element_size(lstArray[m]);
-                   if (k > 0)
-                   {
-                       lstArray[m] = lstArray[m].PadRight(max_len + 4);
-                       lstArray[m] = lstArray[m] + "//"  + k.ToString() + "  0x" + offect.ToString("X");
-                       offect += k;
-                   }
-               }
-           }
-           foreach (string str in lstArray)
-           {
-               richTextBox_out.AppendText(str + "\r\n");
-           }
-       }
+        private void Cstruct_element_size()
+        {
+            int max_len = 0;
+            uint offect = 0;
+            List<string> lstArray = textInput.Text.Split('\n').ToList(); ;
+
+            for (int m = 0; m < lstArray.Count; m++)
+            {
+                lstArray[m] = lstArray[m].TrimEnd();
+                if (lstArray[m].Length > max_len)
+                    max_len = lstArray[m].Length;
+            }
+            for (int m = 0; m < lstArray.Count; m++)
+            {
+                if (lstArray[m].Length > 7)//最短的定义 char t
+                {
+                    uint k = get_struct_element_size(lstArray[m]);
+                    if (k > 0)
+                    {
+                        lstArray[m] = lstArray[m].PadRight(max_len + 4);
+                        lstArray[m] = lstArray[m] + "//" + k.ToString() + "  0x" + offect.ToString("X");
+                        offect += k;
+                    }
+                }
+            }
+            foreach (string str in lstArray)
+            {
+                richTextBox_out.AppendText(str + "\r\n");
+            }
+        }
 
         private void extract_array_name()
         {
-            string str = textInput.Text.Trim(),str1="";
+            string str = textInput.Text.Trim(), str1 = "";
             List<string> lstArray = new List<string>();
-            int j = 0, k = 0,i=0;
+            int j = 0, k = 0, i = 0;
             while (true)
             {
                 j = str.IndexOf("[", j);
                 if (j == -1) break;
                 i = str.LastIndexOf("\n", j);
-                if ((i == -1)&& (lstArray.Count != 0)) break;
+                if ((i == -1) && (lstArray.Count != 0)) break;
                 k = str.IndexOf("=", j);
                 if (k == -1) break;
-                if(i != 0)
-                    str1 = str.Substring(i+1, k - i-1);
+                if (i != 0)
+                    str1 = str.Substring(i + 1, k - i - 1);
                 else
                     str1 = str.Substring(0, k - 1);
                 if ((!(str1.Contains("//"))) && (!(str1.Contains("/*"))))
@@ -1744,9 +1772,9 @@ namespace SYD_COPY_FILE
                         if (i != -1)
                         {
                             k = str1.LastIndexOf("]");
-                            if((k != -1) && (k >i))
+                            if ((k != -1) && (k > i))
                             {
-                                str1=str1.Remove(i+1, k-i-1);
+                                str1 = str1.Remove(i + 1, k - i - 1);
                             }
                         }
                     }
@@ -1762,150 +1790,150 @@ namespace SYD_COPY_FILE
         }
 
         private void Data_xor()
-       {
-           int i = 0;
-           string orgTxt1 = textInput.Text.Trim();
-           orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "").Replace("0x", "").Replace(",", "");
+        {
+            int i = 0;
+            string orgTxt1 = textInput.Text.Trim();
+            orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "").Replace("0x", "").Replace(",", "");
 
-           List<string> lstArray = orgTxt1.ToLower().Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> lstArray = orgTxt1.ToLower().Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-           richTextBox_out.Text = "";
+            richTextBox_out.Text = "";
 
-           for (i = 0; i < lstArray.Count; i++)
-           {
-               byte[] data= strToToHexByte(lstArray[i]);
-               byte crc = 0;
+            for (i = 0; i < lstArray.Count; i++)
+            {
+                byte[] data = strToToHexByte(lstArray[i]);
+                byte crc = 0;
                 UInt32 sum = 0;
-               for (int j = 0; j < data.Length; j++)
-               {
-                   crc ^= data[j];
+                for (int j = 0; j < data.Length; j++)
+                {
+                    crc ^= data[j];
                     sum += data[j];
                 }
-               richTextBox_out.AppendText("xor:"+crc.ToString("X") +"  sum:" + sum.ToString("X")+"\r\n");
-           }
-           string path = label_outfilename.Text;
-           path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-           using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-           {
-               byte[] buffer = null;
-               buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
-               fsWrite.Write(buffer, 0, buffer.Length);
-           }
+                richTextBox_out.AppendText("xor:" + crc.ToString("X") + "  sum:" + sum.ToString("X") + "\r\n");
+            }
+            string path = label_outfilename.Text;
+            path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
+            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                byte[] buffer = null;
+                buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
+                fsWrite.Write(buffer, 0, buffer.Length);
+            }
 
-           StripStatusLabelSet("保存成功!");
-       }
+            StripStatusLabelSet("保存成功!");
+        }
 
-       private void Rtc_Deviation()
-       {
-           int i = 0;
+        private void Rtc_Deviation()
+        {
+            int i = 0;
             string resut = "";
             textInput.Text = textInput.Text.TrimEnd((char[])"\r\n".ToCharArray());
             if (comboBox_indicate.Items.Count <= 0)
-           {
-               return;
-           }
-           List<string>[] lis = new List<string>[textInput.Lines.Length];
+            {
+                return;
+            }
+            List<string>[] lis = new List<string>[textInput.Lines.Length];
 
 
-           for (i = 0; i < textInput.Lines.Length; i++)
-           {
-               string str = textInput.Lines[i].ToString();
-               str = new Regex("[\\s]+").Replace(textInput.Lines[i].ToString(), " ").Trim() ; 
-               lis[i] = str.Split(new string[] { " " }, StringSplitOptions.None).ToList();
-           }
+            for (i = 0; i < textInput.Lines.Length; i++)
+            {
+                string str = textInput.Lines[i].ToString();
+                str = new Regex("[\\s]+").Replace(textInput.Lines[i].ToString(), " ").Trim();
+                lis[i] = str.Split(new string[] { " " }, StringSplitOptions.None).ToList();
+            }
 
-           if (comboBox_datatype.SelectedIndex == 0)
-           {
-                byte phone_index=Convert.ToByte(textBox_filesize.Text);
+            if (comboBox_datatype.SelectedIndex == 0)
+            {
+                byte phone_index = Convert.ToByte(textBox_filesize.Text);
                 byte device_index = Convert.ToByte(combobox_key.Text);
                 for (i = 1; i < lis.Length; i++)
-               {
-                   if ((lis[i - 1].Count < 3) || (lis[i].Count < 3))
-                   {
-                       MessageBox.Show("input empty line");
-                       return;
-                   }
+                {
+                    if ((lis[i - 1].Count < 3) || (lis[i].Count < 3))
+                    {
+                        MessageBox.Show("input empty line");
+                        return;
+                    }
 
-                   richTextBox_out.Text = "运行时间：";
-                   string str1 = lis[i - 1][phone_index];
-                   string str = lis[i][phone_index];
+                    richTextBox_out.Text = "运行时间：";
+                    string str1 = lis[i - 1][phone_index];
+                    string str = lis[i][phone_index];
 
-                   Int32 date = 0;
-                   if ((str.Length == 0) || (str1.Length == 0))
-                   {
-                       MessageBox.Show("input error");
-                       return;
-                   }
+                    Int32 date = 0;
+                    if ((str.Length == 0) || (str1.Length == 0))
+                    {
+                        MessageBox.Show("input error");
+                        return;
+                    }
 
 
 
-                   str = str.Trim();
-                   str1 = str1.Trim();
+                    str = str.Trim();
+                    str1 = str1.Trim();
 
                     if (comboBox_indicate.Text.Length != 0)
-                   {
-                       date = Convert.ToInt32(comboBox_indicate.Text, 10);
-                   }
+                    {
+                        date = Convert.ToInt32(comboBox_indicate.Text, 10);
+                    }
 
-                   if (str.Length > 13)
-                   {
-                        resut=cal_Calendar_time_differenceble_subtract(str, str1, null, source_file_textBox);
-                   }
-                   else
-                   {
+                    if (str.Length > 13)
+                    {
+                        resut = cal_Calendar_time_differenceble_subtract(str, str1, null, source_file_textBox);
+                    }
+                    else
+                    {
                         resut = cal_Calendar_time_difference_subtract(str, str1, date, null, source_file_textBox);
-                   }
-                   richTextBox_out.AppendText(resut + " 手机时间戳差值：" + source_file_textBox.Text);
+                    }
+                    richTextBox_out.AppendText(resut + " 手机时间戳差值：" + source_file_textBox.Text);
 
-                   str1 = lis[i - 1][device_index].Substring(18, 11).Replace("-", "");
-                   str = lis[i][device_index].Substring(18, 11).Replace("-", "");
-                   str1 = Byte_reversal(str1);
-                   str = Byte_reversal(str);
-                   UInt32 timer1 = Convert.ToUInt32(str1, 16);
-                   UInt32 timer = Convert.ToUInt32(str, 16);
-                   timer = timer - timer1;
-                   richTextBox_out.AppendText(" 手环时间戳差值：0x" + timer.ToString("X"));
+                    str1 = lis[i - 1][device_index].Substring(18, 11).Replace("-", "");
+                    str = lis[i][device_index].Substring(18, 11).Replace("-", "");
+                    str1 = Byte_reversal(str1);
+                    str = Byte_reversal(str);
+                    UInt32 timer1 = Convert.ToUInt32(str1, 16);
+                    UInt32 timer = Convert.ToUInt32(str, 16);
+                    timer = timer - timer1;
+                    richTextBox_out.AppendText(" 手环时间戳差值：0x" + timer.ToString("X"));
 
-                   timer1 = Convert.ToUInt32(source_file_textBox.Text, 16);
-                   date = (Int32)((double)timer1 - (double)timer);
-                   if (date > 0)
-                       richTextBox_out.AppendText(" 手环时间偏差：+" + date.ToString());
-                   else
-                       richTextBox_out.AppendText(" 手环时间偏差：" + date.ToString());
+                    timer1 = Convert.ToUInt32(source_file_textBox.Text, 16);
+                    date = (Int32)((double)timer1 - (double)timer);
+                    if (date > 0)
+                        richTextBox_out.AppendText(" 手环时间偏差：+" + date.ToString());
+                    else
+                        richTextBox_out.AppendText(" 手环时间偏差：" + date.ToString());
 
-                   richTextBox_out.AppendText("\r\n");
-               }
-           }
-           else if (comboBox_datatype.SelectedIndex == 1)
-           {
-               for (i = 1; i < lis.Length; i++)
-               {
-                   if ((lis[i - 1].Count < 11) || (lis[i].Count < 11))
-                   {
-                       MessageBox.Show("input empty line");
-                       return;
-                   }
-                   richTextBox_out.Text = "时间差值：";
-                   string str1 = lis[i - 1][0x10];
-                   string str = lis[i][0x10];
+                    richTextBox_out.AppendText("\r\n");
+                }
+            }
+            else if (comboBox_datatype.SelectedIndex == 1)
+            {
+                for (i = 1; i < lis.Length; i++)
+                {
+                    if ((lis[i - 1].Count < 11) || (lis[i].Count < 11))
+                    {
+                        MessageBox.Show("input empty line");
+                        return;
+                    }
+                    richTextBox_out.Text = "时间差值：";
+                    string str1 = lis[i - 1][0x10];
+                    string str = lis[i][0x10];
 
-                   if ((str.Length == 0) || (str1.Length == 0))
-                   {
-                       MessageBox.Show("input error");
-                       return;
-                   }
+                    if ((str.Length == 0) || (str1.Length == 0))
+                    {
+                        MessageBox.Show("input error");
+                        return;
+                    }
 
-                   str = str.Trim();
-                   str1 = str1.Trim();
+                    str = str.Trim();
+                    str1 = str1.Trim();
 
-                    resut=cal_Calendar_time_differenceble_subtract(str, str1, null, textBox_filesize);
-                   richTextBox_out.AppendText(resut + " 时间戳差值：" + textBox_filesize.Text);
-               }
-           }
+                    resut = cal_Calendar_time_differenceble_subtract(str, str1, null, textBox_filesize);
+                    richTextBox_out.AppendText(resut + " 时间戳差值：" + textBox_filesize.Text);
+                }
+            }
             else if (comboBox_datatype.SelectedIndex == 2)
             {
                 string str = "";
-                UInt64 timestamp_min = 0, timestamp_max = 0, timestamp=0;
+                UInt64 timestamp_min = 0, timestamp_max = 0, timestamp = 0;
                 richTextBox_out.Text = "\r\n";
                 for (i = 1; i < lis.Length; i++)
                 {
@@ -1924,18 +1952,18 @@ namespace SYD_COPY_FILE
                     if (i == 1) timestamp_min = timestamp;
                     if (timestamp_min > timestamp) timestamp_min = timestamp;
                     if (timestamp_max < timestamp) timestamp_max = timestamp;
-                    
+
                 }
-                str= cal_Calendar_time_difference_subtract_output(timestamp_min, timestamp_accuracy_type.accuracy_3, null, null);
+                str = cal_Calendar_time_difference_subtract_output(timestamp_min, timestamp_accuracy_type.accuracy_3, null, null);
                 richTextBox_out.AppendText(" 两行之间最小差值：" + str + "\r\n");
                 str = cal_Calendar_time_difference_subtract_output(timestamp_max, timestamp_accuracy_type.accuracy_3, null, null);
                 richTextBox_out.AppendText(" 两行之间最大差值：" + str + "\r\n");
             }
             StripStatusLabelSet("保存成功!");
-       }
-        
-       private void Bytestoutf8()
-       {
+        }
+
+        private void Bytestoutf8()
+        {
             int i = 0;
             string orgTxt1 = textInput.Text.Trim();
             if (comboBox_datatype.SelectedIndex == 0)
@@ -1957,7 +1985,7 @@ namespace SYD_COPY_FILE
                 do
                 {
                     orgTxt1 = orgTxt1.Replace("  ", " ");
-                } while ((orgTxt1.Contains("  ")==true));
+                } while ((orgTxt1.Contains("  ") == true));
                 do
                 {
                     orgTxt1 = orgTxt1.Replace("\t", "");
@@ -1986,9 +2014,9 @@ namespace SYD_COPY_FILE
                         int n = lstArray[i].IndexOf("=");
                         if (n > 0)
                         {
-                            orgTxt1 += lstArray[i].Substring(n + 1, lstArray[i].Length-(n + 1));
+                            orgTxt1 += lstArray[i].Substring(n + 1, lstArray[i].Length - (n + 1));
                         }
-                        
+
                     }
                 }
                 do
@@ -2003,11 +2031,11 @@ namespace SYD_COPY_FILE
             //orgTxt1 = Regex.Replace(orgTxt1, "[^\x0d\x0a\x20-\x7e\t]", "");
             orgTxt1 = Regex.Replace(orgTxt1, "[^\x20-\x7e]", "");
             richTextBox_out.Text = orgTxt1;
-           StripStatusLabelSet("保存成功!");
-       }
+            StripStatusLabelSet("保存成功!");
+        }
         private void Get_rom_extract()
         {
-            int i = 0,j=0;
+            int i = 0, j = 0;
             string orgTxt1 = textInput.Text.Trim();
             List<string> lstArray = orgTxt1.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();//所有的行
             string outTxt1 = "";
@@ -2026,11 +2054,11 @@ namespace SYD_COPY_FILE
                 for (i = 0; i < lstArray.Count; i++)
                 {
                     j = lstArray[i].IndexOf(key_word);
-                    if (j!=-1)
+                    if (j != -1)
                     {
                         if (comboBox_datatype.SelectedIndex == 3)
                         {
-                            outTxt1 += lstArray[i].Substring(j+ key_word.Length).Replace("\r","") + separator_out;
+                            outTxt1 += lstArray[i].Substring(j + key_word.Length).Replace("\r", "") + separator_out;
                         }
                         else outTxt1 += lstArray[i] + separator_out;
                     }
@@ -2040,7 +2068,7 @@ namespace SYD_COPY_FILE
             {
                 string key_word = combobox_key.Text;
                 string key_word1 = textBox_filesize.Text;
-                orgTxt1 = orgTxt1.Replace("\r\n","").Replace("\r", "").Replace("\n", "");
+                orgTxt1 = orgTxt1.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
                 i = orgTxt1.IndexOf(key_word);
                 if (i == -1)
                 {
@@ -2054,7 +2082,7 @@ namespace SYD_COPY_FILE
                     return;
                 }
                 if ((i + key_word.Length) < j)
-                    outTxt1 = orgTxt1.Substring(i+ key_word.Length,j-(i + key_word.Length)) + separator_out;
+                    outTxt1 = orgTxt1.Substring(i + key_word.Length, j - (i + key_word.Length)) + separator_out;
                 while (true)
                 {
                     i = orgTxt1.IndexOf(key_word, j);
@@ -2063,7 +2091,7 @@ namespace SYD_COPY_FILE
                         j = orgTxt1.IndexOf(key_word1, i);
                         if (j != -1)
                         {
-                            if((i+ key_word.Length )< j)
+                            if ((i + key_word.Length) < j)
                                 outTxt1 += orgTxt1.Substring(i + key_word.Length, j - (i + key_word.Length)) + separator_out;
                         }
                         else break;
@@ -2165,7 +2193,7 @@ namespace SYD_COPY_FILE
                 line_indexof[i] = 0;
                 str = lstArray[i];
                 m = str.IndexOf(" ");
-                if(m!=0)
+                if (m != 0)
                 {
                     str1 = str.Substring(0, m);
                     if (str1.Contains(".h") || str1.Contains(".c"))  //开始就是文件名,不做处理
@@ -2176,7 +2204,7 @@ namespace SYD_COPY_FILE
                 n = str.IndexOf(" in ", m - 1);
                 if (n >= m)
                 {
-                    line_indexof[i] = n+4;
+                    line_indexof[i] = n + 4;
                 }
             }
             for (i = 0; i < lstArray.Count; i++)
@@ -2189,7 +2217,7 @@ namespace SYD_COPY_FILE
 
         private void Get_arr()
         {
-            int i,j=1;
+            int i, j = 1;
             int m = 0;
             if (textBox_filesize.Text.Length == 0)
             {
@@ -2199,17 +2227,17 @@ namespace SYD_COPY_FILE
             UInt32 len = Convert.ToUInt32(textBox_filesize.Text);
             StringBuilder str = new StringBuilder();
             Byte data = 0xff;
-            if((comboBox_datatype.SelectedIndex == 3) || (comboBox_datatype.SelectedIndex == 4))
+            if ((comboBox_datatype.SelectedIndex == 3) || (comboBox_datatype.SelectedIndex == 4))
             {
                 string str_input = textInput.Text.Trim();
                 if (comboBox_datatype.SelectedIndex == 4)
                 {
-                    data = Convert.ToByte(str_input.Substring(0,2), 10);
+                    data = Convert.ToByte(str_input.Substring(0, 2), 10);
                     str.Append("0x" + data.ToString("X2") + ",");
-                    str_input=str_input.Remove(0,2);
+                    str_input = str_input.Remove(0, 2);
                 }
                 byte[] array = System.Text.Encoding.ASCII.GetBytes(str_input);
-                for (i = 0; i < len-1; i++)
+                for (i = 0; i < len - 1; i++)
                 {
                     if (i < array.Length)
                     {
@@ -2220,7 +2248,7 @@ namespace SYD_COPY_FILE
                         data = Convert.ToByte(combobox_key.Text, 16);
                         str.Append("0x" + data.ToString("X2") + ",");
                     }
-                    if (((i+2) % 16 == 0) && (i!=0)) str.Append("\r\n");
+                    if (((i + 2) % 16 == 0) && (i != 0)) str.Append("\r\n");
                 }
             }
             else
@@ -2251,16 +2279,16 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-           
+
             richTextBox_out.Text = "" + str;
             StripStatusLabelSet("保存成功!");
         }
 
-        private bool return_type_isvalid(List<string> return_type_Array,string type)
+        private bool return_type_isvalid(List<string> return_type_Array, string type)
         {
             foreach (string str in return_type_Array)
             {
-                if ((type.Replace(" ","")) == (str.Replace(" ", "")))
+                if ((type.Replace(" ", "")) == (str.Replace(" ", "")))
                     return true;
             }
             return false;
@@ -2268,7 +2296,7 @@ namespace SYD_COPY_FILE
         private void Get_api_symdef()
         {
             int i = 0;
-            int m = 0, n = 0, k = 0,j=0,z=0, a = 0, b = 0, c = 0;
+            int m = 0, n = 0, k = 0, j = 0, z = 0, a = 0, b = 0, c = 0;
             string Path_source = comboBox_indicate.Text;
 
             string orgTxt1 = textInput.Text.Trim();
@@ -2294,8 +2322,8 @@ namespace SYD_COPY_FILE
                     line_out.Add("");
                 }
                 else
-                { 
-                    n= lstArray[i].IndexOf(" D ");
+                {
+                    n = lstArray[i].IndexOf(" D ");
                     if (n > 0)
                     {
                         line_variable.Add(lstArray[i].Substring(n + 3, lstArray[i].Length - (n + 3)));
@@ -2320,8 +2348,8 @@ namespace SYD_COPY_FILE
                     {
                         break;
                     }
-                    
-                    if(i< line_funtion.Count)
+
+                    if (i < line_funtion.Count)
                     {
                         str = str.Substring(0, str.Length - 12);  //去掉地址和)\
                         str += line_addr[i] + "))";
@@ -2331,7 +2359,7 @@ namespace SYD_COPY_FILE
                         str = str.Substring(0, str.Length - 11);
                         str += line_variable_addr[i - line_funtion.Count] + ")";
                     }
-                        
+
                     line_out[i] = str;
                 }
             }
@@ -2419,8 +2447,8 @@ namespace SYD_COPY_FILE
 
                 //下面开始获取带宏的函数
                 m = str_default.IndexOf("--funtion_define_type_start__");  //函数名称的起始位置'
-                if(m>0)
-                { 
+                if (m > 0)
+                {
                     n = str_default.IndexOf("--funtion_define_type_end__");  //函数名称的起始位置'
                     str = str_default.Substring(m + 29 + 2, n - (m + 29 + 2));
                     List<string> define_type_Array = str.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -2437,9 +2465,9 @@ namespace SYD_COPY_FILE
                                 if (k > 0)
                                 {
                                     n = str.IndexOf(")", k);  //字符串后面一个反括号
-                                    str_line = str.Substring(k+ str_temp.Length+1, n - (k + str_temp.Length)-1);   //得到参数
+                                    str_line = str.Substring(k + str_temp.Length + 1, n - (k + str_temp.Length) - 1);   //得到参数
                                     str_out = define_type_Array[2].Replace("msg_name##", str_out);
-                                    str_out= str_out.Replace("param_struct", str_line);
+                                    str_out = str_out.Replace("param_struct", str_line);
                                     str_out = "#define " + line_funtion[j] + " " + "((" + str_out.Replace(line_funtion[j] + "(", "(*)(") + ")((uint32_t *)" + line_addr[j] + "))";
                                     line_out[j] = str_out;
                                 }
@@ -2454,14 +2482,14 @@ namespace SYD_COPY_FILE
                 List<string> variable_type_Array = str.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
                 //下面开始获取变量
-                for (i = 0; i < (cfile.Count+ hfile.Count); i++)
+                for (i = 0; i < (cfile.Count + hfile.Count); i++)
                 //for (i = 0; i < (cfile.Count); i++)
                 {
                     z = 0;
-                    if(i< cfile.Count)
+                    if (i < cfile.Count)
                         str = System.IO.File.ReadAllText(cfile[i], Encoding.Default);
                     else
-                        str = System.IO.File.ReadAllText(hfile[i- cfile.Count], Encoding.Default);  //h文件也要查询
+                        str = System.IO.File.ReadAllText(hfile[i - cfile.Count], Encoding.Default);  //h文件也要查询
                     for (j = 0; j < line_variable.Count; j++)
                     {
                         m = n = k = 0;
@@ -2485,13 +2513,13 @@ namespace SYD_COPY_FILE
                                         }
                                     }
                                     a = str_line.IndexOf(line_variable[j]);
-                                    if(a>0) b = str_line.IndexOf(line_variable[j],a+ line_variable[j].Length);
+                                    if (a > 0) b = str_line.IndexOf(line_variable[j], a + line_variable[j].Length);
                                     if (b > 0)
                                     {
                                         c = str_line.IndexOf("=", a, b - a);
                                         if (c > 0) b = 0;  //这里忽略掉第二个
                                     }
-                                    
+
                                     if (b > 0)//类似和变量包含了相同的字符串,从第二个字符串开始之前是类型
                                     {
                                         str_temp = str_line.Substring(0, b);
@@ -2509,7 +2537,7 @@ namespace SYD_COPY_FILE
                                         continue;
                                     }
 
-                                    str_out = "#define " + line_variable[j] + " " + "((" + str_temp.Replace("*","") + " *)"  + line_variable_addr[j] + ")";
+                                    str_out = "#define " + line_variable[j] + " " + "((" + str_temp.Replace("*", "") + " *)" + line_variable_addr[j] + ")";
                                     line_variable_out[j] = str_out;
                                 }
                             }
@@ -2608,7 +2636,7 @@ namespace SYD_COPY_FILE
             //获取子文件夹内的文件列表，递归遍历  
             foreach (DirectoryInfo dd in directs)
             {
-                DirectorFileNameSize(dd.FullName, list,size);
+                DirectorFileNameSize(dd.FullName, list, size);
             }
         }
         //遍历所有文件夹获取特定格式的文件
@@ -2650,7 +2678,7 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_datatype.SelectedIndex == 1)
             {
-                string str = "", str_dir= source_file_textBox.Text,out_dir= label_outfilename.Text;
+                string str = "", str_dir = source_file_textBox.Text, out_dir = label_outfilename.Text;
                 List<string> bmpfile = fine_filename(str_dir, this.combobox_key.Text);
                 str_dir = Directory.GetParent(source_file_textBox.Text).ToString();
                 if (Directory.Exists(out_dir))
@@ -2664,7 +2692,7 @@ namespace SYD_COPY_FILE
                 for (i = 0; i < bmpfile.Count; i++)
                 {
                     str = bmpfile[i];
-                    str =str.Replace(str_dir ,"").Replace("\\", "");
+                    str = str.Replace(str_dir, "").Replace("\\", "");
                     File.Copy(bmpfile[i], out_dir + str, true);
                     richTextBox_out.AppendText(str + "\r\n");
                 }
@@ -2712,7 +2740,7 @@ namespace SYD_COPY_FILE
         }
         private void text_handle()
         {
-            int i = 0, j = 0, m,n;
+            int i = 0, j = 0, m, n;
             string orgTxt1 = textInput.Text.Trim();
             List<string> lstArray = orgTxt1.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
             string outTxt1 = "";
@@ -2737,7 +2765,7 @@ namespace SYD_COPY_FILE
                     }
                     else if (comboBox_datatype.SelectedIndex == 2)
                     {
-                        outTxt1 += lstArray[i].Replace("\r", str+ "\r\n");
+                        outTxt1 += lstArray[i].Replace("\r", str + "\r\n");
                     }
                 }
                 richTextBox_out.Text = outTxt1;
@@ -2859,12 +2887,12 @@ namespace SYD_COPY_FILE
                 out_utf8 = Encoding.UTF8.GetBytes(label_outfilename.Text);
                 UInt32 save_size = 0;
                 if (comboBox_datatype.SelectedIndex == 0)
-                    save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex,(byte)comboBox_additional_operations.SelectedIndex,0);
+                    save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex, 0);
                 else if (comboBox_datatype.SelectedIndex == 3)
                     save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex, 1);
                 else if (comboBox_datatype.SelectedIndex == 4)
                     save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex, 2);
-                else if(comboBox_datatype.SelectedIndex == 6)
+                else if (comboBox_datatype.SelectedIndex == 6)
                     save_size = bmp_to_rbw(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex, 3);
                 else if (comboBox_datatype.SelectedIndex == 5)
                     save_size = bmp_to_8Color(buffer_utf8, (UInt32)(buffer_utf8.Length), out_utf8, (UInt32)(out_utf8.Length), (byte)comboBox_fonttype.SelectedIndex, (byte)comboBox_additional_operations.SelectedIndex);
@@ -2886,7 +2914,7 @@ namespace SYD_COPY_FILE
         private void draw_Click(object sender, EventArgs e)
         {
             StripStatusLabelSet("提取");
-            if((comboBox_mode.SelectedIndex != (int)comboBox_mode_type.Git_helper) && (comboBox_mode.SelectedIndex != (int)comboBox_mode_type.handle_File))
+            if ((comboBox_mode.SelectedIndex != (int)comboBox_mode_type.Git_helper) && (comboBox_mode.SelectedIndex != (int)comboBox_mode_type.handle_File))
             {
                 richTextBox_out.Clear();
             }
@@ -2973,7 +3001,7 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File)
             {
-                if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
+                if ((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
                     Batch_Rename();
                 else
                 {
@@ -3005,13 +3033,13 @@ namespace SYD_COPY_FILE
             {
                 if (comboBox_indicate.Text == this.comboBox_indicate.Items[i].ToString()) break;
             }
-            if(i == this.comboBox_indicate.Items.Count) this.comboBox_indicate.Items.Insert(0, comboBox_indicate.Text);
+            if (i == this.comboBox_indicate.Items.Count) this.comboBox_indicate.Items.Insert(0, comboBox_indicate.Text);
 
             for (i = 0; i < this.combobox_key.Items.Count; i++)
             {
                 if (combobox_key.Text == this.combobox_key.Items[i].ToString()) break;
             }
-            if (i == this.combobox_key.Items.Count)  this.combobox_key.Items.Insert(0, combobox_key.Text);
+            if (i == this.combobox_key.Items.Count) this.combobox_key.Items.Insert(0, combobox_key.Text);
 
             StripStatusLabelEnd("提取完成");
         }
@@ -3080,6 +3108,11 @@ namespace SYD_COPY_FILE
                 label_outfilename.Text = FileName;
                 return System.IO.File.ReadAllText(FileName, Encoding.Default);
             }
+            else if ((fi.Extension).ToLower() == ".md")
+            {
+                label_outfilename.Text = FileName;
+                return System.IO.File.ReadAllText(FileName, Encoding.UTF8);
+            }
             else if (fi.Extension.ToLower() == ".wav")
             {
                 string path = FileName;
@@ -3102,7 +3135,7 @@ namespace SYD_COPY_FILE
                     {
                         //ffmpeg -i 1.wav -filter:a "volume=10dB" 1_10db.wav
                         string pathout = path.Replace(".WAV", string.Empty).Replace(".wav", string.Empty) + "_10DB.wav";
-                        string para = @"-i " + path + " -filter:a \"volume = "+ textBox_filesize .Text+ "dB\" " + pathout;
+                        string para = @"-i " + path + " -filter:a \"volume = " + textBox_filesize.Text + "dB\" " + pathout;
                         if (System.IO.File.Exists(Path.GetFullPath(pathout)))
                         {
                             File.Delete(Path.GetFullPath(pathout));
@@ -3225,7 +3258,7 @@ namespace SYD_COPY_FILE
             }
             this.comboBox_fonttype.SelectedItem = 0;
             this.comboBox_fonttype.SelectedIndex = 0;
-            if (this.comboBox_indicate.Items.Count>0)
+            if (this.comboBox_indicate.Items.Count > 0)
                 this.comboBox_indicate.SelectedIndex = 0;
             if (this.combobox_key.Items.Count > 0)
                 this.combobox_key.SelectedIndex = 0;
@@ -3334,7 +3367,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("输入数据为Studio的时间+数据复制行");
                 this.label_data_type.Text = "输入类型：";
             }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Bytes_to_utf8) 
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Bytes_to_utf8)
             {
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Bytestoutf8.txt", Encoding.Default);
 
@@ -3458,7 +3491,7 @@ namespace SYD_COPY_FILE
             }
             arr_restore_Defaults_Adjust(false);  //自动调整显示长度
         }
-        public void comboBox_inster_first(ComboBox box,string str)
+        public void comboBox_inster_first(ComboBox box, string str)
         {
             if (box.Text != str)
             {
@@ -3509,7 +3542,7 @@ namespace SYD_COPY_FILE
                     this.textBox_filesize.Text = "3";
                     this.label_key_word.Text = "设备序:";
                     comboBox_inster_first(combobox_key, "5");
-                }     
+                }
                 else
                 {
                     this.label_indicator.Text = "指示符:";
@@ -3518,7 +3551,7 @@ namespace SYD_COPY_FILE
                 {
                     textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Rtc_Deviation_studio.txt", Encoding.Default);
                 }
-                
+
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File)
             {
@@ -3539,8 +3572,8 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.TEXT_handle_and_analysis)
             {
-                if((comboBox_datatype.SelectedIndex == 6) || (comboBox_datatype.SelectedIndex == 7))
-                    {
+                if ((comboBox_datatype.SelectedIndex == 6) || (comboBox_datatype.SelectedIndex == 7))
+                {
                     textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Data_reversal.txt", Encoding.Default);
                     if (comboBox_datatype.SelectedIndex == 6)
                     {
@@ -3598,7 +3631,7 @@ namespace SYD_COPY_FILE
 
                     this.textBox_filesize.Text = "1";
                 }
-                else if((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 5))
+                else if ((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 5))
                 {
                     comboBox_additional_operations.Items.Clear();
                     this.comboBox_additional_operations.Items.Add("无额外操作");
@@ -3614,8 +3647,8 @@ namespace SYD_COPY_FILE
             }
             else
             {
-                if((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Font_txt_to_bin) || (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Git_helper))
-                { 
+                if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Font_txt_to_bin) || (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Git_helper))
+                {
                     if (comboBox_datatype.SelectedIndex == 1)
                     {
                         restore_Defaults = true;
@@ -3659,7 +3692,15 @@ namespace SYD_COPY_FILE
                     this.textBox_filesize.Text = "";
                 }
             }
-            
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Git_helper)
+            {
+                if (comboBox_fonttype.SelectedIndex == 1)
+                {
+                    comboBox_additional_operations.Items.Clear();
+                    this.comboBox_additional_operations.Items.Add("无额外操作");
+                    this.comboBox_additional_operations.Items.Add("覆盖原文件");
+                }
+            }
             else
             {
                 //arr_restore_Defaults();
