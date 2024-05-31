@@ -1825,7 +1825,6 @@ namespace SYD_COPY_FILE
             p = Math.Sqrt(p);
             textBox46.Text= p.ToString("f5");
         }
-
         public void StripStatusLabelSet(string text)
         {
             toolStripStatusLabel2.Text = text;

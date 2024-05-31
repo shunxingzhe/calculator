@@ -748,6 +748,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
@@ -2152,6 +2153,9 @@
             this.textInput.Size = new System.Drawing.Size(747, 274);
             this.textInput.TabIndex = 0;
             this.textInput.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseClick);
+            this.textInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseDown);
+            this.textInput.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseMove);
+            this.textInput.MouseUp += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseUp);
             // 
             // groupBox21
             // 
@@ -2393,6 +2397,10 @@
             this.richTextBox_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.richTextBox_out.Size = new System.Drawing.Size(745, 125);
             this.richTextBox_out.TabIndex = 1;
+            this.richTextBox_out.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseClick);
+            this.richTextBox_out.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseDown);
+            this.richTextBox_out.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseMove);
+            this.richTextBox_out.MouseUp += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseUp);
             // 
             // LED_Display
             // 
@@ -8383,7 +8391,8 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
-            this.toolStripStatusLabel3});
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel4});
             this.statusStrip1.Location = new System.Drawing.Point(0, 580);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(766, 22);
@@ -8408,6 +8417,12 @@
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(46, 17);
             this.toolStripStatusLabel3.Text = "行0列0";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(66, 17);
+            this.toolStripStatusLabel4.Text = "选中字节:0";
             // 
             // toolTip1
             // 
@@ -9207,7 +9222,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.5.4";
+            this.Text = "SYD_Calculator V2.5.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -10155,6 +10170,7 @@
         private System.Windows.Forms.TextBox textBox48;
         private System.Windows.Forms.Label label122;
         private System.Windows.Forms.Label label123;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
     }
 }
 

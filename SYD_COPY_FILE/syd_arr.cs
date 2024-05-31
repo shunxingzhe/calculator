@@ -82,6 +82,8 @@ namespace SYD_COPY_FILE
 
         string dlgDefaultExt = ".txt";
         string dlgDefaultName = "source_file";
+
+        public bool MouseLeft;
         #endregion
 
         public void syd_arr_init()
@@ -3723,11 +3725,44 @@ namespace SYD_COPY_FILE
         {
             if (e.Button == MouseButtons.Left)
             {
-                int index = textInput.GetFirstCharIndexOfCurrentLine();//得到当前行第一个字符的索引
-                int line = textInput.GetLineFromCharIndex(index);//得到当前行的行号,从0开始
-                int col = textInput.SelectionStart - index;//.SelectionStart得到光标所在位置的索引 减去 当前行第一个字符的索引 = 光标所在的列数（从0开始)
+                int index, line, col;
+                if (sender== textInput)
+                {
+                    index = textInput.GetFirstCharIndexOfCurrentLine();//得到当前行第一个字符的索引
+                    line = textInput.GetLineFromCharIndex(index);//得到当前行的行号,从0开始
+                    col = textInput.SelectionStart - index;//.SelectionStart得到光标所在位置的索引 减去 当前行第一个字符的索引 = 光标所在的列数（从0开始)
+                    
+                }
+                else
+                {
+                    index = richTextBox_out.GetFirstCharIndexOfCurrentLine();
+                    line = richTextBox_out.GetLineFromCharIndex(index);
+                    col = richTextBox_out.SelectionStart - index;
+                }
                 toolStripStatusLabel3.Text = "行" + line.ToString() + "列" + col.ToString();
             } //左键
+        }
+        private void textInput_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseLeft = true;
+                toolStripStatusLabel4.Text = "选中字节:0";
+            }
+        }
+        private void textInput_MouseUp(object sender, MouseEventArgs e)
+        {
+            MouseLeft = false;
+        }
+        private void textInput_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (MouseLeft)
+            {
+                if (sender == textInput)
+                    toolStripStatusLabel4.Text = "选中字节:" + textInput.SelectionLength.ToString() ;
+                else
+                    toolStripStatusLabel4.Text = "选中字节:" + richTextBox_out.SelectionLength.ToString();
+            }
         }
     }
 }
