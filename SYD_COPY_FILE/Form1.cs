@@ -72,6 +72,7 @@ namespace SYD_COPY_FILE
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
             comboBox8.SelectedIndex = 2;
+            comboBox6.SelectedIndex = 2;
             timestamp_Difference_select.SelectedIndex = 0;
 
             data_direction = false;
@@ -1794,6 +1795,37 @@ namespace SYD_COPY_FILE
             sw.Close();
             fs.Close();
         }
+
+        private void textBox48_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox48.Text.Trim().Length == 0) return;
+
+            Double p = 0.12345;
+            switch (comboBox6.SelectedIndex)
+            {
+                case 0:
+                    p = (double)1 / 4;
+                    break;
+                case 1:
+                    p = (double)1 / 8;
+                    break;
+                case 2:
+                    p = (double)1 / 10;
+                    break;
+                case 3:
+                    p = (double)1 / 16;
+                    break;
+                case 4:
+                    p = (double)1 / 20;
+                    break;
+            }
+            Double r = Convert.ToDouble(textBox48.Text);
+            if (r == 0) return;
+            p = p / r;
+            p = Math.Sqrt(p);
+            textBox46.Text= p.ToString("f5");
+        }
+
         public void StripStatusLabelSet(string text)
         {
             toolStripStatusLabel2.Text = text;

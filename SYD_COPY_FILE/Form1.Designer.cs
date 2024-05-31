@@ -311,6 +311,13 @@
             this.button35 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.textBox46 = new System.Windows.Forms.TextBox();
+            this.label138 = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.textBox48 = new System.Windows.Forms.TextBox();
+            this.label122 = new System.Windows.Forms.Label();
+            this.label123 = new System.Windows.Forms.Label();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.textBox79 = new System.Windows.Forms.TextBox();
             this.textBox87 = new System.Windows.Forms.TextBox();
@@ -896,6 +903,7 @@
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -4117,6 +4125,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox10);
             this.tabPage1.Controls.Add(this.groupBox20);
             this.tabPage1.Controls.Add(this.groupBox16);
             this.tabPage1.Controls.Add(this.groupBox4);
@@ -4130,6 +4139,82 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "timer/cal";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.textBox46);
+            this.groupBox10.Controls.Add(this.label138);
+            this.groupBox10.Controls.Add(this.comboBox6);
+            this.groupBox10.Controls.Add(this.textBox48);
+            this.groupBox10.Controls.Add(this.label122);
+            this.groupBox10.Controls.Add(this.label123);
+            this.groupBox10.Location = new System.Drawing.Point(566, 332);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(188, 82);
+            this.groupBox10.TabIndex = 42;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Resistor Electricity Current";
+            // 
+            // textBox46
+            // 
+            this.textBox46.AllowDrop = true;
+            this.textBox46.Location = new System.Drawing.Point(96, 58);
+            this.textBox46.Name = "textBox46";
+            this.textBox46.Size = new System.Drawing.Size(89, 21);
+            this.textBox46.TabIndex = 47;
+            // 
+            // label138
+            // 
+            this.label138.AutoSize = true;
+            this.label138.Location = new System.Drawing.Point(111, 43);
+            this.label138.Name = "label138";
+            this.label138.Size = new System.Drawing.Size(53, 12);
+            this.label138.TabIndex = 48;
+            this.label138.Text = "可过电流";
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Items.AddRange(new object[] {
+            "1206 1/4W",
+            "0805 1/8W",
+            "0603 1/10W",
+            "0402 1/16W",
+            "0201 1/20W"});
+            this.comboBox6.Location = new System.Drawing.Point(59, 20);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(125, 20);
+            this.comboBox6.TabIndex = 44;
+            this.comboBox6.Tag = "";
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.textBox48_TextChanged);
+            // 
+            // textBox48
+            // 
+            this.textBox48.AllowDrop = true;
+            this.textBox48.Location = new System.Drawing.Point(3, 58);
+            this.textBox48.Name = "textBox48";
+            this.textBox48.Size = new System.Drawing.Size(87, 21);
+            this.textBox48.TabIndex = 26;
+            this.textBox48.Text = "1";
+            this.textBox48.TextChanged += new System.EventHandler(this.textBox48_TextChanged);
+            // 
+            // label122
+            // 
+            this.label122.AutoSize = true;
+            this.label122.Location = new System.Drawing.Point(2, 23);
+            this.label122.Name = "label122";
+            this.label122.Size = new System.Drawing.Size(59, 12);
+            this.label122.TabIndex = 45;
+            this.label122.Text = "选择封装:";
+            // 
+            // label123
+            // 
+            this.label123.AutoSize = true;
+            this.label123.Location = new System.Drawing.Point(11, 43);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(65, 12);
+            this.label123.TabIndex = 46;
+            this.label123.Text = "输入电阻值";
             // 
             // groupBox20
             // 
@@ -4717,7 +4802,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(3, 332);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(573, 82);
+            this.groupBox1.Size = new System.Drawing.Size(560, 82);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "32768_timer_cal";
@@ -4736,9 +4821,9 @@
             // textBox12
             // 
             this.textBox12.AllowDrop = true;
-            this.textBox12.Location = new System.Drawing.Point(499, 57);
+            this.textBox12.Location = new System.Drawing.Point(496, 57);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(68, 21);
+            this.textBox12.Size = new System.Drawing.Size(61, 21);
             this.textBox12.TabIndex = 56;
             // 
             // label6
@@ -4830,9 +4915,9 @@
             // textBox10
             // 
             this.textBox10.AllowDrop = true;
-            this.textBox10.Location = new System.Drawing.Point(499, 13);
+            this.textBox10.Location = new System.Drawing.Point(496, 13);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(68, 21);
+            this.textBox10.Size = new System.Drawing.Size(61, 21);
             this.textBox10.TabIndex = 47;
             // 
             // textBox2
@@ -4849,9 +4934,9 @@
             // textBox9
             // 
             this.textBox9.AllowDrop = true;
-            this.textBox9.Location = new System.Drawing.Point(499, 35);
+            this.textBox9.Location = new System.Drawing.Point(496, 35);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(68, 21);
+            this.textBox9.Size = new System.Drawing.Size(61, 21);
             this.textBox9.TabIndex = 25;
             // 
             // label1
@@ -9122,7 +9207,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.5.3";
+            this.Text = "SYD_Calculator V2.5.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9170,6 +9255,8 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.tabPage1.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.groupBox20.ResumeLayout(false);
             this.groupBox20.PerformLayout();
             this.groupBox16.ResumeLayout(false);
@@ -10061,6 +10148,13 @@
         private System.Windows.Forms.TextBox destination_folder_textBox_rename;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.CheckBox checkBox16;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox textBox46;
+        private System.Windows.Forms.Label label138;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.TextBox textBox48;
+        private System.Windows.Forms.Label label122;
+        private System.Windows.Forms.Label label123;
     }
 }
 
