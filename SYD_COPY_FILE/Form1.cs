@@ -67,12 +67,12 @@ namespace SYD_COPY_FILE
             InitializeComponent();
 
             comboBox4.SelectedIndex = 3;
-            comboBox3.SelectedIndex = 2;
-            comboBox5.SelectedIndex = 3;
+            comboBox3.SelectedIndex = 3;
             comboBox1.SelectedIndex = 1;
-            comboBox2.SelectedIndex = 1;
-            comboBox8.SelectedIndex = 2;
+            comboBox2.SelectedIndex = 2;
             comboBox6.SelectedIndex = 2;
+            comboBox8.SelectedIndex = 1;
+            comboBox5.SelectedIndex = 0;
             timestamp_Difference_select.SelectedIndex = 0;
 
             data_direction = false;
@@ -768,19 +768,6 @@ namespace SYD_COPY_FILE
             this.WindowState = FormWindowState.Normal;
         }
 
-        private void cal_32768_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if((sender == textBox8) || (sender == textBox1) || (sender == textBox6))
-                    cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
-                else if ((sender == textBox45) || (sender == textBox11) || (sender == textBox43))
-                    cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
-                else
-                    cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
-            }
-        }
-
         private void cal_32768_Click(object sender, EventArgs e)
         {
             if (sender == button2)
@@ -789,6 +776,38 @@ namespace SYD_COPY_FILE
                 cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
             else
                 cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
+        }
+        private bool cal_32768_check(string a, string b, string c, ComboBox aa, ComboBox bb)
+        {
+            if ((a.Length == 0) | (b.Length == 0) | (c.Length == 0)) return false;
+            if ((aa.SelectedIndex == 3) && (Convert.ToInt32(b, 16) == 0)) return false;
+            if ((bb.SelectedIndex == 3) && (Convert.ToInt32(c, 16) == 0)) return false;
+            return true;
+        }
+        private void cal_32768_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((sender == textBox8) || (sender == textBox1) || (sender == textBox6))
+                {
+                    if (cal_32768_check(textBox3.Text, textBox5.Text, textBox2.Text, comboBox2, comboBox3))
+                        cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
+                }
+                else if ((sender == textBox45) || (sender == textBox11) || (sender == textBox43))
+                {
+                    if (cal_32768_check(textBox3.Text, textBox5.Text, textBox2.Text, comboBox8, comboBox5))
+                        cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
+                }
+                else
+                {
+                    if (cal_32768_check(textBox3.Text, textBox5.Text, textBox2.Text, comboBox1, comboBox4))
+                        cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
+                }
+            }
+            catch (Exception ex) // 异常处理
+            {
+                return;
+            }
         }
         private void button5_Click(object sender, EventArgs e)
         {

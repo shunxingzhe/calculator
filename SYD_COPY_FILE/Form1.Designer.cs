@@ -4822,8 +4822,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(114, 21);
             this.textBox11.TabIndex = 53;
-            this.textBox11.Text = "0.8*3.3";
-            this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox11.Text = "0";
             this.textBox11.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // textBox12
@@ -4878,8 +4877,8 @@
             this.textBox43.Name = "textBox43";
             this.textBox43.Size = new System.Drawing.Size(54, 21);
             this.textBox43.TabIndex = 49;
-            this.textBox43.Text = "1.35";
-            this.textBox43.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox43.Text = "2D";
+            this.textBox43.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
             this.textBox43.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // button8
@@ -4907,12 +4906,14 @@
             this.textBox45.Name = "textBox45";
             this.textBox45.Size = new System.Drawing.Size(54, 21);
             this.textBox45.TabIndex = 51;
-            this.textBox45.Text = "7.7";
-            this.textBox45.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox45.Text = "0";
+            this.textBox45.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
             this.textBox45.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // checkBox9
             // 
+            this.checkBox9.Checked = true;
+            this.checkBox9.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox9.Location = new System.Drawing.Point(2, 58);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(43, 18);
@@ -4936,7 +4937,6 @@
             this.textBox2.Size = new System.Drawing.Size(114, 21);
             this.textBox2.TabIndex = 21;
             this.textBox2.Text = "4";
-            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
             this.textBox2.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // textBox9
@@ -4991,8 +4991,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(114, 21);
             this.textBox1.TabIndex = 20;
-            this.textBox1.Text = "1000/32768";
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox1.Text = "0.8*3.3";
             this.textBox1.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // comboBox2
@@ -5031,7 +5030,8 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(54, 21);
             this.textBox6.TabIndex = 2;
-            this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox6.Text = "1.35";
+            this.textBox6.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
             this.textBox6.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // button2
@@ -5059,7 +5059,8 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(54, 21);
             this.textBox3.TabIndex = 2;
-            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox3.Text = "20006C78";
+            this.textBox3.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
             this.textBox3.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // textBox8
@@ -5069,7 +5070,8 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(54, 21);
             this.textBox8.TabIndex = 10;
-            this.textBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox8.Text = "7.7";
+            this.textBox8.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
             this.textBox8.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // button1
@@ -5097,7 +5099,8 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(54, 21);
             this.textBox5.TabIndex = 10;
-            this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cal_32768_KeyDown);
+            this.textBox5.Text = "20006C58";
+            this.textBox5.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
             this.textBox5.Leave += new System.EventHandler(this.textBoxTrim_Leave);
             // 
             // checkBox6
@@ -9222,7 +9225,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.5.5";
+            this.Text = "SYD_Calculator V2.5.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
