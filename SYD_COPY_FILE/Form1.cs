@@ -790,12 +790,12 @@ namespace SYD_COPY_FILE
             {
                 if ((sender == textBox8) || (sender == textBox1) || (sender == textBox6))
                 {
-                    if (cal_32768_check(textBox3.Text, textBox5.Text, textBox2.Text, comboBox2, comboBox3))
+                    if (cal_32768_check(textBox6.Text, textBox8.Text, textBox1.Text, comboBox2, comboBox3))
                         cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
                 }
                 else if ((sender == textBox45) || (sender == textBox11) || (sender == textBox43))
                 {
-                    if (cal_32768_check(textBox3.Text, textBox5.Text, textBox2.Text, comboBox8, comboBox5))
+                    if (cal_32768_check(textBox43.Text, textBox45.Text, textBox11.Text, comboBox8, comboBox5))
                         cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
                 }
                 else
