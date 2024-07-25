@@ -892,6 +892,93 @@ namespace SYD_COPY_FILE
             else
                 MessageBox.Show("source file inexistence");
         }
+
+        private void button_convert_hex_Click(object sender, EventArgs e)
+        {
+            FileInfo fi = null;
+            fi = new FileInfo(source_copyfile_textBox_rename.Text);
+
+            if (fi.Extension == ".hex")
+            {
+                Byte[] FWBin;
+                StreamReader sr = new StreamReader(source_copyfile_textBox_rename.Text);
+                String input;
+                Byte byte_count;
+                UInt16 address = 0;
+                UInt16 pre_address = 0;
+                Byte record_type;
+                Byte data;
+                UInt32 idx = 0;
+                UInt32 line = 0;
+                UInt16 append_address = 0;
+                Boolean append_ff = false;
+
+                FWBin = new Byte[512 * 1024];
+
+                while ((input = sr.ReadLine()) != null)
+                {
+                    if (input.IndexOf(":") != 0)
+                    {
+                        MessageBox.Show("HEX Format Error!!", "Error");
+                        sr.Close();
+                        return;
+                    }
+
+                    line++;
+                    input = input.Remove(0, 1);
+
+                    byte_count = Convert.ToByte(input.Substring(0, 2), 16);
+                    input = input.Remove(0, 2);
+
+                    address = Convert.ToUInt16(input.Substring(0, 4), 16);
+                    input = input.Remove(0, 4);
+
+                    record_type = Convert.ToByte(input.Substring(0, 2), 16);
+                    input = input.Remove(0, 2);
+
+                    if (record_type == 0x00)
+                    {
+                        if (append_ff == true)
+                        {
+                            append_address = (UInt16)(append_address + address);
+
+                            for (UInt16 i = 0; i < append_address; i++)
+                            {
+                                FWBin[idx++] = 0xff;
+                            }
+
+                            append_address = 0;
+                            append_ff = false;
+                        }
+
+                        for (Byte i = 0; i < byte_count; i++)
+                        {
+                            data = Convert.ToByte(input.Substring(0, 2), 16);
+                            input = input.Remove(0, 2);
+                            FWBin[idx++] = data;
+                        }
+                    }
+                    else
+                    {
+                        if (pre_address != 0)
+                        {
+                            pre_address = (UInt16)(pre_address + 16);
+
+                            append_address = (UInt16)(0xffff - pre_address + 1);
+
+                            append_ff = true;
+                        }
+                    }
+
+                    pre_address = address;
+
+                }
+                //DUT_FWLength = idx;
+                sr.Close();
+                string file = source_copyfile_textBox_rename.Text.ToLower().Replace(".hex",".bin");
+                Bytes2File(FWBin, 0, (int)idx, file);
+            }
+        }
         private void destination_file_button_copy_filename_Click(object sender, EventArgs e)
         {
             if (File.Exists(destination_file_textBox_rename.Text))
@@ -1273,6 +1360,24 @@ namespace SYD_COPY_FILE
             fs = new FileStream(savepath, FileMode.CreateNew);
             bw = new BinaryWriter(fs);
             bw.Write(buff, index, count);
+            bw.Close();
+            fs.Close();
+        }
+        // 将byte数组转换为文件并保存到指定地址
+        // param name="buff"byte数组
+        // param name="savepath"保存地址
+        public static void Bytes2File(byte[] buff,  string savepath)
+        {
+            FileStream fs;
+            BinaryWriter bw;
+
+            if (System.IO.File.Exists(savepath))
+            {
+                System.IO.File.Delete(savepath);
+            }
+            fs = new FileStream(savepath, FileMode.CreateNew);
+            bw = new BinaryWriter(fs);
+            bw.Write(buff, 0, buff.Length);
             bw.Close();
             fs.Close();
         }

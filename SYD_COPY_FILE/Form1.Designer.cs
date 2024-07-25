@@ -509,6 +509,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button_convert_hex = new System.Windows.Forms.Button();
             this.destination_folder_textBox_rename = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.destination_file_button_open_dir = new System.Windows.Forms.Button();
@@ -4156,7 +4157,7 @@
             this.groupBox10.Controls.Add(this.textBox48);
             this.groupBox10.Controls.Add(this.label122);
             this.groupBox10.Controls.Add(this.label123);
-            this.groupBox10.Location = new System.Drawing.Point(566, 332);
+            this.groupBox10.Location = new System.Drawing.Point(566, 1);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(188, 82);
             this.groupBox10.TabIndex = 42;
@@ -4234,7 +4235,7 @@
             this.groupBox20.Controls.Add(this.button39);
             this.groupBox20.Controls.Add(this.textBox76);
             this.groupBox20.Controls.Add(this.label113);
-            this.groupBox20.Location = new System.Drawing.Point(0, 195);
+            this.groupBox20.Location = new System.Drawing.Point(0, 276);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Size = new System.Drawing.Size(438, 44);
             this.groupBox20.TabIndex = 41;
@@ -4329,7 +4330,7 @@
             this.groupBox16.Controls.Add(this.label106);
             this.groupBox16.Controls.Add(this.label107);
             this.groupBox16.Controls.Add(this.button34);
-            this.groupBox16.Location = new System.Drawing.Point(0, 122);
+            this.groupBox16.Location = new System.Drawing.Point(0, 203);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Size = new System.Drawing.Size(438, 73);
             this.groupBox16.TabIndex = 40;
@@ -4476,7 +4477,7 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.panel13);
-            this.groupBox4.Location = new System.Drawing.Point(440, 4);
+            this.groupBox4.Location = new System.Drawing.Point(440, 85);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(314, 326);
             this.groupBox4.TabIndex = 32;
@@ -4808,12 +4809,12 @@
             this.groupBox1.Controls.Add(this.checkBox6);
             this.groupBox1.Controls.Add(this.checkBox8);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(3, 332);
+            this.groupBox1.Location = new System.Drawing.Point(3, 1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(560, 82);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "32768_timer_cal";
+            this.groupBox1.Text = "calculator";
             // 
             // textBox11
             // 
@@ -4841,6 +4842,7 @@
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 55;
             this.label6.Text = "dec:";
+            this.label6.Click += new System.EventHandler(this.label4_Click);
             // 
             // comboBox5
             // 
@@ -4955,6 +4957,7 @@
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 24;
             this.label1.Text = "dec:";
+            this.label1.Click += new System.EventHandler(this.label4_Click);
             // 
             // comboBox3
             // 
@@ -5131,6 +5134,7 @@
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 46;
             this.label4.Text = "dec:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // groupBox5
             // 
@@ -5153,7 +5157,7 @@
             this.groupBox5.Controls.Add(this.textBox36);
             this.groupBox5.Controls.Add(this.textBox37);
             this.groupBox5.Controls.Add(this.timestamp_Difference_cal);
-            this.groupBox5.Location = new System.Drawing.Point(3, 4);
+            this.groupBox5.Location = new System.Drawing.Point(3, 85);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(435, 119);
             this.groupBox5.TabIndex = 23;
@@ -5374,7 +5378,7 @@
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.Calendar_Time_Difference_Cal);
             this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Location = new System.Drawing.Point(-4, 238);
+            this.groupBox3.Location = new System.Drawing.Point(-4, 319);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(442, 92);
             this.groupBox3.TabIndex = 22;
@@ -6288,6 +6292,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.button_convert_hex);
             this.tabPage7.Controls.Add(this.destination_folder_textBox_rename);
             this.tabPage7.Controls.Add(this.button11);
             this.tabPage7.Controls.Add(this.destination_file_button_open_dir);
@@ -6316,6 +6321,17 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Rename";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // button_convert_hex
+            // 
+            this.button_convert_hex.Font = new System.Drawing.Font("宋体", 8F);
+            this.button_convert_hex.Location = new System.Drawing.Point(487, 84);
+            this.button_convert_hex.Name = "button_convert_hex";
+            this.button_convert_hex.Size = new System.Drawing.Size(62, 18);
+            this.button_convert_hex.TabIndex = 70;
+            this.button_convert_hex.Text = "生成文件";
+            this.button_convert_hex.UseVisualStyleBackColor = true;
+            this.button_convert_hex.Click += new System.EventHandler(this.button_convert_hex_Click);
             // 
             // destination_folder_textBox_rename
             // 
@@ -9225,7 +9241,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.5.7";
+            this.Text = "SYD_Calculator V2.5.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -10174,6 +10190,7 @@
         private System.Windows.Forms.Label label122;
         private System.Windows.Forms.Label label123;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.Button button_convert_hex;
     }
 }
 

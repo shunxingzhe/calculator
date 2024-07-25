@@ -58,7 +58,7 @@ namespace SYD_COPY_FILE
 
         timestamp_accuracy_type accuracy = timestamp_accuracy_type.accuracy_3;
 
-        public bool extend_bit_mask_state = false;
+        public bool extend_bit_mask_state = false, timer_cal_mask_state = false;
         public byte care_bit_index = 0, care_bit_high = 15, care_bit_low = 0;
         #endregion
 
@@ -1844,6 +1844,23 @@ namespace SYD_COPY_FILE
             p = Math.Sqrt(p);
             textBox46.Text= p.ToString("f5");
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            if (timer_cal_mask_state == false)
+            {
+                this.Height -= 475;
+                this.Width -= 195;
+                timer_cal_mask_state = true;
+            }
+            else
+            {
+                this.Height += 475;
+                this.Width += 195;
+                timer_cal_mask_state = false;
+            }
+        }
+
         public void StripStatusLabelSet(string text)
         {
             toolStripStatusLabel2.Text = text;
