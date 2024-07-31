@@ -1186,7 +1186,7 @@ namespace SYD_COPY_FILE
             int i = 0, j = 0;
             string orgTxt1 = textInput.Text.Trim();
 
-            List<string> lstArray = orgTxt1.ToLower().Split(new char[2] { '\r', '\n' }).ToList();
+            List<string> lstArray = orgTxt1.Split(new char[2] { '\r', '\n' }).ToList();
 
             string str = "";
             byte[] buffer_utf8;

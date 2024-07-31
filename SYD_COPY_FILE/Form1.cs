@@ -1852,7 +1852,6 @@ namespace SYD_COPY_FILE
             checkBox16.Checked = false;
             checkBox10.Checked = false;
         }
-
         private void label4_Click(object sender, EventArgs e)
         {
             if (timer_cal_mask_state == false)
