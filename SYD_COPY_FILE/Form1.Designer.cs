@@ -6393,6 +6393,7 @@
             this.source_copyfile_suffix_textBox_rename.Name = "source_copyfile_suffix_textBox_rename";
             this.source_copyfile_suffix_textBox_rename.Size = new System.Drawing.Size(190, 20);
             this.source_copyfile_suffix_textBox_rename.TabIndex = 63;
+            this.source_copyfile_suffix_textBox_rename.TextChanged += new System.EventHandler(this.textBox_rename_TextChanged);
             // 
             // comboBox_timetype_rename
             // 
@@ -6445,6 +6446,7 @@
             this.source_copyfile_prefix_textBox_rename.Name = "source_copyfile_prefix_textBox_rename";
             this.source_copyfile_prefix_textBox_rename.Size = new System.Drawing.Size(190, 20);
             this.source_copyfile_prefix_textBox_rename.TabIndex = 37;
+            this.source_copyfile_prefix_textBox_rename.TextChanged += new System.EventHandler(this.textBox_rename_TextChanged);
             // 
             // source_copyfile_textBox_rename
             // 
@@ -9241,7 +9243,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.5.8";
+            this.Text = "SYD_Calculator V2.5.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

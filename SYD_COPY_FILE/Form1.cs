@@ -1845,6 +1845,14 @@ namespace SYD_COPY_FILE
             textBox46.Text= p.ToString("f5");
         }
 
+        private void textBox_rename_TextChanged(object sender, EventArgs e)
+        {
+            checkBox_delete_srcfile.Checked = false;
+            checkBox_delete_prefile.Checked = false;
+            checkBox16.Checked = false;
+            checkBox10.Checked = false;
+        }
+
         private void label4_Click(object sender, EventArgs e)
         {
             if (timer_cal_mask_state == false)
