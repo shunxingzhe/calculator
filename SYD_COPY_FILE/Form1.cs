@@ -73,6 +73,12 @@ namespace SYD_COPY_FILE
             comboBox6.SelectedIndex = 2;
             comboBox8.SelectedIndex = 1;
             comboBox5.SelectedIndex = 0;
+            comboBox10.SelectedIndex = 2;
+            comboBox13.SelectedIndex = 3;
+            comboBox11.SelectedIndex = 2;
+            comboBox14.SelectedIndex = 3;
+            comboBox9.SelectedIndex = 2;
+            comboBox12.SelectedIndex = 3;
             timestamp_Difference_select.SelectedIndex = 0;
 
             data_direction = false;
@@ -301,8 +307,29 @@ namespace SYD_COPY_FILE
                 return a % b;
             }
         }
-
-        private void cal_32768_subtract(string a, string b, string multiplier, bool ishex, TextBox textBox_out, TextBox textBox_hex, ComboBox comboBox_First, ComboBox comboBox_second)
+        private float cal_do(ComboBox funtion, float num, float num1)
+        {
+            switch (funtion.SelectedIndex)
+            {
+                case 0:
+                    num = (float)num + (float)num1;
+                    break;
+                case 1:
+                    num = (float)num - (float)num1;
+                    break;
+                case 2:
+                    num = (float)num * (float)num1;
+                    break;
+                case 3:
+                    num = (float)num / (float)num1;
+                    break;
+                case 4:
+                    num = (float)num % (float)num1;
+                    break;
+            }
+            return num;
+        }
+        private void cal_32768_subtract(string a, string b, string multiplier, bool ishex, TextBox textBox_out, TextBox textBox_hex, ComboBox comboBox_First, ComboBox comboBox_second, TextBox textBox_step2A, TextBox textBox_step2B, ComboBox comboBox_step2A, ComboBox comboBox_step2B, TextBox textBox_step2out)
         {
             float result = 0, num = 0, num1 = 0;
             if ((a.Length == 0) | (b.Length == 0))
@@ -328,39 +355,24 @@ namespace SYD_COPY_FILE
                 num = Convert.ToSingle(a);
                 num1 = Convert.ToSingle(b);
             }
-            switch (comboBox_First.SelectedIndex)
-            {
-                case 0:
-                    num = (float)num + (float)num1;
-                    break;
-                case 1:
-                    num = (float)num - (float)num1;
-                    break;
-                case 2:
-                    num = (float)num * (float)num1;
-                    break;
-                case 3:
-                    num = (float)num / (float)num1;
-                    break;
-            }
+            num = cal_do(comboBox_First, (float)num, (float)num1);
+            
             result = (float)CalcStr(multiplier);
-            switch (comboBox_second.SelectedIndex)
-            {
-                case 0:
-                    result = num + result;
-                    break;
-                case 1:
-                    result = num - result;
-                    break;
-                case 2:
-                    result = num * result;
-                    break;
-                case 3:
-                    result = num / result;
-                    break;
-            }
+            result = cal_do(comboBox_second, (float)num, (float)result);
+
             textBox_out.Text = result.ToString();
             textBox_hex.Text = "0x" + ((UInt32)result).ToString("X");
+            if (textBox_step2A.Text.Length != 0)
+            {
+                num = (float)(Convert.ToInt32(textBox_step2A.Text));
+                result = cal_do(comboBox_step2A, (float)result, (float)num);
+                if (textBox_step2B.Text.Length != 0)
+                {
+                    num = (float)(Convert.ToInt32(textBox_step2B.Text));
+                    result = cal_do(comboBox_step2B, (float)result, (float)num);
+                }
+                textBox_step2out.Text = result.ToString();
+            }
         }
         private void cal_latency_hex_subtract(string d, string e, string a, string b, string c)
         {
@@ -771,11 +783,11 @@ namespace SYD_COPY_FILE
         private void cal_32768_Click(object sender, EventArgs e)
         {
             if (sender == button2)
-                cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
+                cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3, textBox49, textBox52, comboBox10, comboBox13, textBox55);
             else if (sender == button8)
-                cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
+                cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5, textBox47, textBox51, comboBox9, comboBox12, textBox59);
             else
-                cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
+                cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4, textBox50, textBox53, comboBox11, comboBox14, textBox58);
         }
         private bool cal_32768_check(string a, string b, string c, ComboBox aa, ComboBox bb)
         {
@@ -791,17 +803,17 @@ namespace SYD_COPY_FILE
                 if ((sender == textBox8) || (sender == textBox1) || (sender == textBox6))
                 {
                     if (cal_32768_check(textBox6.Text, textBox8.Text, textBox1.Text, comboBox2, comboBox3))
-                        cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3);
+                        cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3, textBox49, textBox52, comboBox10, comboBox13, textBox55);
                 }
                 else if ((sender == textBox45) || (sender == textBox11) || (sender == textBox43))
                 {
                     if (cal_32768_check(textBox43.Text, textBox45.Text, textBox11.Text, comboBox8, comboBox5))
-                        cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5);
+                        cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5, textBox47, textBox51, comboBox9, comboBox12, textBox59);
                 }
                 else
                 {
                     if (cal_32768_check(textBox3.Text, textBox5.Text, textBox2.Text, comboBox1, comboBox4))
-                        cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4);
+                        cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4, textBox50, textBox53, comboBox11, comboBox14, textBox58);
                 }
             }
             catch (Exception ex) // 异常处理
@@ -1857,13 +1869,11 @@ namespace SYD_COPY_FILE
             if (timer_cal_mask_state == false)
             {
                 this.Height -= 475;
-                this.Width -= 195;
                 timer_cal_mask_state = true;
             }
             else
             {
                 this.Height += 475;
-                this.Width += 195;
                 timer_cal_mask_state = false;
             }
         }
