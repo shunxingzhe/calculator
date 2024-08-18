@@ -364,11 +364,13 @@ namespace SYD_COPY_FILE
             textBox_hex.Text = "0x" + ((UInt32)result).ToString("X");
             if (textBox_step2A.Text.Length != 0)
             {
-                num = (float)(Convert.ToInt32(textBox_step2A.Text));
+                if (ishex == true) num = (float)(Convert.ToInt32(textBox_step2A.Text, 16));
+                else num = (float)(Convert.ToInt32(textBox_step2A.Text));
                 result = cal_do(comboBox_step2A, (float)result, (float)num);
                 if (textBox_step2B.Text.Length != 0)
                 {
-                    num = (float)(Convert.ToInt32(textBox_step2B.Text));
+                    if (ishex == true) num = (float)(Convert.ToInt32(textBox_step2B.Text, 16));
+                    else num = (float)(Convert.ToInt32(textBox_step2B.Text));
                     result = cal_do(comboBox_step2B, (float)result, (float)num);
                 }
                 textBox_step2out.Text = result.ToString();
