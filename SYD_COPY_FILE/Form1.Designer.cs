@@ -420,6 +420,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.checkBox18 = new System.Windows.Forms.CheckBox();
+            this.checkBox20 = new System.Windows.Forms.CheckBox();
+            this.checkBox19 = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.timestamp_Difference_select = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -4845,6 +4848,9 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.checkBox18);
+            this.groupBox1.Controls.Add(this.checkBox20);
+            this.groupBox1.Controls.Add(this.checkBox19);
             this.groupBox1.Location = new System.Drawing.Point(3, 1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(750, 82);
@@ -5046,9 +5052,9 @@
             // textBox11
             // 
             this.textBox11.AllowDrop = true;
-            this.textBox11.Location = new System.Drawing.Point(241, 57);
+            this.textBox11.Location = new System.Drawing.Point(237, 57);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(105, 21);
+            this.textBox11.Size = new System.Drawing.Size(76, 21);
             this.textBox11.TabIndex = 53;
             this.textBox11.Text = "0";
             this.textBox11.Leave += new System.EventHandler(this.textBoxTrim_Leave);
@@ -5056,9 +5062,9 @@
             // textBox12
             // 
             this.textBox12.AllowDrop = true;
-            this.textBox12.Location = new System.Drawing.Point(447, 57);
+            this.textBox12.Location = new System.Drawing.Point(413, 57);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(54, 21);
+            this.textBox12.Size = new System.Drawing.Size(52, 21);
             this.textBox12.TabIndex = 56;
             // 
             // comboBox5
@@ -5104,7 +5110,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(348, 56);
+            this.button8.Location = new System.Drawing.Point(314, 56);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(34, 22);
             this.button8.TabIndex = 48;
@@ -5115,7 +5121,7 @@
             // textBox44
             // 
             this.textBox44.AllowDrop = true;
-            this.textBox44.Location = new System.Drawing.Point(384, 57);
+            this.textBox44.Location = new System.Drawing.Point(350, 57);
             this.textBox44.Name = "textBox44";
             this.textBox44.Size = new System.Drawing.Size(60, 21);
             this.textBox44.TabIndex = 50;
@@ -5145,17 +5151,17 @@
             // textBox10
             // 
             this.textBox10.AllowDrop = true;
-            this.textBox10.Location = new System.Drawing.Point(447, 13);
+            this.textBox10.Location = new System.Drawing.Point(413, 13);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(54, 21);
+            this.textBox10.Size = new System.Drawing.Size(52, 21);
             this.textBox10.TabIndex = 47;
             // 
             // textBox2
             // 
             this.textBox2.AllowDrop = true;
-            this.textBox2.Location = new System.Drawing.Point(241, 35);
+            this.textBox2.Location = new System.Drawing.Point(237, 35);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(105, 21);
+            this.textBox2.Size = new System.Drawing.Size(76, 21);
             this.textBox2.TabIndex = 21;
             this.textBox2.Text = "4";
             this.textBox2.Leave += new System.EventHandler(this.textBoxTrim_Leave);
@@ -5163,9 +5169,9 @@
             // textBox9
             // 
             this.textBox9.AllowDrop = true;
-            this.textBox9.Location = new System.Drawing.Point(447, 35);
+            this.textBox9.Location = new System.Drawing.Point(413, 35);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(54, 21);
+            this.textBox9.Size = new System.Drawing.Size(52, 21);
             this.textBox9.TabIndex = 25;
             // 
             // comboBox3
@@ -5201,9 +5207,9 @@
             // textBox1
             // 
             this.textBox1.AllowDrop = true;
-            this.textBox1.Location = new System.Drawing.Point(241, 13);
+            this.textBox1.Location = new System.Drawing.Point(237, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(105, 21);
+            this.textBox1.Size = new System.Drawing.Size(76, 21);
             this.textBox1.TabIndex = 20;
             this.textBox1.Text = "0.8*3.3";
             this.textBox1.Leave += new System.EventHandler(this.textBoxTrim_Leave);
@@ -5252,7 +5258,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(348, 11);
+            this.button2.Location = new System.Drawing.Point(314, 11);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(34, 22);
             this.button2.TabIndex = 0;
@@ -5263,7 +5269,7 @@
             // textBox7
             // 
             this.textBox7.AllowDrop = true;
-            this.textBox7.Location = new System.Drawing.Point(384, 12);
+            this.textBox7.Location = new System.Drawing.Point(350, 12);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(60, 21);
             this.textBox7.TabIndex = 9;
@@ -5292,7 +5298,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(348, 34);
+            this.button1.Location = new System.Drawing.Point(314, 34);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 22);
             this.button1.TabIndex = 0;
@@ -5303,7 +5309,7 @@
             // textBox4
             // 
             this.textBox4.AllowDrop = true;
-            this.textBox4.Location = new System.Drawing.Point(384, 35);
+            this.textBox4.Location = new System.Drawing.Point(350, 35);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(60, 21);
             this.textBox4.TabIndex = 9;
@@ -5344,9 +5350,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(214, 61);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.Size = new System.Drawing.Size(23, 12);
             this.label6.TabIndex = 55;
-            this.label6.Text = "dec:";
+            this.label6.Text = "dec";
             this.label6.Click += new System.EventHandler(this.label4_Click);
             // 
             // label1
@@ -5354,9 +5360,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(214, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 24;
-            this.label1.Text = "dec:";
+            this.label1.Text = "dec";
             this.label1.Click += new System.EventHandler(this.label4_Click);
             // 
             // label4
@@ -5364,10 +5370,41 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(214, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 46;
-            this.label4.Text = "dec:";
+            this.label4.Text = "dec";
             this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // checkBox18
+            // 
+            this.checkBox18.Checked = true;
+            this.checkBox18.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox18.Location = new System.Drawing.Point(467, 36);
+            this.checkBox18.Name = "checkBox18";
+            this.checkBox18.Size = new System.Drawing.Size(43, 18);
+            this.checkBox18.TabIndex = 76;
+            this.checkBox18.Text = "HEX";
+            this.checkBox18.UseVisualStyleBackColor = true;
+            // 
+            // checkBox20
+            // 
+            this.checkBox20.Checked = true;
+            this.checkBox20.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox20.Location = new System.Drawing.Point(467, 58);
+            this.checkBox20.Name = "checkBox20";
+            this.checkBox20.Size = new System.Drawing.Size(43, 18);
+            this.checkBox20.TabIndex = 78;
+            this.checkBox20.Text = "HEX";
+            this.checkBox20.UseVisualStyleBackColor = true;
+            // 
+            // checkBox19
+            // 
+            this.checkBox19.Location = new System.Drawing.Point(467, 14);
+            this.checkBox19.Name = "checkBox19";
+            this.checkBox19.Size = new System.Drawing.Size(43, 18);
+            this.checkBox19.TabIndex = 77;
+            this.checkBox19.Text = "HEX";
+            this.checkBox19.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -9476,7 +9513,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.6.2";
+            this.Text = "SYD_Calculator V2.6.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -10444,6 +10481,9 @@
         private System.Windows.Forms.Label label142;
         private System.Windows.Forms.Label label141;
         private System.Windows.Forms.Label label140;
+        private System.Windows.Forms.CheckBox checkBox18;
+        private System.Windows.Forms.CheckBox checkBox20;
+        private System.Windows.Forms.CheckBox checkBox19;
     }
 }
 
