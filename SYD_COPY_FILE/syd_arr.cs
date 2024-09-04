@@ -84,6 +84,7 @@ namespace SYD_COPY_FILE
         string dlgDefaultName = "source_file";
 
         public bool MouseLeft;
+        public int ArrModeSelectedIndex=-1;
         #endregion
 
         public void syd_arr_init()
@@ -3269,6 +3270,8 @@ namespace SYD_COPY_FILE
         }
         private void comboBox_mode_DropDownClosed(object sender, EventArgs e)
         {
+            if (ArrModeSelectedIndex == comboBox_mode.SelectedIndex) return;
+            ArrModeSelectedIndex = comboBox_mode.SelectedIndex;
             arr_restore_Defaults();
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
             {

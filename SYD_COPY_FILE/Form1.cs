@@ -80,6 +80,7 @@ namespace SYD_COPY_FILE
             comboBox9.SelectedIndex = 2;
             comboBox12.SelectedIndex = 3;
             timestamp_Difference_select.SelectedIndex = 0;
+            TabCrontrol.SelectedIndex = 5;
 
             data_direction = false;
             copy_file_init();
@@ -89,8 +90,6 @@ namespace SYD_COPY_FILE
             UIgen_init();
 
             pictureBox_interface_ismin = Settings1.Default.pictureBox_interface_ismin;
-
-            pictureBoxinterface_Click(null, null);
 
             AdjustComboBoxDropDownListWidth(comboBox_piecwise_mode);
 
@@ -528,18 +527,50 @@ namespace SYD_COPY_FILE
             {
                 b = lstArray[1];
             }
-            hour = Convert.ToInt32(a.Substring(0, 2), 10);
-            minute = Convert.ToInt32(a.Substring(3, 2), 10);
-            second = Convert.ToInt32(a.Substring(6, 2), 10);
-            millisecond = Convert.ToInt32(a.Substring(9, 3), 10);
-            microsecond = Convert.ToInt32(a.Substring(12, 3), 10);
+            bool hour_half_byte = false;
+            try
+            {
+                hour = Convert.ToInt32(a.Substring(0, 2), 10);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                hour_half_byte = true;
+            }
+            if(hour_half_byte)
+            {
+                hour = Convert.ToInt32(a.Substring(0, 1), 10);
+                minute = Convert.ToInt32(a.Substring(2, 2), 10);
+                second = Convert.ToInt32(a.Substring(5, 2), 10);
+                millisecond = Convert.ToInt32(a.Substring(8, 3), 10);
+                microsecond = Convert.ToInt32(a.Substring(11, 3), 10);
+            }
+            else
+            {
+                hour = Convert.ToInt32(a.Substring(0, 2), 10);
+                minute = Convert.ToInt32(a.Substring(3, 2), 10);
+                second = Convert.ToInt32(a.Substring(6, 2), 10);
+                millisecond = Convert.ToInt32(a.Substring(9, 3), 10);
+                microsecond = Convert.ToInt32(a.Substring(12, 3), 10);
+            }
             timestamp = ((UInt64)hour * 3600 + (UInt64)minute * 60 + (UInt64)second) * 1000 * 1000 + (UInt64)millisecond * 1000 + (UInt64)microsecond;
 
-            hour1 = Convert.ToInt32(b.Substring(0, 2), 10);
-            minute1 = Convert.ToInt32(b.Substring(3, 2), 10);
-            second1 = Convert.ToInt32(b.Substring(6, 2), 10);
-            millisecond1 = Convert.ToInt32(b.Substring(9, 3), 10);
-            microsecond1 = Convert.ToInt32(b.Substring(12, 3), 10);
+            if (hour_half_byte)
+            {
+                hour1 = Convert.ToInt32(b.Substring(0, 1), 10);
+                minute1 = Convert.ToInt32(b.Substring(2, 2), 10);
+                second1 = Convert.ToInt32(b.Substring(5, 2), 10);
+                millisecond1 = Convert.ToInt32(b.Substring(8, 3), 10);
+                microsecond1 = Convert.ToInt32(b.Substring(11, 3), 10);
+            }
+            else
+            {
+                hour1 = Convert.ToInt32(b.Substring(0, 2), 10);
+                minute1 = Convert.ToInt32(b.Substring(3, 2), 10);
+                second1 = Convert.ToInt32(b.Substring(6, 2), 10);
+                millisecond1 = Convert.ToInt32(b.Substring(9, 3), 10);
+                microsecond1 = Convert.ToInt32(b.Substring(12, 3), 10);
+            }
             timestamp1 = ((UInt64)hour1 * 3600 + (UInt64)minute1 * 60 + (UInt64)second1) * 1000 * 1000 + (UInt64)millisecond1 * 1000 + (UInt64)microsecond1;
 
             timestamp = timestamp - timestamp1;
@@ -820,6 +851,7 @@ namespace SYD_COPY_FILE
             }
             catch (Exception ex) // 异常处理
             {
+                Console.WriteLine(ex);
                 return;
             }
         }
@@ -1621,6 +1653,8 @@ namespace SYD_COPY_FILE
             {
                 pictureBoxinterface_Doing(false);
             }
+            extend_bit_mask_state = false;
+            timer_cal_mask_state = false;
         }
 
         private void button39_Click(object sender, EventArgs e)
