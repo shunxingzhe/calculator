@@ -37,12 +37,6 @@ namespace SYD_COPY_FILE
         private static bool pictureBox_interface_ismin = true;
         private static bool SC_MAX = false;
         //Arithmetic.dll
-        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "ll_crc24_generate", CallingConvention = CallingConvention.Cdecl)]
-        private static extern UInt32 ll_crc24_generate(UInt32 seed, byte[] ppdata, int inSize);
-        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "bleWhiten", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void bleWhiten(Byte chan, [Out(), MarshalAs(UnmanagedType.LPArray)] byte[] buf, byte start_index, byte len);
-        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "reverseBits", CallingConvention = CallingConvention.Cdecl)]
-        private static extern Byte reverseBits(Byte chan);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "crc32_fun", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 crc32_fun(byte[] buf, UInt32 size);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "Dll_log_read", CallingConvention = CallingConvention.Cdecl)]
@@ -375,39 +369,6 @@ namespace SYD_COPY_FILE
                 textBox_step2out.Text = result.ToString();
             }
         }
-        private void cal_latency_hex_subtract(string d, string e, string a, string b, string c)
-        {
-            Int32 num = 0, num1 = 0, num2 = 0;
-            //UInt16 timer_loop = 0;
-            float result = 0;
-            if ((a.Length == 0) | (b.Length == 0) | (c.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-            num = Convert.ToInt32(a, 16);
-            num1 = Convert.ToInt32(b, 16);
-            num2 = Convert.ToInt32(c, 16);
-            //if (num2 > 0)
-            //    timer_loop = (((p_req->Instant - EvtCnt) * ((float)lclink->link.interval * 1.25)) + (((float)p_req->Interval * 1.25) * p_req->Latency)) / 10;
-            result = ((float)num - (float)num1) * 1000 / 32768;
-            textBox4.Text = result.ToString();
-        }
-
-        private void cal_time_difference_subtract(string a, string b)
-        {
-            Int32 num = 0, num1 = 0;
-            float result = 0;
-            if ((a.Length == 0) | (b.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-            num = Convert.ToInt32(a, 10);
-            num1 = Convert.ToInt32(b, 10);
-            result = (float)num - ((float)num1 - 8) * 8;
-            textBox24.Text = result.ToString();
-        }
         enum timestamp_accuracy_type
         {
             accuracy_3,//三位精度
@@ -645,35 +606,6 @@ namespace SYD_COPY_FILE
 
             return result;
         }
-
-        private void cal_Calendar_blespeed_subtract(string a, string b, TextBox testbox_display)
-        {
-            Int32 packet = 0, hour1 = 0, minute1 = 0, second1 = 0, millisecond1 = 0, microsecond1 = 0;
-            UInt64 timestamp1 = 0;
-            double speed = 0.0000;
-            string result = "";
-            if ((a.Length == 0) | (b.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-
-            packet = Convert.ToInt32(a, 10);
-
-            hour1 = Convert.ToInt32(b.Substring(0, 2), 10);
-            minute1 = Convert.ToInt32(b.Substring(3, 2), 10);
-            second1 = Convert.ToInt32(b.Substring(6, 2), 10);
-            millisecond1 = Convert.ToInt32(b.Substring(9, 3), 10);
-            microsecond1 = Convert.ToInt32(b.Substring(12, 3), 10);
-            timestamp1 = ((UInt64)hour1 * 3600 + (UInt64)minute1 * 60 + (UInt64)second1) * 1000 * 1000 + (UInt64)millisecond1 * 1000 + (UInt64)microsecond1;
-
-            speed = (double)timestamp1 / 1000000;
-            speed = (double)packet * 20 / speed;
-            speed = speed / 1000;
-
-            result = speed.ToString("N") + "KByte/s";
-            testbox_display.Text = result;
-        }
         private void cal_timestamp_difference_subtract(string a, string b, timestamp_accuracy_type accuracy, TextBox testbox_display)
         {
             Int32 hour = 0, minute = 0, second = 0, millisecond = 0, day = 0, mouth = 0, year = 0;
@@ -855,26 +787,6 @@ namespace SYD_COPY_FILE
                 return;
             }
         }
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if ((textBox18.Text.Length == 0) || (textBox17.Text.Length == 0) || (textBox13.Text.Length == 0) || (textBox15.Text.Length == 0) || (textBox16.Text.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-            cal_latency_hex_subtract(textBox18.Text, textBox17.Text, textBox13.Text, textBox15.Text, textBox16.Text);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            if ((textBox19.Text.Length == 0) || (textBox20.Text.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-            cal_time_difference_subtract(textBox19.Text, textBox20.Text);
-        }
-
         private void Calendar_Time_Difference_Cal_Click(object sender, EventArgs e)
         {
             Int32 date = 0;
@@ -1289,12 +1201,12 @@ namespace SYD_COPY_FILE
         {
             if (extend_bit_mask_state == false)
             {
-                this.Height -= 460;
+                this.Height -= 390;
                 extend_bit_mask_state = true;
             }
             else
             {
-                this.Height += 460;
+                this.Height += 390;
                 extend_bit_mask_state = false;
             }
         }
@@ -1482,18 +1394,6 @@ namespace SYD_COPY_FILE
             textBox_difference_output.Text = "";
             textBox_difference_input.Text = "";
         }
-
-        private void button28_Click(object sender, EventArgs e)
-        {
-            if ((textBox78.Text.Length == 0) || (textBox81.Text.Length == 0))
-            {
-                MessageBox.Show("input error");
-                return;
-            }
-
-            cal_Calendar_blespeed_subtract(textBox78.Text, textBox81.Text, textBox80);
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             copy_file_uninit();
@@ -1673,53 +1573,6 @@ namespace SYD_COPY_FILE
             if (x0 > y0) x0 = x0 - y0;
             else x0 = y0 - x0;
 
-        }
-
-        private void button21_Click(object sender, EventArgs e)
-        {
-            uint init = Convert.ToUInt32(textBox_init.Text, 16);
-            byte[] data = strToToHexByte(textBox_CRCInput.Text.Replace("0x", "").Replace("0X", ""));
-            uint crc = ll_crc24_generate(init, data, (int)(data.Length));
-            textBox_Reault.Text = crc.ToString("x8");
-        }
-
-        private void button41_Click(object sender, EventArgs e)
-        {
-            Byte channel = Convert.ToByte(textBox_channel.Text);
-            byte[] data = strToToHexByte(textBox_whitening.Text.Replace("0x", "").Replace("0X", ""));
-            if (checkBox_ReverseBit_input.Checked == true)
-            {
-                for (uint i = 0; i < data.Length; i++)
-                {
-                    data[i] = reverseBits(data[i]);
-                }
-            }
-            Byte ignore = Convert.ToByte(textBox_Ignore_fb.Text);
-            if ((ignore < data.Length) && (ignore != 0))
-            {
-                bleWhiten(channel, data, ignore, (byte)(data.Length - ignore));
-            }
-            else
-            {
-                bleWhiten(channel, data, 0, (byte)(data.Length));
-            }
-            if (checkBox_ReverseBit_output.Checked == true)
-            {
-                for (uint i = 0; i < data.Length; i++)
-                {
-                    data[i] = reverseBits(data[i]);
-                }
-            }
-            textBox_whitening_out.Text = "0x" + byteToHexStr(data);
-        }
-        private void button42_Click(object sender, EventArgs e)
-        {
-            byte[] data = strToToHexByte(textBox_whitening.Text.Replace("0x", "").Replace("0X", ""));
-            for (uint i = 0; i < data.Length; i++)
-            {
-                data[i] = reverseBits(data[i]);
-            }
-            textBox_whitening_out.Text = "0x" + byteToHexStr(data);
         }
         public void textBox_HexStringToString(TextBox textBox)
         {
