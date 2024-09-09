@@ -1273,17 +1273,17 @@ namespace SYD_COPY_FILE
                 richTextBox_out.AppendText(lstArray[i].Substring(9, 32) + "\r\n");
             }
 
-            string path = label_outfilename.Text;
-            path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-            {
-                byte[] buffer = null;
-                for (i = 1; i < (lstArray.Count - 2); i++)
-                {
-                    buffer = Encoding.Default.GetBytes(lstArray[i].Substring(9, 32) + "\r\n");
-                    fsWrite.Write(buffer, 0, buffer.Length);
-                }
-            }
+            //string path = label_outfilename.Text;
+            //path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
+            //using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            //{
+            //    byte[] buffer = null;
+            //    for (i = 1; i < (lstArray.Count - 2); i++)
+            //    {
+            //        buffer = Encoding.Default.GetBytes(lstArray[i].Substring(9, 32) + "\r\n");
+            //        fsWrite.Write(buffer, 0, buffer.Length);
+            //    }
+            //}
             StripStatusLabelSet("保存成功!");
         }
 
@@ -1303,16 +1303,6 @@ namespace SYD_COPY_FILE
                 else
                     richTextBox_out.AppendText(lstArray[i] + " ");
             }
-
-            string path = label_outfilename.Text;
-            path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-            {
-                byte[] buffer = null;
-                buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
-                fsWrite.Write(buffer, 0, buffer.Length);
-            }
-
             StripStatusLabelSet("保存成功!");
         }
 
@@ -1430,19 +1420,19 @@ namespace SYD_COPY_FILE
                 }
             }
 
-            string path = label_outfilename.Text;
-            if ((path.Contains(".txt")) || path.Contains(".TXT"))
-                path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-            else if ((path.Contains(".c")) || path.Contains(".C"))
-                path = path.Replace(".c", "_ok.c").Replace(".C", "_ok.C");
-            else
-                return;
-            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-            {
-                byte[] buffer = null;
-                buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
-                fsWrite.Write(buffer, 0, buffer.Length);
-            }
+            //string path = label_outfilename.Text;
+            //if ((path.Contains(".txt")) || path.Contains(".TXT"))
+            //    path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
+            //else if ((path.Contains(".c")) || path.Contains(".C"))
+            //    path = path.Replace(".c", "_ok.c").Replace(".C", "_ok.C");
+            //else
+            //    return;
+            //using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            //{
+            //    byte[] buffer = null;
+            //    buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
+            //    fsWrite.Write(buffer, 0, buffer.Length);
+            //}
 
             StripStatusLabelSet("保存成功!");
         }
@@ -1795,37 +1785,86 @@ namespace SYD_COPY_FILE
         private void Data_xor()
         {
             int i = 0;
+            float FSum=0;
             string orgTxt1 = textInput.Text.Trim();
             orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "").Replace("0x", "").Replace(",", "");
 
             List<string> lstArray = orgTxt1.ToLower().Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            richTextBox_out.Text = "";
-
-            for (i = 0; i < lstArray.Count; i++)
+            if (comboBox_datatype.SelectedIndex == 0)
             {
-                byte[] data = strToToHexByte(lstArray[i]);
-                byte crc = 0;
-                UInt32 sum = 0;
-                for (int j = 0; j < data.Length; j++)
+                richTextBox_out.Text = "";
+                if (comboBox_fonttype.SelectedIndex == 0)
                 {
-                    crc ^= data[j];
-                    sum += data[j];
+                    for (i = 0; i < lstArray.Count; i++)
+                    {
+                        byte[] data = strToToHexByte(lstArray[i]);
+                        byte crc = 0;
+                        UInt32 sum = 0;
+                        for (int j = 0; j < data.Length; j++)
+                        {
+                            crc ^= data[j];
+                            sum += data[j];
+                        }
+                        richTextBox_out.AppendText("xor:" + crc.ToString("X") + "  sum:" + sum.ToString("X") + "\r\n");
+                    }
                 }
-                richTextBox_out.AppendText("xor:" + crc.ToString("X") + "  sum:" + sum.ToString("X") + "\r\n");
+                else if (comboBox_fonttype.SelectedIndex == 1)//DEC
+                {
+                    for (i = 0; i < lstArray.Count; i++)
+                        FSum += float.Parse(lstArray[i]);
+                    richTextBox_out.AppendText("sum:" + FSum.ToString());
+                }
             }
-            string path = label_outfilename.Text;
-            path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
+            else if (comboBox_datatype.SelectedIndex == 1)//数据差值
             {
-                byte[] buffer = null;
-                buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
-                fsWrite.Write(buffer, 0, buffer.Length);
+                string result = "";
+                richTextBox_out.Text = "\r\n";
+                if (comboBox_fonttype.SelectedIndex == 0)
+                {
+                    for (i = 1; i < lstArray.Count; i++)
+                    {
+                        if ((lstArray[i - 1].Length == 0) || (lstArray[i].Length == 0))
+                            continue;
+                        UInt32 Num = 0, Num1 = 0;
+                        Num = Convert.ToUInt32(lstArray[i - 1], 16);
+                        Num1 = Convert.ToUInt32(lstArray[i], 16); ;
+                        if (Num1 > Num)
+                            result = (Num1 - Num).ToString("X");
+                        else
+                            result = (Num - Num1).ToString("X");
+                        richTextBox_out.AppendText("0x" + result + "\r\n");
+                    }
+                }
+                else if (comboBox_fonttype.SelectedIndex == 1)//DEC
+                {
+                    for (i = 1; i < lstArray.Count; i++)
+                    {
+                        if ((lstArray[i - 1].Length == 0) || (lstArray[i].Length == 0))
+                            continue;
+                        float Num = 0, Num1 = 0;
+                        Num = float.Parse(lstArray[i - 1]);
+                        Num1 = float.Parse(lstArray[i]);
+                        if (Num1 > Num)
+                            result = (Num1 - Num).ToString();
+                        else
+                            result = (Num - Num1).ToString();
+                        richTextBox_out.AppendText(result + "\r\n");
+                    }
+                }
             }
-
-            StripStatusLabelSet("保存成功!");
+            else if (comboBox_datatype.SelectedIndex == 2)//数据差值
+            {
+                if (lstArray.Count <= 1) return;
+                richTextBox_out.Text = "\r\n";
+                for (i = 1; i < lstArray.Count; i++)
+                {
+                    if (lstArray[i].Length != 0)
+                        richTextBox_out.AppendText(time_difference_subtract(lstArray[i], lstArray[i - 1], 0, null, null) + "\r\n");
+                }
+            }
+            StripStatusLabelSet("计算完成!");
         }
-
         private void Rtc_Deviation()
         {
             int i = 0;
@@ -2561,15 +2600,6 @@ namespace SYD_COPY_FILE
             for (i = 0; i < line_variable_out.Count; i++)
             {
                 richTextBox_out.AppendText(line_variable_out[i] + "\r\n");
-            }
-
-            string path = label_outfilename.Text;
-            path = path.Replace(".txt", "_ok.h").Replace(".TXT", "_ok.h");
-            using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-            {
-                byte[] buffer = null;
-                buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
-                fsWrite.Write(buffer, 0, buffer.Length);
             }
 
             StripStatusLabelSet("保存成功!");
@@ -3361,6 +3391,17 @@ namespace SYD_COPY_FILE
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Cmd_XOR)
             {
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor.txt", Encoding.Default);
+
+                this.comboBox_datatype.Items.Clear();
+                this.comboBox_datatype.Items.Add("XOR/求和");
+                this.comboBox_datatype.Items.Add("计算数据差值");
+                this.comboBox_datatype.Items.Add("计算时间差值");
+                this.label_data_type.Text = "功能选择：";
+
+                this.comboBox_fonttype.Items.Clear();
+                this.comboBox_fonttype.Items.Add("十六进制HEX");
+                this.comboBox_fonttype.Items.Add("十进制DEC(每行一个数据)");
+                this.label_font_type.Text = "数据类型：";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Rtc_Deviation)
             {
@@ -3537,6 +3578,21 @@ namespace SYD_COPY_FILE
                     this.label_indicator.Text = "指示符:";
                 }
             }
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Cmd_XOR)
+            {
+                if (comboBox_datatype.SelectedIndex == 0)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor.txt", Encoding.Default);
+                }
+                else if (comboBox_datatype.SelectedIndex == 1)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_dec.txt", Encoding.Default);
+                }
+                else if (comboBox_datatype.SelectedIndex == 2)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_timer.txt", Encoding.Default);
+                }
+            }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Rtc_Deviation)
             {
                 if (comboBox_datatype.SelectedIndex == 0)
@@ -3704,6 +3760,20 @@ namespace SYD_COPY_FILE
                     comboBox_additional_operations.Items.Clear();
                     this.comboBox_additional_operations.Items.Add("无额外操作");
                     this.comboBox_additional_operations.Items.Add("覆盖原文件");
+                }
+            }
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Cmd_XOR)
+            {
+                if (comboBox_fonttype.SelectedIndex == 0)
+                {
+                    if (comboBox_datatype.SelectedIndex == 1)
+                        textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_hex.txt", Encoding.Default);
+                    else
+                        textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor.txt", Encoding.Default);
+                }
+                else if (comboBox_fonttype.SelectedIndex == 1)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_dec.txt", Encoding.Default);
                 }
             }
             else

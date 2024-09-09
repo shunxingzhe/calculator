@@ -279,36 +279,6 @@
             this.label106 = new System.Windows.Forms.Label();
             this.label107 = new System.Windows.Forms.Label();
             this.button34 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox89 = new System.Windows.Forms.TextBox();
-            this.label78 = new System.Windows.Forms.Label();
-            this.textBox88 = new System.Windows.Forms.TextBox();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox_min_difference = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBox_max_difference = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.button_difference_input_output = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.batch_time_difference_subtract = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.textBox_difference_output = new System.Windows.Forms.TextBox();
-            this.textBox_difference_input = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label63 = new System.Windows.Forms.Label();
-            this.textBox65 = new System.Windows.Forms.TextBox();
-            this.textBox62 = new System.Windows.Forms.TextBox();
-            this.label66 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.label64 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox59 = new System.Windows.Forms.TextBox();
             this.textBox58 = new System.Windows.Forms.TextBox();
@@ -859,10 +829,6 @@
             this.groupBox10.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox16.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -2034,7 +2000,7 @@
             "Text/ARR to bin",
             "找到目前可以用的最小关键词指定的元组序号",
             "C语言结构体计算偏移/从C文件提炼数组声明",
-            "XOR和求和运算",
+            "XOR/求和/(时间)差值运算",
             "Rtc批量时间差计算",
             "Bytes to utf8(ASCII)/C#数组处理/Jlink数组处理",
             "根据要求提取行或列",
@@ -2379,7 +2345,7 @@
             this.groupBox9.Controls.Add(this.label46);
             this.groupBox9.Controls.Add(this.label7);
             this.groupBox9.Controls.Add(this.label8);
-            this.groupBox9.Location = new System.Drawing.Point(0, 489);
+            this.groupBox9.Location = new System.Drawing.Point(0, 486);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(438, 54);
             this.groupBox9.TabIndex = 22;
@@ -3459,7 +3425,6 @@
             this.tabPage1.Controls.Add(this.groupBox8);
             this.tabPage1.Controls.Add(this.groupBox20);
             this.tabPage1.Controls.Add(this.groupBox16);
-            this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.groupBox3);
@@ -3785,319 +3750,6 @@
             this.button34.Text = "cal";
             this.button34.UseVisualStyleBackColor = true;
             this.button34.Click += new System.EventHandler(this.button34_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.panel3);
-            this.groupBox4.Controls.Add(this.panel1);
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.button31);
-            this.groupBox4.Controls.Add(this.batch_time_difference_subtract);
-            this.groupBox4.Controls.Add(this.button23);
-            this.groupBox4.Controls.Add(this.textBox_difference_output);
-            this.groupBox4.Controls.Add(this.textBox_difference_input);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.panel13);
-            this.groupBox4.Location = new System.Drawing.Point(440, 168);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(314, 315);
-            this.groupBox4.TabIndex = 32;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "批量差值";
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.checkBox1);
-            this.panel3.Controls.Add(this.textBox89);
-            this.panel3.Controls.Add(this.label78);
-            this.panel3.Controls.Add(this.textBox88);
-            this.panel3.Controls.Add(this.label71);
-            this.panel3.Controls.Add(this.label65);
-            this.panel3.Location = new System.Drawing.Point(105, 145);
-            this.panel3.Name = "panel3";
-            this.panel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel3.Size = new System.Drawing.Size(100, 75);
-            this.panel3.TabIndex = 47;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.checkBox1.Location = new System.Drawing.Point(57, 5);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(42, 16);
-            this.checkBox1.TabIndex = 41;
-            this.checkBox1.Text = "HEX";
-            this.checkBox1.UseVisualStyleBackColor = false;
-            // 
-            // textBox89
-            // 
-            this.textBox89.AllowDrop = true;
-            this.textBox89.Location = new System.Drawing.Point(53, 49);
-            this.textBox89.Name = "textBox89";
-            this.textBox89.Size = new System.Drawing.Size(43, 21);
-            this.textBox89.TabIndex = 44;
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(-1, 52);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(59, 12);
-            this.label78.TabIndex = 45;
-            this.label78.Text = "输出尾缀:";
-            // 
-            // textBox88
-            // 
-            this.textBox88.AllowDrop = true;
-            this.textBox88.Location = new System.Drawing.Point(53, 26);
-            this.textBox88.Name = "textBox88";
-            this.textBox88.Size = new System.Drawing.Size(43, 21);
-            this.textBox88.TabIndex = 42;
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(-1, 29);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(59, 12);
-            this.label71.TabIndex = 43;
-            this.label71.Text = "输出前缀:";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(-1, 7);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(59, 12);
-            this.label65.TabIndex = 46;
-            this.label65.Text = "输出设置:";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox_min_difference);
-            this.panel1.Controls.Add(this.label30);
-            this.panel1.Controls.Add(this.textBox_max_difference);
-            this.panel1.Controls.Add(this.label29);
-            this.panel1.Controls.Add(this.button_difference_input_output);
-            this.panel1.Location = new System.Drawing.Point(105, 223);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 86);
-            this.panel1.TabIndex = 46;
-            // 
-            // textBox_min_difference
-            // 
-            this.textBox_min_difference.AllowDrop = true;
-            this.textBox_min_difference.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_min_difference.Location = new System.Drawing.Point(53, 63);
-            this.textBox_min_difference.Name = "textBox_min_difference";
-            this.textBox_min_difference.Size = new System.Drawing.Size(43, 20);
-            this.textBox_min_difference.TabIndex = 43;
-            this.textBox_min_difference.Text = "20";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(1, 68);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(53, 12);
-            this.label30.TabIndex = 44;
-            this.label30.Text = "第小差值";
-            // 
-            // textBox_max_difference
-            // 
-            this.textBox_max_difference.AllowDrop = true;
-            this.textBox_max_difference.Font = new System.Drawing.Font("宋体", 8F);
-            this.textBox_max_difference.Location = new System.Drawing.Point(53, 41);
-            this.textBox_max_difference.Name = "textBox_max_difference";
-            this.textBox_max_difference.Size = new System.Drawing.Size(43, 20);
-            this.textBox_max_difference.TabIndex = 41;
-            this.textBox_max_difference.Text = "20";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(0, 45);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(53, 12);
-            this.label29.TabIndex = 42;
-            this.label29.Text = "最大差值";
-            // 
-            // button_difference_input_output
-            // 
-            this.button_difference_input_output.Location = new System.Drawing.Point(2, 1);
-            this.button_difference_input_output.Name = "button_difference_input_output";
-            this.button_difference_input_output.Size = new System.Drawing.Size(94, 40);
-            this.button_difference_input_output.TabIndex = 36;
-            this.button_difference_input_output.Text = "计算输入和输出差值";
-            this.button_difference_input_output.UseVisualStyleBackColor = true;
-            this.button_difference_input_output.Click += new System.EventHandler(this.button_difference_input_output_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(143, 32);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(62, 22);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "计算差值";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button31
-            // 
-            this.button31.Location = new System.Drawing.Point(104, 32);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(41, 22);
-            this.button31.TabIndex = 35;
-            this.button31.Text = "求和";
-            this.button31.UseVisualStyleBackColor = true;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
-            // 
-            // batch_time_difference_subtract
-            // 
-            this.batch_time_difference_subtract.Location = new System.Drawing.Point(91, 9);
-            this.batch_time_difference_subtract.Name = "batch_time_difference_subtract";
-            this.batch_time_difference_subtract.Size = new System.Drawing.Size(86, 22);
-            this.batch_time_difference_subtract.TabIndex = 30;
-            this.batch_time_difference_subtract.Text = "计算时间差值";
-            this.batch_time_difference_subtract.UseVisualStyleBackColor = true;
-            this.batch_time_difference_subtract.Click += new System.EventHandler(this.batch_time_difference_subtract_Click);
-            // 
-            // button23
-            // 
-            this.button23.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button23.Location = new System.Drawing.Point(178, 9);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(50, 22);
-            this.button23.TabIndex = 31;
-            this.button23.Text = "清空";
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
-            // 
-            // textBox_difference_output
-            // 
-            this.textBox_difference_output.AllowDrop = true;
-            this.textBox_difference_output.Location = new System.Drawing.Point(207, 32);
-            this.textBox_difference_output.Multiline = true;
-            this.textBox_difference_output.Name = "textBox_difference_output";
-            this.textBox_difference_output.Size = new System.Drawing.Size(104, 280);
-            this.textBox_difference_output.TabIndex = 26;
-            this.textBox_difference_output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
-            // 
-            // textBox_difference_input
-            // 
-            this.textBox_difference_input.AllowDrop = true;
-            this.textBox_difference_input.Location = new System.Drawing.Point(3, 32);
-            this.textBox_difference_input.Multiline = true;
-            this.textBox_difference_input.Name = "textBox_difference_input";
-            this.textBox_difference_input.Size = new System.Drawing.Size(100, 281);
-            this.textBox_difference_input.TabIndex = 25;
-            this.textBox_difference_input.Text = "3.133\r\n2.618\r\n2.401\r\n1.801\r\n1.574\r\n1.008\r\n0.395\r\n0.046\r\n0.000";
-            this.textBox_difference_input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "INPUT(3.133)";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(237, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "RESULT";
-            // 
-            // panel13
-            // 
-            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.label63);
-            this.panel13.Controls.Add(this.textBox65);
-            this.panel13.Controls.Add(this.textBox62);
-            this.panel13.Controls.Add(this.label66);
-            this.panel13.Controls.Add(this.button4);
-            this.panel13.Controls.Add(this.button22);
-            this.panel13.Controls.Add(this.label64);
-            this.panel13.Location = new System.Drawing.Point(105, 55);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(100, 87);
-            this.panel13.TabIndex = 39;
-            // 
-            // label63
-            // 
-            this.label63.Font = new System.Drawing.Font("宋体", 10F);
-            this.label63.Location = new System.Drawing.Point(-1, 6);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(18, 29);
-            this.label63.TabIndex = 72;
-            this.label63.Text = "方向";
-            // 
-            // textBox65
-            // 
-            this.textBox65.AllowDrop = true;
-            this.textBox65.Font = new System.Drawing.Font("宋体", 9F);
-            this.textBox65.Location = new System.Drawing.Point(62, 63);
-            this.textBox65.Name = "textBox65";
-            this.textBox65.Size = new System.Drawing.Size(34, 21);
-            this.textBox65.TabIndex = 39;
-            this.textBox65.Text = "20";
-            // 
-            // textBox62
-            // 
-            this.textBox62.AllowDrop = true;
-            this.textBox62.Font = new System.Drawing.Font("宋体", 9F);
-            this.textBox62.Location = new System.Drawing.Point(62, 41);
-            this.textBox62.Name = "textBox62";
-            this.textBox62.Size = new System.Drawing.Size(34, 21);
-            this.textBox62.TabIndex = 35;
-            this.textBox62.Text = "4";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(0, 69);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(65, 12);
-            this.label66.TabIndex = 40;
-            this.label66.Text = "数量(dec):";
-            // 
-            // button4
-            // 
-            this.button4.Image = global::SYD_COPY_FILE.Properties.Resources.dowm;
-            this.button4.Location = new System.Drawing.Point(18, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(36, 39);
-            this.button4.TabIndex = 31;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button22
-            // 
-            this.button22.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button22.Location = new System.Drawing.Point(53, 0);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(43, 41);
-            this.button22.TabIndex = 35;
-            this.button22.Text = "生成数组";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(-1, 45);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(65, 12);
-            this.label64.TabIndex = 36;
-            this.label64.Text = "差值(dec):";
             // 
             // groupBox1
             // 
@@ -8819,7 +8471,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.6.5";
+            this.Text = "SYD_Calculator V2.6.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8858,14 +8510,6 @@
             this.groupBox20.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -9021,23 +8665,6 @@
         private System.Windows.Forms.Label label106;
         private System.Windows.Forms.Label label107;
         private System.Windows.Forms.Button button34;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button31;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button batch_time_difference_subtract;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.TextBox textBox_difference_output;
-        private System.Windows.Forms.TextBox textBox_difference_input;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.TextBox textBox65;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.TextBox textBox62;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label1;
@@ -9267,10 +8894,6 @@
         private System.Windows.Forms.Label label132;
         private System.Windows.Forms.CheckBox checkBox17;
         private System.Windows.Forms.TextBox richTextBox_out;
-        private System.Windows.Forms.TextBox textBox89;
-        private System.Windows.Forms.TextBox textBox88;
-        private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Label label78;
         private System.Windows.Forms.ComboBox source_copyfile_suffix_textBox_rename;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -9406,12 +9029,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num12;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_BLOOD_Num13;
         private System.Windows.Forms.CheckBox timestamp_Difference_hex;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox_min_difference;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox_max_difference;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button button_difference_input_output;
         private System.Windows.Forms.ComboBox comboBox_additional_operations;
         private System.Windows.Forms.Label label_additional_operations;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -9675,9 +9292,6 @@
         private System.Windows.Forms.RichTextBox UIgen_textInput;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.ComboBox UIgen_comboBox3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label63;
         private System.Windows.Forms.TextBox destination_folder_textBox_rename;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.CheckBox checkBox16;

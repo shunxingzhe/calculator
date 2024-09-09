@@ -17,8 +17,6 @@ namespace SYD_COPY_FILE
     public partial class Form1 : Form
     {
         #region define
-        private static bool data_direction = true;
-
         public struct _OFFECT_
         {
             public int x;
@@ -76,7 +74,6 @@ namespace SYD_COPY_FILE
             timestamp_Difference_select.SelectedIndex = 0;
             TabCrontrol.SelectedIndex = 5;
 
-            data_direction = false;
             copy_file_init();
             syd_arr_init();
             PicSplit_init();
@@ -1215,119 +1212,6 @@ namespace SYD_COPY_FILE
         {
             bitmask_checkbox_Click(sender, e);
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string[] arr = new string[textBox_difference_input.Lines.Length];
-            string result = "";
-            for (int i = 0; i < textBox_difference_input.Lines.Length; i++)
-            {
-                arr[i] = textBox_difference_input.Lines[i];
-            }
-            textBox_difference_output.AppendText("\r\n");
-            if (checkBox1.Checked == false)
-            {
-                for (int i = 1; i < arr.Length; i++)
-                {
-                    if ((arr[i - 1].Length == 0) || (arr[i].Length == 0))
-                        continue;
-                    float Num = 0, Num1 = 0;
-                    Num = float.Parse(arr[i - 1]);
-                    Num1 = float.Parse(arr[i]);
-                    if (Num1 > Num)
-                        result = (Num1 - Num).ToString();
-                    else
-                        result = (Num - Num1).ToString();
-                    textBox_difference_output.AppendText(result + "\r\n");
-                }
-            }
-            else
-            {
-                for (int i = 1; i < arr.Length; i++)
-                {
-                    if ((arr[i - 1].Length == 0) || (arr[i].Length == 0))
-                        continue;
-                    UInt32 Num = 0, Num1 = 0;
-                    Num = Convert.ToUInt32(arr[i - 1], 16);
-                    Num1 = Convert.ToUInt32(arr[i], 16); ;
-                    if (Num1 > Num)
-                        result = (Num1 - Num).ToString("X");
-                    else
-                        result = (Num - Num1).ToString("X");
-                    textBox_difference_output.AppendText("0x" + result + "\r\n");
-                }
-            }
-        }
-
-        private void batch_time_difference_subtract_Click(object sender, EventArgs e)
-        {
-            int i = 0;
-            string orgTxt1 = textBox_difference_input.Text.Trim();
-
-            orgTxt1 = orgTxt1.Replace("\r\n\r\n", "\r\n");
-
-            List<string> lstArray = orgTxt1.ToLower().Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
-
-            if (lstArray.Count <= 1) return;
-
-            textBox_difference_output.Text = "\r\n";
-
-            for (i = 1; i < lstArray.Count; i++)
-            {
-                if (lstArray[i].Length != 0)
-                    textBox_difference_output.AppendText(time_difference_subtract(lstArray[i], lstArray[i - 1], 0, null, null) + "\r\n");
-            }
-        }
-
-        private void button31_Click(object sender, EventArgs e)
-        {
-            int i = 0;
-            UInt32 Num = 0;
-            string orgTxt1 = textBox_difference_input.Text.Trim();
-
-            orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "");
-
-            List<string> lstArray = orgTxt1.ToLower().Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
-
-            if (lstArray.Count <= 1) return;
-
-            for (i = 0; i < lstArray.Count; i++)
-            {
-                if (lstArray[i].Length != 0)
-                {
-                    if (checkBox1.Checked == false)
-                    {
-                        Num += Convert.ToUInt32(lstArray[i], 10);
-                    }
-                    else
-                    {
-                        Num += Convert.ToUInt32(lstArray[i], 16);
-                    }
-                }
-            }
-            if (checkBox1.Checked == false)
-            {
-                textBox_difference_output.Text = Num.ToString();
-            }
-            else
-            {
-                textBox_difference_output.Text = Num.ToString("X");
-            }
-
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (data_direction == true)
-            {
-                data_direction = false;
-                button4.Image = Properties.Resources.dowm;
-            }
-            else
-            {
-                data_direction = true;
-                button4.Image = Properties.Resources.up;
-            }
-        }
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -1340,59 +1224,6 @@ namespace SYD_COPY_FILE
                 ((TextBox)sender).SelectAll();
                 e.Handled = true;
             }
-        }
-        private void Batch_difference_out_text(string str)
-        {
-            textBox_difference_output.AppendText(textBox88.Text + str + textBox89.Text + "\r\n");
-        }
-        private void button22_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                UInt32 base_data = 0;
-                if (checkBox1.Checked)
-                    base_data = Convert.ToUInt32(textBox_difference_input.Text, 16);
-                else
-                    base_data = Convert.ToUInt32(textBox_difference_input.Text, 10);
-
-                UInt32 num = Convert.ToUInt32(textBox65.Text, 10);
-                UInt32 difference = 0;
-                if (textBox62.Text.Length != 0)
-                    difference = Convert.ToUInt32(textBox62.Text, 10);
-                UInt32 result = base_data;
-                textBox_difference_output.Text = "";
-                if (checkBox1.Checked)
-                    Batch_difference_out_text("0x" + result.ToString("X"));
-                else
-                    Batch_difference_out_text(result.ToString());
-
-                for (UInt32 i = 1; i < num; i++)
-                {
-                    if (data_direction == false)
-                    {
-                        result = base_data - difference * i;
-                    }
-                    else
-                    {
-                        result = base_data + difference * i;
-                    }
-                    if (checkBox1.Checked)
-                        Batch_difference_out_text("0x" + result.ToString("X"));
-                    else
-                        Batch_difference_out_text(result.ToString());
-                }
-            }
-            catch
-            {
-                MessageBox.Show("invalid input");
-                return;
-            }
-        }
-
-        private void button23_Click(object sender, EventArgs e)
-        {
-            textBox_difference_output.Text = "";
-            textBox_difference_input.Text = "";
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1641,79 +1472,6 @@ namespace SYD_COPY_FILE
                 textBox32.Enabled = false;
                 textBox41.Enabled = false;
             }
-        }
-
-        private void button_difference_input_output_Click(object sender, EventArgs e)
-        {
-            string orgTxt1 = textBox_difference_input.Text.Trim();
-            string outTxt1 = textBox_difference_output.Text.Trim();
-            orgTxt1 = orgTxt1.Replace("0X", "").Replace("0x", "").Replace(",", " ").Replace("\r\n", " ").Replace("\n", " ");
-            outTxt1 = outTxt1.Replace("0X", "").Replace("0x", "").Replace(",", " ").Replace("\r\n", " ").Replace("\n", " ");
-            byte[] input = strToToHexByte(orgTxt1);
-            byte[] output = strToToHexByte(outTxt1);
-            if (input.Length != output.Length)
-            {
-                MessageBox.Show("输入输出数据数目不一样!");
-                return;
-            }
-            List<byte> listmax = new List<byte>();
-            List<int> listmaxcnt = new List<int>();
-            int i = 0,j=0,max=0,min=0,z=0;
-            for (i = 0; i < input.Length; i++)
-            {
-                int abs=Math.Abs(input[i]- output[i]);
-                for (j = 0; j < listmax.Count; j++)
-                {
-                    if (listmax[j] == abs)
-                    {
-                        listmaxcnt[j]++;
-                        break;
-                    }
-                }
-                if (j >= listmax.Count)
-                {
-                    listmax.Add((byte)abs);
-                    listmaxcnt.Add(1);
-                }
-                if (max < abs) max = abs;
-                if (min > abs) min = abs;
-            }
-            textBox_max_difference.Text = max.ToString();
-            textBox_min_difference.Text = min.ToString();
-            string str = "数据总数:" + input.Length.ToString() + " 最大差值:" + max.ToString() + " 最小差值:" + min.ToString()+"\r\n";
-            str += "原始排序" + "\r\n";
-            for (j = 0; j < listmax.Count; j++)
-            {
-                str+="差值:"+ listmax[j].ToString() + " 数量:" + listmaxcnt[j].ToString() + "\r\n";
-            }
-            byte k = 0;
-            for (i = 0; i < listmax.Count; i++)
-            {
-                for (j = i + 1; j < listmax.Count; j++)
-                {
-                    if (listmax[i] < listmax[j])
-                    {
-                        k = listmax[i];
-                        listmax[i] = listmax[j];
-                        listmax[j] = k;
-
-
-                        z = listmaxcnt[i];
-                        listmaxcnt[i] = listmaxcnt[j];
-                        listmaxcnt[j] = z;
-                    }
-                }
-            }
-            str += "从大小排序" + "\r\n";
-            for (j = 0; j < listmax.Count; j++)
-            {
-                str += "差值:" + listmax[j].ToString() + " 数量:" + listmaxcnt[j].ToString() + "\r\n";
-            }
-            FileStream fs = new FileStream(".\\difference.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.Write(str);
-            sw.Close();
-            fs.Close();
         }
 
         private void textBox48_TextChanged(object sender, EventArgs e)
