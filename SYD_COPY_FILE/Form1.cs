@@ -58,6 +58,17 @@ namespace SYD_COPY_FILE
         {
             InitializeComponent();
 
+            copy_file_init();
+            syd_arr_init();
+            PicSplit_init();
+            ui_init();
+            UIgen_init();
+            cos_init();
+
+            pictureBox_interface_ismin = Settings1.Default.pictureBox_interface_ismin;
+
+            AdjustComboBoxDropDownListWidth(comboBox_piecwise_mode);
+
             comboBox4.SelectedIndex = 3;
             comboBox3.SelectedIndex = 3;
             comboBox1.SelectedIndex = 1;
@@ -73,18 +84,7 @@ namespace SYD_COPY_FILE
             comboBox12.SelectedIndex = 3;
             timestamp_Difference_select.SelectedIndex = 0;
             TabCrontrol.SelectedIndex = 5;
-
-            copy_file_init();
-            syd_arr_init();
-            PicSplit_init();
-            ui_init();
-            UIgen_init();
-
-            pictureBox_interface_ismin = Settings1.Default.pictureBox_interface_ismin;
-
-            AdjustComboBoxDropDownListWidth(comboBox_piecwise_mode);
-
-            cos_init();
+            comboBox_piecwise_mode.SelectedIndex = 1;
         }
 
         /// <summary>
@@ -315,6 +315,15 @@ namespace SYD_COPY_FILE
                     break;
                 case 4:
                     num = (float)num % (float)num1;
+                    break;
+                case 5:
+                    num = (UInt32)num & (UInt32)num1;
+                    break;
+                case 6:
+                    num = (UInt32)num | (UInt32)num1;
+                    break;
+                case 7:
+                    num = (UInt32)num ^ (UInt32)num1;
                     break;
             }
             return num;
@@ -824,6 +833,27 @@ namespace SYD_COPY_FILE
                 date = Convert.ToInt32(Day_textBox.Text, 10);
             }
             time_difference_subtract(Now_Time_textBox.Text, Before_Time_textBox.Text, date, Output_time_textBox, Output_hexsecond_textBox);
+        }
+        void TextBox_increment(TextBox box)
+        {
+            Int32 day = Convert.ToInt32(box.Text, 10);
+            day = day + 1;
+            box.Text = day.ToString();
+        }
+        private void Calendar_Time_label_Click(object sender, EventArgs e)
+        {
+            if ((Label)(sender) == label16)
+            {
+                TextBox_increment(textBox25);
+            }
+            else if ((Label)(sender) == label17)
+            {
+                TextBox_increment(textBox26);
+            }
+            else if ((Label)(sender) == label20)
+            {
+                TextBox_increment(textBox30);
+            }
         }
         private void timestamp_Difference_cal_Click(object sender, EventArgs e)
         {
@@ -1386,24 +1416,6 @@ namespace SYD_COPY_FILE
             }
             extend_bit_mask_state = false;
             timer_cal_mask_state = false;
-        }
-
-        private void button39_Click(object sender, EventArgs e)
-        {
-            double x0, y0, k;
-            x0 = Convert.ToDouble(textBox75.Text);
-            y0 = Convert.ToDouble(textBox79.Text);
-            k = x0 / y0 * 1000000;
-            textBox76.Text = k.ToString("0.000");
-        }
-        private void textBox87_TextChanged(object sender, EventArgs e)
-        {
-            UInt32 x0, y0;
-            x0 = Convert.ToUInt32(textBox87.Text);
-            y0 = Convert.ToUInt32(textBox79.Text);
-            if (x0 > y0) x0 = x0 - y0;
-            else x0 = y0 - x0;
-
         }
         public void textBox_HexStringToString(TextBox textBox)
         {

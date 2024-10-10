@@ -3395,7 +3395,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("XOR/求和");
                 this.comboBox_datatype.Items.Add("计算数据差值");
-                this.comboBox_datatype.Items.Add("计算时间差值");
+                this.comboBox_datatype.Items.Add("计算时间差值(Only Dec)");
                 this.label_data_type.Text = "功能选择：";
 
                 this.comboBox_fonttype.Items.Clear();
@@ -3586,7 +3586,10 @@ namespace SYD_COPY_FILE
                 }
                 else if (comboBox_datatype.SelectedIndex == 1)
                 {
-                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_dec.txt", Encoding.Default);
+                    if (comboBox_datatype.SelectedIndex == 1)
+                        textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_hex.txt", Encoding.Default);
+                    else
+                        textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_dec.txt", Encoding.Default);
                 }
                 else if (comboBox_datatype.SelectedIndex == 2)
                 {
@@ -3764,16 +3767,19 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Cmd_XOR)
             {
-                if (comboBox_fonttype.SelectedIndex == 0)
+                if (comboBox_datatype.SelectedIndex == 1)
                 {
-                    if (comboBox_datatype.SelectedIndex == 1)
+                    if (comboBox_fonttype.SelectedIndex == 0)
                         textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_hex.txt", Encoding.Default);
                     else
-                        textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor.txt", Encoding.Default);
+                        textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_dec.txt", Encoding.Default);
                 }
-                else if (comboBox_fonttype.SelectedIndex == 1)
+                else if (comboBox_datatype.SelectedIndex == 0)
                 {
-                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_dec.txt", Encoding.Default);
+                    if (comboBox_fonttype.SelectedIndex == 0)
+                        textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor.txt", Encoding.Default);
+                    else
+                        textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_dec.txt", Encoding.Default);
                 }
             }
             else
