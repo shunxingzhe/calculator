@@ -84,7 +84,7 @@ namespace SYD_COPY_FILE
         string dlgDefaultName = "source_file";
 
         public bool MouseLeft;
-        public int ArrModeSelectedIndex=-1;
+        public int ArrModeSelectedIndex=-1, ArrDataSelectedIndex = -1, ArrFontSelectedIndex = -1;
         #endregion
 
         public void syd_arr_init()
@@ -576,7 +576,7 @@ namespace SYD_COPY_FILE
                     string path1 = path.Replace(".txt", string.Empty).Replace(".TXT", string.Empty) + "_8BIT_8KHZ.wav";
                     using (FileStream fsWrite = new FileStream(path1, FileMode.Create, FileAccess.Write))
                     {
-                        byte[] buffer = strToToHexByte(str3);
+                        byte[] buffer = strToHexByte(str3);
                         fsWrite.Write(buffer, 0, buffer.Length);
                     }
                     orgTxt1 = str3.Remove(0, 0x28 * 2);
@@ -1500,7 +1500,7 @@ namespace SYD_COPY_FILE
             byte j = 0;
             string orgTxt1 = textInput.Text.Trim();
             string str_out = "";
-            byte[] hex = strToToHexByte(orgTxt1);
+            byte[] hex = strToHexByte(orgTxt1);
             byte[] hex_statistics = new byte[100];
             UInt32[] hex_statistics_count = new UInt32[100];
             byte hex_count = 0;
@@ -1525,6 +1525,41 @@ namespace SYD_COPY_FILE
             for (j = 0; j < hex_count; j++)
             {
                 str_out += hex_statistics[j].ToString("X2") + ":" + hex_statistics_count[j].ToString() + "\r\n";
+            }
+            richTextBox_out.Text = str_out;
+            MessageBox.Show("处理完成!");
+        }
+        private void String_statistics()
+        {
+            string orgTxt1 = textInput.Text.Trim();
+            List<string> lstArray = orgTxt1.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            int i = 0;
+            byte j = 0;
+            string str_out = "";
+            string[] Str_statistics = new string[100];
+            UInt32[] Str_statistics_count = new UInt32[100];
+            byte Str_count = 0;
+            for (i = 0; i < lstArray.Count; i++)
+            {
+                for (j = 0; j < Str_count; j++)
+                {
+                    if (Str_statistics[j] == lstArray[i])
+                    {
+                        Str_statistics_count[j]++;
+                        break;
+                    }
+                }
+                if (j >= Str_count)
+                {
+                    Str_statistics[Str_count] = lstArray[i];
+                    Str_statistics_count[Str_count] = 1;
+                    Str_count++;
+                }
+            }
+            str_out = "总字符串数量:" + lstArray.Count.ToString() + "\r\n";
+            for (j = 0; j < Str_count; j++)
+            {
+                str_out += Str_statistics[j] + ":" + Str_statistics_count[j].ToString() + "\r\n";
             }
             richTextBox_out.Text = str_out;
             MessageBox.Show("处理完成!");
@@ -1563,7 +1598,7 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_datatype.SelectedIndex == 2)
             {
-                bin = strToToHexByte(orgTxt1);
+                bin = strToHexByte(orgTxt1);
             }
 
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
@@ -1798,7 +1833,7 @@ namespace SYD_COPY_FILE
                 {
                     for (i = 0; i < lstArray.Count; i++)
                     {
-                        byte[] data = strToToHexByte(lstArray[i]);
+                        byte[] data = strToHexByte(lstArray[i]);
                         byte crc = 0;
                         UInt32 sum = 0;
                         for (int j = 0; j < data.Length; j++)
@@ -2068,7 +2103,7 @@ namespace SYD_COPY_FILE
                 orgTxt1 = orgTxt1.Replace("0x", "").Replace("0X", "").Replace("\r\n", "").Replace("\r", "").Replace("\t", "").Replace(":", "");
             }
             //546869732069732074686520746573742064617461-->This is the test data
-            byte[] data = strToToHexByte(orgTxt1);
+            byte[] data = strToHexByte(orgTxt1);
             orgTxt1 = System.Text.Encoding.ASCII.GetString(data);
             //orgTxt1 = Regex.Replace(orgTxt1, "[^\x0d\x0a\x20-\x7e\t]", "");
             orgTxt1 = Regex.Replace(orgTxt1, "[^\x20-\x7e]", "");
@@ -2117,7 +2152,7 @@ namespace SYD_COPY_FILE
                     MessageBox.Show("未找到关键字");
                     return;
                 }
-                j = orgTxt1.IndexOf(key_word1, i);
+                j = orgTxt1.IndexOf(key_word1, i+ key_word.Length);
                 if (j == -1)
                 {
                     MessageBox.Show("未找到第二关键字");
@@ -2130,7 +2165,7 @@ namespace SYD_COPY_FILE
                     i = orgTxt1.IndexOf(key_word, j);
                     if (i != -1)
                     {
-                        j = orgTxt1.IndexOf(key_word1, i);
+                        j = orgTxt1.IndexOf(key_word1, i + key_word.Length);
                         if (j != -1)
                         {
                             if ((i + key_word.Length) < j)
@@ -3048,8 +3083,10 @@ namespace SYD_COPY_FILE
                     Data_handle();
                 else if (comboBox_datatype.SelectedIndex == 8)
                     Data_statistics();
+                else if (comboBox_datatype.SelectedIndex == 9)
+                    String_statistics();
                 else
-                    text_handle();
+                    text_handle(); 
             }
 
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Call_C)
@@ -3302,6 +3339,8 @@ namespace SYD_COPY_FILE
         {
             if (ArrModeSelectedIndex == comboBox_mode.SelectedIndex) return;
             ArrModeSelectedIndex = comboBox_mode.SelectedIndex;
+            ArrDataSelectedIndex = -1;
+            ArrFontSelectedIndex = -1;
             arr_restore_Defaults();
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR)
             {
@@ -3506,6 +3545,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("多数据翻转");
                 this.comboBox_datatype.Items.Add("十六进制/十进制数据提取");
                 this.comboBox_datatype.Items.Add("数目统计(Byte)");
+                this.comboBox_datatype.Items.Add("字符串统计(换行符为分隔符)");
                 this.label_data_type.Text = "功能选择：";
 
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_TEXT_handle_and_analysis.txt", Encoding.Default);
@@ -3548,6 +3588,8 @@ namespace SYD_COPY_FILE
         private void comboBox_datatype_DropDownClosed(object sender, EventArgs e)
         {
             bool restore_Defaults = false;
+            if (ArrDataSelectedIndex == comboBox_datatype.SelectedIndex) return;
+            ArrDataSelectedIndex = comboBox_datatype.SelectedIndex;
             if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Bytes_to_utf8)
             {
                 if (comboBox_datatype.SelectedIndex == 0)
@@ -3667,6 +3709,14 @@ namespace SYD_COPY_FILE
 
                     this.label_font_type.Text = "数据类型：";
                 }
+                else if (comboBox_datatype.SelectedIndex == 8)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_data_statistics.txt", Encoding.Default);
+                }
+                else if (comboBox_datatype.SelectedIndex == 9)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_string_statistics.txt", Encoding.Default);
+                }
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Font_txt_to_bin)
             {
@@ -3738,6 +3788,8 @@ namespace SYD_COPY_FILE
         }
         private void comboBox_fonttype_DropDownClosed(object sender, EventArgs e)
         {
+            if (ArrFontSelectedIndex == comboBox_fonttype.SelectedIndex) return;
+            ArrFontSelectedIndex = comboBox_fonttype.SelectedIndex;
             if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR) && ((comboBox_fonttype.SelectedIndex == 1) || (comboBox_fonttype.SelectedIndex == 2)))
             {
                 this.label_key_word.Text = "数组名:";

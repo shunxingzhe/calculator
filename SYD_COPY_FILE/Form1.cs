@@ -1207,6 +1207,11 @@ namespace SYD_COPY_FILE
                             MessageBox.Show("设置错误,底位必须底于高位");
                             return;
                         }
+                        if ((care_bit_high-care_bit_index) > 15)
+                        {
+                            MessageBox.Show("设置错误,高位和底位差值不得大于15");
+                            return;
+                        }
                         care_bit_low = care_bit_index;
                         label57.Text = "[" + care_bit_high.ToString("D2") + ":" + care_bit_low.ToString("D2");
 
@@ -1218,9 +1223,44 @@ namespace SYD_COPY_FILE
                             MessageBox.Show("设置错误,高位必须高于底位");
                             return;
                         }
+                        if ((care_bit_index - care_bit_low)>15)
+                        {
+                            MessageBox.Show("设置错误,高位和底位差值不得大于15");
+                            return;
+                        }
                         care_bit_high = care_bit_index;
-                        label57.Text = "[" + care_bit_high.ToString("D2") + ":" + care_bit_low.ToString("D2");
+                        label57.Text = "[" + care_bit_high.ToString("D2") + ":" + care_bit_low.ToString("D2") + "]";
                     }
+                    if ((care_bit_high - care_bit_low) < 15) Care_BIT_MARK15.Visible = false;
+                    else Care_BIT_MARK15.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 14) Care_BIT_MARK14.Visible = false;
+                    else Care_BIT_MARK14.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 13) Care_BIT_MARK13.Visible = false;
+                    else Care_BIT_MARK13.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 12) Care_BIT_MARK12.Visible = false;
+                    else Care_BIT_MARK12.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 11) Care_BIT_MARK11.Visible = false;
+                    else Care_BIT_MARK11.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 10) Care_BIT_MARK10.Visible = false;
+                    else Care_BIT_MARK10.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 9) Care_BIT_MARK9.Visible = false;
+                    else Care_BIT_MARK9.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 8) Care_BIT_MARK8.Visible = false;
+                    else Care_BIT_MARK8.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 7) Care_BIT_MARK7.Visible = false;
+                    else Care_BIT_MARK7.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 6) Care_BIT_MARK6.Visible = false;
+                    else Care_BIT_MARK6.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 5) Care_BIT_MARK5.Visible = false;
+                    else Care_BIT_MARK5.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 4) Care_BIT_MARK4.Visible = false;
+                    else Care_BIT_MARK4.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 3) Care_BIT_MARK3.Visible = false;
+                    else Care_BIT_MARK3.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 2) Care_BIT_MARK2.Visible = false;
+                    else Care_BIT_MARK2.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 1) Care_BIT_MARK1.Visible = false;
+                    else Care_BIT_MARK1.Visible = true;
                 }
             }
         }

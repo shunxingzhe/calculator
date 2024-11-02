@@ -82,7 +82,7 @@ namespace SYD_COPY_FILE
         /*
          * 字符串转16进制数据
          * */
-        public byte[] strToToHexByte(string hexString)
+        public byte[] strToHexByte(string hexString)
         {
              hexString = hexString.Replace(" ", "");
            if ((hexString.Length % 2) != 0)
@@ -92,7 +92,7 @@ namespace SYD_COPY_FILE
                 returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
             return returnBytes;
          }
-        public byte[] strToToHexByteAddZero(string hexString)
+        public byte[] strToHexByteAddZero(string hexString)
         {
             hexString = hexString.Replace(" ", "");
             if ((hexString.Length % 2) != 0)
