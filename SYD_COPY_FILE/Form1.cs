@@ -1443,7 +1443,6 @@ namespace SYD_COPY_FILE
             {
             }
         }
-
         private void TabCrontrol_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TabCrontrol.SelectedIndex <= 4)

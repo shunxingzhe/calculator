@@ -29,6 +29,12 @@ namespace SYD_COPY_FILE
             ZIP = 1,
             BUCKET = 2,
         }
+        public enum UuerType
+        {
+            OWE = 0,
+            LUGONG = 1,
+        }
+        UuerType usertype;
         //初始化 CosXmlConfig 
         static string region = "ap-nanjing"; //设置一个默认的存储桶地域
         public string nextMarker;
@@ -98,6 +104,7 @@ namespace SYD_COPY_FILE
         }
         private void button_CosBuckets_Click(object sender, EventArgs e)
         {
+            cos_progress_clear();
             if (cosXml == null)
             {
                 string secretId = textBox_SecretId.Text; //"云 API 密钥 SecretId";
@@ -107,6 +114,11 @@ namespace SYD_COPY_FILE
                     MessageBox.Show("secretId 或 secretKey 输入错误!");
                     return;
                 }
+                if (secretId.Contains("AKIDn1"))
+                    usertype = UuerType.LUGONG;
+                else
+                    usertype = UuerType.OWE;
+
                 cosCredentialProvider = new DefaultQCloudCredentialProvider(secretId, secretKey, durationSecond);
                 cosXml = new CosXmlServer(config, cosCredentialProvider);
             }
@@ -117,18 +129,31 @@ namespace SYD_COPY_FILE
                 GetServiceResult result = cosXml.GetService(request);
                 //得到所有的 buckets
                 List<ListAllMyBuckets.Bucket> allBuckets = result.listAllMyBuckets.buckets;
-                ListCosCol.Clear();
-                for (int i = 0; i < allBuckets.Count; i++)
+                if (usertype == UuerType.OWE)
                 {
-                    ItemCosCol item = new ItemCosCol();
-                    item.FileName = allBuckets[i].name;
-                    item.ModifyTime = allBuckets[i].location;
+                    ListCosCol.Clear();
+                    for (int i = 0; i < allBuckets.Count; i++)
+                    {
+                        ItemCosCol item = new ItemCosCol();
+                        item.FileName = allBuckets[i].name;
+                        item.ModifyTime = allBuckets[i].location;
 
-                    item.imageColumn = Bitmap_Bucket;
+                        item.imageColumn = Bitmap_Bucket;
 
-                    ListCosCol.Add(item);
+                        ListCosCol.Add(item);
+                    }
+                    dataGridViewCosBing(dataGridViewType.BUCKET);
                 }
-                dataGridViewCosBing(dataGridViewType.BUCKET);
+                else
+                {
+                    int i;
+                    for (i = 0; i < allBuckets.Count; i++)
+                    {
+                        if (allBuckets[i].name.Contains("lugong"))
+                            break;
+                    }
+                    get_cos_file(allBuckets[i].name, allBuckets[i].location);
+                }
             }
             catch (COSXML.CosException.CosClientException clientEx)
             {
@@ -175,6 +200,7 @@ namespace SYD_COPY_FILE
         }
         private void button_commit_file_Click(object sender, EventArgs e)
         {
+            cos_progress_clear();
             Bitmap bitmap = (Bitmap)dataGridViewCos.Rows[0].Cells[0].Value;
             if (bitmap == Bitmap_Zip)
             {
@@ -199,6 +225,7 @@ namespace SYD_COPY_FILE
         }
         private void dataGridViewCos_DragDrop(object sender, DragEventArgs e)
         {
+            cos_progress_clear();
             IDataObject dataObject = e.Data;
 
             if (dataObject == null) return;
@@ -249,55 +276,64 @@ namespace SYD_COPY_FILE
             info.Attributes = info.Attributes & ~(FileAttributes.Archive | FileAttributes.ReadOnly | FileAttributes.Hidden);
             info.Delete();
         }
+        private void get_cos_file(string bucket_req, string region)
+        {
+            int i;
+            bucket = bucket_req;
+            try
+            {
+                //string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+                GetBucketRequest request = new GetBucketRequest(bucket);
+                request.Region = region;
+                //执行请求
+                GetBucketResult result = cosXml.GetBucket(request);
+                //bucket的相关信息
+                ListBucket info = result.listBucket;
+                if (info.isTruncated)
+                {
+                    // 数据被截断，记录下数据下标
+                    this.nextMarker = info.nextMarker;
+                }
+                ListCosCol.Clear();
+                for (i = 0; i < info.contentsList.Count; i++)
+                {
+                    ItemCosCol item = new ItemCosCol();
+                    item.FileName = info.contentsList[i].key;
+
+                    DateTime samplingDate = Convert.ToDateTime(info.contentsList[i].lastModified);
+                    item.ModifyTime = samplingDate.ToString("yyyy-MM-dd HH:mm:ss");
+
+                    if (item.FileName[item.FileName.Length - 1] == '/') item.imageColumn = Bitmap_Folder;
+                    else item.imageColumn = Bitmap_File;
+
+                    ListCosCol.Add(item);
+                }
+                dataGridViewCosBing(dataGridViewType.FILE);
+            }
+            catch (COSXML.CosException.CosClientException clientEx)
+            {
+                //请求失败
+                MessageBox.Show("CosClientException: " + clientEx);
+            }
+            catch (COSXML.CosException.CosServerException serverEx)
+            {
+                //请求失败
+                MessageBox.Show("CosServerException: " + serverEx.GetInfo());
+            }
+        }
+        private void cos_progress_clear()
+        {
+            label_schedule.Text = "- - - -";
+        }
         private void dataGridViewCos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            cos_progress_clear();
             int i;
             Bitmap bitmap = (Bitmap)dataGridViewCos. Rows[e.RowIndex].Cells[0].Value;
             string filename = (string)dataGridViewCos.Rows[e.RowIndex].Cells[1].Value; ;
             if (bitmap == Bitmap_Bucket)
             {
-                bucket= (string)dataGridViewCos.Rows[e.RowIndex].Cells[1].Value;
-                string region = (string)dataGridViewCos.Rows[e.RowIndex].Cells[2].Value;
-                try
-                {
-                    //string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
-                    GetBucketRequest request = new GetBucketRequest(bucket);
-                    request.Region = region;
-                    //执行请求
-                    GetBucketResult result = cosXml.GetBucket(request);
-                    //bucket的相关信息
-                    ListBucket info = result.listBucket;
-                    if (info.isTruncated)
-                    {
-                        // 数据被截断，记录下数据下标
-                        this.nextMarker = info.nextMarker;
-                    }
-                    ListCosCol.Clear();
-                    for (i = 0; i < info.contentsList.Count; i++)
-                    {
-                        ItemCosCol item = new ItemCosCol();
-                        item.FileName = info.contentsList[i].key;
-
-                        DateTime samplingDate = Convert.ToDateTime(info.contentsList[i].lastModified);
-                        item.ModifyTime = samplingDate.ToString("yyyy-MM-dd HH:mm:ss");
-
-                        if (item.FileName[item.FileName.Length - 1] == '/') item.imageColumn = Bitmap_Folder;
-                        else item.imageColumn = Bitmap_File;
-
-                        ListCosCol.Add(item);
-                    }
-                    dataGridViewCosBing(dataGridViewType.FILE);
-                }
-                catch (COSXML.CosException.CosClientException clientEx)
-                {
-                    //请求失败
-                    MessageBox.Show("CosClientException: " + clientEx);
-                }
-                catch (COSXML.CosException.CosServerException serverEx)
-                {
-                    //请求失败
-                    MessageBox.Show("CosServerException: " + serverEx.GetInfo());
-                }
+                get_cos_file((string)dataGridViewCos.Rows[e.RowIndex].Cells[1].Value, (string)dataGridViewCos.Rows[e.RowIndex].Cells[2].Value);
             }
             else if (bitmap == Bitmap_File)
             {
@@ -379,6 +415,7 @@ namespace SYD_COPY_FILE
         }
         private void contextMenuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            cos_progress_clear();
             if (ListCosCol.Count == 0)
             {
                 MessageBox.Show("请先获取存储桶");
@@ -468,6 +505,7 @@ namespace SYD_COPY_FILE
         }
         private void dataGridViewCos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            cos_progress_clear();
             ColumnIndexSelect = e.ColumnIndex;
             RowIndexSelect = e.RowIndex;
         }

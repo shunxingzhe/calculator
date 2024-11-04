@@ -6193,10 +6193,11 @@
             // label_schedule
             // 
             this.label_schedule.Font = new System.Drawing.Font("宋体", 9F);
-            this.label_schedule.Location = new System.Drawing.Point(522, 4);
+            this.label_schedule.Location = new System.Drawing.Point(522, 6);
             this.label_schedule.Name = "label_schedule";
-            this.label_schedule.Size = new System.Drawing.Size(74, 15);
+            this.label_schedule.Size = new System.Drawing.Size(74, 12);
             this.label_schedule.TabIndex = 70;
+            this.label_schedule.Text = "- - - -";
             // 
             // dataGridViewCos
             // 
@@ -8410,7 +8411,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.6.8";
+            this.Text = "SYD_Calculator V2.6.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
