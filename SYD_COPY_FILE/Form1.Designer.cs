@@ -1994,7 +1994,7 @@
             "Rtc批量时间差计算",
             "Bytes to utf8(ASCII)/C#数组处理/Jlink数组处理",
             "根据要求提取行或列",
-            "Source Insight搜索栏文件解析",
+            "Http请求",
             "生成特定数组",
             "Get api symdef",
             "Find/handle File",
@@ -8411,7 +8411,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.6.9";
+            this.Text = "SYD_Calculator V2.7.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using System.Net.Http;
 
 namespace SYD_COPY_FILE
 {
@@ -68,7 +69,7 @@ namespace SYD_COPY_FILE
             Rtc_Deviation,//13
             Bytes_to_utf8,
             Get_Row,
-            Source_Insight_Search_Results_Analysis,
+            Http_Requst,
             Get_ARR,
             Get_api_symdef,
             handle_File,
@@ -2045,7 +2046,7 @@ namespace SYD_COPY_FILE
             string orgTxt1 = textInput.Text.Trim();
             if (comboBox_datatype.SelectedIndex == 0)
             {
-                orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "").Replace("\r\n", "").Replace("\r", "").Replace("0x", "").Replace("0X", "").Replace("\t", "").Replace(":", "");
+                orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "").Replace("\r\n", "").Replace("\r", "").Replace("0x", "").Replace("0X", "").Replace("\t", "").Replace(":", "").Replace(",", "");
                 if (combobox_key.Text.Length > 0)
                     orgTxt1 = orgTxt1.Replace(combobox_key.Text, "");
 
@@ -2256,40 +2257,12 @@ namespace SYD_COPY_FILE
             StripStatusLabelSet("保存成功!");
         }
 
-        private void SourceInsight_SearchResults_Analysis()
+        private async void Http_requst_handle()
         {
-            int i = 0;
-            int m = 0, n = 0;
-            string orgTxt1 = textInput.Text.Trim();
-            List<string> lstArray = orgTxt1.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            int[] line_indexof = new int[lstArray.Count];
-            string str = "", str1 = "";
-            line_indexof[0] = 0;
-            for (i = 1; i < lstArray.Count; i++)
-            {
-                line_indexof[i] = 0;
-                str = lstArray[i];
-                m = str.IndexOf(" ");
-                if (m != 0)
-                {
-                    str1 = str.Substring(0, m);
-                    if (str1.Contains(".h") || str1.Contains(".c"))  //开始就是文件名,不做处理
-                    {
-                        continue;
-                    }
-                }
-                n = str.IndexOf(" in ", m - 1);
-                if (n >= m)
-                {
-                    line_indexof[i] = n + 4;
-                }
-            }
-            for (i = 0; i < lstArray.Count; i++)
-            {
-                str += lstArray[i].Substring(line_indexof[i]);
-            }
-            richTextBox_out.Text = str;
-            StripStatusLabelSet("保存成功!");
+            HttpClient client = new HttpClient();
+            string responseString = await client.GetStringAsync(textInput.Text.Trim());
+            richTextBox_out.Text = responseString;
+            StripStatusLabelSet("请求成功!");
         }
 
         private void Get_arr()
@@ -3055,9 +3028,9 @@ namespace SYD_COPY_FILE
             {
                 Get_rom_extract();
             }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Source_Insight_Search_Results_Analysis)
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Http_Requst)
             {
-                SourceInsight_SearchResults_Analysis();
+                Http_requst_handle();
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Get_ARR)
             {
@@ -3485,9 +3458,9 @@ namespace SYD_COPY_FILE
                 this.comboBox_additional_operations.Items.Add("BLE估算下一个连接事件的时间(两个主机数据包之间)");
                 this.comboBox_additional_operations.Items.Add("替换输入数据中和指示符一样的字符串为空");
             }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Source_Insight_Search_Results_Analysis)
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Http_Requst)
             {
-                textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_SourceInsight_SearchResults_Analysis.txt", Encoding.Default);
+                textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Http_Requst.txt", Encoding.Default);
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Get_ARR)
             {
