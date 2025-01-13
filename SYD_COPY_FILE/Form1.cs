@@ -1560,19 +1560,36 @@ namespace SYD_COPY_FILE
             checkBox_delete_srcfile.Checked = false;
             checkBox_delete_prefile.Checked = false;
             checkBox16.Checked = false;
-            checkBox10.Checked = false;
         }
         private void label4_Click(object sender, EventArgs e)
         {
-            if (timer_cal_mask_state == false)
+            //EventArgs继承自MouseEventArgs,所以可以强转
+            MouseEventArgs Mouse_e = (MouseEventArgs)e;
+            //点鼠标右键,return
+            if (Mouse_e.Button == MouseButtons.Right)
             {
-                this.Height -= 475;
-                timer_cal_mask_state = true;
+                textBox1.Text = "0";
+                textBox6.Text = "0";
+                textBox8.Text = "0";
+                textBox2.Text = "0";
+                textBox3.Text = "0";
+                textBox5.Text = "0";
+                textBox11.Text = "0";
+                textBox43.Text = "0";
+                textBox45.Text = "0";
             }
             else
             {
-                this.Height += 475;
-                timer_cal_mask_state = false;
+                if (timer_cal_mask_state == false)
+                {
+                    this.Height -= 475;
+                    timer_cal_mask_state = true;
+                }
+                else
+                {
+                    this.Height += 475;
+                    timer_cal_mask_state = false;
+                }
             }
         }
 

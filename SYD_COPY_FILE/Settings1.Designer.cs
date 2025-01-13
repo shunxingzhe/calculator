@@ -302,18 +302,6 @@ namespace SYD_COPY_FILE {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Setting_checkBox10 {
-            get {
-                return ((bool)(this["Setting_checkBox10"]));
-            }
-            set {
-                this["Setting_checkBox10"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Setting_checkBox_systemtime_rename {
             get {
                 return ((bool)(this["Setting_checkBox_systemtime_rename"]));

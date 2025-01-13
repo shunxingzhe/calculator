@@ -35,6 +35,13 @@ namespace SYD_COPY_FILE
             string path = System.AppDomain.CurrentDomain.BaseDirectory + "syd_24k_ok.bin";
             UIgen_label2.Text = path;
 
+            AdjustComboBoxDropDownListWidth(UIgen_comboBox1);
+            AdjustComboBoxDropDownListWidth(UIgen_comboBox2);
+            AdjustComboBoxDropDownListWidth(UIgen_comboBox3);
+            AdjustComboBoxDropDownListWidth(UIgen_comboBox4);
+            AdjustComboBoxDropDownListWidth(UIgen_comboBox5);
+            AdjustComboBoxDropDownListWidth(UIgen_comboBox6);
+
             UIgen_source_file_textBox.Text= Settings1.Default.UIgen_source_file_textBox;
             UIgen_comboBox1.SelectedIndex = Settings1.Default.UIgen_comboBox1;
             UIgen_checkBox5.Checked = Settings1.Default.UIgen_checkBox5;
@@ -47,12 +54,6 @@ namespace SYD_COPY_FILE
             UIgen_checkBox3.Checked = Settings1.Default.UIgen_checkBox3;
             UIgen_checkBox1.Checked = Settings1.Default.UIgen_checkBox1;
             UIgen_checkBox4.Checked = Settings1.Default.UIgen_checkBox4;
-            AdjustComboBoxDropDownListWidth(UIgen_comboBox1);
-            AdjustComboBoxDropDownListWidth(UIgen_comboBox2);
-            AdjustComboBoxDropDownListWidth(UIgen_comboBox3);
-            AdjustComboBoxDropDownListWidth(UIgen_comboBox4);
-            AdjustComboBoxDropDownListWidth(UIgen_comboBox5);
-            AdjustComboBoxDropDownListWidth(UIgen_comboBox6);
         }
         public void UIgen_uninit()
         {

@@ -434,7 +434,6 @@
             this.button11 = new System.Windows.Forms.Button();
             this.destination_file_button_open_dir = new System.Windows.Forms.Button();
             this.destination_file_button_copy_filename = new System.Windows.Forms.Button();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.source_copyfile_suffix_textBox_rename = new System.Windows.Forms.ComboBox();
             this.comboBox_timetype_rename = new System.Windows.Forms.ComboBox();
             this.label99 = new System.Windows.Forms.Label();
@@ -5465,7 +5464,6 @@
             this.tabPage7.Controls.Add(this.button11);
             this.tabPage7.Controls.Add(this.destination_file_button_open_dir);
             this.tabPage7.Controls.Add(this.destination_file_button_copy_filename);
-            this.tabPage7.Controls.Add(this.checkBox10);
             this.tabPage7.Controls.Add(this.source_copyfile_suffix_textBox_rename);
             this.tabPage7.Controls.Add(this.comboBox_timetype_rename);
             this.tabPage7.Controls.Add(this.label99);
@@ -5541,18 +5539,6 @@
             this.destination_file_button_copy_filename.Text = "拷问文件名";
             this.destination_file_button_copy_filename.UseVisualStyleBackColor = true;
             this.destination_file_button_copy_filename.Click += new System.EventHandler(this.destination_file_button_copy_filename_Click);
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Font = new System.Drawing.Font("宋体", 8F, System.Drawing.FontStyle.Bold);
-            this.checkBox10.Location = new System.Drawing.Point(465, 72);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(123, 15);
-            this.checkBox10.TabIndex = 55;
-            this.checkBox10.Text = "同步到Sync copy";
-            this.checkBox10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox10.UseVisualStyleBackColor = true;
             // 
             // source_copyfile_suffix_textBox_rename
             // 
@@ -8411,7 +8397,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.7.0";
+            this.Text = "SYD_Calculator V2.7.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8745,7 +8731,6 @@
         private System.Windows.Forms.TabControl TabCrontrol;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button35;
-        private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.Button button40;
         private System.Windows.Forms.CheckBox BIT_MARK28;
         private System.Windows.Forms.CheckBox BIT_MARK27;

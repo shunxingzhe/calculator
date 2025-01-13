@@ -46,7 +46,6 @@ namespace SYD_COPY_FILE
                 source_copyfile_prefix_textBox_rename.Text = Settings1.Default.Setting_source_copyfile_prefix_textBox_rename.Trim();
             if (Settings1.Default.Setting_source_copyfile_suffix_textBox_rename != "")
                 source_copyfile_suffix_textBox_rename.Text = Settings1.Default.Setting_source_copyfile_suffix_textBox_rename.Trim();
-            checkBox10.Checked = Settings1.Default.Setting_checkBox10;
             checkBox_systemtime_rename.Checked = Settings1.Default.Setting_checkBox_systemtime_rename;
             checkBox_delete_srcfile.Checked = Settings1.Default.Setting_checkBox_delete_srcfile;
 
@@ -102,7 +101,6 @@ namespace SYD_COPY_FILE
             Settings1.Default.Setting_source_copyfile_textBox_rename = source_copyfile_textBox_rename.Text;
             Settings1.Default.Setting_source_copyfile_prefix_textBox_rename = source_copyfile_prefix_textBox_rename.Text;
             Settings1.Default.Setting_source_copyfile_suffix_textBox_rename = source_copyfile_suffix_textBox_rename.Text;
-            Settings1.Default.Setting_checkBox10 = checkBox10.Checked;
             Settings1.Default.Setting_checkBox_systemtime_rename = checkBox_systemtime_rename.Checked;
             Settings1.Default.rename_mode_sel = comboBox7.SelectedIndex;
             Settings1.Default.Setting_checkBox_delete_srcfile = checkBox_delete_srcfile.Checked;
@@ -871,12 +869,6 @@ namespace SYD_COPY_FILE
                     }
 
                     cope_to_Clipboard(destFileName);
-
-                    if (checkBox10.Checked == true)
-                    {
-                        source_copyfile_textBox_sync.Text = source_copyfile_textBox_rename.Text;
-                        destination_file_textBox_sync.Text = destination_file_textBox_rename.Text;
-                    }
                     
                     if (checkBox_delete_srcfile.Checked == true)
                     {
