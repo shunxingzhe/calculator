@@ -216,6 +216,14 @@ namespace SYD_COPY_FILE
 
             return inputReplaced;
         }
+        public static long Align4K(long size)
+        {
+            if (size % 4096 != 0)
+            {
+                size = (size / 4096 + 1) * 4096;
+            }
+            return size;
+        }
     }
     public class PinYinConverterHelp
     {

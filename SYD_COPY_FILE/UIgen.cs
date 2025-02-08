@@ -72,7 +72,7 @@ namespace SYD_COPY_FILE
         }
         private void UIgen_source_file_button_Click(object sender, EventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            OpenFileDialog dlg = new OpenFileDialog();
 
             dlg.Multiselect = true;
 
@@ -82,7 +82,7 @@ namespace SYD_COPY_FILE
 
             dlg.Filter = "txt file (.txt)|*.txt|C file (.c)|*.c|ebm file (.ebm)|*.ebm|bin file (.bin)|*.bin";
 
-            if (dlg.ShowDialog() == false)
+            if (dlg.ShowDialog() != DialogResult.OK)
                 return;
             UIgen_source_file_textBox.Text = dlg.FileName;
             FileInfo fi = new FileInfo(dlg.FileName);

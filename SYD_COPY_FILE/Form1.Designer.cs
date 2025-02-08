@@ -369,6 +369,7 @@
             this.Calendar_Time_Difference_Cal = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.textBox_combin_insertion = new System.Windows.Forms.TextBox();
             this.button_combine_output = new System.Windows.Forms.Button();
             this.textBox_sectionoutput = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -399,7 +400,7 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.label128 = new System.Windows.Forms.Label();
             this.label130 = new System.Windows.Forms.Label();
@@ -4782,6 +4783,7 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.textBox_combin_insertion);
             this.tabPage9.Controls.Add(this.button_combine_output);
             this.tabPage9.Controls.Add(this.textBox_sectionoutput);
             this.tabPage9.Controls.Add(this.label52);
@@ -4812,7 +4814,7 @@
             this.tabPage9.Controls.Add(this.label34);
             this.tabPage9.Controls.Add(this.label50);
             this.tabPage9.Controls.Add(this.label51);
-            this.tabPage9.Controls.Add(this.checkBox7);
+            this.tabPage9.Controls.Add(this.label2);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Size = new System.Drawing.Size(756, 552);
@@ -4820,24 +4822,34 @@
             this.tabPage9.Text = "BinCombin";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // textBox_combin_insertion
+            // 
+            this.textBox_combin_insertion.Font = new System.Drawing.Font("宋体", 9F);
+            this.textBox_combin_insertion.Location = new System.Drawing.Point(130, 5);
+            this.textBox_combin_insertion.Name = "textBox_combin_insertion";
+            this.textBox_combin_insertion.Size = new System.Drawing.Size(36, 21);
+            this.textBox_combin_insertion.TabIndex = 79;
+            this.textBox_combin_insertion.Text = "0xFF";
+            this.textBox_combin_insertion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // button_combine_output
             // 
-            this.button_combine_output.Location = new System.Drawing.Point(279, 5);
+            this.button_combine_output.Location = new System.Drawing.Point(282, 5);
             this.button_combine_output.Name = "button_combine_output";
             this.button_combine_output.Size = new System.Drawing.Size(88, 21);
             this.button_combine_output.TabIndex = 78;
             this.button_combine_output.Text = "设置输出路径";
             this.button_combine_output.UseVisualStyleBackColor = true;
-            this.button_combine_output.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            this.button_combine_output.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // textBox_sectionoutput
             // 
             this.textBox_sectionoutput.AllowDrop = true;
             this.textBox_sectionoutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox_sectionoutput.Location = new System.Drawing.Point(368, 6);
+            this.textBox_sectionoutput.Location = new System.Drawing.Point(371, 6);
             this.textBox_sectionoutput.Name = "textBox_sectionoutput";
             this.textBox_sectionoutput.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox_sectionoutput.Size = new System.Drawing.Size(215, 20);
+            this.textBox_sectionoutput.Size = new System.Drawing.Size(212, 20);
             this.textBox_sectionoutput.TabIndex = 77;
             this.textBox_sectionoutput.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBox_sectionoutput.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
@@ -4853,9 +4865,9 @@
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(160, 4);
+            this.button19.Location = new System.Drawing.Point(168, 4);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(55, 22);
+            this.button19.Size = new System.Drawing.Size(48, 22);
             this.button19.TabIndex = 67;
             this.button19.Text = "Clear";
             this.button19.UseVisualStyleBackColor = true;
@@ -4999,7 +5011,7 @@
             this.comboBox_Combin.Location = new System.Drawing.Point(3, 5);
             this.comboBox_Combin.Name = "comboBox_Combin";
             this.comboBox_Combin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBox_Combin.Size = new System.Drawing.Size(81, 21);
+            this.comboBox_Combin.Size = new System.Drawing.Size(85, 21);
             this.comboBox_Combin.TabIndex = 65;
             this.comboBox_Combin.Text = "无缝拼接";
             // 
@@ -5071,7 +5083,8 @@
             // 
             // button_combine
             // 
-            this.button_combine.Location = new System.Drawing.Point(214, 5);
+            this.button_combine.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_combine.Location = new System.Drawing.Point(217, 5);
             this.button_combine.Name = "button_combine";
             this.button_combine.Size = new System.Drawing.Size(66, 21);
             this.button_combine.TabIndex = 29;
@@ -5134,17 +5147,14 @@
             this.label51.TabIndex = 69;
             this.label51.Text = "1:";
             // 
-            // checkBox7
+            // label2
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Checked = true;
-            this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox7.Location = new System.Drawing.Point(86, 8);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(78, 16);
-            this.checkBox7.TabIndex = 68;
-            this.checkBox7.Text = "首地址为0";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 9F);
+            this.label2.Location = new System.Drawing.Point(87, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 17);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "插入值:";
             // 
             // tabPage8
             // 
@@ -5659,7 +5669,7 @@
             this.source_copyfile_button_rename.TabIndex = 34;
             this.source_copyfile_button_rename.Text = "Source file";
             this.source_copyfile_button_rename.UseVisualStyleBackColor = true;
-            this.source_copyfile_button_rename.Click += new System.EventHandler(this.source_copyfile_button_rename_Click);
+            this.source_copyfile_button_rename.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // label82
             // 
@@ -5782,7 +5792,7 @@
             this.destination_file_button_copy_sourcefile.TabIndex = 28;
             this.destination_file_button_copy_sourcefile.Text = "destination second";
             this.destination_file_button_copy_sourcefile.UseVisualStyleBackColor = true;
-            this.destination_file_button_copy_sourcefile.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            this.destination_file_button_copy_sourcefile.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // button9
             // 
@@ -5847,7 +5857,7 @@
             this.destination_file_button.TabIndex = 24;
             this.destination_file_button.Text = "destination first";
             this.destination_file_button.UseVisualStyleBackColor = true;
-            this.destination_file_button.Click += new System.EventHandler(this.destination_file_button_Click);
+            this.destination_file_button.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // destination_file_textBox
             // 
@@ -5890,7 +5900,7 @@
             this.source_copyfile_button.TabIndex = 23;
             this.source_copyfile_button.Text = "source file";
             this.source_copyfile_button.UseVisualStyleBackColor = true;
-            this.source_copyfile_button.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            this.source_copyfile_button.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // label_copy_time
             // 
@@ -5909,7 +5919,7 @@
             this.button_copy_destinationfileend.TabIndex = 30;
             this.button_copy_destinationfileend.Text = "destination third";
             this.button_copy_destinationfileend.UseVisualStyleBackColor = true;
-            this.button_copy_destinationfileend.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            this.button_copy_destinationfileend.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // destination_file_textBox_two
             // 
@@ -5978,7 +5988,7 @@
             this.button_copy_destinationfileend_sync.TabIndex = 30;
             this.button_copy_destinationfileend_sync.Text = "destination third";
             this.button_copy_destinationfileend_sync.UseVisualStyleBackColor = false;
-            this.button_copy_destinationfileend_sync.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            this.button_copy_destinationfileend_sync.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // destination_file_textBox_sync
             // 
@@ -6010,7 +6020,7 @@
             this.destination_file_button_sync.TabIndex = 25;
             this.destination_file_button_sync.Text = "destination first";
             this.destination_file_button_sync.UseVisualStyleBackColor = true;
-            this.destination_file_button_sync.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            this.destination_file_button_sync.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // label55
             // 
@@ -6038,7 +6048,7 @@
             this.source_copyfile_button_sync.TabIndex = 24;
             this.source_copyfile_button_sync.Text = "source file";
             this.source_copyfile_button_sync.UseVisualStyleBackColor = true;
-            this.source_copyfile_button_sync.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            this.source_copyfile_button_sync.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // destination_file_button_copy_sourcefile_sync
             // 
@@ -6049,7 +6059,7 @@
             this.destination_file_button_copy_sourcefile_sync.TabIndex = 29;
             this.destination_file_button_copy_sourcefile_sync.Text = "destination second";
             this.destination_file_button_copy_sourcefile_sync.UseVisualStyleBackColor = true;
-            this.destination_file_button_copy_sourcefile_sync.Click += new System.EventHandler(this.source_copyfile_button_Click);
+            this.destination_file_button_copy_sourcefile_sync.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
             // button_copy_sourcefile_all_sync
             // 
@@ -8397,7 +8407,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.7.1";
+            this.Text = "SYD_Calculator V2.7.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -8643,7 +8653,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button Calendar_Time_Difference_Cal;
         private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.TextBox textBox_combin_section6;
         private System.Windows.Forms.TextBox textBox_combin_section1;
@@ -9241,6 +9250,8 @@
         private System.Windows.Forms.CheckBox checkBox19;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox_combin_insertion;
+        private System.Windows.Forms.Label label2;
     }
 }
 

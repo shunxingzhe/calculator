@@ -230,7 +230,7 @@ namespace SYD_COPY_FILE
             }
             else
             {
-                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+                OpenFileDialog dlg = new OpenFileDialog();
 
                 dlg.FileName = dlgDefaultName;
 
@@ -264,7 +264,7 @@ namespace SYD_COPY_FILE
 
                 dlg.Multiselect = true;//是否允许多选，false表示单选
 
-                if (dlg.ShowDialog() == false)
+                if (dlg.ShowDialog() != DialogResult.OK)
                     return;
                 dlgDefaultExt = Path.GetExtension(dlg.FileName).ToLower();
                 dlgDefaultName = Path.GetFileNameWithoutExtension(dlg.FileName);

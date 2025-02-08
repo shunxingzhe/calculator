@@ -1006,5 +1006,77 @@ namespace SYD_COPY_FILE {
                 this["UIgen_checkBox4"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_combin_section1 {
+            get {
+                return ((string)(this["textBox_combin_section1"]));
+            }
+            set {
+                this["textBox_combin_section1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_combin_section2 {
+            get {
+                return ((string)(this["textBox_combin_section2"]));
+            }
+            set {
+                this["textBox_combin_section2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_combin_section3 {
+            get {
+                return ((string)(this["textBox_combin_section3"]));
+            }
+            set {
+                this["textBox_combin_section3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_combin_section4 {
+            get {
+                return ((string)(this["textBox_combin_section4"]));
+            }
+            set {
+                this["textBox_combin_section4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_combin_section5 {
+            get {
+                return ((string)(this["textBox_combin_section5"]));
+            }
+            set {
+                this["textBox_combin_section5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBox_combin_section6 {
+            get {
+                return ((string)(this["textBox_combin_section6"]));
+            }
+            set {
+                this["textBox_combin_section6"] = value;
+            }
+        }
     }
 }

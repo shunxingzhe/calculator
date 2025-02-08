@@ -384,14 +384,14 @@ namespace SYD_COPY_FILE
         private void button_open_interface_Click(object sender, EventArgs e)
         {
             string filename = "";
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            OpenFileDialog dlg = new OpenFileDialog();
             dlg.FileName = "interface";
 
             dlg.DefaultExt = ".xml";
 
             dlg.Filter = "XML文件|*.xml";
 
-            if (dlg.ShowDialog() == false)
+            if (dlg.ShowDialog() != DialogResult.OK)
                 return;
             filename = dlg.FileName;
 

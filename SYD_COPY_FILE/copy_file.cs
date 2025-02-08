@@ -49,6 +49,19 @@ namespace SYD_COPY_FILE
             checkBox_systemtime_rename.Checked = Settings1.Default.Setting_checkBox_systemtime_rename;
             checkBox_delete_srcfile.Checked = Settings1.Default.Setting_checkBox_delete_srcfile;
 
+            if (Settings1.Default.textBox_combin_section1 != "")
+                textBox_combin_section1.Text = Settings1.Default.textBox_combin_section1;
+            if (Settings1.Default.textBox_combin_section2 != "")
+                textBox_combin_section2.Text = Settings1.Default.textBox_combin_section2;
+            if (Settings1.Default.textBox_combin_section3 != "")
+                textBox_combin_section3.Text = Settings1.Default.textBox_combin_section3;
+            if (Settings1.Default.textBox_combin_section4 != "")
+                textBox_combin_section4.Text = Settings1.Default.textBox_combin_section4;
+            if (Settings1.Default.textBox_combin_section5 != "")
+                textBox_combin_section5.Text = Settings1.Default.textBox_combin_section5;
+            if (Settings1.Default.textBox_combin_section6 != "")
+                textBox_combin_section6.Text = Settings1.Default.textBox_combin_section6;
+            textBox_sectionoutput.Text=Settings1.Default.textBox_sectionoutput;
             textBox_sectionintput1.Text = Settings1.Default.textBox_sectionintput1;
             textBox_sectionintput2.Text = Settings1.Default.textBox_sectionintput2;
             textBox_sectionintput3.Text = Settings1.Default.textBox_sectionintput3;
@@ -111,6 +124,13 @@ namespace SYD_COPY_FILE
                 Settings1.Default.cos_secretKey = textBox_secretKey.Text;
             }
 
+            Settings1.Default.textBox_combin_section1=textBox_combin_section1.Text;
+            Settings1.Default.textBox_combin_section2 = textBox_combin_section2.Text;
+            Settings1.Default.textBox_combin_section3 = textBox_combin_section3.Text;
+            Settings1.Default.textBox_combin_section4 = textBox_combin_section4.Text;
+            Settings1.Default.textBox_combin_section5 = textBox_combin_section5.Text;
+            Settings1.Default.textBox_combin_section6 = textBox_combin_section6.Text;
+            Settings1.Default.textBox_sectionoutput = textBox_sectionoutput.Text;
             Settings1.Default.textBox_sectionintput1 = textBox_sectionintput1.Text;
             Settings1.Default.textBox_sectionintput2 = textBox_sectionintput2.Text;
             Settings1.Default.textBox_sectionintput3 = textBox_sectionintput3.Text;
@@ -299,17 +319,18 @@ namespace SYD_COPY_FILE
             }
             this.source_copyfile_suffix_textBox_rename.Items.Insert(0, source_copyfile_suffix_textBox_rename.Text);
         }
-        private void source_copyfile_button_Click(object sender, EventArgs e)
+        private void OpenFile_button_Click(object sender, EventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.FileName = "source_file";
+            dlg.FileName = "select_file";
 
-            // dlg.DefaultExt = ".txt";
+            if (sender == button_combine_output)//只是想获取文件路径,并不需要文件存在
+                dlg.CheckFileExists = false;
 
             dlg.Filter = "All files（*.*）|*.*|All files(*.*)|*.* ";
 
-            if (dlg.ShowDialog() == false)
+            if (dlg.ShowDialog() != DialogResult.OK)
                 return;
 
             if (sender == source_copyfile_button)
@@ -328,6 +349,10 @@ namespace SYD_COPY_FILE
                 this.textBox_copy_destinationfileend.Text = dlg.FileName;
             else if (sender == button_combine_output)
                 this.textBox_sectionoutput.Text = dlg.FileName;
+            else if (sender == destination_file_button)
+                destination_file_textBox.Text = dlg.FileName;
+            else if (sender == source_copyfile_button_rename)
+                source_copyfile_textBox_rename.Text = dlg.FileName;
         }
         private void source_copyfile_textBox_DragEnter(object sender, DragEventArgs e)
         {
@@ -407,34 +432,6 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-        }
-        private void destination_file_button_Click(object sender, EventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            dlg.FileName = "destination_file";
-
-            // dlg.DefaultExt = ".txt";
-
-            dlg.Filter = "All files（*.*）|*.*|All files(*.*)|*.* ";
-
-            if (dlg.ShowDialog() == false)
-                return;
-            destination_file_textBox.Text = dlg.FileName;
-        }
-        private void destination_file_button_copy_sourcefile_Click(object sender, EventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            dlg.FileName = "destination_file";
-
-            //dlg.DefaultExt = ".txt";
-
-            dlg.Filter = "All files（*.*）|*.*|All files(*.*)|*.* ";
-
-            if (dlg.ShowDialog() == false)
-                return;
-            destination_file_textBox_two.Text = dlg.FileName;
         }
         private bool ask_iscontinue()
         {
@@ -751,20 +748,6 @@ namespace SYD_COPY_FILE
                 }
             }
         }
-        private void source_copyfile_button_rename_Click(object sender, EventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            dlg.FileName = "source_file";
-
-            //dlg.DefaultExt = ".txt";
-
-            dlg.Filter = "All files（*.*）|*.*|All files(*.*)|*.* ";
-
-            if (dlg.ShowDialog() == false)
-                return;
-            source_copyfile_textBox_rename.Text = dlg.FileName;
-        }
         private void destination_file_button_rename_Click(object sender, EventArgs e)
         {
             MyFolderBrowserDialog folderDlg = new MyFolderBrowserDialog();
@@ -884,7 +867,83 @@ namespace SYD_COPY_FILE
             else
                 MessageBox.Show("source file inexistence");
         }
+        private void OpenHexFileSaveBin(string FileName)
+        {
+            Byte[] FWBin = new Byte[512 * 1024];
+            StreamReader sr = new StreamReader(FileName);
+            String input;
+            Byte byte_count;
+            UInt16 address = 0;
+            UInt16 pre_address = 0;
+            Byte record_type;
+            Byte data;
+            UInt32 idx = 0;
+            UInt32 line = 0;
+            UInt16 append_address = 0;
+            Boolean append_ff = false;
 
+            while ((input = sr.ReadLine()) != null)
+            {
+                if (input.IndexOf(":") != 0)
+                {
+                    MessageBox.Show("HEX Format Error!!", "Error");
+                    sr.Close();
+                    return;
+                }
+
+                line++;
+                input = input.Remove(0, 1);
+
+                byte_count = Convert.ToByte(input.Substring(0, 2), 16);
+                input = input.Remove(0, 2);
+
+                address = Convert.ToUInt16(input.Substring(0, 4), 16);
+                input = input.Remove(0, 4);
+
+                record_type = Convert.ToByte(input.Substring(0, 2), 16);
+                input = input.Remove(0, 2);
+
+                if (record_type == 0x00)
+                {
+                    if (append_ff == true)
+                    {
+                        append_address = (UInt16)(append_address + address);
+
+                        for (UInt16 i = 0; i < append_address; i++)
+                        {
+                            FWBin[idx++] = 0xff;
+                        }
+
+                        append_address = 0;
+                        append_ff = false;
+                    }
+
+                    for (Byte i = 0; i < byte_count; i++)
+                    {
+                        data = Convert.ToByte(input.Substring(0, 2), 16);
+                        input = input.Remove(0, 2);
+                        FWBin[idx++] = data;
+                    }
+                }
+                else
+                {
+                    if (pre_address != 0)
+                    {
+                        pre_address = (UInt16)(pre_address + 16);
+
+                        append_address = (UInt16)(0xffff - pre_address + 1);
+
+                        append_ff = true;
+                    }
+                }
+
+                pre_address = address;
+            }
+            //DUT_FWLength = idx;
+            sr.Close();
+            string file = FileName.Replace(".hex", ".bin");
+            Bytes2File(FWBin, 0, (int)idx, file);
+        }
         private void button_convert_hex_Click(object sender, EventArgs e)
         {
             FileInfo fi = null;
@@ -892,83 +951,7 @@ namespace SYD_COPY_FILE
 
             if (fi.Extension == ".hex")
             {
-                Byte[] FWBin;
-                StreamReader sr = new StreamReader(source_copyfile_textBox_rename.Text);
-                String input;
-                Byte byte_count;
-                UInt16 address = 0;
-                UInt16 pre_address = 0;
-                Byte record_type;
-                Byte data;
-                UInt32 idx = 0;
-                UInt32 line = 0;
-                UInt16 append_address = 0;
-                Boolean append_ff = false;
-
-                FWBin = new Byte[512 * 1024];
-
-                while ((input = sr.ReadLine()) != null)
-                {
-                    if (input.IndexOf(":") != 0)
-                    {
-                        MessageBox.Show("HEX Format Error!!", "Error");
-                        sr.Close();
-                        return;
-                    }
-
-                    line++;
-                    input = input.Remove(0, 1);
-
-                    byte_count = Convert.ToByte(input.Substring(0, 2), 16);
-                    input = input.Remove(0, 2);
-
-                    address = Convert.ToUInt16(input.Substring(0, 4), 16);
-                    input = input.Remove(0, 4);
-
-                    record_type = Convert.ToByte(input.Substring(0, 2), 16);
-                    input = input.Remove(0, 2);
-
-                    if (record_type == 0x00)
-                    {
-                        if (append_ff == true)
-                        {
-                            append_address = (UInt16)(append_address + address);
-
-                            for (UInt16 i = 0; i < append_address; i++)
-                            {
-                                FWBin[idx++] = 0xff;
-                            }
-
-                            append_address = 0;
-                            append_ff = false;
-                        }
-
-                        for (Byte i = 0; i < byte_count; i++)
-                        {
-                            data = Convert.ToByte(input.Substring(0, 2), 16);
-                            input = input.Remove(0, 2);
-                            FWBin[idx++] = data;
-                        }
-                    }
-                    else
-                    {
-                        if (pre_address != 0)
-                        {
-                            pre_address = (UInt16)(pre_address + 16);
-
-                            append_address = (UInt16)(0xffff - pre_address + 1);
-
-                            append_ff = true;
-                        }
-                    }
-
-                    pre_address = address;
-
-                }
-                //DUT_FWLength = idx;
-                sr.Close();
-                string file = source_copyfile_textBox_rename.Text.ToLower().Replace(".hex",".bin");
-                Bytes2File(FWBin, 0, (int)idx, file);
+                OpenHexFileSaveBin(source_copyfile_textBox_rename.Text);
             }
         }
         private void destination_file_button_copy_filename_Click(object sender, EventArgs e)
@@ -990,7 +973,7 @@ namespace SYD_COPY_FILE
 
         private void button_splitbinfile_Click(object sender, EventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            OpenFileDialog dlg = new OpenFileDialog();
 
             dlg.FileName = "source_file";
 
@@ -998,7 +981,7 @@ namespace SYD_COPY_FILE
 
             dlg.Filter = "bin file (.bin)|*.bin";
 
-            if (dlg.ShowDialog() == false)
+            if (dlg.ShowDialog() != DialogResult.OK)
                 return;
             textBox_splitbinfile.Text = dlg.FileName;
         }
@@ -1245,7 +1228,7 @@ namespace SYD_COPY_FILE
             fs.Close();
         }
         //如果addr1大于buff的长度将会填充buff到addr1
-        public static void Bytes2File(byte[] buff, byte[] buff1, UInt32 addr1, byte[] buff2, UInt32 addr2, byte[] buff3, UInt32 addr3, byte[] buff4, UInt32 addr4, byte[] buff5, UInt32 addr5, string savepath)
+        public static void Bytes2File(byte[] buff, byte[] buff1, UInt32 addr1, byte[] buff2, UInt32 addr2, byte[] buff3, UInt32 addr3, byte[] buff4, UInt32 addr4, byte[] buff5, UInt32 addr5, string savepath, byte FillByte)
         {
              FileStream fs;
             BinaryWriter bw;
@@ -1266,7 +1249,7 @@ namespace SYD_COPY_FILE
                     byte[] copy = new byte[addr1 - offect];
                     for (int i = 0; i != copy.Length; i++)
                     {
-                        copy[i] = 0xFF;
+                        copy[i] = FillByte;
                     }
                     bw.Write(copy, 0, copy.Length);
                 }
@@ -1275,13 +1258,13 @@ namespace SYD_COPY_FILE
             {
                 
                 bw.Write(buff1, 0, buff1.Length);
-                offect = (int)addr1+buff.Length;
+                offect = (int)addr1+buff1.Length;
                 if (offect < addr2)
                 {
                     byte[] copy = new byte[addr2 - offect];
                     for (int i = 0; i != copy.Length; i++)
                     {
-                        copy[i] = 0xFF;
+                        copy[i] = FillByte;
                     }
                     bw.Write(copy, 0, copy.Length);
                 }
@@ -1289,13 +1272,13 @@ namespace SYD_COPY_FILE
             if (buff2 != null)
             {
                 bw.Write(buff2, 0, buff2.Length);
-                offect = (int)addr2 + buff.Length;
+                offect = (int)addr2 + buff2.Length;
                 if (offect < addr3)
                 {
                     byte[] copy = new byte[addr3 - offect];
                     for (int i = 0; i != copy.Length; i++)
                     {
-                        copy[i] = 0xFF;
+                        copy[i] = FillByte;
                     }
                     bw.Write(copy, 0, copy.Length);
                 }
@@ -1303,13 +1286,13 @@ namespace SYD_COPY_FILE
             if (buff3 != null)
             {
                 bw.Write(buff3, 0, buff3.Length);
-                offect = (int)addr3 + buff.Length;
+                offect = (int)addr3 + buff3.Length;
                 if (offect < addr4)
                 {
                     byte[] copy = new byte[addr4 - offect];
                     for (int i = 0; i != copy.Length; i++)
                     {
-                        copy[i] = 0xFF;
+                        copy[i] = FillByte;
                     }
                     bw.Write(copy, 0, copy.Length);
                 }
@@ -1317,13 +1300,13 @@ namespace SYD_COPY_FILE
             if (buff4 != null)
             {
                 bw.Write(buff4, 0, buff4.Length);
-                offect = (int)addr4 + buff.Length;
+                offect = (int)addr4 + buff4.Length;
                 if (offect < addr5)
                 {
                     byte[] copy = new byte[addr5 - offect];
                     for (int i = 0; i != copy.Length; i++)
                     {
-                        copy[i] = 0xFF;
+                        copy[i] = FillByte;
                     }
                     bw.Write(copy, 0, copy.Length);
                 }
@@ -1382,26 +1365,50 @@ namespace SYD_COPY_FILE
         public static long GetFileSize(string sFullName)
         {
             long lSize = 0;
+            if (Path.GetExtension(sFullName) == ".hex")
+            {
+                sFullName = sFullName.Replace(".hex", ".bin");
+            }
             if (File.Exists(sFullName))
                 lSize = new FileInfo(sFullName).Length;
             return lSize;
         }
-        private void combin_input_read(object sender, string FileName)
+        public void size_adjust(TextBox PreFile, TextBox Section, TextBox PreSection)
         {
-            long size = 0;
+            long size = GetFileSize(PreFile.Text);
+            if (comboBox_Combin.SelectedIndex == 0)
+            {
+                size += Convert.ToInt32(PreSection.Text, 16);//对于第二段因为第一段始终为0所以这句话可以省略
+                Section.Text = "0x" + size.ToString("x8");
+            }
+            else if (comboBox_Combin.SelectedIndex == 1)
+            {
+                long addr = Convert.ToInt32(PreSection.Text, 16);
+                size = Align4K(size);
+                Section.Text = "0x" + (size + addr).ToString("x8");
+            }
+            else if (comboBox_Combin.SelectedIndex == 2)
+            {
+                size += Convert.ToInt32(PreSection.Text, 16);//对于第二段因为第一段始终为0所以这句话可以省略
+                long addr = Convert.ToInt32(Section.Text, 16);
+                if (addr < size)
+                {
+                    MessageBox.Show("输入数据有误!");
+                    return;
+                }
+            }
+        }
+        private void combin_size_adjust(object sender, string FileName)
+        {
             if (((sender is Button) && ((Button)(sender) == button_sectionintput1)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput1)))
             {
                 textBox_sectionintput1.Text = FileName;
-                if (checkBox7.Checked == true)
+                if (comboBox_Combin.SelectedIndex == 1)
                 {
-                    textBox_combin_section1.Text = "0x00000000";
+                    long size = GetFileSize(textBox_sectionintput1.Text);
+                    size = Align4K(size);
+                    textBox_combin_section2.Text = "0x" + (size).ToString("x8");
                 }
-                size = GetFileSize(textBox_sectionintput1.Text);
-                if (size % 4096 != 0)
-                {
-                    size = (size / 4096 + 1) * 4096;
-                }
-                textBox_combin_section2.Text = "0x" + (size).ToString("x8");
             }
             else if (((sender is Button) && ((Button)(sender) == button_sectionintput2)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput2)))
             {
@@ -1411,30 +1418,7 @@ namespace SYD_COPY_FILE
                     return;
                 }
                 textBox_sectionintput2.Text = FileName;
-
-                size = GetFileSize(textBox_sectionintput1.Text);
-                if (comboBox_Combin.SelectedIndex == 0)
-                {
-                    textBox_combin_section2.Text = "0x" + size.ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 1)
-                {
-                    long addr = Convert.ToInt32(textBox_combin_section1.Text, 16);
-                    if (size % 4096 != 0)
-                    {
-                        size = (size / 4096 + 1) * 4096;
-                    }
-                    textBox_combin_section2.Text = "0x" + (size + addr).ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 2)
-                {
-                    long addr = Convert.ToInt32(textBox_combin_section2.Text, 16);
-                    if (addr < size)
-                    {
-                        MessageBox.Show("输入数据有误!");
-                        return;
-                    }
-                }
+                size_adjust(textBox_sectionintput1, textBox_combin_section2, textBox_combin_section1);
             }
             else if (((sender is Button) && ((Button)(sender) == button_sectionintput3)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput3)))
             {
@@ -1444,32 +1428,7 @@ namespace SYD_COPY_FILE
                     return;
                 }
                 textBox_sectionintput3.Text = FileName;
-
-                size = GetFileSize(textBox_sectionintput2.Text);  //上个文件的大小
-                if (comboBox_Combin.SelectedIndex == 0)
-                {
-                    size += Convert.ToInt32(textBox_combin_section2.Text, 16);
-                    textBox_combin_section3.Text = "0x" + size.ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 1)
-                {
-                    long addr = Convert.ToInt32(textBox_combin_section2.Text, 16);
-                    if (size % 4096 != 0)
-                    {
-                        size = (size / 4096 + 1) * 4096;
-                    }
-                    textBox_combin_section3.Text = "0x" + (size + addr).ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 2)
-                {
-                    size += Convert.ToInt32(textBox_combin_section2.Text, 16);
-                    long addr = Convert.ToInt32(textBox_combin_section3.Text, 16);
-                    if (addr < size)
-                    {
-                        MessageBox.Show("输入数据有误!");
-                        return;
-                    }
-                }
+                size_adjust(textBox_sectionintput2, textBox_combin_section3, textBox_combin_section2);
             }
             else if (((sender is Button) && ((Button)(sender) == button_sectionintput4)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput4)))
             {
@@ -1479,32 +1438,7 @@ namespace SYD_COPY_FILE
                     return;
                 }
                 textBox_sectionintput4.Text = FileName;
-
-                size = GetFileSize(textBox_sectionintput3.Text);  //上个文件的大小
-                if (comboBox_Combin.SelectedIndex == 0)
-                {
-                    size += Convert.ToInt32(textBox_combin_section3.Text, 16);
-                    textBox_combin_section4.Text = "0x" + size.ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 1)
-                {
-                    long addr = Convert.ToInt32(textBox_combin_section3.Text, 16);
-                    if (size % 4096 != 0)
-                    {
-                        size = (size / 4096 + 1) * 4096;
-                    }
-                    textBox_combin_section4.Text = "0x" + (size + addr).ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 2)
-                {
-                    size += Convert.ToInt32(textBox_combin_section3.Text, 16);
-                    long addr = Convert.ToInt32(textBox_combin_section4.Text, 16);
-                    if (addr < size)
-                    {
-                        MessageBox.Show("输入数据有误!");
-                        return;
-                    }
-                }
+                size_adjust(textBox_sectionintput3, textBox_combin_section4, textBox_combin_section3);
             }
             else if (((sender is Button) && ((Button)(sender) == button_sectionintput5)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput5)))
             {
@@ -1514,32 +1448,7 @@ namespace SYD_COPY_FILE
                     return;
                 }
                 textBox_sectionintput5.Text = FileName;
-
-                size = GetFileSize(textBox_sectionintput4.Text);  //上个文件的大小
-                if (comboBox_Combin.SelectedIndex == 0)
-                {
-                    size += Convert.ToInt32(textBox_combin_section4.Text, 16);
-                    textBox_combin_section5.Text = "0x" + size.ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 1)
-                {
-                    long addr = Convert.ToInt32(textBox_combin_section4.Text, 16);
-                    if (size % 4096 != 0)
-                    {
-                        size = (size / 4096 + 1) * 4096;
-                    }
-                    textBox_combin_section5.Text = "0x" + (size + addr).ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 2)
-                {
-                    size += Convert.ToInt32(textBox_combin_section4.Text, 16);
-                    long addr = Convert.ToInt32(textBox_combin_section5.Text, 16);
-                    if (addr < size)
-                    {
-                        MessageBox.Show("输入数据有误!");
-                        return;
-                    }
-                }
+                size_adjust(textBox_sectionintput4, textBox_combin_section5, textBox_combin_section4);
             }
             else if (((sender is Button) && ((Button)(sender) == button_sectionintput6)) || ((sender is TextBox) && ((TextBox)(sender) == textBox_sectionintput6)))
             {
@@ -1549,48 +1458,25 @@ namespace SYD_COPY_FILE
                     return;
                 }
                 textBox_sectionintput6.Text = FileName;
-
-                size = GetFileSize(textBox_sectionintput5.Text);  //上个文件的大小
-                if (comboBox_Combin.SelectedIndex == 0)
-                {
-                    size += Convert.ToInt32(textBox_combin_section5.Text, 16);
-                    textBox_combin_section6.Text = "0x" + size.ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 1)
-                {
-                    long addr = Convert.ToInt32(textBox_combin_section5.Text, 16);
-                    if (size % 4096 != 0)
-                    {
-                        size = (size / 4096 + 1) * 4096;
-                    }
-                    textBox_combin_section6.Text = "0x" + (size + addr).ToString("x8");
-                }
-                else if (comboBox_Combin.SelectedIndex == 2)
-                {
-                    size += Convert.ToInt32(textBox_combin_section5.Text, 16);
-                    long addr = Convert.ToInt32(textBox_combin_section6.Text, 16);
-                    if (addr < size)
-                    {
-                        MessageBox.Show("输入数据有误!");
-                        return;
-                    }
-                }
+                size_adjust(textBox_sectionintput5, textBox_combin_section6, textBox_combin_section5);
             }
         }
         private void button_combinopen_Click(object sender, EventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            OpenFileDialog dlg = new OpenFileDialog();
 
-            dlg.FileName = "source_file";
+            dlg.FileName = "select_file";
 
             dlg.DefaultExt = ".bin";
 
-            dlg.Filter = "bin file (.bin)|*.bin";
-
-            if (dlg.ShowDialog() == false)
+            dlg.Filter = "bin file (.bin)|*.bin|hex file (.hex)|*.hex";
+            if (dlg.ShowDialog() != DialogResult.OK)
                 return;
-
-            combin_input_read(sender, dlg.FileName);
+            if (Path.GetExtension(dlg.FileName) == ".hex")
+            {
+                OpenHexFileSaveBin(dlg.FileName);
+            }
+            combin_size_adjust(sender, dlg.FileName);
         }
         private void combin_textBox_DragDrop(object sender, DragEventArgs e)
         {
@@ -1605,7 +1491,7 @@ namespace SYD_COPY_FILE
                 foreach (string file in files)
                 {
                     System.IO.FileInfo fi = new System.IO.FileInfo(file);
-                    combin_input_read(sender, fi.FullName);
+                    combin_size_adjust(sender, fi.FullName);
                 }
             }
         }
@@ -1621,7 +1507,7 @@ namespace SYD_COPY_FILE
             string savepath = Path.GetDirectoryName(textBox_sectionintput1.Text); ;
             //savepath = savepath + "\\BIN_Combin" + ".bin";
             savepath = textBox_sectionoutput.Text;
-            Bytes2File(byteArray1, byteArray2, Convert.ToUInt32(textBox_combin_section2.Text, 16), byteArray3, Convert.ToUInt32(textBox_combin_section3.Text, 16), byteArray4, Convert.ToUInt32(textBox_combin_section4.Text, 16), byteArray5, Convert.ToUInt32(textBox_combin_section5.Text, 16), byteArray6, Convert.ToUInt32(textBox_combin_section6.Text, 16), savepath);
+            Bytes2File(byteArray1, byteArray2, Convert.ToUInt32(textBox_combin_section2.Text, 16), byteArray3, Convert.ToUInt32(textBox_combin_section3.Text, 16), byteArray4, Convert.ToUInt32(textBox_combin_section4.Text, 16), byteArray5, Convert.ToUInt32(textBox_combin_section5.Text, 16), byteArray6, Convert.ToUInt32(textBox_combin_section6.Text, 16), savepath, Convert.ToByte(textBox_combin_insertion.Text, 16));
         }
 
         private void button_copy_sourcefile5_Click(object sender, EventArgs e)
@@ -1644,12 +1530,9 @@ namespace SYD_COPY_FILE
         }
         private void source_copyfile_textBox_sync_TextChanged(object sender, EventArgs e)
         {
-            if (Directory.Exists(source_copyfile_textBox_sync.Text))
+            if (Directory.Exists(source_copyfile_textBox_sync.Text)==false)
             {
-            }
-            else
-            {
-                byte[] byteArray = File2Bytes(source_copyfile_textBox_sync.Text);//文件转成byte二进制数组
+                byte[] byteArray = File2Bytes(source_copyfile_textBox_sync.Text);
                 source_copyfile_textBox_sync_size.Text = byteArray.Length.ToString() + "(0x" + byteArray.Length.ToString("X") + ")";
                 source_copyfile_textBox_sync_crc32.Text = "0x" + crc32_fun(byteArray, (uint)byteArray.Length).ToString("X");
                 UInt32 Checksum = 0;
@@ -1660,29 +1543,6 @@ namespace SYD_COPY_FILE
                 source_copyfile_textBox_sync_checksum.Text = "0x" + Checksum.ToString("X");
             }
         }
-        private int filename_index_get(string filename, ref string outfilenames)
-        {
-            string index = "";
-            int m = filename.LastIndexOf(")");
-            int n = filename.LastIndexOf("(");
-            if ((m != -1) && (n != -1))
-            {
-                if (m > n)
-                {
-                    index = filename.Substring(n+1, m - n-1);
-                    outfilenames = filename.Substring(0, n);
-                }
-            }
-            if (index == "")
-            {
-                return -1;
-            }
-            else
-            {
-                return Convert.ToInt32(index, 16);
-            }
-        }
-
         private void clear_synccopyfile_button_Click(object sender, EventArgs e)
         {
             source_copyfile_textBox_sync.Text = "";

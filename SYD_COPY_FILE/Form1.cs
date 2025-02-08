@@ -702,6 +702,9 @@ namespace SYD_COPY_FILE
         //返回值 转换后的byte数组
         public static byte[] File2Bytes(string path)
         {
+            if (Path.GetExtension(path) == ".hex")//如果传入的hex文件就到同目录去找bin文件再倒入
+                path = path.Replace(".hex", ".bin");
+
             if (!System.IO.File.Exists(path))
             {
                 return new byte[0];

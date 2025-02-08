@@ -478,11 +478,11 @@ namespace SYD_COPY_FILE
                                 {
                                     filename = (string)dataGridViewCos.Rows[RowIndexSelect].Cells[1].Value; ;
                                     string ext = filename.Substring(filename.Length - 4, 4);
-                                    Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+                                    OpenFileDialog dlg = new OpenFileDialog();
 
                                     dlg.FileName = dlgDefaultName;
 
-                                    if (dlg.ShowDialog() == false)
+                                    if (dlg.ShowDialog() != DialogResult.OK)
                                         return;
                                     dlgDefaultExt = Path.GetExtension(dlg.FileName);
 
