@@ -1564,6 +1564,13 @@ namespace SYD_COPY_FILE
             checkBox_delete_prefile.Checked = false;
             checkBox16.Checked = false;
         }
+        private void cal_clear_click_adjust(ComboBox combobox, TextBox textbox)
+        {
+            if ((combobox.SelectedIndex == 3) || (combobox.SelectedIndex == 4))
+                textbox.Text = "1";
+            else
+                textbox.Text = "0";
+        }
         private void label4_Click(object sender, EventArgs e)
         {
             //EventArgs继承自MouseEventArgs,所以可以强转
@@ -1571,15 +1578,21 @@ namespace SYD_COPY_FILE
             //点鼠标右键,return
             if (Mouse_e.Button == MouseButtons.Right)
             {
-                textBox1.Text = "0";
                 textBox6.Text = "0";
-                textBox8.Text = "0";
-                textBox2.Text = "0";
                 textBox3.Text = "0";
-                textBox5.Text = "0";
-                textBox11.Text = "0";
                 textBox43.Text = "0";
-                textBox45.Text = "0";
+                cal_clear_click_adjust(comboBox3, textBox1);
+                cal_clear_click_adjust(comboBox2, textBox8);
+                cal_clear_click_adjust(comboBox4, textBox2);
+                cal_clear_click_adjust(comboBox1, textBox5);
+                cal_clear_click_adjust(comboBox5, textBox11);
+                cal_clear_click_adjust(comboBox8, textBox45);
+                cal_clear_click_adjust(comboBox10, textBox49);
+                cal_clear_click_adjust(comboBox11, textBox50);
+                cal_clear_click_adjust(comboBox9, textBox47);
+                cal_clear_click_adjust(comboBox13, textBox52);
+                cal_clear_click_adjust(comboBox14, textBox53);
+                cal_clear_click_adjust(comboBox12, textBox51);
             }
             else
             {
