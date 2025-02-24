@@ -784,6 +784,21 @@ namespace SYD_COPY_FILE
             }
             File.Copy(sourceFileName, destFileName, overwrite);
         }
+        private string FileMD5CRC32(string filePath, string name)
+        {
+            if (checkBox1.Checked == true)
+            {
+                string md5 = GetMD5HashCodeFromFile(filePath);
+                name = name + "MD5(" + md5+ ")";
+            }
+            if (checkBox7.Checked == true)
+            {
+                byte[] byteArray = File2Bytes(filePath);
+                UInt32 crc32 = crc32_fun(byteArray, (uint)byteArray.Length);
+                name = name + "CRC32(" + crc32.ToString("X") + ")";
+            }
+            return name;
+        }
         private void destination_file_button_generate_rename_Click(object sender, EventArgs e)
         {
             if (source_copyfile_textBox_rename.TextLength != 0)
@@ -806,6 +821,7 @@ namespace SYD_COPY_FILE
                             name = source_copyfile_prefix_textBox_rename.Text + name + '_'+ source_copyfile_suffix_textBox_rename.Text;
                         else
                             name = source_copyfile_prefix_textBox_rename.Text + name + source_copyfile_suffix_textBox_rename.Text;
+                        name= FileMD5CRC32(source_copyfile_textBox_rename.Text, name);
                         if ((name[name.Length - 1] >= '0') && (name[name.Length - 1] <= '9')) name += '_';
                         if (checkBox_systemtime_rename.Checked == true)
                         {
@@ -824,6 +840,7 @@ namespace SYD_COPY_FILE
                     else if (comboBox7.SelectedIndex == 1)
                     {
                         name = source_copyfile_prefix_textBox_rename.Text + name + source_copyfile_suffix_textBox_rename.Text;
+                        name = FileMD5CRC32(source_copyfile_textBox_rename.Text, name);
                         destFileName = pathcopy + "\\" + name + suffix;
                         FileCopy(@source_copyfile_textBox_rename.Text, destFileName, true);
                         destination_file_textBox_rename.Text = destFileName;
@@ -831,12 +848,14 @@ namespace SYD_COPY_FILE
                     else if (comboBox7.SelectedIndex == 2)
                     {
                         name = name.Remove(name.Length - comboBox_timetype_rename.SelectedItem.ToString().Length);
+                        name = FileMD5CRC32(source_copyfile_textBox_rename.Text, name);
                         FileCopy(@source_copyfile_textBox_rename.Text, destFileName, true);
                         destination_file_textBox_rename.Text = destFileName;
                     }
                     else if (comboBox7.SelectedIndex == 3)
                     {
                         name = name.Remove(name.Length - comboBox_timetype_rename.SelectedItem.ToString().Length);
+                        name = FileMD5CRC32(source_copyfile_textBox_rename.Text, name);
                         if (checkBox_systemtime_rename.Checked == true)
                         {
                             FileInfo fi = new FileInfo(source_copyfile_textBox_rename.Text);
@@ -850,9 +869,7 @@ namespace SYD_COPY_FILE
                         FileCopy(@source_copyfile_textBox_rename.Text, destFileName, true);
                         destination_file_textBox_rename.Text = destFileName;
                     }
-
                     cope_to_Clipboard(destFileName);
-                    
                     if (checkBox_delete_srcfile.Checked == true)
                     {
                         File.Delete(source_copyfile_textBox_rename.Text);
@@ -1578,7 +1595,7 @@ namespace SYD_COPY_FILE
         private void button35_Click(object sender, EventArgs e)
         {
             Process process1 = null;
-            process1 = Process.Start(@".\\Animated GIF Producer V4.0.exe");
+            process1 = Process.Start(@".\\VideoToPicture\\VideotoPicture.exe");
             //this.Hide();    //隐藏窗口
             //process1.WaitForExit();
             //this.Show();//显示当前窗口

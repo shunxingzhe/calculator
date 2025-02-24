@@ -1274,17 +1274,6 @@ namespace SYD_COPY_FILE
                 richTextBox_out.AppendText(lstArray[i].Substring(9, 32) + "\r\n");
             }
 
-            //string path = label_outfilename.Text;
-            //path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-            //using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-            //{
-            //    byte[] buffer = null;
-            //    for (i = 1; i < (lstArray.Count - 2); i++)
-            //    {
-            //        buffer = Encoding.Default.GetBytes(lstArray[i].Substring(9, 32) + "\r\n");
-            //        fsWrite.Write(buffer, 0, buffer.Length);
-            //    }
-            //}
             StripStatusLabelSet("保存成功!");
         }
 
@@ -1420,20 +1409,6 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-
-            //string path = label_outfilename.Text;
-            //if ((path.Contains(".txt")) || path.Contains(".TXT"))
-            //    path = path.Replace(".txt", "_ok.txt").Replace(".TXT", "_ok.TXT");
-            //else if ((path.Contains(".c")) || path.Contains(".C"))
-            //    path = path.Replace(".c", "_ok.c").Replace(".C", "_ok.C");
-            //else
-            //    return;
-            //using (FileStream fsWrite = new FileStream(path, FileMode.Create, FileAccess.Write))
-            //{
-            //    byte[] buffer = null;
-            //    buffer = Encoding.Default.GetBytes(richTextBox_out.Text);
-            //    fsWrite.Write(buffer, 0, buffer.Length);
-            //}
 
             StripStatusLabelSet("保存成功!");
         }
@@ -3217,13 +3192,6 @@ namespace SYD_COPY_FILE
                 var str = DateTime.Now.ToString();
                 var encode = Encoding.UTF8;
                 return BitConverter.ToString(_Value, 0).Replace("-", string.Empty).ToLower();
-                //string path = FileName;
-                //label_outfilename.Text = path.Replace(".BMP", string.Empty).Replace(".bmp", string.Empty) + "_ok.txt";
-                //byte[] text = System.IO.File.ReadAllBytes(FileName);
-                ////var hex = BitConverter.ToString(text, 0);
-                ////var hex = byteToHexStr(text);
-                ////textInput.Text = hex;
-                //textInput.Text = ""+byteToHexStrBuilder(text);
             }
             else if (fi.Extension.ToLower() == ".csv")
             {
