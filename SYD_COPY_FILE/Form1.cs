@@ -56,6 +56,7 @@ namespace SYD_COPY_FILE
 
         public Form1()
         {
+            //AutoScaleMode = AutoScaleMode.Dpi; //添加这句,要在'InitializeComponent();'上方
             InitializeComponent();
 
             copy_file_init();
@@ -1571,6 +1572,7 @@ namespace SYD_COPY_FILE
             else
                 textbox.Text = "0";
         }
+
         private void label4_Click(object sender, EventArgs e)
         {
             //EventArgs继承自MouseEventArgs,所以可以强转

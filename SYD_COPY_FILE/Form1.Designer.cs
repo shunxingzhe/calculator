@@ -430,6 +430,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button_convert_hex = new System.Windows.Forms.Button();
             this.destination_folder_textBox_rename = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -437,7 +439,6 @@
             this.destination_file_button_copy_filename = new System.Windows.Forms.Button();
             this.source_copyfile_suffix_textBox_rename = new System.Windows.Forms.ComboBox();
             this.comboBox_timetype_rename = new System.Windows.Forms.ComboBox();
-            this.label99 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label79 = new System.Windows.Forms.Label();
             this.source_copyfile_prefix_textBox_rename = new System.Windows.Forms.TextBox();
@@ -447,11 +448,12 @@
             this.destination_file_button_generate_rename = new System.Windows.Forms.Button();
             this.label80 = new System.Windows.Forms.Label();
             this.source_copyfile_button_rename = new System.Windows.Forms.Button();
-            this.label82 = new System.Windows.Forms.Label();
             this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox_delete_prefile = new System.Windows.Forms.CheckBox();
             this.checkBox_delete_srcfile = new System.Windows.Forms.CheckBox();
             this.checkBox_systemtime_rename = new System.Windows.Forms.CheckBox();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.textBox_copy_destinationfileend_sync = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -800,8 +802,6 @@
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem148 = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.tabPage11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2309,6 +2309,7 @@
             this.comboBox_datatype.TabIndex = 19;
             this.comboBox_datatype.Text = "uint8";
             this.comboBox_datatype.DropDownClosed += new System.EventHandler(this.comboBox_datatype_DropDownClosed);
+            this.comboBox_datatype.TextChanged += new System.EventHandler(this.comboBox_datatype_TextChanged);
             // 
             // label_data_type
             // 
@@ -5902,6 +5903,28 @@
             this.tabPage7.Text = "Rename";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(756, 104);
+            this.checkBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(79, 22);
+            this.checkBox7.TabIndex = 72;
+            this.checkBox7.Text = "CRC32";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(698, 104);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(61, 22);
+            this.checkBox1.TabIndex = 71;
+            this.checkBox1.Text = "MD5";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // button_convert_hex
             // 
             this.button_convert_hex.Font = new System.Drawing.Font("宋体", 8F);
@@ -5981,16 +6004,6 @@
             this.comboBox_timetype_rename.Name = "comboBox_timetype_rename";
             this.comboBox_timetype_rename.Size = new System.Drawing.Size(223, 26);
             this.comboBox_timetype_rename.TabIndex = 43;
-            // 
-            // label99
-            // 
-            this.label99.Font = new System.Drawing.Font("宋体", 10F);
-            this.label99.Location = new System.Drawing.Point(6, 105);
-            this.label99.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(106, 28);
-            this.label99.TabIndex = 61;
-            this.label99.Text = "时间格式:";
             // 
             // comboBox7
             // 
@@ -6092,16 +6105,6 @@
             this.source_copyfile_button_rename.UseVisualStyleBackColor = true;
             this.source_copyfile_button_rename.Click += new System.EventHandler(this.OpenFile_button_Click);
             // 
-            // label82
-            // 
-            this.label82.Font = new System.Drawing.Font("宋体", 10F);
-            this.label82.Location = new System.Drawing.Point(0, 74);
-            this.label82.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(152, 36);
-            this.label82.TabIndex = 38;
-            this.label82.Text = "文件名前缀:";
-            // 
             // checkBox16
             // 
             this.checkBox16.AutoSize = true;
@@ -6145,6 +6148,26 @@
             this.checkBox_systemtime_rename.TabIndex = 45;
             this.checkBox_systemtime_rename.Text = "文件时间（默认系统时间）";
             this.checkBox_systemtime_rename.UseVisualStyleBackColor = true;
+            // 
+            // label99
+            // 
+            this.label99.Font = new System.Drawing.Font("宋体", 10F);
+            this.label99.Location = new System.Drawing.Point(6, 105);
+            this.label99.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(106, 28);
+            this.label99.TabIndex = 61;
+            this.label99.Text = "时间格式:";
+            // 
+            // label82
+            // 
+            this.label82.Font = new System.Drawing.Font("宋体", 10F);
+            this.label82.Location = new System.Drawing.Point(0, 74);
+            this.label82.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(152, 36);
+            this.label82.TabIndex = 38;
+            this.label82.Text = "文件名前缀:";
             // 
             // tabPage6
             // 
@@ -8890,28 +8913,6 @@
             this.toolStripMenuItem148.Size = new System.Drawing.Size(175, 30);
             this.toolStripMenuItem148.Text = "定位最高Bit";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(698, 104);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(61, 22);
-            this.checkBox1.TabIndex = 71;
-            this.checkBox1.Text = "MD5";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(756, 104);
-            this.checkBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(79, 22);
-            this.checkBox7.TabIndex = 72;
-            this.checkBox7.Text = "CRC32";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -8923,7 +8924,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.7.4";
+            this.Text = "SYD_Calculator V2.7.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

@@ -335,31 +335,41 @@ namespace SYD_COPY_FILE
         }
         private void reopen_source_file_button_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("点击确认按钮后将重新更新输入数据,\r\n当前界面下的输入框数据将会被丢失,\r\n请谨慎选择!", "是否重载数据?", MessageBoxButtons.OKCancel);
-
-            if (dr == DialogResult.Cancel)
+            if (open_last_source_file_button.Text == "打开配置文件")
             {
-                return;
-            }
-            string filepath = source_file_textBox.Text;//等到的完整的文件名
-            if (System.IO.File.Exists(filepath) == false)  //如果存在返回值为true，如果不存在这个文件，则返回值为false
-            {
-                MessageBox.Show("源文件设置出错!");
-                return;
-            }
-            if (sender == open_last_source_file_button)
-            {
-                FileTimeInfo fti = GetLatestFileTimeInfo(filepath);
-                if ((fti == null) || (fti.FileName == ""))
+                if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Http_Requst)
                 {
-                    MessageBox.Show("输入路径没有该类文件!");
+                    Process.Start("notepad.exe", Directory.GetCurrentDirectory() + "\\default\\default_Http_Requst.txt");
+                }
+            }
+            else
+            {
+                DialogResult dr = MessageBox.Show("点击确认按钮后将重新更新输入数据,\r\n当前界面下的输入框数据将会被丢失,\r\n请谨慎选择!", "是否重载数据?", MessageBoxButtons.OKCancel);
+
+                if (dr == DialogResult.Cancel)
+                {
                     return;
                 }
-                source_file_textBox.Text = fti.FileName;
+                string filepath = source_file_textBox.Text;//等到的完整的文件名
+                if (System.IO.File.Exists(filepath) == false)  //如果存在返回值为true，如果不存在这个文件，则返回值为false
+                {
+                    MessageBox.Show("源文件设置出错!");
+                    return;
+                }
+                if (sender == open_last_source_file_button)
+                {
+                    FileTimeInfo fti = GetLatestFileTimeInfo(filepath);
+                    if ((fti == null) || (fti.FileName == ""))
+                    {
+                        MessageBox.Show("输入路径没有该类文件!");
+                        return;
+                    }
+                    source_file_textBox.Text = fti.FileName;
+                }
+                textInput.Text = reintput_file(source_file_textBox.Text);
+                label_intputsize.Text = (textInput.Text.Length / 2).ToString();
+                StripStatusLabelSet("重载文件完成");
             }
-            textInput.Text = reintput_file(source_file_textBox.Text);
-            label_intputsize.Text = (textInput.Text.Length / 2).ToString();
-            StripStatusLabelSet("重载文件完成");
         }
         private void source_file_textBox_DragEnter(object sender, DragEventArgs e)
         {
@@ -459,7 +469,7 @@ namespace SYD_COPY_FILE
             //string orgTxt1 = HoverTreeClearMark(textInput.Text.Trim());
             string orgTxt1 = textInput.Text.Trim();
 
-            orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace("\r\n", "");
+            orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace(" ", "").Replace("-", "").Replace("\r\n", "");
             //List<string> lstArray = orgTxt1.Split(new char[1] { ';' }).ToList();
             List<string> lstArray = new List<string>();
 
@@ -3238,6 +3248,7 @@ namespace SYD_COPY_FILE
             this.label_key_word.Text = "关键字";
             this.source_file_button.Text = "选择文件";
             this.label_outfile.Text = "输出文件名称:";
+            open_last_source_file_button.Text = "调入最新文件";
             if (comboBox_indicate_text.Count > 0)
             {
                 comboBox_indicate.Items.Clear();
@@ -3428,7 +3439,13 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Http_Requst)
             {
-                textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Http_Requst.txt", Encoding.Default);
+                IEnumerable<string> lines = File.ReadLines(Directory.GetCurrentDirectory() + "\\default\\default_Http_Requst.txt");
+                this.comboBox_datatype.Items.Clear();
+                foreach (string item in lines)
+                {
+                    this.comboBox_datatype.Items.Add(item);
+                }
+                open_last_source_file_button.Text = "打开配置文件";
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Get_ARR)
             {
@@ -3718,6 +3735,20 @@ namespace SYD_COPY_FILE
             else
             {
                 arr_restore_Defaults_Adjust(true);
+            }
+        }
+
+        private void comboBox_datatype_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Http_Requst)
+            {
+                string  str= comboBox_datatype.Text;
+                int index = str.IndexOf(":");
+                if (index != -1)
+                {
+                    str = str.Remove(0, index+1);
+                    textInput.Text = str.Trim();
+                }
             }
         }
         private void combobox_key_TextChanged(object sender, EventArgs e)

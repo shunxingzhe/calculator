@@ -1,1 +1,6 @@
-https://1304918232-k6opbyb9bl.ap-guangzhou.tencentscf.com/RequestJson?id=V00081043360615
+请求云函数:https://1304918232-k6opbyb9bl.ap-guangzhou.tencentscf.com/RequestJson?id=V00081043360615
+开:http://flyzl.cn:8099/send?cmd=5008&device_id=250323000000&params=010101
+切换门:http://flyzl.cn:8099/send?cmd=5008&device_id=250323000000&params=0103FF
+学习遥控器:http://flyzl.cn:8099/send?cmd=5008&device_id=250323000000&params=010103
+暂停:http://flyzl.cn:8099/send?cmd=5008&device_id=250323000000&params=010104  
+锁:http://flyzl.cn:8099/send?cmd=5008&device_id=250323000000&params=010105  
