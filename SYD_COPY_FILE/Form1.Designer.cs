@@ -4537,6 +4537,7 @@
             this.label6.Size = new System.Drawing.Size(35, 18);
             this.label6.TabIndex = 55;
             this.label6.Text = "dec";
+            this.toolTip1.SetToolTip(this.label6, "左键单击放大缩小,右键单击重置输入数据");
             this.label6.Click += new System.EventHandler(this.label4_Click);
             // 
             // label1
@@ -4548,6 +4549,7 @@
             this.label1.Size = new System.Drawing.Size(35, 18);
             this.label1.TabIndex = 24;
             this.label1.Text = "dec";
+            this.toolTip1.SetToolTip(this.label1, "左键单击放大缩小,右键单击重置输入数据");
             this.label1.Click += new System.EventHandler(this.label4_Click);
             // 
             // label4
@@ -4559,6 +4561,7 @@
             this.label4.Size = new System.Drawing.Size(35, 18);
             this.label4.TabIndex = 46;
             this.label4.Text = "dec";
+            this.toolTip1.SetToolTip(this.label4, "左键单击放大缩小,右键单击重置输入数据");
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // checkBox18
@@ -8924,7 +8927,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.7.5";
+            this.Text = "SYD_Calculator V2.7.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
