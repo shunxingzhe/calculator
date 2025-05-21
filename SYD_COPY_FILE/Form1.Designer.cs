@@ -2093,13 +2093,13 @@
             "QQ空间图片查重/生成字库Font txt to bin",
             "DSView analysis逻辑分析仪数据分析",
             "Chinese to utf8/ASCII",
-            "Keil读回的内存分析",
+            "Bytes to utf8(ASCII)/C#数组处理/Jlink数组处理",
             "Text/ARR to bin",
             "找到目前可以用的最小关键词指定的元组序号",
             "C语言结构体计算偏移/从C文件提炼数组声明",
-            "XOR/求和/(时间)差值运算",
+            "XOR/求和/CRC/(时间)差值运算",
             "Rtc批量时间差计算",
-            "Bytes to utf8(ASCII)/C#数组处理/Jlink数组处理",
+            "Keil读回的内存分析",
             "根据要求提取行或列",
             "Http请求",
             "生成特定数组",
@@ -2168,7 +2168,7 @@
             this.textInput.Multiline = true;
             this.textInput.Name = "textInput";
             this.textInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textInput.Size = new System.Drawing.Size(1120, 410);
+            this.textInput.Size = new System.Drawing.Size(1128, 410);
             this.textInput.TabIndex = 0;
             this.textInput.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseClick);
             this.textInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseDown);
@@ -2434,7 +2434,7 @@
             this.richTextBox_out.Multiline = true;
             this.richTextBox_out.Name = "richTextBox_out";
             this.richTextBox_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.richTextBox_out.Size = new System.Drawing.Size(1116, 186);
+            this.richTextBox_out.Size = new System.Drawing.Size(1125, 186);
             this.richTextBox_out.TabIndex = 1;
             this.richTextBox_out.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseClick);
             this.richTextBox_out.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseDown);
@@ -4520,7 +4520,7 @@
             // 
             // checkBox8
             // 
-            this.checkBox8.Location = new System.Drawing.Point(3, 22);
+            this.checkBox8.Location = new System.Drawing.Point(2, 22);
             this.checkBox8.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(64, 27);
@@ -8927,7 +8927,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "SYD_Calculator V2.7.6";
+            this.Text = "SYD_Calculator V2.7.7";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

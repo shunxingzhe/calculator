@@ -1534,6 +1534,13 @@ namespace SYD_COPY_FILE
             textBox_section3.Text = "0x00000000";
             textBox_section4.Text = "0x00000000";
             textBox_section5.Text = "0x00000000";
+            textBox_sectionout1.Text = "";
+            textBox_sectionout2.Text = "";
+            textBox_sectionout3.Text = "";
+            textBox_sectionout4.Text = "";
+            textBox_sectionout5.Text = "";
+            textBox_sectionout6.Text = "";
+            textBox_splitbinfile.Text = "";
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -1544,6 +1551,13 @@ namespace SYD_COPY_FILE
             textBox_combin_section4.Text = "0x00000000";
             textBox_combin_section5.Text = "0x00000000";
             textBox_combin_section6.Text = "0x00000000";
+            textBox_sectionintput1.Text = "";
+            textBox_sectionintput2.Text = "";
+            textBox_sectionintput3.Text = "";
+            textBox_sectionintput4.Text = "";
+            textBox_sectionintput5.Text = "";
+            textBox_sectionintput6.Text = "";
+            textBox_sectionoutput.Text = "";
         }
         private void source_copyfile_textBox_sync_TextChanged(object sender, EventArgs e)
         {

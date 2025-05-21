@@ -35,6 +35,8 @@ namespace SYD_COPY_FILE
         private static bool pictureBox_interface_ismin = true;
         private static bool SC_MAX = false;
         //Arithmetic.dll
+        [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "crc8_fun", CallingConvention = CallingConvention.Cdecl)]
+        private static extern byte crc8_fun(byte[] buf, UInt32 size);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "crc32_fun", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 crc32_fun(byte[] buf, UInt32 size);
         [System.Runtime.InteropServices.DllImport("Arithmetic.dll", EntryPoint = "Dll_log_read", CallingConvention = CallingConvention.Cdecl)]
@@ -87,7 +89,47 @@ namespace SYD_COPY_FILE
             TabCrontrol.SelectedIndex = 5;
             comboBox_piecwise_mode.SelectedIndex = 1;
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            copy_file_uninit();
+            UIgen_uninit();
+            Settings1.Default.Save();
+        }
+        const int WM_SYSCOMMAND = 0x112;
+        const int SC_CLOSE = 0xF060;
+        const int SC_MINIMIZE = 0xF020;
+        const int SC_MAXIMIZE = 0xF030;
+        const int SC_RESTORE = 61728;
+        //窗体按钮的拦截函数
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_SYSCOMMAND)
+            {
+                if (m.WParam.ToInt32() == SC_RESTORE)
+                {
+                    //log.Info("窗口还原！");
+                }
+                if (m.WParam.ToInt32() == SC_MINIMIZE)  //拦截最小化按钮
+                {
+                    //这里写操作代码
+                    //log.Info("点击最小化按钮！");
+                }
+                if (m.WParam.ToInt32() == SC_MAXIMIZE)   //拦截窗体最大化按钮
+                {
+                    //log.Info("点击最大化按钮！");
+                    SC_MAX = true;
+                }
+                if (m.WParam.ToInt32() == SC_CLOSE)       //拦截窗体关闭按钮
+                {
+                    //log.Info("点击窗口关闭按钮！");
+                }
+            }
+            base.WndProc(ref m);
+        }
         /// <summary>
         /// 计算字符串解析表达式 1+2(2*(3+4))
         /// </summary>
@@ -720,11 +762,6 @@ namespace SYD_COPY_FILE
 
             return buff;
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
         private void pictureBoxinterface_Doing(bool min)
         {
             if (min == true)
@@ -1291,50 +1328,6 @@ namespace SYD_COPY_FILE
                 e.Handled = true;
             }
         }
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            copy_file_uninit();
-            UIgen_uninit();
-            Settings1.Default.Save();
-        }
-
-
-        const int WM_SYSCOMMAND = 0x112;
-
-        const int SC_CLOSE = 0xF060;
-
-        const int SC_MINIMIZE = 0xF020;
-
-        const int SC_MAXIMIZE = 0xF030;
-
-        const int SC_RESTORE = 61728;
-        //窗体按钮的拦截函数
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == WM_SYSCOMMAND)
-            {
-                if (m.WParam.ToInt32() == SC_RESTORE)
-                {
-                    //log.Info("窗口还原！");
-                }
-                if (m.WParam.ToInt32() == SC_MINIMIZE)  //拦截最小化按钮
-                {
-                    //这里写操作代码
-                    //log.Info("点击最小化按钮！");
-                }
-                if (m.WParam.ToInt32() == SC_MAXIMIZE)   //拦截窗体最大化按钮
-                {
-                    //log.Info("点击最大化按钮！");
-                    SC_MAX = true;
-                }
-                if (m.WParam.ToInt32() == SC_CLOSE)       //拦截窗体关闭按钮
-                {
-                    //log.Info("点击窗口关闭按钮！");
-                }
-            }
-
-            base.WndProc(ref m);
-        }
         private void turn_text_color(object sender)//翻转字体颜色，让使用者更容易知道该值改变了
         {
             if (sender is TextBox)
@@ -1430,7 +1423,7 @@ namespace SYD_COPY_FILE
 
         private void textBoxTrim_Leave(object sender, EventArgs e)
         {
-            ((TextBox)sender).Text = ((TextBox)sender).Text.Trim();
+            ((TextBox)sender).Text = ((TextBox)sender).Text.Replace(" ","");
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

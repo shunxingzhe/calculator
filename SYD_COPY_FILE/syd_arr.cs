@@ -61,13 +61,13 @@ namespace SYD_COPY_FILE
             Font_txt_to_bin,
             DSView_analysis,
             Chinese_to_utf8,
-            Keil_memery_analysis,//5
+            Bytes_to_utf8,
             ARR_to_bin,
             Fine_max_not_use_index,
             C_struct_element_size,
             Cmd_XOR,
             Rtc_Deviation,//13
-            Bytes_to_utf8,
+            Keil_memery_analysis,//5
             Get_Row,
             Http_Requst,
             Get_ARR,
@@ -1339,7 +1339,12 @@ namespace SYD_COPY_FILE
             }
             return true;
         }
-
+        private string Data_Transition(string input)
+        {
+            if (combobox_key.SelectedIndex == 1)
+                input = HexStringAdd0x(input);
+            return input;
+        }
         private void Data_reversal()
         {
             int i = 0;
@@ -1348,7 +1353,7 @@ namespace SYD_COPY_FILE
 
             richTextBox_out.Text = "";
             string str = "", str1 = "";
-
+            
             if (comboBox_additional_operations.SelectedIndex == 2)
             {
                 orgTxt1 = textInput.Text;
@@ -1361,8 +1366,7 @@ namespace SYD_COPY_FILE
                         str = str.Replace("0X", "").Replace("0x", "").Replace(",", "");
                         str = Byte_reversal_endian(str);
                     }
-                    //richTextBox_out.AppendText(str + "\r\n");
-                    str1 += str + "\r\n";
+                    str1 += Data_Transition(str) + "\r\n";
                 }
                 richTextBox_out.Text = str1;
             }
@@ -1391,12 +1395,12 @@ namespace SYD_COPY_FILE
                         }
                     }
                     strArray[i] = Byte_reversal(str);
-                    richTextBox_out.AppendText(strArray[i] + "\r\n");
+                    str1 += Data_Transition(str) + "\r\n";
                 }
 
-                if (comboBox_additional_operations.SelectedIndex == 0)
+                if (comboBox_additional_operations.SelectedIndex == 1)
                 {
-                    richTextBox_out.AppendText("\r\n" + "difference value:" + "\r\n");
+                    str1 += "\r\n" + "difference value:" + "\r\n";
                     for (i = 0; i < lstArray.Count / 2; i++)
                     {
                         if ((strArray[i].Length <= 16) && (strArray[i + 1].Length <= 16))
@@ -1405,19 +1409,20 @@ namespace SYD_COPY_FILE
                             UInt64 m = Convert.ToUInt64(strArray[i + 1], 16);
                             if (m >= n)
                             {
-                                richTextBox_out.AppendText("0X" + (m - n).ToString("X") + "\r\n");
+                                str1 += "0X" + (m - n).ToString("X") + "\r\n";
                             }
                             else
                             {
-                                richTextBox_out.AppendText("Error m<n\r\n");
+                                str1 += "Error m<n\r\n";
                             }
                         }
                         else
                         {
-                            richTextBox_out.AppendText("Error m>16 || n>16\r\n");
+                            str1 += "Error m>16 || n>16\r\n";
                         }
                     }
                 }
+                richTextBox_out.Text = str1;
             }
 
             StripStatusLabelSet("保存成功!");
@@ -1453,28 +1458,28 @@ namespace SYD_COPY_FILE
             {
                 for (i = 0; i < (str.Length / 4); i++)
                 {
-                    str_out += getUInt16FromString(str, i * 4).ToString("X4") + "\r\n";
+                    str_out += Data_Transition(getUInt16FromString(str, i * 4).ToString("X4")) + "\r\n";
                 }
             }
             else if (comboBox_additional_operations.SelectedIndex == 1)
             {
                 for (i = 0; i < (str.Length / 4); i++)
                 {
-                    str_out += getUInt32FromString(str, i * 4).ToString("X8") + "\r\n";
+                    str_out += Data_Transition(getUInt32FromString(str, i * 4).ToString("X8")) + "\r\n";
                 }
             }
             if (comboBox_additional_operations.SelectedIndex == 2)
             {
                 for (i = 0; i < (str.Length / 4); i++)
                 {
-                    str_out += getUInt16FromString(str, i * 4).ToString() + "\r\n";
+                    str_out += Data_Transition(getUInt16FromString(str, i * 4).ToString()) + "\r\n";
                 }
             }
             else if (comboBox_additional_operations.SelectedIndex == 3)
             {
                 for (i = 0; i < (str.Length / 8); i++)
                 {
-                    str_out += getUInt32FromString(str, i * 8).ToString() + "\r\n";
+                    str_out += Data_Transition(getUInt32FromString(str, i * 8).ToString()) + "\r\n";
                 }
             }
             richTextBox_out.Text = str_out;
@@ -1820,14 +1825,17 @@ namespace SYD_COPY_FILE
                     for (i = 0; i < lstArray.Count; i++)
                     {
                         byte[] data = strToHexByte(lstArray[i]);
-                        byte crc = 0;
+                        byte xor = 0;
                         UInt32 sum = 0;
                         for (int j = 0; j < data.Length; j++)
                         {
-                            crc ^= data[j];
+                            xor ^= data[j];
                             sum += data[j];
                         }
-                        richTextBox_out.AppendText("xor:" + crc.ToString("X") + "  sum:" + sum.ToString("X") + "\r\n");
+
+                        UInt32 crc32 = crc32_fun(data, (uint)data.Length);
+                        byte crc8 = crc8_fun(data, (uint)data.Length);
+                        richTextBox_out.AppendText("crc8:" + crc8.ToString("X") + "  crc32:" + crc32.ToString("X") + "  xor:" + xor.ToString("X") + "  sum:" + sum.ToString("X") + "\r\n");
                     }
                 }
                 else if (comboBox_fonttype.SelectedIndex == 1)//DEC
@@ -3384,7 +3392,7 @@ namespace SYD_COPY_FILE
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor.txt", Encoding.Default);
 
                 this.comboBox_datatype.Items.Clear();
-                this.comboBox_datatype.Items.Add("XOR/求和");
+                this.comboBox_datatype.Items.Add("XOR/求和/CRC");
                 this.comboBox_datatype.Items.Add("计算数据差值");
                 this.comboBox_datatype.Items.Add("计算时间差值(Only Dec)");
                 this.label_data_type.Text = "功能选择：";
@@ -3642,8 +3650,8 @@ namespace SYD_COPY_FILE
                     if (comboBox_datatype.SelectedIndex == 6)
                     {
                         this.comboBox_additional_operations.Items.Clear();
-                        this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,并计算第二行-第一行");
                         this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,不计算数据");
+                        this.comboBox_additional_operations.Items.Add("以整行数据作为整体翻转高低字节,实现输入数据的X轴对称,并计算第二行-第一行");
                         this.comboBox_additional_operations.Items.Add("寻找有用行(非注释行)按字节调换大小端");
                         this.comboBox_fonttype.Items.Clear();
                         this.comboBox_fonttype.Items.Add("不带0X的数据");
@@ -3663,9 +3671,11 @@ namespace SYD_COPY_FILE
                     }
 
                     this.label_additional_operations.Text = "处理模式：";
-
-
                     this.label_font_type.Text = "数据类型：";
+                    this.label_key_word.Text = "输出式：";
+                    this.combobox_key.Items.Clear();
+                    this.combobox_key.Items.Add("不带0X的数据");
+                    this.combobox_key.Items.Add("带0X的数据");
                 }
                 else if (comboBox_datatype.SelectedIndex == 8)
                 {

@@ -120,19 +120,15 @@ namespace SYD_COPY_FILE
             UInt64 data = Convert.ToUInt64(s);
             return "0x"+data.ToString(f);
         }
-        //0B 0A 09 08
-        public string HexStringToString(string hs, Encoding encode)
+        //0B0A0908-->0x0B,0x0A,0x09,0x08,
+        public string HexStringAdd0x(string hs)
         {
-            //以%分割字符串，并去掉空字符
-            string[] chars = hs.Split(new char[] { '%' }, StringSplitOptions.RemoveEmptyEntries);
-            byte[] b = new byte[chars.Length];
-            //逐个字符变为16进制字节数据
-            for (int i = 0; i < chars.Length; i++)
+            string str = "";
+            for (int i = 0; i < (hs.Length/2); i++)
             {
-                b[i] = Convert.ToByte(chars[i], 16);
+                str += "0x" + hs.Substring(i * 2, 2) + ",";
             }
-            //按照指定编码将字节数组变为字符串
-            return encode.GetString(b);
+            return str;
         }
         ////0x23128560-->588416352
         private string HexStringToString(string hs)
