@@ -3772,7 +3772,7 @@ namespace SYD_COPY_FILE
         {
             if (ArrFontSelectedIndex == comboBox_fonttype.SelectedIndex) return;
             ArrFontSelectedIndex = comboBox_fonttype.SelectedIndex;
-            if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR) && ((comboBox_fonttype.SelectedIndex == 1) || (comboBox_fonttype.SelectedIndex == 2)))
+            if ((comboBox_mode.SelectedIndex == (int)comboBox_mode_type.BIN_to_ARR) && ((comboBox_fonttype.SelectedIndex == 0) || (comboBox_fonttype.SelectedIndex == 1) || (comboBox_fonttype.SelectedIndex == 2) || (comboBox_fonttype.SelectedIndex == 3)))
             {
                 this.label_key_word.Text = "数组名:";
                 this.label_indicator.Text = "文件名:";
