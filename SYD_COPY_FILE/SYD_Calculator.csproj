@@ -53,7 +53,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo_48X48.ico</ApplicationIcon>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -177,7 +177,7 @@
     <Content Include="image\File.jpg" />
     <Content Include="image\Folder.png" />
     <None Include="image\zip.jpg" />
-    <Content Include="logo_48X48.ico" />
+    <Content Include="logo.ico" />
     <None Include="Settings1.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
