@@ -469,6 +469,15 @@ namespace SYD_COPY_FILE
             //string orgTxt1 = HoverTreeClearMark(textInput.Text.Trim());
             string orgTxt1 = textInput.Text.Trim();
 
+            if (comboBox_fonttype.SelectedIndex == 6)
+            {
+                byte[] bt = Convert.FromBase64String(orgTxt1);
+                str = byteToHexStr(bt);
+                textInput.Text = str;
+                orgTxt1 = textInput.Text.Trim();
+                str = "";
+            }
+
             orgTxt1 = orgTxt1.Replace("\n", "").Replace("\r", "").Replace("\t", "").Replace("0X", "").Replace("0x", "").Replace(",", "").Replace(" ", "").Replace("-", "").Replace("\r\n", "");
             //List<string> lstArray = orgTxt1.Split(new char[1] { ';' }).ToList();
             List<string> lstArray = new List<string>();
@@ -3311,6 +3320,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_fonttype.Items.Add("WAV文件16SBit_8Khz转8Bit_8Khz(不生成wav)");
                 this.comboBox_fonttype.Items.Add("先用ffmpeg转WAV文件为16SBit_8Khz再转8Bit_8Khz(不生成wav)");
                 this.comboBox_fonttype.Items.Add("根据指定的DB音量用ffmpeg转WAV文件(不加载文件)");
+                this.comboBox_fonttype.Items.Add("先把Base64转成HEX数据");
                 this.label_font_type.Text = "输出处理：";
 
                 this.comboBox_additional_operations.Items.Clear();
