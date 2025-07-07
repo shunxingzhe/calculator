@@ -491,6 +491,19 @@ namespace SYD_COPY_FILE
         }
         private string time_difference_subtract(string a, string b, int c, TextBox testbox_display, TextBox testbox_display_timestamp)
         {
+            if ((a.Length == 17)&& (a.Contains(":") == true))//20250707_15:43:32
+            {
+                a = a.Replace(":", "");
+            }
+            if ((b.Length == 17) && (b.Contains(":") == true))//20250707_15:43:32
+            {
+                b = b.Replace(":", "");
+            }
+            if (a.Length!=b.Length)
+            {
+                MessageBox.Show("two input length are different.");
+                return "";
+            }
             if (a.Length > 13)
             {
                 if (a.Contains(":") == true)
@@ -842,11 +855,7 @@ namespace SYD_COPY_FILE
             TextBox Day_textBox = textBox25;
             TextBox Output_time_textBox = textBox23;
             TextBox Output_hexsecond_textBox = textBox56;
-            if ((Button)(sender) == Calendar_Time_Difference_Cal)
-            {
-
-            }
-            else if ((Button)(sender) == Calendar_Time_Difference_Cal1)
+            if ((Button)(sender) == Calendar_Time_Difference_Cal1)
             {
                 Now_Time_textBox = textBox29;
                 Before_Time_textBox = textBox28;
@@ -861,6 +870,14 @@ namespace SYD_COPY_FILE
                 Day_textBox = textBox30;
                 Output_time_textBox = textBox34;
                 Output_hexsecond_textBox = textBox60;
+            }
+            else if ((Button)(sender) == Calendar_Time_Difference_Cal3)
+            {
+                Now_Time_textBox = textBox17;
+                Before_Time_textBox = textBox16;
+                Day_textBox = textBox14;
+                Output_time_textBox = textBox15;
+                Output_hexsecond_textBox = textBox13;
             }
 
             if ((Now_Time_textBox.Text.Length == 0) || (Before_Time_textBox.Text.Length == 0))
@@ -895,6 +912,10 @@ namespace SYD_COPY_FILE
             {
                 TextBox_increment(textBox30);
             }
+            else if ((Label)(sender) == label9)
+            {
+                TextBox_increment(textBox14);
+            }
         }
         private void timestamp_Difference_cal_Click(object sender, EventArgs e)
         {
@@ -902,21 +923,11 @@ namespace SYD_COPY_FILE
             TextBox Before_timestamp_textBox = textBox36;
             TextBox Output_timestamp_textBox = textBox35;
 
-            if ((Button)(sender) == timestamp_Difference_cal)
-            {
-
-            }
-            else if ((Button)(sender) == timestamp_Difference_cal1)
+            if ((Button)(sender) == timestamp_Difference_cal1)
             {
                 Now_timestamp_textBox = textBox33;
                 Before_timestamp_textBox = textBox32;
                 Output_timestamp_textBox = textBox31;
-            }
-            else if ((Button)(sender) == timestamp_Difference_cal2)
-            {
-                Now_timestamp_textBox = textBox42;
-                Before_timestamp_textBox = textBox41;
-                Output_timestamp_textBox = textBox40;
             }
 
             if ((Now_timestamp_textBox.Text.Length == 0) || (Before_timestamp_textBox.Text.Length == 0))
@@ -1423,6 +1434,11 @@ namespace SYD_COPY_FILE
 
         private void textBoxTrim_Leave(object sender, EventArgs e)
         {
+            ((TextBox)sender).Text = ((TextBox)sender).Text.Trim();
+        }
+
+        private void textBoxRemoveBlack_Leave(object sender, EventArgs e)
+        {
             ((TextBox)sender).Text = ((TextBox)sender).Text.Replace(" ","");
         }
 
@@ -1461,8 +1477,6 @@ namespace SYD_COPY_FILE
                 textBox_HexStringToString(textBox36);
                 textBox_HexStringToString(textBox33);
                 textBox_HexStringToString(textBox32);
-                textBox_HexStringToString(textBox42);
-                textBox_HexStringToString(textBox41);
             }
             else
             {
@@ -1470,8 +1484,6 @@ namespace SYD_COPY_FILE
                 textBox_StringToHexString(textBox36);
                 textBox_StringToHexString(textBox33);
                 textBox_StringToHexString(textBox32);
-                textBox_StringToHexString(textBox42);
-                textBox_StringToHexString(textBox41);
             }
         }
 
@@ -1504,13 +1516,11 @@ namespace SYD_COPY_FILE
             {
                 textBox36.Enabled = true;
                 textBox32.Enabled = true;
-                textBox41.Enabled = true;
             }
             else
             {
                 textBox36.Enabled = false;
                 textBox32.Enabled = false;
-                textBox41.Enabled = false;
             }
         }
 
