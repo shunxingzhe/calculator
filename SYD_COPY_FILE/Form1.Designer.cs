@@ -271,6 +271,9 @@
             this.label107 = new System.Windows.Forms.Label();
             this.button34 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
             this.textBox59 = new System.Windows.Forms.TextBox();
             this.textBox58 = new System.Windows.Forms.TextBox();
             this.textBox55 = new System.Windows.Forms.TextBox();
@@ -3895,6 +3898,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox18);
+            this.groupBox1.Controls.Add(this.textBox19);
+            this.groupBox1.Controls.Add(this.textBox20);
             this.groupBox1.Controls.Add(this.textBox59);
             this.groupBox1.Controls.Add(this.textBox58);
             this.groupBox1.Controls.Add(this.textBox55);
@@ -3955,37 +3961,64 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "calculator";
             // 
+            // textBox18
+            // 
+            this.textBox18.AllowDrop = true;
+            this.textBox18.Location = new System.Drawing.Point(1069, 88);
+            this.textBox18.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(50, 28);
+            this.textBox18.TabIndex = 81;
+            // 
+            // textBox19
+            // 
+            this.textBox19.AllowDrop = true;
+            this.textBox19.Location = new System.Drawing.Point(1069, 55);
+            this.textBox19.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(50, 28);
+            this.textBox19.TabIndex = 80;
+            // 
+            // textBox20
+            // 
+            this.textBox20.AllowDrop = true;
+            this.textBox20.Location = new System.Drawing.Point(1069, 22);
+            this.textBox20.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(50, 28);
+            this.textBox20.TabIndex = 79;
+            // 
             // textBox59
             // 
             this.textBox59.AllowDrop = true;
-            this.textBox59.Location = new System.Drawing.Point(1038, 87);
+            this.textBox59.Location = new System.Drawing.Point(994, 87);
             this.textBox59.Margin = new System.Windows.Forms.Padding(4);
             this.textBox59.Name = "textBox59";
-            this.textBox59.Size = new System.Drawing.Size(79, 28);
+            this.textBox59.Size = new System.Drawing.Size(70, 28);
             this.textBox59.TabIndex = 75;
             // 
             // textBox58
             // 
             this.textBox58.AllowDrop = true;
-            this.textBox58.Location = new System.Drawing.Point(1038, 54);
+            this.textBox58.Location = new System.Drawing.Point(994, 54);
             this.textBox58.Margin = new System.Windows.Forms.Padding(4);
             this.textBox58.Name = "textBox58";
-            this.textBox58.Size = new System.Drawing.Size(79, 28);
+            this.textBox58.Size = new System.Drawing.Size(70, 28);
             this.textBox58.TabIndex = 74;
             // 
             // textBox55
             // 
             this.textBox55.AllowDrop = true;
-            this.textBox55.Location = new System.Drawing.Point(1038, 21);
+            this.textBox55.Location = new System.Drawing.Point(994, 21);
             this.textBox55.Margin = new System.Windows.Forms.Padding(4);
             this.textBox55.Name = "textBox55";
-            this.textBox55.Size = new System.Drawing.Size(79, 28);
+            this.textBox55.Size = new System.Drawing.Size(70, 28);
             this.textBox55.TabIndex = 73;
             // 
             // label142
             // 
             this.label142.AutoSize = true;
-            this.label142.Location = new System.Drawing.Point(1023, 90);
+            this.label142.Location = new System.Drawing.Point(979, 90);
             this.label142.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label142.Name = "label142";
             this.label142.Size = new System.Drawing.Size(17, 18);
@@ -3995,7 +4028,7 @@
             // label141
             // 
             this.label141.AutoSize = true;
-            this.label141.Location = new System.Drawing.Point(1023, 58);
+            this.label141.Location = new System.Drawing.Point(979, 58);
             this.label141.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label141.Name = "label141";
             this.label141.Size = new System.Drawing.Size(17, 18);
@@ -4005,7 +4038,7 @@
             // label140
             // 
             this.label140.AutoSize = true;
-            this.label140.Location = new System.Drawing.Point(1023, 26);
+            this.label140.Location = new System.Drawing.Point(979, 26);
             this.label140.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label140.Name = "label140";
             this.label140.Size = new System.Drawing.Size(17, 18);
@@ -4024,7 +4057,7 @@
             "&",
             "|",
             "^"});
-            this.comboBox12.Location = new System.Drawing.Point(891, 86);
+            this.comboBox12.Location = new System.Drawing.Point(867, 86);
             this.comboBox12.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox12.Name = "comboBox12";
             this.comboBox12.Size = new System.Drawing.Size(43, 26);
@@ -4034,10 +4067,10 @@
             // textBox51
             // 
             this.textBox51.AllowDrop = true;
-            this.textBox51.Location = new System.Drawing.Point(942, 86);
+            this.textBox51.Location = new System.Drawing.Point(916, 86);
             this.textBox51.Margin = new System.Windows.Forms.Padding(4);
             this.textBox51.Name = "textBox51";
-            this.textBox51.Size = new System.Drawing.Size(79, 28);
+            this.textBox51.Size = new System.Drawing.Size(65, 28);
             this.textBox51.TabIndex = 68;
             this.textBox51.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
@@ -4053,7 +4086,7 @@
             "&",
             "|",
             "^"});
-            this.comboBox13.Location = new System.Drawing.Point(891, 20);
+            this.comboBox13.Location = new System.Drawing.Point(867, 20);
             this.comboBox13.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox13.Name = "comboBox13";
             this.comboBox13.Size = new System.Drawing.Size(43, 26);
@@ -4073,7 +4106,7 @@
             "&",
             "|",
             "^"});
-            this.comboBox14.Location = new System.Drawing.Point(891, 52);
+            this.comboBox14.Location = new System.Drawing.Point(867, 52);
             this.comboBox14.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox14.Name = "comboBox14";
             this.comboBox14.Size = new System.Drawing.Size(43, 26);
@@ -4083,20 +4116,20 @@
             // textBox52
             // 
             this.textBox52.AllowDrop = true;
-            this.textBox52.Location = new System.Drawing.Point(942, 20);
+            this.textBox52.Location = new System.Drawing.Point(916, 20);
             this.textBox52.Margin = new System.Windows.Forms.Padding(4);
             this.textBox52.Name = "textBox52";
-            this.textBox52.Size = new System.Drawing.Size(79, 28);
+            this.textBox52.Size = new System.Drawing.Size(65, 28);
             this.textBox52.TabIndex = 64;
             this.textBox52.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // textBox53
             // 
             this.textBox53.AllowDrop = true;
-            this.textBox53.Location = new System.Drawing.Point(942, 52);
+            this.textBox53.Location = new System.Drawing.Point(916, 52);
             this.textBox53.Margin = new System.Windows.Forms.Padding(4);
             this.textBox53.Name = "textBox53";
-            this.textBox53.Size = new System.Drawing.Size(79, 28);
+            this.textBox53.Size = new System.Drawing.Size(65, 28);
             this.textBox53.TabIndex = 65;
             this.textBox53.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
@@ -4112,7 +4145,7 @@
             "&",
             "|",
             "^"});
-            this.comboBox9.Location = new System.Drawing.Point(756, 86);
+            this.comboBox9.Location = new System.Drawing.Point(748, 86);
             this.comboBox9.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(43, 26);
@@ -4122,10 +4155,10 @@
             // textBox47
             // 
             this.textBox47.AllowDrop = true;
-            this.textBox47.Location = new System.Drawing.Point(807, 86);
+            this.textBox47.Location = new System.Drawing.Point(797, 86);
             this.textBox47.Margin = new System.Windows.Forms.Padding(4);
             this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(79, 28);
+            this.textBox47.Size = new System.Drawing.Size(65, 28);
             this.textBox47.TabIndex = 62;
             this.textBox47.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
@@ -4141,7 +4174,7 @@
             "&",
             "|",
             "^"});
-            this.comboBox10.Location = new System.Drawing.Point(756, 20);
+            this.comboBox10.Location = new System.Drawing.Point(748, 20);
             this.comboBox10.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox10.Name = "comboBox10";
             this.comboBox10.Size = new System.Drawing.Size(43, 26);
@@ -4161,7 +4194,7 @@
             "&",
             "|",
             "^"});
-            this.comboBox11.Location = new System.Drawing.Point(756, 52);
+            this.comboBox11.Location = new System.Drawing.Point(748, 52);
             this.comboBox11.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox11.Name = "comboBox11";
             this.comboBox11.Size = new System.Drawing.Size(43, 26);
@@ -4171,20 +4204,20 @@
             // textBox49
             // 
             this.textBox49.AllowDrop = true;
-            this.textBox49.Location = new System.Drawing.Point(807, 20);
+            this.textBox49.Location = new System.Drawing.Point(797, 19);
             this.textBox49.Margin = new System.Windows.Forms.Padding(4);
             this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(79, 28);
+            this.textBox49.Size = new System.Drawing.Size(65, 28);
             this.textBox49.TabIndex = 58;
             this.textBox49.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // textBox50
             // 
             this.textBox50.AllowDrop = true;
-            this.textBox50.Location = new System.Drawing.Point(807, 52);
+            this.textBox50.Location = new System.Drawing.Point(797, 52);
             this.textBox50.Margin = new System.Windows.Forms.Padding(4);
             this.textBox50.Name = "textBox50";
-            this.textBox50.Size = new System.Drawing.Size(79, 28);
+            this.textBox50.Size = new System.Drawing.Size(65, 28);
             this.textBox50.TabIndex = 59;
             this.textBox50.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
@@ -4202,10 +4235,10 @@
             // textBox12
             // 
             this.textBox12.AllowDrop = true;
-            this.textBox12.Location = new System.Drawing.Point(620, 86);
+            this.textBox12.Location = new System.Drawing.Point(618, 86);
             this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(76, 28);
+            this.textBox12.Size = new System.Drawing.Size(70, 28);
             this.textBox12.TabIndex = 56;
             // 
             // comboBox5
@@ -4305,10 +4338,10 @@
             // textBox10
             // 
             this.textBox10.AllowDrop = true;
-            this.textBox10.Location = new System.Drawing.Point(620, 20);
+            this.textBox10.Location = new System.Drawing.Point(618, 18);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(76, 28);
+            this.textBox10.Size = new System.Drawing.Size(70, 28);
             this.textBox10.TabIndex = 47;
             // 
             // textBox2
@@ -4325,10 +4358,10 @@
             // textBox9
             // 
             this.textBox9.AllowDrop = true;
-            this.textBox9.Location = new System.Drawing.Point(620, 52);
+            this.textBox9.Location = new System.Drawing.Point(618, 52);
             this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(76, 28);
+            this.textBox9.Size = new System.Drawing.Size(70, 28);
             this.textBox9.TabIndex = 25;
             // 
             // comboBox3
@@ -4569,7 +4602,7 @@
             // 
             this.checkBox18.Checked = true;
             this.checkBox18.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox18.Location = new System.Drawing.Point(700, 54);
+            this.checkBox18.Location = new System.Drawing.Point(692, 54);
             this.checkBox18.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox18.Name = "checkBox18";
             this.checkBox18.Size = new System.Drawing.Size(64, 27);
@@ -4581,7 +4614,7 @@
             // 
             this.checkBox20.Checked = true;
             this.checkBox20.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox20.Location = new System.Drawing.Point(700, 87);
+            this.checkBox20.Location = new System.Drawing.Point(692, 87);
             this.checkBox20.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox20.Name = "checkBox20";
             this.checkBox20.Size = new System.Drawing.Size(64, 27);
@@ -4591,7 +4624,7 @@
             // 
             // checkBox19
             // 
-            this.checkBox19.Location = new System.Drawing.Point(700, 21);
+            this.checkBox19.Location = new System.Drawing.Point(692, 21);
             this.checkBox19.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox19.Name = "checkBox19";
             this.checkBox19.Size = new System.Drawing.Size(64, 27);
@@ -8937,7 +8970,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.8.0";
+            this.Text = "Calculator V2.8.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9785,6 +9818,9 @@
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Button Calendar_Time_Difference_Cal3;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox20;
     }
 }
 

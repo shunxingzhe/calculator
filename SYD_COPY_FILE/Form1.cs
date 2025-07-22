@@ -371,7 +371,7 @@ namespace SYD_COPY_FILE
             }
             return num;
         }
-        private void cal_32768_subtract(string a, string b, string multiplier, bool ishex, TextBox textBox_out, TextBox textBox_hex, ComboBox comboBox_First, ComboBox comboBox_second, TextBox textBox_step2A, TextBox textBox_step2B, ComboBox comboBox_step2A, ComboBox comboBox_step2B, TextBox textBox_step2out, bool step2ishex)
+        private void cal_32768_subtract(string a, string b, string multiplier, bool ishex, TextBox textBox_out, TextBox textBox_hex, ComboBox comboBox_First, ComboBox comboBox_second, TextBox textBox_step2A, TextBox textBox_step2B, ComboBox comboBox_step2A, ComboBox comboBox_step2B, TextBox textBox_step2out, bool step2ishex, TextBox textBox_step2hex)
         {
             float result = 0, num = 0, num1 = 0;
             if ((a.Length == 0) | (b.Length == 0))
@@ -416,6 +416,7 @@ namespace SYD_COPY_FILE
                     result = cal_do(comboBox_step2B, (float)result, (float)num);
                 }
                 textBox_step2out.Text = result.ToString();
+                textBox_step2hex.Text = "0x" + ((UInt32)result).ToString("X");
             }
         }
         enum timestamp_accuracy_type
@@ -808,11 +809,11 @@ namespace SYD_COPY_FILE
         private void cal_32768_Click(object sender, EventArgs e)
         {
             if (sender == button2)
-                cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3, textBox49, textBox52, comboBox10, comboBox13, textBox55, checkBox19.Checked);
+                cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3, textBox49, textBox52, comboBox10, comboBox13, textBox55, checkBox19.Checked,textBox20);
             else if (sender == button8)
-                cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5, textBox47, textBox51, comboBox9, comboBox12, textBox59, checkBox20.Checked);
+                cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5, textBox47, textBox51, comboBox9, comboBox12, textBox59, checkBox20.Checked, textBox18);
             else
-                cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4, textBox50, textBox53, comboBox11, comboBox14, textBox58, checkBox18.Checked);
+                cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4, textBox50, textBox53, comboBox11, comboBox14, textBox58, checkBox18.Checked, textBox19);
         }
         private bool cal_32768_check(string a, string b, string c, ComboBox aa, ComboBox bb)
         {
@@ -828,17 +829,17 @@ namespace SYD_COPY_FILE
                 if ((sender == textBox8) || (sender == textBox1) || (sender == textBox6))
                 {
                     if (cal_32768_check(textBox6.Text, textBox8.Text, textBox1.Text, comboBox2, comboBox3))
-                        cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3, textBox49, textBox52, comboBox10, comboBox13, textBox55, checkBox19.Checked);
+                        cal_32768_subtract(textBox6.Text, textBox8.Text, textBox1.Text, checkBox8.Checked, textBox7, textBox10, comboBox2, comboBox3, textBox49, textBox52, comboBox10, comboBox13, textBox55, checkBox19.Checked, textBox20);
                 }
                 else if ((sender == textBox45) || (sender == textBox11) || (sender == textBox43))
                 {
                     if (cal_32768_check(textBox43.Text, textBox45.Text, textBox11.Text, comboBox8, comboBox5))
-                        cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5, textBox47, textBox51, comboBox9, comboBox12, textBox59, checkBox20.Checked);
+                        cal_32768_subtract(textBox43.Text, textBox45.Text, textBox11.Text, checkBox9.Checked, textBox44, textBox12, comboBox8, comboBox5, textBox47, textBox51, comboBox9, comboBox12, textBox59, checkBox20.Checked, textBox18);
                 }
                 else
                 {
                     if (cal_32768_check(textBox3.Text, textBox5.Text, textBox2.Text, comboBox1, comboBox4))
-                        cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4, textBox50, textBox53, comboBox11, comboBox14, textBox58, checkBox18.Checked);
+                        cal_32768_subtract(textBox3.Text, textBox5.Text, textBox2.Text, checkBox6.Checked, textBox4, textBox9, comboBox1, comboBox4, textBox50, textBox53, comboBox11, comboBox14, textBox58, checkBox18.Checked, textBox19);
                 }
             }
             catch (Exception ex) // 异常处理
