@@ -2049,9 +2049,6 @@ namespace SYD_COPY_FILE
             if (comboBox_datatype.SelectedIndex == 0)
             {
                 orgTxt1 = orgTxt1.Replace(" ", "").Replace("-", "").Replace("\r\n", "").Replace("\r", "").Replace("0x", "").Replace("0X", "").Replace("\t", "").Replace(":", "").Replace(",", "");
-                if (combobox_key.Text.Length > 0)
-                    orgTxt1 = orgTxt1.Replace(combobox_key.Text, "");
-
                 while (true)
                 {
                     int n = orgTxt1.IndexOf("[");
