@@ -189,6 +189,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.bit_dec_result = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.bit_mask_care_result = new System.Windows.Forms.TextBox();
             this.Care_BIT_MARK12 = new System.Windows.Forms.CheckBox();
             this.Care_BIT_MARK0 = new System.Windows.Forms.CheckBox();
@@ -246,6 +248,7 @@
             this.BIT_MARK6 = new System.Windows.Forms.CheckBox();
             this.BIT_MARK5 = new System.Windows.Forms.CheckBox();
             this.label57 = new System.Windows.Forms.Label();
+            this.bit_dec_care_result = new System.Windows.Forms.TextBox();
             this.button35 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -2731,6 +2734,8 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.bit_dec_result);
+            this.groupBox8.Controls.Add(this.label10);
             this.groupBox8.Controls.Add(this.bit_mask_care_result);
             this.groupBox8.Controls.Add(this.Care_BIT_MARK12);
             this.groupBox8.Controls.Add(this.Care_BIT_MARK0);
@@ -2788,6 +2793,7 @@
             this.groupBox8.Controls.Add(this.BIT_MARK6);
             this.groupBox8.Controls.Add(this.BIT_MARK5);
             this.groupBox8.Controls.Add(this.label57);
+            this.groupBox8.Controls.Add(this.bit_dec_care_result);
             this.groupBox8.Location = new System.Drawing.Point(4, 124);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
@@ -2797,15 +2803,36 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "bit_mask_U8toU32";
             // 
+            // bit_dec_result
+            // 
+            this.bit_dec_result.AllowDrop = true;
+            this.bit_dec_result.Location = new System.Drawing.Point(345, 80);
+            this.bit_dec_result.Margin = new System.Windows.Forms.Padding(4);
+            this.bit_dec_result.Name = "bit_dec_result";
+            this.bit_dec_result.Size = new System.Drawing.Size(87, 28);
+            this.bit_dec_result.TabIndex = 73;
+            this.bit_dec_result.Text = "00000000";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(305, 86);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 18);
+            this.label10.TabIndex = 74;
+            this.label10.Text = "DEC:";
+            // 
             // bit_mask_care_result
             // 
             this.bit_mask_care_result.AllowDrop = true;
-            this.bit_mask_care_result.Location = new System.Drawing.Point(1054, 81);
+            this.bit_mask_care_result.Location = new System.Drawing.Point(1054, 84);
             this.bit_mask_care_result.Margin = new System.Windows.Forms.Padding(4);
             this.bit_mask_care_result.Name = "bit_mask_care_result";
             this.bit_mask_care_result.Size = new System.Drawing.Size(66, 28);
             this.bit_mask_care_result.TabIndex = 66;
             this.bit_mask_care_result.Text = "0x0F1A";
+            this.bit_mask_care_result.TextChanged += new System.EventHandler(this.bit_mask_care_result_TextChanged);
             // 
             // Care_BIT_MARK12
             // 
@@ -2858,10 +2885,10 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(1022, 46);
+            this.button10.Location = new System.Drawing.Point(1017, 46);
             this.button10.Margin = new System.Windows.Forms.Padding(4);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(106, 32);
+            this.button10.Size = new System.Drawing.Size(58, 32);
             this.button10.TabIndex = 65;
             this.button10.Text = "扩展";
             this.button10.UseVisualStyleBackColor = true;
@@ -2885,7 +2912,7 @@
             // bit_nomask_result
             // 
             this.bit_nomask_result.AllowDrop = true;
-            this.bit_nomask_result.Location = new System.Drawing.Point(285, 80);
+            this.bit_nomask_result.Location = new System.Drawing.Point(198, 80);
             this.bit_nomask_result.Margin = new System.Windows.Forms.Padding(4);
             this.bit_nomask_result.Name = "bit_nomask_result";
             this.bit_nomask_result.Size = new System.Drawing.Size(102, 28);
@@ -2909,12 +2936,12 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(198, 87);
+            this.label31.Location = new System.Drawing.Point(150, 87);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(89, 18);
+            this.label31.Size = new System.Drawing.Size(53, 18);
             this.label31.TabIndex = 64;
-            this.label31.Text = "NOT_Mask:";
+            this.label31.Text = "Mask:";
             // 
             // Care_BIT_MARK14
             // 
@@ -3346,7 +3373,7 @@
             // bit_mask_result
             // 
             this.bit_mask_result.AllowDrop = true;
-            this.bit_mask_result.Location = new System.Drawing.Point(93, 80);
+            this.bit_mask_result.Location = new System.Drawing.Point(48, 80);
             this.bit_mask_result.Margin = new System.Windows.Forms.Padding(4);
             this.bit_mask_result.Name = "bit_mask_result";
             this.bit_mask_result.Size = new System.Drawing.Size(102, 28);
@@ -3362,9 +3389,9 @@
             this.label35.Location = new System.Drawing.Point(8, 86);
             this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(89, 18);
+            this.label35.Size = new System.Drawing.Size(44, 18);
             this.label35.TabIndex = 22;
-            this.label35.Text = "BIT_Mask:";
+            this.label35.Text = "BIT:";
             // 
             // BIT_MARK21
             // 
@@ -3462,10 +3489,10 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(1022, 15);
+            this.button17.Location = new System.Drawing.Point(1017, 15);
             this.button17.Margin = new System.Windows.Forms.Padding(4);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(105, 33);
+            this.button17.Size = new System.Drawing.Size(110, 33);
             this.button17.TabIndex = 0;
             this.button17.Text = "Clear";
             this.button17.UseVisualStyleBackColor = true;
@@ -3606,6 +3633,16 @@
             this.label57.Size = new System.Drawing.Size(71, 18);
             this.label57.TabIndex = 72;
             this.label57.Text = "[15:00]";
+            // 
+            // bit_dec_care_result
+            // 
+            this.bit_dec_care_result.AllowDrop = true;
+            this.bit_dec_care_result.Location = new System.Drawing.Point(1075, 49);
+            this.bit_dec_care_result.Margin = new System.Windows.Forms.Padding(4);
+            this.bit_dec_care_result.Name = "bit_dec_care_result";
+            this.bit_dec_care_result.Size = new System.Drawing.Size(50, 28);
+            this.bit_dec_care_result.TabIndex = 67;
+            this.bit_dec_care_result.Text = "65536";
             // 
             // button35
             // 
@@ -8970,7 +9007,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.8.2";
+            this.Text = "Calculator V2.8.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9821,6 +9858,9 @@
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox bit_dec_result;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox bit_dec_care_result;
     }
 }
 

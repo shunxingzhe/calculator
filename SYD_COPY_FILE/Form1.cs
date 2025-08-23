@@ -1114,6 +1114,7 @@ namespace SYD_COPY_FILE
         private void bit_mask_result_TextChanged(object sender, EventArgs e)
         {
             string input_str= bit_mask_result.Text.Trim().Replace("0X","").Replace("0x", "");
+            bit_dec_result.Text=HexStringToString(input_str);
             if (input_str.Length<=8)
             {
                 UInt32 data = 0;
@@ -1163,6 +1164,11 @@ namespace SYD_COPY_FILE
                 else Care_BIT_MARK15.Checked = false;
                 bit_mask_care_result.Text = "0x" + input.ToString("X4");
             }
+        }
+        private void bit_mask_care_result_TextChanged(object sender, EventArgs e)
+        {
+            string input_str = bit_mask_care_result.Text.Trim().Replace("0X", "").Replace("0x", "");
+            bit_dec_care_result.Text = HexStringToString(input_str);
         }
         private void button17_Click(object sender, EventArgs e)
         {
