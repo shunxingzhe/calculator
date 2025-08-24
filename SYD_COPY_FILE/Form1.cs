@@ -53,7 +53,7 @@ namespace SYD_COPY_FILE
         timestamp_accuracy_type accuracy = timestamp_accuracy_type.accuracy_3;
 
         public bool extend_bit_mask_state = false, timer_cal_mask_state = false;
-        public byte care_bit_index = 0, care_bit_high = 15, care_bit_low = 0;
+        public byte care_bit_index = 0, care_bit_high = 15, care_bit_low = 0, care_bit_high_two = 31, care_bit_low_two = 16;
         #endregion
 
         public Form1()
@@ -1124,12 +1124,12 @@ namespace SYD_COPY_FILE
 
                 data = Convert.ToUInt32(input_str, 16);
                 data >>= care_bit_low;
-                UInt16 bit = 0;
+                UInt32 bit = 0;
                 for (byte i=0;i<=(care_bit_high- care_bit_low);i++)
                 {
-                    bit |= (UInt16)(1<<i);
+                    bit |= (UInt32)(1<<i);
                 }
-                UInt16 input = (UInt16)(data & bit);
+                UInt32 input = (UInt32)(data & bit);
                 if ((input & 0x01) == 0x01) Care_BIT_MARK0.Checked = true;
                 else Care_BIT_MARK0.Checked = false;
                 if ((input & 0x02) == 0x02) Care_BIT_MARK1.Checked = true;
@@ -1162,13 +1162,32 @@ namespace SYD_COPY_FILE
                 else Care_BIT_MARK14.Checked = false;
                 if ((input & 0x8000) == 0x8000) Care_BIT_MARK15.Checked = true;
                 else Care_BIT_MARK15.Checked = false;
-                bit_mask_care_result.Text = "0x" + input.ToString("X4");
+                if ((input & 0x10000) == 0x10000) Care_BIT_MARK16.Checked = true;
+                else Care_BIT_MARK16.Checked = false;
+                if ((input & 0x20000) == 0x20000) Care_BIT_MARK17.Checked = true;
+                else Care_BIT_MARK17.Checked = false;
+                if ((input & 0x40000) == 0x40000) Care_BIT_MARK18.Checked = true;
+                else Care_BIT_MARK18.Checked = false;
+                if ((input & 0x80000) == 0x80000) Care_BIT_MARK19.Checked = true;
+                else Care_BIT_MARK19.Checked = false;
+                bit_mask_care_result.Text = "0x" + input.ToString("X");
+
+                data = Convert.ToUInt32(input_str, 16);
+                data <<= (31 - care_bit_high_two);
+                data >>= (31 - care_bit_high_two+ care_bit_low_two);
+                bit_mask_care_result_two.Text = "0x" + data.ToString("X");
+                bit_dec_care_result_two.Text = data.ToString();
             }
         }
         private void bit_mask_care_result_TextChanged(object sender, EventArgs e)
         {
             string input_str = bit_mask_care_result.Text.Trim().Replace("0X", "").Replace("0x", "");
             bit_dec_care_result.Text = HexStringToString(input_str);
+        }
+        private void bit_nomask_result_TextChanged(object sender, EventArgs e)
+        {
+            string input_str = bit_nomask_result.Text.Trim().Replace("0X", "").Replace("0x", "");
+            bit_nomask_dec_result.Text = HexStringToString(input_str);
         }
         private void button17_Click(object sender, EventArgs e)
         {
@@ -1258,13 +1277,13 @@ namespace SYD_COPY_FILE
                             MessageBox.Show("设置错误,底位必须底于高位");
                             return;
                         }
-                        if ((care_bit_high-care_bit_index) > 15)
+                        if ((care_bit_high-care_bit_index) > 19)
                         {
                             MessageBox.Show("设置错误,高位和底位差值不得大于15");
                             return;
                         }
                         care_bit_low = care_bit_index;
-                        label57.Text = "[" + care_bit_high.ToString("D2") + ":" + care_bit_low.ToString("D2");
+                        label57.Text = "[" + care_bit_high.ToString("D2") + ":" + care_bit_low.ToString("D2") + "]";
 
                     }
                     else if (contextMenuStrip3.Items[i].Text.Trim() == "定位最高Bit")
@@ -1274,7 +1293,7 @@ namespace SYD_COPY_FILE
                             MessageBox.Show("设置错误,高位必须高于底位");
                             return;
                         }
-                        if ((care_bit_index - care_bit_low)>15)
+                        if ((care_bit_index - care_bit_low)>19)
                         {
                             MessageBox.Show("设置错误,高位和底位差值不得大于15");
                             return;
@@ -1282,6 +1301,35 @@ namespace SYD_COPY_FILE
                         care_bit_high = care_bit_index;
                         label57.Text = "[" + care_bit_high.ToString("D2") + ":" + care_bit_low.ToString("D2") + "]";
                     }
+                    else if (contextMenuStrip3.Items[i].Text.Trim() == "定位第二组最低Bit")
+                    {
+                        if (care_bit_index >= care_bit_high_two)
+                        {
+                            MessageBox.Show("设置错误,底位必须底于高位");
+                            return;
+                        }
+                        care_bit_low_two = care_bit_index;
+                        label11.Text = "[" + care_bit_high_two.ToString("D2") + ":" + care_bit_low_two.ToString("D2") + "]";
+
+                    }
+                    else if (contextMenuStrip3.Items[i].Text.Trim() == "定位第二组最高Bit")
+                    {
+                        if (care_bit_index <= care_bit_low_two)
+                        {
+                            MessageBox.Show("设置错误,高位必须高于底位");
+                            return;
+                        }
+                        care_bit_high_two = care_bit_index;
+                        label11.Text = "[" + care_bit_high_two.ToString("D2") + ":" + care_bit_low_two.ToString("D2") + "]";
+                    }
+                    if ((care_bit_high - care_bit_low) < 19) Care_BIT_MARK19.Visible = false;
+                    else Care_BIT_MARK19.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 18) Care_BIT_MARK18.Visible = false;
+                    else Care_BIT_MARK18.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 17) Care_BIT_MARK17.Visible = false;
+                    else Care_BIT_MARK17.Visible = true;
+                    if ((care_bit_high - care_bit_low) < 16) Care_BIT_MARK16.Visible = false;
+                    else Care_BIT_MARK16.Visible = true;
                     if ((care_bit_high - care_bit_low) < 15) Care_BIT_MARK15.Visible = false;
                     else Care_BIT_MARK15.Visible = true;
                     if ((care_bit_high - care_bit_low) < 14) Care_BIT_MARK14.Visible = false;
@@ -1319,12 +1367,12 @@ namespace SYD_COPY_FILE
         {
             if (extend_bit_mask_state == false)
             {
-                this.Height -= 390;
+                this.Height -= 375;
                 extend_bit_mask_state = true;
             }
             else
             {
-                this.Height += 390;
+                this.Height += 375;
                 extend_bit_mask_state = false;
             }
         }

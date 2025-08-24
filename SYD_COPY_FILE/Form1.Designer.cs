@@ -189,12 +189,18 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.Care_BIT_MARK16 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK19 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK18 = new System.Windows.Forms.CheckBox();
+            this.Care_BIT_MARK17 = new System.Windows.Forms.CheckBox();
+            this.bit_mask_care_result_two = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.bit_dec_care_result_two = new System.Windows.Forms.TextBox();
+            this.bit_nomask_dec_result = new System.Windows.Forms.TextBox();
             this.bit_dec_result = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.bit_mask_care_result = new System.Windows.Forms.TextBox();
             this.Care_BIT_MARK12 = new System.Windows.Forms.CheckBox();
             this.Care_BIT_MARK0 = new System.Windows.Forms.CheckBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.Care_BIT_MARK15 = new System.Windows.Forms.CheckBox();
             this.button10 = new System.Windows.Forms.Button();
             this.Care_BIT_MARK4 = new System.Windows.Forms.CheckBox();
@@ -249,6 +255,8 @@
             this.BIT_MARK5 = new System.Windows.Forms.CheckBox();
             this.label57 = new System.Windows.Forms.Label();
             this.bit_dec_care_result = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.button35 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -809,6 +817,8 @@
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem148 = new System.Windows.Forms.ToolStripMenuItem();
+            this.定位第二组最低BitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.定位第二组最高BitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2473,7 +2483,7 @@
             this.groupBox9.Controls.Add(this.label46);
             this.groupBox9.Controls.Add(this.label7);
             this.groupBox9.Controls.Add(this.label8);
-            this.groupBox9.Location = new System.Drawing.Point(0, 576);
+            this.groupBox9.Location = new System.Drawing.Point(0, 597);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(4);
@@ -2734,12 +2744,18 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK16);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK19);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK18);
+            this.groupBox8.Controls.Add(this.Care_BIT_MARK17);
+            this.groupBox8.Controls.Add(this.bit_mask_care_result_two);
+            this.groupBox8.Controls.Add(this.label11);
+            this.groupBox8.Controls.Add(this.bit_dec_care_result_two);
+            this.groupBox8.Controls.Add(this.bit_nomask_dec_result);
             this.groupBox8.Controls.Add(this.bit_dec_result);
-            this.groupBox8.Controls.Add(this.label10);
             this.groupBox8.Controls.Add(this.bit_mask_care_result);
             this.groupBox8.Controls.Add(this.Care_BIT_MARK12);
             this.groupBox8.Controls.Add(this.Care_BIT_MARK0);
-            this.groupBox8.Controls.Add(this.label36);
             this.groupBox8.Controls.Add(this.Care_BIT_MARK15);
             this.groupBox8.Controls.Add(this.button10);
             this.groupBox8.Controls.Add(this.Care_BIT_MARK4);
@@ -2794,42 +2810,126 @@
             this.groupBox8.Controls.Add(this.BIT_MARK5);
             this.groupBox8.Controls.Add(this.label57);
             this.groupBox8.Controls.Add(this.bit_dec_care_result);
+            this.groupBox8.Controls.Add(this.label10);
+            this.groupBox8.Controls.Add(this.label36);
             this.groupBox8.Location = new System.Drawing.Point(4, 124);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox8.Size = new System.Drawing.Size(1128, 124);
+            this.groupBox8.Size = new System.Drawing.Size(1128, 145);
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "bit_mask_U8toU32";
             // 
+            // Care_BIT_MARK16
+            // 
+            this.Care_BIT_MARK16.AutoSize = true;
+            this.Care_BIT_MARK16.BackColor = System.Drawing.Color.Gainsboro;
+            this.Care_BIT_MARK16.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK16.Location = new System.Drawing.Point(575, 86);
+            this.Care_BIT_MARK16.Margin = new System.Windows.Forms.Padding(4);
+            this.Care_BIT_MARK16.Name = "Care_BIT_MARK16";
+            this.Care_BIT_MARK16.Size = new System.Drawing.Size(30, 43);
+            this.Care_BIT_MARK16.TabIndex = 82;
+            this.Care_BIT_MARK16.Text = "16";
+            this.Care_BIT_MARK16.UseVisualStyleBackColor = false;
+            // 
+            // Care_BIT_MARK19
+            // 
+            this.Care_BIT_MARK19.AutoSize = true;
+            this.Care_BIT_MARK19.BackColor = System.Drawing.Color.Gainsboro;
+            this.Care_BIT_MARK19.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK19.Location = new System.Drawing.Point(481, 86);
+            this.Care_BIT_MARK19.Margin = new System.Windows.Forms.Padding(4);
+            this.Care_BIT_MARK19.Name = "Care_BIT_MARK19";
+            this.Care_BIT_MARK19.Size = new System.Drawing.Size(30, 43);
+            this.Care_BIT_MARK19.TabIndex = 79;
+            this.Care_BIT_MARK19.Text = "19";
+            this.Care_BIT_MARK19.UseVisualStyleBackColor = false;
+            // 
+            // Care_BIT_MARK18
+            // 
+            this.Care_BIT_MARK18.AutoSize = true;
+            this.Care_BIT_MARK18.BackColor = System.Drawing.Color.Gainsboro;
+            this.Care_BIT_MARK18.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK18.Location = new System.Drawing.Point(512, 86);
+            this.Care_BIT_MARK18.Margin = new System.Windows.Forms.Padding(4);
+            this.Care_BIT_MARK18.Name = "Care_BIT_MARK18";
+            this.Care_BIT_MARK18.Size = new System.Drawing.Size(30, 43);
+            this.Care_BIT_MARK18.TabIndex = 80;
+            this.Care_BIT_MARK18.Text = "18";
+            this.Care_BIT_MARK18.UseVisualStyleBackColor = false;
+            // 
+            // Care_BIT_MARK17
+            // 
+            this.Care_BIT_MARK17.AutoSize = true;
+            this.Care_BIT_MARK17.BackColor = System.Drawing.Color.Gainsboro;
+            this.Care_BIT_MARK17.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Care_BIT_MARK17.Location = new System.Drawing.Point(543, 86);
+            this.Care_BIT_MARK17.Margin = new System.Windows.Forms.Padding(4);
+            this.Care_BIT_MARK17.Name = "Care_BIT_MARK17";
+            this.Care_BIT_MARK17.Size = new System.Drawing.Size(30, 43);
+            this.Care_BIT_MARK17.TabIndex = 81;
+            this.Care_BIT_MARK17.Text = "17";
+            this.Care_BIT_MARK17.UseVisualStyleBackColor = false;
+            // 
+            // bit_mask_care_result_two
+            // 
+            this.bit_mask_care_result_two.AllowDrop = true;
+            this.bit_mask_care_result_two.Location = new System.Drawing.Point(340, 105);
+            this.bit_mask_care_result_two.Margin = new System.Windows.Forms.Padding(4);
+            this.bit_mask_care_result_two.Name = "bit_mask_care_result_two";
+            this.bit_mask_care_result_two.Size = new System.Drawing.Size(80, 28);
+            this.bit_mask_care_result_two.TabIndex = 76;
+            this.bit_mask_care_result_two.Text = "0x0F1A";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(273, 111);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 18);
+            this.label11.TabIndex = 78;
+            this.label11.Text = "[31:16]";
+            // 
+            // bit_dec_care_result_two
+            // 
+            this.bit_dec_care_result_two.AllowDrop = true;
+            this.bit_dec_care_result_two.Location = new System.Drawing.Point(423, 105);
+            this.bit_dec_care_result_two.Margin = new System.Windows.Forms.Padding(4);
+            this.bit_dec_care_result_two.Name = "bit_dec_care_result_two";
+            this.bit_dec_care_result_two.Size = new System.Drawing.Size(54, 28);
+            this.bit_dec_care_result_two.TabIndex = 77;
+            this.bit_dec_care_result_two.Text = "65536";
+            // 
+            // bit_nomask_dec_result
+            // 
+            this.bit_nomask_dec_result.AllowDrop = true;
+            this.bit_nomask_dec_result.Location = new System.Drawing.Point(153, 105);
+            this.bit_nomask_dec_result.Margin = new System.Windows.Forms.Padding(4);
+            this.bit_nomask_dec_result.Name = "bit_nomask_dec_result";
+            this.bit_nomask_dec_result.Size = new System.Drawing.Size(87, 28);
+            this.bit_nomask_dec_result.TabIndex = 74;
+            this.bit_nomask_dec_result.Text = "00000000";
+            // 
             // bit_dec_result
             // 
             this.bit_dec_result.AllowDrop = true;
-            this.bit_dec_result.Location = new System.Drawing.Point(345, 80);
+            this.bit_dec_result.Location = new System.Drawing.Point(153, 74);
             this.bit_dec_result.Margin = new System.Windows.Forms.Padding(4);
             this.bit_dec_result.Name = "bit_dec_result";
             this.bit_dec_result.Size = new System.Drawing.Size(87, 28);
             this.bit_dec_result.TabIndex = 73;
             this.bit_dec_result.Text = "00000000";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(305, 86);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 18);
-            this.label10.TabIndex = 74;
-            this.label10.Text = "DEC:";
-            // 
             // bit_mask_care_result
             // 
             this.bit_mask_care_result.AllowDrop = true;
-            this.bit_mask_care_result.Location = new System.Drawing.Point(1054, 84);
+            this.bit_mask_care_result.Location = new System.Drawing.Point(340, 74);
             this.bit_mask_care_result.Margin = new System.Windows.Forms.Padding(4);
             this.bit_mask_care_result.Name = "bit_mask_care_result";
-            this.bit_mask_care_result.Size = new System.Drawing.Size(66, 28);
+            this.bit_mask_care_result.Size = new System.Drawing.Size(80, 28);
             this.bit_mask_care_result.TabIndex = 66;
             this.bit_mask_care_result.Text = "0x0F1A";
             this.bit_mask_care_result.TextChanged += new System.EventHandler(this.bit_mask_care_result_TextChanged);
@@ -2839,7 +2939,7 @@
             this.Care_BIT_MARK12.AutoSize = true;
             this.Care_BIT_MARK12.BackColor = System.Drawing.Color.DarkGray;
             this.Care_BIT_MARK12.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK12.Location = new System.Drawing.Point(558, 74);
+            this.Care_BIT_MARK12.Location = new System.Drawing.Point(700, 86);
             this.Care_BIT_MARK12.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK12.Name = "Care_BIT_MARK12";
             this.Care_BIT_MARK12.Size = new System.Drawing.Size(30, 43);
@@ -2852,7 +2952,7 @@
             this.Care_BIT_MARK0.AutoSize = true;
             this.Care_BIT_MARK0.BackColor = System.Drawing.Color.Gray;
             this.Care_BIT_MARK0.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK0.Location = new System.Drawing.Point(936, 74);
+            this.Care_BIT_MARK0.Location = new System.Drawing.Point(1078, 86);
             this.Care_BIT_MARK0.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK0.Name = "Care_BIT_MARK0";
             this.Care_BIT_MARK0.Size = new System.Drawing.Size(30, 43);
@@ -2860,22 +2960,12 @@
             this.Care_BIT_MARK0.Text = "00";
             this.Care_BIT_MARK0.UseVisualStyleBackColor = false;
             // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(968, 98);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(89, 18);
-            this.label36.TabIndex = 67;
-            this.label36.Text = "Care_Mask";
-            // 
             // Care_BIT_MARK15
             // 
             this.Care_BIT_MARK15.AutoSize = true;
             this.Care_BIT_MARK15.BackColor = System.Drawing.Color.DarkGray;
             this.Care_BIT_MARK15.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK15.Location = new System.Drawing.Point(464, 74);
+            this.Care_BIT_MARK15.Location = new System.Drawing.Point(606, 86);
             this.Care_BIT_MARK15.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK15.Name = "Care_BIT_MARK15";
             this.Care_BIT_MARK15.Size = new System.Drawing.Size(30, 43);
@@ -2888,7 +2978,7 @@
             this.button10.Location = new System.Drawing.Point(1017, 46);
             this.button10.Margin = new System.Windows.Forms.Padding(4);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(58, 32);
+            this.button10.Size = new System.Drawing.Size(108, 32);
             this.button10.TabIndex = 65;
             this.button10.Text = "扩展";
             this.button10.UseVisualStyleBackColor = true;
@@ -2901,7 +2991,7 @@
             this.Care_BIT_MARK4.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Care_BIT_MARK4.Checked = true;
             this.Care_BIT_MARK4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Care_BIT_MARK4.Location = new System.Drawing.Point(810, 74);
+            this.Care_BIT_MARK4.Location = new System.Drawing.Point(952, 86);
             this.Care_BIT_MARK4.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK4.Name = "Care_BIT_MARK4";
             this.Care_BIT_MARK4.Size = new System.Drawing.Size(30, 43);
@@ -2912,11 +3002,12 @@
             // bit_nomask_result
             // 
             this.bit_nomask_result.AllowDrop = true;
-            this.bit_nomask_result.Location = new System.Drawing.Point(198, 80);
+            this.bit_nomask_result.Location = new System.Drawing.Point(50, 105);
             this.bit_nomask_result.Margin = new System.Windows.Forms.Padding(4);
             this.bit_nomask_result.Name = "bit_nomask_result";
             this.bit_nomask_result.Size = new System.Drawing.Size(102, 28);
             this.bit_nomask_result.TabIndex = 9;
+            this.bit_nomask_result.TextChanged += new System.EventHandler(this.bit_nomask_result_TextChanged);
             // 
             // Care_BIT_MARK8
             // 
@@ -2925,7 +3016,7 @@
             this.Care_BIT_MARK8.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Care_BIT_MARK8.Checked = true;
             this.Care_BIT_MARK8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Care_BIT_MARK8.Location = new System.Drawing.Point(684, 74);
+            this.Care_BIT_MARK8.Location = new System.Drawing.Point(826, 86);
             this.Care_BIT_MARK8.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK8.Name = "Care_BIT_MARK8";
             this.Care_BIT_MARK8.Size = new System.Drawing.Size(30, 43);
@@ -2936,7 +3027,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(150, 87);
+            this.label31.Location = new System.Drawing.Point(2, 112);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(53, 18);
@@ -2948,7 +3039,7 @@
             this.Care_BIT_MARK14.AutoSize = true;
             this.Care_BIT_MARK14.BackColor = System.Drawing.Color.DarkGray;
             this.Care_BIT_MARK14.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK14.Location = new System.Drawing.Point(495, 74);
+            this.Care_BIT_MARK14.Location = new System.Drawing.Point(637, 86);
             this.Care_BIT_MARK14.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK14.Name = "Care_BIT_MARK14";
             this.Care_BIT_MARK14.Size = new System.Drawing.Size(30, 43);
@@ -2978,7 +3069,7 @@
             this.Care_BIT_MARK3.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Care_BIT_MARK3.Checked = true;
             this.Care_BIT_MARK3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Care_BIT_MARK3.Location = new System.Drawing.Point(842, 74);
+            this.Care_BIT_MARK3.Location = new System.Drawing.Point(984, 86);
             this.Care_BIT_MARK3.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK3.Name = "Care_BIT_MARK3";
             this.Care_BIT_MARK3.Size = new System.Drawing.Size(30, 43);
@@ -3008,7 +3099,7 @@
             this.Care_BIT_MARK11.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Care_BIT_MARK11.Checked = true;
             this.Care_BIT_MARK11.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Care_BIT_MARK11.Location = new System.Drawing.Point(590, 74);
+            this.Care_BIT_MARK11.Location = new System.Drawing.Point(732, 86);
             this.Care_BIT_MARK11.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK11.Name = "Care_BIT_MARK11";
             this.Care_BIT_MARK11.Size = new System.Drawing.Size(30, 43);
@@ -3036,7 +3127,7 @@
             this.Care_BIT_MARK7.AutoSize = true;
             this.Care_BIT_MARK7.BackColor = System.Drawing.Color.Gray;
             this.Care_BIT_MARK7.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK7.Location = new System.Drawing.Point(716, 74);
+            this.Care_BIT_MARK7.Location = new System.Drawing.Point(858, 86);
             this.Care_BIT_MARK7.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK7.Name = "Care_BIT_MARK7";
             this.Care_BIT_MARK7.Size = new System.Drawing.Size(30, 43);
@@ -3066,7 +3157,7 @@
             this.Care_BIT_MARK10.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Care_BIT_MARK10.Checked = true;
             this.Care_BIT_MARK10.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Care_BIT_MARK10.Location = new System.Drawing.Point(621, 74);
+            this.Care_BIT_MARK10.Location = new System.Drawing.Point(763, 86);
             this.Care_BIT_MARK10.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK10.Name = "Care_BIT_MARK10";
             this.Care_BIT_MARK10.Size = new System.Drawing.Size(30, 43);
@@ -3094,7 +3185,7 @@
             this.Care_BIT_MARK13.AutoSize = true;
             this.Care_BIT_MARK13.BackColor = System.Drawing.Color.DarkGray;
             this.Care_BIT_MARK13.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK13.Location = new System.Drawing.Point(526, 74);
+            this.Care_BIT_MARK13.Location = new System.Drawing.Point(668, 86);
             this.Care_BIT_MARK13.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK13.Name = "Care_BIT_MARK13";
             this.Care_BIT_MARK13.Size = new System.Drawing.Size(30, 43);
@@ -3122,7 +3213,7 @@
             this.Care_BIT_MARK2.AutoSize = true;
             this.Care_BIT_MARK2.BackColor = System.Drawing.Color.Gray;
             this.Care_BIT_MARK2.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK2.Location = new System.Drawing.Point(873, 74);
+            this.Care_BIT_MARK2.Location = new System.Drawing.Point(1015, 86);
             this.Care_BIT_MARK2.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK2.Name = "Care_BIT_MARK2";
             this.Care_BIT_MARK2.Size = new System.Drawing.Size(30, 43);
@@ -3137,7 +3228,7 @@
             this.Care_BIT_MARK9.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Care_BIT_MARK9.Checked = true;
             this.Care_BIT_MARK9.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Care_BIT_MARK9.Location = new System.Drawing.Point(652, 74);
+            this.Care_BIT_MARK9.Location = new System.Drawing.Point(794, 86);
             this.Care_BIT_MARK9.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK9.Name = "Care_BIT_MARK9";
             this.Care_BIT_MARK9.Size = new System.Drawing.Size(30, 43);
@@ -3167,7 +3258,7 @@
             this.Care_BIT_MARK1.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Care_BIT_MARK1.Checked = true;
             this.Care_BIT_MARK1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Care_BIT_MARK1.Location = new System.Drawing.Point(904, 74);
+            this.Care_BIT_MARK1.Location = new System.Drawing.Point(1046, 86);
             this.Care_BIT_MARK1.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK1.Name = "Care_BIT_MARK1";
             this.Care_BIT_MARK1.Size = new System.Drawing.Size(30, 43);
@@ -3195,7 +3286,7 @@
             this.Care_BIT_MARK6.AutoSize = true;
             this.Care_BIT_MARK6.BackColor = System.Drawing.Color.Gray;
             this.Care_BIT_MARK6.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK6.Location = new System.Drawing.Point(747, 74);
+            this.Care_BIT_MARK6.Location = new System.Drawing.Point(889, 86);
             this.Care_BIT_MARK6.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK6.Name = "Care_BIT_MARK6";
             this.Care_BIT_MARK6.Size = new System.Drawing.Size(30, 43);
@@ -3223,7 +3314,7 @@
             this.Care_BIT_MARK5.AutoSize = true;
             this.Care_BIT_MARK5.BackColor = System.Drawing.Color.Gray;
             this.Care_BIT_MARK5.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Care_BIT_MARK5.Location = new System.Drawing.Point(778, 74);
+            this.Care_BIT_MARK5.Location = new System.Drawing.Point(920, 86);
             this.Care_BIT_MARK5.Margin = new System.Windows.Forms.Padding(4);
             this.Care_BIT_MARK5.Name = "Care_BIT_MARK5";
             this.Care_BIT_MARK5.Size = new System.Drawing.Size(30, 43);
@@ -3373,7 +3464,7 @@
             // bit_mask_result
             // 
             this.bit_mask_result.AllowDrop = true;
-            this.bit_mask_result.Location = new System.Drawing.Point(48, 80);
+            this.bit_mask_result.Location = new System.Drawing.Point(50, 74);
             this.bit_mask_result.Margin = new System.Windows.Forms.Padding(4);
             this.bit_mask_result.Name = "bit_mask_result";
             this.bit_mask_result.Size = new System.Drawing.Size(102, 28);
@@ -3386,7 +3477,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(8, 86);
+            this.label35.Location = new System.Drawing.Point(10, 79);
             this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(44, 18);
@@ -3627,7 +3718,7 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(976, 80);
+            this.label57.Location = new System.Drawing.Point(273, 79);
             this.label57.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(71, 18);
@@ -3637,12 +3728,31 @@
             // bit_dec_care_result
             // 
             this.bit_dec_care_result.AllowDrop = true;
-            this.bit_dec_care_result.Location = new System.Drawing.Point(1075, 49);
+            this.bit_dec_care_result.Location = new System.Drawing.Point(423, 74);
             this.bit_dec_care_result.Margin = new System.Windows.Forms.Padding(4);
             this.bit_dec_care_result.Name = "bit_dec_care_result";
-            this.bit_dec_care_result.Size = new System.Drawing.Size(50, 28);
+            this.bit_dec_care_result.Size = new System.Drawing.Size(54, 28);
             this.bit_dec_care_result.TabIndex = 67;
             this.bit_dec_care_result.Text = "65536";
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(260, 69);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(18, 85);
+            this.label10.TabIndex = 75;
+            this.label10.Text = "Mask";
+            // 
+            // label36
+            // 
+            this.label36.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label36.Location = new System.Drawing.Point(243, 68);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(18, 85);
+            this.label36.TabIndex = 67;
+            this.label36.Text = "Care";
             // 
             // button35
             // 
@@ -3693,7 +3803,7 @@
             this.groupBox10.Controls.Add(this.textBox48);
             this.groupBox10.Controls.Add(this.label122);
             this.groupBox10.Controls.Add(this.label123);
-            this.groupBox10.Location = new System.Drawing.Point(454, 252);
+            this.groupBox10.Location = new System.Drawing.Point(454, 273);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
@@ -3784,7 +3894,7 @@
             this.groupBox16.Controls.Add(this.label106);
             this.groupBox16.Controls.Add(this.label107);
             this.groupBox16.Controls.Add(this.button34);
-            this.groupBox16.Location = new System.Drawing.Point(4, 658);
+            this.groupBox16.Location = new System.Drawing.Point(4, 679);
             this.groupBox16.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Padding = new System.Windows.Forms.Padding(4);
@@ -4684,7 +4794,7 @@
             this.groupBox5.Controls.Add(this.textBox37);
             this.groupBox5.Controls.Add(this.timestamp_Difference_cal);
             this.groupBox5.Controls.Add(this.label24);
-            this.groupBox5.Location = new System.Drawing.Point(4, 252);
+            this.groupBox5.Location = new System.Drawing.Point(4, 273);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
@@ -4871,7 +4981,7 @@
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.Calendar_Time_Difference_Cal);
             this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Location = new System.Drawing.Point(4, 397);
+            this.groupBox3.Location = new System.Drawing.Point(4, 418);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
@@ -8979,22 +9089,36 @@
             this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem19,
-            this.toolStripMenuItem148});
+            this.toolStripMenuItem148,
+            this.定位第二组最低BitToolStripMenuItem,
+            this.定位第二组最高BitToolStripMenuItem});
             this.contextMenuStrip3.Name = "contextMenuStripSplit";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(176, 64);
+            this.contextMenuStrip3.Size = new System.Drawing.Size(230, 124);
             this.contextMenuStrip3.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip3_ItemClicked);
             // 
             // toolStripMenuItem19
             // 
             this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(175, 30);
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(229, 30);
             this.toolStripMenuItem19.Text = "定位最低Bit";
             // 
             // toolStripMenuItem148
             // 
             this.toolStripMenuItem148.Name = "toolStripMenuItem148";
-            this.toolStripMenuItem148.Size = new System.Drawing.Size(175, 30);
+            this.toolStripMenuItem148.Size = new System.Drawing.Size(229, 30);
             this.toolStripMenuItem148.Text = "定位最高Bit";
+            // 
+            // 定位第二组最低BitToolStripMenuItem
+            // 
+            this.定位第二组最低BitToolStripMenuItem.Name = "定位第二组最低BitToolStripMenuItem";
+            this.定位第二组最低BitToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
+            this.定位第二组最低BitToolStripMenuItem.Text = "定位第二组最低Bit";
+            // 
+            // 定位第二组最高BitToolStripMenuItem
+            // 
+            this.定位第二组最高BitToolStripMenuItem.Name = "定位第二组最高BitToolStripMenuItem";
+            this.定位第二组最高BitToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
+            this.定位第二组最高BitToolStripMenuItem.Text = "定位第二组最高Bit";
             // 
             // Form1
             // 
@@ -9007,7 +9131,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.8.3";
+            this.Text = "Calculator V2.8.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9859,8 +9983,18 @@
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox bit_dec_result;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox bit_dec_care_result;
+        private System.Windows.Forms.TextBox bit_nomask_dec_result;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox bit_mask_care_result_two;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox bit_dec_care_result_two;
+        private System.Windows.Forms.ToolStripMenuItem 定位第二组最低BitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 定位第二组最高BitToolStripMenuItem;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK16;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK19;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK18;
+        private System.Windows.Forms.CheckBox Care_BIT_MARK17;
     }
 }
 

@@ -1404,7 +1404,7 @@ namespace SYD_COPY_FILE
                         }
                     }
                     strArray[i] = Byte_reversal(str);
-                    str1 += Data_Transition(str) + "\r\n";
+                    str1 += Data_Transition(strArray[i]) + "\r\n";
                 }
 
                 if (comboBox_additional_operations.SelectedIndex == 1)
