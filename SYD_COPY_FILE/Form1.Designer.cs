@@ -137,7 +137,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.comboBox_indicate = new System.Windows.Forms.ComboBox();
             this.comboBox_mode = new System.Windows.Forms.ComboBox();
-            this.label_indicator = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
             this.draw = new System.Windows.Forms.Button();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
@@ -164,6 +163,7 @@
             this.label_outfilename = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.richTextBox_out = new System.Windows.Forms.TextBox();
+            this.label_indicator = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.button40 = new System.Windows.Forms.Button();
             this.LED_result1_textBox = new System.Windows.Forms.TextBox();
@@ -819,6 +819,8 @@
             this.toolStripMenuItem148 = new System.Windows.Forms.ToolStripMenuItem();
             this.定位第二组最低BitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.定位第二组最高BitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.tabPage11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2076,12 +2078,12 @@
             // 
             this.tabPage4.Controls.Add(this.comboBox_indicate);
             this.tabPage4.Controls.Add(this.comboBox_mode);
-            this.tabPage4.Controls.Add(this.label_indicator);
             this.tabPage4.Controls.Add(this.label84);
             this.tabPage4.Controls.Add(this.draw);
             this.tabPage4.Controls.Add(this.groupBox22);
             this.tabPage4.Controls.Add(this.groupBox21);
             this.tabPage4.Controls.Add(this.groupBox23);
+            this.tabPage4.Controls.Add(this.label_indicator);
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
@@ -2098,6 +2100,7 @@
             this.comboBox_indicate.Name = "comboBox_indicate";
             this.comboBox_indicate.Size = new System.Drawing.Size(366, 26);
             this.comboBox_indicate.TabIndex = 33;
+            this.toolTip2.SetToolTip(this.comboBox_indicate, "天数差:0");
             this.comboBox_indicate.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_ComBox_DragDrop);
             this.comboBox_indicate.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
@@ -2130,16 +2133,6 @@
             this.comboBox_mode.Size = new System.Drawing.Size(505, 26);
             this.comboBox_mode.TabIndex = 28;
             this.comboBox_mode.DropDownClosed += new System.EventHandler(this.comboBox_mode_DropDownClosed);
-            // 
-            // label_indicator
-            // 
-            this.label_indicator.AutoSize = true;
-            this.label_indicator.Location = new System.Drawing.Point(694, 147);
-            this.label_indicator.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_indicator.Name = "label_indicator";
-            this.label_indicator.Size = new System.Drawing.Size(71, 18);
-            this.label_indicator.TabIndex = 34;
-            this.label_indicator.Text = "指示符:";
             // 
             // label84
             // 
@@ -2242,6 +2235,7 @@
             this.combobox_key.Name = "combobox_key";
             this.combobox_key.Size = new System.Drawing.Size(226, 26);
             this.combobox_key.TabIndex = 35;
+            this.toolTip3.SetToolTip(this.combobox_key, "设备序:5\r\n扩展名: .bmp\r\n临界值:50M");
             this.combobox_key.TextChanged += new System.EventHandler(this.combobox_key_TextChanged);
             // 
             // comboBox_additional_operations
@@ -2277,6 +2271,7 @@
             this.label_key_word.Size = new System.Drawing.Size(71, 18);
             this.label_key_word.TabIndex = 34;
             this.label_key_word.Text = "关键字:";
+            this.label_key_word.TextChanged += new System.EventHandler(this.label_key_word_TextChanged);
             // 
             // button_clear
             // 
@@ -2457,6 +2452,17 @@
             this.richTextBox_out.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseDown);
             this.richTextBox_out.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseMove);
             this.richTextBox_out.MouseUp += new System.Windows.Forms.MouseEventHandler(this.textInput_MouseUp);
+            // 
+            // label_indicator
+            // 
+            this.label_indicator.AutoSize = true;
+            this.label_indicator.Location = new System.Drawing.Point(694, 147);
+            this.label_indicator.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_indicator.Name = "label_indicator";
+            this.label_indicator.Size = new System.Drawing.Size(71, 18);
+            this.label_indicator.TabIndex = 34;
+            this.label_indicator.Text = "指示符:";
+            this.label_indicator.TextChanged += new System.EventHandler(this.label_indicator_TextChanged);
             // 
             // groupBox9
             // 
@@ -9120,6 +9126,26 @@
             this.定位第二组最高BitToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
             this.定位第二组最高BitToolStripMenuItem.Text = "定位第二组最高Bit";
             // 
+            // toolTip2
+            // 
+            this.toolTip2.AutoPopDelay = 5000;
+            this.toolTip2.InitialDelay = 50;
+            this.toolTip2.ReshowDelay = 100;
+            this.toolTip2.ShowAlways = true;
+            this.toolTip2.ToolTipTitle = "输入示例:";
+            this.toolTip2.UseAnimation = false;
+            this.toolTip2.UseFading = false;
+            // 
+            // toolTip3
+            // 
+            this.toolTip3.AutoPopDelay = 5000;
+            this.toolTip3.InitialDelay = 50;
+            this.toolTip3.ReshowDelay = 100;
+            this.toolTip3.ShowAlways = true;
+            this.toolTip3.ToolTipTitle = "输入示例:";
+            this.toolTip3.UseAnimation = false;
+            this.toolTip3.UseFading = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -9131,7 +9157,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.8.4";
+            this.Text = "Calculator V2.8.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9995,6 +10021,8 @@
         private System.Windows.Forms.CheckBox Care_BIT_MARK19;
         private System.Windows.Forms.CheckBox Care_BIT_MARK18;
         private System.Windows.Forms.CheckBox Care_BIT_MARK17;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
     }
 }
 

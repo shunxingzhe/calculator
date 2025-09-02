@@ -51,8 +51,6 @@ namespace SYD_COPY_FILE
         private static UInt32 UTF8_ASCII_32X32_ADDR = (UTF8_SYMBLE3_32X32_ADDR + (UTF8_SYMBLE3_END - UTF8_SYMBLE3_BASS + 1) * 128);
 
         ToolTip p_draw;
-
-        List<string> comboBox_indicate_text = new List<string>();
         string[] Batch_Rename_source_files, Batch_Rename_distination_files;
         enum comboBox_mode_type
         {
@@ -128,6 +126,9 @@ namespace SYD_COPY_FILE
             comboBox_fonttype.SelectedIndex = Settings1.Default.arr_font_type;
 
             DllLogThread = new Thread(DllLogRead);
+
+            label_key_word_toolTip();
+            label_indicator_toolTip();
         }
         public byte[] strToToDecByte(string DecString)
         {
@@ -3246,7 +3247,6 @@ namespace SYD_COPY_FILE
         }
         private void arr_restore_Defaults()
         {
-            int i = 0;
             this.comboBox_datatype.Items.Clear();
             this.comboBox_datatype.Items.Add("uint8");
             this.comboBox_datatype.Items.Add("uint16");
@@ -3263,14 +3263,6 @@ namespace SYD_COPY_FILE
             this.source_file_button.Text = "选择文件";
             this.label_outfile.Text = "输出文件名称:";
             open_last_source_file_button.Text = "调入最新文件";
-            if (comboBox_indicate_text.Count > 0)
-            {
-                comboBox_indicate.Items.Clear();
-                for (i = 0; i < comboBox_indicate_text.Count; i++)
-                {
-                    this.comboBox_indicate.Items.Add(comboBox_indicate_text[i]);
-                }
-            }
             this.comboBox_additional_operations.Items.Clear();
             this.comboBox_additional_operations.Items.Add("无额外操作");
         }
@@ -3480,13 +3472,6 @@ namespace SYD_COPY_FILE
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_api_symdef.txt", Encoding.Default);
 
                 this.label_indicator.Text = "源目录:";
-                comboBox_indicate.Items.Clear();
-                this.comboBox_indicate.Items.Add("E:\\SYD8802\\SYD8812Git\\rom");
-                this.comboBox_indicate.Items.Add("E:\\SYD8802\\SYD8812Git\\rom\\app");
-                this.comboBox_indicate.Items.Add("E:\\SYD8802\\SYD8812Git\\rom\\app\\src");
-                this.comboBox_indicate.Items.Add("E:\\SYD8802\\SYD8812Git");
-                this.comboBox_indicate.Items.Add("E:\\SYD8802\\SYD8812Git\\rom\\Objects\\rom_api_symdef_ok.h");
-                this.comboBox_indicate.Items.Add("E:\\SYD8802\\SYD8812Git\\rom\\Objects\\rom_api_symdef.h");
 
                 this.comboBox_datatype.Items.Clear();
                 this.comboBox_datatype.Items.Add("刷新地址");
@@ -3550,14 +3535,6 @@ namespace SYD_COPY_FILE
             }
             arr_restore_Defaults_Adjust(false);  //自动调整显示长度
         }
-        public void comboBox_inster_first(ComboBox box, string str)
-        {
-            if (box.Text != str)
-            {
-                box.Items.Insert(0, str);
-                box.SelectedIndex = 0;
-            }
-        }
         private void comboBox_datatype_DropDownClosed(object sender, EventArgs e)
         {
             bool restore_Defaults = false;
@@ -3616,11 +3593,9 @@ namespace SYD_COPY_FILE
                 if (comboBox_datatype.SelectedIndex == 0)
                 {
                     this.label_indicator.Text = "天数差:";
-                    comboBox_inster_first(comboBox_indicate, "0");
                     this.label_datasize.Text = "手机字段序号:";
                     this.textBox_filesize.Text = "3";
                     this.label_key_word.Text = "设备序:";
-                    comboBox_inster_first(combobox_key, "5");
                 }
                 else
                 {
@@ -3637,12 +3612,10 @@ namespace SYD_COPY_FILE
                 if (comboBox_datatype.SelectedIndex == 1)
                 {
                     this.label_key_word.Text = "扩展名";
-                    comboBox_inster_first(combobox_key, ".bmp");
                 }
                 else if (comboBox_datatype.SelectedIndex == 0)
                 {
                     this.label_key_word.Text = "临界值";
-                    comboBox_inster_first(combobox_key, "50M");
                 }
                 else
                 {
@@ -3767,6 +3740,28 @@ namespace SYD_COPY_FILE
                     textInput.Text = str.Trim();
                 }
             }
+        }
+        private void label_key_word_toolTip()
+        {
+            if ((label_key_word.Text == "设备序:") || (label_key_word.Text == "扩展名") || (label_key_word.Text == "临界值"))
+                this.toolTip3.Active = true;
+            else
+                this.toolTip3.Active = false;
+        }
+        private void label_key_word_TextChanged(object sender, EventArgs e)
+        {
+            label_key_word_toolTip();
+        }
+        private void label_indicator_toolTip()
+        {
+            if (label_indicator.Text == "天数差:")
+                this.toolTip2.Active = true;
+            else
+                this.toolTip2.Active = false;
+        }
+        private void label_indicator_TextChanged(object sender, EventArgs e)
+        {
+            label_indicator_toolTip();
         }
         private void combobox_key_TextChanged(object sender, EventArgs e)
         {
