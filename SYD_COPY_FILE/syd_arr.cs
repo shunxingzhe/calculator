@@ -1909,24 +1909,37 @@ namespace SYD_COPY_FILE
             int i = 0;
             string resut = "";
             textInput.Text = textInput.Text.TrimEnd((char[])"\r\n".ToCharArray());
-            if (comboBox_indicate.Items.Count <= 0)
+            if (comboBox_datatype.SelectedIndex == 0)
             {
-                return;
+                textInput.Text= textInput.Text.Replace("[", "").Replace("]", " ");
             }
             List<string>[] lis = new List<string>[textInput.Lines.Length];
-
-
             for (i = 0; i < textInput.Lines.Length; i++)
             {
                 string str = textInput.Lines[i].ToString();
                 str = new Regex("[\\s]+").Replace(textInput.Lines[i].ToString(), " ").Trim();
                 lis[i] = str.Split(new string[] { " " }, StringSplitOptions.None).ToList();
             }
-
-            if (comboBox_datatype.SelectedIndex == 0)
+            if (comboBox_datatype.SelectedIndex == 1)
             {
-                byte phone_index = Convert.ToByte(textBox_filesize.Text);
-                byte device_index = Convert.ToByte(combobox_key.Text);
+                byte phone_index=0;
+                byte device_index=0;
+                if (comboBox_indicate.Items.Count <= 0)
+                {
+                    MessageBox.Show("天数差出错");
+                    return;
+                }
+                try
+                {
+                    phone_index = Convert.ToByte(textBox_filesize.Text);
+                    device_index = Convert.ToByte(combobox_key.Text);
+                }
+                catch (Exception ex)
+                {        
+                    MessageBox.Show("设备序输入错误:"+ ex.Message);
+                    return;
+                }
+                
                 for (i = 1; i < lis.Length; i++)
                 {
                     if ((lis[i - 1].Count < 3) || (lis[i].Count < 3))
@@ -1945,9 +1958,6 @@ namespace SYD_COPY_FILE
                         MessageBox.Show("input error");
                         return;
                     }
-
-
-
                     str = str.Trim();
                     str1 = str1.Trim();
 
@@ -1985,7 +1995,7 @@ namespace SYD_COPY_FILE
                     richTextBox_out.AppendText("\r\n");
                 }
             }
-            else if (comboBox_datatype.SelectedIndex == 1)
+            else if (comboBox_datatype.SelectedIndex == 2)
             {
                 for (i = 1; i < lis.Length; i++)
                 {
@@ -2011,7 +2021,7 @@ namespace SYD_COPY_FILE
                     richTextBox_out.AppendText(resut + " 时间戳差值：" + textBox_filesize.Text);
                 }
             }
-            else if (comboBox_datatype.SelectedIndex == 2)
+            else if ((comboBox_datatype.SelectedIndex == 3)|| (comboBox_datatype.SelectedIndex == 0))
             {
                 string str = "";
                 UInt64 timestamp_min = 0, timestamp_max = 0, timestamp = 0;
@@ -3406,6 +3416,7 @@ namespace SYD_COPY_FILE
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Rtc_Deviation.txt", Encoding.Default);
 
                 this.comboBox_datatype.Items.Clear();
+                this.comboBox_datatype.Items.Add("SSCOM带时间戳数据");
                 this.comboBox_datatype.Items.Add("输入数据为手环RTC统计数据");
                 this.comboBox_datatype.Items.Add("输入数据为sniffer数据包");
                 this.comboBox_datatype.Items.Add("输入数据为Studio的时间+数据复制行");
@@ -3590,7 +3601,7 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Rtc_Deviation)
             {
-                if (comboBox_datatype.SelectedIndex == 0)
+                if (comboBox_datatype.SelectedIndex == 1)
                 {
                     this.label_indicator.Text = "天数差:";
                     this.label_datasize.Text = "手机字段序号:";
@@ -3601,11 +3612,14 @@ namespace SYD_COPY_FILE
                 {
                     this.label_indicator.Text = "指示符:";
                 }
-                if (comboBox_datatype.SelectedIndex == 2)
+                if (comboBox_datatype.SelectedIndex == 0)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Rtc_Deviation_sscom.txt", Encoding.Default);
+                }
+                else if (comboBox_datatype.SelectedIndex == 3)
                 {
                     textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Rtc_Deviation_studio.txt", Encoding.Default);
                 }
-
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.handle_File)
             {
