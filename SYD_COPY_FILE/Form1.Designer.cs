@@ -2100,7 +2100,7 @@
             this.comboBox_indicate.Name = "comboBox_indicate";
             this.comboBox_indicate.Size = new System.Drawing.Size(366, 26);
             this.comboBox_indicate.TabIndex = 33;
-            this.toolTip2.SetToolTip(this.comboBox_indicate, "天数差:0");
+            this.toolTip2.SetToolTip(this.comboBox_indicate, "天数差:0\r\n结束地址:0x11090000");
             this.comboBox_indicate.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_ComBox_DragDrop);
             this.comboBox_indicate.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
@@ -2119,7 +2119,7 @@
             "C语言结构体计算偏移/从C文件提炼数组声明",
             "XOR/求和/CRC/(时间)差值运算",
             "Rtc批量时间差计算",
-            "Keil读回的内存分析",
+            "Hardfault堆栈分析",
             "根据要求提取行或列",
             "Http请求",
             "生成特定数组",
@@ -2148,7 +2148,7 @@
             // 
             this.draw.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
             this.draw.ForeColor = System.Drawing.Color.Red;
-            this.draw.Location = new System.Drawing.Point(561, 134);
+            this.draw.Location = new System.Drawing.Point(556, 134);
             this.draw.Name = "draw";
             this.draw.Size = new System.Drawing.Size(135, 45);
             this.draw.TabIndex = 26;
@@ -2191,12 +2191,9 @@
             this.groupBox21.Controls.Add(this.combobox_key);
             this.groupBox21.Controls.Add(this.comboBox_additional_operations);
             this.groupBox21.Controls.Add(this.open_last_source_file_button);
-            this.groupBox21.Controls.Add(this.label_key_word);
             this.groupBox21.Controls.Add(this.button_clear);
             this.groupBox21.Controls.Add(this.comboBox_fonttype);
-            this.groupBox21.Controls.Add(this.label_font_type);
             this.groupBox21.Controls.Add(this.comboBox_datatype);
-            this.groupBox21.Controls.Add(this.label_data_type);
             this.groupBox21.Controls.Add(this.textBox_filesize);
             this.groupBox21.Controls.Add(this.label_datasize);
             this.groupBox21.Controls.Add(this.label_intputsize);
@@ -2204,8 +2201,11 @@
             this.groupBox21.Controls.Add(this.source_file_button);
             this.groupBox21.Controls.Add(this.label_outfile);
             this.groupBox21.Controls.Add(this.source_file_textBox);
-            this.groupBox21.Controls.Add(this.label_additional_operations);
             this.groupBox21.Controls.Add(this.label_outfilename);
+            this.groupBox21.Controls.Add(this.label_key_word);
+            this.groupBox21.Controls.Add(this.label_font_type);
+            this.groupBox21.Controls.Add(this.label_data_type);
+            this.groupBox21.Controls.Add(this.label_additional_operations);
             this.groupBox21.Location = new System.Drawing.Point(-6, 4);
             this.groupBox21.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox21.Name = "groupBox21";
@@ -2235,7 +2235,7 @@
             this.combobox_key.Name = "combobox_key";
             this.combobox_key.Size = new System.Drawing.Size(226, 26);
             this.combobox_key.TabIndex = 35;
-            this.toolTip3.SetToolTip(this.combobox_key, "设备序:5\r\n扩展名: .bmp\r\n临界值:50M");
+            this.toolTip3.SetToolTip(this.combobox_key, "设备序:5\r\n扩展名: .bmp\r\n临界值:50M\r\n开始地址:0x11010000");
             this.combobox_key.TextChanged += new System.EventHandler(this.combobox_key_TextChanged);
             // 
             // comboBox_additional_operations
@@ -2244,7 +2244,7 @@
             this.comboBox_additional_operations.Items.AddRange(new object[] {
             "16X16",
             "32X32"});
-            this.comboBox_additional_operations.Location = new System.Drawing.Point(753, 96);
+            this.comboBox_additional_operations.Location = new System.Drawing.Point(745, 96);
             this.comboBox_additional_operations.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_additional_operations.Name = "comboBox_additional_operations";
             this.comboBox_additional_operations.Size = new System.Drawing.Size(84, 26);
@@ -2265,7 +2265,7 @@
             // label_key_word
             // 
             this.label_key_word.AutoSize = true;
-            this.label_key_word.Location = new System.Drawing.Point(843, 100);
+            this.label_key_word.Location = new System.Drawing.Point(830, 100);
             this.label_key_word.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_key_word.Name = "label_key_word";
             this.label_key_word.Size = new System.Drawing.Size(71, 18);
@@ -2289,7 +2289,7 @@
             this.comboBox_fonttype.Items.AddRange(new object[] {
             "16X16",
             "32X32"});
-            this.comboBox_fonttype.Location = new System.Drawing.Point(573, 96);
+            this.comboBox_fonttype.Location = new System.Drawing.Point(565, 96);
             this.comboBox_fonttype.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_fonttype.Name = "comboBox_fonttype";
             this.comboBox_fonttype.Size = new System.Drawing.Size(91, 26);
@@ -2300,7 +2300,7 @@
             // label_font_type
             // 
             this.label_font_type.AutoSize = true;
-            this.label_font_type.Location = new System.Drawing.Point(492, 100);
+            this.label_font_type.Location = new System.Drawing.Point(484, 100);
             this.label_font_type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_font_type.Name = "label_font_type";
             this.label_font_type.Size = new System.Drawing.Size(89, 18);
@@ -2314,7 +2314,7 @@
             "uint8",
             "uint16",
             "uint32"});
-            this.comboBox_datatype.Location = new System.Drawing.Point(296, 96);
+            this.comboBox_datatype.Location = new System.Drawing.Point(292, 96);
             this.comboBox_datatype.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_datatype.Name = "comboBox_datatype";
             this.comboBox_datatype.Size = new System.Drawing.Size(192, 26);
@@ -2326,7 +2326,7 @@
             // label_data_type
             // 
             this.label_data_type.AutoSize = true;
-            this.label_data_type.Location = new System.Drawing.Point(214, 100);
+            this.label_data_type.Location = new System.Drawing.Point(210, 100);
             this.label_data_type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_data_type.Name = "label_data_type";
             this.label_data_type.Size = new System.Drawing.Size(89, 18);
@@ -2407,7 +2407,7 @@
             // label_additional_operations
             // 
             this.label_additional_operations.AutoSize = true;
-            this.label_additional_operations.Location = new System.Drawing.Point(668, 100);
+            this.label_additional_operations.Location = new System.Drawing.Point(660, 100);
             this.label_additional_operations.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_additional_operations.Name = "label_additional_operations";
             this.label_additional_operations.Size = new System.Drawing.Size(89, 18);
@@ -2456,7 +2456,7 @@
             // label_indicator
             // 
             this.label_indicator.AutoSize = true;
-            this.label_indicator.Location = new System.Drawing.Point(694, 147);
+            this.label_indicator.Location = new System.Drawing.Point(689, 147);
             this.label_indicator.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_indicator.Name = "label_indicator";
             this.label_indicator.Size = new System.Drawing.Size(71, 18);
@@ -9157,7 +9157,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.8.6";
+            this.Text = "Calculator V2.8.7";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

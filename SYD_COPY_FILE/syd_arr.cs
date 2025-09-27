@@ -65,7 +65,7 @@ namespace SYD_COPY_FILE
             C_struct_element_size,
             Cmd_XOR,
             Rtc_Deviation,//13
-            Keil_memery_analysis,//5
+            hardfault_analysis,//5
             Get_Row,
             Http_Requst,
             Get_ARR,
@@ -1280,21 +1280,40 @@ namespace SYD_COPY_FILE
             StripStatusLabelSet("保存成功!");
         }
 
-        private void keil_memery()
+        private void hardfault_analysis()
         {
-            int i = 0;
+            UInt32 addr_start = 0;
+            UInt32 addr_end = 0;
+            try
+            {
+                addr_end = Convert.ToUInt32(comboBox_indicate.Text.Replace("0X","").Replace("0x", ""), 16);
+                addr_start = Convert.ToUInt32(combobox_key.Text.Replace("0X", "").Replace("0x", ""), 16);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("地址输入错误:" + ex.Message);
+                return;
+            }
             string orgTxt1 = textInput.Text.Trim();
 
-            List<string> lstArray = orgTxt1.ToLower().Split(new char[2] { '\r', '\n' }).ToList();
+            List<string> lstArray = orgTxt1.Split(new char[2] { '\r', '\n' }).ToList();
 
             richTextBox_out.Text = "";
 
-            for (i = 1; i < (lstArray.Count - 2); i++)
+            for (int i = 0; i < lstArray.Count; i++)
             {
-                richTextBox_out.AppendText(lstArray[i].Substring(9, 32) + "\r\n");
+                if (lstArray[i].Length < 19) continue;
+                string str = lstArray[i].Trim().Substring(11, lstArray[i].Length - 11);
+                List<string> hex = str.Split(' ').ToList();
+                for (int j = 0; j < hex.Count; j++)
+                {
+                    UInt32 addr = Convert.ToUInt32(hex[j], 16);
+                    if ((addr >= addr_start) && (addr <= addr_end))
+                    {
+                        richTextBox_out.AppendText(hex[j] + "\r\n");
+                    }
+                }
             }
-
-            StripStatusLabelSet("保存成功!");
         }
 
         private void Data_filled_complement_zero()
@@ -3003,9 +3022,9 @@ namespace SYD_COPY_FILE
             {
                 Chinese_to_utf8_arr();
             }
-            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Keil_memery_analysis)
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.hardfault_analysis)
             {
-                keil_memery();
+                hardfault_analysis();
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.ARR_to_bin)
             {
@@ -3422,6 +3441,13 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("输入数据为Studio的时间+数据复制行");
                 this.label_data_type.Text = "输入类型：";
             }
+            else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.hardfault_analysis)
+            {
+                textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_hardfault_analysis.txt", Encoding.Default);
+
+                this.label_key_word.Text = "开始地址";
+                this.label_indicator.Text = "结束地址";
+            }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Bytes_to_utf8)
             {
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Bytestoutf8.txt", Encoding.Default);
@@ -3757,7 +3783,7 @@ namespace SYD_COPY_FILE
         }
         private void label_key_word_toolTip()
         {
-            if ((label_key_word.Text == "设备序:") || (label_key_word.Text == "扩展名") || (label_key_word.Text == "临界值"))
+            if ((label_key_word.Text == "设备序:") || (label_key_word.Text == "扩展名") || (label_key_word.Text == "临界值") || (label_key_word.Text == "开始地址"))
                 this.toolTip3.Active = true;
             else
                 this.toolTip3.Active = false;
@@ -3768,7 +3794,7 @@ namespace SYD_COPY_FILE
         }
         private void label_indicator_toolTip()
         {
-            if (label_indicator.Text == "天数差:")
+            if ((label_indicator.Text == "天数差:") || (label_indicator.Text == "结束地址"))
                 this.toolTip2.Active = true;
             else
                 this.toolTip2.Active = false;
