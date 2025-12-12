@@ -146,12 +146,9 @@
             this.combobox_key = new System.Windows.Forms.ComboBox();
             this.comboBox_additional_operations = new System.Windows.Forms.ComboBox();
             this.open_last_source_file_button = new System.Windows.Forms.Button();
-            this.label_key_word = new System.Windows.Forms.Label();
             this.button_clear = new System.Windows.Forms.Button();
             this.comboBox_fonttype = new System.Windows.Forms.ComboBox();
-            this.label_font_type = new System.Windows.Forms.Label();
             this.comboBox_datatype = new System.Windows.Forms.ComboBox();
-            this.label_data_type = new System.Windows.Forms.Label();
             this.textBox_filesize = new System.Windows.Forms.TextBox();
             this.label_datasize = new System.Windows.Forms.Label();
             this.label_intputsize = new System.Windows.Forms.Label();
@@ -159,8 +156,11 @@
             this.source_file_button = new System.Windows.Forms.Button();
             this.label_outfile = new System.Windows.Forms.Label();
             this.source_file_textBox = new System.Windows.Forms.TextBox();
-            this.label_additional_operations = new System.Windows.Forms.Label();
             this.label_outfilename = new System.Windows.Forms.Label();
+            this.label_key_word = new System.Windows.Forms.Label();
+            this.label_font_type = new System.Windows.Forms.Label();
+            this.label_data_type = new System.Windows.Forms.Label();
+            this.label_additional_operations = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.richTextBox_out = new System.Windows.Forms.TextBox();
             this.label_indicator = new System.Windows.Forms.Label();
@@ -2262,17 +2262,6 @@
             this.open_last_source_file_button.UseVisualStyleBackColor = true;
             this.open_last_source_file_button.Click += new System.EventHandler(this.reopen_source_file_button_Click);
             // 
-            // label_key_word
-            // 
-            this.label_key_word.AutoSize = true;
-            this.label_key_word.Location = new System.Drawing.Point(830, 100);
-            this.label_key_word.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_key_word.Name = "label_key_word";
-            this.label_key_word.Size = new System.Drawing.Size(71, 18);
-            this.label_key_word.TabIndex = 34;
-            this.label_key_word.Text = "关键字:";
-            this.label_key_word.TextChanged += new System.EventHandler(this.label_key_word_TextChanged);
-            // 
             // button_clear
             // 
             this.button_clear.Location = new System.Drawing.Point(1083, 27);
@@ -2297,16 +2286,6 @@
             this.comboBox_fonttype.Text = "16X16";
             this.comboBox_fonttype.DropDownClosed += new System.EventHandler(this.comboBox_fonttype_DropDownClosed);
             // 
-            // label_font_type
-            // 
-            this.label_font_type.AutoSize = true;
-            this.label_font_type.Location = new System.Drawing.Point(484, 100);
-            this.label_font_type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_font_type.Name = "label_font_type";
-            this.label_font_type.Size = new System.Drawing.Size(89, 18);
-            this.label_font_type.TabIndex = 22;
-            this.label_font_type.Text = "字库类型:";
-            // 
             // comboBox_datatype
             // 
             this.comboBox_datatype.FormattingEnabled = true;
@@ -2322,16 +2301,6 @@
             this.comboBox_datatype.Text = "uint8";
             this.comboBox_datatype.DropDownClosed += new System.EventHandler(this.comboBox_datatype_DropDownClosed);
             this.comboBox_datatype.TextChanged += new System.EventHandler(this.comboBox_datatype_TextChanged);
-            // 
-            // label_data_type
-            // 
-            this.label_data_type.AutoSize = true;
-            this.label_data_type.Location = new System.Drawing.Point(210, 100);
-            this.label_data_type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_data_type.Name = "label_data_type";
-            this.label_data_type.Size = new System.Drawing.Size(89, 18);
-            this.label_data_type.TabIndex = 20;
-            this.label_data_type.Text = "数据类型:";
             // 
             // textBox_filesize
             // 
@@ -2404,16 +2373,6 @@
             this.source_file_textBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_file_textBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
             // 
-            // label_additional_operations
-            // 
-            this.label_additional_operations.AutoSize = true;
-            this.label_additional_operations.Location = new System.Drawing.Point(660, 100);
-            this.label_additional_operations.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_additional_operations.Name = "label_additional_operations";
-            this.label_additional_operations.Size = new System.Drawing.Size(89, 18);
-            this.label_additional_operations.TabIndex = 38;
-            this.label_additional_operations.Text = "额外操作:";
-            // 
             // label_outfilename
             // 
             this.label_outfilename.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -2424,6 +2383,47 @@
             this.label_outfilename.Size = new System.Drawing.Size(825, 18);
             this.label_outfilename.TabIndex = 9;
             this.label_outfilename.Text = "syd_arr_ok.txt";
+            // 
+            // label_key_word
+            // 
+            this.label_key_word.AutoSize = true;
+            this.label_key_word.Location = new System.Drawing.Point(830, 100);
+            this.label_key_word.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_key_word.Name = "label_key_word";
+            this.label_key_word.Size = new System.Drawing.Size(71, 18);
+            this.label_key_word.TabIndex = 34;
+            this.label_key_word.Text = "关键字:";
+            this.label_key_word.TextChanged += new System.EventHandler(this.label_key_word_TextChanged);
+            // 
+            // label_font_type
+            // 
+            this.label_font_type.AutoSize = true;
+            this.label_font_type.Location = new System.Drawing.Point(484, 100);
+            this.label_font_type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_font_type.Name = "label_font_type";
+            this.label_font_type.Size = new System.Drawing.Size(89, 18);
+            this.label_font_type.TabIndex = 22;
+            this.label_font_type.Text = "字库类型:";
+            // 
+            // label_data_type
+            // 
+            this.label_data_type.AutoSize = true;
+            this.label_data_type.Location = new System.Drawing.Point(210, 100);
+            this.label_data_type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_data_type.Name = "label_data_type";
+            this.label_data_type.Size = new System.Drawing.Size(89, 18);
+            this.label_data_type.TabIndex = 20;
+            this.label_data_type.Text = "数据类型:";
+            // 
+            // label_additional_operations
+            // 
+            this.label_additional_operations.AutoSize = true;
+            this.label_additional_operations.Location = new System.Drawing.Point(660, 100);
+            this.label_additional_operations.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_additional_operations.Name = "label_additional_operations";
+            this.label_additional_operations.Size = new System.Drawing.Size(89, 18);
+            this.label_additional_operations.TabIndex = 38;
+            this.label_additional_operations.Text = "额外操作:";
             // 
             // groupBox23
             // 
@@ -4383,6 +4383,7 @@
             this.textBox11.Size = new System.Drawing.Size(112, 28);
             this.textBox11.TabIndex = 53;
             this.textBox11.Text = "0";
+            this.textBox11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox11.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // textBox12
@@ -4442,6 +4443,7 @@
             this.textBox43.TabIndex = 49;
             this.textBox43.Text = "2D";
             this.textBox43.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
+            this.textBox43.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox43.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // button8
@@ -4474,6 +4476,7 @@
             this.textBox45.TabIndex = 51;
             this.textBox45.Text = "0";
             this.textBox45.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
+            this.textBox45.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox45.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // checkBox9
@@ -4506,6 +4509,7 @@
             this.textBox2.Size = new System.Drawing.Size(112, 28);
             this.textBox2.TabIndex = 21;
             this.textBox2.Text = "4";
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox2.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // textBox9
@@ -4564,6 +4568,7 @@
             this.textBox1.Size = new System.Drawing.Size(112, 28);
             this.textBox1.TabIndex = 20;
             this.textBox1.Text = "0.8*3.3";
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox1.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // comboBox2
@@ -4615,6 +4620,7 @@
             this.textBox6.TabIndex = 2;
             this.textBox6.Text = "1.35";
             this.textBox6.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
+            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox6.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // button2
@@ -4647,6 +4653,7 @@
             this.textBox3.TabIndex = 2;
             this.textBox3.Text = "20006C78";
             this.textBox3.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox3.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // textBox8
@@ -4659,6 +4666,7 @@
             this.textBox8.TabIndex = 10;
             this.textBox8.Text = "7.7";
             this.textBox8.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
+            this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox8.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // button1
@@ -4691,6 +4699,7 @@
             this.textBox5.TabIndex = 10;
             this.textBox5.Text = "20006C58";
             this.textBox5.TextChanged += new System.EventHandler(this.cal_32768_TextChanged);
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cal_32768_KeyPress);
             this.textBox5.Leave += new System.EventHandler(this.textBoxRemoveBlack_Leave);
             // 
             // checkBox6
@@ -9157,7 +9166,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.8.7";
+            this.Text = "Calculator V2.8.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

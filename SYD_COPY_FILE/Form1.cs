@@ -819,7 +819,7 @@ namespace SYD_COPY_FILE
         {
             if ((a.Length == 0) | (b.Length == 0) | (c.Length == 0)) return false;
             if ((aa.SelectedIndex == 3) && (Convert.ToInt32(b, 16) == 0)) return false;
-            if ((bb.SelectedIndex == 3) && (Convert.ToInt32(c, 16) == 0)) return false;
+            //if ((bb.SelectedIndex == 3) && (Convert.ToInt32(c, 16) == 0)) return false;
             return true;
         }
         private void cal_32768_TextChanged(object sender, EventArgs e)
@@ -846,6 +846,13 @@ namespace SYD_COPY_FILE
             {
                 Console.WriteLine(ex);
                 return;
+            }
+        }
+        private void cal_32768_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                cal_32768_TextChanged(sender,null);
             }
         }
         private void Calendar_Time_Difference_Cal_Click(object sender, EventArgs e)
