@@ -115,10 +115,6 @@
             this.label48 = new System.Windows.Forms.Label();
             this.textBoxSplitR = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
-            this.label_Line = new System.Windows.Forms.Label();
-            this.label102 = new System.Windows.Forms.Label();
-            this.label_Index = new System.Windows.Forms.Label();
-            this.label100 = new System.Windows.Forms.Label();
             this.label_ysite = new System.Windows.Forms.Label();
             this.label98 = new System.Windows.Forms.Label();
             this.label_xsite = new System.Windows.Forms.Label();
@@ -1166,11 +1162,11 @@
             this.groupBox7.Controls.Add(this.label58);
             this.groupBox7.Controls.Add(this.label121);
             this.groupBox7.Controls.Add(this.label109);
-            this.groupBox7.Location = new System.Drawing.Point(574, 3);
+            this.groupBox7.Location = new System.Drawing.Point(572, 3);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox7.Size = new System.Drawing.Size(552, 105);
+            this.groupBox7.Size = new System.Drawing.Size(554, 105);
             this.groupBox7.TabIndex = 73;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "图片位置计算";
@@ -1178,7 +1174,7 @@
             // checkBox11
             // 
             this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(466, 80);
+            this.checkBox11.Location = new System.Drawing.Point(472, 80);
             this.checkBox11.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Size = new System.Drawing.Size(88, 22);
@@ -1189,7 +1185,7 @@
             // 
             // textBox84
             // 
-            this.textBox84.Location = new System.Drawing.Point(64, 21);
+            this.textBox84.Location = new System.Drawing.Point(70, 21);
             this.textBox84.Margin = new System.Windows.Forms.Padding(4);
             this.textBox84.Name = "textBox84";
             this.textBox84.Size = new System.Drawing.Size(36, 28);
@@ -1199,7 +1195,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SYD_COPY_FILE.Properties.Resources.Align_center;
-            this.pictureBox1.Location = new System.Drawing.Point(412, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(418, 12);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(42, 68);
@@ -1208,7 +1204,7 @@
             // 
             // textBox73
             // 
-            this.textBox73.Location = new System.Drawing.Point(261, 34);
+            this.textBox73.Location = new System.Drawing.Point(267, 34);
             this.textBox73.Margin = new System.Windows.Forms.Padding(4);
             this.textBox73.Name = "textBox73";
             this.textBox73.Size = new System.Drawing.Size(36, 28);
@@ -1217,7 +1213,7 @@
             // 
             // textBox77
             // 
-            this.textBox77.Location = new System.Drawing.Point(261, 68);
+            this.textBox77.Location = new System.Drawing.Point(267, 68);
             this.textBox77.Margin = new System.Windows.Forms.Padding(4);
             this.textBox77.Name = "textBox77";
             this.textBox77.Size = new System.Drawing.Size(36, 28);
@@ -1227,7 +1223,7 @@
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(466, 58);
+            this.checkBox5.Location = new System.Drawing.Point(472, 58);
             this.checkBox5.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(88, 22);
@@ -1239,7 +1235,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(466, 38);
+            this.checkBox3.Location = new System.Drawing.Point(472, 38);
             this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(88, 22);
@@ -1251,7 +1247,7 @@
             // checkBox14
             // 
             this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(303, 58);
+            this.checkBox14.Location = new System.Drawing.Point(309, 58);
             this.checkBox14.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(106, 22);
@@ -1262,7 +1258,7 @@
             // 
             // textBox69
             // 
-            this.textBox69.Location = new System.Drawing.Point(130, 66);
+            this.textBox69.Location = new System.Drawing.Point(136, 66);
             this.textBox69.Margin = new System.Windows.Forms.Padding(4);
             this.textBox69.Name = "textBox69";
             this.textBox69.Size = new System.Drawing.Size(37, 28);
@@ -1273,7 +1269,7 @@
             // checkBox12
             // 
             this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(303, 15);
+            this.checkBox12.Location = new System.Drawing.Point(309, 15);
             this.checkBox12.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(106, 22);
@@ -1285,7 +1281,7 @@
             // checkBox13
             // 
             this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(303, 38);
+            this.checkBox13.Location = new System.Drawing.Point(309, 38);
             this.checkBox13.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(106, 22);
@@ -1296,7 +1292,7 @@
             // 
             // textBox82
             // 
-            this.textBox82.Location = new System.Drawing.Point(204, 68);
+            this.textBox82.Location = new System.Drawing.Point(210, 68);
             this.textBox82.Margin = new System.Windows.Forms.Padding(4);
             this.textBox82.Name = "textBox82";
             this.textBox82.Size = new System.Drawing.Size(36, 28);
@@ -1305,7 +1301,7 @@
             // 
             // textBox71
             // 
-            this.textBox71.Location = new System.Drawing.Point(204, 34);
+            this.textBox71.Location = new System.Drawing.Point(210, 34);
             this.textBox71.Margin = new System.Windows.Forms.Padding(4);
             this.textBox71.Name = "textBox71";
             this.textBox71.Size = new System.Drawing.Size(36, 28);
@@ -1315,7 +1311,7 @@
             // label120
             // 
             this.label120.AutoSize = true;
-            this.label120.Location = new System.Drawing.Point(102, 72);
+            this.label120.Location = new System.Drawing.Point(108, 72);
             this.label120.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label120.Name = "label120";
             this.label120.Size = new System.Drawing.Size(35, 18);
@@ -1325,7 +1321,7 @@
             // label118
             // 
             this.label118.AutoSize = true;
-            this.label118.Location = new System.Drawing.Point(240, 74);
+            this.label118.Location = new System.Drawing.Point(246, 74);
             this.label118.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label118.Name = "label118";
             this.label118.Size = new System.Drawing.Size(26, 18);
@@ -1334,7 +1330,7 @@
             // 
             // textBox54
             // 
-            this.textBox54.Location = new System.Drawing.Point(64, 66);
+            this.textBox54.Location = new System.Drawing.Point(70, 66);
             this.textBox54.Margin = new System.Windows.Forms.Padding(4);
             this.textBox54.Name = "textBox54";
             this.textBox54.Size = new System.Drawing.Size(36, 28);
@@ -1345,7 +1341,7 @@
             // label116
             // 
             this.label116.AutoSize = true;
-            this.label116.Location = new System.Drawing.Point(204, 14);
+            this.label116.Location = new System.Drawing.Point(210, 14);
             this.label116.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(80, 18);
@@ -1355,7 +1351,7 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(466, 16);
+            this.checkBox4.Location = new System.Drawing.Point(472, 16);
             this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(88, 22);
@@ -1367,7 +1363,7 @@
             // label117
             // 
             this.label117.AutoSize = true;
-            this.label117.Location = new System.Drawing.Point(240, 40);
+            this.label117.Location = new System.Drawing.Point(246, 40);
             this.label117.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(26, 18);
@@ -1376,7 +1372,7 @@
             // 
             // textBox83
             // 
-            this.textBox83.Location = new System.Drawing.Point(130, 21);
+            this.textBox83.Location = new System.Drawing.Point(136, 21);
             this.textBox83.Margin = new System.Windows.Forms.Padding(4);
             this.textBox83.Name = "textBox83";
             this.textBox83.Size = new System.Drawing.Size(37, 28);
@@ -1388,7 +1384,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(405, 81);
+            this.checkBox2.Location = new System.Drawing.Point(411, 81);
             this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(70, 22);
@@ -1400,7 +1396,7 @@
             // checkBox15
             // 
             this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(303, 81);
+            this.checkBox15.Location = new System.Drawing.Point(309, 81);
             this.checkBox15.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(106, 22);
@@ -1412,7 +1408,7 @@
             // label115
             // 
             this.label115.AutoSize = true;
-            this.label115.Location = new System.Drawing.Point(102, 27);
+            this.label115.Location = new System.Drawing.Point(108, 27);
             this.label115.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label115.Name = "label115";
             this.label115.Size = new System.Drawing.Size(35, 18);
@@ -1422,7 +1418,7 @@
             // label119
             // 
             this.label119.AutoSize = true;
-            this.label119.Location = new System.Drawing.Point(183, 74);
+            this.label119.Location = new System.Drawing.Point(189, 74);
             this.label119.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label119.Name = "label119";
             this.label119.Size = new System.Drawing.Size(26, 18);
@@ -1432,7 +1428,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(182, 42);
+            this.label58.Location = new System.Drawing.Point(188, 42);
             this.label58.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(26, 18);
@@ -1442,7 +1438,7 @@
             // label121
             // 
             this.label121.AutoSize = true;
-            this.label121.Location = new System.Drawing.Point(-2, 27);
+            this.label121.Location = new System.Drawing.Point(4, 27);
             this.label121.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label121.Name = "label121";
             this.label121.Size = new System.Drawing.Size(71, 18);
@@ -1452,7 +1448,7 @@
             // label109
             // 
             this.label109.AutoSize = true;
-            this.label109.Location = new System.Drawing.Point(0, 72);
+            this.label109.Location = new System.Drawing.Point(6, 72);
             this.label109.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(71, 18);
@@ -1505,7 +1501,7 @@
             // 
             this.splitContainerMain.AllowDrop = true;
             this.splitContainerMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.splitContainerMain.Location = new System.Drawing.Point(3, 110);
+            this.splitContainerMain.Location = new System.Drawing.Point(3, 115);
             this.splitContainerMain.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerMain.Name = "splitContainerMain";
             // 
@@ -1532,10 +1528,6 @@
             this.splitContainerMain.Panel1.Controls.Add(this.label48);
             this.splitContainerMain.Panel1.Controls.Add(this.textBoxSplitR);
             this.splitContainerMain.Panel1.Controls.Add(this.label47);
-            this.splitContainerMain.Panel1.Controls.Add(this.label_Line);
-            this.splitContainerMain.Panel1.Controls.Add(this.label102);
-            this.splitContainerMain.Panel1.Controls.Add(this.label_Index);
-            this.splitContainerMain.Panel1.Controls.Add(this.label100);
             this.splitContainerMain.Panel1.Controls.Add(this.label_ysite);
             this.splitContainerMain.Panel1.Controls.Add(this.label98);
             this.splitContainerMain.Panel1.Controls.Add(this.label_xsite);
@@ -1554,7 +1546,7 @@
             this.splitContainerMain.Panel2.DragDrop += new System.Windows.Forms.DragEventHandler(this.splitContainerMain_Panel2_DragDrop);
             this.splitContainerMain.Panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.splitContainerMain_Panel2_DragEnter);
             this.splitContainerMain.Size = new System.Drawing.Size(1124, 710);
-            this.splitContainerMain.SplitterDistance = 120;
+            this.splitContainerMain.SplitterDistance = 85;
             this.splitContainerMain.SplitterWidth = 9;
             this.splitContainerMain.TabIndex = 27;
             // 
@@ -1586,7 +1578,7 @@
             // 
             this.label74.AutoSize = true;
             this.label74.Font = new System.Drawing.Font("宋体", 7F);
-            this.label74.Location = new System.Drawing.Point(93, 22);
+            this.label74.Location = new System.Drawing.Point(48, 22);
             this.label74.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(28, 14);
@@ -1597,18 +1589,18 @@
             // 
             this.label124.AutoSize = true;
             this.label124.Font = new System.Drawing.Font("宋体", 7F);
-            this.label124.Location = new System.Drawing.Point(76, 22);
+            this.label124.Location = new System.Drawing.Point(2, 22);
             this.label124.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label124.Name = "label124";
-            this.label124.Size = new System.Drawing.Size(21, 14);
+            this.label124.Size = new System.Drawing.Size(49, 14);
             this.label124.TabIndex = 67;
-            this.label124.Text = "H:";
+            this.label124.Text = "Pic H:";
             // 
             // label125
             // 
             this.label125.AutoSize = true;
             this.label125.Font = new System.Drawing.Font("宋体", 7F);
-            this.label125.Location = new System.Drawing.Point(48, 22);
+            this.label125.Location = new System.Drawing.Point(48, 6);
             this.label125.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label125.Name = "label125";
             this.label125.Size = new System.Drawing.Size(28, 14);
@@ -1619,7 +1611,7 @@
             // 
             this.label126.AutoSize = true;
             this.label126.Font = new System.Drawing.Font("宋体", 7F);
-            this.label126.Location = new System.Drawing.Point(2, 22);
+            this.label126.Location = new System.Drawing.Point(2, 6);
             this.label126.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label126.Name = "label126";
             this.label126.Size = new System.Drawing.Size(49, 14);
@@ -1641,14 +1633,14 @@
             this.groupBox12.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox12.Size = new System.Drawing.Size(120, 207);
+            this.groupBox12.Size = new System.Drawing.Size(114, 207);
             this.groupBox12.TabIndex = 13;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "切割设置";
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(9, 168);
+            this.buttonReset.Location = new System.Drawing.Point(4, 168);
             this.buttonReset.Margin = new System.Windows.Forms.Padding(4);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(104, 34);
@@ -1864,50 +1856,6 @@
             this.label47.TabIndex = 48;
             this.label47.Text = "R";
             // 
-            // label_Line
-            // 
-            this.label_Line.AutoSize = true;
-            this.label_Line.Font = new System.Drawing.Font("宋体", 7F);
-            this.label_Line.Location = new System.Drawing.Point(42, 3);
-            this.label_Line.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_Line.Name = "label_Line";
-            this.label_Line.Size = new System.Drawing.Size(21, 14);
-            this.label_Line.TabIndex = 23;
-            this.label_Line.Text = "60";
-            // 
-            // label102
-            // 
-            this.label102.AutoSize = true;
-            this.label102.Font = new System.Drawing.Font("宋体", 7F);
-            this.label102.Location = new System.Drawing.Point(2, 3);
-            this.label102.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(42, 14);
-            this.label102.TabIndex = 22;
-            this.label102.Text = "Line:";
-            // 
-            // label_Index
-            // 
-            this.label_Index.AutoSize = true;
-            this.label_Index.Font = new System.Drawing.Font("宋体", 7F);
-            this.label_Index.Location = new System.Drawing.Point(94, 3);
-            this.label_Index.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_Index.Name = "label_Index";
-            this.label_Index.Size = new System.Drawing.Size(28, 14);
-            this.label_Index.TabIndex = 21;
-            this.label_Index.Text = "600";
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("宋体", 7F);
-            this.label100.Location = new System.Drawing.Point(66, 3);
-            this.label100.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(35, 14);
-            this.label100.TabIndex = 20;
-            this.label100.Text = "Idx:";
-            // 
             // label_ysite
             // 
             this.label_ysite.AutoSize = true;
@@ -1955,7 +1903,7 @@
             this.buttonActualSize.Name = "buttonActualSize";
             this.buttonActualSize.Size = new System.Drawing.Size(56, 34);
             this.buttonActualSize.TabIndex = 6;
-            this.buttonActualSize.Text = "1：1";
+            this.buttonActualSize.Text = "1:1";
             this.buttonActualSize.UseVisualStyleBackColor = true;
             this.buttonActualSize.Click += new System.EventHandler(this.buttonActualSize_Click);
             // 
@@ -9166,7 +9114,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.8.8";
+            this.Text = "Calculator V2.8.9";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -9275,10 +9223,6 @@
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox textBoxSplitR;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label_Line;
-        private System.Windows.Forms.Label label102;
-        private System.Windows.Forms.Label label_Index;
-        private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Label label_ysite;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label_xsite;
