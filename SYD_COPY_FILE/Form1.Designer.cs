@@ -2065,7 +2065,7 @@
             "Text/ARR to bin",
             "找到目前可以用的最小关键词指定的元组序号",
             "C语言结构体计算偏移/从C文件提炼数组声明",
-            "XOR/求和/CRC/(时间)差值运算",
+            "XOR/求和/CRC/(时间)差值运算/发票求和",
             "Rtc批量时间差计算",
             "Hardfault堆栈分析",
             "根据要求提取行或列",
@@ -9114,7 +9114,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.8.9";
+            this.Text = "Calculator V2.9.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

@@ -1921,6 +1921,38 @@ namespace SYD_COPY_FILE
                         richTextBox_out.AppendText(time_difference_subtract(lstArray[i], lstArray[i - 1], 0, null, null) + "\r\n");
                 }
             }
+            else if (comboBox_datatype.SelectedIndex == 3)//发票求和
+            {
+                if (lstArray.Count <= 1) return;
+                richTextBox_out.Text = "\r\n";
+                int j = 0;
+                float sum =0;
+                for (i = 0; i < lstArray.Count; i++)
+                {
+                    j = lstArray[i].LastIndexOf(".");
+                    string str= lstArray[i];
+                    if (j != 0)
+                    {
+                        str = str.Substring(0,j);
+                        Match match = Regex.Match(str, @"-?\d+(\.\d+)?", RegexOptions.Singleline | RegexOptions.RightToLeft);
+                        if (match.Success)
+                        {
+                            sum += float.Parse(match.Value);
+                        }
+                        else
+                        {
+                            MessageBox.Show("计算失败:" + i.ToString());
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("计算失败:"+i.ToString());
+                        return;
+                    }
+                }
+                richTextBox_out.Text = "总和:"+ sum.ToString();
+            }
             StripStatusLabelSet("计算完成!");
         }
         private void Rtc_Deviation()
@@ -3423,6 +3455,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("XOR/求和/CRC");
                 this.comboBox_datatype.Items.Add("计算数据差值");
                 this.comboBox_datatype.Items.Add("计算时间差值(Only Dec)");
+                this.comboBox_datatype.Items.Add("计算发票总和");
                 this.label_data_type.Text = "功能选择：";
 
                 this.comboBox_fonttype.Items.Clear();
@@ -3623,6 +3656,10 @@ namespace SYD_COPY_FILE
                 else if (comboBox_datatype.SelectedIndex == 2)
                 {
                     textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_dataxor_difference_timer.txt", Encoding.Default);
+                }
+                else if (comboBox_datatype.SelectedIndex == 3)
+                {
+                    textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_datasum_bill.txt", Encoding.UTF8);
                 }
             }
             else if (comboBox_mode.SelectedIndex == (int)comboBox_mode_type.Rtc_Deviation)
