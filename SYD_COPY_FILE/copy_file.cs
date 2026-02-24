@@ -14,6 +14,7 @@ namespace SYD_COPY_FILE
     public partial class Form1
     {
         public bool extend_synccopyfile_state = false;
+        public ToolTip toolTipTextBox;
         public void copy_file_init()
         {
             this.label_copy_time.Text = "拷贝文件时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -86,6 +87,14 @@ namespace SYD_COPY_FILE
             comboBox7.SelectedIndex = Settings1.Default.rename_mode_sel;
 
             update_StripStatusLabel();
+
+            // 1. 创建ToolTip对象
+            toolTipTextBox = new ToolTip();
+            // 2. 设置基本属性
+            toolTipTextBox.AutoPopDelay = 3000;      // 显示时长（毫秒）
+            toolTipTextBox.InitialDelay = 500;       // 悬停多久后出现（毫秒）
+            toolTipTextBox.ReshowDelay = 200;        // 移出再移入时的延迟
+            toolTipTextBox.ShowAlways = true;        // 窗体失焦时是否仍显示
         }
         public void copy_file_uninit()
         {
@@ -432,6 +441,14 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
+        }
+        private void toolTipTextBox_MouseHover(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Length == 0) return;
+            // 鼠标悬停时动态更新提示
+            toolTipTextBox.RemoveAll();
+            toolTipTextBox.SetToolTip((Control)sender, ((TextBox)sender).Text);
+            toolTipTextBox.Active = true; // 确保激活
         }
         private bool ask_iscontinue()
         {

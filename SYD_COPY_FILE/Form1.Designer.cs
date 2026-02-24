@@ -1096,6 +1096,7 @@
             this.textBox_picture_path.Name = "textBox_picture_path";
             this.textBox_picture_path.Size = new System.Drawing.Size(328, 28);
             this.textBox_picture_path.TabIndex = 6;
+            this.textBox_picture_path.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // button_openpicture
             // 
@@ -1966,6 +1967,7 @@
             this.textBoxSrcPic.TabIndex = 1;
             this.textBoxSrcPic.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBoxSrcPic.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBoxSrcPic.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // buttonSplite
             // 
@@ -2010,6 +2012,7 @@
             this.textBoxSaveDir.Text = "C:\\Users\\HP\\Desktop";
             this.textBoxSaveDir.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBoxSaveDir.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBoxSaveDir.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // checkBox17
             // 
@@ -2320,6 +2323,7 @@
             this.source_file_textBox.TabIndex = 7;
             this.source_file_textBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_file_textBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.source_file_textBox.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // label_outfilename
             // 
@@ -5355,6 +5359,7 @@
             this.textBox_sectionoutput.TabIndex = 77;
             this.textBox_sectionoutput.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBox_sectionoutput.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_sectionoutput.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // label52
             // 
@@ -5449,6 +5454,7 @@
             this.textBox_sectionintput6.TabIndex = 43;
             this.textBox_sectionintput6.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
             this.textBox_sectionintput6.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_sectionintput6.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionintput1
             // 
@@ -5462,6 +5468,7 @@
             this.textBox_sectionintput1.TabIndex = 27;
             this.textBox_sectionintput1.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
             this.textBox_sectionintput1.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_sectionintput1.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionintput5
             // 
@@ -5475,6 +5482,7 @@
             this.textBox_sectionintput5.TabIndex = 40;
             this.textBox_sectionintput5.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
             this.textBox_sectionintput5.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_sectionintput5.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionintput2
             // 
@@ -5488,6 +5496,7 @@
             this.textBox_sectionintput2.TabIndex = 31;
             this.textBox_sectionintput2.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
             this.textBox_sectionintput2.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_sectionintput2.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionintput4
             // 
@@ -5501,6 +5510,7 @@
             this.textBox_sectionintput4.TabIndex = 37;
             this.textBox_sectionintput4.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
             this.textBox_sectionintput4.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_sectionintput4.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionintput3
             // 
@@ -5514,6 +5524,7 @@
             this.textBox_sectionintput3.TabIndex = 34;
             this.textBox_sectionintput3.DragDrop += new System.Windows.Forms.DragEventHandler(this.combin_textBox_DragDrop);
             this.textBox_sectionintput3.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_sectionintput3.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // comboBox_Combin
             // 
@@ -5778,6 +5789,7 @@
             this.textBox_splitbinfile.TabIndex = 41;
             this.textBox_splitbinfile.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBox_splitbinfile.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_splitbinfile.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_section1
             // 
@@ -5800,6 +5812,7 @@
             this.textBox_sectionout6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout6.Size = new System.Drawing.Size(487, 26);
             this.textBox_sectionout6.TabIndex = 58;
+            this.textBox_sectionout6.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionout5
             // 
@@ -5811,6 +5824,7 @@
             this.textBox_sectionout5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout5.Size = new System.Drawing.Size(715, 26);
             this.textBox_sectionout5.TabIndex = 57;
+            this.textBox_sectionout5.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionout4
             // 
@@ -5822,6 +5836,7 @@
             this.textBox_sectionout4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout4.Size = new System.Drawing.Size(715, 26);
             this.textBox_sectionout4.TabIndex = 56;
+            this.textBox_sectionout4.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionout3
             // 
@@ -5833,6 +5848,7 @@
             this.textBox_sectionout3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout3.Size = new System.Drawing.Size(715, 26);
             this.textBox_sectionout3.TabIndex = 55;
+            this.textBox_sectionout3.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionout2
             // 
@@ -5844,6 +5860,7 @@
             this.textBox_sectionout2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout2.Size = new System.Drawing.Size(715, 26);
             this.textBox_sectionout2.TabIndex = 54;
+            this.textBox_sectionout2.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_sectionout1
             // 
@@ -5855,6 +5872,7 @@
             this.textBox_sectionout1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_sectionout1.Size = new System.Drawing.Size(715, 26);
             this.textBox_sectionout1.TabIndex = 53;
+            this.textBox_sectionout1.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // textBox_section5
             // 
@@ -6104,6 +6122,7 @@
             this.destination_folder_textBox_rename.TabIndex = 68;
             this.destination_folder_textBox_rename.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.destination_folder_textBox_rename.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.destination_folder_textBox_rename.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // button11
             // 
@@ -6141,7 +6160,7 @@
             // source_copyfile_suffix_textBox_rename
             // 
             this.source_copyfile_suffix_textBox_rename.FormattingEnabled = true;
-            this.source_copyfile_suffix_textBox_rename.Location = new System.Drawing.Point(522, 69);
+            this.source_copyfile_suffix_textBox_rename.Location = new System.Drawing.Point(537, 72);
             this.source_copyfile_suffix_textBox_rename.Margin = new System.Windows.Forms.Padding(4);
             this.source_copyfile_suffix_textBox_rename.Name = "source_copyfile_suffix_textBox_rename";
             this.source_copyfile_suffix_textBox_rename.Size = new System.Drawing.Size(283, 26);
@@ -6207,6 +6226,7 @@
             this.source_copyfile_textBox_rename.TabIndex = 35;
             this.source_copyfile_textBox_rename.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_copyfile_textBox_rename.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.source_copyfile_textBox_rename.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // destination_file_textBox_rename
             // 
@@ -6217,6 +6237,7 @@
             this.destination_file_textBox_rename.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.destination_file_textBox_rename.Size = new System.Drawing.Size(590, 28);
             this.destination_file_textBox_rename.TabIndex = 36;
+            this.destination_file_textBox_rename.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // button_copy_sourcefile4
             // 
@@ -6366,6 +6387,7 @@
             this.textBox_copy_destinationfileend_sync.TabIndex = 31;
             this.textBox_copy_destinationfileend_sync.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBox_copy_destinationfileend_sync.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_copy_destinationfileend_sync.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // panel2
             // 
@@ -6437,6 +6459,7 @@
             this.textBox_copy_destinationfileend.TabIndex = 31;
             this.textBox_copy_destinationfileend.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.textBox_copy_destinationfileend.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.textBox_copy_destinationfileend.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // button_copy_destinationfile
             // 
@@ -6462,6 +6485,7 @@
             this.source_copyfile_textBox.TabIndex = 25;
             this.source_copyfile_textBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_copyfile_textBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.source_copyfile_textBox.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // destination_file_button
             // 
@@ -6486,6 +6510,7 @@
             this.destination_file_textBox.TabIndex = 26;
             this.destination_file_textBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.destination_file_textBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.destination_file_textBox.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // button_copy_sourcefile
             // 
@@ -6554,6 +6579,7 @@
             this.destination_file_textBox_two.TabIndex = 27;
             this.destination_file_textBox_two.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.destination_file_textBox_two.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.destination_file_textBox_two.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // checkBox_synccopy_sync
             // 
@@ -6604,6 +6630,7 @@
             this.source_copyfile_textBox_sync.TextChanged += new System.EventHandler(this.source_copyfile_textBox_sync_TextChanged);
             this.source_copyfile_textBox_sync.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.source_copyfile_textBox_sync.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.source_copyfile_textBox_sync.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // button_copy_destinationfileend_sync
             // 
@@ -6629,6 +6656,7 @@
             this.destination_file_textBox_sync.TabIndex = 27;
             this.destination_file_textBox_sync.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.destination_file_textBox_sync.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.destination_file_textBox_sync.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // destination_file_textBox_two_sync
             // 
@@ -6641,6 +6669,7 @@
             this.destination_file_textBox_two_sync.TabIndex = 28;
             this.destination_file_textBox_two_sync.DragDrop += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragDrop);
             this.destination_file_textBox_two_sync.DragEnter += new System.Windows.Forms.DragEventHandler(this.source_copyfile_textBox_DragEnter);
+            this.destination_file_textBox_two_sync.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // destination_file_button_sync
             // 
@@ -7033,6 +7062,7 @@
             this.UIgen_source_file_textBox.Name = "UIgen_source_file_textBox";
             this.UIgen_source_file_textBox.Size = new System.Drawing.Size(508, 28);
             this.UIgen_source_file_textBox.TabIndex = 7;
+            this.UIgen_source_file_textBox.MouseHover += new System.EventHandler(this.toolTipTextBox_MouseHover);
             // 
             // UIgen_checkBox4
             // 
@@ -9114,7 +9144,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Calculator V2.9.0";
+            this.Text = "Calculator V2.9.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
