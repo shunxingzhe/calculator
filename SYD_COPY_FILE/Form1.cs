@@ -855,6 +855,100 @@ namespace SYD_COPY_FILE
                 cal_32768_TextChanged(sender,null);
             }
         }
+        private void textBox_focus(TextBox textBox)
+        {
+            textBox.Focus();
+            textBox.Select(textBox.TextLength, 0);
+        }
+        private void cal_32768_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                if (sender == textBox3)
+                {
+                    textBox_focus(textBox6);
+                }
+                else if (sender == textBox43)
+                {
+                    textBox_focus(textBox3);
+                }
+                else if (sender == textBox5)
+                {
+                    textBox_focus(textBox8);
+                }
+                else if (sender == textBox45)
+                {
+                    textBox_focus(textBox5);
+                }
+                else if (sender == textBox2)
+                {
+                    textBox_focus(textBox1);
+                }
+                else if (sender == textBox11)
+                {
+                    textBox_focus(textBox2);
+                }
+                else if (sender == textBox50)
+                {
+                    textBox_focus(textBox49);
+                }
+                else if (sender == textBox47)
+                {
+                    textBox_focus(textBox50);
+                }
+                else if (sender == textBox53)
+                {
+                    textBox_focus(textBox52);
+                }
+                else if (sender == textBox51)
+                {
+                    textBox_focus(textBox53);
+                }
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                if (sender == textBox6)
+                {
+                    textBox_focus(textBox3);
+                }
+                else if (sender == textBox3)
+                {
+                    textBox_focus(textBox43);
+                }
+                else if (sender == textBox8)
+                {
+                    textBox_focus(textBox5);
+                }
+                else if (sender == textBox5)
+                {
+                    textBox_focus(textBox45);
+                }
+                else if (sender == textBox1)
+                {
+                    textBox_focus(textBox2);
+                }
+                else if (sender == textBox2)
+                {
+                    textBox_focus(textBox11);
+                }
+                else if (sender == textBox49)
+                {
+                    textBox_focus(textBox50);
+                }
+                else if (sender == textBox50)
+                {
+                    textBox_focus(textBox47);
+                }
+                else if (sender == textBox52)
+                {
+                    textBox_focus(textBox53);
+                }
+                else if (sender == textBox53)
+                {
+                    textBox_focus(textBox51);
+                }
+            }
+        }
         private void Calendar_Time_Difference_Cal_Click(object sender, EventArgs e)
         {
             Int32 date = 0;
@@ -1615,7 +1709,6 @@ namespace SYD_COPY_FILE
             p = Math.Sqrt(p);
             textBox46.Text= p.ToString("f5");
         }
-
         private void textBox_rename_TextChanged(object sender, EventArgs e)
         {
             checkBox_delete_srcfile.Checked = false;

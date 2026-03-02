@@ -91,9 +91,9 @@ namespace SYD_COPY_FILE
             // 1. 创建ToolTip对象
             toolTipTextBox = new ToolTip();
             // 2. 设置基本属性
-            toolTipTextBox.AutoPopDelay = 3000;      // 显示时长（毫秒）
-            toolTipTextBox.InitialDelay = 500;       // 悬停多久后出现（毫秒）
-            toolTipTextBox.ReshowDelay = 200;        // 移出再移入时的延迟
+            toolTipTextBox.AutoPopDelay = 10000;      // 显示时长（毫秒）
+            toolTipTextBox.InitialDelay = 200;       // 悬停多久后出现（毫秒）
+            toolTipTextBox.ReshowDelay = 10;        // 移出再移入时的延迟
             toolTipTextBox.ShowAlways = true;        // 窗体失焦时是否仍显示
         }
         public void copy_file_uninit()
