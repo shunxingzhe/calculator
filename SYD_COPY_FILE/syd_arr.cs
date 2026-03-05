@@ -2183,11 +2183,11 @@ namespace SYD_COPY_FILE
             {
                 separator_out = " ";
             }
-            else if (comboBox_fonttype.SelectedIndex == 1)
+            else if (comboBox_fonttype.SelectedIndex == 0)
             {
                 separator_out = "\r\n";
             }
-            if ((comboBox_datatype.SelectedIndex == 2) || (comboBox_datatype.SelectedIndex == 3))
+            if ((comboBox_datatype.SelectedIndex == 1) || (comboBox_datatype.SelectedIndex == 2))
             {
                 string key_word = combobox_key.Text;
                 for (i = 0; i < lstArray.Count; i++)
@@ -2195,7 +2195,7 @@ namespace SYD_COPY_FILE
                     j = lstArray[i].IndexOf(key_word);
                     if (j != -1)
                     {
-                        if (comboBox_datatype.SelectedIndex == 3)
+                        if (comboBox_datatype.SelectedIndex == 2)
                         {
                             outTxt1 += lstArray[i].Substring(j + key_word.Length).Replace("\r", "") + separator_out;
                         }
@@ -2203,7 +2203,7 @@ namespace SYD_COPY_FILE
                     }
                 }
             }
-            else if (comboBox_datatype.SelectedIndex == 4)
+            else if (comboBox_datatype.SelectedIndex == 3)
             {
                 string key_word = combobox_key.Text;
                 string key_word1 = textBox_filesize.Text;
@@ -2241,29 +2241,17 @@ namespace SYD_COPY_FILE
             else
             {
                 List<string> outTxt_line = new List<string>();
-                List<string> line = new List<string>();
+                List<string> line;
                 string separator = textBox_filesize.Text;
-                int row_index = 0;
-                if (comboBox_datatype.SelectedIndex != 0)
-                {
-                    row_index = Convert.ToByte(combobox_key.Text);
-                }
+                int row_index ;
+                row_index = Convert.ToByte(combobox_key.Text);
 
                 for (i = 0; i < lstArray.Count; i++)
                 {
                     line = lstArray[i].Split(new string[] { separator }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                    line[line.Count - 1]=line[line.Count - 1].Replace("\r","");
                     if (line.Count > 1)
                     {
-                        if (comboBox_datatype.SelectedIndex == 0)
-                        {
-                            for (i = 0; i < line.Count; i++)
-                            {
-                                outTxt1 += i.ToString() + "-->" + line[i] + "\r\n";
-                            }
-                            richTextBox_out.Text = outTxt1;
-                            MessageBox.Show("展示列内容成功");
-                            return;
-                        }
                         outTxt1 += line[row_index] + separator_out;
                         outTxt_line.Add(line[row_index]);
                     }
@@ -3496,8 +3484,7 @@ namespace SYD_COPY_FILE
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_Get_Row.txt", Encoding.Default);
 
                 this.comboBox_datatype.Items.Clear();
-                this.comboBox_datatype.Items.Add("列出第一行根据分隔符获取到的列内容");
-                this.comboBox_datatype.Items.Add("根据分隔符提取关键字指定的列");
+                this.comboBox_datatype.Items.Add("根据分隔符提取关键字(从0开始的数字)指定的列");
                 this.comboBox_datatype.Items.Add("列出包含关键字的所有行");
                 this.comboBox_datatype.Items.Add("列出包含关键字的所有行并提取至行尾");
                 this.comboBox_datatype.Items.Add("列出包含关键字和分隔符之间的内容并忽略空行(删除换行后)");
