@@ -2185,7 +2185,7 @@ namespace SYD_COPY_FILE
             }
             else if (comboBox_fonttype.SelectedIndex == 0)
             {
-                separator_out = "\r\n";
+                separator_out = "\r\n"; 
             }
             if ((comboBox_datatype.SelectedIndex == 1) || (comboBox_datatype.SelectedIndex == 2))
             {
@@ -2206,7 +2206,7 @@ namespace SYD_COPY_FILE
             else if (comboBox_datatype.SelectedIndex == 3)
             {
                 string key_word = combobox_key.Text;
-                string key_word1 = textBox_filesize.Text;
+                string key_word1 = comboBox_indicate.Text;
                 orgTxt1 = orgTxt1.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
                 i = orgTxt1.IndexOf(key_word);
                 if (i == -1)
@@ -2242,7 +2242,7 @@ namespace SYD_COPY_FILE
             {
                 List<string> outTxt_line = new List<string>();
                 List<string> line;
-                string separator = textBox_filesize.Text;
+                string separator = comboBox_indicate.Text;
                 int row_index ;
                 row_index = Convert.ToByte(combobox_key.Text);
 
@@ -3489,7 +3489,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("列出包含关键字的所有行并提取至行尾");
                 this.comboBox_datatype.Items.Add("列出包含关键字和分隔符之间的内容并忽略空行(删除换行后)");
                 this.label_data_type.Text = "提取依据：";
-                this.label_datasize.Text = "      分隔符:";
+                this.label_indicator.Text = "分隔符:";
                 this.comboBox_fonttype.Items.Clear();
                 this.comboBox_fonttype.Items.Add("输出以空格符隔开");
                 this.comboBox_fonttype.Items.Add("输出以换行符符隔开");
@@ -3560,7 +3560,7 @@ namespace SYD_COPY_FILE
                 this.comboBox_datatype.Items.Add("多数据翻转");
                 this.comboBox_datatype.Items.Add("十六进制/十进制数据提取");
                 this.comboBox_datatype.Items.Add("数目统计(Byte)");
-                this.comboBox_datatype.Items.Add("字符串统计(换行符为分隔符)");
+                this.comboBox_datatype.Items.Add("字符串统计(每行一个字符串)");
                 this.label_data_type.Text = "功能选择：";
 
                 textInput.Text = System.IO.File.ReadAllText(Directory.GetCurrentDirectory() + "\\default\\default_TEXT_handle_and_analysis.txt", Encoding.Default);
