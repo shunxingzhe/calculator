@@ -2183,7 +2183,7 @@ namespace SYD_COPY_FILE
             {
                 separator_out = " ";
             }
-            else if (comboBox_fonttype.SelectedIndex == 0)
+            else if (comboBox_fonttype.SelectedIndex == 1)
             {
                 separator_out = "\r\n"; 
             }
